@@ -109,6 +109,7 @@
         "video_c9fQmJ": {
           "type": "video",
           "settings": {
+            "cover_image": "shopify://shop_images/home-slider-02.webp",
             "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
             "description": "Describe the video"
           }
@@ -122,7 +123,7 @@
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "womens"
           }
         }
       },
