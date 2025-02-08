@@ -106,17 +106,17 @@
     "collage": {
       "type": "collage",
       "blocks": {
+        "video_c9fQmJ": {
+          "type": "video",
+          "settings": {
+            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "description": "Describe the video"
+          }
+        },
         "collection-0": {
           "type": "collection",
           "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
+            "collection": "accessories"
           }
         },
         "collection-1": {
@@ -127,8 +127,8 @@
         }
       },
       "block_order": [
+        "video_c9fQmJ",
         "collection-0",
-        "product",
         "collection-1"
       ],
       "settings": {
