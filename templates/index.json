@@ -195,6 +195,10 @@
         "details": "'Two roads diverged in a wood, and I...... I took the one less traveled by, And that has made all the difference'"
       }
     },
+    "weatherproof_Paw7fm": {
+      "type": "weatherproof",
+      "settings": {}
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -336,6 +340,7 @@
     "sliding_collection_gm_47ERrV",
     "rich_text",
     "from_place_3gHkmc",
+    "weatherproof_Paw7fm",
     "featured_collection",
     "collage",
     "video",
