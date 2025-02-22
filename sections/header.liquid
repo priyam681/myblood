@@ -243,6 +243,8 @@ body {
       <div class="dropdown">
         {%- for locale in localization.available_languages -%}
           {%- if locale.iso_code == localization.language.iso_code -%}
+             <script>
+               console.log({{ locale | json }})</script>
             <img 
               src="https://flagcdn.com/16x12/{{ locale.iso_code | slice: 0,2 | downcase }}.png"
               srcset="https://flagcdn.com/32x24/{{ locale.iso_code | slice: 0,2 | downcase }}.png 2x,
