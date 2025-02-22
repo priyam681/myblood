@@ -236,7 +236,45 @@ body {
               </div>
             {%- endform -%}
           </localization-form>
-   
+   <localization-form class="small-hide medium-hide language-currency-wrapper" data-prevent-hide>
+  {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
+    <div class="language-selector">
+      <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
+      <div class="dropdown">
+        {%- for locale in localization.available_languages -%}
+          {%- if locale.iso_code == localization.language.iso_code -%}
+            <img 
+              src="https://flagcdn.com/16x12/{{ locale.iso_code | slice: 0,2 | downcase }}.png"
+              srcset="https://flagcdn.com/32x24/{{ locale.iso_code | slice: 0,2 | downcase }}.png 2x,
+                      https://flagcdn.com/48x36/{{ locale.iso_code | slice: 0,2 | downcase }}.png 3x"
+              width="16"
+              height="12"
+              alt="{{ locale.endonym_name }}">
+            <select name="locale_code" id="locale_selector">
+              {% for locale in localization.available_languages %}
+                <option value="{{ locale.iso_code }}" {% if locale.iso_code == localization.language.iso_code %}selected{% endif %}>
+                  {{ locale.endonym_name }}
+                </option>
+              {% endfor %}
+            </select>
+          {%- endif -%}
+        {%- endfor -%}
+      </div>
+    </div>
+
+    <div class="currency-selector">
+      <h2 class="visually-hidden" id="HeaderCurrencyLabel">{{ 'localization.currency_label' | t }}</h2>
+      <select name="currency_code" id="currency_selector">
+        {% for currency in localization.available_currencies %}
+          <option value="{{ currency.iso_code }}" {% if currency.iso_code == localization.currency.iso_code %}selected{% endif %}>
+            ({{ currency.iso_code }} {{ currency.symbol }})
+          </option>
+        {% endfor %}
+      </select>
+    </div>
+  {%- endform -%}
+</localization-form>
+
         {%- endif -%}
       </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
