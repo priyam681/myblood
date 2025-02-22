@@ -186,6 +186,15 @@
         "padding_bottom": 0
       }
     },
+    "from_place_3gHkmc": {
+      "type": "from-place",
+      "settings": {
+        "padding": 50,
+        "font-size": 100,
+        "headingtext": "From a place of love",
+        "details": "'Two roads diverged in a wood, and I...... I took the one less traveled by, And that has made all the difference'"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -326,6 +335,7 @@
     "slideshow_fFBCHt",
     "sliding_collection_gm_47ERrV",
     "rich_text",
+    "from_place_3gHkmc",
     "featured_collection",
     "collage",
     "video",
