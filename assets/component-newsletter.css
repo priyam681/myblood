@@ -49,7 +49,9 @@
 .newsletter-form__message--success {
   margin-top: 2rem;
 }
-
+.newsletter-form__field-wrapper .field input {
+  max-width: 400px;
+}
 @media screen and (min-width: 750px) {
   .newsletter-form__message {
     justify-content: flex-start;
