@@ -137,12 +137,17 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "map_C7Kf9V": {
+      "type": "map",
+      "settings": {}
     }
   },
   "order": [
     "main",
     "form",
     "faq_contact_UBVyBU",
-    "contact_multicolumn_QwLXpc"
+    "contact_multicolumn_QwLXpc",
+    "map_C7Kf9V"
   ]
 }
