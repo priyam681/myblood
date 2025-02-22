@@ -1663,7 +1663,7 @@ details[open] > .share-button__fallback {
   border-radius: var(--inputs-radius);
 }
 
-/* .field__input:focus-visible,
+.field__input:focus-visible,
 .select__select:focus-visible,
 .customer .field input:focus-visible,
 .customer select:focus-visible,
@@ -1671,9 +1671,9 @@ details[open] > .share-button__fallback {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
   outline: 0;
   border-radius: var(--inputs-radius);
-} */
+}
 
-/* .field__input:focus,
+.field__input:focus,
 .select__select:focus,
 .customer .field input:focus,
 .customer select:focus,
@@ -1681,7 +1681,7 @@ details[open] > .share-button__fallback {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
   outline: 0;
   border-radius: var(--inputs-radius);
-} */
+}
 
 .localization-form__select:focus {
   outline: 0;
