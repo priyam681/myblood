@@ -1,6 +1,456 @@
-{% schema %}
-  {
-    "name": "Section name",
-    "settings": []
+{%- liquid
+  assign heading_font = section.settings.heading_font
+  assign collection_font = section.settings.collection_font
+  assign padding_top = section.settings.padding_top
+  assign padding_bottom = section.settings.padding_bottom
+  assign title_font_size = section.settings.title_font_size
+  assign title_font_size_mobile = section.settings.title_font_size_mobile
+  assign collection_font_size = section.settings.collection_font_size
+  assign collection_font_size_mobile = section.settings.collection_font_size_mobile
+
+  assign section_background = section.settings.section_background
+  assign title_color = section.settings.title_color
+  assign collection_name_background = section.settings.collection_name_background
+  assign collection_name_color = section.settings.collection_name_color
+
+  assign title_image_width_desktop = section.settings.title_image_width_desktop
+  assign title_image_width_mobile = section.settings.title_image_width_mobile
+
+  assign image_height_desktop = section.settings.image_height_desktop
+  assign image_height_mobile = section.settings.image_height_mobile
+  assign image_width_desktop = section.settings.image_width_desktop
+  assign image_width_mobile = section.settings.image_width_mobile
+  assign radius = section.settings.radius
+  assign gap = section.settings.gap
+-%}
+
+<style>
+   {{ heading_font | font_face: font_display: 'swap'}}
+   {{ collection_font | font_face: font_display: 'swap'}}
+
+   .sliding-collection-wrapper {
+     width: 100%;
+     margin: 0 auto;
+     text-align: center;
+     background: {{ section_background }};
+     padding-top: {{ padding_top}}px;
+     padding-bottom: {{ padding_bottom }}px;
+     position: relative;
+     padding-left: 50px;
+     max-width: 1600px;
+   }
+  .slick-list {
+    padding-left : 5rem;
   }
+  .slick-list .slick-track {
+    display: flex;
+    gap: {{ gap}}px;
+  }
+   .collection-heading-title {
+     text-align: center;
+     margin: 30px auto 0;
+     font-size: {{ title_font_size }}px;
+     color: {{ title_color}};
+   }
+
+   @media screen and (max-width: 749px) {
+     .collection-heading-title {
+       font-size: {{ title_font_size_mobile }}px;
+     }
+   }
+
+   .sliding-collection-list {
+     width: 100%;
+     margin: 0 auto;
+   }
+
+   .collection-sliding-content a {
+     text-decoration: none;
+     position: relative;
+     padding: 40px 0;
+    display: block;
+   }
+
+   .collection-image-custom {
+     height: {{ image_height_desktop }}px;
+     width: {{ image_width_desktop }}px;
+     object-fit: cover;
+     border-radius: {{ radius}}%;
+   }
+
+   @media screen and (max-width: 749px) {
+     .collection-image-custom {
+       height: {{ image_height_mobile }}px;
+       width: {{ image_width_mobile }}px;
+     }
+   }
+
+   .collection-name-custom {
+     font-weight: 700;
+     text-align: center;
+     color: {{ collection_name_color}};
+     background-color: {{ collection_name_background}};
+     margin: 0;
+     font-size: {{ collection_font_size}}px;
+     position: absolute;
+     bottom: 0;
+    width: 100%;
+   }
+
+   @media screen and (max-width: 749px) {
+     .collection-name-custom {
+       font-size: {{ collection_font_size_mobile}}px;
+     }
+   }
+
+   /* Navigation Buttons */
+   .carousel-nav {
+     position: absolute;
+     top: 50%;
+     transform: translateY(-50%);
+     background: rgba(0, 0, 0, 0.5);
+     color: white;
+     border: none;
+     padding: 10px;
+     cursor: pointer;
+     z-index: 10;
+     width: 36px;
+    border-radius: 50%;
+   }
+   .prev-btn { left: 10px; }
+   .next-btn { right: 10px; }
+</style>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+<h2 class="collection-heading-title">{{ section.settings.sliding_collection_heading_title }}</h2>
+<div class="sliding-collection-wrapper">
+  <button class="carousel-nav prev-btn">&#10094;</button>
+  <button class="carousel-nav next-btn">&#10095;</button>
+  <div class="sliding-collection-list {{ section.id }}">
+    {% for block in section.blocks %}
+      <div class="collection-sliding-content">
+        <a href="{{ block.settings.collection_link_custom }}">
+          <img
+            class="collection-image-custom"
+            src="{{ block.settings.collection_image_custom | img_url: 'master' }}"
+            alt="{{ block.settings.collection_name_custom }}"
+          >
+          <p class="collection-name-custom">{{ block.settings.collection_name_custom }}</p>
+        </a>
+      </div>
+    {% endfor %}
+  </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
+{% comment %}
+  <script>
+    $(document).ready(function(){
+      var $carousel = $('.sliding-collection-list.{{ section.id }}');
+      $carousel.slick({
+        dots: false,
+        arrows: false,
+        infinite: true,
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        variableWidth: true,
+        responsive: [
+          { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, dots: true } },
+          { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+          { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } }
+        ]
+      });
+
+      $('.prev-btn').click(function(){
+        $carousel.slick('slickPrev');
+      });
+
+      $('.next-btn').click(function(){
+        $carousel.slick('slickNext');
+      });
+    });
+  </script>
+{% endcomment %}
+<script>
+  $(document).ready(function(){
+    var $carousel = $('.sliding-collection-list.{{ section.id }}');
+
+    $carousel.slick({
+      dots: false,
+      arrows: false,
+      infinite: false,  // Infinite loop disable kiya
+      autoplay: true,
+      autoplaySpeed: 2000,
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      variableWidth: true,
+      responsive: [
+        { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, dots: true } },
+        { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+        { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } }
+      ]
+    });
+
+    function updateButtons() {
+      var currentSlide = $carousel.slick('slickCurrentSlide');
+      var totalSlides = $carousel.slick('getSlick').slideCount - $carousel.slick('getSlick').options.slidesToShow;
+
+      if (currentSlide === 0) {
+        $('.prev-btn').hide(); // First slide pe prev-btn hide
+      } else {
+        $('.prev-btn').show();
+      }
+
+      if (currentSlide >= totalSlides) {
+        $('.next-btn').hide(); // Last slide pe next-btn hide
+      } else {
+        $('.next-btn').show();
+      }
+    }
+
+    $('.prev-btn').click(function(){
+      $carousel.slick('slickPrev');
+    });
+
+    $('.next-btn').click(function(){
+      $carousel.slick('slickNext');
+    });
+
+    $carousel.on('afterChange', function(){
+      updateButtons();
+    });
+
+    // Page load hone par bhi check kare
+    updateButtons();
+  });
+</script>
+
+{% schema %}
+{
+  "name": "Sliding Collection GM",
+  "settings": [
+    {
+      "type": "text",
+      "id": "sliding_collection_heading_title",
+      "label": "Say Something About Your Collections",
+      "default": "Shop Our Collections"
+    },
+    {
+      "type": "image_picker",
+      "id": "image_under_title",
+      "label": "Title Image",
+      "info": "Image Under Title"
+    },
+      {
+      "type": "color",
+      "label": "Title Color",
+      "id": "title_color"
+     },
+         {
+      "type": "color_background",
+      "label": "section background",
+      "id": "section_background"
+     },
+  {
+      "type": "range",
+      "id": "title_image_width_desktop",
+      "label": "Image Width Desktop",
+      "default": 300,
+      "min": 50,
+      "max": 1000,
+      "step": 10,
+      "unit": "px"
+    },
+      {
+      "type": "range",
+      "id": "title_image_width_mobile",
+      "label": "Image Width Mobile",
+      "default": 200,
+      "min": 50,
+      "max": 1000,
+      "step": 10,
+      "unit": "px"
+      },
+     {
+      "type": "font_picker",
+      "label": "Heading Font",
+      "id": "heading_font",
+      "default": "serif"
+    },
+    {
+      "type": "range",
+      "label": "Title Font Size Desktop",
+      "id": "title_font_size",
+      "default": 36,
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px"
+    },
+     {
+      "type": "range",
+      "label": "Slider Gap",
+      "id": "gap",
+      "default": 30,
+      "min": 10,
+      "max": 60,
+      "step": 5,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "label": "Title Font Size Mobile",
+      "id": "title_font_size_mobile",
+      "default": 24,
+      "min": 10,
+      "max": 60,
+      "step": 1,
+      "unit": "px"
+    },
+
+  {
+      "type": "font_picker",
+      "id": "collection_font",
+      "label": "Body Font",
+      "default": "serif"
+  },
+    {
+      "type": "range",
+      "label": "Collection Name Font Size Desktop",
+      "id": "collection_font_size",
+      "default": 22,
+      "min": 8,
+      "max": 40,
+      "step": 1,
+      "unit": "px"
+    } ,
+
+    {
+      "type": "range",
+      "label": "Collection Name Font Size Mobile",
+      "id": "collection_font_size_mobile",
+      "default": 18,
+      "min": 8,
+      "max": 40,
+      "step": 1,
+      "unit": "px"
+    } ,
+      {
+      "type": "color_background",
+      "label": "collection name background",
+      "id": "collection_name_background"
+     },
+    {
+      "type": "color",
+      "label": "collection name color",
+      "id": "collection_name_color"
+    },
+    {
+          "type": "range",
+          "id": "radius",
+          "label": "Collection Image Radius",
+          "default": 50,
+          "min": 5,
+          "max": 100,
+          "step": 5,
+          "unit": "%"
+        },
+
+	    {
+          "type": "range",
+          "id": "image_height_desktop",
+          "min": 100,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "label": "Image Height Desktop",
+          "default": 200
+		},
+    		 {
+          "type": "range",
+          "id": "image_width_desktop",
+          "min": 100,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "label": "Image Width Desktop",
+          "default": 200
+		},
+		{
+          "type": "range",
+          "id": "image_height_mobile",
+          "min": 100,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "label": "Image Height Mobile",
+          "default": 150
+		},
+		 {
+          "type": "range",
+          "id": "image_width_mobile",
+          "min": 100,
+          "max": 1000,
+          "step": 10,
+          "unit": "px",
+          "label": "Image Width Mobile",
+          "default": 150
+  		},
+		{
+          "type": "range",
+          "id": "padding_top",
+          "label": "Padding Top",
+          "default": 10,
+          "min": 0,
+          "max": 100,
+          "step": 2,
+          "unit": "px"
+		},
+        {
+            "type": "range",
+            "id": "padding_bottom",
+            "label": "Padding Bottom",
+            "default": 10,
+            "min": -20,
+            "max": 100,
+            "step": 2,
+            "unit": "px"
+		 }
+
+  ],
+  "blocks": [
+    {
+      "name": "Sliding Collection Custom",
+      "type": "sliding-collection-custom",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "collection_image_custom",
+          "label": "Select Collection Image",
+          "info": "Select Collection Image"
+        },
+        {
+          "type": "text",
+          "id": "collection_name_custom",
+          "label": "Collection Name",
+          "default": "Best Seller"
+        },
+        {
+          "type": "url",
+          "id": "collection_link_custom",
+          "label": "Choose Collection"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Sliding Collection GM"
+    }
+  ]
+}
 {% endschema %}
