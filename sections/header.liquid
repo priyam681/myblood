@@ -2,6 +2,7 @@
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
+
 {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
@@ -9,18 +10,13 @@
 {%- if section.settings.menu_type_desktop == 'mega' -%}
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
-<script>
-  function myFunction() {
-   var element = document.body;
-   element.classList.toggle("dark-mode");
-}
-</script>
-<style> 
+
+
+<style>
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
   }
-
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
@@ -80,17 +76,7 @@
   .header {
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
   }
-body {
-  background:white;
-}
-  .link-day-container {
-     height: 24px;
-    width: 24px;
-  }
-.dark-mode {
-  background-color: #4a4545;
-  color: white;
-}
+
   .section-header {
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
@@ -104,8 +90,8 @@ body {
 
   @media screen and (min-width: 990px) {
     .header {
-      padding-top: 20px;
-      padding-bottom: 20px;
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
 {%- endstyle -%}
@@ -120,7 +106,15 @@ body {
   endfor
 -%}
 
-<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+{% liquid
+  assign header_tag = 'div'
+
+  if section.settings.sticky_header_type != 'none'
+    assign header_tag = 'sticky-header'
+  endif
+%}
+
+<{{ header_tag }} {% if header_tag == 'sticky-header' %}data-sticky-type="{{ section.settings.sticky_header_type }}"{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -236,52 +230,10 @@ body {
               </div>
             {%- endform -%}
           </localization-form>
-   <localization-form class="small-hide medium-hide language-currency-wrapper" data-prevent-hide>
-  {%- form 'localization', id: 'HeaderLanguageForm', class: 'localization-form' -%}
-    <div class="language-selector">
-      <h2 class="visually-hidden" id="HeaderLanguageLabel">{{ 'localization.language_label' | t }}</h2>
-      <div class="dropdown">
-        {%- for locale in localization.available_languages -%}
-          {%- if locale.iso_code == localization.language.iso_code -%}
-            const local = {{ locale | json }} 
-            <script>
-               console.log({{ locale | json }})</script>
-            <img 
-              src="https://flagcdn.com/16x12/{{ local | downcase }}.png"
-              srcset="https://flagcdn.com/32x24/{{ local | downcase }}.png 2x,
-                      https://flagcdn.com/48x36/{{ local | downcase }}.png 3x"
-              width="16"
-              height="12"
-              alt="{{ locale.endonym_name }}">
-            <select name="locale_code" id="locale_selector">
-              {% for locale in localization.available_languages %}
-                <option value="{{ locale.iso_code }}" {% if locale.iso_code == localization.language.iso_code %}selected{% endif %}>
-                  {{ locale.endonym_name }}
-                </option>
-              {% endfor %}
-            </select>
-          {%- endif -%}
-        {%- endfor -%}
-      </div>
-    </div>
-
-    <div class="currency-selector">
-      <h2 class="visually-hidden" id="HeaderCurrencyLabel">{{ 'localization.currency_label' | t }}</h2>
-      <select name="currency_code" id="currency_selector">
-        {% for currency in localization.available_currencies %}
-          <option value="{{ currency.iso_code }}" {% if currency.iso_code == localization.currency.iso_code %}selected{% endif %}>
-            ({{ currency.iso_code }} {{ currency.symbol }})
-          </option>
-        {% endfor %}
-      </select>
-    </div>
-  {%- endform -%}
-</localization-form>
-
         {%- endif -%}
       </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
-  
+
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -310,19 +262,14 @@ body {
           </span>
         </a>
       {%- endif -%}
-      {% if section.settings.enable_dark_mode %}  
-          <a href="#" aria-label="Toggle Dark Mode" class="link-day-container" onclick="myFunction()"  id="enable_dark_mode">
-            <span>
-             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 20 20"><path fill="white" d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586"/></svg>        </span>
-          </a>
-      {% endif %}
+
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when '@app' -%}
             {% render block %}
         {%- endcase -%}
       {%- endfor -%}
-    
+
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
           {% if cart == empty %}
             <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
@@ -341,7 +288,7 @@ body {
       </a>
     </div>
   </header>
-</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
+</{{ header_tag }}>
 
 {%- if settings.cart_type == "notification" -%}
   {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
@@ -558,11 +505,34 @@ body {
       "info": "t:sections.header.settings.menu_type_desktop.info"
     },
     {
+      "type": "select",
+      "id": "sticky_header_type",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
+        },
+        {
+          "value": "on-scroll-up",
+          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
+        },
+        {
+          "value": "always",
+          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
+        },
+        {
+          "value": "reduce-logo-size",
+          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
+        }
+      ],
+      "default": "on-scroll-up",
+      "label": "t:sections.header.settings.sticky_header_type.label"
+    },
+    {
       "type": "checkbox",
-      "id": "enable_dark_mode",
-      "label": "Enable Dark Mode",
-      "default": false,
-      "info": "Enable or disable dark mode for the store."
+      "id": "show_line_separator",
+      "default": true,
+      "label": "t:sections.header.settings.show_line_separator.label"
     },
     {
       "type": "header",
@@ -575,6 +545,12 @@ body {
       "default": "scheme-1"
     },
     {
+      "type": "color_scheme",
+      "id": "menu_color_scheme",
+      "label": "t:sections.header.settings.menu_color_scheme.label",
+      "default": "scheme-1"
+    },
+    {
       "type": "header",
       "content": "t:sections.header.settings.header__3.content",
       "info": "t:sections.header.settings.header__4.info"
@@ -582,14 +558,24 @@ body {
     {
       "type": "checkbox",
       "id": "enable_country_selector",
-      "default": false,
+      "default": true,
       "label": "t:sections.header.settings.enable_country_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.settings.header__5.content",
+      "info": "t:sections.header.settings.header__6.info"
     },
     {
       "type": "checkbox",
       "id": "enable_language_selector",
-      "default": false,
+      "default": true,
       "label": "t:sections.header.settings.enable_language_selector.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.settings.header__7.content",
+      "info": "t:sections.header.settings.header__7.info"
     },
     {
       "type": "checkbox",
@@ -597,6 +583,10 @@ body {
       "default": true,
       "label": "t:sections.header.settings.enable_customer_avatar.label",
       "info": "t:sections.header.settings.enable_customer_avatar.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.header.settings.mobile_layout.content"
     },
     {
       "type": "select",
@@ -613,6 +603,44 @@ body {
       ],
       "default": "center",
       "label": "t:sections.header.settings.mobile_logo_position.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.spacing"
+    },
+    {
+      "type": "range",
+      "id": "margin_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.header.settings.margin_bottom.label",
+      "default": 0
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 36,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 20
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 36,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 20
     }
   ],
   "blocks": [
@@ -621,6 +649,4 @@ body {
     }
   ]
 }
-
 {% endschema %}
-
