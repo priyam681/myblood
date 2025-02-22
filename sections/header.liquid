@@ -245,6 +245,13 @@ body {
           <option value="{{ locale.iso_code }}" data-flag="{{ locale.iso_code }}" {% if locale.iso_code == localization.language.iso_code %}selected{% endif %}>
             {{ locale.iso_code | upcase }}
           </option>
+          <img
+  src="https://flagcdn.com/16x12/ua.png"
+  srcset="https://flagcdn.com/32x24/ua.png 2x,
+    https://flagcdn.com/48x36/ua.png 3x"
+  width="16"
+  height="12"
+  alt="Ukraine">
         {% endfor %}
       </select>
     </div>
