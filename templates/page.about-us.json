@@ -11,13 +11,22 @@
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
         "padding_top": 28,
         "padding_bottom": 28
       }
+    },
+    "about_natural_design_zDyUzJ": {
+      "type": "about-natural-design",
+      "settings": {
+        "heading": "",
+        "caption": ""
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "about_natural_design_zDyUzJ"
   ]
 }
