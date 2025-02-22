@@ -1,10 +1,20 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "main": {
       "type": "main-page",
+      "disabled": true,
       "settings": {
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 0,
+        "padding_bottom": 0
       }
     },
     "form": {
@@ -16,10 +26,73 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "faq_contact_UBVyBU": {
+      "type": "faq-contact",
+      "blocks": {
+        "collapsible_row_wJrQ3z": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is your return policy?",
+            "icon": "none",
+            "row_content": "<p>Our return policy varies by location and retailer. Please refer to the specific terms and conditions provided by the retailer where you purchased your Wolfwood furniture.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_zagfXT": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How can I care for and maintain my Wolfwood furniture?",
+            "icon": "none",
+            "row_content": "<p>We provide care and maintenance guidelines with each piece of furniture. Generally, regular cleaning, protection from extreme weather, and the use of outdoor furniture covers can help prolong the life of your furniture.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_nCAQR6": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you ship internationally?",
+            "icon": "none",
+            "row_content": "<p>Yes, we do offer international shipping. Please check our website or contact our customer support for specific details and shipping options.</p>",
+            "page": ""
+          }
+        },
+        "collapsible_row_xqWPKD": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is Wolfwood furniture environmentally friendly?",
+            "icon": "none",
+            "row_content": "<p>We are committed to sustainability and use certified wood in our furniture. We strive to minimize our environmental impact and create pieces that reflect our respect for the natural world.</p>",
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "collapsible_row_wJrQ3z",
+        "collapsible_row_zagfXT",
+        "collapsible_row_nCAQR6",
+        "collapsible_row_xqWPKD"
+      ],
+      "settings": {
+        "faq-image": "shopify://shop_images/bride-8276613_1920.jpg",
+        "caption": "",
+        "heading": "Collapsible content",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "",
+        "container_color_scheme": "",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
-    "form"
+    "form",
+    "faq_contact_UBVyBU"
   ]
 }
