@@ -88,11 +88,61 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "contact_multicolumn_QwLXpc": {
+      "type": "contact-multicolumn",
+      "blocks": {
+        "column_cy7qgp": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Do you need help?</strong>",
+            "text": "<p>You can call us at: 123 456 789</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_L3AFrn": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>You can email us anytime</strong>",
+            "text": "<p><strong>You can email us anytime</strong></p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_VyUHiG": {
+          "type": "column",
+          "settings": {
+            "title": "<strong>Next day delivery</strong>",
+            "text": "<p>Free shipping on all orders.<a href=\"/pages/data-sale-opt-out\" title=\"Do not sell or share my personal information\">Read more</a></p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_cy7qgp",
+        "column_L3AFrn",
+        "column_VyUHiG"
+      ],
+      "settings": {
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
     }
   },
   "order": [
     "main",
     "form",
-    "faq_contact_UBVyBU"
+    "faq_contact_UBVyBU",
+    "contact_multicolumn_QwLXpc"
   ]
 }
