@@ -1614,13 +1614,14 @@ details[open] > .share-button__fallback {
   right: 0;
   bottom: 0;
   left: 0;
+   border: 0.1rem solid transparent;
   border-radius: var(--inputs-radius-outset);
   box-shadow: var(--inputs-shadow-horizontal-offset) var(--inputs-shadow-vertical-offset)
     var(--inputs-shadow-blur-radius) rgba(var(--color-shadow), var(--inputs-shadow-opacity));
   z-index: -1;
 }
 
-/* .field:after,
+.field:after,
 .select:after,
 .customer .field:after,
 .customer select:after,
@@ -1637,7 +1638,7 @@ details[open] > .share-button__fallback {
   box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
   transition: box-shadow var(--duration-short) ease;
   z-index: 1;
-} */
+}
 .newsletter-form__field-wrapper .field:focus-visible {
   outline: unset;
   box-shadow: unset;
