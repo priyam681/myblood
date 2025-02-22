@@ -55,6 +55,13 @@
     justify-content: flex-start;
   }
 }
+@media screen and (min-width: 768px) {
+  .footer-block__newsletter {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+}
 @media screen and (max-width: 992px) {
   
   .newsletter-form__field-wrapper .field  {
