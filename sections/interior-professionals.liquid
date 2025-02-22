@@ -1,0 +1,152 @@
+{%- style -%}
+  @media screen and (min-width: 768px)  {
+     .interior-professionals .third-image {
+         top: 100%;
+         left: 100%;
+         width: 36%;
+         transform: translate(-100%, -100%);
+         height: auto;
+         bottom: unset;
+         position: absolute;
+       }
+    .interior-professionals .first-image {
+       top: 100%;
+         left: 52%;
+         width: 15%;
+         transform: translate(-52%, -100%);
+         height: auto;
+         bottom: unset;
+         position: absolute;
+     }
+       .interior-professionals .second-image {
+         top: 0%;
+         left: 65%;
+         width: 25%;
+         transform: translate(-65%, -0%);
+         height: auto;
+         bottom: unset;
+         position: absolute;
+       }
+     .interior-professionals .content {
+      width: 50%;
+    }
+    .interior-professionals img {
+      border-radius: 50%;
+      width: 100%;
+      aspect-ratio: 1;
+    }
+    .interior-professionals::before {
+      height: 80%;
+    }
+    .interior-professionals-wrapper {
+      position: relative;
+      display: flex;
+      align-items: center;
+      height: 100%;
+      aspect-ratio: 16 / 9.6;
+      max-width: 1500px;
+       margin: auto;
+    }
+    .interior-professionals .content .link-btn {
+      margin-bottom: 20px;
+    }
+  }
+     @media screen and (max-width: 768px) {
+       .interior-professionals .third-image,
+       .interior-professionals .first-image,
+       .interior-professionals .second-image {
+         display: none;
+       }
+        .interior-professionals::before  {
+          height: 100%;
+        }
+     }
+
+     .interior-professionals {
+       margin-top: 50PX;
+       padding: 5rem;
+       position: relative;
+     }
+    .interior-professionals::before {
+      content: '';
+      width: 100%;
+      background: #edebe6;
+      position: absolute;
+      top: 0;
+      z-index: -1;
+      left: 0;
+    }
+
+
+     .interior-professionals .content .heading,
+    .interior-professionals .content .sub-heading {
+      font-weight: bold;
+      margin-bottom: 20px;
+      margin-top: 0;
+    }
+    .interior-professionals .content p {
+      margin-bottom: 24px;
+    }
+    .interior-professionals .content .link-btn {
+      background: black;
+      padding: 16px 32px;
+      line-height: normal;
+      max-width: 200px;
+      text-align: center;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+    }
+    .interior-professionals .content .link-btn a {
+      color: white;
+     text-decoration: none;
+    }
+
+     @media screen and (max-width: 992px) {
+  .interior-professionals .content .heading {
+    font-size: 24px
+  }
+
+     }
+{%- endstyle -%}
+
+<div class="interior-professionals">
+  <div class="interior-professionals-wrapper">
+    <div class="content">
+      <h4 class="sub-heading">In need of a custom made lounge set?</h4>
+      <h1 class="heading">Say Hi. to our interior professionals.</h1>
+      <p>
+        Our interior designers are here to help you! Come and visit our showroom and we create a beautiful lounge set
+        especially for you!
+      </p>
+      <div class="link-btn">
+        <a href="/pages/contact">Contact</a>
+      </div>
+    </div>
+    <div class="first-image">
+      <img src="https://cdn.shopify.com/s/files/1/0919/7699/1033/files/first-image.jpg?v=1739795622" alt="Custom Image">
+    </div>
+    <div class="second-image">
+      <img
+        src="https://cdn.shopify.com/s/files/1/0919/7699/1033/files/second-image.png?v=1739795588"
+        alt="Custom Image"
+      >
+    </div>
+    <div class="third-image">
+      <img src="https://cdn.shopify.com/s/files/1/0919/7699/1033/files/third-image.png?v=1739795597" alt="Custom Image">
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Interior Professionals",
+  "settings": [],
+    "presets": [
+    {
+      "name": "Interior Professionals",
+
+    }
+  ]
+}
+{% endschema %}
