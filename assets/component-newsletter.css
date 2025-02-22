@@ -37,7 +37,7 @@
 }
 .newsletter-form__field-wrapper .field {
   z-index: 0;
-  gap: calc(10px + 20 *((100vw - 390px) /(1920 - 390)));
+  gap: 10px;
   width: 100%;
 }
 
@@ -65,10 +65,7 @@
   }
 }
 @media screen and (max-width: 992px) {
-  
-  .newsletter-form__field-wrapper .field  {
-    flex-wrap:wrap;
-  }
+
   .footer-block__newsletter {
         padding: 5.2rem 3rem;
   }

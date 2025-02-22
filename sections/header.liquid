@@ -243,12 +243,13 @@ body {
       <div class="dropdown">
         {%- for locale in localization.available_languages -%}
           {%- if locale.iso_code == localization.language.iso_code -%}
-             <script>
+            const local = {{ locale | json }} 
+            <script>
                console.log({{ locale | json }})</script>
             <img 
-              src="https://flagcdn.com/16x12/{{ locale | downcase }}.png"
-              srcset="https://flagcdn.com/32x24/{{ locale | downcase }}.png 2x,
-                      https://flagcdn.com/48x36/{{ locale | downcase }}.png 3x"
+              src="https://flagcdn.com/16x12/{{ local | downcase }}.png"
+              srcset="https://flagcdn.com/32x24/{{ local | downcase }}.png 2x,
+                      https://flagcdn.com/48x36/{{ local | downcase }}.png 3x"
               width="16"
               height="12"
               alt="{{ locale.endonym_name }}">
