@@ -1,3 +1,21 @@
+/* Define the custom property (CSS variable) */
+:root {
+  --font-heading-scale: 1.2; /* Adjust this value as needed */
+}
+
+/* Apply the calculated font-size to headings */
+h1 {
+  font-size: calc(var(--font-heading-scale) * 1.8rem);
+}
+
+h2 {
+  font-size: calc(var(--font-heading-scale) * 1.6rem);
+}
+
+h3 {
+  font-size: calc(var(--font-heading-scale) * 1.4rem);
+}
+
 :root {
   --alpha-button-background: 1;
   --alpha-button-border: 1;
@@ -77,7 +95,7 @@
 /* base */
 
 .page-width {
-  max-width: 1600px;
+  max-width: var(--page-width);
   margin: 0 auto;
   padding: 0 1.5rem;
 }
@@ -262,7 +280,7 @@ h5,
   font-style: var(--font-heading-style);
   font-weight: var(--font-heading-weight);
   letter-spacing: calc(var(--font-heading-scale) * 0.06rem);
-  color: rgb(var(--color-foreground));
+  /* color: rgb(var(--color-foreground)); */
   line-height: calc(1 + 0.3 / max(1, var(--font-heading-scale)));
   word-break: break-word;
 }
@@ -638,8 +656,6 @@ h3 .icon-arrow,
   display: inline-flex;
   justify-content: center;
   align-items: center;
-  width: 20px;
-  height: 20px;
 }
 
 .svg-wrapper > svg {
@@ -1522,12 +1538,12 @@ details[open] > .share-button__fallback {
   transition: none;
 }
 
-.share-button__fallback .field__input:focus,
+/* .share-button__fallback .field__input:focus,
 .share-button__fallback .field__input:-webkit-autofill {
   outline: 0.2rem solid rgba(var(--color-foreground), 0.5);
   outline-offset: 0.1rem;
   box-shadow: 0 0 0 0.1rem rgb(var(--color-background)), 0 0 0.5rem 0.4rem rgba(var(--color-foreground), 0.3);
-}
+} */
 
 .share-button__fallback .field__input {
   box-shadow: none;
@@ -1604,7 +1620,7 @@ details[open] > .share-button__fallback {
   z-index: -1;
 }
 
-.field:after,
+/* .field:after,
 .select:after,
 .customer .field:after,
 .customer select:after,
@@ -1621,8 +1637,11 @@ details[open] > .share-button__fallback {
   box-shadow: 0 0 0 var(--inputs-border-width) rgba(var(--color-foreground), var(--inputs-border-opacity));
   transition: box-shadow var(--duration-short) ease;
   z-index: 1;
+} */
+.newsletter-form__field-wrapper .field:focus-visible {
+  outline: unset;
+  box-shadow: unset;
 }
-
 .select__select {
   font-family: var(--font-body-family);
   font-style: var(--font-body-style);
@@ -1643,7 +1662,7 @@ details[open] > .share-button__fallback {
   border-radius: var(--inputs-radius);
 }
 
-.field__input:focus-visible,
+/* .field__input:focus-visible,
 .select__select:focus-visible,
 .customer .field input:focus-visible,
 .customer select:focus-visible,
@@ -1651,9 +1670,9 @@ details[open] > .share-button__fallback {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
   outline: 0;
   border-radius: var(--inputs-radius);
-}
+} */
 
-.field__input:focus,
+/* .field__input:focus,
 .select__select:focus,
 .customer .field input:focus,
 .customer select:focus,
@@ -1661,7 +1680,7 @@ details[open] > .share-button__fallback {
   box-shadow: 0 0 0 calc(0.1rem + var(--inputs-border-width)) rgba(var(--color-foreground));
   outline: 0;
   border-radius: var(--inputs-radius);
-}
+} */
 
 .localization-form__select:focus {
   outline: 0;
@@ -1768,7 +1787,7 @@ details[open] > .share-button__fallback {
   opacity: 0;
 }
 
-.field__button {
+/* .field__button {
   align-items: center;
   background-color: transparent;
   border: 0;
@@ -1783,18 +1802,18 @@ details[open] > .share-button__fallback {
   right: 0;
   top: 0;
   width: 4.4rem;
-}
+} */
 
-.field__button > .svg-wrapper {
+/* .field__button > .svg-wrapper {
   height: 2.5rem;
   width: 2.5rem;
-}
+} */
 
-.field__input:-webkit-autofill ~ .field__button,
+/* .field__input:-webkit-autofill ~ .field__button,
 .field__input:-webkit-autofill ~ .field__label,
 .customer .field input:-webkit-autofill ~ label {
   color: rgb(0, 0, 0);
-}
+} */
 
 /* Text area */
 
@@ -3594,4 +3613,217 @@ details-disclosure > details {
   100% {
     transform: translateX(100%) scaleX(0);
   }
+}
+
+/*footer css start*/
+
+/* General Footer Styling */
+body footer h5 a,
+body footer a,
+body footer .brand-link {
+  color: #afa39a;
+  text-decoration: unset;
+}
+footer {
+  background-color: #f7f5ef;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+footer nav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  text-align: left;
+}
+
+footer .width-25 {
+  width: 25%;
+  padding: 10px;
+}
+
+footer h5 {
+  font-size: 18px;
+  font-weight: bold;
+  color: #000;
+}
+footer h5 a,
+footer a,
+footer .brand-link{
+  color: #000;
+  text-decoration: unset;
+}
+footer h5 a:hover,
+footer a:hover,
+footer .brand-link:hover {
+  color: #666;
+}
+footer ul {
+  list-style: none;
+  padding: 0;
+}
+
+
+
+footer ul li a {
+  text-decoration: none;
+  color: #000;
+  transition: color 0.3s ease;
+}
+
+/* Contact Info */
+footer .cols {
+  display: flex;
+}
+
+footer .cols div {
+  flex: 1;
+}
+
+footer p {
+  font-size: 14px;
+  color: #666;
+  text-align:left;
+}
+
+/* Payment Icons */
+footer .l4pm {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+footer .l4pm li {
+  display: inline-block;
+}
+
+/* Language Selector */
+footer .l4dr {
+  display: flex;
+  align-items: center;
+}
+
+footer .l4dr img {
+  width: 24px;
+  height: 24px;
+  margin-right: 5px;
+}
+
+/* Copyright Section */
+footer .align-middle {
+  text-align: center;
+}
+
+footer .align-middle p {
+  font-size: 12px;
+  color: #777;
+}
+
+figure {
+  margin: 0;
+}
+/* Responsive Design */
+@media (max-width: 768px) {
+  footer ul {
+    margin: 0;
+  }
+
+  footer nav {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  footer .width-25 {
+    width: 100%;
+    border-bottom: 1px solid #191919;
+  }
+
+  footer .cols {
+    flex-direction: column;
+  }
+}
+/* =========================================================================================================
+ */
+
+ /* Hide the checkbox visually but keep it accessible */
+ .footer-toggle {
+  position: absolute;
+  opacity: 0;
+}
+
+/* Style for the label (clickable area) */
+.footer-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f7f5ef; /* New background color */
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.footer-label:hover {
+  background-color: #f7f5ef; /* Slightly darker on hover */
+}
+
+/* Hide content by default */
+.footer-content {
+  display: none;
+  background-color: #f7f5ef; /* Darker background */
+  transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+/* When checkbox is checked, show content */
+.footer-toggle:checked + .footer-label + .footer-content,
+.footer-toggle:checked + .footer-label + .footer-content.sectionone {
+  display: block;
+  max-height: 1000px;
+  padding-top: 15px;
+}
+
+/* Mobile Only Toggle (max-width: 768px) */
+@media (max-width: 768px) {
+  /* Enable toggle for mobile screens */
+  .footer-content {
+    display: none;
+    max-height: 0;
+  }
+
+  .footer-toggle:checked + .footer-label + .footer-content {
+    display: block;
+    max-height: 1000px;
+    padding-top: 8px;
+  }
+  footer h5 {
+    margin: 0;
+  }
+}
+
+/* Disable toggle for larger screens (desktop) */
+@media (min-width: 769px) {
+  footer h5 {
+    margin-bottom: 10px;
+    color: #000;
+  }
+  .footer-content {
+    display: block; /* Show content on larger screens */
+    max-height: none;
+    padding-top: 0;
+  }
+
+  /* Hide toggle functionality on desktop */
+  .footer-toggle {
+    display: none; /* Hide checkbox on desktop */
+  }
+
+  .footer-label {
+    pointer-events: none; /* Disable click on label */
+    cursor: default; /* Change cursor to default */
+  }
+}
+.newsletter-form__field-wrapper .field__input:focus-visible {
+  outline: unset;
+  box-shadow: none;
 }
