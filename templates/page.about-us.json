@@ -20,13 +20,32 @@
     "about_natural_design_zDyUzJ": {
       "type": "about-natural-design",
       "settings": {
-        "heading": "",
-        "caption": ""
+        "natural-image": "shopify://shop_images/bride-8276613_1920.jpg",
+        "heading": "Natural design",
+        "caption": "Welcome to Wolfwood, where our story begins with a deep-seated passion for the great outdoors and a belief that life is made for adventure. Our journey started with the vision to create outdoor furniture that not only serves a functional purpose but also embraces the essence of outdoor living. We believe that adventures take us to places where we can truly experience the world around us, and our outdoor furniture is designed to make that possible."
+      }
+    },
+    "featured_blog_CmJGaH": {
+      "type": "featured-blog",
+      "settings": {
+        "heading": "Blog posts",
+        "heading_size": "h1",
+        "blog": "news",
+        "post_limit": 3,
+        "columns_desktop": 3,
+        "color_scheme": "",
+        "show_image": true,
+        "show_date": false,
+        "show_author": false,
+        "show_view_all": true,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "main",
-    "about_natural_design_zDyUzJ"
+    "about_natural_design_zDyUzJ",
+    "featured_blog_CmJGaH"
   ]
 }
