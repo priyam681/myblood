@@ -121,7 +121,8 @@
         margin: 0 20px;
   }
 }
-.newsletter-form__field-wrapper .field:before {
+.newsletter-form__field-wrapper .field:before,
+.newsletter-form__field-wrapper .field:after {
   display: none;
 }
 /* .newsletter-form__button {
