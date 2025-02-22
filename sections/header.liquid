@@ -2,7 +2,6 @@
 <link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-menu-drawer.css' | asset_url }}" media="print" onload="this.media='all'">
 <link rel="stylesheet" href="{{ 'component-cart-notification.css' | asset_url }}" media="print" onload="this.media='all'">
-
 {%- if settings.predictive_search_enabled -%}
   <link rel="stylesheet" href="{{ 'component-price.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
@@ -10,13 +9,18 @@
 {%- if section.settings.menu_type_desktop == 'mega' -%}
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
-
-
-<style>
+<script>
+  function myFunction() {
+   var element = document.body;
+   element.classList.toggle("dark-mode");
+}
+</script>
+<style> 
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
   }
+
 
   {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
     .scrolled-past-header .header__heading-logo-wrapper {
@@ -76,7 +80,17 @@
   .header {
     padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
   }
-
+body {
+  background:white;
+}
+  .link-day-container {
+     height: 24px;
+    width: 24px;
+  }
+.dark-mode {
+  background-color: #4a4545;
+  color: white;
+}
   .section-header {
     position: sticky; /* This is for fixing a Safari z-index issue. PR #2147 */
     margin-bottom: {{ section.settings.margin_bottom | times: 0.75 | round: 0 }}px;
@@ -90,8 +104,8 @@
 
   @media screen and (min-width: 990px) {
     .header {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: 20px;
+      padding-bottom: 20px;
     }
   }
 {%- endstyle -%}
@@ -106,15 +120,7 @@
   endfor
 -%}
 
-{% liquid
-  assign header_tag = 'div'
-
-  if section.settings.sticky_header_type != 'none'
-    assign header_tag = 'sticky-header'
-  endif
-%}
-
-<{{ header_tag }} {% if header_tag == 'sticky-header' %}data-sticky-type="{{ section.settings.sticky_header_type }}"{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
+<{% if section.settings.sticky_header_type != 'none' %}sticky-header data-sticky-type="{{ section.settings.sticky_header_type }}"{% else %}div{% endif %} class="header-wrapper color-{{ section.settings.color_scheme }} gradient{% if section.settings.show_line_separator %} header-wrapper--border-bottom{% endif %}">
   {%- liquid
     assign social_links = false
     assign localization_forms = false
@@ -233,7 +239,7 @@
         {%- endif -%}
       </div>
       {% render 'header-search', input_id: 'Search-In-Modal' %}
-
+  
       {%- if shop.customer_accounts_enabled -%}
         <a
           href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -262,14 +268,19 @@
           </span>
         </a>
       {%- endif -%}
-
+      {% if section.settings.enable_dark_mode %}  
+          <a href="#" aria-label="Toggle Dark Mode" class="link-day-container" onclick="myFunction()"  id="enable_dark_mode">
+            <span>
+             <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 20 20"><path fill="white" d="M17.293 13.293A8 8 0 0 1 6.707 2.707a8.001 8.001 0 1 0 10.586 10.586"/></svg>        </span>
+          </a>
+      {% endif %}
       {%- for block in section.blocks -%}
         {%- case block.type -%}
           {%- when '@app' -%}
             {% render block %}
         {%- endcase -%}
       {%- endfor -%}
-
+    
       <a href="{{ routes.cart_url }}" class="header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
           {% if cart == empty %}
             <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
@@ -288,7 +299,7 @@
       </a>
     </div>
   </header>
-</{{ header_tag }}>
+</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
 
 {%- if settings.cart_type == "notification" -%}
   {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
@@ -505,34 +516,11 @@
       "info": "t:sections.header.settings.menu_type_desktop.info"
     },
     {
-      "type": "select",
-      "id": "sticky_header_type",
-      "options": [
-        {
-          "value": "none",
-          "label": "t:sections.header.settings.sticky_header_type.options__1.label"
-        },
-        {
-          "value": "on-scroll-up",
-          "label": "t:sections.header.settings.sticky_header_type.options__2.label"
-        },
-        {
-          "value": "always",
-          "label": "t:sections.header.settings.sticky_header_type.options__3.label"
-        },
-        {
-          "value": "reduce-logo-size",
-          "label": "t:sections.header.settings.sticky_header_type.options__4.label"
-        }
-      ],
-      "default": "on-scroll-up",
-      "label": "t:sections.header.settings.sticky_header_type.label"
-    },
-    {
       "type": "checkbox",
-      "id": "show_line_separator",
-      "default": true,
-      "label": "t:sections.header.settings.show_line_separator.label"
+      "id": "enable_dark_mode",
+      "label": "Enable Dark Mode",
+      "default": false,
+      "info": "Enable or disable dark mode for the store."
     },
     {
       "type": "header",
@@ -545,12 +533,6 @@
       "default": "scheme-1"
     },
     {
-      "type": "color_scheme",
-      "id": "menu_color_scheme",
-      "label": "t:sections.header.settings.menu_color_scheme.label",
-      "default": "scheme-1"
-    },
-    {
       "type": "header",
       "content": "t:sections.header.settings.header__3.content",
       "info": "t:sections.header.settings.header__4.info"
@@ -558,24 +540,14 @@
     {
       "type": "checkbox",
       "id": "enable_country_selector",
-      "default": true,
+      "default": false,
       "label": "t:sections.header.settings.enable_country_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__5.content",
-      "info": "t:sections.header.settings.header__6.info"
     },
     {
       "type": "checkbox",
       "id": "enable_language_selector",
-      "default": true,
+      "default": false,
       "label": "t:sections.header.settings.enable_language_selector.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.header__7.content",
-      "info": "t:sections.header.settings.header__7.info"
     },
     {
       "type": "checkbox",
@@ -583,10 +555,6 @@
       "default": true,
       "label": "t:sections.header.settings.enable_customer_avatar.label",
       "info": "t:sections.header.settings.enable_customer_avatar.info"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.header.settings.mobile_layout.content"
     },
     {
       "type": "select",
@@ -603,44 +571,6 @@
       ],
       "default": "center",
       "label": "t:sections.header.settings.mobile_logo_position.label"
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.spacing"
-    },
-    {
-      "type": "range",
-      "id": "margin_bottom",
-      "min": 0,
-      "max": 100,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.header.settings.margin_bottom.label",
-      "default": 0
-    },
-    {
-      "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
-    },
-    {
-      "type": "range",
-      "id": "padding_top",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_top",
-      "default": 20
-    },
-    {
-      "type": "range",
-      "id": "padding_bottom",
-      "min": 0,
-      "max": 36,
-      "step": 4,
-      "unit": "px",
-      "label": "t:sections.all.padding.padding_bottom",
-      "default": 20
     }
   ],
   "blocks": [
@@ -649,4 +579,6 @@
     }
   ]
 }
+
 {% endschema %}
+
