@@ -246,9 +246,9 @@ body {
              <script>
                console.log({{ locale | json }})</script>
             <img 
-              src="https://flagcdn.com/16x12/{{ locale.iso_code | slice: 0,2 | downcase }}.png"
-              srcset="https://flagcdn.com/32x24/{{ locale.iso_code | slice: 0,2 | downcase }}.png 2x,
-                      https://flagcdn.com/48x36/{{ locale.iso_code | slice: 0,2 | downcase }}.png 3x"
+              src="https://flagcdn.com/16x12/{{ locale | downcase }}.png"
+              srcset="https://flagcdn.com/32x24/{{ locale | downcase }}.png 2x,
+                      https://flagcdn.com/48x36/{{ locale | downcase }}.png 3x"
               width="16"
               height="12"
               alt="{{ locale.endonym_name }}">
