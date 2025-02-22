@@ -1,0 +1,133 @@
+<head>
+  <!-- Include FontAwesome Library -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+</head>
+
+{%- style -%}
+      @media screen and (min-width: 1536px) {
+        .weatherproof-wrapper .weatherproof-content h2 {
+          font-size: 68px;
+        }
+      }
+      @media screen and (min-width: 992px) {
+        .weatherproof-wrapper .weatherproof-content h2 {
+          font-size: 50px;
+        }
+      }
+       @media screen and (max-width: 992px) {
+        .weatherproof-wrapper .weatherproof-content h2 {
+          font-size: 32px;
+        }
+      }
+    @media screen and (min-width: 768px) {
+      .weatherproof-wrapper {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+      }
+      .weatherproof-wrapper .weatherproof-image {
+        width: 50%;
+      }
+      .weatherproof-wrapper .weatherproof-content {
+        width: 45%;
+      }
+    }
+
+  .weatherproof-wrapper {
+          padding: 5rem;
+    max-width: 1600px;
+    margin: auto;
+      }
+        .weatherproof-wrapper .weatherproof-content h2 {
+          font-weight: bold;
+        }
+          .weatherproof-wrapper .weatherproof-content .link-btn {
+          background: black;
+          padding: 16px 32px;
+          line-height: normal;
+          max-width: 200px;
+          text-align: center;
+          border-radius: 10px;
+          font-size: 18px;
+          font-weight: 700;
+        }
+        .weatherproof-wrapper .weatherproof-content .link-btn a {
+          color: white;
+         text-decoration: none;
+        }
+    .weatherproof-wrapper .weatherproof-content ul {
+      padding-left: 0;
+    }
+    .weatherproof-wrapper .weatherproof-content ul li {
+      display: flex;
+      gap: 10px;
+    }
+    .weatherproof-wrapper .weatherproof-content ul li svg {
+      margin-top: 8px;
+    }
+    .weatherproof-wrapper .weatherproof-content ul li a {
+       color: #afa39a;
+    }
+        }
+{%- endstyle -%}
+
+<div class="weatherproof-wrapper">
+  <div class="weatherproof-image">
+    <img
+      src="https://cdn.shopify.com/s/files/1/0919/7699/1033/files/weatherproof.png?v=1739855841"
+      alt="Custom Image"
+      width="100%"
+      height="100%"
+    >
+  </div>
+  <div class="weatherproof-content">
+    <h2 class="">Hi. I'm Coffee Bay. Weatherproof.</h2>
+    <div class="">
+      <p>
+        The loungeset comes with Sunbrella all-weather cushions, ensuring they can withstand the elements and provide
+        year-round comfort.
+      </p>
+    </div>
+
+    <ul class="">
+      <li>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="20">
+          <path fill="#000000" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+        </svg>
+
+        <span> Good for 7 to 8 persons</span>
+      </li>
+      <li>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="20">
+          <path fill="#000000" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+        </svg>
+        <div>
+          <span>You can order this product on</span>
+          <a href="https://www.dutchgarden.nl/" target="_blank" title="https://www.dutchgarden.nl/">dutchgarden.nl</a>
+        </div>
+      </li>
+      <li>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512" width="16" height="20">
+          <path fill="#000000" d="M438.6 105.4c12.5 12.5 12.5 32.8 0 45.3l-256 256c-12.5 12.5-32.8 12.5-45.3 0l-128-128c-12.5-12.5-12.5-32.8 0-45.3s32.8-12.5 45.3 0L160 338.7 393.4 105.4c12.5-12.5 32.8-12.5 45.3 0z"/>
+        </svg>
+
+        <span> All-weather pillows</span>
+      </li>
+    </ul>
+
+    <p class="link-btn"><a href="/products" class=" button-palette-black">Discover now&nbsp;</a></p>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Weatherproof",
+  "settings": [],
+     "presets": [
+  {
+    "name": "Weatherproof",
+
+  }
+]
+}
+{% endschema %}
