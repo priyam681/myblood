@@ -49,6 +49,9 @@ sticky-header.header-wrapper {
 .forimage2 {
   width: 100%;
 }
+.forimage2 .mega_menu_img.slide {
+  flex: 0 0 50%;
+}
 / ==============crousel section=================== / div#MegaMenu-Content-7 {
   overflow: hidden;
 }
