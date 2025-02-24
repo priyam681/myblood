@@ -120,7 +120,7 @@
         "collection-0": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "lounge"
           }
         },
         "product": {
@@ -133,7 +133,7 @@
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": ""
+            "collection": "lounge"
           }
         }
       },
