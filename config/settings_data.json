@@ -9,8 +9,9 @@
  */
 {
   "current": {
-    "logo": "shopify://shop_images/sprinix-cart.png",
+    "logo": "shopify://shop_images/sprinix-kart.svg",
     "logo_width": 150,
+    "favicon": "shopify://shop_images/favi-icon.png",
     "type_header_font": "assistant_n4",
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
