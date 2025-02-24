@@ -27,7 +27,7 @@
             "box_align": "middle-left",
             "show_text_box": false,
             "text_alignment": "left",
-            "image_overlay_opacity": 40,
+            "image_overlay_opacity": 10,
             "color_scheme": "scheme-3",
             "text_alignment_mobile": "center"
           }
@@ -47,7 +47,7 @@
             "box_align": "middle-left",
             "show_text_box": false,
             "text_alignment": "left",
-            "image_overlay_opacity": 40,
+            "image_overlay_opacity": 10,
             "color_scheme": "scheme-3",
             "text_alignment_mobile": "center"
           }
