@@ -44,7 +44,7 @@
             "button_label2": "button_label2",
             "link2": "",
             "button_style_secondary": false,
-            "box_align": "middle-center",
+            "box_align": "middle-left",
             "show_text_box": true,
             "text_alignment": "center",
             "image_overlay_opacity": 10,
