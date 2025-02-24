@@ -326,7 +326,7 @@
 
 .card__media .media img {
   height: 100%;
-  object-fit: cover;
+  object-fit: contain;
   object-position: center center;
   width: 100%;
 }
@@ -423,7 +423,7 @@
 
   .card:hover .media.media--hover-effect > img:first-child:only-child,
   .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
-    transform: scale(1.1);
+    transform: scale(1.2);
   }
 
   .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
