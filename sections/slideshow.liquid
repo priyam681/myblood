@@ -40,8 +40,8 @@
         aria-label="{{ 'sections.slideshow.previous_slideshow' | t }}"
         aria-controls="Slider-{{ section.id }}"
       >
-        <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
+        <span class="svg-wrapper test">
+          {{- 'arrow-left.svg' | inline_asset_content -}}
         </span>
       </button>
       <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
@@ -76,14 +76,14 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
+          {{- 'arrow-right.svg' | inline_asset_content -}}
         </span>
       </button>
 
       {%- if section.settings.auto_rotate -%}
         <button
           type="button"
-          class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}"
+          class="hidden slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}"
           aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}"
         >
           <span class="svg-wrapper">
@@ -120,14 +120,7 @@
         aria-label="{{ forloop.index }} {{ 'general.slider.of' | t }} {{ forloop.length }}"
         tabindex="-1"
       >
-      <script defer>
-        console.log({{block.settings.video | json}})
-      </script>
-
         <div class="slideshow__media banner__media media{% if block.settings.image == blank %} placeholder{% endif %}{% if section.settings.image_behavior != 'none' %} animate--{{ section.settings.image_behavior }}{% endif %}">
-          {% if block.settings.video%}
-          {% endif %}
-          
           {%- if block.settings.image -%}
             {%- liquid
               assign height = block.settings.image.width | divided_by: block.settings.image.aspect_ratio | round
@@ -143,8 +136,19 @@
                 assign fetch_priority = 'high'
               endif
             -%}
-          
-
+            {%- if forloop.first %}
+              {{
+                block.settings.image
+                | image_url: width: 3840
+                | image_tag: height: height, sizes: sizes, widths: widths, fetchpriority: fetch_priority
+              }}
+            {%- else -%}
+              {{
+                block.settings.image
+                | image_url: width: 3840
+                | image_tag: loading: 'lazy', height: height, sizes: sizes, widths: widths
+              }}
+            {%- endif -%}
           {%- else -%}
             {%- assign placeholder_slide = forloop.index | modulo: 2 -%}
             {%- if placeholder_slide == 1 -%}
@@ -177,6 +181,16 @@
                   class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
                 >
                   {{- block.settings.button_label | escape -}}
+                </a>
+                <a
+                  {% if block.settings.link %}
+                    href="{{ block.settings.link2 }}"
+                  {% else %}
+                    role="link" aria-disabled="true"
+                  {% endif %}
+                  class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
+                >
+                  {{- block.settings.button_label2 | escape -}}
                 </a>
               </div>
             {%- endif -%}
@@ -250,8 +264,6 @@
         </button>
       {%- endif -%}
     </div>
-
-    
   {%- endif -%}
 </slideshow-component>
 
@@ -398,12 +410,6 @@
           "label": "t:sections.slideshow.blocks.slide.settings.image.label"
         },
         {
-          "type":"video",
-          "id":"video",
-          "label":"Video"
-        }
-        ,
-        {
           "type": "inline_richtext",
           "id": "heading",
           "default": "t:sections.slideshow.blocks.slide.settings.heading.default",
@@ -454,6 +460,17 @@
           "type": "url",
           "id": "link",
           "label": "t:sections.slideshow.blocks.slide.settings.link.label"
+        },
+        {
+          "type": "text",
+          "id": "button_label2",
+          "default": "button_label2",
+          "label": "Button label2"
+        },
+        {
+          "type": "url",
+          "id": "link2",
+          "label": "Button link2"
         },
         {
           "type": "checkbox",
