@@ -223,7 +223,6 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   margin: 0;
   height: 1em;
 }
-
 .overflow-hidden {
   overflow: hidden;
 }
