@@ -46,7 +46,9 @@ sticky-header.header-wrapper {
   backdrop-filter: blur(4px);
   background: #ffffffe6;
 }
-
+.forimage2 {
+  width: 100%;
+}
 / ==============crousel section=================== / div#MegaMenu-Content-7 {
   overflow: hidden;
 }
