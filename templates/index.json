@@ -15,12 +15,14 @@
         "slide_WWbWh3": {
           "type": "slide",
           "settings": {
-            "video": "shopify://files/videos/third-wave-water.mp4",
+            "image": "shopify://shop_images/living-room-2569325_1280.jpg",
             "heading": "Image slide",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
             "button_label": "Button label",
             "link": "",
+            "button_label2": "button_label2",
+            "link2": "",
             "button_style_secondary": false,
             "box_align": "middle-center",
             "show_text_box": true,
@@ -29,16 +31,37 @@
             "color_scheme": "scheme-1",
             "text_alignment_mobile": "center"
           }
+        },
+        "slide_R9UFpC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/living-room-2732939_1280.jpg",
+            "heading": "Image slide",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "Button label",
+            "link": "",
+            "button_label2": "button_label2",
+            "link2": "",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": true,
+            "text_alignment": "center",
+            "image_overlay_opacity": 10,
+            "color_scheme": "scheme-1",
+            "text_alignment_mobile": "center"
+          }
         }
       },
       "block_order": [
-        "slide_WWbWh3"
+        "slide_WWbWh3",
+        "slide_R9UFpC"
       ],
       "settings": {
         "layout": "full_bleed",
-        "slide_height": "large",
-        "slider_visual": "counter",
-        "auto_rotate": false,
+        "slide_height": "small",
+        "slider_visual": "dots",
+        "auto_rotate": true,
         "change_slides_speed": 5,
         "image_behavior": "none",
         "show_text_below": true,
