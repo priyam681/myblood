@@ -38,6 +38,14 @@ nav.header__inline-menu ul li span::before {
   left: 0;
   pointer-events: none;
 }
+header-wrapper {
+  background: transparent;
+}
+sticky-header.header-wrapper {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  background: #ffffffe6;
+}
 
 / ==============crousel section=================== / div#MegaMenu-Content-7 {
   overflow: hidden;
