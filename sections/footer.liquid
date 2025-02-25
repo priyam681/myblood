@@ -185,7 +185,7 @@
       {{ shop | login_button: action: 'follow' }}
     </div>
   {%- endif -%}
-
+  <h1>{{ section.settings.show_social }}</h1>
   {%- if section.settings.show_social and has_social_icons -%}
     {%- render 'social-icons', class: 'footer__list-social' -%}
   {%- endif -%}
