@@ -369,9 +369,9 @@
                   >
                     <span>
                       {%- if card_product.selected_or_first_available_variant.available -%}
-                        {{ 'products.product.add_to_cart' | t }}
+                        {{- 'cart.png' | inline_asset_content -}}
                       {%- else -%}
-                        {{ 'products.product.sold_out' | t }}
+                        {{- 'out-of-stock.png' | inline_asset_content -}}
                       {%- endif -%}
                     </span>
                     <span class="sold-out-message hidden">
