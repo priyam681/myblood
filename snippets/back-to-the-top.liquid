@@ -1,0 +1,79 @@
+{% comment %}
+  Reduce below value if you need the back to the top button to appear higher up on the page.
+  That value is in pixels.
+{% endcomment %}
+{% assign vertical_offset_for_trigger = 300 %}
+
+{% comment %}
+  Vertical offset from bottom of browser for the position of the button.
+{% endcomment %}
+{% assign position_from_bottom = '6em' %}
+
+<div id="BackToTop" class="back-to-top hide"></div>
+{{ '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css' | stylesheet_tag }}
+<style>
+    .back-to-top {
+      display: block !important;
+      position: fixed;
+      bottom: 61px;
+      right: 15px;
+      z-index: 10;
+      font-size: 18px;
+      background-color: #008060;
+      color: #000;
+      cursor: pointer;
+      border-radius: 50%;
+      height: 50px;
+      width: 50px;
+    }
+    .back-to-top:after {
+      content: "\f077";
+      font-family: FontAwesome;
+      font-weight: 400;
+      font-style: normal;
+      font-size: 1em;
+      line-height: 50px;
+      color: #fff;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      left: 50%;
+  }
+    .back-to-top:hover {
+      text-decoration: none;
+      color: #555;
+    }
+    .hide {
+      display: none!important;
+    }
+</style>
+<script>
+  (function() {
+  function trackScroll() {
+      var scrolled = window.pageYOffset;
+      var coords = {{ vertical_offset_for_trigger }};
+      if (scrolled > coords) {
+      goTopBtn.classList.remove('hide');
+      }
+      if (scrolled < coords) {
+      goTopBtn.classList.add('hide');
+      }
+  }
+
+  function backToTop(event) {
+
+      if (window.pageYOffset > 0) {
+      window.scrollTo({
+               top: 0,
+                behavior: "smooth",
+                   });
+      setTimeout(backToTop, 0);
+      }
+  }
+
+  var goTopBtn = document.querySelector('.back-to-top');
+
+  window.addEventListener('scroll', trackScroll);
+  goTopBtn.addEventListener('click', backToTop);
+  })();
+</script>
