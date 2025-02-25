@@ -113,13 +113,19 @@
      width: 36px;
     border-radius: 50%;
    }
+  .carousel-button {
+    display: flex;
+    justify-content: end;
+    padding-inline: 50px;
+    gap: 10px;
+  }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
 <h2 class="collection-heading-title">{{ section.settings.sliding_collection_heading_title }}</h2>
 <div class="sliding-collection-wrapper">
-  <div>
+  <div class="carousel-button">
     <button class="carousel-nav prev-btn">&#10094;</button>
     <button class="carousel-nav next-btn">&#10095;</button>
   </div>
