@@ -124,8 +124,10 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
 <h2 class="collection-heading-title">{{ section.settings.sliding_collection_heading_title }}</h2>
 <div class="sliding-collection-wrapper">
-  <button class="carousel-nav prev-btn">&#10094;</button>
-  <button class="carousel-nav next-btn">&#10095;</button>
+  <div>
+    <button class="carousel-nav prev-btn">&#10094;</button>
+    <button class="carousel-nav next-btn">&#10095;</button>
+  </div>
   <div class="sliding-collection-list {{ section.id }}">
     {% for block in section.blocks %}
       <div class="collection-sliding-content">
