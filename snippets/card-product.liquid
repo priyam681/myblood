@@ -369,13 +369,13 @@
                   >
                     <span>
                       {%- if card_product.selected_or_first_available_variant.available -%}
-                        {{- 'cart.png' | inline_asset_content -}}
+                        {{- 'out-of-stock.svg' | inline_asset_content -}}
                       {%- else -%}
-                        {{- 'out-of-stock.png' | inline_asset_content -}}
+                        {{- 'out-of-stock.svg' | inline_asset_content -}}
                       {%- endif -%}
                     </span>
                     <span class="sold-out-message hidden">
-                      {{ 'products.product.sold_out' | t }}
+                      {{- 'out-of-stock.svg' | inline_asset_content -}}
                     </span>
                     {%- if horizontal_quick_add -%}
                       <span class="icon-wrap">
