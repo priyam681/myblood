@@ -105,6 +105,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 .shopify-policy__container {
  max-width: 1600px; 
+  padding-inline: 1.5rem;
 }
 .page-width.drawer-menu {
   max-width: 100%;
@@ -121,6 +122,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 
 @media screen and (min-width: 768px) {
+  .shopify-policy__container {
+  padding-inline: 3rem;
+}
   .page-width {
     padding: 0 5rem;
   }
@@ -144,7 +148,10 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   }
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 992px) {
+    .shopify-policy__container {
+  padding-inline: 5rem;
+}
   .header:not(.drawer-menu).page-width {
     padding-left: 5rem;
     padding-right: 5rem;
