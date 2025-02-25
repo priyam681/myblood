@@ -122,7 +122,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     border: 1px solid;
 }
 .link-btn a:hover {
-  background: #fff;
+  background: none;
   color: #000;
 }
 .page-width.drawer-menu {
