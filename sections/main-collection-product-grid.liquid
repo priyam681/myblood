@@ -206,15 +206,10 @@
               {%- endfor -%}
             </ul>
 
-              {%- if paginate.pages > 1 -%}
-              <load-more-button
-                class="load-more-container center"
-                data-current-page="1"
-                data-total-pages="{{ paginate.pages }}"
-                data-section-id="{{ section.id }}"
-              >
+            {%- if paginate.pages > 1 -%}
+              <load-more-button class="load-more-container center" data-current-page="1" data-total-pages="{{ paginate.pages }}" data-section-id="{{ section.id }}">
                 <button id="LoadMoreButton" class="button">
-                  {{ 'Load More' }}
+                  {{ 'load-more' }}
                   <span class="loading-overlay__spinner hidden">
                     <span class="spinner-loader"></span>
                   </span>

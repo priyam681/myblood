@@ -8,11 +8,6 @@
 }
 .quick-add.sp-hover-cart .quick-add__submit {
   padding: 0;
-  height: 100%;
-  width: 100%;
-}
-.quick-add.sp-hover-cart .button--secondary:after {
-  border-radius: 50%;
   width: 32px;
   height: 32px;
 }
