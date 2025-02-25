@@ -5,7 +5,7 @@
     jQuery(document).ready(function($) { // jQuery no-conflict wrapper
       $(document).ready(function() { // Double nested for DOM ready safety
         function initializeSlider() {
-          if (window.innerWidth < 768) {
+          if (window.innerWidth < 992) {
             if (!$('.image-slider').hasClass('slick-initialized')) {
 
               $('.image-slider').slick({
