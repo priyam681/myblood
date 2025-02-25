@@ -64,7 +64,7 @@
     gap: 20px;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
 
   .footer-block__newsletter {
         padding: 5.2rem 3rem;
