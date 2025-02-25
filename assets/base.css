@@ -116,8 +116,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     border-radius: 10px;
     font-size: 18px;
     font-weight: 700;
- color: white;
+    color: white;
     text-decoration: none;
+    display: block;
 }
 .link-btn a:hover {
   background: #fff;
