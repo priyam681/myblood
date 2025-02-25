@@ -1,5 +1,10 @@
 .list-social {
-  display: flex;
+  position: fixed;
+    top: 50%;
+    background: #f7f5ef;
+    transform: translate(0, -50%);
+    left: 0;
+    border: 1px solid;
   flex-wrap: wrap;
   justify-content: flex-end;
 }
