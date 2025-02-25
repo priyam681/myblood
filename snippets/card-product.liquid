@@ -290,7 +290,7 @@
         </div>
         {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
         {% if quick_add == 'standard' %}
-          <div class="quick-add no-js-hidden">
+          <div class="quick-add no-js-hidden sp-hover-cart">
             {%- liquid
               assign qty_rules = false
               if card_product.selected_or_first_available_variant.quantity_rule.min > 1 or card_product.selected_or_first_available_variant.quantity_rule.max != null or card_product.selected_or_first_available_variant.quantity_rule.increment > 1
@@ -369,7 +369,9 @@
                   >
                     <span>
                       {%- if card_product.selected_or_first_available_variant.available -%}
-                        {{- 'cartt.svg' | inline_asset_content -}}
+                        <span class="sp-cart-icon">
+                          {{- 'cartt.svg' | inline_asset_content -}}
+                        </span>
                       {%- else -%}
                         {{ 'products.product.sold_out' | t }}
                       {%- endif -%}
