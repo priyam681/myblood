@@ -23,12 +23,9 @@
 {%- endif -%}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
+  /* Existing styles */
 
-    .load-more-container {
+  .load-more-container {
     margin-top: 2rem;
     text-align: center;
   }
@@ -56,13 +53,6 @@
   @keyframes spinner {
     to {
       transform: rotate(360deg);
-    }
-  }
-
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
     }
   }
 {%- endstyle -%}
