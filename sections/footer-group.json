@@ -52,7 +52,7 @@
         "newsletter_paragraph-privacy": "I accept the <a href=\"/pages/privacy-policy\" title=\"Privacy Policy\">privacy policy</a>",
         "enable_follow_on_shop": true,
         "show_social": true,
-        "enable_country_selector": false,
+        "enable_country_selector": true,
         "enable_language_selector": false,
         "payment_enable": true,
         "show_policy": false,
