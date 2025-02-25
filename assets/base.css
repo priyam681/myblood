@@ -119,6 +119,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     color: white;
     text-decoration: none;
     display: block;
+    border: 1px solid;
 }
 .link-btn a:hover {
   background: #fff;
