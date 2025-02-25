@@ -120,9 +120,9 @@
 .footer-dropdown[open] .footer-menu-section::after {
   transform: rotate(180deg); /* Rotate the chevron when opened */
 }
-  .footer-block-newsletter-wrap{
+  /* .footer-block-newsletter-wrap{
         margin: 0 20px;
-  }
+  } */
 }
 .newsletter-form__field-wrapper .field:before,
 .newsletter-form__field-wrapper .field:after {
