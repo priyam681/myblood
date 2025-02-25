@@ -103,7 +103,9 @@ h3 {
 body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   max-width: 100%;
 }
-
+.shopify-policy__container {
+ max-width: 1600px; 
+}
 .page-width.drawer-menu {
   max-width: 100%;
 }
