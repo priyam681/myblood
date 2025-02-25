@@ -34,42 +34,42 @@
   });
 </script>
 {%- style -%}
-  @media (min-width: 768px) {
-  .footer-dropdown {
-    pointer-events: none; / Disable toggle functionality /
+    @media (min-width: 768px) {
+    .footer-dropdown {
+      pointer-events: none; / Disable toggle functionality /
+    }
+    .footer-dropdown[open] {
+      pointer-events: auto; / Keep content accessible /
+    }
   }
-  .footer-dropdown[open] {
-    pointer-events: auto; / Keep content accessible /
-  }
-}
-  .footer {
-    margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
-  }
-    .privacy-policy-section {
-        display: flex;
-        align-items: center;
-          margin-top: 20px;
-    } 
-  .footer-block__newsletter_paragraph {
-    margin:0;
-     display: flex;
-    align-items: center;
-  }
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
     .footer {
-      margin-top: {{ section.settings.margin_top }}px;
+      margin-top: {{ section.settings.margin_top | times: 0.75 | round: 0 }}px;
+    }
+      .privacy-policy-section {
+          display: flex;
+          align-items: center;
+            margin-top: 20px;
+      }
+    .footer-block__newsletter_paragraph {
+      margin:0;
+       display: flex;
+      align-items: center;
+    }
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
 
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+    @media screen and (min-width: 750px) {
+      .footer {
+        margin-top: {{ section.settings.margin_top }}px;
+      }
+
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
     }
-  }
 {%- endstyle -%}
 <div
   class="footer-block-newsletter-wrap footer-block--newsletter{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -81,18 +81,19 @@
     <div class="footer-block__newsletter">
       {%- if section.settings.newsletter_heading != blank -%}
         <div class="di">
-                     <h2 id="block-heading-color"
-                class="footer-block__heading inline-richtext"
-             style="color: {{ section.settings.block-heading-color}}" 
-              >
-                {{ section.settings.newsletter_heading }}
-              </h2>
-              <p
-                class="footer-block__newsletter_paragraph inline-richtext"
-                style="color: {{ section.settings.newsletter_paragraph_color }}; font-size: {{ section.settings.newsletter_paragraph_size }}px;"
-              >
-                {{ section.settings.newsletter_paragraph }}
-              </p>
+          <h2
+            id="block-heading-color"
+            class="footer-block__heading inline-richtext"
+            style="color: {{ section.settings.block-heading-color}}"
+          >
+            {{ section.settings.newsletter_heading }}
+          </h2>
+          <p
+            class="footer-block__newsletter_paragraph inline-richtext"
+            style="color: {{ section.settings.newsletter_paragraph_color }}; font-size: {{ section.settings.newsletter_paragraph_size }}px;"
+          >
+            {{ section.settings.newsletter_paragraph }}
+          </p>
         </div>
       {%- endif -%}
       {%- form 'customer', id: 'ContactFooter', class: 'footer__newsletter newsletter-form' -%}
@@ -128,25 +129,23 @@
               name="commit"
               id="Subscribe"
               style="background-color:{{ section.settings.color_scheme}}"
-              
             >
               <span class="svg-wrapper">
                 {{ 'newsletter.button_label' | t }}
               </span>
             </button>
           </div>
-            
+
           <div class="privacy-policy-section">
-            
-               <p
-                class="footer-block__newsletter_paragraph inline-richtext"
-                style="color: {{ section.settings.newsletter_paragraph_color }};"
-              > <input type="checkbox" id="accept_privacy_policy" name="accept_privacy_policy" required>
-                      <label>{{ section.settings.newsletter_paragraph-privacy }}</label>
-              
-              </p>
-            </div>
-            
+            <p
+              class="footer-block__newsletter_paragraph inline-richtext"
+              style="color: {{ section.settings.newsletter_paragraph_color }};"
+            >
+              <input type="checkbox" id="accept_privacy_policy" name="accept_privacy_policy" required>
+              <label>{{ section.settings['newsletter_paragraph-privacy'] }}</label>
+            </p>
+          </div>
+
           {%- if form.errors -%}
             <small class="newsletter-form__message form__message" id="ContactFooter-error">
               <span class="svg-wrapper">
@@ -224,7 +223,6 @@
               data-cascade
             {% endif %}
           >
-           
             {%- for block in section.blocks -%}
               <div
                 class="footer-block-menu footer-block grid__item{% if block.type == 'link_list' %} footer-block--menu{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
@@ -234,39 +232,37 @@
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-
-              {%- if block.settings.heading != blank -%}
-                <details class="footer-dropdown">
-                  <summary class="footer-block__heading inline-richtext footer-block-heading-link footer-menu-section">
-                    {{ block.settings.heading }}
-                  </summary>
-              {%- endif -%}          
-             {%- case block.type -%}
-              {%- when '@app' -%}
-                {% render block %}
+                {%- if block.settings.heading != blank -%}
+                  <details class="footer-dropdown">
+                    <summary class="footer-block__heading inline-richtext footer-block-heading-link footer-menu-section">
+                      {{ block.settings.heading }}
+                    </summary>
+                {%- endif -%}
+                {%- case block.type -%}
+                  {%- when '@app' -%}
+                    {% render block %}
                   {%- when 'text' -%}
-                  <div class="footer-block__details-content rte">
-                    {{ block.settings.subtext }}
-                  </div>
+                    <div class="footer-block__details-content rte">
+                      {{ block.settings.subtext }}
+                    </div>
 
                   {%- when 'link_list' -%}
-                    {%- when 'link_list' -%}
-                  {%- if block.settings.menu != blank -%}
-                    <ul class="footer-block__details-content list-unstyled">
-                      {%- for link in block.settings.menu.links -%}
-                        <li>
-                          <a
-                            href="{{ link.url }}"
-                            class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                          >
-                            {{ link.title | escape }}
-                          </a>
-                        </li>
-                      {%- endfor -%}
-                    </ul>
-                  {%- endif -%}
+                  {%- when 'link_list' -%}
+                    {%- if block.settings.menu != blank -%}
+                      <ul class="footer-block__details-content list-unstyled">
+                        {%- for link in block.settings.menu.links -%}
+                          <li>
+                            <a
+                              href="{{ link.url }}"
+                              class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                            >
+                              {{ link.title | escape }}
+                            </a>
+                          </li>
+                        {%- endfor -%}
+                      </ul>
+                    {%- endif -%}
 
-                  
                   {%- when 'brand_information' -%}
                     <div class="footer-block__brand-info">
                       {%- if settings.brand_image != blank -%}
@@ -299,7 +295,7 @@
                       {%- endif -%}
                     </div>
                   {%- when 'image' -%}
-                     {{ block.settings.richtext }}
+                    {{ block.settings.richtext }}
                     <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
                       {%- if block.settings.image != blank -%}
                         {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
@@ -366,13 +362,15 @@
         {%- if section.settings.payment_enable -%}
           <div class="footer__payment">
             <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
-            <ul class="list list-payment" role="list">
-              {%- for type in shop.enabled_payment_types -%}
-                <li class="list-payment__item">
-                  {{ type | payment_type_svg_tag: class: 'icon icon--full-color' }}
-                </li>
-              {%- endfor -%}
-            </ul>
+            <div class="payment-icons">
+              <img src="{{ 'Amex.svg' | asset_url }}" alt="Visa">
+              <img src="{{ 'Visa.svg' | asset_url }}" alt="Visa">
+              <img src="{{ 'DinersClub.svg' | asset_url }}" alt="MasterCard">
+              <img src="{{ 'Discover.svg' | asset_url }}" alt="PayPal">
+              <img src="{{ 'Mastercard.svg' | asset_url }}" alt="MasterCard">
+              <img src="{{ 'PayPal.svg' | asset_url }}" alt="PayPal">
+              <img src="{{ 'Stripe.svg' | asset_url }}" alt="PayPal">
+            </div>
           </div>
         {%- endif -%}
       </div>
@@ -467,7 +465,7 @@
         },
       ]
     },
-    
+
     {
       "type": "image",
       "name": "Image",
@@ -684,7 +682,7 @@
       "label": "Pppp",
       "default": false
 },
-    
+
   ],
   "default": {
     "blocks": [
@@ -698,5 +696,3 @@
   }
 }
 {% endschema %}
-
-
