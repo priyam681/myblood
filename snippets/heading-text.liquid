@@ -1,0 +1,57 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const  container = document.querySelectorAll(".image-container");
+    console.log(container.length);
+    jQuery(document).ready(function($) { // jQuery no-conflict wrapper
+      $(document).ready(function() { // Double nested for DOM ready safety
+        function initializeSlider() {
+          if (window.innerWidth < 768) {
+            if (!$('.image-slider').hasClass('slick-initialized')) {
+
+              $('.image-slider').slick({
+               dots: true,
+              arrows: false,
+              infinite: true,
+              speed:300,
+              slidesToShow: 1,
+              adaptiveHeight: true,
+              });
+
+            }
+          } else {
+            if ($('.image-slider').hasClass('slick-initialized')) {
+              $('.image-slider').slick('unslick');
+            }
+          }
+        }
+
+        initializeSlider();
+        window.addEventListener('resize', initializeSlider);
+      });
+    });
+  });
+</script>
+<h2 class="rich-text__heading headingtext rte inline-richtext h1">
+  {{ section.settings.headingtext }}
+</h2>
+<div class="wrapper">
+  <div class="container">
+    <div class="image-slider">
+      <div class="first-image-container image image-container">
+        <img src="https://cdn.shopify.com/s/files/1/0919/7699/1033/files/image1.jpg?v=1739788281" alt="Custom Image">
+      </div>
+      <div class="second-image-container image image-container">
+        <img src="https://cdn.shopify.com/s/files/1/0919/7699/1033/files/image2.jpg?v=1739788281" alt="Custom Image">
+      </div>
+      <div class="third-image-container image image-container">
+        <img src="https://cdn.shopify.com/s/files/1/0919/7699/1033/files/image3.jpg?v=1739788281" alt="Custom Image">
+      </div>
+      <div class="fourth-image-container image image-container">
+        <img src="https://cdn.shopify.com/s/files/1/0919/7699/1033/files/image4.jpg?v=1739788281" alt="Custom Image">
+      </div>
+    </div>
+    <p class="details">
+      {{ section.settings.details }}
+    </p>
+  </div>
+</div>
