@@ -204,8 +204,20 @@
               {%- endfor -%}
             </ul>
 
-            {%- if paginate.pages > 1 -%}
-              {% render 'pagination', paginate: paginate, anchor: '' %}
+              {%- if paginate.pages > 1 -%}
+              <load-more-button
+                class="load-more-container center"
+                data-current-page="1"
+                data-total-pages="{{ paginate.pages }}"
+                data-section-id="{{ section.id }}"
+              >
+                <button id="LoadMoreButton" class="button">
+                  {{ 'Load More' }}
+                  <span class="loading-overlay__spinner hidden">
+                    <span class="spinner-loader"></span>
+                  </span>
+                </button>
+              </load-more-button>
             {%- endif -%}
           </div>
         {%- endif -%}
