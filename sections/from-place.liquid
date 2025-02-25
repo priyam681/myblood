@@ -36,7 +36,68 @@
              margin-bottom: -35px;
           }
        }
-
+        @media screen and (min-width: 768px)  {
+          .place-wrapper .wrapper .container {
+              padding-inline: 30px;
+          }
+           .place-wrapper .details {
+                font-size: 30px;
+              }
+         .place-wrapper .wrapper .image-slider {
+                width: 100%;
+                position: relative;
+                height: 100%;
+          }
+            .place-wrapper .wrapper .image-slider .image {
+               width: 24%;
+              position: absolute;
+              height: 42%;
+             }
+          .place-wrapper .wrapper .image-slider .first-image-container {
+            top: 24%;
+            left: 66%;
+            transform: translate(-66%, -24%);
+          }
+          .place-wrapper .wrapper .image-slider .second-image-container {
+            top: 100%;
+            left: 66%;
+            transform: translate(-66%, -100%);
+          }
+          .place-wrapper .wrapper .image-slider .third-image-container {
+             top: 0%;
+            left: 100%;
+            transform: translate(-100%, -0%);
+          }
+          .place-wrapper .wrapper .image-slider .fourth-image-container {
+            top: 76%;
+            left: 100%;
+            transform: translate(-100%, -76%);
+            height: 42%;
+          }
+          .place-wrapper .details {
+                position: absolute;
+                left: 50px;
+                top: 50%;
+                transform: translate(-0%, -50%);
+                z-index: 1;
+              }
+          .place-wrapper .wrapper {
+              position: relative;
+              height: 77dvw;
+            }
+          .place-wrapper .wrapper::before {
+              content: '';
+               width: 100%;
+               background: #f7f5ef;
+               position: absolute;
+               top: 0;
+               z-index: -1;
+               left: 0;
+             }
+           .place-wrapper .wrapper .container {
+           padding-top: 60px;
+         }
+        }
        @media screen and (max-width: 768px)  {
           .place-wrapper .details {
                 font-size: 24px;
@@ -139,68 +200,6 @@
                padding-inline: 15px;
                height: 100%;
              }
-   @media screen and (min-width: 768px)  {
-          .place-wrapper .wrapper .container {
-              padding-inline: 30px;
-          }
-           .place-wrapper .details {
-                font-size: 30px;
-              }
-         .place-wrapper .wrapper .image-slider {
-                width: 100%;
-                position: relative;
-                height: 100%;
-          }
-            .place-wrapper .wrapper .image-slider .image {
-               width: 24%;
-              position: absolute;
-              height: 42%;
-             }
-          .place-wrapper .wrapper .image-slider .first-image-container {
-            top: 24%;
-            left: 66%;
-            transform: translate(-66%, -24%);
-          }
-          .place-wrapper .wrapper .image-slider .second-image-container {
-            top: 100%;
-            left: 66%;
-            transform: translate(-66%, -100%);
-          }
-          .place-wrapper .wrapper .image-slider .third-image-container {
-             top: 0%;
-            left: 100%;
-            transform: translate(-100%, -0%);
-          }
-          .place-wrapper .wrapper .image-slider .fourth-image-container {
-            top: 76%;
-            left: 100%;
-            transform: translate(-100%, -76%);
-            height: 42%;
-          }
-          .place-wrapper .details {
-                position: absolute;
-                left: 50px;
-                top: 50%;
-                transform: translate(-0%, -50%);
-                z-index: 1;
-              }
-          .place-wrapper .wrapper {
-              position: relative;
-              height: 77dvw;
-            }
-          .place-wrapper .wrapper::before {
-              content: '';
-               width: 100%;
-               background: #f7f5ef;
-               position: absolute;
-               top: 0;
-               z-index: -1;
-               left: 0;
-             }
-           .place-wrapper .wrapper .container {
-           padding-top: 60px;
-         }
-        }
       @media screen and (min-width: 992px)  {
           .place-wrapper .wrapper .container {
               padding-inline: {{ padding}}px;
