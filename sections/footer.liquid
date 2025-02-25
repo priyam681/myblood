@@ -358,22 +358,6 @@
           </localization-form>
         {%- endif -%}
       </div>
-      <div class="footer__column footer__column--info">
-        {%- if section.settings.payment_enable -%}
-          <div class="footer__payment">
-            <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
-            <div class="payment-icons">
-              <img src="{{ 'Amex.svg' | asset_url }}" alt="Amex">
-              <img src="{{ 'Visa.svg' | asset_url }}" alt="Visa">
-              <img src="{{ 'DinersClub.svg' | asset_url }}" alt="DinersClub">
-              <img src="{{ 'Discover.svg' | asset_url }}" alt="Discover">
-              <img src="{{ 'Mastercard.svg' | asset_url }}" alt="MasterCard">
-              <img src="{{ 'PayPal.svg' | asset_url }}" alt="PayPal">
-              <img src="{{ 'Stripe.svg' | asset_url }}" alt="Stripe">
-            </div>
-          </div>
-        {%- endif -%}
-      </div>
     </div>
     <div class="footer__content-bottom-wrapper page-width{% if section.settings.enable_country_selector == false and section.settings.enable_language_selector == false %} footer__content-bottom-wrapper--center{% endif %}">
       <div class="footer__copyright caption">
@@ -395,6 +379,22 @@
           </ul>
         {%- endif -%}
       </div>
+    </div>
+    <div class="footer__column footer__column--info">
+      {%- if section.settings.payment_enable -%}
+        <div class="footer__payment">
+          <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+          <div class="payment-icons">
+            <img src="{{ 'Amex.svg' | asset_url }}" alt="Amex">
+            <img src="{{ 'Visa.svg' | asset_url }}" alt="Visa">
+            <img src="{{ 'DinersClub.svg' | asset_url }}" alt="DinersClub">
+            <img src="{{ 'Discover.svg' | asset_url }}" alt="Discover">
+            <img src="{{ 'Mastercard.svg' | asset_url }}" alt="MasterCard">
+            <img src="{{ 'PayPal.svg' | asset_url }}" alt="PayPal">
+            <img src="{{ 'Stripe.svg' | asset_url }}" alt="Stripe">
+          </div>
+        </div>
+      {%- endif -%}
     </div>
   </div>
 </footer>
