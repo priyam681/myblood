@@ -107,6 +107,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
  max-width: 1600px; 
   padding-inline: 1.5rem;
 }
+.contact.page-width {
+  max-width: 650px;
+}
 .link-btn a {
     background: black;
     padding: 16px 32px;
