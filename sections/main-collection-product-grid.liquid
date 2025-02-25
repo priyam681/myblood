@@ -28,6 +28,37 @@
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
 
+    .load-more-container {
+    margin-top: 2rem;
+    text-align: center;
+  }
+
+  .load-more-container button {
+    position: relative;
+    min-width: 15rem;
+  }
+
+  .loading-overlay__spinner {
+    display: inline-block;
+    margin-left: 0.5rem;
+  }
+
+  .spinner-loader {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    border: 0.3rem solid rgba(var(--color-foreground), 0.2);
+    border-top-color: rgba(var(--color-foreground), 0.8);
+    border-radius: 50%;
+    animation: spinner 0.8s linear infinite;
+  }
+
+  @keyframes spinner {
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -35,6 +66,7 @@
     }
   }
 {%- endstyle -%}
+
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
