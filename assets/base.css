@@ -128,6 +128,10 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   background: none;
   color: #000;
 }
+.list-social__item a:hover .visually-hidden {
+  width: auto;
+  height: auto;
+} 
 .page-width.drawer-menu {
   max-width: 100%;
 }
