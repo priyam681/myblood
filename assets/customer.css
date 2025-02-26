@@ -13,8 +13,11 @@
   font-weight: 600;
   margin-block: 20px;
 }
-.login-container .login-button {
+.login-container .account-button {
   width: 100%;
+}
+.login-container .account-button a {
+  color: #fff;
 }
 @media screen and (min-width: 768px) {
   .customer:not(.account):not(.order) {
