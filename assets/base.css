@@ -141,6 +141,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   height: auto;
   clip: auto;
   left: 46px;
+  font-weight: 700;
   /* transition: all 3s ease; */
 } 
 .page-width.drawer-menu {
