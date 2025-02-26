@@ -141,7 +141,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   height: auto;
   clip: auto;
   left: 46px;
-  transition: all 1s ease;
+  transition: all 3s ease;
 } 
 .page-width.drawer-menu {
   max-width: 100%;
