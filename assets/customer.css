@@ -1,6 +1,6 @@
 .customer:not(.account):not(.order) {
   margin: 0 auto;
-  max-width: 120rem;
+  max-width: 50rem;
   padding-inline: 1.5rem;
 }
 .customer.login #login {
@@ -25,6 +25,7 @@
 @media screen and (min-width: 768px) {
   .customer:not(.account):not(.order) {
      padding-inline: 3rem;
+    max-width: 120rem;
   }
   .login-container {
     display: grid;
