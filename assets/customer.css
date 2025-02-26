@@ -17,6 +17,7 @@
   width: 100%;
   font-weight: bold;
   display: block;
+  padding: 0;
 }
 .login-container .account-button a {
   color: #fff;
