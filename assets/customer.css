@@ -21,6 +21,7 @@
 .login-container .account-button a {
   color: #fff;
   text-decoration: none;
+  width: 100%;
 }
 @media screen and (min-width: 768px) {
   .customer:not(.account):not(.order) {
