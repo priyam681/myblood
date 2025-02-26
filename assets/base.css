@@ -135,6 +135,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   width: auto;
   height: auto;
   clip: auto;
+  left: 46px;
 } 
 .page-width.drawer-menu {
   max-width: 100%;
