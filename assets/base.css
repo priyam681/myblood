@@ -131,11 +131,16 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 .list-social__item a {
   position: relative;
 }
+.list-social__item a.visually-hidden {
+  left: 0;
+  
+} 
 .list-social__item a:hover .visually-hidden {
   width: auto;
   height: auto;
   clip: auto;
   left: 46px;
+  transition: all 1s ease;
 } 
 .page-width.drawer-menu {
   max-width: 100%;
