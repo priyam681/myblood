@@ -103,7 +103,7 @@
           {%- endunless -%}
         </section>
       {%- endif -%}
-
+      <h5 class="">Existing customer</h5>
       <div class="field">
         <input
           type="email"
@@ -150,7 +150,7 @@
       </button>
     {%- endform -%}
     <div>
-      <h5 class="margin-content">Don't have an account yet?</h5>
+      <h5 class="">Don't have an account yet?</h5>
       <p>Create account</p>
       <a href="{{ routes.account_register_url }}">
         {{ 'customer.login_page.create_account' | t }}
