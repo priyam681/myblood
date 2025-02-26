@@ -30,6 +30,7 @@
   .load-more-container {
     margin-top: 2rem;
     text-align: center;
+    display: block;
   }
 
   .load-more-container button {
@@ -58,7 +59,6 @@
     }
   }
 {%- endstyle -%}
-
 
 <div class="section-{{ section.id }}-padding gradient color-{{ section.settings.color_scheme }}">
   {%- paginate collection.products by section.settings.products_per_page -%}
@@ -207,7 +207,12 @@
             </ul>
 
             {%- if paginate.pages > 1 -%}
-              <load-more-button class="load-more-container center" data-current-page="1" data-total-pages="{{ paginate.pages }}" data-section-id="{{ section.id }}">
+              <load-more-button
+                class="load-more-container center"
+                data-current-page="1"
+                data-total-pages="{{ paginate.pages }}"
+                data-section-id="{{ section.id }}"
+              >
                 <button id="LoadMoreButton" class="button">
                   {{ 'load-more' }}
                   <span class="loading-overlay__spinner hidden">

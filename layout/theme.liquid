@@ -15,6 +15,8 @@
       <link rel="preconnect" href="https://fonts.shopifycdn.com" crossorigin>
     {%- endunless -%}
 
+    <link rel="stylesheet" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
+
     <title>
       {{ page_title }}
       {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
@@ -46,6 +48,19 @@
       assign body_font_italic = settings.type_body_font | font_modify: 'style', 'italic'
       assign body_font_bold_italic = body_font_bold | font_modify: 'style', 'italic'
     %}
+
+    <style>
+      @font-face {
+           font-family: "KnockoutNo50";
+           src: url("{{ 'KnockoutNo50Welterweight.woff2' | asset_url }}") format("woff2");
+           font-weight: normal;
+           font-style: normal;
+         }
+
+      .hello{
+        background-color:black;
+      }
+    </style>
 
     {% style %}
       {{ settings.type_body_font | font_face: font_display: 'swap' }}
@@ -372,6 +387,6 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-     {% render 'back-to-the-top' %}}
+    {% render 'back-to-the-top' %}}
   </body>
 </html>
