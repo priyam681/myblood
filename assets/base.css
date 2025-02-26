@@ -131,7 +131,6 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 .list-social__item a:hover .visually-hidden {
   width: auto;
   height: auto;
-  position: unset !important;
 } 
 .page-width.drawer-menu {
   max-width: 100%;
