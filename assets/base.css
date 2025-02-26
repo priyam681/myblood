@@ -131,7 +131,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 .list-social__item a {
   position: relative;
 }
-.list-social__item a.visually-hidden {
+.list-social__item a .visually-hidden {
   left: -100%;
   width: auto;
   height: auto;
