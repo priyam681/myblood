@@ -186,6 +186,9 @@
     </div>
   {%- endif -%}
 </div>
+{%- if section.settings.show_social and has_social_icons -%}
+  {%- render 'social-icons', class: 'footer__list-social' -%}
+{%- endif -%}
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   {%- liquid
     assign has_social_icons = true
@@ -201,9 +204,7 @@
       assign only_empty_brand = true
     endif
   -%}
-  {%- if section.settings.show_social and has_social_icons -%}
-    {%- render 'social-icons', class: 'footer__list-social' -%}
-  {%- endif -%}
+
   {%- if section.blocks.size > 0
     or section.settings.newsletter_enable
     or section.settings.show_social
