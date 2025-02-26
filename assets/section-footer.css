@@ -268,12 +268,12 @@ footer.footer:before {
     z-index: 9;
   }
 
-  .footer__list-social.list-social,
+  /* .footer__list-social.list-social,
   .footer__follow-on-shop,
   .footer-block__newsletter {
     display: flex;
     justify-content: center;
-  }
+  } */
 
   .footer-block__newsletter {
     flex-direction: column;
