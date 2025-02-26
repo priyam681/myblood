@@ -1338,16 +1338,15 @@ button.shopify-payment-button__button--unbranded {
   background-color: rgba(var(--color-button-text), 0.3);
 }
 
-.button,
-.button-label,
-.shopify-challenge__button,
-.customer button {
+.sp-fliter .button,
+.sp-fliter .button-label,
+.sp-fliter .shopify-challenge__button,
+.sp-fliter .customer button {
   font-size: 18px;
   line-height: 18px;
   letter-spacing: -0.2px;
   text-transform: uppercase;
   font-weight: 400;
-  color: #212121;
   margin-right: 4px;
 }
 

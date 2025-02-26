@@ -791,7 +791,9 @@ a.active-facets__button.focused .active-facets__button-inner {
   height: 100vh;
   z-index: 3;
 }
-
+sp-filter-open.mobile-facets__inner {
+  max-width: 50rem;
+}
 .mobile-facets__inner {
   background-color: rgb(var(--color-background));
   width: calc(100% - 5rem);
