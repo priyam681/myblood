@@ -25,101 +25,104 @@
 -%}
 
 <style>
-   {{ heading_font | font_face: font_display: 'swap'}}
-   {{ collection_font | font_face: font_display: 'swap'}}
-
-   .sliding-collection-wrapper {
-     width: 100%;
-     margin: 0 auto;
-     text-align: center;
-     background: {{ section_background }};
-     padding-top: {{ padding_top}}px;
-     padding-bottom: {{ padding_bottom }}px;
-     position: relative;
-     padding-left: 50px;
-     max-width: 1600px;
-   }
-  .slick-list {
-    padding-left : 5rem;
+     {{ heading_font | font_face: font_display: 'swap'}}
+     {{ collection_font | font_face: font_display: 'swap'}}
+  .disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
   }
-  .slick-list .slick-track {
-    display: flex;
-    gap: {{ gap}}px;
-  }
-   .collection-heading-title {
-     text-align: center;
-     margin: 30px auto 0;
-     font-size: {{ title_font_size }}px;
-     color: {{ title_color}};
-     font-weight: 600;
-   }
-
-   @media screen and (max-width: 749px) {
+     .sliding-collection-wrapper {
+       width: 100%;
+       margin: 0 auto;
+       text-align: center;
+       background: {{ section_background }};
+       padding-top: {{ padding_top}}px;
+       padding-bottom: {{ padding_bottom }}px;
+       position: relative;
+       padding-left: 50px;
+       max-width: 1600px;
+     }
+    .slick-list {
+      padding-left : 5rem;
+    }
+    .slick-list .slick-track {
+      display: flex;
+      gap: {{ gap}}px;
+    }
      .collection-heading-title {
-       font-size: {{ title_font_size_mobile }}px;
+       text-align: center;
+       margin: 30px auto 0;
+       font-size: {{ title_font_size }}px;
+       color: {{ title_color}};
+       font-weight: 600;
      }
-   }
 
-   .sliding-collection-list {
-     width: 100%;
-     margin: 0 auto;
-   }
+     @media screen and (max-width: 749px) {
+       .collection-heading-title {
+         font-size: {{ title_font_size_mobile }}px;
+       }
+     }
 
-   .collection-sliding-content a {
-     text-decoration: none;
-     position: relative;
-     padding: 40px 0;
-    display: block;
-   }
+     .sliding-collection-list {
+       width: 100%;
+       margin: 0 auto;
+     }
 
-   .collection-image-custom {
-     height: {{ image_height_desktop }}px;
-     width: {{ image_width_desktop }}px;
-     object-fit: cover;
-     border-radius: {{ radius}}%;
-   }
+     .collection-sliding-content a {
+       text-decoration: none;
+       position: relative;
+       padding: 40px 0;
+      display: block;
+     }
 
-   @media screen and (max-width: 749px) {
      .collection-image-custom {
-       height: {{ image_height_mobile }}px;
-       width: {{ image_width_mobile }}px;
+       height: {{ image_height_desktop }}px;
+       width: {{ image_width_desktop }}px;
+       object-fit: cover;
+       border-radius: {{ radius}}%;
      }
-   }
 
-   .collection-name-custom {
-     font-weight: 700;
-     text-align: center;
-     color: {{ collection_name_color}};
-     background-color: {{ collection_name_background}};
-     margin: 0;
-     font-size: {{ collection_font_size}}px;
-     position: absolute;
-     bottom: 0;
-    width: 100%;
-   }
+     @media screen and (max-width: 749px) {
+       .collection-image-custom {
+         height: {{ image_height_mobile }}px;
+         width: {{ image_width_mobile }}px;
+       }
+     }
 
-   @media screen and (max-width: 749px) {
      .collection-name-custom {
-       font-size: {{ collection_font_size_mobile}}px;
+       font-weight: 700;
+       text-align: center;
+       color: {{ collection_name_color}};
+       background-color: {{ collection_name_background}};
+       margin: 0;
+       font-size: {{ collection_font_size}}px;
+       position: absolute;
+       bottom: 0;
+      width: 100%;
      }
-   }
 
-   /* Navigation Buttons */
-   .carousel-nav {
-     background: rgba(0, 0, 0, 0.5);
-     color: white;
-     border: none;
-     padding: 10px;
-     cursor: pointer;
-     width: 36px;
-    border-radius: 50%;
-   }
-  .carousel-button {
-    display: flex;
-    justify-content: end;
-    padding-inline: 50px;
-    gap: 10px;
-  }
+     @media screen and (max-width: 749px) {
+       .collection-name-custom {
+         font-size: {{ collection_font_size_mobile}}px;
+       }
+     }
+
+     /* Navigation Buttons */
+     .carousel-nav {
+       background: rgba(0, 0, 0, 0.5);
+       color: white;
+       border: none;
+       padding: 10px;
+       cursor: pointer;
+       width: 36px;
+      border-radius: 50%;
+     }
+    .carousel-button {
+      display: flex;
+      justify-content: end;
+      padding-inline: 50px;
+      gap: 10px;
+    }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
