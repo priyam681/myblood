@@ -128,7 +128,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   background: none;
   color: #000;
 }
-.list-social .list-social__item {
+/* .list-social .list-social__item {
    width: 44px;
 }
 .list-social__item a {
@@ -137,7 +137,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
  .list-social__item a:hover {
     transition: all 2s ease-in-out;
     padding-left: 100px;
- }
+ } */
 /* .list-social__item a .visually-hidden {
   left: -100%;
   width: auto;
