@@ -177,6 +177,10 @@ footer.footer {
   .footer-block--newsletter {
     padding: 0 5rem;
   }
+  .footer-block__newsletter {
+  padding: 5rem 3rem;
+ 
+}
 }
 
 .footer__list-social:empty,
@@ -197,10 +201,7 @@ footer.footer {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding-left: 5rem;
-  padding-right: 5rem;
-  padding-top: 5.2rem;
-  padding-bottom: 5.2rem;
+  padding: 5rem 3rem;
   background: #edebe6;
 }
 
@@ -244,7 +245,7 @@ footer.footer {
   }
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   /*
     On a small screen we want all the items to be centered
     because they will be stacked.
