@@ -37,7 +37,7 @@
 }
 .newsletter-form__field-wrapper .field {
   z-index: 0;
-  gap: 10px;
+  gap: 4px;
   width: 100%;
   display: flex;
 }
@@ -52,7 +52,7 @@
 }
 .newsletter-form__field-wrapper .field input {
   max-width: 40rem;
-  min-width: 21.5rem;
+  min-width: 22rem;
 }
 @media screen and (min-width: 768px) {
   .newsletter-form__message {
