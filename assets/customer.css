@@ -11,6 +11,11 @@
     max-width: 50rem;
     margin: auto;
   }
+.customer.login #recover,
+.customer.login .recover-password {
+  max-width: 50rem;
+  margin: auto;
+}
 .customer.login h1,
 .customer.register  h1 {
   margin-bottom: 0;
