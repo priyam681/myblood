@@ -699,8 +699,10 @@ h3 .icon-arrow,
 
 .svg-wrapper {
   display: inline-flex;
-  justify-content: center;
-  align-items: center;
+    justify-content: center;
+    align-items: center;
+    width: 20px;
+    height: 20px;
 }
 
 .svg-wrapper > svg {
