@@ -1643,9 +1643,6 @@ details[open] > .share-button__fallback {
   border: 2px solid rgba(var(--color-foreground), 0.24);
 }
 
-.select:before,
-.customer .field:before,
-.customer select:before,
 .localization-form__select:before {
   pointer-events: none;
   content: '';
@@ -1661,9 +1658,6 @@ details[open] > .share-button__fallback {
   z-index: -1;
 }
 
-.select:after,
-.customer .field:after,
-.customer select:after,
 .localization-form__select:after {
   pointer-events: none;
   content: '';
