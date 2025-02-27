@@ -130,6 +130,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 .list-social__item a {
   position: relative;
+  width: 44px;
 }
  .list-social__item a:hover {
    /* transform: scale(1.2); */
