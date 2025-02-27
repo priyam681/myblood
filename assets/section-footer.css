@@ -131,23 +131,10 @@
   gap: 1rem;
 }
 footer.footer {
-  /* position: relative;
-  z-index: 0; */
   background: #f7f5ef;
+  margin-top: -7%;
+  padding-top: 7%;
 }
-/* footer.footer:before {
-  background: #f7f5ef;
-  top: calc(50% - 116px);
-  content: "";
-  display: block;
-  position: absolute;
-  left: 50%;
-  z-index: -1;
-  width: 100%;
-  max-width: none;
-  transform: translate(-50%, -50%);
-  height: 100%;
-} */
 
 .footer-block--newsletter:only-child {
   margin-top: 0;
