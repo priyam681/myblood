@@ -5,7 +5,7 @@
   }
 
 @media only screen and (min-width: 768px) {
-  .list-social.footer__list-socials {
+  .top-social-links {
   position: fixed;
     top: 50%;
     background: #f7f5ef;
@@ -16,13 +16,13 @@
   z-index: 999;
 }
 
-.list-social.footer__list-socials .list-social__item {
+.top-social-links .list-social__item {
    width: 44px;
 }
-.list-social.footer__list-socials .list-social__item a {
+.top-social-links .list-social__item a {
   position: relative;
 }
- .list-social.footer__list-socials .list-social__item a:hover {
+ .top-social-links .list-social__item a:hover {
     transition: all 2s ease-in-out;
     padding-left: 100px;
  } 
