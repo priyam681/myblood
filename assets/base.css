@@ -1783,7 +1783,10 @@ details[open] > .share-button__fallback {
   transition: box-shadow var(--duration-short) ease;
 }
 
-.field__label,
+.field__label {
+  font-size: 16px;
+  font-weight: 700;
+}
 .customer .field label {
   font-size: 1.6rem;
   left: calc(var(--inputs-border-width) + 2rem);
