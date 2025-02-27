@@ -17,21 +17,21 @@
         "footer-2": {
           "type": "text",
           "settings": {
-            "heading": "Our mission",
+            "heading": "<strong>Follow us</strong>",
             "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
           }
         },
         "footer-0": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
+            "heading": "<strong>Quick links</strong>",
             "menu": "footer"
           }
         },
         "footer-1": {
           "type": "link_list",
           "settings": {
-            "heading": "Info",
+            "heading": "<strong>Info</strong>",
             "menu": "footer"
           }
         }
