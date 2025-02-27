@@ -30,6 +30,9 @@
     {%- form 'recover_customer_password' -%}
       {% assign recover_success = form.posted_successfully? %}
       <div class="field">
+        <label for="RecoverEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
         <input
           type="email"
           value=""
@@ -45,9 +48,6 @@
           {% endif %}
           placeholder="{{ 'customer.login_page.email' | t }}"
         >
-        <label for="RecoverEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
       </div>
       {%- if form.errors -%}
         <small id="RecoverEmail-email-error" class="form__message">
@@ -105,6 +105,9 @@
       {%- endif -%}
       <h5 class="">Existing customer</h5>
       <div class="field">
+        <label for="CustomerEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
         <input
           type="email"
           name="customer[email]"
@@ -117,13 +120,13 @@
           {% endif %}
           placeholder="{{ 'customer.login_page.email' | t }}"
         >
-        <label for="CustomerEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
       </div>
 
       {%- if form.password_needed -%}
         <div class="field">
+          <label for="CustomerPassword">
+            {{ 'customer.login_page.password' | t }}
+          </label>
           <input
             type="password"
             value=""
@@ -135,9 +138,6 @@
             {% endif %}
             placeholder="{{ 'customer.login_page.password' | t }}"
           >
-          <label for="CustomerPassword">
-            {{ 'customer.login_page.password' | t }}
-          </label>
         </div>
 
         <a href="#recover">
