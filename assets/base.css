@@ -1774,11 +1774,10 @@ details[open] > .share-button__fallback {
   font-weight: 700;
 }
 .customer .field label {
-  font-size: 1.6rem;
   margin-bottom: 0;
   pointer-events: none;
   transition: top var(--duration-short) ease, font-size var(--duration-short) ease;
-  color: rgba(var(--color-foreground), 0.75);
+  color: rgba(var(--color-foreground));
   letter-spacing: 0.1rem;
   line-height: 1.5;
 }
