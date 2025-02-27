@@ -1,5 +1,5 @@
 .customer button:hover {
-  background-color: rgba(var(--color-button), 0.4);
+  background-color: rgba(var(--color-button), 0.8);
 }
 .customer.login {
   margin: 0 auto;
