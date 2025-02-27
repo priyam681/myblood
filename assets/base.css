@@ -1720,6 +1720,7 @@ details[open] > .share-button__fallback {
   box-shadow: 0 0 0 calc(0 + var(--inputs-border-width)) rgba(var(--color-foreground));
   outline: 0;
   border-radius: var(--inputs-radius);
+  border-color: rgba(var(--color-foreground));
 }
 
 .localization-form__select:focus {
