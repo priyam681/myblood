@@ -1769,7 +1769,7 @@ details[open] > .share-button__fallback {
   transition: box-shadow var(--duration-short) ease;
 }
 
-.field__label {
+.field label {
   font-size: 16px;
   font-weight: 700;
 }
