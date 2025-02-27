@@ -25,7 +25,8 @@
   font-weight: 600;
   margin-block: 20px;
 }
-.login-container .account-button {
+.login-container .account-button,
+.sign-up-button {
   width: 100%;
   font-weight: bold;
   display: block;
