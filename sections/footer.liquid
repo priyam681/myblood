@@ -201,7 +201,7 @@
   endif
 -%}
 {%- if section.settings.show_social and has_social_icons -%}
-  {%- render 'social-icons', class: 'footer__list-socials' -%}
+  {%- render 'social-icons', class: 'top-social-links' -%}
 {%- endif -%}
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   {%- if section.blocks.size > 0
