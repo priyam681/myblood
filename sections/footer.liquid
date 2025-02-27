@@ -200,7 +200,9 @@
     assign only_empty_brand = true
   endif
 -%}
-
+{%- if section.settings.show_social and has_social_icons -%}
+  {%- render 'social-icons', class: 'footer__list-socials' -%}
+{%- endif -%}
 <footer class="footer color-{{ section.settings.color_scheme }} gradient section-{{ section.id }}-padding">
   {%- if section.blocks.size > 0
     or section.settings.newsletter_enable
