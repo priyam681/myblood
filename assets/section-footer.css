@@ -157,7 +157,7 @@ footer.footer {
   }
 }
 .footer-block__newsletter .footer-block__heading {
-  font-size: calc(var(--font-heading-scale) * 3.2rem);
+  font-size: calc(var(--font-heading-scale) * 2.5rem);
   font-weight: 900;
   margin-bottom: .2rem;
 }
