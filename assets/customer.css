@@ -19,6 +19,7 @@
 .back-to-page {
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 .customer.login h1,
 .customer.register  h1 {
