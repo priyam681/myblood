@@ -57,14 +57,15 @@
           {{ form.errors.messages.form }}
         </small>
       {%- endif -%}
+      <div class="back-to-page">
+        <button>
+          {{ 'customer.login_page.submit' | t }}
+        </button>
 
-      <button>
-        {{ 'customer.login_page.submit' | t }}
-      </button>
-
-      <a href="#login">
-        {{ 'customer.login_page.cancel' | t }}
-      </a>
+        <a href="#login">
+          {{ 'customer.login_page.cancel' | t }}
+        </a>
+      </div>
     {%- endform -%}
   </div>
 
