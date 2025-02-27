@@ -3335,7 +3335,7 @@ details-disclosure > details {
 
   .scroll-trigger.animate--fade-in,
   .scroll-trigger.animate--slide-in {
-    opacity: 0.01;
+    /* opacity: 0.01; */
   }
 
   .scroll-trigger.animate--slide-in {
