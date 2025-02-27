@@ -1,8 +1,12 @@
-.customer:not(.account):not(.order) {
+.customer.login {
   margin: 0 auto;
   max-width: 50rem;
   padding-inline: 1.5rem;
 }
+.customer.register {
+    padding-inline: 1.5rem;
+    max-width: 40rem;
+  }
 .customer.login h1,
 .customer.register  h1 {
   margin-bottom: 0;
@@ -33,7 +37,7 @@
   padding: 15px;
 }
 @media screen and (min-width: 768px) {
-  .customer:not(.account):not(.order) {
+  .customer.login {
      padding-inline: 3rem;
     max-width: 120rem;
   }
