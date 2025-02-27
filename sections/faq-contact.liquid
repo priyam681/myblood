@@ -102,7 +102,7 @@
     <div class="faq-container collapsible-content__wrapper section-{{ section.id }}-padding{% if section.settings.layout == 'section' %} content-container color-{{ section.settings.container_color_scheme }} gradient{% endif %}">
       <div class="faq-content">
         <h2>FAQ's</h2>
-        <p>Is your question not listed? Please contact our customer service. View all FAQ's</p>
+        <p>{{ section.settings.faqtext }}</p>
         <div class="faq-image">
           {% if section.settings['faq-image'] != null %}
             {{
@@ -221,6 +221,11 @@
       "type": "text",
       "id": "caption",
       "label": "t:sections.collapsible_content.settings.caption.label"
+    },
+     {
+      "type": "inline_richtext",
+      "id": "faqtext",
+      "label": "Faq Text",
     },
     {
       "type": "inline_richtext",
