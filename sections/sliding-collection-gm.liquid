@@ -179,57 +179,57 @@
   </script>
 {% endcomment %}
 <script>
-  $(document).ready(function(){
-    var $carousel = $('.sliding-collection-list.{{ section.id }}');
+    $(document).ready(function(){
+      var $carousel = $('.sliding-collection-list.{{ section.id }}');
 
-    $carousel.slick({
-      dots: false,
-      arrows: false,
-      infinite: false,  // Infinite loop disable kiya
-      autoplay: true,
-      autoplaySpeed: 2000,
-      slidesToShow: 6,
-      slidesToScroll: 1,
-      variableWidth: true,
-      responsive: [
-        { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, dots: true } },
-        { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-        { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } }
-      ]
-    });
+      $carousel.slick({
+        dots: false,
+        arrows: false,
+        infinite: false,  // Infinite loop disable kiya
+        autoplay: true,
+        autoplaySpeed: 2000,
+        slidesToShow: 6,
+        slidesToScroll: 1,
+        variableWidth: true,
+        responsive: [
+          { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, dots: true } },
+          { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+          { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } }
+        ]
+      });
 
-    function updateButtons() {
-      var currentSlide = $carousel.slick('slickCurrentSlide');
-      var totalSlides = $carousel.slick('getSlick').slideCount - $carousel.slick('getSlick').options.slidesToShow;
+      function updateButtons() {
+        var currentSlide = $carousel.slick('slickCurrentSlide');
+        var totalSlides = $carousel.slick('getSlick').slideCount - $carousel.slick('getSlick').options.slidesToShow;
 
-      if (currentSlide === 0) {
-        $('.prev-btn').hide(); // First slide pe prev-btn hide
-      } else {
-        $('.prev-btn').show();
+       if (currentSlide === 0) {
+    $('.prev-btn').prop('disabled', true).addClass('disabled'); // First slide pe prev-btn disable
+  } else {
+    $('.prev-btn').prop('disabled', false).removeClass('disabled');
+  }
+
+  if (currentSlide >= totalSlides - 1) {
+    $('.next-btn').prop('disabled', true).addClass('disabled'); // Last slide pe next-btn disable
+  } else {
+    $('.next-btn').prop('disabled', false).removeClass('disabled');
+  }
       }
 
-      if (currentSlide >= totalSlides) {
-        $('.next-btn').hide(); // Last slide pe next-btn hide
-      } else {
-        $('.next-btn').show();
-      }
-    }
+      $('.prev-btn').click(function(){
+        $carousel.slick('slickPrev');
+      });
 
-    $('.prev-btn').click(function(){
-      $carousel.slick('slickPrev');
-    });
+      $('.next-btn').click(function(){
+        $carousel.slick('slickNext');
+      });
 
-    $('.next-btn').click(function(){
-      $carousel.slick('slickNext');
-    });
+      $carousel.on('afterChange', function(){
+        updateButtons();
+      });
 
-    $carousel.on('afterChange', function(){
+      // Page load hone par bhi check kare
       updateButtons();
     });
-
-    // Page load hone par bhi check kare
-    updateButtons();
-  });
 </script>
 
 {% schema %}
