@@ -134,7 +134,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 .list-social__item a {
   position: relative;
 }
- .list-social__item a:hover {
+ .list-social__item:hover {
     transition: all 2s ease-in-out;
     padding-left: 100px;
  }
