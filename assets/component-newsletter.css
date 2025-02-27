@@ -62,6 +62,8 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    max-width: 160rem;
+    margin: auto;
   }
 }
 @media screen and (max-width: 768px) {
