@@ -16,6 +16,10 @@
   max-width: 50rem;
   margin: auto;
 }
+.back-to-page {
+  display: flex;
+  align-items: center;
+}
 .customer.login h1,
 .customer.register  h1 {
   margin-bottom: 0;
