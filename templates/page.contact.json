@@ -76,7 +76,7 @@
       "settings": {
         "faq-image": "shopify://shop_images/bride-8276613_1920.jpg",
         "caption": "",
-        "faqtext": "Is your question not listed? Please contact our customer service. <a href=\"/blogs/news\" title=\"News\">View all FAQ's</a>",
+        "faqtext": "Is your question not listed? Please contact our customer service. <a href=\"/pages/coming-soon\" title=\"Coming soon\">View all FAQ's</a>",
         "heading": "",
         "heading_size": "h1",
         "heading_alignment": "center",
