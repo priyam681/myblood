@@ -30,7 +30,7 @@
 }
  .top-social-links .list-social__item a:hover {
     transition: all 2s ease-in-out;
-    padding-left: 100px;
+    padding-left: 50px;
  } 
   
 }
