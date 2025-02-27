@@ -7,7 +7,7 @@
   position: relative;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .newsletter-form {
     align-items: flex-start;
     max-width: 70rem;
@@ -52,7 +52,7 @@
 .newsletter-form__field-wrapper .field input {
   max-width: 400px;
 }
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .newsletter-form__message {
     justify-content: flex-start;
   }
@@ -67,7 +67,7 @@
 @media screen and (max-width: 768px) {
 
   .footer-block__newsletter {
-        padding: 5.2rem 3rem;
+        padding: 5rem 1.5rem;
   }
  .footer-block__newsletter .footer-block__heading {
     font-size: 24px;
