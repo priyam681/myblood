@@ -6,6 +6,7 @@
 .customer.register {
     padding-inline: 1.5rem;
     max-width: 40rem;
+    margin: auto;
   }
 .customer.login h1,
 .customer.register  h1 {
@@ -47,8 +48,8 @@
     gap: 5rem;
   }
 }
-@media screen and (min-width: 768px) {
-  .customer:not(.account):not(.order) {
+@media screen and (min-width: 992px) {
+  .customer.login {
      padding-inline: 5rem;
   }
 }
