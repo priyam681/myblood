@@ -1640,7 +1640,7 @@ details[open] > .share-button__fallback {
   min-height: calc(var(--inputs-border-width) * 2);
   min-width: calc(7rem + (var(--inputs-border-width) * 2));
   position: relative;
-  border: 1px solid rgba(var(--color-foreground), 0.14);
+  border: 2px solid rgba(var(--color-foreground), 0.24);
 }
 
 .select:before,
