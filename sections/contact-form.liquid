@@ -53,7 +53,10 @@
       {%- endif -%}
       <div class="contact__fields">
         <div class="field">
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
+          <label class="field__label" for="ContactForm-name">
+            {{- 'templates.contact.form.name' | t }}
+            <span aria-hidden="true">*</span></label
+          >
           <input
             class="field__input"
             autocomplete="name"
@@ -101,7 +104,10 @@
         </div>
       </div>
       <div class="field">
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
+        <label class="field__label" for="ContactForm-phone">
+          {{- 'templates.contact.form.phone' | t }}
+          <span aria-hidden="true">*</span></label
+        >
         <input
           type="tel"
           id="ContactForm-phone"
