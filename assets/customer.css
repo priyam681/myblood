@@ -9,6 +9,12 @@
   font-size: 24px;
   font-weight: 600;
 }
+.customer.login h1 {
+  margin-bottom: 0;
+}
+.customer.register  h1  {
+  margin-bottom: 20px;
+}
 .login-container h5 {
   font-size: 16px;
   font-weight: 600;
