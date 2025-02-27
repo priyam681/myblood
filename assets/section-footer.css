@@ -265,7 +265,7 @@ footer.footer:before {
     align-items: center;
     gap: 3rem;
     position: relative;
-    z-index: 9;
+    z-index: 1;
   }
 
   /* .footer__list-social.list-social,
