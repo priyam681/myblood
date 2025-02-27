@@ -682,7 +682,19 @@ button.facets__button {
   padding-right: 0.2rem;
   text-decoration: none;
 }
-
+.sp-fliter .active-facets__button {
+  margin-top: 0;
+}
+.sp-fliter span.active-facets__button-inner.button.button--tertiary {
+  border-radius: 3px;
+  padding: 0.5rem 1.25rem;
+  background: white;
+  color: black;
+}
+.sp-fliter span.active-facets__button-inner.button.button--tertiary:hover {
+  background: black;
+  color: white;
+}
 span.active-facets__button-inner {
   color: rgb(var(--color-foreground));
   box-shadow: 0 0 0 0.1rem rgb(var(--color-foreground));
