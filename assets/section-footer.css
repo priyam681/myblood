@@ -140,7 +140,7 @@ footer.footer {
   margin-top: 0;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   .footer-block.footer-block--menu:only-child {
     text-align: left;
   }
@@ -151,7 +151,7 @@ footer.footer {
     flex-wrap: nowrap;
     justify-content: space-between;
     width: 100%;
-    padding: 0 5rem;
+    padding: 0 3rem;
     z-index: 1;
     position: relative;
   }
@@ -170,9 +170,12 @@ footer.footer {
   font-size: calc(var(--font-heading-scale) * 1.6rem);
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 992px) {
   .footer-block__heading {
     font-size: calc(var(--font-heading-scale) * 1.8rem);
+  }
+  .footer-block--newsletter {
+    padding: 0 5rem;
   }
 }
 
