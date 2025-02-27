@@ -39,6 +39,7 @@
   z-index: 0;
   gap: 10px;
   width: 100%;
+  display: flex;
 }
 
 .newsletter-form__message {
