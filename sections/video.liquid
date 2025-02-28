@@ -6,9 +6,6 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-.video-section__media  {
-  height: 70vh;
-}
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -56,9 +53,6 @@
     <deferred-media
       class="video-section__media deferred-media gradient global-media-settings{% if section.settings.full_width %} global-media-settings--full-width{% endif %}{% if fix_ratio %} media-fit-cover{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
       data-media-id="{{ video_id }}"
-      {% if poster != null %}
-        <!-- style="--ratio-percent: {{ 1 | divided_by: poster.aspect_ratio | times: 100 }}%;" -->
-      {% endif %}
     >
       <button
         id="Deferred-Poster-Modal-{{ video_id }}"
