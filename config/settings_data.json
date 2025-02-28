@@ -14,7 +14,7 @@
     "heading_scale": 100,
     "type_body_font": "assistant_n4",
     "body_scale": 100,
-    "sp-quick-view-container": false,
+    "sp-quick-view-container": true,
     "page_width": 1600,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
@@ -136,6 +136,39 @@
       }
     },
     "content_for_index": [],
+    "blocks": {
+      "10583289249535060075": {
+        "type": "shopify://apps/basic-wishlist/blocks/popup/1611f065-e251-4250-8609-2fa2f1877c57",
+        "disabled": false,
+        "settings": {
+          "icon_width": 40,
+          "icon": "regular",
+          "icon_color": "#EA3C53",
+          "counter_font_size": 11,
+          "counter_padding": 4,
+          "counter_radius": 30,
+          "counter_offset": 4,
+          "counter_color": "#ffffff",
+          "counter_bg_color": "#EA3C53",
+          "sidebar_position": "centerright",
+          "sidebar_border_width": 2,
+          "sidebar_border_radius": 140,
+          "sidebar_padding": 30,
+          "sidebar_margin": 20,
+          "sidebar_bg_color": "#ffffff",
+          "sidebar_border_color": "#EA3C53",
+          "popup_border_radius": 0,
+          "popup_border_width": 1,
+          "popup_bg_color": "#ffffff",
+          "popup_border_color": "#e7e7e7",
+          "popup_heading": "#121212",
+          "close_icon": "thin",
+          "popup_image_radius": 0,
+          "popup_link": "#121212",
+          "popup_backdrop": "#FDF2F4"
+        }
+      }
+    },
     "color_schemes": {
       "scheme-1": {
         "settings": {

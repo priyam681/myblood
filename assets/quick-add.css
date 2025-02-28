@@ -1,3 +1,22 @@
+.sp-quick-view-container
+  .sp-quick-modal
+  .quick-add-modal__content-info
+  .product.grid
+  quantity-input.quantity::after {
+  box-shadow: unset;
+}
+.sp-quick-view-container
+  .sp-quick-modal
+  .quick-add-modal__content-info
+  .product.grid {
+  display: block;
+  width: 100%;
+}
+
+.sp-quick-view-container .sp-quick-modal .grid__item.product__media-wrapper {
+  width: 100%;
+  max-width: 100%;
+}
 .sp-card-inner .sp-btn-wrapper .quick-add__submit span {
   display: inline-block;
   height: 24px;
@@ -130,6 +149,20 @@
 @media screen and (min-width: 990px) {
   .quick-add-modal__content {
     width: 70%;
+  }
+  .sp-quick-view-container .quick-add-modal[open] .quick-add-modal__content {
+    right: 0;
+  }
+  .sp-quick-view-container .quick-add-modal__content {
+    width: 70%;
+    max-width: 27%;
+    left: unset;
+    right: -100%;
+    transform: unset;
+    height: 100%;
+    max-height: 100%;
+    margin-top: 0;
+    transition: 0.5s;
   }
 }
 
@@ -367,6 +400,15 @@ quick-add-modal .product__column-sticky {
   quick-add-modal .product:not(.product--no-media) .product__media-wrapper {
     max-width: 45%;
     width: calc(45% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
+  .sp-quick-view-container
+    quick-add-modal
+    .sp-quick-modal
+    .product:not(.product--no-media)
+    .product__info-wrapper {
+    max-width: 100%;
+    width: 100%;
+    padding: 20px 0 0;
   }
 
   quick-add-modal .product:not(.product--no-media) .product__info-wrapper {

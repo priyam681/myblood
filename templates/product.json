@@ -37,7 +37,8 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button"
+            "picker_type": "button",
+            "swatch_shape": "circle"
           }
         },
         "quantity_selector": {
@@ -91,6 +92,17 @@
             "page": ""
           }
         },
+        "basic_wishlist_buttons_pBhM7A": {
+          "type": "shopify://apps/basic-wishlist/blocks/buttons/1611f065-e251-4250-8609-2fa2f1877c57",
+          "settings": {
+            "text_color": "#121212",
+            "added_text_color": "#121212",
+            "text_size": 16,
+            "icon_color": "#EA3C53",
+            "added_icon_color": "#EA3C53",
+            "icon_width": 20
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -111,13 +123,18 @@
         "collapsible-row-1",
         "collapsible-row-2",
         "collapsible-row-3",
+        "basic_wishlist_buttons_pBhM7A",
         "share"
       ],
       "settings": {
         "enable_sticky_info": true,
+        "color_scheme": "",
         "media_size": "large",
         "constrain_to_viewport": true,
+        "media_fit": "contain",
         "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
         "mobile_thumbnails": "hide",
         "hide_variants": true,
         "enable_video_looping": false,
@@ -154,7 +171,9 @@
         "desktop_content_position": "top",
         "desktop_content_alignment": "left",
         "content_layout": "no-overlap",
+        "section_color_scheme": "",
         "color_scheme": "scheme-2",
+        "image_behavior": "none",
         "mobile_content_alignment": "left",
         "padding_top": 36,
         "padding_bottom": 36
@@ -208,9 +227,11 @@
       "settings": {
         "heading": "You may also like",
         "heading_size": "h2",
+        "products_to_show": 4,
         "columns_desktop": 4,
         "color_scheme": "scheme-1",
         "image_ratio": "square",
+        "image_shape": "default",
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
