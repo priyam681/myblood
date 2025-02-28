@@ -66,6 +66,7 @@
         class="video-section__poster media deferred-media__poster media--landscape"
         type="button"
         aria-label="{{ alt }}"
+        data-trigger-event="{{ section.settings.video_action }}"
       >
         {%- if poster != null -%}
           {{
@@ -165,6 +166,21 @@
       ],
       "default": "h1",
       "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "select",
+      "id": "video_action",
+      "label": "Video action",
+      "options": [
+        {
+          "value": "click",
+          "label": "Click"
+        },
+        {
+          "value": "load",
+          "label": "Load"
+        }
+      ]
     },
     {
       "type": "checkbox",
