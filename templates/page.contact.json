@@ -22,7 +22,7 @@
       "settings": {
         "heading": "",
         "heading_size": "h1",
-        "video_action": "click",
+        "video_action": "load",
         "enable_video_looping": true,
         "video": "shopify://files/videos/videoplayback.mp4",
         "video_url": "",
