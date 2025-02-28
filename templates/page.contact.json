@@ -22,7 +22,7 @@
       "settings": {
         "heading": "",
         "heading_size": "h1",
-        "enable_video_looping": false,
+        "enable_video_looping": true,
         "video_url": "https://youtu.be/S-A0qLTxf-U?si=plS8Qmfd6DFlTps7",
         "cover_image": "shopify://shop_images/Screenshot_from_2025-02-28_10-50-51.png",
         "description": "",
