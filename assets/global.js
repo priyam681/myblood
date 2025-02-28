@@ -709,7 +709,9 @@ class DeferredMedia extends HTMLElement {
       if (focus) deferredElement.focus();
       if (deferredElement.nodeName == 'VIDEO' && deferredElement.getAttribute('autoplay')) {
         // force autoplay for safari
+               deferredElement.muted = true;
         deferredElement.play();
+        deferredElement.setAttribute('playsinline', '');
       }
     }
   }
