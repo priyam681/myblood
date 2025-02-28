@@ -2014,14 +2014,17 @@ input[type="checkbox"] {
   quick-add-modal
   .sp-quick-modal
   .quantity__input:focus-visible,
-.sp-quick-view-container quick-add-modal .sp-quick-modal .quantity__button {
-  margin: 10px 15px;
+.sp-quick-view-container quick-add-modal .sp-quick-modal .quantity__button,
+.sp-quick-view-container quick-add-modal .sp-quick-modal .quantity__input {
   border-radius: 30px;
   outline: none;
+  max-width: 70px;
+  height: 24px;
+  margin: auto;
+  box-shadow: var(--focused-base-box-shadow);
 }
 .quantity {
-  width: 100%;
-  max-width: 160px;
+  width: 160px;
 }
 .quantity__button {
   width: calc(4.5rem / var(--font-body-scale));
