@@ -288,7 +288,7 @@
         {% if product_card_slider and card_product.media.size > 1 %}
             <product-slider class="product-card-slider sp-card-slider">
               <div class="card__content sp-card_content">
-                <div class="testing.....3 card__badge {{ settings.badge_position }}">
+                <div class="card__badge {{ settings.badge_position }}">
                   {%- if card_product.available == false -%}
                     <span
                       id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
@@ -859,7 +859,7 @@
             </div>
           {% endif %}
         {% endif %}
-        <div class="testing....2 card__badge {{ settings.badge_position }}">
+        <div class="card__badge {{ settings.badge_position }}">
           {%- if card_product.available == false -%}
             <span
               id="Badge-{{ section_id }}-{{ card_product.id }}"
