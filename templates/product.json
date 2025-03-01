@@ -12,6 +12,14 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "title": {
+          "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
         "social_icons_8rxYxT": {
           "type": "social_icons",
           "settings": {
@@ -27,20 +35,16 @@
             "is_instagram": true
           }
         },
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "description": {
           "type": "description",
           "settings": {}
         },
-        "title": {
-          "type": "title",
-          "settings": {}
+        "star_FCHPVx": {
+          "type": "star",
+          "settings": {
+            "reviews": 4.2,
+            "text": "review"
+          }
         },
         "caption": {
           "type": "text",
@@ -48,10 +52,6 @@
             "text": "{{ product.metafields.descriptors.subtitle.value }}",
             "text_style": "subtitle"
           }
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -112,22 +112,15 @@
             "content": "",
             "page": ""
           }
-        },
-        "star_FCHPVx": {
-          "type": "star",
-          "settings": {
-            "reviews": 4.2,
-            "text": "review"
-          }
         }
       },
       "block_order": [
-        "social_icons_8rxYxT",
-        "vendor",
-        "description",
         "title",
-        "caption",
         "price",
+        "social_icons_8rxYxT",
+        "description",
+        "star_FCHPVx",
+        "caption",
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
@@ -135,8 +128,7 @@
         "collapsible-row-0",
         "collapsible-row-1",
         "collapsible-row-2",
-        "collapsible-row-3",
-        "star_FCHPVx"
+        "collapsible-row-3"
       ],
       "settings": {
         "enable_sticky_info": true,
