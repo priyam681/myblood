@@ -4,7 +4,7 @@ if (!customElements.get('custom-modal')) {
             super();
             this.attachShadow({ mode: 'open' });
             this.shadowRoot.innerHTML = `
-      <style>
+    {% style %}
       @keyframes open-animation {
     from {
       transform: translateX(100%);
@@ -44,12 +44,6 @@ if (!customElements.get('custom-modal')) {
   animation: open-animation 2s forwards;
 }
 
-.modal-content {
-  padding: 20px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-}
 
 .close-button {
   position: absolute;
@@ -62,7 +56,7 @@ if (!customElements.get('custom-modal')) {
 }
 
 
-      </style>
+  {% endstyle %}
       <div class="modal-content">
         <button class="close-button">&times;</button>
           <slot name="header"></slot>
