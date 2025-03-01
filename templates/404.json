@@ -12,9 +12,19 @@
     "main": {
       "type": "main-404",
       "settings": {}
+    },
+    "from_place_Ui6xrQ": {
+      "type": "from-place",
+      "settings": {
+        "padding": 50,
+        "font-size": 50,
+        "headingtext": "From the place",
+        "details": "Test"
+      }
     }
   },
   "order": [
-    "main"
+    "main",
+    "from_place_Ui6xrQ"
   ]
 }
