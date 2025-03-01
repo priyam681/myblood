@@ -1013,6 +1013,7 @@ a.product__text {
   color: rgb(var(--color-foreground));
   cursor: pointer;
   background-color: transparent;
+  border-radius: 10px;
 }
 
 .thumbnail:hover {
