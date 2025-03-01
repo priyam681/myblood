@@ -92,6 +92,13 @@
             "page": ""
           }
         },
+        "star_FCHPVx": {
+          "type": "star",
+          "settings": {
+            "reviews": 3,
+            "text": "<p>t:sections.image-banner.blocks.text.settings.text.default</p>"
+          }
+        },
         "share": {
           "type": "share",
           "settings": {
@@ -112,6 +119,7 @@
         "collapsible-row-1",
         "collapsible-row-2",
         "collapsible-row-3",
+        "star_FCHPVx",
         "share"
       ],
       "settings": {
