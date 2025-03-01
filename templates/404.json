@@ -11,6 +11,7 @@
   "sections": {
     "main": {
       "type": "main-404",
+      "disabled": true,
       "settings": {}
     },
     "from_place_Ui6xrQ": {
