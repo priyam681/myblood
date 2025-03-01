@@ -579,7 +579,7 @@
                 {% assign _share_url = shop.url | append: request.path %}
                 {% assign _share_image = product.featured_image | image_url %}
                 {% assign _share_descreptoon = product.description | strip_html %}
-                {% render 'share_icon', _share_url: _share_url, block: block %}
+                {% comment %} {% render 'share_icon', _share_url: _share_url, block: block %} {% endcomment %}
 
               {%- when 'share' -%}
                 {% liquid
