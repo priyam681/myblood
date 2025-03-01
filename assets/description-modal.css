@@ -21,9 +21,7 @@
      custom-modal .modal-content {
          background: white;
          border-radius: 8px;
-         padding: 20px;
-         width: 400px;
-         max-width: 90%;
+         padding: 30px;
          text-align: center;
          position: relative;
      }
