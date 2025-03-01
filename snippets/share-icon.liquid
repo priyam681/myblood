@@ -153,8 +153,27 @@
   .sharing-instagram {--sharing-bg: #E1306C;}
   .sharing-envelope {--sharing-bg: #464EB8;}
 
-  .main-share {display: flex; justify-content: center; align-items: center; flex-wrap: wrap; flex-direction: column;background: gainsboro;}
-  .parent-share {margin: 0 20px; font-weight: 800; font-size: 18px;}
+  .main-share {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    flex-direction: column;
+    border: 1px solid rgb(var(--color-foreground), 0.14);
+    padding: 20px;
+  }
+  .main-share .sharing,
+  .main-share:hover .parent-share {
+    display: none;
+  }
+  .main-share:hover .sharing {
+    display : block;
+  }
+  .parent-share {
+    margin: 0 20px;
+    font-weight: 800;
+    font-size: 18px;
+  }
 </style>
 
 <script>
