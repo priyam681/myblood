@@ -14,7 +14,6 @@
   .top-social-links {
   position: fixed;
     top: 50%;
-    background: #f7f5ef;
     transform: translate(0, -50%);
     left: 0;
   flex-wrap: wrap;
@@ -22,8 +21,9 @@
   z-index: 999;
 }
 
-.top-social-links .list-social__item a{
+.top-social-links .list-social__item {
    width: 44px;
+   background: #f7f5ef;
 }
 .top-social-links .list-social__item a {
   position: relative;
