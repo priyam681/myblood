@@ -23,6 +23,7 @@
 {%- endif -%}
 
 <script src="{{ 'load-more.js' | asset_url }}" defer></script>
+<script src="{{ 'product-slider.js' | asset_url }}" defer></script>
 
 {%- style -%}
   /* Existing styles */
@@ -199,7 +200,8 @@
                     lazy_load: lazy_load,
                     skip_styles: skip_card_product_styles,
                     quick_add: section.settings.quick_add,
-                    section_id: section.id
+                    section_id: section.id,
+                    product_card_slider: section.settings.enable_product_card_slider
                   %}
                 </li>
                 {%- assign skip_card_product_styles = true -%}
@@ -245,6 +247,13 @@
       "default": 16,
       "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
     },
+    {
+      "type": "checkbox",
+      "id": "enable_product_card_slider",
+      "label": "Enable Product Card Slider",
+      "default": false
+    },
+    
     {
       "type": "range",
       "id": "columns_desktop",
