@@ -87,7 +87,10 @@
      }
 
     button#open-modal {
-      background: lightgray;
+    color: lightgray;
+    border: navajowhite;
+    background: none;
+    font-size: 1em;
   }
 button#open-modal-2 {
     width: 100%;
