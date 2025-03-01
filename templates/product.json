@@ -19,6 +19,10 @@
             "text_style": "uppercase"
           }
         },
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
         "title": {
           "type": "title",
           "settings": {}
@@ -57,10 +61,6 @@
           "settings": {
             "text_with_link": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
           }
-        },
-        "description": {
-          "type": "description",
-          "settings": {}
         },
         "collapsible-row-0": {
           "type": "collapsible_tab",
@@ -123,6 +123,7 @@
       },
       "block_order": [
         "vendor",
+        "description",
         "title",
         "caption",
         "price",
@@ -130,7 +131,6 @@
         "quantity_selector",
         "buy_buttons",
         "text_with_link_pFh6ai",
-        "description",
         "collapsible-row-0",
         "collapsible-row-1",
         "collapsible-row-2",
