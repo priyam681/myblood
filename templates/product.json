@@ -12,6 +12,21 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "social_icons_8rxYxT": {
+          "type": "social_icons",
+          "settings": {
+            "is_facebook": true,
+            "is_twitter": true,
+            "is_pinterest": true,
+            "is_tumblr": true,
+            "is_reddit": true,
+            "is_vk": true,
+            "is_whatsapp": true,
+            "is_telegram": true,
+            "is_linkedin": true,
+            "is_instagram": true
+          }
+        },
         "vendor": {
           "type": "text",
           "settings": {
@@ -98,21 +113,6 @@
             "page": ""
           }
         },
-        "social_icons_8rxYxT": {
-          "type": "social_icons",
-          "settings": {
-            "is_facebook": true,
-            "is_twitter": true,
-            "is_pinterest": true,
-            "is_tumblr": true,
-            "is_reddit": true,
-            "is_vk": true,
-            "is_whatsapp": true,
-            "is_telegram": true,
-            "is_linkedin": true,
-            "is_instagram": true
-          }
-        },
         "star_FCHPVx": {
           "type": "star",
           "settings": {
@@ -122,6 +122,7 @@
         }
       },
       "block_order": [
+        "social_icons_8rxYxT",
         "vendor",
         "description",
         "title",
@@ -135,7 +136,6 @@
         "collapsible-row-1",
         "collapsible-row-2",
         "collapsible-row-3",
-        "social_icons_8rxYxT",
         "star_FCHPVx"
       ],
       "settings": {
