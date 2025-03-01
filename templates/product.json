@@ -108,9 +108,9 @@
             "is_reddit": true,
             "is_vk": true,
             "is_whatsapp": true,
-            "is_telegram": false,
-            "is_linkedin": false,
-            "is_instagram": false
+            "is_telegram": true,
+            "is_linkedin": true,
+            "is_instagram": true
           }
         },
         "star_FCHPVx": {
