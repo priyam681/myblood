@@ -1,3 +1,13 @@
+.card--media .card__inner .card__content.sp-card_content {
+  position: relative;
+  padding: 0;
+  z-index: 1;
+}
+.card--media .card__inner .card__content.sp-card_content .card__badge.bottom {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
 .sp-card-wrapper .card__content .quick-add {
   display: none;
 }
