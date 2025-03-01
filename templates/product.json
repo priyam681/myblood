@@ -119,12 +119,6 @@
           "settings": {
             "text_with_link": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
           }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
-          }
         }
       },
       "block_order": [
@@ -142,8 +136,7 @@
         "collapsible-row-3",
         "social_icons_8rxYxT",
         "star_FCHPVx",
-        "text_with_link_pFh6ai",
-        "share"
+        "text_with_link_pFh6ai"
       ],
       "settings": {
         "enable_sticky_info": true,
