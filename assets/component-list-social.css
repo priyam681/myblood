@@ -29,7 +29,7 @@
   position: relative;
 }
  .top-social-links .list-social__item a:hover {
-    transition: all 2s ease-in-out;
+    transition: all 1s ease-in-out;
     padding-left: 50px;
    display: flex;
  } 
@@ -37,6 +37,7 @@
     position: unset !important;
     width: auto;
     height: auto;
+    overflow: auto;
   } 
   
 }
