@@ -20,31 +20,9 @@
           "type": "price",
           "settings": {}
         },
-        "social_icons_8rxYxT": {
-          "type": "social_icons",
-          "settings": {
-            "is_facebook": true,
-            "is_twitter": true,
-            "is_pinterest": true,
-            "is_tumblr": true,
-            "is_reddit": true,
-            "is_vk": true,
-            "is_whatsapp": true,
-            "is_telegram": true,
-            "is_linkedin": true,
-            "is_instagram": true
-          }
-        },
         "description": {
           "type": "description",
           "settings": {}
-        },
-        "star_FCHPVx": {
-          "type": "star",
-          "settings": {
-            "reviews": 4.2,
-            "text": "review"
-          }
         },
         "caption": {
           "type": "text",
@@ -80,20 +58,42 @@
           "settings": {
             "text_with_link": "<p>Share information about your brand with your customers., <a href=\"https://www.sprinix.com/\" title=\"https://www.sprinix.com/\">sprinix</a></p>"
           }
+        },
+        "star_FCHPVx": {
+          "type": "star",
+          "settings": {
+            "reviews": 4.2,
+            "text": "review"
+          }
+        },
+        "social_icons_8rxYxT": {
+          "type": "social_icons",
+          "settings": {
+            "is_facebook": true,
+            "is_twitter": true,
+            "is_pinterest": true,
+            "is_tumblr": true,
+            "is_reddit": true,
+            "is_vk": true,
+            "is_whatsapp": true,
+            "is_telegram": true,
+            "is_linkedin": true,
+            "is_instagram": true
+          }
         }
       },
       "block_order": [
         "title",
         "price",
-        "social_icons_8rxYxT",
         "description",
-        "star_FCHPVx",
         "caption",
         "variant_picker",
         "quantity_selector",
         "rating_xyTk6d",
         "buy_buttons",
-        "text_with_link_pFh6ai"
+        "text_with_link_pFh6ai",
+        "star_FCHPVx",
+        "social_icons_8rxYxT"
       ],
       "settings": {
         "enable_sticky_info": true,
