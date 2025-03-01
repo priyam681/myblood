@@ -170,7 +170,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   padding-inline: 3rem;
 }
   .page-width {
-    padding: 0 5rem;
+    padding: 0 3rem;
   }
 
   .header.page-width,
@@ -193,6 +193,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 
 @media screen and (min-width: 992px) {
+  .page-width {
+    padding: 0 5rem;
+  }
     .shopify-policy__container {
   padding-inline: 5rem;
 }
