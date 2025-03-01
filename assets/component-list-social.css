@@ -30,9 +30,10 @@
 }
  .top-social-links .list-social__item a:hover {
    width: auto;
-    transition: all 1s ease-in-out;
-    padding-left: 50px;
+   transition: all 1s ease-in-out;
+  padding-left: 50px;
    display: flex;
+   gap: 6px;
  } 
   .top-social-links .list-social__item a:hover .visually-hidden {
     position: unset !important;
