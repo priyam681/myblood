@@ -92,6 +92,21 @@
             "page": ""
           }
         },
+        "social_icons_8rxYxT": {
+          "type": "social_icons",
+          "settings": {
+            "is_facebook": false,
+            "is_twitter": false,
+            "is_pinterest": false,
+            "is_tumblr": false,
+            "is_reddit": false,
+            "is_vk": false,
+            "is_whatsapp": false,
+            "is_telegram": false,
+            "is_linkedin": false,
+            "is_instagram": false
+          }
+        },
         "star_FCHPVx": {
           "type": "star",
           "settings": {
@@ -125,6 +140,7 @@
         "collapsible-row-1",
         "collapsible-row-2",
         "collapsible-row-3",
+        "social_icons_8rxYxT",
         "star_FCHPVx",
         "text_with_link_pFh6ai",
         "share"
