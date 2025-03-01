@@ -1,7 +1,5 @@
 
   /* Modal Base Styling */
- 
-<style>
 
   custom-modal {
          display: none;
@@ -102,5 +100,3 @@ button#open-modal-2 {
 button#open-modal-2:hover {
   background: #f7f5ef;
 }
-
-</style>
