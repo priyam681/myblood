@@ -34,7 +34,7 @@
    display: flex;
  } 
   .top-social-links .list-social__item a:hover .visually-hidden {
-    position: unset;
+    position: unset !important;
     width: auto;
     height: auto;
   } 
