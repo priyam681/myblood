@@ -52,6 +52,12 @@
             "show_gift_card_recipient": true
           }
         },
+        "text_with_link_pFh6ai": {
+          "type": "text_with_link",
+          "settings": {
+            "text_with_link": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
         "description": {
           "type": "description",
           "settings": {}
@@ -113,12 +119,6 @@
             "reviews": 3.5,
             "text": "review"
           }
-        },
-        "text_with_link_pFh6ai": {
-          "type": "text_with_link",
-          "settings": {
-            "text_with_link": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
-          }
         }
       },
       "block_order": [
@@ -129,14 +129,14 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
+        "text_with_link_pFh6ai",
         "description",
         "collapsible-row-0",
         "collapsible-row-1",
         "collapsible-row-2",
         "collapsible-row-3",
         "social_icons_8rxYxT",
-        "star_FCHPVx",
-        "text_with_link_pFh6ai"
+        "star_FCHPVx"
       ],
       "settings": {
         "enable_sticky_info": true,
