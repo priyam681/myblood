@@ -64,6 +64,10 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "rating_xyTk6d": {
+          "type": "rating",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -87,6 +91,7 @@
         "caption",
         "variant_picker",
         "quantity_selector",
+        "rating_xyTk6d",
         "buy_buttons",
         "text_with_link_pFh6ai"
       ],
