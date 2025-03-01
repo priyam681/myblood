@@ -4,7 +4,7 @@ if (!customElements.get('custom-modal')) {
             super();
             this.attachShadow({ mode: 'open' });
             this.shadowRoot.innerHTML = `
-   
+   <style>
       @keyframes open-animation {
     from {
       transform: translateX(100%);
@@ -55,7 +55,7 @@ if (!customElements.get('custom-modal')) {
   cursor: pointer;
 }
 
- 
+ </style>
   
       <div class="modal-content">
         <button class="close-button">&times;</button>
