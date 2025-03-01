@@ -95,8 +95,8 @@
         "star_FCHPVx": {
           "type": "star",
           "settings": {
-            "reviews": 3,
-            "text": "<p>t:sections.image-banner.blocks.text.settings.text.default</p>"
+            "reviews": 3.5,
+            "text": "review"
           }
         },
         "share": {
