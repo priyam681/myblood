@@ -21,7 +21,7 @@
   z-index: 999;
 }
 
-.top-social-links .list-social__item {
+.top-social-links .list-social__item a {
    width: 44px;
    background: #f7f5ef;
 }
