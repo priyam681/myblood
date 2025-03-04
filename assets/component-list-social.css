@@ -35,19 +35,7 @@
     display:none;
 }
   .top-social-links .list-social__item a:hover .hover-svg-wrapper {
-    display:block;
-}
-  .top-social-links .list-social__item a:hover  svg.icon.icon-instagram {
-    color: #F56040;
-}
-.top-social-links .list-social__item a:hover  svg.icon.icon-youtube {
-    color: #FF0000;
-}
-.top-social-links .list-social__item a:hover  svg.icon.icon-twitter {
-    color: #1DA1F2;
-}
-.top-social-links .list-social__item a:hover svg.icon.icon-pinterest {
-    color: #E60023;
+    display:flex;
 }
  .top-social-links .list-social__item a:hover {
         width: auto;
