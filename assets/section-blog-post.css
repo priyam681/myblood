@@ -12,6 +12,10 @@
   max-width: 130rem;
   margin: 0 auto;
 }
+.article-template__back-blog .icon-wrap .svg-wrapper > svg {
+      width: 1.5rem;
+}
+
 .blog-artical-section-wrapper {
   max-width: 130rem;
   margin: 0 auto;
