@@ -37,10 +37,16 @@ a.link.link--text.list-menu__item:hover {
   }
 }
 
+
+
+
 @media screen and (min-width: 768px) {
   .footer__content-top .grid {
     row-gap: 6rem;
     margin-bottom: 0;
+  }
+  .footer__list-social {
+    display:none;
   }
 }
 
