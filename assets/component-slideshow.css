@@ -106,7 +106,6 @@ slideshow-component .slideshow.banner {
 
 .slideshow__controls--top {
   order: 2;
-  z-index: 1;
 }
 
 @media screen and (max-width: 749px) {
@@ -181,7 +180,15 @@ slideshow-component:not(.page-width) .slider-buttons {
 .slideshow__autoplay:hover path {
   fill: rgb(var(--color-foreground));
 }
-
+.banner__buttons .button {
+      --border-offset: unset;
+        background: black;
+        color: white;
+  } 
+.banner__buttons:hover .button {
+  background: white;
+  color: black;
+}
 @media screen and (forced-colors: active) {
   .slideshow__autoplay path,
   .slideshow__autoplay:hover path {

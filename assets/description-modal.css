@@ -1,0 +1,99 @@
+
+  /* Modal Base Styling */
+
+  custom-modal {
+         display: none;
+         position: fixed;
+         top: 0;
+         width: 50%;
+         max-width: 600px;
+         height: 100%;
+         background: #fff;
+         justify-content: center;
+         z-index: 1000;
+        padding: 30px;
+     }
+
+     custom-modal[open] {
+         display: flex;
+     }
+
+     custom-modal .modal-content {
+         background: white;
+         border-radius: 8px;
+         text-align: center;
+         position: relative;
+     }
+
+     custom-modal .background-container {
+         background-image: url('./images/nature.webp');
+         background-size: cover;
+         background-position: center;
+         padding: 20px;
+         border-radius: 8px;
+         text-align: center;
+         color: white;
+     }
+
+     custom-modal .background-container h1 {
+         font-size: 32px;
+         font-weight: bold;
+         margin-bottom: 10px;
+     }
+
+     custom-modal .background-container .info-text {
+         font-size: 12px;
+         line-height: 1.5;
+         margin-bottom: 20px;
+         color: #ffffff;
+     }
+
+
+   
+
+     custom-modal .submit-button {
+         width: 100%;
+         padding: 10px;
+         background-color: #2d6b46;
+         color: #fff;
+         font-size: 14px;
+         border: none;
+         cursor: pointer;
+     }
+
+     custom-modal .submit-button:hover {
+         background-color: #245537;
+     }
+
+     custom-modal .footer-note {
+         margin-top: 10px;
+         font-size: 12px;
+         color: #999;
+     }
+
+     .close-button {
+         position: absolute;
+         top: 10px;
+         right: 10px;
+         border: none;
+         background: none;
+         font-size: 20px;
+         cursor: pointer;
+     }
+
+    button#open-modal {
+    color: #afa39a;
+    border: none;
+    background: none;
+    font-size: 1em;
+      cursor: pointer;
+  }
+button#open-modal-2 {
+    width: 100%;
+    padding: 20px;
+    border-color: rgb(var(--color-foreground), 0.14);
+    background: none;
+}
+button#open-modal-2:hover {
+  background: #f7f5ef;
+}

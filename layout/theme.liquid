@@ -103,7 +103,7 @@
       {% endfor %}
 
       {{ scheme_classes | prepend: 'body' }} {
-        color: rgba(var(--color-foreground), 0.75);
+        color: rgba(var(--color-foreground));
         background-color: rgb(var(--color-background));
       }
 
@@ -385,6 +385,7 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
+<<<<<<< HEAD
     {% render 'back-to-the-top' %}}
 
     <script defer>
@@ -392,5 +393,8 @@
         document.querySelector('.quick-add-modal__toggle').addEventListener('click', function () {});
       });
     </script>
+=======
+    {% render 'back-to-the-top' %}
+>>>>>>> d4d855ab662a3b7623908cf7f73c553fcd7a0c4a
   </body>
 </html>

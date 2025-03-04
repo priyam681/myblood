@@ -1,0 +1,69 @@
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const  container = document.querySelectorAll(".image-container");
+    console.log(container.length);
+    jQuery(document).ready(function($) { // jQuery no-conflict wrapper
+      $(document).ready(function() { // Double nested for DOM ready safety
+        function initializeSlider() {
+          if (window.innerWidth < 768) {
+            if (!$('.image-slider').hasClass('slick-initialized')) {
+
+              $('.image-slider').slick({
+               dots: true,
+              arrows: false,
+              infinite: true,
+              speed:300,
+              slidesToShow: 1,
+              adaptiveHeight: true,
+              });
+
+            }
+          } else {
+            if ($('.image-slider').hasClass('slick-initialized')) {
+              $('.image-slider').slick('unslick');
+            }
+          }
+        }
+
+        initializeSlider();
+        window.addEventListener('resize', initializeSlider);
+      });
+    });
+  });
+</script>
+<h2 class="rich-text__heading headingtext rte inline-richtext h1">
+  {{ section.settings.headingtext }}
+</h2>
+<div class="wrapper">
+  <div class="container">
+    <div class="image-slider">
+      <div class="first-image-container image image-container">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0744/5197/6428/files/borek-horizon-sofa-teak-638003935645382.jpg?v=1740481484"
+          alt="Custom Image"
+        >
+      </div>
+      <div class="second-image-container image image-container">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0744/5197/6428/files/borek-horizon-sofa-teak-63800393564538.jpg?v=1740481513"
+          alt="Custom Image"
+        >
+      </div>
+      <div class="third-image-container image image-container">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0744/5197/6428/files/borek-peniche-tafel-o-140cm-x-75-cm-2-kleuren-371775397563442.jpg?v=1740481621"
+          alt="Custom Image"
+        >
+      </div>
+      <div class="fourth-image-container image image-container">
+        <img
+          src="https://cdn.shopify.com/s/files/1/0744/5197/6428/files/wolfwood-tuinmeubelen-coffee-bay-loungeset-opstelling-17-35861391769912.jpg?v=1740481817"
+          alt="Custom Image"
+        >
+      </div>
+    </div>
+    <p class="details">
+      {{ section.settings.details }}
+    </p>
+  </div>
+</div>

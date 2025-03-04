@@ -15,6 +15,7 @@
         "heading": {
           "type": "heading",
           "settings": {
+<<<<<<< HEAD
             "heading": "Image banner",
             "heading_size": "h0"
           }
@@ -35,10 +36,48 @@
             "button_label_2": "",
             "button_link_2": "",
             "button_style_secondary_2": false
+=======
+            "image": "shopify://shop_images/living-room-2569325_1280.jpg",
+            "heading": "<strong>Designed for adventure</strong>",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "New in ",
+            "link": "shopify://products/antique-drawers",
+            "button_label2": "Winter Sale ",
+            "link2": "shopify://products/camp-stool",
+            "button_style_secondary": false,
+            "box_align": "middle-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 10,
+            "color_scheme": "scheme-3",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_R9UFpC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/living-room-2732939_1280.jpg",
+            "heading": "<strong>Designed for adventure</strong>",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "New in ",
+            "link": "shopify://products/camp-stool",
+            "button_label2": "Winter Sale ",
+            "link2": "shopify://products/antique-drawers",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 40,
+            "color_scheme": "scheme-3",
+            "text_alignment_mobile": "center"
+>>>>>>> d4d855ab662a3b7623908cf7f73c553fcd7a0c4a
           }
         }
       },
       "block_order": [
+<<<<<<< HEAD
         "heading",
         "text",
         "button"
@@ -50,6 +89,17 @@
         "show_text_box": false,
         "desktop_content_alignment": "center",
         "color_scheme": "scheme-3",
+=======
+        "slide_WWbWh3",
+        "slide_R9UFpC"
+      ],
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
+>>>>>>> d4d855ab662a3b7623908cf7f73c553fcd7a0c4a
         "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
@@ -78,16 +128,50 @@
         "text"
       ],
       "settings": {
+<<<<<<< HEAD
         "desktop_content_position": "center",
         "content_alignment": "center",
         "color_scheme": "scheme-1",
         "full_width": true,
         "padding_top": 40,
         "padding_bottom": 0
+=======
+        "sliding_collection_heading_title": "Shop Our Collections",
+        "title_color": "",
+        "section_background": "",
+        "title_image_width_desktop": 300,
+        "title_image_width_mobile": 200,
+        "heading_font": "serif",
+        "title_font_size": 36,
+        "gap": 30,
+        "title_font_size_mobile": 24,
+        "collection_font": "serif",
+        "collection_font_size": 16,
+        "collection_font_size_mobile": 16,
+        "collection_name_background": "",
+        "collection_name_color": "#000000",
+        "radius": 100,
+        "image_height_desktop": 200,
+        "image_width_desktop": 200,
+        "image_height_mobile": 150,
+        "image_width_mobile": 150,
+        "padding_top": 10,
+        "padding_bottom": 10
+      }
+    },
+    "from_place_3gHkmc": {
+      "type": "from-place",
+      "settings": {
+        "padding": 50,
+        "font-size": 100,
+        "headingtext": "Home, Heart, Harmony",
+        "details": "Since it’s an online furniture store, its primary goal is selling furniture in the fastest and easiest way. To achieve this, think about how to organize the content of your site."
+>>>>>>> d4d855ab662a3b7623908cf7f73c553fcd7a0c4a
       }
     },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured products",
         "heading_size": "h2",
@@ -133,7 +217,11 @@
         "collection-1": {
           "type": "collection",
           "settings": {
+<<<<<<< HEAD
             "collection": "lounge"
+=======
+            "collection": "loungesets"
+>>>>>>> d4d855ab662a3b7623908cf7f73c553fcd7a0c4a
           }
         }
       },
@@ -143,8 +231,13 @@
         "collection-1"
       ],
       "settings": {
+<<<<<<< HEAD
         "heading": "Multimedia collage",
         "heading_size": "h2",
+=======
+        "heading": "<strong>Our Latest Arrivals</strong>",
+        "heading_size": "h1",
+>>>>>>> d4d855ab662a3b7623908cf7f73c553fcd7a0c4a
         "desktop_layout": "left",
         "mobile_layout": "collage",
         "card_styles": "product-card-wrapper",
