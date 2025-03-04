@@ -157,7 +157,10 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 .sliding-collection-wrapper button.carousel-nav:hover {
     background: #836851;
 }
-
+.sliding-collection-wrapper img.collection-image-custom:hover {
+    transform: rotate(358deg);
+    transition: 2s;
+}
 .page-width-desktop {
   padding: 0;
   margin: 0 auto;
