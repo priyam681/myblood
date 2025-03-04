@@ -10,12 +10,12 @@
 {% endcomment %}
 <div class="overlay">
                 <a href="#" class="follow-me">Follow Me</a>
-            </div>
+ </div>
 <ul class="artboard list-unstyled list-social{% if class %} {{ class}}{% endif %}" role="list">
   <div class="button">
     {%- if settings.social_facebook_link != blank -%}
     <li class="list-social__item">
-      <a href="{{ settings.social_facebook_link }}" class="link list-social__link">
+      <a href="{{ settings.social_facebook_link }}" class="link list-social__link fa-facebook">
         <span class="svg-wrapper">
           {{- 'icon-facebook.svg' | inline_asset_content -}}
         </span>
@@ -25,7 +25,7 @@
   {%- endif -%}
   {%- if settings.social_instagram_link != blank -%}
     <li class="list-social__item">
-      <a href="{{ settings.social_instagram_link }}" class="link list-social__link">
+      <a href="{{ settings.social_instagram_link }}" class="link list-social__link fa-instagram">
         <span class="svg-wrapper">
           {{- 'icon-instagram.svg' | inline_asset_content -}}
         </span>
@@ -35,7 +35,7 @@
   {%- endif -%}
   {%- if settings.social_youtube_link != blank -%}
     <li class="list-social__item">
-      <a href="{{ settings.social_youtube_link }}" class="link list-social__link">
+      <a href="{{ settings.social_youtube_link }}" class="link list-social__link fa-youtube">
         <span class="svg-wrapper">
           {{- 'icon-youtube.svg' | inline_asset_content -}}
         </span>
@@ -45,7 +45,7 @@
   {%- endif -%}
   {%- if settings.social_tiktok_link != blank -%}
     <li class="list-social__item">
-      <a href="{{ settings.social_tiktok_link }}" class="link list-social__link">
+      <a href="{{ settings.social_tiktok_link }}" class="link list-social__link fa-tiktok">
         <span class="svg-wrapper">
           {{- 'icon-tiktok.svg' | inline_asset_content -}}
         </span>
@@ -55,7 +55,7 @@
   {%- endif -%}
   {%- if settings.social_twitter_link != blank -%}
     <li class="list-social__item">
-      <a href="{{ settings.social_twitter_link }}" class="link list-social__link">
+      <a href="{{ settings.social_twitter_link }}" class="link list-social__link fa-twiiter">
         <span class="svg-wrapper">
           {{- 'icon-twitter.svg' | inline_asset_content -}}
         </span>
