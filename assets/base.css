@@ -723,6 +723,10 @@ div#BackToTop:hover {
 .faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details[open] summary .accordion__title {
   color: #b57d54 !important;
 }
+.faq-content a {
+    color: black;
+    text-underline-offset: 5px;
+}
 .svg-wrapper > svg {
   height: 100%;
   width: 100%;
