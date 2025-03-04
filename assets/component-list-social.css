@@ -20,6 +20,9 @@
   justify-content: flex-end;
   z-index: 999;
 }
+  .follow-me  .follow {
+    display:block;
+  }
   ul.list-unstyled.list-social.top-social-links {
     display: none;
     transform: scale(2);
