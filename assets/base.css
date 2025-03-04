@@ -156,7 +156,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 .link-btn a {
     background: black;
-    padding: 16px 32px;
+    padding: 16px 20px;
     line-height: normal;
     max-width: 200px;
     text-align: center;
@@ -201,10 +201,10 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 .sliding-collection-wrapper button.carousel-nav:hover {
     background: #836851;
 }
-.sliding-collection-wrapper img.collection-image-custom:hover {
+/* .sliding-collection-wrapper img.collection-image-custom:hover {
     transform: rotate(358deg);
     transition: 2s ease;
-}
+} */
 .place-wrapper .wrapper .image-slider .image img  {
       object-fit: cover;
 }
