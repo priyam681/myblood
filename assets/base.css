@@ -1,3 +1,56 @@
+@font-face {
+  font-family: 'Knockout-50';
+  src: url('./Knockout-HTF50-Welterweight.woff2') format('woff2'),
+      url('./Knockout-HTF50-Welterweight.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Knockout-50';
+  src: url('./Knockout-HTF50-Welterweight.woff2') format('woff2'),
+      url('./Knockout-HTF50-Welterweight.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: 'Knockout-31';
+  src: url('./Knockout-HTF31-JuniorMiddlewt.woff2') format('woff2'),
+      url('./Knockout-HTF31-JuniorMiddlewt.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Knockout-31';
+  src: url('./Knockout-HTF31-JuniorMiddlewt.woff2') format('woff2'),
+      url('./Knockout-HTF31-JuniorMiddlewt.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Knockout-32';
+  src: url('./Knockout-HTF32-JuniorCruiserwt.woff2') format('woff2'),
+      url('./Knockout-HTF32-JuniorCruiserwt.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Knockout-32';
+  src: url('./Knockout-HTF32-JuniorCruiserwt.woff2') format('woff2'),
+      url('./Knockout-HTF32-JuniorCruiserwt.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
 .card--media .card__inner .card__content.sp-card_content {
   position: relative;
   padding: 0;
@@ -31,8 +84,14 @@ product-slider.product-card-slider img.motion-reduce {
   height: 100%;
 }
 .open-filter,
-.button-label {
-  font-family: "KnockoutNo50", sans-serif;
+.button-label,
+h2.mobile-facets__heading.small-hide,
+.sp-filter-open {
+  font-family: 'Knockout-50';
+}
+.sp-filter-open .mobile-facets__label,
+.sp-card-wrapper .full-unstyled-link {
+  font-family: 'Knockout-31';
 }
 body {
   font-family: "Roboto-Regular", sans-serif;
