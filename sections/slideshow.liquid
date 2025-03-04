@@ -255,7 +255,12 @@
           class="slideshow__autoplay slider-button{% if section.settings.auto_rotate == false %} slideshow__autoplay--paused{% endif %}"
           aria-label="{{ 'sections.slideshow.pause_slideshow' | t }}"
         >
-         
+          <span class="svg-wrapper">
+            {{- 'icon-pause.svg' | inline_asset_content -}}
+          </span>
+          <span class="svg-wrapper">
+            {{- 'icon-play.svg' | inline_asset_content -}}
+          </span>
         </button>
       {%- endif -%}
     </div>
