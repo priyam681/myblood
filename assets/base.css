@@ -727,18 +727,7 @@ div#BackToTop:hover {
     color: black;
     text-underline-offset: 5px;
 }
-.search-modal__form .field label {
-    display: none;
-}
-.search-modal__form  button.search__button.field__button {
-    position: absolute;
-    border: unset;
-    top: 28%;
-    right: 13px;
-}
-.search-modal__form  .search__input.field__input {
-      border-radius: 32px;
-}
+
 .svg-wrapper > svg {
   height: 100%;
   width: 100%;
