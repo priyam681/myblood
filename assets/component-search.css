@@ -18,6 +18,11 @@ button.reset__button.field__button {
     z-index: 9;
     right: 0;
 }
+.search-modal__content .predictive-search.predictive-search--header {
+    border: unset;
+    border-bottom-right-radius: 11px;
+    border-bottom-left-radius: 11px;
+}
 .search-modal__form  button.search__button.field__button {
     position: absolute;
     border: unset;
