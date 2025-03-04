@@ -34,6 +34,9 @@
   .top-social-links .list-social__item a:hover  svg.icon.icon-instagram {
     color: #F56040;
 }
+.top-social-links .list-social__item a:hover  svg.icon.icon-youtube {
+    color: #FF0000;
+}
  .top-social-links .list-social__item a:hover {
    width: auto;
    transition: all 1s ease-in-out;
