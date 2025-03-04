@@ -15,6 +15,9 @@
 .article-template__back-blog .article-template__link {
       justify-content: end;
 }
+.blog-artical-section-wrapper .article-template__title:not(:only-child) {
+    margin-bottom: 0;
+}
 .article-template__back-blog .icon-wrap .svg-wrapper > svg {
       width: 1.5rem;
 }
