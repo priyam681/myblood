@@ -79,7 +79,7 @@ slideshow-component .slideshow.banner {
 
 @media screen and (min-width: 750px) {
   .slideshow__text.slideshow__text--left {
-    align-items: flex-start;
+    align-items: center;
     text-align: left;
   }
 
