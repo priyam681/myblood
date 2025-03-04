@@ -76,7 +76,7 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{section.settings.prev_arrow_svg}}
+          {{section.settings.next_arrow_svg}}
         </span>
       </button>
 
@@ -200,7 +200,7 @@
     {%- endfor -%}
   </div>
 
-  {%- if section.blocks.size > 1 and section.settings.auto_rotate == true -%}
+  {%- if section.blocks.size > 1 and section.settings.auto_rotate == false -%}
     <div class="slideshow__controls slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
       <button
         type="button"
@@ -356,7 +356,7 @@
       "type": "checkbox",
       "id": "auto_rotate",
       "label": "t:sections.slideshow.settings.auto_rotate.label",
-      "default": true
+      "default": false
     },
     {
       "type": "range",
