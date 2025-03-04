@@ -6,7 +6,21 @@
   right: var(--inputs-border-width);
   top: var(--inputs-border-width);
 }
-
+.search-modal__form .field label {
+    display: none;
+}
+button.reset__button.field__button {
+    border: unset;
+}
+.search-modal__form  button.search__button.field__button {
+    position: absolute;
+    border: unset;
+    top: 28%;
+    right: 13px;
+}
+.search-modal__form  .search__input.field__input {
+      border-radius: 32px;
+}
 .reset__button {
   right: calc(var(--inputs-border-width) + 4.4rem);
   top: var(--inputs-border-width);
