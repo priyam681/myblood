@@ -51,6 +51,7 @@
         align-items: center;
         padding: 5px;
         width: 44px;
+       text-transform: uppercase;
     }
 }
 .top-social-links .list-social__item a {
