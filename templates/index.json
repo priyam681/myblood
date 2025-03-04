@@ -29,27 +29,56 @@
         "button": {
           "type": "buttons",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify://shop_images/living-room-2569325_1280.jpg",
+            "heading": "<strong>Designed for adventure</strong>",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "New in ",
+            "link": "shopify://products/antique-drawers",
+            "button_label2": "Winter Sale ",
+            "link2": "shopify://products/camp-stool",
+            "button_style_secondary": false,
+            "box_align": "middle-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 10,
+            "color_scheme": "scheme-3",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_R9UFpC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/living-room-2732939_1280.jpg",
+            "heading": "<strong>Designed for adventure</strong>",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "New in ",
+            "link": "shopify://products/camp-stool",
+            "button_label2": "Winter Sale ",
+            "link2": "shopify://products/antique-drawers",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 40,
+            "color_scheme": "scheme-3",
+            "text_alignment_mobile": "center"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "slide_WWbWh3",
+        "slide_R9UFpC"
       ],
       "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "desktop_content_position": "bottom-center",
-        "show_text_box": false,
-        "desktop_content_alignment": "center",
-        "color_scheme": "scheme-3",
+        "layout": "full_bleed",
+        "slide_height": "large",
+        "prev_arrow_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M11.354 6.646a.5.5 0 0 1 0 .708L7.207 11.5H18a.5.5 0 0 1 0 1H7.207l4.147 4.146a.5.5 0 0 1-.708.708l-5-5a.5.5 0 0 1 0-.708l5-5a.5.5 0 0 1 .708 0\"></path></svg>",
+        "next_arrow_svg": "<svg xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewbox=\"0 0 24 24\"><path fill=\"currentColor\" d=\"M12.646 6.646a.5.5 0 0 1 .708 0l5 5a.5.5 0 0 1 0 .708l-5 5a.5.5 0 0 1-.708-.708l4.147-4.146H6a.5.5 0 0 1 0-1h10.793l-4.147-4.146a.5.5 0 0 1 0-.708\"></path></svg>",
+        "slider_visual": "dots",
+        "auto_rotate": true,
+        "change_slides_speed": 5,
         "image_behavior": "none",
         "mobile_content_alignment": "center",
         "stack_images_on_mobile": false,
@@ -86,8 +115,26 @@
         "padding_bottom": 0
       }
     },
+    "from_place_3gHkmc": {
+      "type": "from-place",
+      "settings": {
+        "padding": 50,
+        "font-size": 100,
+        "headingtext": "Home, Heart, Harmony",
+        "details": "Since it’s an online furniture store, its primary goal is selling furniture in the fastest and easiest way. To achieve this, think about how to organize the content of your site."
+      }
+    },
+    "interior_professionals_VE84C4": {
+      "type": "interior-professionals",
+      "settings": {}
+    },
+    "weatherproof_Paw7fm": {
+      "type": "weatherproof",
+      "settings": {}
+    },
     "featured_collection": {
       "type": "featured-collection",
+      "disabled": true,
       "settings": {
         "title": "Featured products",
         "heading_size": "h2",
@@ -133,7 +180,7 @@
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": "lounge"
+            "collection": "loungesets"
           }
         }
       },
@@ -143,8 +190,8 @@
         "collection-1"
       ],
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
+        "heading": "<strong>Our Latest Arrivals</strong>",
+        "heading_size": "h1",
         "desktop_layout": "left",
         "mobile_layout": "collage",
         "card_styles": "product-card-wrapper",

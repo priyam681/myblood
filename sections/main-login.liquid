@@ -22,7 +22,7 @@
   <h1 id="recover" tabindex="-1">
     {{ 'customer.recover_password.title' | t }}
   </h1>
-  <div>
+  <div class="recover-password">
     <p>
       {{ 'customer.recover_password.subtext' | t }}
     </p>
@@ -30,6 +30,9 @@
     {%- form 'recover_customer_password' -%}
       {% assign recover_success = form.posted_successfully? %}
       <div class="field">
+        <label for="RecoverEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
         <input
           type="email"
           value=""
@@ -45,9 +48,6 @@
           {% endif %}
           placeholder="{{ 'customer.login_page.email' | t }}"
         >
-        <label for="RecoverEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
       </div>
       {%- if form.errors -%}
         <small id="RecoverEmail-email-error" class="form__message">
@@ -57,21 +57,23 @@
           {{ form.errors.messages.form }}
         </small>
       {%- endif -%}
-
-      <button>
-        {{ 'customer.login_page.submit' | t }}
-      </button>
-
-      <a href="#login">
-        {{ 'customer.login_page.cancel' | t }}
-      </a>
+      <div class="back-to-page">
+        <button>
+          {{ 'customer.login_page.submit' | t }}
+        </button>
+        <div>
+          <a href="#login">
+            {{ 'customer.login_page.cancel' | t }}
+          </a>
+        </div>
+      </div>
     {%- endform -%}
   </div>
 
   <h1 id="login" tabindex="-1">
     {{ 'customer.login_page.title' | t }}
   </h1>
-  <div>
+  <div class="login-container">
     {%- if recover_success == true -%}
       <h3 class="form__message" tabindex="-1" autofocus>
         <span class="svg-wrapper">
@@ -103,8 +105,11 @@
           {%- endunless -%}
         </section>
       {%- endif -%}
-
+      <h5 class="">Existing customer</h5>
       <div class="field">
+        <label for="CustomerEmail">
+          {{ 'customer.login_page.email' | t }}
+        </label>
         <input
           type="email"
           name="customer[email]"
@@ -117,13 +122,13 @@
           {% endif %}
           placeholder="{{ 'customer.login_page.email' | t }}"
         >
-        <label for="CustomerEmail">
-          {{ 'customer.login_page.email' | t }}
-        </label>
       </div>
 
       {%- if form.password_needed -%}
         <div class="field">
+          <label for="CustomerPassword">
+            {{ 'customer.login_page.password' | t }}
+          </label>
           <input
             type="password"
             value=""
@@ -135,9 +140,6 @@
             {% endif %}
             placeholder="{{ 'customer.login_page.password' | t }}"
           >
-          <label for="CustomerPassword">
-            {{ 'customer.login_page.password' | t }}
-          </label>
         </div>
 
         <a href="#recover">
@@ -145,14 +147,19 @@
         </a>
       {%- endif -%}
 
-      <button>
+      <button class="account-button">
         {{ 'customer.login_page.sign_in' | t }}
       </button>
-
-      <a href="{{ routes.account_register_url }}">
-        {{ 'customer.login_page.create_account' | t }}
-      </a>
     {%- endform -%}
+    <div>
+      <h5 class="">Don't have an account yet?</h5>
+      <p>Create account</p>
+      <button class="account-button">
+        <a href="{{ routes.account_register_url }}">
+          {{ 'customer.login_page.create_account' | t }}
+        </a>
+      </button>
+    </div>
   </div>
 
   {%- if shop.checkout.guest_login -%}

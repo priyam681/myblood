@@ -1,13 +1,92 @@
-.list-social {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-end;
+
+  .footer-block__details-content .list-social {
+    display: flex;
+    padding-left: 0;
+  }
+
+@media only screen and (max-width: 992px) {
+  .top-social-links {
+    display: none;
+  }
 }
 
-@media only screen and (max-width: 749px) {
-  .list-social {
-    justify-content: center;
+@media only screen and (min-width: 992px) {
+  .follow-me {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        z-index: 999;
+}
+  .follow-me:hover .top-social-links {
+    display:block !important;
   }
+  ul.list-unstyled.list-social.top-social-links {
+    display: none;
+}
+  .follow-me:hover .follow {
+     transition: .7s cubic-bezier(.89,.03,.06,1.5);
+        transform: translateY(-800px);
+        position: fixed;
+        overflow-y: hidden;
+        z-index: -5;
+        clip-path: stroke-box;
+  }
+
+.follow {
+      font-size: 21px;
+        padding: 6px;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        overflow: hidden;
+        background: #fff;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        z-index: 9;
+          display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+        width: 44px;
+       text-transform: uppercase;
+    }
+}
+.top-social-links .list-social__item a {
+   width: 44px;
+   background: #f7f5ef;
+}
+.top-social-links .list-social__item a {
+  position: relative;
+}
+  .hover-svg-wrapper {
+    display:none;
+  }
+  .top-social-links .list-social__item a:hover .svg-wrapper {
+    display:none;
+}
+  .top-social-links .list-social__item a:hover .hover-svg-wrapper {
+    display:flex;
+}
+ .top-social-links .list-social__item a:hover {
+        width: auto;
+        transition: all 0.6s ease-in-out;
+        padding-left: 50px;
+        display: flex;
+        gap: 6px;
+        background: #000000;
+        color: #fff;
+        border-top-right-radius: 6px;
+        border-bottom-right-radius: 6px;
+ } 
+  .top-social-links .list-social__item a:hover .visually-hidden {
+    position: unset !important;
+    width: auto;
+    height: auto;
+    overflow: auto;
+  } 
+  
 }
 
 .list-social__item .icon {
