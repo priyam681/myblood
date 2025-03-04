@@ -3,16 +3,18 @@
   --font-heading-scale: 1.2; /* Adjust this value as needed */
 }
 @font-face {
-    font-family: 'knockout';
-    src: url('https://fonts.cdnfonts.com/css/knockout') format('woff2'),
-         url('https://fonts.cdnfonts.com/css/knockout') format('woff');
-    font-weight: normal;
+    font-family: 'Knockout';
+    src: url('./KnockoutRegular.woff2') format('woff2'),
+        url('./KnockoutRegular.woff') format('woff');
+    font-weight: 100;
     font-style: normal;
+    font-display: swap;
 }
+
 
 /* Apply the custom font */
 body {
-    font-family: 'knockout';
+    font-family: 'Knockout';
 }
 
 
