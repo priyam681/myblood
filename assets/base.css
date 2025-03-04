@@ -716,7 +716,10 @@ h3 .icon-arrow,
     /* width: 20px;
     height: 20px; */
 }
-
+div#BackToTop:hover {
+    transform: rotate(357deg);
+    transition: 2s ease-in-out;
+}
 .svg-wrapper > svg {
   height: 100%;
   width: 100%;
