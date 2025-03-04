@@ -8,10 +8,10 @@
   }
 }
 
-.article-template__hero-container {
+/* .article-template__hero-container {
   max-width: 130rem;
   margin: 0 auto;
-}
+} */
 .article-template__back-blog .article-template__link {
       justify-content: end;
 }
