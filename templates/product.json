@@ -98,6 +98,15 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "",
+<<<<<<< HEAD
+        "media_size": "large",
+        "constrain_to_viewport": true,
+        "media_fit": "contain",
+        "gallery_layout": "stacked",
+        "media_position": "left",
+        "image_zoom": "lightbox",
+        "mobile_thumbnails": "hide",
+=======
         "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
@@ -105,6 +114,7 @@
         "media_position": "left",
         "image_zoom": "lightbox",
         "mobile_thumbnails": "show",
+>>>>>>> d4d855ab662a3b7623908cf7f73c553fcd7a0c4a
         "hide_variants": true,
         "enable_video_looping": true,
         "padding_top": 36,
