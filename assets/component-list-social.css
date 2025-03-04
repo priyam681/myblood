@@ -37,6 +37,12 @@
 .top-social-links .list-social__item a:hover  svg.icon.icon-youtube {
     color: #FF0000;
 }
+.top-social-links .list-social__item a:hover  svg.icon.icon-twitter {
+    color: #1DA1F2;
+}
+.top-social-links .list-social__item a:hover svg.icon.icon-pinterest {
+    color: #E60023;
+}
  .top-social-links .list-social__item a:hover {
    width: auto;
    transition: all 1s ease-in-out;
