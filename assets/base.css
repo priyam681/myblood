@@ -720,6 +720,9 @@ div#BackToTop:hover {
     transform: rotate(357deg);
     transition: 2s ease-in-out;
 }
+.faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details[open] summary .accordion__title {
+  color: #b57d54;
+}
 .svg-wrapper > svg {
   height: 100%;
   width: 100%;
