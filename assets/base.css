@@ -734,6 +734,10 @@ div#BackToTop:hover {
     position: absolute;
     border: unset;
     top: 28%;
+    right: 13px;
+}
+.search-modal__form  .search__input.field__input {
+      border-radius: 32px;
 }
 .svg-wrapper > svg {
   height: 100%;
