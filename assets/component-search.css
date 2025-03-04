@@ -12,6 +12,12 @@
 button.reset__button.field__button {
     border: unset;
 }
+button.reset__button.field__button {
+    position: absolute;
+    top: 48px;
+    z-index: 9;
+    right: 0;
+}
 .search-modal__form  button.search__button.field__button {
     position: absolute;
     border: unset;
