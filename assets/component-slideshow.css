@@ -180,7 +180,14 @@ slideshow-component:not(.page-width) .slider-buttons {
 .slideshow__autoplay:hover path {
   fill: rgb(var(--color-foreground));
 }
-
+ .slideshow.banner .banner__buttons {
+      --border-offset: unset;
+        background: black;
+        color: white;
+  } 
+.slideshow.banner .banner__buttons:hover {
+  background: white;
+}
 @media screen and (forced-colors: active) {
   .slideshow__autoplay path,
   .slideshow__autoplay:hover path {
