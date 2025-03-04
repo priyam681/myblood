@@ -9,8 +9,9 @@
   %}
 {% endcomment %}
 
-<ul class="list-unstyled list-social{% if class %} {{ class}}{% endif %}" role="list">
-  {%- if settings.social_facebook_link != blank -%}
+<ul class="artboard list-unstyled list-social{% if class %} {{ class}}{% endif %}" role="list">
+  <div class="button">
+    {%- if settings.social_facebook_link != blank -%}
     <li class="list-social__item">
       <a href="{{ settings.social_facebook_link }}" class="link list-social__link">
         <span class="svg-wrapper">
@@ -100,4 +101,5 @@
       </a>
     </li>
   {%- endif -%}
+  </div>
 </ul>
