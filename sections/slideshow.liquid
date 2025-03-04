@@ -210,7 +210,7 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
+           {{section.settings.prev_arrow_svg}}
         </span>
       </button>
       <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
@@ -245,7 +245,7 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
+         {{section.settings.next_arrow_svg}}
         </span>
       </button>
 
@@ -319,6 +319,18 @@
       ],
       "default": "medium",
       "label": "t:sections.slideshow.settings.slide_height.label"
+    },
+     {
+      "type": "textarea",
+      "id": "prev_arrow_svg",
+      "label": "Previous Arrow SVG",
+      "default": "<svg width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='...'></path></svg>"
+    },
+     {
+      "type": "textarea",
+      "id": "next_arrow_svg",
+      "label": "Previous Arrow SVG",
+      "default": "<svg width='24' height='24' viewBox='0 0 24 24'><path fill='currentColor' d='...'></path></svg>"
     },
     {
       "type": "select",
