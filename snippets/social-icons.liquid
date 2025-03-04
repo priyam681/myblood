@@ -8,14 +8,11 @@
     class: 'my-class'
   %}
 {% endcomment %}
-<div class="overlay">
-                <a href="#" class="follow-me">Follow Me</a>
- </div>
-<ul class="artboard list-unstyled list-social{% if class %} {{ class}}{% endif %}" role="list">
-  <div class="button">
-    {%- if settings.social_facebook_link != blank -%}
+
+<ul class="list-unstyled list-social{% if class %} {{ class}}{% endif %}" role="list">
+  {%- if settings.social_facebook_link != blank -%}
     <li class="list-social__item">
-      <a href="{{ settings.social_facebook_link }}" class="link list-social__link fa-facebook">
+      <a href="{{ settings.social_facebook_link }}" class="link list-social__link">
         <span class="svg-wrapper">
           {{- 'icon-facebook.svg' | inline_asset_content -}}
         </span>
@@ -25,7 +22,7 @@
   {%- endif -%}
   {%- if settings.social_instagram_link != blank -%}
     <li class="list-social__item">
-      <a href="{{ settings.social_instagram_link }}" class="link list-social__link fa-instagram">
+      <a href="{{ settings.social_instagram_link }}" class="link list-social__link">
         <span class="svg-wrapper">
           {{- 'icon-instagram.svg' | inline_asset_content -}}
         </span>
@@ -35,7 +32,7 @@
   {%- endif -%}
   {%- if settings.social_youtube_link != blank -%}
     <li class="list-social__item">
-      <a href="{{ settings.social_youtube_link }}" class="link list-social__link fa-youtube">
+      <a href="{{ settings.social_youtube_link }}" class="link list-social__link">
         <span class="svg-wrapper">
           {{- 'icon-youtube.svg' | inline_asset_content -}}
         </span>
@@ -45,7 +42,7 @@
   {%- endif -%}
   {%- if settings.social_tiktok_link != blank -%}
     <li class="list-social__item">
-      <a href="{{ settings.social_tiktok_link }}" class="link list-social__link fa-tiktok">
+      <a href="{{ settings.social_tiktok_link }}" class="link list-social__link">
         <span class="svg-wrapper">
           {{- 'icon-tiktok.svg' | inline_asset_content -}}
         </span>
@@ -55,7 +52,7 @@
   {%- endif -%}
   {%- if settings.social_twitter_link != blank -%}
     <li class="list-social__item">
-      <a href="{{ settings.social_twitter_link }}" class="link list-social__link fa-twiiter">
+      <a href="{{ settings.social_twitter_link }}" class="link list-social__link">
         <span class="svg-wrapper">
           {{- 'icon-twitter.svg' | inline_asset_content -}}
         </span>
@@ -103,5 +100,4 @@
       </a>
     </li>
   {%- endif -%}
-  </div>
 </ul>
