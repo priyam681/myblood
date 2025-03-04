@@ -5,15 +5,7 @@
     | plus: predictive_search.resources.pages.size
     | plus: predictive_search.resources.articles.size
   %}
-  <button
-              type="reset"
-              class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
-              aria-label="{{ 'general.search.reset' | t }}"
-            >
-              <span class="svg-wrapper">
-                {{- 'icon-reset.svg' | inline_asset_content -}}
-              </span>
-            </button>
+  
   <div id="predictive-search-results" role="listbox">
     {%- if first_column_results_size > 0 or predictive_search.resources.products.size > 0 -%}
       <div
