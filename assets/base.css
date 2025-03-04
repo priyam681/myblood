@@ -8,18 +8,6 @@ h1 {
   font-size: calc(var(--font-heading-scale) * 1.8rem);
 }
 
-@font-face {
-    font-family: 'Knockout';
-    src: url('./Knockout-HTF50-Welterweight.woff2') format('woff2'),
-        url('./Knockout-HTF50-Welterweight.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-body {
-  font-family: 'Knockout';
-}
-
 h2 {
   font-size: calc(var(--font-heading-scale) * 1.6rem);
 }
