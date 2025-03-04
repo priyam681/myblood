@@ -14,6 +14,7 @@
 } */
 .article-template__back-blog .article-template__link {
       justify-content: end;
+       padding: 0 5rem;
 }
 .blog-artical-section-wrapper .article-template__title:not(:only-child) {
     margin-bottom: 0;
