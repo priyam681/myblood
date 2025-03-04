@@ -159,7 +159,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 .sliding-collection-wrapper img.collection-image-custom:hover {
     transform: rotate(358deg);
-    transition: 2s;
+    transition: 0.5s;
 }
 .page-width-desktop {
   padding: 0;
