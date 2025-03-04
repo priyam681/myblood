@@ -185,10 +185,7 @@ slideshow-component:not(.page-width) .slider-buttons {
         background: black;
         color: white;
   } 
-.banner__buttons:hover .button {
-  background: white;
-  color: black;
-}
+
 @media screen and (forced-colors: active) {
   .slideshow__autoplay path,
   .slideshow__autoplay:hover path {
