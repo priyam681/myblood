@@ -161,6 +161,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     transform: rotate(358deg);
     transition: 2s ease;
 }
+.place-wrapper .wrapper .image-slider .image img  {
+      object-fit: cover;
+}
 .page-width-desktop {
   padding: 0;
   margin: 0 auto;
