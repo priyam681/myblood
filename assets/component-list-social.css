@@ -28,8 +28,14 @@
 .top-social-links .list-social__item a {
   position: relative;
 }
-  .top-social-links .list-social__item a:hover svg.icon.icon-facebook {
-    color: #0866ff;
+  .hover-svg-wrapper {
+    display:none;
+  }
+  .top-social-links .list-social__item a:hover .svg-wrapper {
+    display:none;
+}
+  .top-social-links .list-social__item a:hover .hover-svg-wrapper {
+    display:block;
 }
   .top-social-links .list-social__item a:hover  svg.icon.icon-instagram {
     color: #F56040;
