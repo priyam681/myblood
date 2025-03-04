@@ -31,6 +31,9 @@
   .top-social-links .list-social__item a:hover svg.icon.icon-facebook {
     color: #0866ff;
 }
+  .top-social-links .list-social__item a:hover  svg.icon.icon-instagram {
+    color: #F56040;
+}
  .top-social-links .list-social__item a:hover {
    width: auto;
    transition: all 1s ease-in-out;
