@@ -21,6 +21,14 @@ button.reset__button.field__button {
 .search-modal__form  .search__input.field__input {
       border-radius: 32px;
 }
+.search-modal__form button.search__button.field__button {
+    position: absolute;
+    border: unset;
+    top: 27px;
+    display: flex;
+    align-items: center;
+    transform: translate(-13px, -13px);
+}
 .reset__button {
   right: calc(var(--inputs-border-width) + 4.4rem);
   top: var(--inputs-border-width);
