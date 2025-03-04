@@ -21,7 +21,7 @@
   z-index: 999;
 }
   .follow-me  .top-social-links {
-    display:block;
+    display:block !important;
   }
   ul.list-unstyled.list-social.top-social-links {
     display: none;
