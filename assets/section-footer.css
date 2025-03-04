@@ -46,7 +46,7 @@ a.link.link--text.list-menu__item:hover {
     margin-bottom: 0;
   }
   .footer__list-social {
-    display:none;
+    display:none !important;
   }
 }
 
