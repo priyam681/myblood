@@ -154,7 +154,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 .page-width.drawer-menu {
   max-width: 100%;
 }
-.sliding-collection-wrapper button.carousel-nav.prev-btn:hover {
+.sliding-collection-wrapper button.carousel-nav:hover {
     background: #836851;
 }
 
