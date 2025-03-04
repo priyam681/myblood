@@ -721,7 +721,7 @@ div#BackToTop:hover {
     transition: 2s ease-in-out;
 }
 .faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details[open] summary .accordion__title {
-  color: #b57d54;
+  color: #b57d54 !important;
 }
 .svg-wrapper > svg {
   height: 100%;
