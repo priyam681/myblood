@@ -112,7 +112,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
 }
 .link-btn a {
     background: black;
-    padding: 16px 32px;
+    padding: 16px 20px;
     line-height: normal;
     max-width: 200px;
     text-align: center;
