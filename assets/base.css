@@ -4,12 +4,13 @@
 }
 @font-face {
     font-family: 'Knockout';
-    src: url('./KnockoutRegular.woff2') format('woff2'),
-        url('./KnockoutRegular.woff') format('woff');
-    font-weight: 100;
+    src: url('./Knockout-HTF49-Liteweight.woff2') format('woff2'),
+        url('./Knockout-HTF49-Liteweight.woff') format('woff');
+    font-weight: 500;
     font-style: normal;
     font-display: swap;
 }
+
 
 
 /* Apply the custom font */
