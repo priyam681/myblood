@@ -95,6 +95,7 @@ predictive-search[loading] .predictive-search {
   margin: 0 2rem;
   padding: 1.5rem 0 0.75rem;
   color: rgba(var(--color-foreground));
+  font-weight:bold;
 }
 
 predictive-search .spinner {
