@@ -30,10 +30,15 @@
     padding: 20px 40px;
     min-height: 8px;
     border: none;
-    background: #afa39a;
+    background: black;
     color: #fff;
     max-height: 54px;
     border-radius: 6px;
+}
+.newsletter-form__button.field__button:hover {
+    background: white;
+    color: black;
+    border: 1px solid black;
 }
 .newsletter-form__field-wrapper .field {
   z-index: 0;
