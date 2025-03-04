@@ -2,22 +2,6 @@
 :root {
   --font-heading-scale: 1.2; /* Adjust this value as needed */
 }
-@font-face {
-    font-family: 'Knockout';
-    src: url('./Knockout-HTF49-Liteweight.woff2') format('woff2'),
-        url('./Knockout-HTF49-Liteweight.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-
-
-/* Apply the custom font */
-body {
-    font-family: 'Knockout';
-}
-
 
 /* Apply the calculated font-size to headings */
 h1 {
