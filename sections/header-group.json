@@ -37,11 +37,17 @@
     },
     "header": {
       "type": "header",
+      "custom_css": [],
       "settings": {
         "logo_position": "middle-left",
         "menu": "main-menu",
+<<<<<<< HEAD
+        "menu_type_desktop": "mega",
+        "sticky_header_type": "on-scroll-up",
+=======
         "menu_type_desktop": "dropdown",
         "sticky_header_type": "always",
+>>>>>>> d4d855ab662a3b7623908cf7f73c553fcd7a0c4a
         "show_line_separator": true,
         "color_scheme": "scheme-1",
         "menu_color_scheme": "",

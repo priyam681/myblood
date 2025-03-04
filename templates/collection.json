@@ -20,9 +20,21 @@
     "product-grid": {
       "type": "main-collection-product-grid",
       "settings": {
-        "products_per_page": 16,
+        "products_per_page": 8,
+        "show-varient": true,
+        "enable_product_card_slider": true,
         "columns_desktop": 4,
         "color_scheme": "",
+<<<<<<< HEAD
+        "image_ratio": "portrait",
+        "image_shape": "default",
+        "show_secondary_image": false,
+        "show_vendor": true,
+        "show_rating": true,
+        "quick_add": "standard",
+        "enable_filtering": true,
+        "filter_type": "drawer",
+=======
         "image_ratio": "adapt",
         "image_shape": "default",
         "show_secondary_image": false,
@@ -31,6 +43,7 @@
         "quick_add": "none",
         "enable_filtering": true,
         "filter_type": "horizontal",
+>>>>>>> d4d855ab662a3b7623908cf7f73c553fcd7a0c4a
         "enable_sorting": true,
         "columns_mobile": "2",
         "padding_top": 36,
