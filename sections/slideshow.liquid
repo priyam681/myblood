@@ -41,7 +41,7 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{- 'arrow-left.svg' | inline_asset_content -}}
+            {{section.settings.prev_arrow_svg}}
         </span>
       </button>
       <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
@@ -76,7 +76,7 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{- 'arrow-right.svg' | inline_asset_content -}}
+          {{section.settings.prev_arrow_svg}}
         </span>
       </button>
 
@@ -200,7 +200,7 @@
     {%- endfor -%}
   </div>
 
-  {%- if section.blocks.size > 1 and section.settings.auto_rotate == false -%}
+  {%- if section.blocks.size > 1 and section.settings.auto_rotate == true -%}
     <div class="slideshow__controls slider-buttons{% if section.settings.show_text_below %} slideshow__controls--border-radius-mobile{% endif %}">
       <button
         type="button"
