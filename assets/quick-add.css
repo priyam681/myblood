@@ -22,9 +22,6 @@
   height: 24px;
   width: 24px;
 }
-.sp-card-inner {
-  overflow: hidden;
-}
 .sp-card-inner .sp-btn-wrapper .quick-add__submit {
   padding: 1.25rem;
   border-radius: 50%;
@@ -50,7 +47,7 @@
 }
 .sp-card-inner .sp-btn-wrapper {
   position: absolute;
-  bottom: -100%;
+  bottom: -100px;
   right: 0;
   display: flex;
   gap: 10px;

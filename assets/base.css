@@ -11,6 +11,13 @@
 .sp-card-wrapper .card__content .quick-add {
   display: none;
 }
+.sp-card-wrapper .card .card__inner .card__media {
+  z-index: 1;
+}
+.sp-card-wrapper .card__content {
+  position: relative;
+  background: #ffffff;
+}
 product-slider.product-card-slider.sp-card-slider .full-unstyled-link {
   display: inline;
 }

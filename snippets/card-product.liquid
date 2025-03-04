@@ -30,6 +30,82 @@
 {%- endunless -%}
 
 <style>
+  .variant-options {
+    margin-top: 16px;
+        z-index: 99999;
+  }
+  }
+
+  .variant-category {
+    margin-bottom: 16px;
+  }
+
+  .variant-category h4 {
+   display:none;
+  }
+
+  .flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px; / Space between buttons /
+  }
+  .product-card-wrapper:hover .variant-options {
+     display:block;
+  }
+
+  .sp-card-wrapper .variant-options.sp-variant-options {
+    display: block;
+  }
+  .sp-card-wrapper .sp-variant-options .flex-container {
+    margin-top: 16px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(86px, 1fr));
+  }
+  .sp-card-wrapper .sp-variant-options a.variant-button {
+    font-size: calc(14px + 2*((100vw - 992px) / 928));
+    line-height: calc(16px + 2*((100vw - 992px) / 928));
+    width: auto;
+    padding: 11px 0;
+    text-align: center;
+    background-color: #fff;
+    border: 1px solid #d9d9d9;
+    border-radius: 3px;
+    letter-spacing: -.4px;
+    color: #212121;
+    font-weight: 300;
+  }
+  .sp-card-wrapper .sp-variant-options a.variant-button:hover {
+    color: #000000;
+    border: 1px solid #212121;
+  }
+  .variant-options {
+    display:none;
+  }
+  .variant-button {
+    display: inline-block;
+    padding: 3px 10px;
+    background-color: #f9f9f9;
+    border-radius: 4px;
+    text-decoration: none; / Remove underline /
+    color: #333; / Text color /
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-align: center;
+    text-decoration: none !important;
+  }
+
+
+  .variant-button:hover {
+    background-color: #eee;
+    border-color: #aaa;
+  }
+
+  .variant-button:active {
+    background-color: #ddd;
+    border-color: #888;
+  }
+
   .card__heading a::after {
     bottom: 0;
     content: '';
@@ -286,32 +362,32 @@
         </div>
 
         {% if product_card_slider and card_product.media.size > 1 %}
-            <product-slider class="product-card-slider sp-card-slider">
-              <div class="card__content sp-card_content">
-                <div class="card__badge {{ settings.badge_position }}">
-                  {%- if card_product.available == false -%}
-                    <span
-                      id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                      class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
-                    >
-                      {{- 'products.product.sold_out' | t -}}
-                    </span>
-                  {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
-                    <span
-                      id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-                      class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
-                    >
-                      {{- 'products.product.on_sale' | t -}}
-                    </span>
-                  {%- endif -%}
-                </div>
+          <product-slider class="product-card-slider sp-card-slider">
+            <div class="card__content sp-card_content">
+              <div class="card__badge {{ settings.badge_position }}">
+                {%- if card_product.available == false -%}
+                  <span
+                    id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                    class="badge badge--bottom-left color-{{ settings.sold_out_badge_color_scheme }}"
+                  >
+                    {{- 'products.product.sold_out' | t -}}
+                  </span>
+                {%- elsif card_product.compare_at_price > card_product.price and card_product.available -%}
+                  <span
+                    id="NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+                    class="badge badge--bottom-left color-{{ settings.sale_badge_color_scheme }}"
+                  >
+                    {{- 'products.product.on_sale' | t -}}
+                  </span>
+                {%- endif -%}
               </div>
-              <a
-                href="{{ card_product.url }}"
-                id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}"
-                class="full-unstyled-link"
-                aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
-              >
+            </div>
+            <a
+              href="{{ card_product.url }}"
+              id="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }}"
+              class="full-unstyled-link"
+              aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
+            >
               <div class="product__slider-wrapper">
                 {% for media in card_product.media limit: 4 %}
                   <div class="product__slider-item {% if forloop.first %}active{% endif %}">
@@ -341,47 +417,46 @@
                 {% endfor %}
               </div>
             </a>
-              <!-- Navigation buttons defined here in the template -->
-              <button class="product__slider-button product__slider-button--prev">
-                <span class="visually-hidden">
-                  {{- 'products.product.previous_slide' | t | default: 'Previous slide' -}}
-                </span>
-                <svg
-                  width="8"
-                  height="14"
-                  viewBox="0 0 8 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button>
-              <button class="product__slider-button product__slider-button--next">
-                <span class="visually-hidden">{{ 'products.product.next_slide' | t | default: 'Next slide' }}</span>
-                <svg
-                  width="8"
-                  height="14"
-                  viewBox="0 0 8 14"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2"
-                        stroke-linecap="round" stroke-linejoin="round" />
-                </svg>
-              </button>
-  
-              <!-- Dots for navigation -->
-              <div class="product__slider-dots">
-                {% for media in card_product.media limit: 4 %}
-                  <button
-                    class="product__slider-dot {% if forloop.first %}active{% endif %}"
-                    data-index="{{ forloop.index0 }}"
-                  ></button>
-                {% endfor %}
-              </div>
-            </product-slider>
-         
+            <!-- Navigation buttons defined here in the template -->
+            <button class="product__slider-button product__slider-button--prev">
+              <span class="visually-hidden">
+                {{- 'products.product.previous_slide' | t | default: 'Previous slide' -}}
+              </span>
+              <svg
+                width="8"
+                height="14"
+                viewBox="0 0 8 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+            <button class="product__slider-button product__slider-button--next">
+              <span class="visually-hidden">{{ 'products.product.next_slide' | t | default: 'Next slide' }}</span>
+              <svg
+                width="8"
+                height="14"
+                viewBox="0 0 8 14"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2"
+                      stroke-linecap="round" stroke-linejoin="round" />
+              </svg>
+            </button>
+
+            <!-- Dots for navigation -->
+            <div class="product__slider-dots">
+              {% for media in card_product.media limit: 4 %}
+                <button
+                  class="product__slider-dot {% if forloop.first %}active{% endif %}"
+                  data-index="{{ forloop.index0 }}"
+                ></button>
+              {% endfor %}
+            </div>
+          </product-slider>
 
           <!-- Your default image code here -->
 
@@ -598,6 +673,9 @@
               {% endif %}
             {%- endif -%}
           </div>
+          {% if show-varient %}
+            {% render 'variant_options', card_product: card_product %}
+          {% endif %}
         </div>
         {% assign product_form_id = 'quick-add-' | append: section_id | append: card_product.id %}
         {% if quick_add == 'standard' %}
@@ -932,4 +1010,6 @@
       </div>
     </div>
   </div>
+
+ 
 {%- endif -%}

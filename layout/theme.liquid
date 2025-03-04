@@ -386,5 +386,11 @@
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
     {% render 'back-to-the-top' %}}
+
+    <script defer>
+      window.addEventListener('load', function () {
+        document.querySelector('.quick-add-modal__toggle').addEventListener('click', function () {});
+      });
+    </script>
   </body>
 </html>

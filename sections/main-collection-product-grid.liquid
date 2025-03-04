@@ -42,12 +42,10 @@
   .loading-overlay__spinner {
     display: inline-block;
     margin-left: 0.5rem;
+    margin-top: 0.5rem;
   }
 
   .spinner-loader {
-    display: inline-block;
-    width: 1.5rem;
-    height: 1.5rem;
     border: 0.3rem solid rgba(var(--color-foreground), 0.2);
     border-top-color: rgba(var(--color-foreground), 0.8);
     border-radius: 50%;
@@ -191,6 +189,7 @@
                   {% endif %}
                 >
                   {% render 'card-product',
+                    show-varient: section.settings['show-varient'],
                     card_product: product,
                     media_aspect_ratio: section.settings.image_ratio,
                     image_shape: section.settings.image_shape,
@@ -216,9 +215,13 @@
                 data-section-id="{{ section.id }}"
               >
                 <button id="LoadMoreButton" class="button">
-                  {{ 'load-more' }}
+                  <span class="load-more-text">
+                    {{ 'load-more' }}
+                  </span>
                   <span class="loading-overlay__spinner hidden">
-                    <span class="spinner-loader"></span>
+                    <span class="spinner-loader">
+                      <img src="{{ 'loder.gif' | asset_url }}" alt="loder" class="sp-loder" width="24" height="24">
+                    </span>
                   </span>
                 </button>
               </load-more-button>
@@ -249,11 +252,17 @@
     },
     {
       "type": "checkbox",
+      "id": "show-varient",
+      "default": false,
+      "label": "show variant option"
+    },
+    {
+      "type": "checkbox",
       "id": "enable_product_card_slider",
       "label": "Enable Product Card Slider",
       "default": false
     },
-    
+
     {
       "type": "range",
       "id": "columns_desktop",
