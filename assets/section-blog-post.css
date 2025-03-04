@@ -12,7 +12,10 @@
   max-width: 130rem;
   margin: 0 auto;
 }
-
+.blog-artical-section-wrapper {
+  max-width: 130rem;
+  margin: 0 auto;
+}
 .article-template__hero-small {
   height: 11rem;
 }
