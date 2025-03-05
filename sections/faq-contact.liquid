@@ -158,7 +158,7 @@
                     open
                   {% endif %}
                 >
-                  <summary id="Summary-{{ block.id }}-{{ section.id }}">
+                  <summary  id="Summary-{{ block.id }}-{{ section.id }}">
                     {% render 'icon-accordion', icon: block.settings.icon %}
                     <h3 class="accordion__title inline-richtext h4">
                       {{ block.settings.heading | default: block.settings.page.title | escape }}
@@ -167,7 +167,9 @@
                     {{- 'minus-icon.svg' | inline_asset_content -}}
                   </summary>
                   <div
-                    class="accordion__content rte sprinix-content-accordian"
+                    class="accordion__content rte sprinix-content-accordian {% if section.settings.open_first_collapsible_row and forloop.first %}
+                    open
+                  {% endif %}"
                     id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
                     role="region"
                     aria-labelledby="Summary-{{ block.id }}-{{ section.id }}"
@@ -184,28 +186,7 @@
     </div>
   </div>
 </div>
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll("details summary").forEach((summary) => {
-      summary.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default behavior
 
-        let details = this.parentElement;
-        let content = details.querySelector(".accordion__content");
-
-        if (!details.open) {
-          // Open the details smoothly
-          details.setAttribute("open", "true");
-          content.classList.add("active");
-        } else {
-          // Close the details smoothly
-          details.removeAttribute("open");
-          content.classList.remove("active");
-        }
-      });
-    });
-  });
-</script>
 
 
 {% schema %}
