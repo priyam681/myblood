@@ -24,7 +24,7 @@
         "heading_size": "h1",
         "video_action": "load",
         "enable_video_looping": true,
-        "video": "shopify://files/videos/videoplayback.mp4",
+        "video": "",
         "video_url": "",
         "cover_image": "shopify://shop_images/Screenshot_from_2025-02-28_10-50-51.png",
         "description": "",
