@@ -28,6 +28,9 @@
     z-index: 9999999999999999;
 }
 
+.sprinix-cart-box-wrapper {
+    margin-top: -300px;
+}
 
 @media screen and (min-width: 750px) {
   .contact .field {
