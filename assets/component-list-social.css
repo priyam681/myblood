@@ -11,7 +11,7 @@
 }
 
 @media only screen and (min-width: 992px) {
-  .list-social {
+  .follow-me {
         position: fixed;
         top: 50%;
         transform: translateY(-50%);
@@ -24,7 +24,35 @@
   ul.list-unstyled.list-social.top-social-links {
     display: none;
 }
+  .follow-me:hover .follow {
+     transition: .7s cubic-bezier(.89,.03,.06,1.5);
+        transform: translateY(-800px);
+        position: fixed;
+        overflow-y: hidden;
+        z-index: -5;
+        clip-path: stroke-box;
+  }
 
+.follow {
+      font-size: 21px;
+        padding: 6px;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        overflow: hidden;
+        background: #fff;
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        z-index: 9;
+          display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 5px;
+        width: 44px;
+       text-transform: uppercase;
+    }
+}
 .top-social-links .list-social__item a {
    width: 44px;
    background: #f7f5ef;
