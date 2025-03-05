@@ -22,16 +22,39 @@
   <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+<script src="{{ 'load-more.js' | asset_url }}" defer></script>
+<script src="{{ 'product-slider.js' | asset_url }}" defer></script>
+
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  /* Existing styles */
+
+  .load-more-container {
+    margin-top: 2rem;
+    text-align: center;
+    display: block;
   }
 
-  @media screen and (min-width: 750px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+  .load-more-container button {
+    position: relative;
+    min-width: 15rem;
+  }
+
+  .loading-overlay__spinner {
+    display: inline-block;
+    margin-left: 0.5rem;
+    margin-top: 0.8rem;
+  }
+
+  .spinner-loader {
+    border: 0.3rem solid rgba(var(--color-foreground), 0.2);
+    border-top-color: rgba(var(--color-foreground), 0.8);
+    border-radius: 50%;
+    animation: spinner 0.8s linear infinite;
+  }
+
+  @keyframes spinner {
+    to {
+      transform: rotate(360deg);
     }
   }
 {%- endstyle -%}
@@ -166,6 +189,7 @@
                   {% endif %}
                 >
                   {% render 'card-product',
+                    show-varient: section.settings['show-varient'],
                     card_product: product,
                     media_aspect_ratio: section.settings.image_ratio,
                     image_shape: section.settings.image_shape,
@@ -175,7 +199,8 @@
                     lazy_load: lazy_load,
                     skip_styles: skip_card_product_styles,
                     quick_add: section.settings.quick_add,
-                    section_id: section.id
+                    section_id: section.id,
+                    product_card_slider: section.settings.enable_product_card_slider
                   %}
                 </li>
                 {%- assign skip_card_product_styles = true -%}
@@ -183,7 +208,23 @@
             </ul>
 
             {%- if paginate.pages > 1 -%}
-              {% render 'pagination', paginate: paginate, anchor: '' %}
+              <load-more-button
+                class="load-more-container center"
+                data-current-page="1"
+                data-total-pages="{{ paginate.pages }}"
+                data-section-id="{{ section.id }}"
+              >
+                <button id="LoadMoreButton" class="button">
+                  <span class="load-more-text">
+                    {{ 'load-more' }}
+                  </span>
+                  <span class="loading-overlay__spinner hidden">
+                    <span class="spinner-loader">
+                      <img src="{{ 'loder.gif' | asset_url }}" alt="loder" class="sp-loder" width="24" height="24">
+                    </span>
+                  </span>
+                </button>
+              </load-more-button>
             {%- endif -%}
           </div>
         {%- endif -%}
@@ -209,6 +250,19 @@
       "default": 16,
       "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
     },
+    {
+      "type": "checkbox",
+      "id": "show-varient",
+      "default": false,
+      "label": "show variant option"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_product_card_slider",
+      "label": "Enable Product Card Slider",
+      "default": false
+    },
+
     {
       "type": "range",
       "id": "columns_desktop",
