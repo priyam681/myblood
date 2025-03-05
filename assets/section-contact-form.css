@@ -27,7 +27,9 @@
     position: relative;
     z-index: 9999999999999999;
 }
-
+.field__input {
+    border-radius: 4px;
+}
 .sprinix-cart-box-wrapper {
     margin-top: -300px;
 }
