@@ -184,6 +184,29 @@
     </div>
   </div>
 </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("details summary").forEach((summary) => {
+      summary.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default behavior
+
+        let details = this.parentElement;
+        let content = details.querySelector(".accordion__content");
+
+        if (!details.open) {
+          // Open the details smoothly
+          details.setAttribute("open", "true");
+          content.classList.add("active");
+        } else {
+          // Close the details smoothly
+          details.removeAttribute("open");
+          content.classList.remove("active");
+        }
+      });
+    });
+  });
+</script>
+
 
 {% schema %}
 {
