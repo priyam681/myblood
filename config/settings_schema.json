@@ -149,6 +149,17 @@
     ]
   },
   {
+    "name": "Sp Quickview",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "sp-quick-view-container",
+        "label": "sp-quick-view-container",
+        "default": false
+      }
+    ]
+  },
+  {
     "name": "t:settings_schema.layout.name",
     "settings": [
       {

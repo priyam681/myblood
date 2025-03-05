@@ -1,0 +1,66 @@
+nav.header__inline-menu ul li span {
+  font-size: 16px;
+  font-weight: 600;
+  text-transform: capitalize;
+  position: relative;
+  text-decoration: none;
+}
+nav.header__inline-menu ul li .header__menu-item:hover span,
+nav.header__inline-menu details:hover > .header__menu-item,
+.header__menu-item:hover span {
+  text-decoration: none;
+}
+svg.icon.icon-caret {
+  width: 12px;
+  height: 20px;
+  top: calc(50% - 0.9rem);
+}
+
+nav.header__inline-menu ul li span:hover::before {
+  transform-origin: 0% 50%;
+  transform: scale3d(1, 1, 1);
+}
+nav.header__inline-menu ul li span::before {
+  transform-origin: 100% 50%;
+  transform: scale3d(0, 1, 1);
+  transition: transform 0.3s;
+}
+
+nav.header__inline-menu ul li span::before {
+  content: "";
+}
+nav.header__inline-menu ul li span::before {
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  background: currentColor;
+  top: 100%;
+  left: 0;
+  pointer-events: none;
+}
+header-wrapper {
+  background: transparent;
+}
+sticky-header.header-wrapper {
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  background: #ffffffe6;
+}
+.forimage2 {
+  width: 100%;
+}
+.forimage2 .mega_menu_img.slide {
+  flex: 0 0 50%;
+  padding: 0 0 20px;
+}
+.forimage2 .swiper-wrapper {
+  gap: 15px;
+}
+/ ==============crousel section=================== / div#MegaMenu-Content-7 {
+  overflow: hidden;
+}
+
+.mega-menu__list {
+  overflow: hidden;
+  position: relative;
+}
