@@ -41,6 +41,10 @@
   background:white;
   color:black;
 }
+.sprinix-summary-wrap.active .sprinix-content-accordian {
+  transform: translateY(20px);
+  transition: 2s ease;
+}
 @media screen and (min-width: 768px) {
  .sprinix-cart-box-wrapper .sprinix-kart-contact-us {
         padding-top: 50px;
