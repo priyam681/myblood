@@ -42,7 +42,15 @@
   background:white;
   color:black;
 }
+@media screen and (min-width: 768px) {
+  .sprinix-kart-contact-us {
+        padding-top: 50px;
+        padding-bottom: 50px;
+  }
+}
 @media screen and (max-width: 768px) {
+  
+}
   .sprinix-cart-box-wrapper {
         margin-left: 14px;
         margin-right: 14px
