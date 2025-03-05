@@ -167,12 +167,13 @@
                     {{- 'minus-icon.svg' | inline_asset_content -}}
                   </summary>
                   <div
-                    class="accordion__content rte sprinix-content-accordian {% if section.settings.open_first_collapsible_row and forloop.first %}
-                    open
-                  {% endif %}"
+                    class="accordion__content rte sprinix-content-accordian"
                     id="CollapsibleAccordion-{{ block.id }}-{{ section.id }}"
                     role="region"
                     aria-labelledby="Summary-{{ block.id }}-{{ section.id }}"
+                    {% if section.settings.open_first_collapsible_row and forloop.first %}
+                    open
+                  {% endif %}
                   >
                     {{ block.settings.row_content }}
                     {{ block.settings.page.content }}
