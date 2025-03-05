@@ -11,6 +11,19 @@
 }
 
 @media only screen and (min-width: 992px) {
+  .follow-me {
+        position: fixed;
+        top: 50%;
+        transform: translateY(-50%);
+        left: 0;
+        z-index: 999;
+}
+  .follow-me:hover .top-social-links {
+    display:block !important;
+  }
+  ul.list-unstyled.list-social.top-social-links {
+    display: none;
+}
 
 .top-social-links .list-social__item a {
    width: 44px;
