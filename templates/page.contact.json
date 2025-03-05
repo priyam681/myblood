@@ -17,23 +17,6 @@
         "padding_bottom": 0
       }
     },
-    "video_tnQjpr": {
-      "type": "video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "video_action": "load",
-        "enable_video_looping": true,
-        "video": "shopify://files/videos/videoplayback.mp4",
-        "video_url": "",
-        "cover_image": "shopify://shop_images/Screenshot_from_2025-02-28_10-50-51.png",
-        "description": "",
-        "full_width": true,
-        "color_scheme": "",
-        "padding_top": 0,
-        "padding_bottom": 0
-      }
-    },
     "form": {
       "type": "contact-form",
       "settings": {
@@ -163,10 +146,9 @@
   },
   "order": [
     "main",
-    "video_tnQjpr",
+    "map_C7Kf9V",
     "form",
     "faq_contact_UBVyBU",
-    "contact_multicolumn_QwLXpc",
-    "map_C7Kf9V"
+    "contact_multicolumn_QwLXpc"
   ]
 }

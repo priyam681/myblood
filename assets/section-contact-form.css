@@ -16,6 +16,46 @@
 .contact .title {
       text-align: center;
 } 
+
+/* contact */
+
+  .sprinix-kart-contact-us {
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 20px;
+    margin-top: 0;
+    position: relative;
+}
+.field__input {
+    border-radius: 4px;
+}
+.sprinix-cart-box-wrapper {
+    margin-top: -300px;
+}
+.sprinix-kart-contact-us  .contact__button {
+        display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.sprinix-kart-contact-us button:hover {
+  background:white;
+  color:black;
+}
+@media screen and (min-width: 768px) {
+ .sprinix-cart-box-wrapper .sprinix-kart-contact-us {
+        padding-top: 50px;
+        padding-bottom: 50px;
+  }
+}
+@media screen and (max-width: 768px) {
+  
+}
+  .sprinix-cart-box-wrapper {
+        margin-left: 14px;
+        margin-right: 14px
+  }
+}
+
 @media screen and (min-width: 750px) {
   .contact .field {
     margin-bottom: 2rem;
