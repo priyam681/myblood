@@ -16,7 +16,31 @@
   <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
+{%- if section.blocks.size  >= 2 -%}
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  media="print"
+  onload="this.media='all'"
+/>
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer="defer"></script>
+{%- endif -%}
+
+
 <style>
+  .swiper-button-prev,
+.swiper-button-next {
+  color: #000; /* Arrow ka color */
+}
+
+.swiper-button-prev {
+  left: 10px; /* Left button ka position */
+}
+
+.swiper-button-next {
+  right: 10px; /* Right button ka position */
+}
+
   header-drawer {
     justify-self: start;
     margin-left: -1.2rem;
@@ -74,11 +98,83 @@
       padding-top: 0.5rem;
     }
   }
+  {%- comment -%} mega-menu-images-style {%- endcomment -%}
+  .mega_menu_img img{
+  max-width:100%;
+  height: auto;
+  display: block;
+  margin-right: auto;
+  margin-left: auto;
+  object-fit: cover;
+  text-decoration: none;
+  transition: transform var(--duration-long) ease;
+}
+.mega_menu_img{
+  padding-bottom: 20px;
+}
+.mega_menu_img .mega-menu__link{
+  padding-top: 0;
+}
+.mega_menu_img div{
+  text-align: center;
+  overflow: hidden;
+  padding: 0;
+  margin: 0;
+}
+
+.mega_menu_img .title{
+ padding-top: 0.8rem;
+ font-size: 1.5rem;
+}
+.mega_menu_img img{
+  transition: transform 0.5s ease;
+}
+.mega_menu_img:hover img{
+transform: scale(1.03);
+}
+.mega-menu__list {
+    gap: 0;
+    display: flex;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    row-gap: 20px;
+}
+@media (min-width: 768px) {
+  .mega-menu__list > li{
+      list-style: none;
+      display: block;
+      flex: 0 0 20%;
+      max-width: 25%;
+      padding-right: 15px;
+  }
+}
+.mega_menu_img.slide{
+    flex: 0 0 260px;
+    max-width: 100%;
+    margin: 0;
+    padding-right: 15px;
+    scroll-snap-align: start;
+}
+.mega_menu_img.slide:first-child{
+    padding-left: 0;
+}
+.js .menu-drawer__submenu{
+  z-index: 2;
+}
+.swiper{
+  margin-top: 15px;
+  padding: 0 3rem;
+}
+
+.swiper .mega-menu__link .title{
+  text-align: start;
+}
 </style>
 
 {%- style -%}
   .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 1.5rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 1.5rem;
+    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
   }
 
   .section-header {
@@ -303,13 +399,10 @@
       </a>
     </div>
   </header>
-</{{ header_tag }}>
-
-{%- if settings.cart_type == 'notification' -%}
-  {%- render 'cart-notification',
-    color_scheme: section.settings.color_scheme,
-    desktop_menu_type: section.settings.menu_type_desktop
-  -%}
+</{% if section.settings.sticky_header_type != 'none' %}sticky-header{% else %}div{% endif %}>
+<script src="{{ 'menu-hover.js' | asset_url }}" defer="defer"></script>
+{%- if settings.cart_type == "notification" -%}
+  {%- render 'cart-notification', color_scheme: section.settings.color_scheme, desktop_menu_type: section.settings.menu_type_desktop -%}
 {%- endif -%}
 
 {% javascript %}
@@ -664,6 +757,34 @@
   "blocks": [
     {
       "type": "@app"
+
+    },
+    {
+      "type": "menu-image",
+      "name": "Menu image",
+      "settings": [
+        {
+          "label": "Link name",
+          "type": "text",
+          "id": "link_name",
+          "info": "The name of the top-level link that you want the image to appear on."
+        },
+        {
+          "label": "Menu image",
+          "type": "image_picker",
+          "id": "link_image"
+        },
+        {
+          "label": "Title",
+          "type": "text",
+          "id": "link_title"
+        },
+        {
+          "label": "Link",
+          "type": "url",
+          "id": "link_url"
+        }
+       ]
     }
   ]
 }
