@@ -158,7 +158,7 @@
                     open
                   {% endif %}
                 >
-                  <summary id="Summary-{{ block.id }}-{{ section.id }}">
+                  <summary id="Summary-{{ block.id }}-{{ section.id }}" class="sprinix-summary-wrap">
                     {% render 'icon-accordion', icon: block.settings.icon %}
                     <h3 class="accordion__title inline-richtext h4">
                       {{ block.settings.heading | default: block.settings.page.title | escape }}
@@ -191,7 +191,7 @@
         event.preventDefault(); // Prevent default behavior
 
         let details = this.parentElement;
-        let content = details.querySelector(".accordion__content");
+        let content = details.querySelector(".sprinix-summary-wrap");
 
         if (!details.open) {
           // Open the details smoothly
