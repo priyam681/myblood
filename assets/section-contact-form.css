@@ -33,7 +33,14 @@
 .sprinix-cart-box-wrapper {
     margin-top: -300px;
 }
-
+.sprinix-kart-contact-us  .contact__button {
+        display: flex;
+      justify-content: center;
+      align-items: center;
+}
+.sprinix-kart-contact-us button:hover {
+  background:white;
+}
 @media screen and (min-width: 750px) {
   .contact .field {
     margin-bottom: 2rem;
