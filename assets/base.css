@@ -1809,7 +1809,7 @@ details[open] > .share-button__fallback {
   right: 0;
   bottom: 0;
   left: 0;
-  border: 0.1rem solid transparent;
+  border: unset;
   border-radius: var(--inputs-radius-outset);
   box-shadow: var(--inputs-shadow-horizontal-offset)
     var(--inputs-shadow-vertical-offset) var(--inputs-shadow-blur-radius)
