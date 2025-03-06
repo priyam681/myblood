@@ -94,6 +94,9 @@ a.link.link--text.list-menu__item:hover {
   .footer__localization:empty + .footer__column {
     padding-top: 1.5rem;
   }
+  .hover-svg-wrapper {
+    display:none;
+  }
 }
 
 .footer__column {
