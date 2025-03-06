@@ -358,6 +358,7 @@
 .header-localization .localization-form__select.link:after,
 .header-localization .localization-form__select.link:before {
   box-shadow: none;
+  border: unset;
 }
 
 .header-localization .localization-form__select.link:focus-visible {
