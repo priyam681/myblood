@@ -173,6 +173,9 @@ slideshow-component:not(.page-width) .slider-buttons {
     padding: 0 0 0 0.6rem;
     border-left: 0.1rem solid rgba(var(--color-foreground), 0.08);
   }
+  .sprinix-kart-banner {
+    height: 100%;
+}
 }
 
 .slideshow__autoplay .icon.icon-play,
