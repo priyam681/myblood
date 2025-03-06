@@ -18,6 +18,17 @@
         left: 0;
         z-index: 999;
 }
+  span.hover-svg-wrapper:before {
+    content: '';
+    border-left: 1px solid #ebebeb;
+    height: 20px;
+    width: 2px;
+    padding: 6px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 2px;
+}
   .follow-me:hover .top-social-links {
     display:block !important;
   }
@@ -56,6 +67,7 @@
     width: auto;
     height: auto;
     overflow: hidden;
+    text-decoration:unset;
   } 
   
 }
