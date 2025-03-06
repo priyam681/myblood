@@ -151,36 +151,7 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-{% comment %}
-  <script>
-    $(document).ready(function(){
-      var $carousel = $('.sliding-collection-list.{{ section.id }}');
-      $carousel.slick({
-        dots: false,
-        arrows: false,
-        infinite: true,
-        autoplay: true,
-        autoplaySpeed: 2000,
-        slidesToShow: 4,
-        slidesToScroll: 1,
-        variableWidth: true,
-        responsive: [
-          { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, dots: true } },
-          { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-          { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } }
-        ]
-      });
 
-      $('.prev-btn').click(function(){
-        $carousel.slick('slickPrev');
-      });
-
-      $('.next-btn').click(function(){
-        $carousel.slick('slickNext');
-      });
-    });
-  </script>
-{% endcomment %}
 <script>
     $(document).ready(function(){
       var $carousel = $('.sliding-collection-list.{{ section.id }}');
@@ -188,7 +159,7 @@
       $carousel.slick({
         dots: false,
         arrows: false,
-        infinite: false,  // Infinite loop disable kiya
+        infinite: true,  // Infinite loop disable kiya
         autoplay: true,
         autoplaySpeed: 2000,
         slidesToShow: 6,
