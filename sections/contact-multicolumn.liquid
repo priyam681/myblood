@@ -23,8 +23,12 @@
     }
   .slider-mobile-gutter-slide .slider-button--prev,
   .slider-mobile-gutter-slide .slider-button--next {
-    position:unset;
+    position:unset !important;
   }
+  .slider-mobile-gutter-slide .svg-wrapper .svg {
+    height:30px;
+    width:30px;
+  } 
       @media screen and (min-width: 750px) {
         .section-{{ section.id }}-padding {
           padding-top: {{ section.settings.padding_top }}px;
