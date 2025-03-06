@@ -16,6 +16,11 @@
   -webkit-overflow-scrolling: touch;
 }
 /* predictive search */
+.predictive-search.predictive-search--search-template {
+    border: unset;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
 .template-search__search .search .field .search__input {
   border-radius: 30px;
 }
