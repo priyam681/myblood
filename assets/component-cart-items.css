@@ -7,7 +7,9 @@ cart-items .title-wrapper-with-link {
   padding: 0;
   border: none;
 }
-
+.cart__warnings .button {
+    padding: 12px;
+}
 .cart-items th {
   text-align: left;
   padding-bottom: 1.8rem;
