@@ -34,6 +34,9 @@ button.search__button.field__button {
     top: 14%;
     right: 12px;
 }
+button.reset__button.field__button.hidden {
+    display: none;
+}
 /* predictive search */
 .predictive-search--search-template {
   z-index: 2;
