@@ -16,7 +16,7 @@
   -webkit-overflow-scrolling: touch;
 }
 
-.search .field .search__input {
+.template-search__search .search .field .search__input {
   border-radius: 30px;
 }
 .predictive-search--search-template {
