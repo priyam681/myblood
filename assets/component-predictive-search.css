@@ -62,7 +62,7 @@ button.reset__button.field__button.hidden {
     max-height: 440px;
   }
 button.reset__button.field__button {
-    right: -40px 1Important; 
+    right: -40px !Important; 
 }
   .predictive-search__results-groups-wrapper:not(.predictive-search__results-groups-wrapper--no-suggestions) {
     /* On mobile, when there are no suggestions the first .predictive-search__results-groups-wrapper
