@@ -232,7 +232,7 @@ predictive-search[loading] .predictive-search__results-groups-wrapper ~ .predict
 
 @media screen and (min-width: 750px) {
   .predictive-search__item--term {
-    padding-top: 1rem;
+    padding-top: 3rerm;
     padding-bottom: 1rem;
   }
 }
