@@ -18,7 +18,8 @@
   {%- assign hide_shop_login_button = true -%}
 {%- endif -%}
 
-<div class="customer login section-{{ section.id }}-padding">
+<div class="login-wrapper-custom">
+  <div class="customer login section-{{ section.id }}-padding">
   <h1 id="recover" tabindex="-1">
     {{ 'customer.recover_password.title' | t }}
   </h1>
@@ -174,6 +175,7 @@
       {%- endform -%}
     </div>
   {%- endif -%}
+</div>
 </div>
 
 {% schema %}
