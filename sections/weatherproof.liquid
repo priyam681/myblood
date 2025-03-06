@@ -43,10 +43,19 @@
           }
         }
 
-
+       .weatherproof-image  img {
+            transform: scaleX(-1);
+            display: flex;
+            justify-content: center;
+            width: 100%;
+            object-fit: contain;
+            background-position: center;
+            background-size: cover;
+        }
     .weatherproof-wrapper {
             max-width: 1600px;
             margin: auto;
+           flex-direction: row-reverse;
         }
           .weatherproof-wrapper .weatherproof-content h2 {
             font-weight: bold;
