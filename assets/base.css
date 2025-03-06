@@ -1816,9 +1816,7 @@ details[open] > .share-button__fallback {
     rgba(var(--color-shadow), var(--inputs-shadow-opacity));
   z-index: -1;
 }
-.header-localization .localization-form__select.link:before {
-      border: unset;
-}
+
 .localization-form__select:after {
   pointer-events: none;
   content: "";
