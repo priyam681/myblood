@@ -15,10 +15,15 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
-
+/* predictive search */
 .template-search__search .search .field .search__input {
   border-radius: 30px;
 }
+.template-search__search .search .field__label {
+  display: none;
+}
+
+/* predictive search */
 .predictive-search--search-template {
   z-index: 2;
   width: calc(100% + 0.2rem);
