@@ -41,21 +41,22 @@
     display:flex;
 }
  .top-social-links .list-social__item a:hover {
-        width: auto;
-        transition: all 0.6s ease-in-out;
-        padding-left: 50px;
+       width: 144px;
+        transition: all .6s ease-in-out;
         display: flex;
         gap: 6px;
-        background: #000000;
+        background: #000;
         color: #fff;
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
+        flex-direction: row-reverse;
+        justify-content: center;
  } 
   .top-social-links .list-social__item a:hover .visually-hidden {
     position: unset !important;
     width: auto;
     height: auto;
-    overflow: auto;
+    overflow: hidden;
   } 
   
 }
