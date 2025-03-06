@@ -11,6 +11,9 @@
     max-width: 50rem;
     margin: auto;
   }
+.login-wrapper-custom  input {
+      border-radius: 4px !important;
+  }
 .login-wrapper-custom #login {
  font-size: 40px;
   text-align:center;
