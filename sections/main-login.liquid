@@ -19,9 +19,7 @@
 {%- endif -%}
 
 <div class="login-wrapper-custom">
-  <div class="for-image" >
-      <img src="{{ section.setting.custom_image | image_url }}" alt="Banner" height="300" width="300"/>
-  </div>
+ 
   <div class="customer login section-{{ section.id }}-padding">
   <h1 id="recover" tabindex="-1">
     {{ 'customer.recover_password.title' | t }}
@@ -78,6 +76,9 @@
     {{ 'customer.login_page.title' | t }}
   </h1>
   <div class="login-container">
+     <div class="for-image" >
+      <img src="{{ section.setting.custom_image | image_url }}" alt="Banner" height="300" width="300"/>
+      </div>
     {%- if recover_success == true -%}
       <h3 class="form__message" tabindex="-1" autofocus>
         <span class="svg-wrapper">
