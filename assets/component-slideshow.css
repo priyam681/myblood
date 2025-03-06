@@ -67,7 +67,7 @@ slideshow-component .slideshow.banner {
         left: 0;
        
     }
-  .banner--mobile-bottom .slideshow__text-wrapper::before {
+  .banner--mobile-bottom .sprinix-kart-banner::before {
         position: absolute;
         top: 0;  
         content:'';
