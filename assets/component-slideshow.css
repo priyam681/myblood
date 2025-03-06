@@ -67,9 +67,9 @@ slideshow-component .slideshow.banner {
     flex-grow: 1;
   }
 
-  .banner--mobile-bottom .slideshow__text.banner__box {
+  /* .banner--mobile-bottom .slideshow__text.banner__box {
     height: 100%;
-  }
+  } */
 
   .banner--mobile-bottom .slideshow__text .button {
     flex-grow: 0;
