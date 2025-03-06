@@ -22,7 +22,13 @@
 .template-search__search .search .field__label {
   display: none;
 }
-
+button.search__button.field__button {
+    position: absolute;
+    border: unset;
+    transform: translate(8%, 24%);
+    top: 8%;
+    right: 12px;
+}
 /* predictive search */
 .predictive-search--search-template {
   z-index: 2;
