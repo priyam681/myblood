@@ -75,10 +75,11 @@
   <h1 id="login" tabindex="-1">
     {{ 'customer.login_page.title' | t }}
   </h1>
-  <div class="login-container">
-     <div class="for-image" >
+    <div class="login-container-wrapper">
+           <div class="for-image" >
       <img src="{{ section.settings.custom_image | image_url }}" alt="Banner" height="300" width="300"/>
       </div>
+        <div class="login-container">
     {%- if recover_success == true -%}
       <h3 class="form__message" tabindex="-1" autofocus>
         <span class="svg-wrapper">
@@ -180,6 +181,8 @@
     </div>
   {%- endif -%}
 </div>
+    </div>
+
 </div>
 
 {% schema %}
