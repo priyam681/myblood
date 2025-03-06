@@ -55,7 +55,7 @@
        width: 144px;
         transition: all .6s ease-in-out;
         display: flex;
-        gap: 6px;
+        gap: 10px;
         background: #000;
         color: #fff;
         border-top-right-radius: 6px;
