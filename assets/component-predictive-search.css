@@ -58,6 +58,8 @@ button.reset__button.field__button.hidden {
 
   .predictive-search__results-groups-wrapper {
     flex-direction: column;
+        overflow: auto;
+    max-height: 440px;
   }
 
   .predictive-search__results-groups-wrapper:not(.predictive-search__results-groups-wrapper--no-suggestions) {
