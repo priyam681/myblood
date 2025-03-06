@@ -20,8 +20,7 @@
 
 <div class="login-wrapper-custom">
   <div class="for-image" >
-     <img src="{{ section.setting.custom_image }}" alt="Banner"/>
-    {{ '' }}
+      <img src="{{ section.setting.custom_image | image_url }}" alt="Banner"/>
   </div>
   <div class="customer login section-{{ section.id }}-padding">
   <h1 id="recover" tabindex="-1">
