@@ -61,6 +61,7 @@
         border-top-right-radius: 6px;
         border-bottom-right-radius: 6px;
         justify-content: center;
+        text-decoration:none;
  } 
   .top-social-links .list-social__item a:hover .visually-hidden {
     position: unset !important;
