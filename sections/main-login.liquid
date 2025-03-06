@@ -77,7 +77,7 @@
   </h1>
   <div class="login-container">
      <div class="for-image" >
-<pre>{{ section.settings | json }}</pre>
+{{ section.settings | json }}
       <img src="{{ section.setting.custom_image | image_url }}" alt="Banner" height="300" width="300"/>
       </div>
     {%- if recover_success == true -%}
