@@ -67,7 +67,7 @@ slideshow-component .slideshow.banner {
         left: 0;
        
     }
-  .banner--mobile-bottom .slideshow__text.banner__box::before {
+  .banner--mobile-bottom .slideshow__text-wrapper::before {
         position: absolute;
         top: 0;  
         content:'';
