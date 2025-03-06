@@ -30,8 +30,8 @@
 button.search__button.field__button {
     position: absolute;
     border: unset;
-    transform: translate(8%, 24%);
-    top: 8%;
+    transform: translate(14%, 24%);
+    top: 14%;
     right: 12px;
 }
 /* predictive search */
