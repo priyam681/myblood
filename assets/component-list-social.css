@@ -28,6 +28,8 @@
 }
 .top-social-links .list-social__item a {
   position: relative;
+  transition: all .5s ease 0s;
+  overflow: hidden;
 }
   .hover-svg-wrapper {
     display:none;
