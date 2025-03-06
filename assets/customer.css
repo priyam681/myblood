@@ -60,6 +60,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 5rem;
+    margin-top: 40px;
   }
   .for-image img {
     height:100%;
