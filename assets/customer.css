@@ -44,6 +44,7 @@
   font-size: 16px;
   font-weight: 600;
   margin-block: 20px;
+      margin: 0 0 7px 0;
 }
 .login-container .account-button,
 .sign-up-button {
