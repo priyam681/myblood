@@ -11,6 +11,12 @@
     max-width: 50rem;
     margin: auto;
   }
+.have-account {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 6px;
+}
 .login-wrapper-custom  input {
       border-radius: 4px !important;
   }
