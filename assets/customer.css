@@ -131,8 +131,9 @@
   margin: 0;
   padding-left:0;
 }
-.form-errors-login ul li:marker {
-  list-style-type:none;
+.form-errors-login ul li {
+  font-size:14px;
+  color:red;
 }
 .customer h2.form__message {
   font-size: calc(var(--font-heading-scale) * 1.8rem);
