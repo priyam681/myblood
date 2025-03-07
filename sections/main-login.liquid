@@ -78,12 +78,14 @@
       <img src="{{ section.settings.custom_image | image_url }}" alt="Banner" height="300" width="300"/>
       </div>
         <div class="login-container">
-           <h1 id="login" tabindex="-1" class="custom-paragraph-login">
+          <div class="login-text-box">
+             <h1 id="login" tabindex="-1" class="custom-paragraph-login">
     {{ 'customer.login_page.title' | t }}
   </h1>
     <p class="custom-para-login">
       {{section.settings.custom_text}}
     </p>
+          </div>
     {%- if recover_success == true -%}
       <h3 class="form__message" tabindex="-1" autofocus>
         <span class="svg-wrapper">
