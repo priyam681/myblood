@@ -216,12 +216,12 @@
             content.style.opacity = "0"; // Initially invisible
 
             setTimeout(() => {
-                content.style.transition = "height 0.3s ease-in-out, opacity 0.3s ease-in-out";
+                content.style.transition = "height 0.3s ease, opacity 0.3s ease";
                 content.style.height = height + "px";
                 content.style.opacity = "1";
             }, 10);
         } else {
-            content.style.transition = "height 0.3s ease-in-out, opacity 0.3s ease-in-out";
+            content.style.transition = "height 0.3s ease, opacity 0.3s ease";
             content.style.height = "0px";
             content.style.opacity = "0";
 
