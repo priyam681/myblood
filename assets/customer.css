@@ -17,8 +17,9 @@
     justify-content: end;
     gap: 6px;
 }
-.have-account a {
-  margin: 0;
+.have-account a,
+.have-account h5 {
+  margin: 0 !important;
 } 
 .login-wrapper-custom  input {
       border-radius: 4px !important;
