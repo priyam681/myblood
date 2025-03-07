@@ -197,29 +197,16 @@
 </div>
 <script>
  document.querySelectorAll("details").forEach((detail) => {
+    let content = detail.querySelector(".accordion__content");
+
     detail.addEventListener("toggle", function () {
-        let content = this.querySelector(".accordion__content");
-
         if (this.open) {
-            content.style.display = "block";
-            let height = content.scrollHeight; // Get the actual height of content
-            content.style.height = "0px"; // Start from 0 height
-            content.style.opacity = "0"; // Initially invisible
-
-            setTimeout(() => {
-                content.style.transition = "height 0.3s ease-in-out, opacity 0.3s ease-in-out";
-                content.style.height = height + "px";
-                content.style.opacity = "1";
-               content.style.overflow = "hidden";
-            }, 10);
+            let height = content.scrollHeight; // Get actual height
+            content.style.maxHeight = height + "px";
+            content.style.opacity = "1";
         } else {
-            content.style.transition = "height 0.3s ease-in-out, opacity 0.3s ease-in-out";
-            content.style.height = "0px";
+            content.style.maxHeight = "0px";
             content.style.opacity = "0";
-
-            setTimeout(() => {
-                content.style.display = "none";
-            }, 300); // Hide after animation ends
         }
     });
 });
