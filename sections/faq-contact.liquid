@@ -28,9 +28,8 @@
     }
    .faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details[open] {
      background: #f5f5f5d9;
-     transition: 2s ease;
+     
    }
-  
    .faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details summary:hover {
       background: none;
    }
@@ -57,23 +56,13 @@
   .minus-icon {
      width:20px !important;
    }
-.faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details summary {
-  padding: 16px;
-}
- .faq-container.collapsible-content__wrapper   h3.accordion__title.inline-richtext.h4 {
-    padding: 0 !important;
-}
+
 .faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details[open] .sprinix-content-accordian {
     max-height: 500px; /* Adjust according to content height */
     opacity: 1;
    overflow: hidden;
 }
-  .accordion details .accordion__content {
-    padding: 0px;
-  }
-  .sprinix-content-accordian p {
-    overflow-y:hidden;
-  }
+  
   .faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details summary .icon-caret {
     height: auto;
     top: 50%;
@@ -225,14 +214,14 @@
 });
 
 function openAccordion(detail, content) {
-    // content.style.display = "block"; 
+    content.style.display = "block"; 
     let height = content.scrollHeight + "px"; // Get actual height
 
     content.style.height = "0px";
     content.style.opacity = "0";
 
     setTimeout(() => {
-        content.style.transition = "height 0.4s ease, opacity 0.4s ease";
+        content.style.transition = "height 0.4s ease-in-out, opacity 0.4s ease-in-out";
         content.style.height = height;
         content.style.opacity = "1";
     }, 10);
@@ -247,14 +236,14 @@ function closeAccordion(detail, content) {
     content.style.height = height; 
 
     setTimeout(() => {
-        content.style.transition = "height 0.4s ease, opacity 0.4s ease";
+        content.style.transition = "height 0.4s ease-in-out, opacity 0.4s ease-in-out";
         content.style.height = "0px";
         content.style.opacity = "0";
     }, 10);
 
     setTimeout(() => {
         detail.removeAttribute("open");
-        // content.style.display = "none"; // Hide after animation ends
+        content.style.display = "none"; // Hide after animation ends
     }, 400);
 }
 
