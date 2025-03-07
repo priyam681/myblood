@@ -127,7 +127,13 @@
   font-weight: normal;
   color: rgb(var(--color-foreground));
 }
-
+.form-errors-login ul {
+  margin: 0;
+  padding-left:0;
+}
+.form-errors-login ul li:marker {
+  list-style-type:none;
+}
 .customer h2.form__message {
   font-size: calc(var(--font-heading-scale) * 1.8rem);
 }
