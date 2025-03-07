@@ -54,8 +54,14 @@
   }
    .plus-icon,
   .minus-icon {
-     width:20px !imporant;
+     width:20px !important;
    }
+
+.faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details[open] .sprinix-content-accordian {
+    max-height: 500px; /* Adjust according to content height */
+  opacity: 1;
+}
+  
   .faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details summary .icon-caret {
     height: auto;
     top: 50%;
@@ -189,7 +195,35 @@
     </div>
   </div>
 </div>
+<script>
+ document.querySelectorAll("details").forEach((detail) => {
+    detail.addEventListener("toggle", function () {
+        let content = this.querySelector(".accordion__content");
 
+        if (this.open) {
+            content.style.display = "block";
+            let height = content.scrollHeight; // Get the actual height of content
+            content.style.height = "0px"; // Start from 0 height
+            content.style.opacity = "0"; // Initially invisible
+
+            setTimeout(() => {
+                content.style.transition = "height 0.3s ease-in-out, opacity 0.3s ease-in-out";
+                content.style.height = height + "px";
+                content.style.opacity = "1";
+            }, 10);
+        } else {
+            content.style.transition = "height 0.3s ease-in-out, opacity 0.3s ease-in-out";
+            content.style.height = "0px";
+            content.style.opacity = "0";
+
+            setTimeout(() => {
+                content.style.display = "none";
+            }, 300); // Hide after animation ends
+        }
+    });
+});
+
+</script>
 
 
 {% schema %}
