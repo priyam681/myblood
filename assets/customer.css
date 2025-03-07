@@ -16,7 +16,7 @@
   }
 .custom-para-login {
   text-align:center;
-  margin: 0;
+  margin: 0 !important;
 }
 
 .login-wrapper-custom #login {
