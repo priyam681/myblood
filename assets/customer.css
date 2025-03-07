@@ -17,7 +17,7 @@
     justify-content: end;
     gap: 6px;
 }
-.have-account h5 {
+.have-account a {
   margin: 0;
 } 
 .login-wrapper-custom  input {
