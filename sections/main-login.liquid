@@ -101,7 +101,9 @@
           <span class="svg-wrapper">
             {{- 'icon-error.svg' | inline_asset_content -}}
           </span>
+          <div class="form-errors-login">
             {{ form.errors | default_errors }}
+          </div>
         </h2>
       
       {%- endif -%}
