@@ -88,6 +88,9 @@
     max-width: 84rem !important;
     padding-inline: 40px !important;
 }
+.register-account-page h1 {
+  text-align:center;
+}
 @media screen and (max-width: 768px) {
   .login-container {
     position: relative;
