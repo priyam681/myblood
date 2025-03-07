@@ -72,6 +72,12 @@
   width: 100%;
   padding: 15px;
 }
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    z-index: 2;
+    top: 41px;
+}
 @media screen and (min-width: 768px) {
   .customer.login {
      padding-inline: 3rem;
