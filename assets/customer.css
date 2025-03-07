@@ -135,6 +135,9 @@
   font-size:14px;
   color:red;
 }
+h2.form__message {
+    margin-top: 0;
+}
 .customer h2.form__message {
   font-size: calc(var(--font-heading-scale) * 1.8rem);
 }
