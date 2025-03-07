@@ -86,8 +86,10 @@
     margin-top: 40px;
   }
   .for-image img {
-    height:100%;
-    width:100%;
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
   }
 }
 @media screen and (min-width: 992px) {
