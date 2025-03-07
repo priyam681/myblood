@@ -99,6 +99,9 @@
     .for-image img {
      display:none;
   }
+  .section-template--19286807412972__main-padding {
+    padding-bottom:0;
+  }
 }
 @media screen and (min-width: 768px) {
   .customer.login {
