@@ -200,16 +200,15 @@ document.querySelectorAll("details").forEach((detail) => {
     let summary = detail.querySelector("summary");
     let content = detail.querySelector(".accordion__content");
 
-    // Initial state
-    content.style.overflow = "hidden"; 
+    // Set initial styles
+    content.style.overflow = "hidden";
     content.style.height = "0px";
     content.style.opacity = "0";
+    content.style.transition = "height 0.4s ease-in-out, opacity 0.4s ease-in-out";
 
     summary.addEventListener("click", function (event) {
         event.preventDefault(); // Prevent default toggle behavior
-        let isOpen = detail.hasAttribute("open");
-
-        if (isOpen) {
+        if (detail.hasAttribute("open")) {
             closeAccordion(detail, content);
         } else {
             openAccordion(detail, content);
@@ -218,34 +217,23 @@ document.querySelectorAll("details").forEach((detail) => {
 });
 
 function openAccordion(detail, content) {
+    detail.setAttribute("open", "true"); // Open <details>
     content.style.display = "block";
-    let height = content.scrollHeight + "px"; // Get actual height
-
-    content.style.overflow = "hidden"; // Prevent content overflow
-    content.style.height = "0px";
-    content.style.opacity = "0";
 
     setTimeout(() => {
-        content.style.transition = "height 0.4s ease-in-out, opacity 0.4s ease-in-out";
+        let height = content.scrollHeight + "px"; // Get actual height
         content.style.height = height;
         content.style.opacity = "1";
     }, 10);
-
-    setTimeout(() => {
-        detail.setAttribute("open", "true");
-        content.style.overflow = "visible"; // Allow scrolling after animation
-    }, 400);
 }
 
 function closeAccordion(detail, content) {
     let height = content.scrollHeight + "px";
-    content.style.height = height; 
+    content.style.height = height; // Set current height before collapse
 
     setTimeout(() => {
-        content.style.transition = "height 0.4s ease-in-out, opacity 0.4s ease-in-out";
         content.style.height = "0px";
         content.style.opacity = "0";
-        content.style.overflow = "hidden"; // Hide overflow during collapse
     }, 10);
 
     setTimeout(() => {
