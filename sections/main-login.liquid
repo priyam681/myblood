@@ -72,13 +72,14 @@
     {%- endform -%}
   </div>
 
-  <h1 id="login" tabindex="-1" class="custom-paragraph-login">
+ 
+    <div class="login-container-wrapper">
+       <h1 id="login" tabindex="-1" class="custom-paragraph-login">
     {{ 'customer.login_page.title' | t }}
   </h1>
     <p class="custom-para-login">
       {{section.settings.custom_text}}
     </p>
-    <div class="login-container-wrapper">
            <div class="for-image" >
       <img src="{{ section.settings.custom_image | image_url }}" alt="Banner" height="300" width="300"/>
       </div>
