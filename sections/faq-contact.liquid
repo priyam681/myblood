@@ -197,19 +197,55 @@
 </div>
 <script>
  document.querySelectorAll("details").forEach((detail) => {
+    let summary = detail.querySelector("summary");
     let content = detail.querySelector(".accordion__content");
 
-    detail.addEventListener("toggle", function () {
-        if (this.open) {
-            let height = content.scrollHeight; // Get actual height
-            content.style.maxHeight = height + "px";
-            content.style.opacity = "1";
+    summary.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default toggle behavior
+        let isOpen = detail.hasAttribute("open");
+
+        if (isOpen) {
+            closeAccordion(detail, content);
         } else {
-            content.style.maxHeight = "0px";
-            content.style.opacity = "0";
+            openAccordion(detail, content);
         }
     });
 });
+
+function openAccordion(detail, content) {
+    content.style.display = "block"; 
+    let height = content.scrollHeight + "px"; // Get actual height
+
+    content.style.height = "0px";
+    content.style.opacity = "0";
+
+    setTimeout(() => {
+        content.style.transition = "height 0.4s ease-in-out, opacity 0.4s ease-in-out";
+        content.style.height = height;
+        content.style.opacity = "1";
+    }, 10);
+
+    setTimeout(() => {
+        detail.setAttribute("open", "true");
+    }, 400);
+}
+
+function closeAccordion(detail, content) {
+    let height = content.scrollHeight + "px";
+    content.style.height = height; 
+
+    setTimeout(() => {
+        content.style.transition = "height 0.4s ease-in-out, opacity 0.4s ease-in-out";
+        content.style.height = "0px";
+        content.style.opacity = "0";
+    }, 10);
+
+    setTimeout(() => {
+        detail.removeAttribute("open");
+        content.style.display = "none"; // Hide after animation ends
+    }, 400);
+}
+
 
 </script>
 
