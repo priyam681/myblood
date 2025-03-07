@@ -78,6 +78,20 @@
     z-index: 2;
     top: 41px;
 }
+@media screen and (max-width: 768px) {
+  .login-container {
+    position: relative;
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 20px;
+}
+  .for-image img {
+    height: 100%;
+    position: absolute;
+    top: -91px;
+    left: 0;
+}
+}
 @media screen and (min-width: 768px) {
   .customer.login {
      padding-inline: 3rem;
