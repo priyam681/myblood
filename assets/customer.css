@@ -81,6 +81,12 @@
 .register-account-page {
   border:1px solid black;
 }
+.register-account-page {
+    border: 1px solid #ece9e9;
+    border-radius: 22px;
+    margin-top: 30px !important;
+    max-width: 84rem !important;
+}
 @media screen and (max-width: 768px) {
   .login-container {
     position: relative;
