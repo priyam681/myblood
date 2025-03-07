@@ -84,7 +84,6 @@
     background: white;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 20px !important;
-    top: 17px;
  }
   .login-wrapper-custom {
     position: relative;
@@ -99,7 +98,7 @@
     .for-image img {
       height: 100%;
       position: absolute;
-      top: -91px;
+      top: 0;
       left: 0;
       width: 100%;
       aspect-ratio: 1;
