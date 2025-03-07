@@ -101,9 +101,9 @@
           <span class="svg-wrapper">
             {{- 'icon-error.svg' | inline_asset_content -}}
           </span>
-          {{ 'templates.contact.form.error_heading' | t }}
+            {{ form.errors | default_errors }}
         </h2>
-        {{ form.errors | default_errors }}
+      
       {%- endif -%}
 
       {%- if shop.features.login_with_shop_classic_customer_accounts? -%}
