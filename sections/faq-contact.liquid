@@ -56,21 +56,7 @@
   .minus-icon {
      width:20px !important;
    }
-  @keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-.faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details[open] .sprinix-content-accordian {
-    max-height: 500px; /* Adjust according to content height */
-  opacity: 1;
-}
-  
+
   .faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details summary .icon-caret {
     height: auto;
     top: 50%;
@@ -214,7 +200,7 @@
             let height = content.scrollHeight; // Get the actual height of content
             content.style.height = "0px"; // Start from 0 height
             content.style.opacity = "0"; // Initially invisible
-
+             
             setTimeout(() => {
                 content.style.transition = "height 0.3s ease, opacity 0.3s ease";
                 content.style.height = height + "px";
