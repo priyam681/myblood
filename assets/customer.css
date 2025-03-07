@@ -86,6 +86,9 @@
     padding: 20px !important;
     top: 17px;
  }
+  .login-wrapper-custom {
+    position: relative;
+}
   .login-wrapper-custom #login {
         margin-top: 0;
         text-align:center;
