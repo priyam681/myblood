@@ -134,6 +134,7 @@
 .form-errors-login ul li {
   font-size:14px;
   color:red;
+  list-style-type: none;
 }
 h2.form__message {
     margin-top: 0;
