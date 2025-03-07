@@ -97,13 +97,7 @@
     text-align:center;
   }
     .for-image img {
-      height: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      aspect-ratio: 1;
-      object-fit: cover;
+     display:none;
   }
 }
 @media screen and (min-width: 768px) {
