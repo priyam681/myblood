@@ -15,7 +15,7 @@
         "enable_shop_login_button": true,
         "padding_top": 36,
         "padding_bottom": 36,
-        "custom_image": "shopify://shop_images/laptop-on-login-screen.jpg",
+        "custom_image": "shopify://shop_images/typing-username-and-password.jpg",
         "custom_text": "Welcome Back"
       }
     }
