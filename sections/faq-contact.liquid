@@ -196,9 +196,14 @@
   </div>
 </div>
 <script>
- document.querySelectorAll("details").forEach((detail) => {
+document.querySelectorAll("details").forEach((detail) => {
     let summary = detail.querySelector("summary");
     let content = detail.querySelector(".accordion__content");
+
+    // Initial state
+    content.style.overflow = "hidden"; 
+    content.style.height = "0px";
+    content.style.opacity = "0";
 
     summary.addEventListener("click", function (event) {
         event.preventDefault(); // Prevent default toggle behavior
@@ -213,9 +218,10 @@
 });
 
 function openAccordion(detail, content) {
-    content.style.display = "block"; 
+    content.style.display = "block";
     let height = content.scrollHeight + "px"; // Get actual height
 
+    content.style.overflow = "hidden"; // Prevent content overflow
     content.style.height = "0px";
     content.style.opacity = "0";
 
@@ -227,6 +233,7 @@ function openAccordion(detail, content) {
 
     setTimeout(() => {
         detail.setAttribute("open", "true");
+        content.style.overflow = "visible"; // Allow scrolling after animation
     }, 400);
 }
 
@@ -238,6 +245,7 @@ function closeAccordion(detail, content) {
         content.style.transition = "height 0.4s ease-in-out, opacity 0.4s ease-in-out";
         content.style.height = "0px";
         content.style.opacity = "0";
+        content.style.overflow = "hidden"; // Hide overflow during collapse
     }, 10);
 
     setTimeout(() => {
@@ -245,7 +253,6 @@ function closeAccordion(detail, content) {
         content.style.display = "none"; // Hide after animation ends
     }, 400);
 }
-
 
 </script>
 
