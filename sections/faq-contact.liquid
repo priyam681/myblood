@@ -54,9 +54,8 @@
   }
    .plus-icon,
   .minus-icon {
-     width:20px !important;
+     width:20px !imporant;
    }
-
   .faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details summary .icon-caret {
     height: auto;
     top: 50%;
@@ -191,33 +190,26 @@
   </div>
 </div>
 <script>
- document.querySelectorAll("details").forEach((detail) => {
-    detail.addEventListener("toggle", function () {
-        let content = this.querySelector(".accordion__content");
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll("details summary").forEach((summary) => {
+      summary.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default behavior
 
-        if (this.open) {
-            content.style.display = "block";
-            let height = content.scrollHeight; // Get the actual height of content
-            content.style.height = "0px"; // Start from 0 height
-            content.style.opacity = "0"; // Initially invisible
-             
-            setTimeout(() => {
-                content.style.transition = "height 0.3s ease, opacity 0.3s ease";
-                content.style.height = height + "px";
-                content.style.opacity = "1";
-            }, 10);
+        let details = this.parentElement;
+        let content = details.querySelector(".sprinix-summary-wrap");
+
+        if (!details.open) {
+          // Open the details smoothly
+          details.setAttribute("open", "true");
+          content.classList.add("active");
         } else {
-            content.style.transition = "height 0.3s ease, opacity 0.3s ease";
-            content.style.height = "0px";
-            content.style.opacity = "0";
-
-            setTimeout(() => {
-                content.style.display = "none";
-            }, 300); // Hide after animation ends
+          // Close the details smoothly
+          details.removeAttribute("open");
+          content.classList.remove("active");
         }
+      });
     });
-});
-
+  });
 </script>
 
 
