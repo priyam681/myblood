@@ -25,13 +25,11 @@
       border-radius: 4px !important;
   }
 .custom-para-login {
-  text-align:center;
   margin: 0 !important;
 }
 
 .login-wrapper-custom #login {
  font-size: 40px;
-  text-align:center;
 }
 .customer.login #recover,
 .customer.login .recover-password {
