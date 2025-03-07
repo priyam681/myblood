@@ -91,6 +91,9 @@
 .register-account-page h1 {
   text-align:center;
 }
+.register-account-page input {
+  border-radius: 5px;
+}
 @media screen and (max-width: 768px) {
   .login-container {
     position: relative;
