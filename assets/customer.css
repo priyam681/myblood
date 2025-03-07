@@ -84,13 +84,16 @@
     background: white;
     box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
     padding: 20px;
-}
-  .for-image img {
-    height: 100%;
-    position: absolute;
-    top: -91px;
-    left: 0;
-}
+ }
+    .for-image img {
+      height: 100%;
+      position: absolute;
+      top: -91px;
+      left: 0;
+      width: 100%;
+      aspect-ratio: 1;
+      object-fit: cover;
+  }
 }
 @media screen and (min-width: 768px) {
   .customer.login {
