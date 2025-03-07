@@ -221,7 +221,7 @@ function openAccordion(detail, content) {
     content.style.opacity = "0";
 
     setTimeout(() => {
-        content.style.transition = "height 0.4s ease-in-out, opacity 0.4s ease-in-out";
+        content.style.transition = "height 0.4s ease, opacity 0.4s ease";
         content.style.height = height;
         content.style.opacity = "1";
     }, 10);
@@ -236,7 +236,7 @@ function closeAccordion(detail, content) {
     content.style.height = height; 
 
     setTimeout(() => {
-        content.style.transition = "height 0.4s ease-in-out, opacity 0.4s ease-in-out";
+        content.style.transition = "height 0.4s ease, opacity 0.4s ease";
         content.style.height = "0px";
         content.style.opacity = "0";
     }, 10);
