@@ -216,7 +216,7 @@
 });
 
 function openAccordion(detail, content) {
-    content.style.display = "block"; 
+    // content.style.display = "block"; 
     let height = content.scrollHeight + "px"; // Get actual height
 
     content.style.height = "0px";
@@ -245,7 +245,7 @@ function closeAccordion(detail, content) {
 
     setTimeout(() => {
         detail.removeAttribute("open");
-        content.style.display = "none"; // Hide after animation ends
+        // content.style.display = "none"; // Hide after animation ends
     }, 400);
 }
 
