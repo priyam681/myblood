@@ -12,7 +12,27 @@
     }
   }
 {%- endstyle -%}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+            const passwordInput = document.getElementById("RegisterForm-password");
+            const togglePassword = document.getElementById("togglePassword");
+            const eyeIcon = document.getElementById("eyeIcon");
 
+            togglePassword.addEventListener("click", function() {
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
+                    togglePassword.classList.add("eye-cross"); // Add class for cross effect
+                } else {
+                    passwordInput.type = "password";
+                    eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
+                    togglePassword.classList.remove("eye-cross"); // Remove class
+                }
+            });
+    
+        });
+
+</script>
 <div class="customer register section-{{ section.id }}-padding register-account-page">
   <h1>
     {{ 'customer.register.title' | t }}
@@ -138,24 +158,7 @@
     </button>
   {%- endform -%}
 </div>
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-            const passwordInput = document.getElementById("RegisterForm-password");
-            const togglePassword = document.getElementById("togglePassword");
-            const eyeIcon = document.getElementById("eyeIcon");
 
-            togglePassword.addEventListener("click", function() {
-                if (passwordInput.type === "password") {
-                    passwordInput.type = "text";
-                    eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
-                    togglePassword.classList.add("eye-cross"); // Add class for cross effect
-                } else {
-                    passwordInput.type = "password";
-                    eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
-                    togglePassword.classList.remove("eye-cross"); // Remove class
-                }
-            });
-</script>
 {% schema %}
 {
   "name": "t:sections.main-register.name",
