@@ -247,7 +247,7 @@ cart-remove-button .icon-remove {
   }
 
   .cart-item {
-    display: grid;
+    display: grid !important;
     grid-template: repeat(2, auto) / repeat(4, 1fr);
     gap: 1.5rem;
     margin-bottom: 3.5rem;
