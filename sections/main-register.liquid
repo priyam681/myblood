@@ -10,22 +10,53 @@
     border-radius: 4px;              /* Rounded corners */
     padding: 0.5em 1em 1em 1em;       /* Top padding gives space for the input */
     width: 300px;                    /* Set your desired width */
-    margin: 20px auto;               /* Centered horizontally */
+    margin: 20px auto;              
   }
-  /* Legend styling positions the label at the corner */
-  .corner-label-fieldset legend {
-    padding: 0 5px;                  /* Prevents overlap with the border */
-    color: #2196F3;                  /* Same blue color for consistency */
-    font-weight: bold;
-  }
-  /* Input styling: border removed so fieldset's border is visible */
   .corner-label-fieldset input {
     width: 100%;
     border: none;
     outline: none;
     font-size: 14px;
     padding: 0.5em;
-    box-sizing: border-box;          /* Ensures proper sizing with padding */
+    box-sizing: border-box;       
+  }
+    .field {
+    position: relative;
+    margin: 20px 0;
+  }
+  /* Label ko absolute position par rakhein, initially vertically center mein */
+  .field label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    background: #fff;
+    padding: 0 5px;
+    color: #999;
+    font-size: 14px;
+  }
+  /* Jab input focus mein ho, to container ko :focus-within se label ko upar shift karein */
+  .field:focus-within label {
+    top: -8px;
+    left: 10px;
+    font-size: 12px;
+    color: #2196F3;
+  }
+  /* Input styling */
+  .field input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  /* Input focus state (optional) */
+  .field input:focus {
+    outline: none;
+    border-color: #2196F3;
   }
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
