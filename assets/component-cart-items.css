@@ -21,6 +21,11 @@ cart-items .title-wrapper-with-link {
   display: flex;
 }
 
+th.caption-with-letter-spacing {
+    font-weight: bold;
+    font-size: 16px;
+}
+
 .cart-item__totals {
   position: relative;
 }
