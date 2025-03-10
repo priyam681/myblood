@@ -323,6 +323,7 @@ a.cart-item__name.h4.break {
   .cart-items td {
     vertical-align: top;
     padding: 20px 14px;
+        border-bottom: 1px solid #e4e4e4;
   }
 
   .cart-item {
