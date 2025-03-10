@@ -359,9 +359,7 @@ a.cart-item__name.h4.break {
   .cart-item__details {
     width: 50rem;
   }
-.cart-items td {
-    border-bottom: 1px solid #e4e4e4;
-}
+
   .cart-items thead th:first-child {
     width: 60%;
   }
