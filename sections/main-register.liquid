@@ -5,11 +5,11 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-    .field {
+  .field {
     position: relative;
     margin: 20px 0;
   }
-  /* Label ko absolute position par rakhein, initially vertically center mein */
+  /* Label ko absolute position par rakhein */
   .field label {
     position: absolute;
     left: 10px;
@@ -22,7 +22,7 @@
     color: #999;
     font-size: 14px;
   }
-  /* Jab input focus mein ho, to container ko :focus-within se label ko upar shift karein */
+  /* Focus mein label ko upar shift kar dein */
   .field:focus-within label {
     top: -8px;
     left: 10px;
@@ -38,10 +38,13 @@
     font-size: 14px;
     box-sizing: border-box;
   }
-  /* Input focus state (optional) */
   .field input:focus {
     outline: none;
     border-color: #2196F3;
+  }
+  /* Placeholder ko hide karne ke liye */
+  .field input::placeholder {
+    color: transparent;
   }
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
