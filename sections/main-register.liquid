@@ -29,8 +29,9 @@
                     togglePassword.classList.remove("eye-cross"); // Remove class
                 }
             });
-     const inputField = document.getElementById("RegisterForm-FirstName");
-    console.log(inputField);
+        });
+  document.addEventListener("DOMContentLoaded", function() {
+    const inputField = document.getElementById("RegisterForm-FirstName");
     if(inputField) {
       // Save original placeholder (translation)
       const originalPlaceholder = inputField.placeholder;
@@ -45,7 +46,7 @@
         inputField.placeholder = originalPlaceholder;
       });
     }
-        });
+  });
 
 </script>
 <div class="customer register section-{{ section.id }}-padding register-account-page">
