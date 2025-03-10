@@ -145,6 +145,7 @@ cart-items {
 
   .cart__footer > * {
     width: 35rem;
+    
   }
 
   .cart__footer > * + * {
