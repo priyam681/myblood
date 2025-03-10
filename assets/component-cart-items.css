@@ -255,9 +255,9 @@ cart-remove-button .icon-remove {
   .cart-item__details {
     width: 15rem !important;
 }
-.cart-item > td + td {
+/* .cart-item > td + td {
   padding-left: 11px;
-}
+} */
   .cart-item:last-child {
     margin-bottom: 0;
   }
