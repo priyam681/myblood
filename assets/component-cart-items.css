@@ -308,6 +308,7 @@ a.cart-item__name.h4.break {
     z-index: 2;
     border: unset;
     outline: unset;
+    box-shadow:unset;
 } 
   }
   .cart-items td {
