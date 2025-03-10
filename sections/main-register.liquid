@@ -155,20 +155,6 @@
                     togglePassword.classList.remove("eye-cross"); // Remove class
                 }
             });
-    document.addEventListener("DOMContentLoaded", function() {
-      const inputField = document.getElementById("RegisterForm-FirstName");
-
-      inputField.addEventListener("focus", function() {
-        // Get the title attribute value and set it as the placeholder
-        const titleText = inputField.getAttribute("title");
-        inputField.setAttribute("placeholder", titleText);
-      });
-
-      inputField.addEventListener("blur", function() {
-        // Reset the placeholder on blur
-        inputField.setAttribute("placeholder", "First Name");
-      });
-    });
 </script>
 {% schema %}
 {
