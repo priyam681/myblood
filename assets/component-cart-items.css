@@ -256,7 +256,7 @@ cart-remove-button .icon-remove {
     width: 15rem !important;
 }
 .cart-item > td + td {
-  padding-left: 11px;
+  padding-left: 11px !important;
 }
   .cart-item:last-child {
     margin-bottom: 0;
