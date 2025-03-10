@@ -30,24 +30,7 @@
                 }
             });
         });
-  document.addEventListener("DOMContentLoaded", function() {
-    const inputField = document.getElementById("RegisterForm-FirstName");
-    if(inputField) {
-      // Save original placeholder (translation)
-      const originalPlaceholder = inputField.placeholder;
-      
-      inputField.addEventListener("focus", function() {
-        // Set placeholder to title on focus
-        inputField.placeholder = inputField.getAttribute("title");
-      });
-      
-      inputField.addEventListener("blur", function() {
-        // Reset placeholder on blur
-        inputField.placeholder = originalPlaceholder;
-      });
-    }
-  });
-
+  
 </script>
 <div class="customer register section-{{ section.id }}-padding register-account-page">
   <h1>
