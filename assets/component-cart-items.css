@@ -306,7 +306,7 @@ a.cart-item__name.h4.break {
   span.svg-wrapper:hover svg path {
     color: red;
 }
-  .cart-remove-button  a span.svg-wrapper {
+  .cart-remove-button span.svg-wrapper {
     background: #d8d8d8;
     padding: 5px;
     border-radius: 20px;
