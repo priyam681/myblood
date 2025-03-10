@@ -29,9 +29,18 @@
                     togglePassword.classList.remove("eye-cross"); // Remove class
                 }
             });
+    const inputField = document.getElementById("RegisterForm-FirstName");
+
+            inputField.addEventListener("focus", function() {
+                const titleText = inputField.getAttribute("title");
+                inputField.setAttribute("placeholder", titleText); // Show title as placeholder
+            });
+
+            inputField.addEventListener("blur", function() {
+                inputField.setAttribute("placeholder", "First Name"); // Reset placeholder
+            });
         });
 
-  
 </script>
 <div class="customer register section-{{ section.id }}-padding register-account-page">
   <h1>
@@ -135,6 +144,7 @@
         type="password"
         name="customer[password]"
         id="RegisterForm-password"
+        title="password"
         aria-required="true"
         {% if form.errors contains 'password' %}
           aria-invalid="true"
