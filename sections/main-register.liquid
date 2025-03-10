@@ -154,7 +154,25 @@
                     eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
                     togglePassword.classList.remove("eye-cross"); // Remove class
                 }
+    var inputField = document.getElementById("RegisterForm-FirstName");
+      
+      if (!inputField) {
+        console.error("Input field not found!");
+        return;
+      }
+      
+      inputField.addEventListener("focus", function() {
+        var titleText = inputField.getAttribute("title");
+        if(titleText) {
+          inputField.placeholder = titleText;
+        }
+      });
+
+      inputField.addEventListener("blur", function() {
+        inputField.placeholder = "First Name";
+      });
             });
+    
 </script>
 {% schema %}
 {
