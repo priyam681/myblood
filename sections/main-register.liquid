@@ -5,6 +5,44 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
+    .field {
+    position: relative;
+    margin: 20px 0;
+  }
+  /* Label ko absolute position par rakhein, initially vertically center mein */
+  .field label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    background: #fff;
+    padding: 0 5px;
+    color: #999;
+    font-size: 14px;
+  }
+  /* Jab input focus mein ho, to container ko :focus-within se label ko upar shift karein */
+  .field:focus-within label {
+    top: -8px;
+    left: 10px;
+    font-size: 12px;
+    color: #2196F3;
+  }
+  /* Input styling */
+  .field input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  /* Input focus state (optional) */
+  .field input:focus {
+    outline: none;
+    border-color: #2196F3;
+  }
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
