@@ -16,7 +16,9 @@ cart-items .title-wrapper-with-link {
   opacity: 0.85;
   font-weight: normal;
 }
-
+.cart-items thead tr {
+    background: #f6f6f6;
+}
 .cart-item__quantity-wrapper {
   display: flex;
 }
