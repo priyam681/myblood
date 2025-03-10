@@ -274,9 +274,9 @@ cart-remove-button .icon-remove {
     grid-column: 2 / 5;
   }
 
-  .cart-item__quantity-wrapper {
+  /* .cart-item__quantity-wrapper {
     flex-wrap: wrap;
-  }
+  } */
 
   .cart-item__totals {
     display: flex;
