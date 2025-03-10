@@ -64,16 +64,16 @@
         {{ 'customer.register.first_name' | t }}
       </label>
       <input
-  type="text"
-  name="customer[first_name]"
-  id="RegisterForm-FirstName"
-  {% if form.first_name %}
-    value="{{ form.first_name }}"
-  {% endif %}
-  autocomplete="given-name"
-  placeholder="{{ 'customer.register.first_name' | t }}"
-  title="{{ 'customer.register.first_name' | t }}"
->
+          type="text"
+          name="customer[first_name]"
+          id="RegisterForm-FirstName"
+          {% if form.first_name %}
+            value="{{ form.first_name }}"
+          {% endif %}
+          autocomplete="given-name"
+          placeholder="{{ 'customer.register.first_name' | t }}"
+          title="{{ 'customer.register.first_name' | t }}"
+        >
     </div>
     <div class="field">
       <label for="RegisterForm-LastName">
