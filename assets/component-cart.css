@@ -14,7 +14,9 @@ cart-items.is-empty .title-wrapper-with-link,
 .is-empty .cart__warnings {
   display: block;
 }
-
+h2.totals__total {
+    font-weight: bold;
+}
 .cart__warnings {
   display: none;
   text-align: center;
