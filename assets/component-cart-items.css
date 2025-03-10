@@ -303,7 +303,7 @@ cart-remove-button .icon-remove {
 
   .cart-items td {
     vertical-align: top;
-    padding-top: 4rem;
+    padding: 20px 14px;
   }
 
   .cart-item {
