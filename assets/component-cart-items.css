@@ -303,6 +303,13 @@ cart-remove-button .icon-remove {
 a.cart-item__name.h4.break {
     font-weight: bold;
 }
+  .quantity__input:focus-visible {
+       background-color: unset;
+    z-index: 2;
+    border: unset;
+    outline: unset;
+} 
+  }
   .cart-items td {
     vertical-align: top;
     padding: 20px 14px;
