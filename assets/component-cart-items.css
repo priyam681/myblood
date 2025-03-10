@@ -22,6 +22,10 @@ cart-items .title-wrapper-with-link {
 .cart-items th {
     padding: 10px;
 }
+table.cart-items {
+    border: 1px solid #f1f1f1;
+    border-radius: 11px;
+}
 .cart-item__quantity-wrapper {
   display: flex;
 }
