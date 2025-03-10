@@ -66,7 +66,7 @@
   display: block;
   padding: 0;
 }
-.eye-icon.eye-cross:After {
+.eye-icon.eye-cross:after {
     content: "";
     position: absolute;
     width: 24px;
