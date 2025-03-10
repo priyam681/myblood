@@ -31,27 +31,7 @@
             });
         });
 
-  document.addEventListener("DOMContentLoaded", function() {
-            const inputField = document.getElementById("RegisterForm-FirstName");
-            const label = document.querySelector("label[for='RegisterForm-FirstName']");
-
-            function checkInput() {
-                if (inputField.value.trim() !== "") {
-                    label.classList.add("active");
-                } else {
-                    label.classList.remove("active");
-                }
-            }
-
-            inputField.addEventListener("focus", function() {
-                label.classList.add("active");
-            });
-
-            inputField.addEventListener("blur", checkInput);
-
-            // In case input has pre-filled value
-            checkInput();
-        });
+  
 </script>
 <div class="customer register section-{{ section.id }}-padding register-account-page">
   <h1>
