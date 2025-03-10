@@ -300,7 +300,9 @@ cart-remove-button .icon-remove {
   .cart-items th + th {
     padding-left: 4rem;
   }
-
+a.cart-item__name.h4.break {
+    font-weight: bold;
+}
   .cart-items td {
     vertical-align: top;
     padding: 20px 14px;
