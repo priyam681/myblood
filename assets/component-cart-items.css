@@ -273,7 +273,9 @@ cart-remove-button .icon-remove {
   .cart-item__quantity {
     grid-column: 2 / 5;
   }
-
+.quantity-popover-container .quantity {
+  width: 120px;
+}
   /* .cart-item__quantity-wrapper {
     flex-wrap: wrap;
   } */
