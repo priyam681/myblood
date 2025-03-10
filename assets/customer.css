@@ -66,6 +66,16 @@
   display: block;
   padding: 0;
 }
+.eye-icon.eye-cross:After {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(50deg);
+    top: 10px;
+    left: 0px;
+}
 .login-container .account-button a {
   color: #fff;
   text-decoration: none;
