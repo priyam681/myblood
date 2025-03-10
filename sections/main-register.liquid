@@ -5,6 +5,29 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
+   /* Fieldset container with minimal styling */
+    .fieldset {
+      border: 2px solid #2196F3;       /* Blue border */
+      border-radius: 4px;              /* Rounded corners */
+      padding: 0.5em 1em 1em 1em;       /* Padding: top, right, bottom, left */
+      width: 300px;                    /* Set a fixed width (adjust as needed) */
+      margin: 50px auto;               /* Center on page */
+    }
+    /* Legend styling to appear at the top-left corner */
+    label {
+      padding: 0 5px;                  /* Padding to prevent overlap with border */
+      color: #2196F3;                  /* Same blue color */
+      font-weight: bold;
+    }
+    /* Input styling - no border since fieldset provides the border */
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+      padding: 0.5em;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -59,7 +82,7 @@
         {%- endfor -%}
       </ul>
     {%- endif -%}
-    <div class="field">
+    <div class="field fieldset ">
       <label for="RegisterForm-FirstName">
         {{ 'customer.register.first_name' | t }}
       </label>
