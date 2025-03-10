@@ -253,7 +253,7 @@ cart-remove-button .icon-remove {
     margin-bottom: 3.5rem;
   }
   .cart-item__details {
-    width: 15rem !important;
+    width: 13rem !important;
 }
 .cart-item > td + td {
   padding-left: 11px !important;
