@@ -82,7 +82,7 @@
     var label = document.querySelector("label[for='" + inputField.id + "']");
     inputField.addEventListener("input", (e)=>{
       if (e.target.className === "customer-name"){
-         if (inputField.value.trim() !== "") {
+      if (inputField.value.trim() !== "") {
         label.style.top = "5px";
         label.style.fontSize = "12px";
         label.style.color = "#333";
