@@ -82,14 +82,7 @@
     var label = document.querySelector("label[for='" + inputField.id + "']");
     inputField.addEventListener("input", (e)=>{
       if (e.target.className === "customer-name"){
-        console.log(e.target);
-      }
-    });
-    // toggleLabel(); // Page load hone par bhi label position check kare
-  });
-    function toggleLabel() {
-      console.log(this);
-      if (inputField.value.trim() !== "") {
+         if (inputField.value.trim() !== "") {
         label.style.top = "5px";
         label.style.fontSize = "12px";
         label.style.color = "#333";
@@ -98,6 +91,13 @@
         label.style.fontSize = "16px";
         label.style.color = "#999";
       }
+      }
+    });
+    // toggleLabel(); // Page load hone par bhi label position check kare
+  });
+    function toggleLabel() {
+      console.log(this);
+     
     }
 });
 
