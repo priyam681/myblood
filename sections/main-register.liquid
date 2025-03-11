@@ -32,6 +32,10 @@
     left: 10px;
     font-size: 12px;
   }
+  .customer-register-section {
+   text-align:center;
+    margin: 0;
+  }
   /* Input styling */
   .field input {
     width: 100%;
@@ -81,7 +85,7 @@
   <h1>
     {{ 'customer.register.title' | t }}
   </h1>
-  <p>{{ section.settings.custom_text-wrap }}</p>
+  <p class="customer-register-section">{{ section.settings.custom_text-wrap }}</p>
   {%- form 'create_customer', novalidate: 'novalidate' -%}
     {%- if form.errors -%}
       <h2 class="form__message" tabindex="-1" autofocus>
