@@ -80,8 +80,11 @@
   console.log(inputFields);
   inputFields.forEach(function(inputField) {
     var label = document.querySelector("label[for='" + inputField.id + "']");
-
+    inputField.addEventListener("input", toggleLabel);
+    toggleLabel(); // Page load hone par bhi label position check kare
+  });
     function toggleLabel() {
+      console.log(this);
       if (inputField.value.trim() !== "") {
         label.style.top = "5px";
         label.style.fontSize = "12px";
@@ -92,10 +95,6 @@
         label.style.color = "#999";
       }
     }
-
-    inputField.addEventListener("input", toggleLabel);
-    toggleLabel(); // Page load hone par bhi label position check kare
-  });
 });
 
 </script>
