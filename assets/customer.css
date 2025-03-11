@@ -194,13 +194,11 @@
   margin-bottom: 4rem;
 }
 .new-recovery-password {
-  max-width: 50% !important;
-  margin: auto;
+ margin: auto;
   padding: 23px;
   background: #fff;
   box-shadow: #63636333 0 2px 8px;
   border-radius: 5px;
-
 }
 
 .customer ul a {
@@ -231,6 +229,9 @@ h2.form__message {
 @media only screen and (min-width: 750px) {
   .customer h2.form__message {
     font-size: calc(var(--font-heading-scale) * 2.2rem);
+  }
+  .new-recovery-password  {
+    max-width:50%;
   }
 }
 
