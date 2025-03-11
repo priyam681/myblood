@@ -77,7 +77,7 @@
         });
   document.addEventListener("DOMContentLoaded", function() {
   var inputField = document.getElementById("RegisterForm-LastName");
-  var label = document.querySelector("label");
+  var label = document.querySelector("label[for='RegisterForm-LastName']");
 
   function toggleLabel() {
     if (inputField.value.trim() !== "") {
