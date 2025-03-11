@@ -195,6 +195,12 @@
 }
 .new-recovery-password {
   max-width: 50% !important;
+  margin: auto;
+  padding: 23px;
+  background: #fff;
+  box-shadow: #63636333 0 2px 8px;
+  border-radius: 5px;
+
 }
 
 .customer ul a {
