@@ -310,9 +310,7 @@ cart-remove-button .icon-remove {
 a.cart-item__name.h4.break {
     font-weight: bold;
 }
-  span.svg-wrapper:hover svg path {
-    color: red;
-}
+
   cart-remove-button span.svg-wrapper {
    background: #e7e4e4;
         padding: 9px;
