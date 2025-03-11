@@ -194,7 +194,7 @@
   margin-bottom: 4rem;
 }
 .new-recovery-password {
-  max-width: 70%;
+  max-width: 50% !important;
 }
 
 .customer ul a {
