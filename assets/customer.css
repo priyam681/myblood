@@ -151,8 +151,9 @@
   }
   
   .login-container-wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    width: 50%;
+    margin: auto;
+    padding: 23px;
     gap: 5rem;
     margin-top: 10px;
     background: white;
