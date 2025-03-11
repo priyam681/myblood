@@ -166,10 +166,12 @@ p.custom-para-login {
      padding-inline: 3rem;
     max-width: 120rem;
   }
-  
+  .new-recovery-password {
+            margin-bottom: 26px !important;
+  }
   .login-container-wrapper {
     width: 50%;
-    margin: 20px auto auto;
+    margin: 10px auto auto;
     padding: 23px;
     gap: 5rem;
     margin-top: 10px;
