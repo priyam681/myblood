@@ -105,6 +105,10 @@
 #MainContent .register-account-page input {
   border-radius: 5px;
 }
+ .login-wrapper-custom #login {
+        margin-top: 0;
+        text-align:center;
+  }
 @media screen and (max-width: 768px) {
   .login-container {
     position: relative;
