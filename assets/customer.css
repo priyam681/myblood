@@ -232,7 +232,7 @@ h2.form__message {
     font-size: calc(var(--font-heading-scale) * 2.2rem);
   }
   .new-recovery-password  {
-    max-width:50%;
+    max-width:50% !important;
   }
 }
 
