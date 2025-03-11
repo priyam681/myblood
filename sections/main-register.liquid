@@ -80,7 +80,7 @@
   console.log(inputFields);
   inputFields.forEach(function(inputField) {
     var label = document.querySelector("label[for='" + inputField.id + "']");
-    inputField.addEventListener("input", (e)=>{
+    inputField.addEventListener("change", (e)=>{
       if (e.target.className === "customer-name"){
       if (inputField.value.trim() !== "") {
         label.style.top = "5px";
