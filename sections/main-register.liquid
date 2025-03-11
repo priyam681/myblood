@@ -90,14 +90,18 @@
       }
    })
 
-     inputField.addEventListener("focusout",(e)=>{
-     if (e.target.className === "customer-name"){
-      if (inputField.value.trim() !== "") {
+   inputField.addEventListener("focusout", (e) => {
+  if (e.target.classList.contains("customer-name")) {
+    if (e.target.value.trim() !== "") {
+      let label = document.querySelector(`label[for="${e.target.id}"]`);
+      if (label) {
         label.style.top = "50%";
         label.style.fontSize = "12px";
         label.style.color = "#333";
       }
-   }})
+    }
+  }
+});
 
   }
 
