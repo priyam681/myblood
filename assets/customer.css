@@ -10,7 +10,6 @@
     padding-inline: 1.5rem;
     max-width: 50rem;
     margin: auto;
-    width: 28%;
     box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
   }
 .have-account {
@@ -130,11 +129,19 @@
   .section-template--19286807412972__main-padding {
     padding-bottom:0;
   }
+  .customer.register {
+    margin: auto;
+    width: 70%;
+  }
 }
 @media screen and (min-width: 768px) {
   .customer.login {
      padding-inline: 3rem;
     max-width: 120rem;
+  }
+   .customer.register {
+    margin: auto;
+    width: 30%;
   }
   .login-container-wrapper {
     display: grid;
