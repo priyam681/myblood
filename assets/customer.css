@@ -42,6 +42,9 @@
   align-items: center;
   justify-content: space-between;
 }
+p.custom-para-login {
+    text-align: center;
+}
 .customer.login h1,
 .customer.register  h1 {
   margin-bottom: 0;
