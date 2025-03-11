@@ -231,29 +231,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   background: none;
   color: #000;
 }
-/* .list-social .list-social__item {
-   width: 44px;
-}
-.list-social__item a {
-  position: relative;
-}
- .list-social__item a:hover {
-    transition: all 2s ease-in-out;
-    padding-left: 100px;
- } */
-/* .list-social__item a .visually-hidden {
-  left: -100%;
-  width: auto;
-  height: auto;
-}  */
-/* .list-social__item a:hover .visually-hidden {
-  width: auto;
-  height: auto;
-  clip: auto;
-  left: 46px;
-  font-weight: 700;
-  /* transition: all 3s ease; */
-}  */
+
 .page-width.drawer-menu {
   max-width: 100%;
 }
