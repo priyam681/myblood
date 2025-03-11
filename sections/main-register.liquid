@@ -80,7 +80,11 @@
   console.log(inputFields);
   inputFields.forEach(function(inputField) {
     var label = document.querySelector("label[for='" + inputField.id + "']");
-    inputField.addEventListener("input", toggleLabel);
+    inputField.addEventListener("input", (e)=>{
+      if (e.target.className === "customer-name"){
+        console.log(e.target);
+      }
+    });
     toggleLabel(); // Page load hone par bhi label position check kare
   });
     function toggleLabel() {
