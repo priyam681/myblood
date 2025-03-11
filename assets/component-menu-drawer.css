@@ -19,12 +19,21 @@
   transition: opacity 0s, visibility 0s;
 }
 
+.menu-drawer__inner-container {
+  .list-social {
+    display: flex;
+    align-items: center;
+  }
+}
 menu-drawer > details[open] > summary::before {
   visibility: visible;
   opacity: 1;
   transition: opacity var(--duration-default) ease, visibility var(--duration-default) ease;
 }
-
+div#menu-drawer {
+    overflow: auto;
+    max-height: 500px;
+}
 .menu-drawer {
   position: absolute;
   transform: translateX(-100%);

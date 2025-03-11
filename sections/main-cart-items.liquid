@@ -6,17 +6,31 @@
 {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
+      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+    }
+
+  @media screen and (max-width: 768px) {
+     .cart-items-list tr {
+    border-bottom: 1px solid #f1f1f1;
+  }
+    .cart-items-list tr:last-child {
+      border-bottom:  none;
     }
   }
+    @media screen and (min-width: 768px) {
+      .section-{{ section.id }}-padding {
+        padding-top: {{ section.settings.padding_top }}px;
+        padding-bottom: {{ section.settings.padding_bottom }}px;
+      }
+       .cart-items-list tr td {
+    border-bottom: 1px solid #f1f1f1;
+  }
+    .cart-items-list tr:last-child td {
+      border-bottom:  none;
+    }
+    }
 {%- endstyle -%}
 
 {%- unless settings.cart_type == 'drawer' -%}
@@ -77,7 +91,7 @@
                 </tr>
               </thead>
 
-              <tbody>
+              <tbody class="cart-items-list">
                 {%- for item in cart.items -%}
                   <tr class="cart-item" id="CartItem-{{ item.index | plus: 1 }}">
                     <td class="cart-item__media">

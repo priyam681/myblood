@@ -17,14 +17,18 @@
         "padding_bottom": 0
       }
     },
+    "map_C7Kf9V": {
+      "type": "map",
+      "settings": {}
+    },
     "form": {
       "type": "contact-form",
       "settings": {
-        "heading": "",
-        "heading_size": "h1",
+        "heading": "<strong>Contact Form</strong>",
+        "heading_size": "h2",
         "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
+        "padding_top": 52,
+        "padding_bottom": 20
       }
     },
     "faq_contact_UBVyBU": {
@@ -76,6 +80,7 @@
       "settings": {
         "faq-image": "shopify://shop_images/bride-8276613_1920.jpg",
         "caption": "",
+        "faqtext": "Is your question not listed? Please contact our customer service. <a href=\"/pages/coming-soon\" title=\"Coming soon\">View all FAQ's</a>",
         "heading": "",
         "heading_size": "h1",
         "heading_alignment": "center",
@@ -105,7 +110,7 @@
           "type": "column",
           "settings": {
             "title": "<strong>You can email us anytime</strong>",
-            "text": "<p><strong>You can email us anytime</strong></p>",
+            "text": "<p>You can email us</p>",
             "link_label": "",
             "link": ""
           }
@@ -129,7 +134,7 @@
         "image_width": "full",
         "image_ratio": "adapt",
         "columns_desktop": 3,
-        "column_alignment": "left",
+        "column_alignment": "center",
         "background_style": "none",
         "color_scheme": "",
         "columns_mobile": "1",
@@ -137,17 +142,13 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "map_C7Kf9V": {
-      "type": "map",
-      "settings": {}
     }
   },
   "order": [
     "main",
+    "map_C7Kf9V",
     "form",
     "faq_contact_UBVyBU",
-    "contact_multicolumn_QwLXpc",
-    "map_C7Kf9V"
+    "contact_multicolumn_QwLXpc"
   ]
 }

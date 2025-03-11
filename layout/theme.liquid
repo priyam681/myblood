@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <meta name="theme-color" content="">
     <link rel="canonical" href="{{ canonical_url }}">
+    <link href="https://fonts.cdnfonts.com/css/knockout" rel="stylesheet">
 
     {%- if settings.favicon != blank -%}
       <link rel="icon" type="image/png" href="{{ settings.favicon | image_url: width: 32, height: 32 }}">
@@ -103,7 +104,7 @@
       {% endfor %}
 
       {{ scheme_classes | prepend: 'body' }} {
-        color: rgba(var(--color-foreground), 0.75);
+        color: rgba(var(--color-foreground));
         background-color: rgb(var(--color-background));
       }
 
@@ -309,7 +310,7 @@
   <body
     class="
       gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}
-      {% if settings.sp-quick-view-container%} sp-quick-view-container{% endif %}
+      {% if settings.sp-quick-view-container %} sp-quick-view-container{% endif %}
     "
   >
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
@@ -385,12 +386,37 @@
     {%- if settings.cart_type == 'drawer' -%}
       <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
-    {% render 'back-to-the-top' %}}
+    {% render 'back-to-the-top' %}
+    <script>
+      document.addEventListener("DOMContentLoaded", function() {
+  var inputFields = document.querySelectorAll(".customer-name");
+  inputFields.forEach(function(inputField) {
+    var label = document.querySelector(`label[for="${inputField.id}"]`);
 
-    <script defer>
-      window.addEventListener('load', function () {
-        document.querySelector('.quick-add-modal__toggle').addEventListener('click', function () {});
-      });
+    if (!label) return; // Agar label na mile, toh kuch na kare
+
+    // Focus hone par label upar chala jaye
+    inputField.addEventListener("focus", () => {
+      label.style.top = "5px";
+      label.style.fontSize = "12px";
+      label.style.color = "#333";
+    });
+    // Focus chhodne (blur) par check kare field empty hai ya nahi
+    inputField.addEventListener("blur", () => {
+      if (inputField.value.trim() === "") {
+        label.style.top = "50%";
+        label.style.fontSize = "12px";
+        label.style.color = "#333";
+      }
+    });
+    // Page load hone par agar field pre-filled ho toh label upar hi rahe
+    if (inputField.value.trim() !== "") {
+      label.style.top = "5px";
+      label.style.fontSize = "12px";
+      label.style.color = "#333";
+    }
+  });
+});
     </script>
   </body>
 </html>

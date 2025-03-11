@@ -1,113 +1,110 @@
 {%- style -%}
-  @media screen and (min-width: 768px)  {
-     .interior-professionals .third-image {
-         top: 100%;
-         left: 100%;
-         width: 36%;
-         transform: translate(-100%, -100%);
-         height: auto;
-         bottom: unset;
-         position: absolute;
-       }
-    .interior-professionals .first-image {
-       top: 100%;
-         left: 52%;
-         width: 15%;
-         transform: translate(-52%, -100%);
-         height: auto;
-         bottom: unset;
-         position: absolute;
-     }
-       .interior-professionals .second-image {
-         top: 0%;
-         left: 65%;
-         width: 25%;
-         transform: translate(-65%, -0%);
-         height: auto;
-         bottom: unset;
-         position: absolute;
-       }
-     .interior-professionals .content {
-      width: 50%;
-    }
-    .interior-professionals img {
-      border-radius: 50%;
-      width: 100%;
-      aspect-ratio: 1;
-    }
-    .interior-professionals::before {
-      height: 80%;
-    }
-    .interior-professionals-wrapper {
-      position: relative;
-      display: flex;
-      align-items: center;
-      height: 100%;
-      aspect-ratio: 16 / 9.6;
-      max-width: 1500px;
-       margin: auto;
-    }
-    .interior-professionals .content .link-btn {
-      margin-bottom: 20px;
-    }
-  }
-     @media screen and (max-width: 768px) {
-       .interior-professionals .third-image,
-       .interior-professionals .first-image,
-       .interior-professionals .second-image {
-         display: none;
-       }
-        .interior-professionals::before  {
-          height: 100%;
+   @media screen and (min-width: 768px)  {
+      .interior-professionals .third-image {
+          top: 100%;
+          left: 100%;
+          width: 36%;
+          transform: translate(-100%, -100%);
+          height: auto;
+          bottom: unset;
+          position: absolute;
         }
+     .interior-professionals .first-image {
+        top: 100%;
+          left: 52%;
+          width: 15%;
+          transform: translate(-52%, -100%);
+          height: auto;
+          bottom: unset;
+          position: absolute;
+      }
+        .interior-professionals .second-image {
+          top: 0%;
+          left: 65%;
+          width: 25%;
+          transform: translate(-65%, -0%);
+          height: auto;
+          bottom: unset;
+          position: absolute;
+        }
+      .interior-professionals .content {
+       width: 50%;
      }
-
-     .interior-professionals {
-       margin-top: 50PX;
-       padding: 5rem;
+     .interior-professionals img {
+       border-radius: 50%;
+       width: 100%;
+       aspect-ratio: 1;
+     }
+     .interior-professionals::before {
+       height: 80%;
+     }
+     .interior-professionals-wrapper {
        position: relative;
+       display: flex;
+       align-items: center;
+       height: 100%;
+       aspect-ratio: 16 / 9.6;
+       max-width: 1500px;
+        margin: auto;
      }
-    .interior-professionals::before {
-      content: '';
-      width: 100%;
-      background: #edebe6;
-      position: absolute;
-      top: 0;
-      z-index: -1;
-      left: 0;
-    }
-
-
-     .interior-professionals .content .heading,
-    .interior-professionals .content .sub-heading {
-      font-weight: bold;
-      margin-bottom: 20px;
-      margin-top: 0;
-    }
-    .interior-professionals .content p {
-      margin-bottom: 24px;
-    }
-    .interior-professionals .content .link-btn {
-      background: black;
-      padding: 16px 32px;
-      line-height: normal;
-      max-width: 200px;
-      text-align: center;
-      border-radius: 10px;
-      font-size: 18px;
-      font-weight: 700;
-    }
-    .interior-professionals .content .link-btn a {
-      color: white;
-     text-decoration: none;
-    }
-
-     @media screen and (max-width: 992px) {
-  .interior-professionals .content .heading {
-    font-size: 24px
-  }
-
+     .interior-professionals .content .link-btn {
+       margin-bottom: 20px;
      }
+   }
+      @media screen and (max-width: 768px) {
+        .interior-professionals .third-image,
+        .interior-professionals .first-image,
+        .interior-professionals .second-image {
+          display: none;
+        }
+         .interior-professionals::before  {
+           height: 100%;
+         }
+      }
+
+      .interior-professionals {
+        margin-top: 50px;
+        padding-inline: 1.5rem;
+        padding-block: 5rem;
+        position: relative;
+      }
+     .interior-professionals::before {
+       content: '';
+       width: 100%;
+       background: #edebe6;
+       position: absolute;
+       top: 0;
+       z-index: -1;
+       left: 0;
+     }
+
+
+      .interior-professionals .content .heading,
+     .interior-professionals .content .sub-heading {
+       font-weight: bold;
+       margin-bottom: 20px;
+       margin-top: 0;
+     }
+     .interior-professionals .content p {
+       margin-bottom: 24px;
+     }
+
+
+      @media screen and (max-width: 992px) {
+   .interior-professionals .content .heading {
+     font-size: 24px
+   }
+      }
+        @media screen and (min-width: 768px) {
+          .interior-professionals {
+            padding-inline: 3rem;
+          }
+        }
+  @media screen and (min-width: 992px) {
+           .interior-professionals {
+            padding-inline: 5rem;
+          }
+        }
 {%- endstyle -%}
 
 <div class="interior-professionals">

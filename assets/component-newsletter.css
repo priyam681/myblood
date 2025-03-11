@@ -7,7 +7,7 @@
   position: relative;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .newsletter-form {
     align-items: flex-start;
     max-width: 70rem;
@@ -20,25 +20,33 @@
 
 .newsletter-form__field-wrapper .field__input {
     padding-right: 5rem;
-    max-height: 63px;
-    padding: 17px 30px;
+    max-height: 54px;
+    padding: 15px;
     height: 100%;
     color:black;
+    border-radius: 4px;
 }
 
 .newsletter-form__button.field__button {
-    padding: 20px 40px;
+    padding: 20px 30px;
     min-height: 8px;
     border: none;
-    background: #afa39a;
+    background: black;
     color: #fff;
     max-height: 54px;
     border-radius: 6px;
 }
+.newsletter-form__button.field__button:hover {
+    background: white;
+    color: black;
+    border: 1px solid black;
+}
 .newsletter-form__field-wrapper .field {
   z-index: 0;
-  gap: 10px;
+  gap: 4px;
   width: 100%;
+  display: flex;
+  align-items: center;
 }
 
 .newsletter-form__message {
@@ -50,9 +58,10 @@
   margin-top: 2rem;
 }
 .newsletter-form__field-wrapper .field input {
-  max-width: 400px;
+  max-width: 40rem;
+  min-width: 22rem;
 }
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .newsletter-form__message {
     justify-content: flex-start;
   }
@@ -62,18 +71,20 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
+    max-width: 160rem;
+    margin: auto;
   }
 }
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 768px) {
 
   .footer-block__newsletter {
-        padding: 5.2rem 3rem;
+        padding: 5rem 1.5rem;
   }
  .footer-block__newsletter .footer-block__heading {
     font-size: 24px;
   }
   .footer-content-mobile {
-        padding: 0 16px;
+        padding: 16px 0 16px;
   }
  .footer__blocks-wrapper .footer-block-menu {
     margin:0;
@@ -120,9 +131,9 @@
 .footer-dropdown[open] .footer-menu-section::after {
   transform: rotate(180deg); /* Rotate the chevron when opened */
 }
-  .footer-block-newsletter-wrap{
+  /* .footer-block-newsletter-wrap{
         margin: 0 20px;
-  }
+  } */
 }
 .newsletter-form__field-wrapper .field:before,
 .newsletter-form__field-wrapper .field:after {

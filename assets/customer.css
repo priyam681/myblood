@@ -1,14 +1,198 @@
-.customer:not(.account):not(.order) {
+.customer button:hover {
+  background-color: rgba(var(--color-button), 0.8);
+}
+.customer.login {
   margin: 0 auto;
-  max-width: 33.4rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  text-align: center;
+  max-width: 50rem;
+  padding-inline: 1.5rem;
+}
+.customer.register {
+    padding-inline: 1.5rem;
+    max-width: 50rem;
+    margin: auto;
+    box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+.have-account {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 4px;
+}
+.have-account a,
+.have-account h5 {
+  margin: 0 !important;
+} 
+.login-wrapper-custom  input {
+      border-radius: 4px !important;
+  }
+.custom-para-login {
+  margin: 0 !important;
 }
 
-@media screen and (min-width: 750px) {
-  .customer:not(.account):not(.order) {
-    max-width: 47.8rem;
+.login-wrapper-custom #login {
+ font-size: 40px;
+}
+.customer.login #recover,
+.customer.login .recover-password {
+  max-width: 50rem;
+  margin: auto;
+}
+.back-to-page {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+p.custom-para-login {
+    text-align: center;
+}
+.new-recovery-password h2,
+.new-recovery-password p {
+ text-align: center;
+}
+.new-recovery-password p,
+.custom-para-login {
+ font-size: 14px;
+}
+.customer.login h1,
+.customer.register  h1 {
+  margin-bottom: 0;
+  font-size: 24px;
+  font-weight: 600;
+}
+.customer.login h1 {
+  margin-bottom: 0;
+}
+.customer.register  h1  {
+  margin-bottom: 20px;
+}
+ .login-wrapper-custom #login {
+        margin-top: 0;
+        text-align:center;
+  }
+.login-container h5 {
+  font-size: 15px;
+  font-weight: 600;
+  margin-block: 20px;
+   margin: 0 0 7px 0;
+}
+.login-container .account-button,
+.sign-up-button {
+  width: 100%;
+  font-weight: bold;
+  display: block;
+  padding: 0;
+}
+.eye-icon.eye-cross:after {
+    content: "";
+    position: absolute;
+    width: 24px;
+    height: 2px;
+    background: currentColor;
+    transform: rotate(50deg);
+    top: 10px;
+    left: 0px;
+}
+.login-container .account-button a {
+  color: #fff;
+  text-decoration: none;
+  width: 100%;
+  padding: 15px;
+}
+.eye-icon {
+    position: absolute;
+    right: 10px;
+    z-index: 2;
+    top: 41px;
+}
+.register-account-page {
+  border:1px solid black;
+}
+.register-account-page {
+    border: 1px solid #ece9e9;
+    border-radius: 22px;
+    margin-top: 30px !important;
+    max-width: 84rem !important;
+    padding-inline: 20px !important;
+}
+.register-account-page h1 {
+  text-align:center;
+}
+#MainContent .register-account-page input {
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 768px) {
+  .login-container {
+    position: relative;
+    background: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    padding: 20px !important;
+    border-radius: 4px;
+        margin-top: 30px;
+ }
+  .login-wrapper-custom {
+    position: relative;
+}
+  .login-wrapper-custom #login {
+        margin-top: 0;
+        text-align:center;
+  }
+  .custom-para-login {
+    text-align:center;
+  }
+    .for-image img {
+     display:none;
+  }
+  .section-template--19286807412972__main-padding {
+    padding-bottom:0;
+  }
+  .customer.register {
+    margin: auto;
+    width: 70% !important;
+  }
+}
+@media screen and (max-width: 992px) {
+  .customer.register {
+    width:50%
+  }
+}
+@media screen and (min-width: 992px) { 
+    .customer.register { 
+    width: 30%;
+}
+  }
+@media screen and (min-width: 768px) {
+  .customer.login {
+     padding-inline: 3rem;
+    max-width: 120rem;
+  }
+  .new-recovery-password {
+         margin-bottom: 26px !important;    
+  }
+  .login-container-wrapper {
+    width: 50%;
+    margin: 10px auto auto;
+    padding: 23px;
+    gap: 5rem;
+    margin-top: 10px;
+    background: white;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 5px;
+    overflow: hidden;
+  }
+  .for-image img {
+    height: 100%;
+    width: 100%;
+    aspect-ratio: 1;
+    object-fit: cover;
+  }
+}
+.login-container {
+    padding: 20px 0;
+}
+@media screen and (min-width: 992px) {
+  .customer.login {
+     padding-inline: 5rem;
   }
 }
 
@@ -17,12 +201,9 @@
   margin-top: 0;
 }
 
-.customer form {
-  margin-top: 4rem;
-}
 
 .customer button {
-  margin: 4rem 0 1.5rem;
+  margin: 2rem 0;
 }
 
 .customer ul {
@@ -30,6 +211,13 @@
   padding-left: 4.4rem;
   text-align: left;
   margin-bottom: 4rem;
+}
+.new-recovery-password {
+ margin: auto;
+  padding: 23px;
+  background: #fff;
+  box-shadow: #63636333 0 2px 8px;
+  border-radius: 5px;
 }
 
 .customer ul a {
@@ -40,7 +228,19 @@
   font-weight: normal;
   color: rgb(var(--color-foreground));
 }
-
+.form-errors-login ul {
+  margin: 0;
+  padding-left:0;
+}
+.form-errors-login ul li {
+  font-size:14px;
+  color:red;
+  list-style-type: none;
+}
+h2.form__message {
+    margin-top: 0;
+  margin-bottom: 8px;
+}
 .customer h2.form__message {
   font-size: calc(var(--font-heading-scale) * 1.8rem);
 }
@@ -48,6 +248,9 @@
 @media only screen and (min-width: 750px) {
   .customer h2.form__message {
     font-size: calc(var(--font-heading-scale) * 2.2rem);
+  }
+  .new-recovery-password  {
+    max-width:50% !important;
   }
 }
 
@@ -148,7 +351,9 @@
     padding-top: 2.4rem;
   }
 }
-
+.login-text-box {
+  margin-bottom: 20px;
+}
 .customer tbody td:last-of-type {
   padding-bottom: 4rem;
 }
@@ -336,16 +541,12 @@
 }
 
 .login a[href='#recover'] {
-  margin-left: 0;
+  margin-left: auto;
   margin-right: 0;
 }
 
 .login .field + a {
   margin-top: 1rem;
-}
-
-.login p {
-  margin: 1.5rem 0;
 }
 
 .login h3 {

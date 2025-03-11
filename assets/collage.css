@@ -28,7 +28,10 @@
   .collage--mobile .collage__item--left:nth-child(3n - 2) {
     grid-column: span 2;
   }
-
+ .collage--mobile .collage__item.collage__item--collection.collage__item--left.scroll-trigger.animate--slide-in {
+        grid-column: span 2;
+    }
+  
   .collage--mobile .collage__item--left:nth-child(3n - 2):nth-last-child(2) {
     grid-column: span 1;
   }

@@ -25,108 +25,117 @@
 -%}
 
 <style>
-   {{ heading_font | font_face: font_display: 'swap'}}
-   {{ collection_font | font_face: font_display: 'swap'}}
-
-   .sliding-collection-wrapper {
-     width: 100%;
-     margin: 0 auto;
-     text-align: center;
-     background: {{ section_background }};
-     padding-top: {{ padding_top}}px;
-     padding-bottom: {{ padding_bottom }}px;
-     position: relative;
-     padding-left: 50px;
-     max-width: 1600px;
-   }
-  .slick-list {
-    padding-left : 5rem;
+     {{ heading_font | font_face: font_display: 'swap'}}
+     {{ collection_font | font_face: font_display: 'swap'}}
+  .disabled {
+    opacity: 0.3;
+    cursor: not-allowed;
   }
-  .slick-list .slick-track {
-    display: flex;
-    gap: {{ gap}}px;
-  }
-   .collection-heading-title {
-     text-align: center;
-     margin: 30px auto 0;
-     font-size: {{ title_font_size }}px;
-     color: {{ title_color}};
-   }
-
-   @media screen and (max-width: 749px) {
+     .sliding-collection-wrapper {
+       width: 100%;
+       margin: 0 auto;
+       text-align: center;
+       background: {{ section_background }};
+       padding-top: {{ padding_top}}px;
+       padding-bottom: {{ padding_bottom }}px;
+       position: relative;
+       padding-left: 50px;
+       max-width: 1600px;
+     }
+    .slick-list {
+      padding-left : 5rem;
+    }
+    .slick-list .slick-track {
+      display: flex;
+      gap: {{ gap}}px;
+    }
      .collection-heading-title {
-       font-size: {{ title_font_size_mobile }}px;
+       text-align: center;
+       margin: 30px auto 0;
+       font-size: {{ title_font_size }}px;
+       color: {{ title_color}};
+       font-weight: 600;
      }
-   }
 
-   .sliding-collection-list {
-     width: 100%;
-     margin: 0 auto;
-   }
+     @media screen and (max-width: 749px) {
+       .collection-heading-title {
+         font-size: {{ title_font_size_mobile }}px;
+       }
+     }
+    .sliding-collection-wrapper .slick-list.draggable {
+        width: 93%;
+        margin: auto;
+      }
+     .sliding-collection-list {
+       width: 100%;
+       margin: 0 auto;
+     }
 
-   .collection-sliding-content a {
-     text-decoration: none;
-     position: relative;
-     padding: 40px 0;
-    display: block;
-   }
+     .collection-sliding-content a {
+       text-decoration: none;
+       position: relative;
+       padding: 40px 0;
+      display: block;
+     }
 
-   .collection-image-custom {
-     height: {{ image_height_desktop }}px;
-     width: {{ image_width_desktop }}px;
-     object-fit: cover;
-     border-radius: {{ radius}}%;
-   }
-
-   @media screen and (max-width: 749px) {
      .collection-image-custom {
-       height: {{ image_height_mobile }}px;
-       width: {{ image_width_mobile }}px;
+       height: {{ image_height_desktop }}px;
+       width: {{ image_width_desktop }}px;
+       object-fit: cover;
+       border-radius: {{ radius}}%;
      }
-   }
 
-   .collection-name-custom {
-     font-weight: 700;
-     text-align: center;
-     color: {{ collection_name_color}};
-     background-color: {{ collection_name_background}};
-     margin: 0;
-     font-size: {{ collection_font_size}}px;
-     position: absolute;
-     bottom: 0;
-    width: 100%;
-   }
+     @media screen and (max-width: 749px) {
+       .collection-image-custom {
+         height: {{ image_height_mobile }}px;
+         width: {{ image_width_mobile }}px;
+       }
+     }
 
-   @media screen and (max-width: 749px) {
      .collection-name-custom {
-       font-size: {{ collection_font_size_mobile}}px;
+       font-weight: 700;
+       text-align: center;
+       color: {{ collection_name_color}};
+       background-color: {{ collection_name_background}};
+       margin: 0;
+       font-size: {{ collection_font_size}}px;
+       position: absolute;
+       bottom: 0;
+      width: 100%;
      }
-   }
 
-   /* Navigation Buttons */
-   .carousel-nav {
-     position: absolute;
-     top: 50%;
-     transform: translateY(-50%);
-     background: rgba(0, 0, 0, 0.5);
-     color: white;
-     border: none;
-     padding: 10px;
-     cursor: pointer;
-     z-index: 10;
-     width: 36px;
-    border-radius: 50%;
-   }
-   .prev-btn { left: 10px; }
-   .next-btn { right: 10px; }
+     @media screen and (max-width: 749px) {
+       .collection-name-custom {
+         font-size: {{ collection_font_size_mobile}}px;
+       }
+     }
+
+     /* Navigation Buttons */
+     .carousel-nav {
+       background: rgba(0, 0, 0, 0.5);
+       color: white;
+       border: none;
+       padding: 10px;
+       cursor: pointer;
+       width: 36px;
+      border-radius: 50%;
+     }
+    .carousel-button {
+      display: flex;
+      justify-content: end;
+      padding-inline: 50px;
+      gap: 10px;
+    }
 </style>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
 <h2 class="collection-heading-title">{{ section.settings.sliding_collection_heading_title }}</h2>
 <div class="sliding-collection-wrapper">
-  <button class="carousel-nav prev-btn">&#10094;</button>
-  <button class="carousel-nav next-btn">&#10095;</button>
+  <div class="carousel-button">
+    <button class="carousel-nav prev-btn">&#10094;</button>
+    <button class="carousel-nav next-btn">&#10095;</button>
+  </div>
   <div class="sliding-collection-list {{ section.id }}">
     {% for block in section.blocks %}
       <div class="collection-sliding-content">
@@ -145,17 +154,18 @@
 
 <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-{% comment %}
-  <script>
+
+<script>
     $(document).ready(function(){
       var $carousel = $('.sliding-collection-list.{{ section.id }}');
+
       $carousel.slick({
         dots: false,
         arrows: false,
-        infinite: true,
+        infinite: true,  // Infinite loop disable kiya
         autoplay: true,
         autoplaySpeed: 2000,
-        slidesToShow: 4,
+        slidesToShow: 6,
         slidesToScroll: 1,
         variableWidth: true,
         responsive: [
@@ -165,6 +175,23 @@
         ]
       });
 
+      function updateButtons() {
+        var currentSlide = $carousel.slick('slickCurrentSlide');
+        var totalSlides = $carousel.slick('getSlick').slideCount - $carousel.slick('getSlick').options.slidesToShow;
+
+       if (currentSlide === 0) {
+    $('.prev-btn').prop('disabled', true).addClass('disabled'); // First slide pe prev-btn disable
+  } else {
+    $('.prev-btn').prop('disabled', false).removeClass('disabled');
+  }
+
+  if (currentSlide >= totalSlides - 1) {
+    $('.next-btn').prop('disabled', true).addClass('disabled'); // Last slide pe next-btn disable
+  } else {
+    $('.next-btn').prop('disabled', false).removeClass('disabled');
+  }
+      }
+
       $('.prev-btn').click(function(){
         $carousel.slick('slickPrev');
       });
@@ -172,61 +199,14 @@
       $('.next-btn').click(function(){
         $carousel.slick('slickNext');
       });
-    });
-  </script>
-{% endcomment %}
-<script>
-  $(document).ready(function(){
-    var $carousel = $('.sliding-collection-list.{{ section.id }}');
 
-    $carousel.slick({
-      dots: false,
-      arrows: false,
-      infinite: false,  // Infinite loop disable kiya
-      autoplay: true,
-      autoplaySpeed: 2000,
-      slidesToShow: 6,
-      slidesToScroll: 1,
-      variableWidth: true,
-      responsive: [
-        { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, dots: true } },
-        { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-        { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } }
-      ]
-    });
+      $carousel.on('afterChange', function(){
+        updateButtons();
+      });
 
-    function updateButtons() {
-      var currentSlide = $carousel.slick('slickCurrentSlide');
-      var totalSlides = $carousel.slick('getSlick').slideCount - $carousel.slick('getSlick').options.slidesToShow;
-
-      if (currentSlide === 0) {
-        $('.prev-btn').hide(); // First slide pe prev-btn hide
-      } else {
-        $('.prev-btn').show();
-      }
-
-      if (currentSlide >= totalSlides) {
-        $('.next-btn').hide(); // Last slide pe next-btn hide
-      } else {
-        $('.next-btn').show();
-      }
-    }
-
-    $('.prev-btn').click(function(){
-      $carousel.slick('slickPrev');
-    });
-
-    $('.next-btn').click(function(){
-      $carousel.slick('slickNext');
-    });
-
-    $carousel.on('afterChange', function(){
+      // Page load hone par bhi check kare
       updateButtons();
     });
-
-    // Page load hone par bhi check kare
-    updateButtons();
-  });
 </script>
 
 {% schema %}

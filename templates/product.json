@@ -12,15 +12,16 @@
     "main": {
       "type": "main-product",
       "blocks": {
-        "vendor": {
-          "type": "text",
-          "settings": {
-            "text": "{{ product.vendor }}",
-            "text_style": "uppercase"
-          }
-        },
         "title": {
           "type": "title",
+          "settings": {}
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
+        },
+        "description": {
+          "type": "description",
           "settings": {}
         },
         "caption": {
@@ -29,10 +30,6 @@
             "text": "{{ product.metafields.descriptors.subtitle.value }}",
             "text_style": "subtitle"
           }
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -45,6 +42,10 @@
           "type": "quantity_selector",
           "settings": {}
         },
+        "rating_xyTk6d": {
+          "type": "rating",
+          "settings": {}
+        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -52,80 +53,60 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
-        "collapsible-row-0": {
-          "type": "collapsible_tab",
+        "text_with_link_pFh6ai": {
+          "type": "text_with_link",
           "settings": {
-            "heading": "Materials",
-            "icon": "leather",
-            "content": "",
-            "page": ""
+            "text_with_link": "<p>Share information about your brand with your customers.<a href=\"https://www.sprinix.com/\" title=\"https://www.sprinix.com/\">sprinix</a></p>"
           }
         },
-        "collapsible-row-1": {
-          "type": "collapsible_tab",
+        "star_FCHPVx": {
+          "type": "star",
           "settings": {
-            "heading": "Shipping & Returns",
-            "icon": "truck",
-            "content": "",
-            "page": ""
+            "reviews": 4.2,
+            "text": "review"
           }
         },
-        "collapsible-row-2": {
-          "type": "collapsible_tab",
+        "social_icons_8rxYxT": {
+          "type": "social_icons",
           "settings": {
-            "heading": "Dimensions",
-            "icon": "ruler",
-            "content": "",
-            "page": ""
-          }
-        },
-        "collapsible-row-3": {
-          "type": "collapsible_tab",
-          "settings": {
-            "heading": "Care Instructions",
-            "icon": "heart",
-            "content": "",
-            "page": ""
-          }
-        },
-        "share": {
-          "type": "share",
-          "settings": {
-            "share_label": "Share"
+            "is_facebook": true,
+            "is_twitter": true,
+            "is_pinterest": true,
+            "is_tumblr": true,
+            "is_reddit": true,
+            "is_vk": true,
+            "is_whatsapp": true,
+            "is_telegram": true,
+            "is_linkedin": true,
+            "is_instagram": true
           }
         }
       },
       "block_order": [
-        "vendor",
         "title",
-        "caption",
         "price",
+        "description",
+        "caption",
         "variant_picker",
         "quantity_selector",
+        "rating_xyTk6d",
         "buy_buttons",
-        "description",
-        "collapsible-row-0",
-        "collapsible-row-1",
-        "collapsible-row-2",
-        "collapsible-row-3",
-        "share"
+        "text_with_link_pFh6ai",
+        "star_FCHPVx",
+        "social_icons_8rxYxT"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "",
-        "media_size": "large",
+        "media_size": "small",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "stacked",
+        "gallery_layout": "thumbnail_slider",
         "media_position": "left",
         "image_zoom": "lightbox",
-        "mobile_thumbnails": "hide",
+        "mobile_thumbnails": "show",
         "hide_variants": true,
-        "enable_video_looping": false,
+        "enable_video_looping": true,
         "padding_top": 36,
         "padding_bottom": 12
       }

@@ -5,7 +5,58 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-
+  .field {
+    position: relative;
+    margin: 20px 0;
+  }
+  /* Label ko absolute position par rakhein */
+  .field label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    background: #fff;
+    padding: 0 5px;
+    color: #999 !important;
+    font-size: 14px;
+    z-index: 1;
+  }
+  .eye-icon {
+    top: 11px;
+  }
+  /* Focus mein label ko upar shift kar dein */
+  .field:focus-within label {
+    top: -3px;
+    left: 10px;
+    font-size: 12px;
+  }
+  .customer.register h1 {
+     margin-bottom:0 !important;
+  }
+  .customer-register-section {
+   text-align:center;
+    margin-bottom: 20px;
+    margin-top: 0px;
+  }
+  /* Input styling */
+  .field input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  .field input:focus {
+    outline: none;
+    border-color: #2196F3;
+  }
+  /* Placeholder ko hide karne ke liye */
+  .field input::placeholder {
+    color: transparent;
+  }
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -13,20 +64,41 @@
     }
   }
 {%- endstyle -%}
+<script>
+  document.addEventListener("DOMContentLoaded", function() {
+            const passwordInput = document.getElementById("RegisterForm-password");
+            const togglePassword = document.getElementById("togglePassword");
+            const eyeIcon = document.getElementById("eyeIcon");
 
-<div class="customer register section-{{ section.id }}-padding">
+            togglePassword.addEventListener("click", function() {
+                if (passwordInput.type === "password") {
+                    passwordInput.type = "text";
+                    eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
+                    togglePassword.classList.add("eye-cross"); // Add class for cross effect
+                } else {
+                    passwordInput.type = "password";
+                    eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
+                    togglePassword.classList.remove("eye-cross"); // Remove class
+                }
+            });
+        });
+
+
+</script>
+<div class="customer register section-{{ section.id }}-padding register-account-page">
   <h1>
     {{ 'customer.register.title' | t }}
   </h1>
+  <p class="customer-register-section">{{ section.settings.custom_text-wrap }}</p>
   {%- form 'create_customer', novalidate: 'novalidate' -%}
     {%- if form.errors -%}
-      <h2 class="form__message" tabindex="-1" autofocus>
+      <!-- <h2 class="form__message" tabindex="-1" autofocus>
         <span class="svg-wrapper">
           {{- 'icon-error.svg' | inline_asset_content -}}
         </span>
         {{ 'templates.contact.form.error_heading' | t }}
-      </h2>
-      <ul>
+      </h2> -->
+      <!-- <ul>
         {%- for field in form.errors -%}
           <li>
             {%- if field == 'form' -%}
@@ -39,26 +111,32 @@
             {%- endif -%}
           </li>
         {%- endfor -%}
-      </ul>
+      </ul> -->
     {%- endif -%}
     <div class="field">
-      <input
-        type="text"
-        name="customer[first_name]"
-        id="RegisterForm-FirstName"
-        {% if form.first_name %}
-          value="{{ form.first_name }}"
-        {% endif %}
-        autocomplete="given-name"
-        placeholder="{{ 'customer.register.first_name' | t }}"
-      >
       <label for="RegisterForm-FirstName">
         {{ 'customer.register.first_name' | t }}
       </label>
+      <input
+  type="text"
+  name="customer[first_name]"
+  class="customer-name"
+  id="RegisterForm-FirstName"
+  {% if form.first_name %}
+    value="{{ form.first_name }}"
+  {% endif %}
+  autocomplete="given-name"
+  placeholder="{{ 'customer.register.first_name' | t }}"
+  title="{{ 'customer.register.first_name' | t }}"
+>
     </div>
     <div class="field">
+      <label for="RegisterForm-LastName">
+        {{ 'customer.register.last_name' | t }}
+      </label>
       <input
         type="text"
+        class="customer-name"
         name="customer[last_name]"
         id="RegisterForm-LastName"
         {% if form.last_name %}
@@ -67,14 +145,15 @@
         autocomplete="family-name"
         placeholder="{{ 'customer.register.last_name' | t }}"
       >
-      <label for="RegisterForm-LastName">
-        {{ 'customer.register.last_name' | t }}
-      </label>
     </div>
     <div class="field">
+      <label for="RegisterForm-email">
+        {{ 'customer.register.email' | t }}
+      </label>
       <input
         type="email"
         name="customer[email]"
+        class="customer-name"
         id="RegisterForm-email"
         {% if form.email %}
           value="{{ form.email }}"
@@ -89,9 +168,6 @@
         {% endif %}
         placeholder="{{ 'customer.register.email' | t }}"
       >
-      <label for="RegisterForm-email">
-        {{ 'customer.register.email' | t }}
-      </label>
     </div>
     {%- if form.errors contains 'email' -%}
       <span id="RegisterForm-email-error" class="form__message">
@@ -103,10 +179,21 @@
       </span>
     {%- endif -%}
     <div class="field">
+      <label for="RegisterForm-password">
+        {{ 'customer.register.password' | t }}
+      </label>
+        <a  id="togglePassword" class="eye-icon">
+                <svg id="eyeIcon" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
+                  <circle cx="12" cy="12" r="3"></circle>
+                </svg>
+             </a>
       <input
         type="password"
         name="customer[password]"
         id="RegisterForm-password"
+        class="customer-name"
+        title="password"
         aria-required="true"
         {% if form.errors contains 'password' %}
           aria-invalid="true"
@@ -114,9 +201,6 @@
         {% endif %}
         placeholder="{{ 'customer.register.password' | t }}"
       >
-      <label for="RegisterForm-password">
-        {{ 'customer.register.password' | t }}
-      </label>
     </div>
     {%- if form.errors contains 'password' -%}
       <span id="RegisterForm-password-error" class="form__message">
@@ -127,7 +211,7 @@
         {{ form.errors.messages.password }}.
       </span>
     {%- endif -%}
-    <button>
+    <button class="sign-up-button">
       {{ 'customer.register.submit' | t }}
     </button>
   {%- endform -%}
@@ -150,6 +234,12 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_top",
       "default": 36
+    },
+    {
+      "type": "text",
+      "id": "custom_text-wrap",
+      "label": "Enter your text",
+      "default": "I don't have an account"
     },
     {
       "type": "range",
