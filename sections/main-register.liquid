@@ -92,12 +92,12 @@
   <p class="customer-register-section">{{ section.settings.custom_text-wrap }}</p>
   {%- form 'create_customer', novalidate: 'novalidate' -%}
     {%- if form.errors -%}
-      <h2 class="form__message" tabindex="-1" autofocus>
+      <!-- <h2 class="form__message" tabindex="-1" autofocus>
         <span class="svg-wrapper">
           {{- 'icon-error.svg' | inline_asset_content -}}
         </span>
         {{ 'templates.contact.form.error_heading' | t }}
-      </h2>
+      </h2> -->
       <!-- <ul>
         {%- for field in form.errors -%}
           <li>
