@@ -90,7 +90,7 @@ a.link.link--text.list-menu__item:hover {
   align-items: center;
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   .footer__localization:empty + .footer__column {
     padding-top: 1.5rem;
   }
