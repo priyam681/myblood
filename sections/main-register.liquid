@@ -76,7 +76,7 @@
             });
         });
   document.addEventListener("DOMContentLoaded", function() {
-  var inputFields = document.querySelectorAll(".input-container input");
+  var inputFields = document.querySelector("input");
   console.log(inputFields);
   inputFields.forEach(function(inputField) {
     var label = document.querySelector("label[for='" + inputField.id + "']");
