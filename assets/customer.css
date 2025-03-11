@@ -167,7 +167,9 @@ p.custom-para-login {
     max-width: 120rem;
   }
   .new-recovery-password {
-            margin-bottom: 26px !important;
+    .new-recovery-password {
+         margin-bottom: 26px !important;
+    }     
   }
   .login-container-wrapper {
     width: 50%;
