@@ -77,7 +77,6 @@
         });
 document.addEventListener("DOMContentLoaded", function() {
   var inputFields = document.querySelectorAll(".customer-name");
-
   inputFields.forEach(function(inputField) {
     var label = document.querySelector(`label[for="${inputField.id}"]`);
 
@@ -94,8 +93,8 @@ document.addEventListener("DOMContentLoaded", function() {
     inputField.addEventListener("blur", () => {
       if (inputField.value.trim() === "") {
         label.style.top = "50%";
-        label.style.fontSize = "16px";
-        label.style.color = "#999";
+        label.style.fontSize = "12px";
+        label.style.color = "#333";
       }
     });
 
