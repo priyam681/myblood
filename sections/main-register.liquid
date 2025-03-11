@@ -76,7 +76,7 @@
             });
         });
   document.addEventListener("DOMContentLoaded", function() {
-  var inputField = document.getElementById("RegisterForm-LastName");
+  var inputField = document.getElementByClassName("customer-name");
   var label = document.querySelector("label[for='RegisterForm-LastName']");
 
   function toggleLabel() {
@@ -129,6 +129,7 @@
       <input
   type="text"
   name="customer[first_name]"
+  class="customer-name"
   id="RegisterForm-FirstName"
   {% if form.first_name %}
     value="{{ form.first_name }}"
@@ -144,6 +145,7 @@
       </label>
       <input
         type="text"
+        class="customer-name"
         name="customer[last_name]"
         id="RegisterForm-LastName"
         {% if form.last_name %}
@@ -160,6 +162,7 @@
       <input
         type="email"
         name="customer[email]"
+        class="customer-name"
         id="RegisterForm-email"
         {% if form.email %}
           value="{{ form.email }}"
@@ -199,6 +202,7 @@
         name="customer[password]"
         id="RegisterForm-password"
         title="password"
+        class="customer-name"
         aria-required="true"
         {% if form.errors contains 'password' %}
           aria-invalid="true"
