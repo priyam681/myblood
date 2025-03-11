@@ -16,6 +16,7 @@
 {{ 'component-swatch-input.css' | asset_url | stylesheet_tag }}
 {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
 
+
 {%- liquid
   assign sort_by = results.sort_by | default: results.default_sort_by
   assign total_active_values = 0
@@ -391,7 +392,7 @@
                 <h2 class="facet-filters__label caption-large text-body">
                   <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
                 </h2>
-                <div class="select">
+                <div class="select hello">
                   {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
                   <select
                     name="sort_by"
@@ -693,7 +694,7 @@
                             {{ 'products.facets.max_price' | t: price: max_price_amount }}
                           </p>
 
-                          <price-range class="facets__price">
+                          <price-range class="facets__price testing...22222">
                             {% render 'price-facet', filter: filter, id_prefix: 'Mobile-Filter-' %}
                           </price-range>
                           <div class="mobile-facets__footer">
@@ -831,29 +832,37 @@
             <h2 class="facet-filters__label caption-large text-body">
               <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
             </h2>
-            <div class="select">
-              {%- assign sort_by = results.sort_by | default: results.default_sort_by -%}
-              <select
-                name="sort_by"
-                class="facet-filters__sort select__select caption-large"
-                id="SortBy"
-                aria-describedby="a11y-refresh-page-message"
-              >
-                {%- for option in results.sort_options -%}
-                  <option
-                    value="{{ option.value | escape }}"
-                    {% if option.value == sort_by %}
-                      selected="selected"
-                    {% endif %}
-                  >
-                    {{ option.name | escape }}
-                  </option>
-                {%- endfor -%}
-              </select>
-              <span class="svg-wrapper">
-                {{- 'icon-caret.svg' | inline_asset_content -}}
-              </span>
-            </div>
+            {% comment %} custom {% endcomment %}
+
+            <select-component>
+              <div class="custom-dropdown">
+                <button class="dropdown-btn">
+                  <span class="sp-dropdown-btn-text">
+                    Select Option
+                  </span>
+                  <span class="sp-svg-wrapper">
+                    <svg class="icon icon-caret" viewBox="0 0 10 6"><path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"></path></svg>
+                  </span>
+                </button>
+                <ul class="dropdown-menu">
+                  {%- for option in results.sort_options -%}
+                    <li
+                      class="dropdown-item"
+                      data-value="{{ option.value | escape }}"
+                      value="{{ option.value | escape }}"
+                      {% if option.value == sort_by %}
+                        selected="selected"
+                      {% endif %}
+                    >
+                      {{ option.name | escape }}
+                    </li>
+                  {%- endfor -%}
+                </ul>
+              </div>
+              <input type="hidden" id="dropdownValue" name="sort_by">
+            </select-component>
+
+            {% comment %} end custom {% endcomment %}
           </div>
         </div>
 

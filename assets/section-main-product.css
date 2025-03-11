@@ -572,6 +572,14 @@ a.product__text {
 }
 
 @media screen and (min-width: 990px) {
+  /* .custm-gallery-image:nth-child(5n+10), .custm-gallery-image:nth-child(5n+3), .custm-gallery-image:nth-child(5n+4), .custm-gallery-image:nth-child(5n+5), .custm-gallery-image:nth-child(5n+8), .custm-gallery-image:nth-child(5n+9) {
+    width: 32%;
+} */
+.product--stacked .sp-media-gallery .product__media-item:nth-child(5n+2),
+.product--stacked .sp-media-gallery .product__media-item:nth-child(5n+3),
+.product--stacked .sp-media-gallery .product__media-item:nth-child(5n+4)  {
+  max-width: calc(33% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
   .product--stacked .product__media-item {
     max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
   }

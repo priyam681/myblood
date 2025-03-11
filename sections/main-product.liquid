@@ -75,8 +75,14 @@
   {% assign variant_images = product.images | where: 'attached_to_variant?', true | map: 'src' %}
   <div class="page-width">
     <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
-      <div class="grid__item product__media-wrapper">
-        {% render 'product-media-gallery', variant_images: variant_images %}
+      <div class="grid__item product__media-wrapper hello ">
+        {% render 'product-media-gallery', 
+          product: product,
+          variant_images: variant_images,
+          initial_limit: section.settings.initial_media_count,
+          load_more_count: section.settings.load_more_count,
+          sp-load-more: section.settings.sp-media-gallery-container,
+        %}
       </div>
       <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         <section
@@ -2082,6 +2088,30 @@
       "id": "enable_sticky_info",
       "default": true,
       "label": "t:sections.main-product.settings.enable_sticky_info.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "sp-media-gallery-container",
+      "default": true,
+      "label": "sp-media-gallery"
+    },
+    {
+      "type": "range",
+      "id": "initial_media_count",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 5,
+      "label": "Initial images to show"
+    },
+    {
+      "type": "range",
+      "id": "load_more_count",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 5,
+      "label": "Images to load more each time"
     },
     {
       "type": "color_scheme",

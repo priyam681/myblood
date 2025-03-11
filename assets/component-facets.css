@@ -1,5 +1,8 @@
 .sp-fliter .facets.facets-pill {
   margin: 0 16px;
+  font-family: 'Knockout-31';
+  overflow-x: scroll;
+  width: calc(100% - 400px);
 }
 .sp-fliter span.facet-checkbox__text {
   padding-left: 25px;
@@ -682,18 +685,28 @@ button.facets__button {
   padding-right: 0.2rem;
   text-decoration: none;
 }
+.sp-fliter .active-facets {
+  flex-wrap: nowrap;
+}
 .sp-fliter .active-facets__button {
+  align-items: center;
   margin-top: 0;
+  width: max-content;
 }
 .sp-fliter span.active-facets__button-inner.button.button--tertiary {
   border-radius: 3px;
   padding: 0.5rem 1.25rem;
   background: white;
   color: black;
+  box-shadow: none;
+  text-decoration: underline;
+  text-decoration-thickness: 0.1rem;
+  text-underline-offset: 0.3rem;
 }
 .sp-fliter span.active-facets__button-inner.button.button--tertiary:hover {
-  background: black;
-  color: white;
+  color: #212121;
+  text-decoration-thickness: 0.2rem;
+  transition: text-decoration-thickness ease 100ms;
 }
 span.active-facets__button-inner {
   color: rgb(var(--color-foreground));
@@ -761,6 +774,13 @@ span.active-facets__button-inner:after {
     padding-top: 0;
     margin-left: 1.2rem;
   }
+  .sp-fliter .sp-filter-open .mobile-facets__heading {
+    font-size: 24px;
+  }
+  .sp-fliter .svg-wrapper > svg {
+    height: 12px;
+    width: 12px;
+}
 }
 
 .active-facets__button:hover .active-facets__button-inner {
