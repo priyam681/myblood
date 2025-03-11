@@ -10,17 +10,26 @@
       padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
       padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
     }
-  .cart-items-list tr {
+
+  @media screen and (min-width: 768px) {
+     .cart-items-list tr {
     border-bottom: 1px solid #f1f1f1;
   }
     .cart-items-list tr:last-child {
       border-bottom:  none;
     }
-    @media screen and (min-width: 76px) {
+  }
+    @media screen and (min-width: 768px) {
       .section-{{ section.id }}-padding {
         padding-top: {{ section.settings.padding_top }}px;
         padding-bottom: {{ section.settings.padding_bottom }}px;
       }
+       .cart-items-list tr td {
+    border-bottom: 1px solid #f1f1f1;
+  }
+    .cart-items-list tr:last-child td {
+      border-bottom:  none;
+    }
     }
 {%- endstyle -%}
 
