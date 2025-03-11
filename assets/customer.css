@@ -135,7 +135,8 @@
   }
 }
 @media screen and (min-width: 992px) { 
-    width: 50%;
+    .customer.register { 
+  width: 30%;
 }
 @media screen and (min-width: 768px) {
   .customer.login {
