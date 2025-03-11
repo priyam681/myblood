@@ -76,24 +76,28 @@
             });
         });
   document.addEventListener("DOMContentLoaded", function() {
-  var inputField = document.getElementById("RegisterForm-LastName");
-  var label = document.querySelector("label[for='RegisterForm-LastName']");
+  var inputFields = document.querySelectorAll(".input-container input");
 
-  function toggleLabel() {
-    if (inputField.value.trim() !== "") {
-      label.style.top = "5px";
-      label.style.fontSize = "12px";
-      label.style.color = "#333";
-    } else {
-      label.style.top = "50%";
-      label.style.fontSize = "16px";
-      label.style.color = "#999";
+  inputFields.forEach(function(inputField) {
+    var label = document.querySelector("label[for='" + inputField.id + "']");
+
+    function toggleLabel() {
+      if (inputField.value.trim() !== "") {
+        label.style.top = "5px";
+        label.style.fontSize = "12px";
+        label.style.color = "#333";
+      } else {
+        label.style.top = "50%";
+        label.style.fontSize = "16px";
+        label.style.color = "#999";
+      }
     }
-  }
 
-  inputField.addEventListener("input", toggleLabel);
-  toggleLabel();
+    inputField.addEventListener("input", toggleLabel);
+    toggleLabel(); // Page load hone par bhi label position check kare
+  });
 });
+
 </script>
 <div class="customer register section-{{ section.id }}-padding register-account-page">
   <h1>
