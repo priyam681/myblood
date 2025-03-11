@@ -89,23 +89,32 @@
         label.style.color = "#333";
       }
    })
-    
-    inputField.addEventListener("input", (e)=>{
-      if (e.target.className === "customer-name"){
-      if (inputField.value.trim() !== "") {
-        label.style.top = "5px";
-        label.style.fontSize = "12px";
-        label.style.color = "#333";
-      }
 
-         if (inputField.value.trim() === "") {
+     inputField.addEventListener("focusout",(e)=>{
+     if (e.target.className === "customer-name"){
+      if (inputField.value.trim() !== "") {
         label.style.top = "50%";
         label.style.fontSize = "12px";
         label.style.color = "#333";
       }
+   })
+    // inputField.addEventListener("input", (e)=>{
+    //   if (e.target.className === "customer-name"){
+    //   if (inputField.value.trim() !== "") {
+    //     label.style.top = "5px";
+    //     label.style.fontSize = "12px";
+    //     label.style.color = "#333";
+    //   }
+
+    //      if (inputField.value.trim() === "") {
+    //     label.style.top = "50%";
+    //     label.style.fontSize = "12px";
+    //     label.style.color = "#333";
+    //   }
         
-      }
-    });
+    //   }
+    // }
+    );
     // toggleLabel(); // Page load hone par bhi label position check kare
   });
     function toggleLabel() {
