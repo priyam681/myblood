@@ -49,6 +49,9 @@ p.custom-para-login {
 .new-recovery-password p {
  text-align: center;
 }
+.new-recovery-password p {
+ font-size: 14px;
+}
 .customer.login h1,
 .customer.register  h1 {
   margin-bottom: 0;
