@@ -41,6 +41,7 @@
           name="email"
           id="RecoverEmail"
           autocorrect="off"
+          class="customer-name"
           autocapitalize="off"
           autocomplete="email"
           {% if form.errors %}
@@ -152,6 +153,7 @@
             type="password"
             value=""
             name="customer[password]"
+            class="customer-name"
             id="CustomerPassword"
             autocomplete="current-password"
             {% if form.errors contains 'form' %}
