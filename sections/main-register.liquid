@@ -75,44 +75,37 @@
                 }
             });
         });
-  document.addEventListener("DOMContentLoaded", function() {
-  var inputFields = document.querySelectorAll("input");
-  console.log(inputFields);
+document.addEventListener("DOMContentLoaded", function() {
+  var inputFields = document.querySelectorAll(".customer-name");
+
   inputFields.forEach(function(inputField) {
-    var label = document.querySelector("label[for='" + inputField.id + "']");
+    var label = document.querySelector(`label[for="${inputField.id}"]`);
 
-   inputField.addEventListener("focus",(e)=>{
-     if (e.target.className === "customer-name"){
-      if (inputField.value.trim() !== "") {
-        label.style.top = "5px";
-        label.style.fontSize = "12px";
-        label.style.color = "#333";
-      }
-     }
-   })
+    if (!label) return; // Agar label na mile, toh kuch na kare
 
-   inputField.addEventListener("focusout", (e) => {
-  if (e.target.classList.contains("customer-name")) {
-    if (e.target.value.trim() !== "") {
-      let label = document.querySelector(`label[for="${e.target.id}"]`);
-      if (label) {
+    // Focus hone par label upar chala jaye
+    inputField.addEventListener("focus", () => {
+      label.style.top = "5px";
+      label.style.fontSize = "12px";
+      label.style.color = "#333";
+    });
+
+    // Focus chhodne (blur) par check kare field empty hai ya nahi
+    inputField.addEventListener("blur", () => {
+      if (inputField.value.trim() === "") {
         label.style.top = "50%";
-        label.style.fontSize = "12px";
-        label.style.color = "#333";
+        label.style.fontSize = "16px";
+        label.style.color = "#999";
       }
+    });
+
+    // Page load hone par agar field pre-filled ho toh label upar hi rahe
+    if (inputField.value.trim() !== "") {
+      label.style.top = "5px";
+      label.style.fontSize = "12px";
+      label.style.color = "#333";
     }
-  }
-});
-
-  }
-
-    );
-    // toggleLabel(); // Page load hone par bhi label position check kare
   });
-    function toggleLabel() {
-      console.log(this);
-     
-    }
 });
 
 </script>
