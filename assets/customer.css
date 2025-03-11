@@ -144,10 +144,7 @@
      padding-inline: 3rem;
     max-width: 120rem;
   }
-   .customer.register {
-    margin: auto;
-    width: 30%;
-  }
+  
   .login-container-wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr;
