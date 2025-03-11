@@ -193,6 +193,9 @@
   text-align: left;
   margin-bottom: 4rem;
 }
+.new-recovery-password {
+  max-width: 70%;
+}
 
 .customer ul a {
   display: inline;
