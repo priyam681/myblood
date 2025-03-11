@@ -54,6 +54,10 @@
 .customer.register  h1  {
   margin-bottom: 20px;
 }
+ .login-wrapper-custom #login {
+        margin-top: 0;
+        text-align:center;
+  }
 .login-container h5 {
   font-size: 15px;
   font-weight: 600;
@@ -105,10 +109,7 @@
 #MainContent .register-account-page input {
   border-radius: 5px;
 }
- .login-wrapper-custom #login {
-        margin-top: 0;
-        text-align:center;
-  }
+
 @media screen and (max-width: 768px) {
   .login-container {
     position: relative;
