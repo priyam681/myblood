@@ -76,8 +76,8 @@
             });
         });
   document.addEventListener("DOMContentLoaded", function() {
-  var inputField = document.querySelector("customer-name");
-  var label = document.querySelector("label");
+  var inputField = document.getElementById("RegisterForm-LastName");
+  var label = document.querySelector("label[for='RegisterForm-LastName']");
 
   function toggleLabel() {
     if (inputField.value.trim() !== "") {
@@ -202,7 +202,6 @@
         name="customer[password]"
         id="RegisterForm-password"
         title="password"
-        class="customer-name"
         aria-required="true"
         {% if form.errors contains 'password' %}
           aria-invalid="true"
