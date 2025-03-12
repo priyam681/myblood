@@ -28,13 +28,14 @@
 }
 
 .newsletter-form__button.field__button {
-    padding: 20px 30px;
+    padding: 20px 21px;
     min-height: 8px;
     border: none;
     background: black;
     color: #fff;
     max-height: 54px;
     border-radius: 6px;
+    max-width: 107px;
 }
 .newsletter-form__button.field__button:hover {
     background: white;
