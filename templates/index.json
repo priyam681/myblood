@@ -206,7 +206,10 @@
       "settings": {
         "heading": "Hi. I'm Coffee Bay. Weatherproof.",
         "image": "shopify://shop_images/weatherproof.webp",
-        "subheading": "The loungeset comes with Sunbrella all-weather cushions, ensuring they can withstand the elements and provide        year-round comfort."
+        "subheading": "The loungeset comes with Sunbrella all-weather cushions, ensuring they can withstand the elements and provide        year-round comfort.",
+        "span1": "Good for 7 to 8 persons",
+        "span2": "You can order this product on",
+        "span3": "All-weather pillows"
       }
     },
     "featured_collection": {
