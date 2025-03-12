@@ -230,7 +230,12 @@ cart-remove-button .icon-remove {
 .cart-items thead th {
   text-transform: uppercase;
 }
-
+  cart-remove-button span.svg-wrapper {
+       background: #e7e4e4;
+        padding: 9px;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 4px;
+}
 @media screen and (max-width: 749px) {
   .cart-items,
   .cart-items thead,
@@ -279,12 +284,7 @@ cart-remove-button .icon-remove {
   /* .cart-item__quantity-wrapper {
     flex-wrap: wrap;
   } */
-  cart-remove-button span.svg-wrapper {
-       background: #e7e4e4;
-        padding: 9px;
-        border-radius: 20px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 4px;
-}
+
   .cart-item__totals {
     display: flex;
     align-items: flex-start;
