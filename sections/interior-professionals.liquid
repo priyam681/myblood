@@ -125,10 +125,8 @@
       </div>
     </div>
     <div class="first-image">
-      <img
-        src="{{ section.settings.image-1 }}"
-        alt="Custom Image"
-      /> 
+     
+            <img src="{{  section.settings.image-1 | image_url: width: 800 }}" alt="Custom Image">
     </div>
     <div class="second-image">
       <img
