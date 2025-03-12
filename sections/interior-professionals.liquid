@@ -125,17 +125,15 @@
       </div>
     </div>
     <div class="first-image">
-     
             <img src="{{  section.settings.image-1 | image_url: width: 800 }}" alt="Custom Image">
     </div>
     <div class="second-image">
-      <img
-        src="https://cdn.shopify.com/s/files/1/0919/7699/1033/files/second-image.png?v=1739795588"
-        alt="Custom Image"
-      >
+      <img src="{{  section.settings.image-2 | image_url: width: 800 }}" alt="Custom Image">
+     
     </div>
     <div class="third-image">
-      <img src="https://cdn.shopify.com/s/files/1/0919/7699/1033/files/third-image.png?v=1739795597" alt="Custom Image">
+      <img src="{{  section.settings.image-3 | image_url: width: 800 }}" alt="Custom Image">
+     
     </div>
   </div>
 </div>
@@ -166,7 +164,17 @@
       "type": "image_picker",
       "id": "image-1",
       "label": "Select an Image"
-    }
+    },
+     {
+      "type": "image_picker",
+      "id": "image-2",
+      "label": "Select an Image2"
+    },
+    {
+      "type": "image_picker",
+      "id": "image-3",
+      "label": "Select an Image3"
+    },
   ],
     "presets": [
     {
