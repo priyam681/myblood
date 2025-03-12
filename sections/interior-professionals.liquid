@@ -113,7 +113,10 @@
       <h4 class="sub-heading">
         {{ section.settings.subheading }}
        </h4>
-      <h1 class="heading">Say Hi. to our interior professionals.</h1>
+      <h1 class="heading">
+         {{ section.settings.heading }}
+     
+      </h1>
       <p>
         Our interior designers are here to help you! Come and visit our showroom and we create a beautiful lounge set
         especially for you!
@@ -146,6 +149,12 @@
       "id": "subheading",
       "label": "Subheading",
       "default": "This is a subheading"
+    },
+     {
+     "type": "text",
+      "id": "heading",
+      "label": "Subheading",
+      "default": "This is a heading"
     }
   ],
     "presets": [
