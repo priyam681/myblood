@@ -279,7 +279,12 @@ cart-remove-button .icon-remove {
   /* .cart-item__quantity-wrapper {
     flex-wrap: wrap;
   } */
-
+  cart-remove-button span.svg-wrapper {
+       background: #e7e4e4;
+        padding: 9px;
+        border-radius: 20px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 4px;
+}
   .cart-item__totals {
     display: flex;
     align-items: flex-start;
@@ -311,12 +316,7 @@ a.cart-item__name.h4.break {
     font-weight: bold;
 }
 
-  cart-remove-button span.svg-wrapper {
-   background: #e7e4e4;
-        padding: 9px;
-        border-radius: 20px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 4px;
-}
+
   .quantity__input:focus-visible {
        background-color: unset;
     z-index: 2;
