@@ -192,6 +192,10 @@ details[open].menu-opening > .menu-drawer__submenu {
   .header--has-account:where(:not(.header--has-social):not(.header--has-localizations)) .menu-drawer__utility-links {
     padding: 2rem 3rem;
   }
+  
+  .menu-drawer .list-social {
+    display:none;
+  }
 }
 
 @media screen and (max-width: 989px) {
