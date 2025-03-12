@@ -39,7 +39,7 @@
 
        @media screen and (max-width: 768px)  {
           .place-wrapper .details {
-                font-size: 24px;
+                font-size: calc(16px + 2 - (1920 - 375) / (1920 - 375px));
               }
          .sliding-collection-wrapper .carousel-button {
            display: none;
@@ -160,7 +160,7 @@
               padding-inline: 30px;
           }
            .place-wrapper .details {
-                font-size: calc(16px + 2 - (1920 - 375) / (1920 - 375px));
+                font-size: 24px;
               }
          .place-wrapper .wrapper .image-slider {
                 width: 100%;
