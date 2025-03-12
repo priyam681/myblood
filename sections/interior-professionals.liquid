@@ -125,7 +125,7 @@
       </div>
     </div>
     <div class="first-image">
-      <img src="https://cdn.shopify.com/s/files/1/0919/7699/1033/files/first-image.jpg?v=1739795622" alt="Custom Image">
+      {{ section.settings.image-1 }}
     </div>
     <div class="second-image">
       <img
@@ -160,6 +160,11 @@
       "id": "paragrapgh",
       "label": "paragrapgh",
       "default": "This is a paragrapgh"
+    },
+     {
+      "type": "image_picker",
+      "id": "image-1",
+      "label": "Select an Image"
     }
   ],
     "presets": [
