@@ -155,6 +155,9 @@ p.custom-para-login {
   .customer.register {
     width:50%
   }
+  .menu-drawer .list-social {
+    display:none;
+  }
 }
 @media screen and (min-width: 992px) { 
     .customer.register { 
