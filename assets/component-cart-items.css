@@ -12,6 +12,9 @@ cart-items .title-wrapper-with-link {
   padding: 0;
   border: none;
 }
+.quantity-popover-container .quantity:after {
+  border-radius: 20px;
+}
 .cart__warnings .button {
     padding: 12px;
 }
