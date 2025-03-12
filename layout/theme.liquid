@@ -388,35 +388,35 @@
     {%- endif -%}
     {% render 'back-to-the-top' %}
     <script>
-//       document.addEventListener("DOMContentLoaded", function() {
-//   var inputFields = document.querySelectorAll(".customer-name");
-//   inputFields.forEach(function(inputField) {
-//     var label = document.querySelector(`label[for="${inputField.id}"]`);
+      document.addEventListener("DOMContentLoaded", function() {
+  var inputFields = document.querySelectorAll(".customer-name");
+  inputFields.forEach(function(inputField) {
+    var label = document.querySelector(`label[for="${inputField.id}"]`);
 
-//     if (!label) return; // Agar label na mile, toh kuch na kare
+    if (!label) return; // Agar label na mile, toh kuch na kare
 
-//     // Focus hone par label upar chala jaye
-//     inputField.addEventListener("focus", () => {
-//       label.style.top = "5px";
-//       label.style.fontSize = "12px";
-//       label.style.color = "#333";
-//     });
-//     // Focus chhodne (blur) par check kare field empty hai ya nahi
-//     inputField.addEventListener("blur", () => {
-//       if (inputField.value.trim() === "") {
-//         label.style.top = "50%";
-//         label.style.fontSize = "12px";
-//         label.style.color = "#333";
-//       }
-//     });
-//     // Page load hone par agar field pre-filled ho toh label upar hi rahe
-//     if (inputField.value.trim() !== "") {
-//       label.style.top = "5px";
-//       label.style.fontSize = "12px";
-//       label.style.color = "#333";
-//     }
-//   });
-// });
+    // Focus hone par label upar chala jaye
+    inputField.addEventListener("focus", () => {
+      label.style.top = "5px";
+      label.style.fontSize = "12px";
+      label.style.color = "#333";
+    });
+    // Focus chhodne (blur) par check kare field empty hai ya nahi
+    inputField.addEventListener("blur", () => {
+      if (inputField.value.trim() === "") {
+        label.style.top = "50%";
+        label.style.fontSize = "12px";
+        label.style.color = "#333";
+      }
+    });
+    // Page load hone par agar field pre-filled ho toh label upar hi rahe
+    if (inputField.value.trim() !== "") {
+      label.style.top = "5px";
+      label.style.fontSize = "12px";
+      label.style.color = "#333";
+    }
+  });
+});
     </script>
   </body>
 </html>
