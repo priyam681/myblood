@@ -86,7 +86,9 @@
     >
   </div>
   <div class="weatherproof-content">
-    <h2 class="">Hi. I'm Coffee Bay. Weatherproof.</h2>
+    <h2 class="">
+      {{ section.settings.heading}}
+      </h2>
     <div class="">
       <p>
         The loungeset comes with Sunbrella all-weather cushions, ensuring they can withstand the elements and provide
@@ -126,7 +128,14 @@
 {% schema %}
 {
   "name": "Weatherproof",
-  "settings": [],
+  "settings": [
+    {
+     "type": "text",
+      "id": "heading",
+      "label": "Subheading",
+      "default": "This is a heading"
+    },
+  ],
      "presets": [
   {
     "name": "Weatherproof",
