@@ -110,7 +110,9 @@
 <div class="interior-professionals">
   <div class="interior-professionals-wrapper">
     <div class="content">
-      <h4 class="sub-heading">In need of a custom made lounge set?</h4>
+      <h4 class="sub-heading">
+        {{ section.settings.subheading }}}
+       </h4>
       <h1 class="heading">Say Hi. to our interior professionals.</h1>
       <p>
         Our interior designers are here to help you! Come and visit our showroom and we create a beautiful lounge set
@@ -138,12 +140,20 @@
 {% schema %}
 {
   "name": "Interior Professionals",
-  "settings": [],
+  "settings": [
+    {
+     "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "This is a subheading"
+    }
+  ],
     "presets": [
     {
       "name": "Interior Professionals",
-
+    
     }
   ]
+
 }
 {% endschema %}
