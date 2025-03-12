@@ -203,7 +203,9 @@
     },
     "weatherproof_Paw7fm": {
       "type": "weatherproof",
-      "settings": {}
+      "settings": {
+        "heading": "Hi. I'm Coffee Bay. Weatherproof."
+      }
     },
     "featured_collection": {
       "type": "featured-collection",
