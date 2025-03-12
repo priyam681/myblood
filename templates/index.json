@@ -204,7 +204,8 @@
     "weatherproof_Paw7fm": {
       "type": "weatherproof",
       "settings": {
-        "heading": "Hi. I'm Coffee Bay. Weatherproof."
+        "heading": "Hi. I'm Coffee Bay. Weatherproof.",
+        "subheading": "The loungeset comes with Sunbrella all-weather cushions, ensuring they can withstand the elements and provide        year-round comfort."
       }
     },
     "featured_collection": {
