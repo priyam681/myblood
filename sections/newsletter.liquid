@@ -6,50 +6,7 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-.field {
-    position: relative;
-    margin: 20px 0;
-  }
-  /* Label ko absolute position par rakhein */
-  .field label {
-    position: absolute;
-    left: 10px;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: all 0.2s ease;
-    pointer-events: none;
-    background: #fff;
-    padding: 0 5px;
-    color: #999 !important;
-    font-size: 14px;
-    z-index: 3;
-  }
-  .eye-icon {
-    top: 11px;
-  }
-  /* Focus mein label ko upar shift kar dein */
-  .field:focus-within label {
-    top: -3px;
-    left: 10px;
-    font-size: 12px;
-  }
-  /* Input styling */
-  .field input {
-    width: 100%;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    padding: 12px 10px;
-    font-size: 14px;
-    box-sizing: border-box;
-  }
-  .field input:focus {
-    outline: none;
-    border-color: #2196F3;
-  }
-  /* Placeholder ko hide karne ke liye */
-  .field input::placeholder {
-    color: transparent;
-  }
+
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -97,10 +54,8 @@
                   style="--animation-order: {{ forloop.index }};"
                 {% endif %}
               >
-                <div class="field test">
-                   <label for="Register-email">
-           Enter your Email
-      </label>
+                <div class="field ">
+                
                   <input
                     id="NewsletterForm--{{ section.id }}"
                     type="email"
