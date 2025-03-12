@@ -156,7 +156,8 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
 
 <script>
-    $(document).ready(function(){
+  $(window).on('load', function () {
+  $(document).ready(function(){
       var $carousel = $('.sliding-collection-list.{{ section.id }}');
 
       $carousel.slick({
@@ -207,6 +208,8 @@
       // Page load hone par bhi check kare
       updateButtons();
     });
+  }
+   
 </script>
 
 {% schema %}
