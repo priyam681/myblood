@@ -281,11 +281,9 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
-  "sections": {
-      "weatherproof": {
+  "weatherproof": {
         "heading": "Weatherproof Collection"
-      }
-    },
+      },
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
