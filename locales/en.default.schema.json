@@ -1955,7 +1955,8 @@
       }
     },
     "weatherproof": {
-        "label": "heading"
+        "label": "heading",
+        "default":"heading here"
       },
     
     "main-order": {
