@@ -44,6 +44,9 @@
       "next": "Page suivante",
       "previous": "Page précédente"
     },
+    "weatherproof": {
+      "heading": "Collection Résistante aux Intempéries"
+    },
     "search": {
       "search": "Recherche",
       "reset": "Effacer le terme de recherche"
