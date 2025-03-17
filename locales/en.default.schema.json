@@ -1957,7 +1957,7 @@
     "weatherproof": {
         "label": "heading",
         "default":"heading here",
-         "richtext": {
+         "text": {
               "label": "Text",
               "default": "Text block"
             },
