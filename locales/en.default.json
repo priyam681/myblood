@@ -281,7 +281,9 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
-
+  "weatherproof": {
+        "heading": "Hi. I'm Coffee Bay. Weatherproof."
+      },
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
