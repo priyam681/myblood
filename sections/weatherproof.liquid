@@ -83,11 +83,11 @@
       height="100%">
   </div>
   <div class="weatherproof-content">
+    <p>Current Locale: {{ request.locale.iso_code }}</p>
     <h2 class="">
-          {{ 'sections.weatherproof.heading' | t }}
-    
-
+        Translation Output:  {{ 'sections.weatherproof.heading' | t }}
       </h2>
+    
     <div class="">
       <p>
         {{ section.settings.subheading }}
