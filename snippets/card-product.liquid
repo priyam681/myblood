@@ -546,6 +546,9 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
+        
+            {% render 'product-variant-picker', product: card_product, block: block, product_form_id: product_form_id %}
+          
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
