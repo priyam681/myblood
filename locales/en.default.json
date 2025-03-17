@@ -283,10 +283,7 @@
     },
   "sections": {
       "weatherproof": {
-        "name": "weatherproof",
-          "settings": {
-        "label": "sections.weatherproof.heading"
-      }
+        "heading": "Weatherproof Collection"
       }
     },
     "header": {
