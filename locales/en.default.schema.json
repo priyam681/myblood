@@ -1958,8 +1958,8 @@
         "label": "heading",
         "default":"heading here",
          "text": {
-              "label": "Text",
-              "default": "Text block"
+              "label1": "Text",
+              "default1": "Text block"
             },
       },
     
