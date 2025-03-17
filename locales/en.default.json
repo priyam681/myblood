@@ -281,7 +281,11 @@
       "announcement": "Announcement",
       "announcement_bar": "Announcement bar"
     },
-
+  "sections": {
+      "product": {
+        "name": "weatherproof"
+      }
+    },
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
