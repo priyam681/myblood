@@ -284,7 +284,9 @@
   "sections": {
       "weatherproof": {
         "name": "weatherproof",
-        "heading": "Test"
+            "settings": {
+          "label": "sections.weatherproof.heading"
+        }
       }
     },
     "header": {
