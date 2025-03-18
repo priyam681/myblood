@@ -284,6 +284,9 @@
   "weatherproof": {
         "heading": "Hi. I'm Coffee Bay. Weatherproof."
       },
+    "interior-professional" : {
+      "subheading" : "In need of a custom made lounge set?"
+    },
     "header": {
       "announcement": "Announcement",
       "menu": "Menu",
