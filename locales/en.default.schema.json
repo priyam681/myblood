@@ -1962,7 +1962,10 @@
               "default1": "Text block"
             },
       },
-    
+    "interior-professionals" : {
+      "label" : "subheading",
+      "default":"subheading-here"
+    },
     "main-order": {
       "name": "Order"
     },
