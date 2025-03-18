@@ -285,7 +285,9 @@
         "heading": "Hi. I'm Coffee Bay. Weatherproof."
       },
     "interior-professional" : {
-      "subheading" : "In need of a custom made lounge set?"
+      "subheading" : "In need of a custom made lounge set?",
+      "heading":"Say Hi. to our interior professionals.",
+      "paragraph": "Our interior designers are here to help you! Come and visit our showroom and we create a beautiful lounge set  especially for you!"
     },
     "header": {
       "announcement": "Announcement",
