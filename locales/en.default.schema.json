@@ -1967,10 +1967,15 @@
          "label1" : "subheading-label",
          "default1":"subheading-here"
       },
+      "image_picker" : {
+         "label2" : "select here1",
+         "label3" : "select here2",  
+         "label4" : "select here3",
+      },
        "label2" : "paragrapgh here",
       "default1":"paragraph",
       "label" : "heading-label",
-      "default" : "heading-here"
+      "default" : "heading-here",
     },
     "main-order": {
       "name": "Order"
