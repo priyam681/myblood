@@ -1964,9 +1964,13 @@
       },
     "interior-professionals" : {
       "text" : {
-         "label1" : "subheasding-label",
+         "label1" : "subheading-label",
          "default1":"subheading-here"
-      }
+      },
+       "label2" : "paragrapgh here",
+      "default1":"paragraph",
+      "label" : "heading-label",
+      "default" : "heading-here"
     },
     "main-order": {
       "name": "Order"
