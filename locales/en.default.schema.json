@@ -1963,8 +1963,10 @@
             },
       },
     "interior-professionals" : {
-      "label" : "subheading-label",
-      "default":"subheading-here"
+      "text" : {
+         "label1" : "subheasding-label",
+         "default1":"subheading-here"
+      }
     },
     "main-order": {
       "name": "Order"
