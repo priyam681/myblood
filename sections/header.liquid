@@ -166,6 +166,82 @@ transform: scale(1.03);
 .swiper .mega-menu__link .title{
   text-align: start;
 }
+ {%- if section.settings.enable_mobile_menu -%}
+     @media screen and (max-width: 992px) {
+   .mobile-menu-header {
+      position: fixed;
+      bottom:  0;
+      background: white;
+      width: 100%;
+      left: 0;
+     z-index: 3px;
+    }
+   .medium-hide {
+     display:block !important;
+   }
+   .header--has-social .menu-drawer__utility-links {
+      padding: 1rem;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+   }
+   .header__icon--cart {
+     margin-right:0;
+   }
+   .menu-drawer__account {
+     flex-direction:column;
+     color: black;
+      gap: 3px;
+   }
+   .header__icon {
+     color: black;
+   }
+   summary.header__icon {
+    height: 40px;
+    width: 40px;
+}
+   .home {
+    display:flex; 
+     width: 40px;
+    height: 30px;
+     justify-content:center;
+   }
+   .search-mobile {
+     display:block !important;
+   }
+  a.menu-drawer__account.link.focus-inset.h5.medium-hide.large-up-hide.search-mobile,
+   details-modal.header__search,
+   .header__icon .svg-wrapper {
+      height: 44px;
+      width: 44px;
+  }
+   .menu-drawer__account account-icon>.svg-wrapper {
+     height:20px;
+     width: 40px;
+     margin-right:0;
+   }
+   a.wishlist {
+   height: 27px;
+   width: 30px;
+   display: flex;
+   }
+   a#cart-icon-bubble,
+   a.menu-drawer__account {
+    display: none !important;
+   }
+  a.header__icon {
+    display: none !important;
+  }
+   .mobile-menu-header details-modal.header__search,
+  .mobile-menu-header  a#cart-icon-bubble,
+   .mobile-menu-header  .header__search,
+  .mobile-menu-header a.menu-drawer__account {
+    display: block !important;
+  }
+ }
+ 
+ {%- endif -%}
+  
 </style>
 
 {%- style -%}
@@ -917,6 +993,64 @@ transform: scale(1.03);
         {%- endif -%}
       </a>
     </div>
+
+{%- if section.settings.enable_mobile_menu -%}
+      <div class="mobile-menu-header" id="fixed-header">
+         <div class="menu-drawer__utility-links">
+               <a class="home" href="/">
+                 <span class="svg-wrapper">
+                     {{-'material-symbols-light--home-outline.svg' | inline_asset_content -}}
+                 </span>
+               </a>
+             <a class="wishlist" href="/login">
+                <span class="svg-wrapper">
+                     {{- 'religious-jewish.svg' | inline_asset_content -}}
+                 </span>
+             </a>
+                  {%- if shop.customer_accounts_enabled -%}
+                    <a
+                      href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
+                      class="menu-drawer__account link focus-inset h5 medium-hide large-up-hide search-mobile"
+                      rel="nofollow"
+                    >
+                      {%- if section.settings.enable_customer_avatar -%}
+                        <account-icon>
+                          {%- if customer and customer.has_avatar? -%}
+                            {{ customer | avatar }}
+                          {%- else -%}
+                            <span class="svg-wrapper">
+                              {{- 'icon-account.svg' | inline_asset_content -}}
+                            </span>
+                          {%- endif -%}
+                        </account-icon>
+                      {%- else -%}
+                        <span class="svg-wrapper">
+                          {{- 'icon-account.svg' | inline_asset_content -}}
+                        </span>
+                      {%- endif -%}
+                     
+                    </a>
+                  {%- endif -%}
+             <a href="{{ routes.cart_url }}" class="search-mobile header__icon header__icon--cart link focus-inset" id="cart-icon-bubble">
+                {% if cart == empty %}
+                  <span class="svg-wrapper">{{'icon-cart-empty.svg' | inline_asset_content }}</span>
+                {% else %}
+                  <span class="svg-wrapper">{{'icon-cart.svg' | inline_asset_content }}</span>
+                {% endif %}
+              <span class="visually-hidden">{{ 'templates.cart.cart' | t }}</span>
+              {%- if cart != empty -%}
+                <div class="cart-count-bubble">
+                  {%- if cart.item_count < 100 -%}
+                    <span aria-hidden="true">{{ cart.item_count }}</span>
+                  {%- endif -%}
+                  <span class="visually-hidden">{{ 'sections.header.cart_count' | t: count: cart.item_count }}</span>
+                </div>
+              {%- endif -%}
+            </a>
+                </div>
+      </div>
+{%- endif -%} 
+    
   </header>
 </{{ header_tag }}>
 
@@ -1114,6 +1248,12 @@ transform: scale(1.03);
       "id": "menu",
       "default": "main-menu",
       "label": "t:sections.header.settings.menu.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_menu",
+      "label": "Enable Mobile Menu",
+      "default": false
     },
     {
       "type": "select",
