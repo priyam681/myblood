@@ -166,6 +166,9 @@ transform: scale(1.03);
 .swiper .mega-menu__link .title{
   text-align: start;
 }
+  .mobile-menu-header {
+    display:none;
+  }
  {%- if section.settings.enable_mobile -%}
      @media screen and (max-width: 992px) {
    .mobile-menu-header {
@@ -175,6 +178,7 @@ transform: scale(1.03);
       width: 100%;
       left: 0;
      z-index: 3px;
+     display:block !important;
     }
    .medium-hide {
      display:block !important;
