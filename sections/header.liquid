@@ -166,7 +166,7 @@ transform: scale(1.03);
 .swiper .mega-menu__link .title{
   text-align: start;
 }
- {%- if section.settings.enable_mobile_menu1 -%}
+ {%- if section.settings.enable_mobile -%}
      @media screen and (max-width: 992px) {
    .mobile-menu-header {
       position: fixed;
@@ -995,8 +995,8 @@ transform: scale(1.03);
     </div>
   </header>
 </{{ header_tag }}>
-{%- if section.settings.enable_mobile_menu1-%}
-      <div class="mobile-menu-header" id="fixed-header">
+{%- if section.settings.enable_mobile-%}
+      <div class="mobile-menu-header" id="enable_mobile">
          <div class="menu-drawer__utility-links">
                <a class="home" href="/">
                  <span class="svg-wrapper">
@@ -1248,7 +1248,7 @@ transform: scale(1.03);
     },
     {
       "type": "checkbox",
-      "id": "enable_mobile_menu1",
+      "id": "enable_mobile",
       "label": "Enable Mobile Menu",
       "default": false
     },
