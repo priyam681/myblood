@@ -993,7 +993,8 @@ transform: scale(1.03);
         {%- endif -%}
       </a>
     </div>
-
+  </header>
+</{{ header_tag }}>
 {%- if section.settings.enable_mobile_menu -%}
       <div class="mobile-menu-header" id="fixed-header">
          <div class="menu-drawer__utility-links">
@@ -1050,10 +1051,6 @@ transform: scale(1.03);
                 </div>
       </div>
 {%- endif -%} 
-    
-  </header>
-</{{ header_tag }}>
-
 {%- if settings.cart_type == 'notification' -%}
   {%- render 'cart-notification',
     color_scheme: section.settings.color_scheme,
