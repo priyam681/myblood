@@ -725,6 +725,119 @@
         "reduction_code_code_not_found": "Voer 'n geldige afslagkode of geskenkbewys in",
         "reduction_code_discount_not_found": "Voer 'n geldige afslagkode in",
         "reduction_code_gift_card_code_invalid": "Voer 'n geldige geskenkbewys in"
+      },
+      "address_management": {
+        "confirm_address_deletion": "Is jy seker jy wil die adres {{address}} uitvee?"
+      },
+      "general": {
+        "page_title": "Betaal",
+        "error_page_title": "Fout",
+        "skip_to_content": "Slaan oor na inhoud",
+        "breadcrumb": "Broodkrummel",
+        "continue_button_label": "Gaan voort",
+        "complete_purchase_button_label": "Voltooi bestelling",
+        "pay_now_button_label": "Betaal nou",
+        "authenticate_purchase_button_label": "Bevestig betaling",
+        "edit_link_label": "Wysig",
+        "all_rights_reserved": "Alle regte voorbehou %{shop_name}",
+        "print_policies_link_label": "Druk",
+        "cart": "Karretjie",
+        "close_modal_label": "Maak toe",
+        "close_notice_label": "Maak toe",
+        "expand_notice_label": "Bekyk meer",
+        "continue_to_shipping_method": "Gaan voort met versending",
+        "continue_to_payment_method": "Gaan voort met betaling",
+        "continue_to_review": "Hersien bestelling",
+        "back_to_cart": "Keer terug na kar",
+        "back_to_contact_information": "Keer terug na inligting",
+        "back_to_shipping_method": "Keer terug na aflewering",
+        "back_to_payment_method": "Keer terug na betaling",
+        "choose_shipping_method": "Kies 'n versendingsmetode",
+        "choose_payment_method": "Kies 'n betaalmetode",
+        "choose_billing_address": "Kies 'n faktuuradres",
+        "contact_us_html": "Kontak ons ​​vir meer inligting",
+        "autocomplete_title": "Voorstelle",
+        "autocomplete_single_item": "1 item beskikbaar",
+        "autocomplete_multi_item": "{{number}} items beskikbaar",
+        "autocomplete_close": "Maak voorstelle toe",
+        "forwarding_indicator": {
+          "new_window": "Maak in 'n nuwe venster oop.",
+          "external": "Maak eksterne webwerf oop.",
+          "external_and_new_window": "Maak eksterne webwerf in 'n nuwe venster oop."
+        },
+        "checkout_context": {
+          "step_one": "%{shop_name} - Betaal"
+        },
+        "tooltip_accessibility_label": "Meer inligting",
+        "qr_code": "QR-kode",
+        "errors": {
+          "only_empty_terms_accepted": "Hierdie beleid aanvaar slegs leë terme.",
+          "session_identifier_not_unique_error": "Iets het verkeerd geloop met jou bestelling. Probeer asseblief weer uitboek.",
+          "line_item_limit_reached": "Die maksimum aantal lynitems is bereik.",
+          "session_is_already_finished": "Hierdie betaalsessie is reeds gefinaliseer.",
+          "merchandise": {
+            "only_value_constraint": "Slegs presiese waardes word in die handelsware-invoer toegelaat.",
+            "merchandise_not_found": "Produk nie gevind nie.",
+            "merchandise_variant_not_found": "Produkvariant nie gevind nie.",
+            "merchandise_not_applicable": "Produkvariant kan nie gekoop word nie.",
+            "mixed_currencies": "Checkout bevat lynitems met verskillende geldeenhede.",
+            "bundle_products_not_supported_for_b2b": "Gebondelde items kan nie by B2B-bestellings vir hierdie ligging gevoeg word nie.",
+            "gift_card_quantity_mismatch": "Wanneer geskenkbewyskodes gespesifiseer word, moet die lynitemhoeveelheid en die aantal geskenkbewyskodes ooreenstem.",
+            "gift_card_not_supported": "Geskenkbewyse word nie op hierdie betaalpunt ondersteun nie.",
+            "gift_card_not_unique": "Geskenkbewys met kode {{code}} kom meer as een keer in hierdie betaalpunt voor. Kodes word geformateer voor vergelyking.",
+            "gift_card_used": "Geskenkbewyskode {{code}} is reeds aan 'n geskenkbewys toegeken. Kodes word geformateer voor vergelyking.",
+            "gift_card_invalid": "Geskenkbewyskode {{code}} is ongeldig.",
+            "gift_card_code_changed": "Geskenkbewyskode {{proposed_code}} is verander na {{formatted_code}} om aan formateringsreëls te voldoen.",
+            "gift_card_with_attributes_not_supported": "Geskenkbewyse met gepasmaakte kenmerke word nie by hierdie betaalpunt gesteun nie.",
+            "gift_card_with_components_not_supported": "Geskenkbewyse met komponente word nie op hierdie betaalpunt gesteun nie.",
+            "selling_plan_mismatch": "Die intekening is opgedateer.",
+            "selling_plan_not_supported": "Intekeninge word nie ondersteun nie.",
+            "selling_plan_not_supported_b2b": "Intekeninge word nie vir B2B-afhandeling ondersteun nie.",
+            "price_mismatch": "Die voorheen voorgestelde prys vir hierdie goedere was ongeldig en is opgedateer.",
+            "inventory_not_found": "Geen voorraad vir hierdie goedere gevind nie.",
+            "product_not_published": "Produk is nie gepubliseer nie.",
+            "product_not_published_in_buyer_location": "Produk word nie in koperligging gepubliseer nie.",
+            "duplicated_stable_id": "Hierdie goederelyn het dieselfde stabiele ID as 'n ander lyn.",
+            "minimum_quantity_not_met": "Die hoeveelheid van sommige items voldoen nie aan die minimum vereiste nie.",
+            "maximum_quantity_exceeded": "Die hoeveelheid van sommige items oorskry die maksimum toegelaat.",
+            "quantity_increment_not_met": "Die hoeveelheid van sommige items voldoen nie aan die bestellimiete nie.",
+            "quantity_rules_not_met": "Die hoeveelheid van sommige items voldoen nie aan die bestellimiete nie.",
+            "bundle_requires_components": "Hierdie bondelgoedere het geen komponente nie.",
+            "title_too_long": "Handelswaretitel is te lank.",
+            "title_empty": "Handelswaretitel is leeg."
+          },
+          "buyer_identity": {
+            "business_customer_does_not_match_company": "Maatskappykontak het nie toegang tot maatskappy nie.",
+            "customer_account_required": "Kliënt moet aanmeld om voort te gaan.",
+            "company_location_required": "Kliënt moet 'n maatskappy-ligging kies om voort te gaan.",
+            "company_purchase_permission_required": "Kliënt het nie toestemming om maatskappybestellings te plaas nie.",
+            "personal_order_not_allowed": "Persoonlike bestellings word nie vir hierdie winkel toegelaat nie.",
+            "lost_access_to_company": "Kliënt het toegang tot enige maatskappy verloor.",
+            "contact_info_does_not_match_customer_account": "Gespesifiseerde kliëntinligting moet ooreenstem met die aangemelde kliëntrekening.",
+            "phone_number_does_not_match_expected_pattern": "Die gespesifiseerde foonnommer stem nie ooreen met die verwagte patroon nie.",
+            "email_required": "'n E-pos word vereis wanneer die goedere met 'n intekening gekoop word.",
+            "email_domain_is_invalid": "Hierdie gespesifiseerde domein kan nie opgelos word nie.",
+            "missing_contact_method": "'n Geldige kontakmetode ontbreek.",
+            "checkout_completion_target_is_missing": "Betaal-voltooiing-teiken ontbreek.",
+            "invalid_customer_profile": "'n Ongeldige klantprofiel is verskaf.",
+            "customer_profile_access_restricted": "Checkout het nie toestemming om toegang tot die klantprofiel te kry nie.",
+            "checkout_completion_target_is_invalid_proc": "Ongeldige betaalpuntvoltooiingsteiken."
+          },
+          "delivery": {
+            "only_one_delivery_line_allowed": "Karretjie moet net een afleweringslyn hê.",
+            "wrong_number_of_delivery_lines": "'n Afleweringslyn moet vir elke groep goedere gespesifiseer word.",
+            "external_delivery_promise_error": "'n Eksterne afleweringsbelofte haalfout.",
+            "options_instructions_invalid": "Die gespesifiseerde instruksies stem nie ooreen met die verwagte patroon nie.",
+            "destination_address_required": "'n Bestemmingadres word vereis om voort te gaan.",
+            "pickup_points_unavailable": "Optelpunte is tans nie beskikbaar nie.",
+            "local_pickup_delivery_line_detail_changed": "Die huidige plaaslike afhaal-afleweringstrategie moet verander word om voort te gaan.",
+            "local_pickup_no_delivery_strategy_available": "Geen beskikbare plaaslike afhaal-afleweringstrategie gevind nie.",
+            "origin_location_id_required": "'n Oorsprongligging-ID word vereis wanneer die KLEINHANDEL-afleweringsmetode versoek word.",
+            "invalid_origin_location_id": "Kon nie 'n ligging kry wat ooreenstem met die oorsprongligging-ID nie.",
+            "origin_location_id_not_allowed": "Die gevraagde afleweringsmetodes ondersteun nie 'n oorsprongligging-ID nie.",
+            "auto_fulfill_not_allowed": "Hierdie sessie is nie gemagtig om vervullinggedrag te ignoreer nie."
+          }
+        }
       }
     },
     "pagination": {
@@ -804,6 +917,10 @@
       "invalid_province_in_country": "is nie 'n geldige provinsie in %{country}",
       "invalid_state_in_country": "is nie 'n geldige staat in %{country}",
       "invalid_region_in_country": "is nie 'n geldige streek in %{country}"
+    },
+    "sentence": {
+      "two_words_connector": " en ",
+      "last_word_connector": ", en "
     }
   },
   "sections": {
@@ -881,7 +998,8 @@
         "product": "Produk",
         "total": "Totaal",
         "quantity": "Hoeveelheid",
-        "image": "Produk beeld"
+        "image": "Produk beeld",
+        "price": "Prys"
       },
       "update": "Dateer op",
       "login": {
@@ -911,6 +1029,14 @@
     },
     "video": {
       "load_video": "Laai video: {{ description }}"
+    },
+    "weatherproof": {
+      "heading": "Hallo. Ek is Koffiebaai. Weerbestand."
+    },
+    "interior-professional": {
+      "subheading": "Benodig u 'n pasgemaakte sitkamerstel?",
+      "heading": "Sê Hallo. aan ons binnelandse professionele persone.",
+      "paragraph": "Ons interieurontwerpers is hier om jou te help! Kom besoek ons ​​vertoonlokaal en ons skep 'n pragtige sitkamerstel spesiaal vir jou!"
     }
   },
   "general": {
@@ -1008,7 +1134,8 @@
   "products": {
     "product": {
       "add_to_cart": "Voeg by mandjie",
-      "choose_options": "Kies opsies"
+      "choose_options": "Kies opsies",
+      "on_sale": "Uitverkoping"
     }
   },
   "customer_accounts": {
@@ -1290,7 +1417,8 @@
     },
     "B2B": {
       "account_information": {
-        "company_card_name_label": "Maatskappy naam"
+        "company_card_name_label": "Maatskappy naam",
+        "company_card_section_accessibility_label": "Maatskappy"
       },
       "locations": {
         "contact_email": "E-pos",
@@ -1353,6 +1481,9 @@
         "cancel_adding_billing_address_accessibility_label": "Kanselleer die byvoeging van faktuuradres",
         "cancel_adding_shipping_address_accessibility_label": "Kanselleer die byvoeging van versendingsadres",
         "save_new_billing_address_accessibility_label": "Stoor faktuuradres"
+      },
+      "orders": {
+        "order_list_column_headers_contact": "Kontak"
       }
     },
     "order_details": {
@@ -1414,6 +1545,11 @@
         "shop_pay_installments": {
           "paid_in_installments": "Betaal met Shop Pay-paaiemente"
         }
+      },
+      "contact": "Kontak",
+      "company": "Maatskappy",
+      "shipping": {
+        "free_shipping_discount": "Gratis aflewering"
       }
     },
     "ui_components": {
@@ -1659,7 +1795,8 @@
       "cancel": "Kanselleer",
       "edit": "Wysig",
       "delete": "Vee uit",
-      "delete_confirm": "Is jy seker jy wil hierdie adres uitvee?"
+      "delete_confirm": "Is jy seker jy wil hierdie adres uitvee?",
+      "company": "Maatskappy"
     },
     "log_in": "Meld aan",
     "log_out": "Teken uit",
@@ -1698,7 +1835,8 @@
       "tracking_company": "Draer",
       "tracking_number": "Spoornommer",
       "subtotal": "Subtotaal",
-      "total_duties": "Pligte"
+      "total_duties": "Pligte",
+      "price": "Prys"
     },
     "orders": {
       "title": "Bestelgeskiedenis",
