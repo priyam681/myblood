@@ -975,6 +975,255 @@
         "resume_tracking": "Hervat dop",
         "submitted_label": "Ingedien"
       }
+    },
+    "addresses": {
+      "default_address": {
+        "title": "Verstek adres",
+        "title_accessibility_label": "Verstek adres: {{address}}"
+      },
+      "delete_button": "Vee uit",
+      "delete_button_accessibility_label": "Vee {{address}} uit",
+      "delete_confirmation_button": "Vee adres uit",
+      "delete_confirmation_button_accessibility_label": "Vee {{address}} uit",
+      "delete_confirmation_message": "Vee adres uit? Bestaande bestellings word nie geraak nie.",
+      "delete_confirmation_title": "Vee adres uit?",
+      "delete_confirmation_description": "Bestaande bestellings word nie geraak nie.",
+      "edit_button": "Wysig",
+      "edit_button_accessibility_label": "Wysig {{address}}",
+      "edit_section_accessibility_label": "Wysig {{address}}",
+      "edit_modal_title": {
+        "default": "Wysig adres",
+        "billing": "Wysig faktuuradres",
+        "shipping": "Wysig gestuuradres"
+      },
+      "loading_accessibility_message": "Laai adres",
+      "loading_addresses_accessibility_message": "Laai adresse",
+      "loading_billing_accessibility_message": "Laai tans faktuuradres",
+      "loading_finished_accessibility_message": "Nuwe bladsy met adresse is gelaai",
+      "loading_shipping_accessibility_message": "Laai tans afleweringsadres",
+      "pagination": {
+        "load_more": "Laai meer",
+        "load_more_accessibility_label": "Laai meer adresse"
+      },
+      "save_new_address_accessibility_label": "Stoor adres",
+      "title": "Adresse",
+      "billing_address_dropdown_placeholder": "Faktuuradres"
+    },
+    "address_form": {
+      "attention": "Aandag",
+      "attention_company": "Maatskappy/aandag",
+      "attention_help_text": "Die naam van 'n persoon of departement",
+      "auto_complete_close_accessibility_label": "Maak voorstelle toe",
+      "auto_complete_title": "Voorstelle",
+      "billing_address": "Gebruik as faktuuradres",
+      "cancel": "Kanselleer",
+      "cancel_accessibility_label": "Kanselleer redigering van adres {{address}}",
+      "creation_success_notification": "Adres bygevoeg",
+      "default_address": "Dit is my verstek adres",
+      "default_address_creation_success_notification": "Verstekadres bygevoeg",
+      "default_address_update_success_notification": "Verstekadres opgedateer",
+      "loading_add_form_accessibility_message": "Laai tans nuwe adresvorm",
+      "loading_edit_form_accessibility_message": "Laai tans wysig adresvorm",
+      "loading_form_accessibility_message": "Laai adresvorm",
+      "loading_finished_accessibility_message": "Adresvorm is gelaai",
+      "save": "Stoor",
+      "save_accessibility_label": "Stoor adres {{address}}",
+      "section_title_accessibility_label": "Voeg adres by",
+      "update_success_notification": "Adres opgedateer"
+    },
+    "B2B": {
+      "account_information": {
+        "company_card_name_label": "Maatskappy naam"
+      },
+      "locations": {
+        "contact_email": "E-pos",
+        "contact_list_title": "Mense",
+        "contact_name": "Naam",
+        "contact_permissions": "Toestemmings",
+        "contact_phone_number": "Telefoonnommer",
+        "location_picker_label": "Liggingnaam",
+        "location_picker_accessibility_label": "Liggingnaam: {{locationName}}",
+        "net_payment_terms_description": "{{name}} : betalings betaalbaar binne {{numberOfDays}} dae",
+        "deposit_percentage": "{{percentage}} deposito",
+        "own_role_contact_name": "Jy",
+        "pagination": {
+          "load_more": "Laai meer",
+          "load_more_accessibility_label": "Laai meer liggings"
+        },
+        "payment_details_title": "Betaling besonderhede",
+        "payment_terms": "Betalingsvoorwaardes",
+        "permissions_label": "Jou toestemmings",
+        "permissions_title": "Toestemmings",
+        "section_title": "Ligging",
+        "shipping_address_required": "Voeg 'n afleweringsadres by hierdie ligging om bestellings te begin plaas.",
+        "staff_and_permissions_title": "Personeel en toestemmings",
+        "tax_details_title": "Belastingbesonderhede",
+        "tax_id": "Belasting ID",
+        "tax_exemptions": "Belastingvrystellings",
+        "multiple_tax_exemptions": "{{taxExemptionsCount}} meer",
+        "multiple_tax_exemptions_and": "en",
+        "tax_exemptions_modal_close": "Maak toe",
+        "taxes_none": "Geen",
+        "tax_exemption_not_applicable": "NVT",
+        "tax_exemptions_modal_button_accessibility_label": "Bekyk alle belastingvrystellings"
+      },
+      "location_selection": {
+        "continue_to_store": "Gaan voort om te stoor",
+        "description": "As jy reeds items in jou mandjie het, kan die verandering van liggings die mandjie se pryse en hoeveelhede beïnvloed.",
+        "list_accessibility_label": "Liggings lys",
+        "list_item_without_address_accessibility_label": "{{name}} : Geen adres nie",
+        "list_loading_accessibility_message": "Laai tans lys van liggings",
+        "list_loading_address_accessibility_message": "Laai adres vir {{locationName}}",
+        "list_loading_finished_accessibility_message": "Lys van liggings is gelaai",
+        "loading_store_accessibility_message": "Gaan winkel toe",
+        "no_location_title": "Slegs persoonlike bestellings",
+        "no_location_description": "Jy het nie meer toestemming om bestellings vir {{company}} te plaas nie. Jy kan steeds persoonlike bestellings plaas.",
+        "no_locations_found": "Geen liggings gevind nie",
+        "search": "Soek vir 'n ligging",
+        "search_location_title": "Kies 'n ligging",
+        "selection_cancel_button": "Kanselleer",
+        "selection_confirmation_button": "Kies ligging",
+        "title": "Vir watter plek koop jy?",
+        "clear_search": "Vee soektog uit",
+        "try_new_search": "Probeer 'n nuwe soektog"
+      },
+      "addresses": {
+        "add_billing_address_button": "Voeg faktuuradres by",
+        "add_billing_address_section_accessibility_label": "Voeg faktuuradres by",
+        "add_shipping_address_button": "Voeg versendingsadres by",
+        "add_shipping_address_section_accessibility_label": "Voeg versendingsadres by",
+        "billing_address_card_title": "Faktuuradres",
+        "cancel_adding_billing_address_accessibility_label": "Kanselleer die byvoeging van faktuuradres",
+        "cancel_adding_shipping_address_accessibility_label": "Kanselleer die byvoeging van versendingsadres",
+        "save_new_billing_address_accessibility_label": "Stoor faktuuradres"
+      }
+    }
+  },
+  "templates": {
+    "contact": {
+      "form": {
+        "title": "Kontakvorm",
+        "name": "Naam",
+        "email": "E-pos",
+        "phone": "Telefoonnommer",
+        "comment": "Lewer kommentaar",
+        "send": "Stuur",
+        "post_success": "Dankie dat jy ons gekontak het. Ons sal so gou moontlik na jou terugkom.",
+        "error_heading": "Pas asseblief die volgende aan:"
+      }
+    },
+    "404": {
+      "title": "Bladsy nie gevind nie"
+    }
+  },
+  "localization": {
+    "country_label": "Land/streek",
+    "language_label": "Taal",
+    "update_language": "Dateer taal op",
+    "update_country": "Dateer land/streek op",
+    "search": "Soek",
+    "popular_countries_regions": "Gewilde lande/streke",
+    "country_results_count": "{{ count }} lande/streke gevind"
+  },
+  "customer": {
+    "account": {
+      "title": "Rekening",
+      "details": "Rekeningbesonderhede",
+      "view_addresses": "Bekyk adresse",
+      "return": "Keer terug na Rekeningbesonderhede"
+    },
+    "account_fallback": "Rekening",
+    "activate_account": {
+      "title": "Aktiveer rekening",
+      "subtext": "Skep jou wagwoord om jou rekening te aktiveer.",
+      "password": "Wagwoord",
+      "password_confirm": "Bevestig wagwoord",
+      "submit": "Aktiveer rekening",
+      "cancel": "Weier uitnodiging"
+    },
+    "addresses": {
+      "title": "Adresse",
+      "default": "Verstek",
+      "add_new": "Voeg 'n nuwe adres by",
+      "edit_address": "Wysig adres",
+      "first_name": "Voornaam",
+      "last_name": "Van",
+      "address1": "Adres 1",
+      "address2": "Adres 2",
+      "city": "Stad",
+      "country": "Land/streek",
+      "province": "Provinsie",
+      "zip": "Poskode/poskode",
+      "phone": "Telefoon",
+      "set_default": "Stel as verstekadres",
+      "add": "Voeg adres by",
+      "update": "Dateer adres op",
+      "cancel": "Kanselleer",
+      "edit": "Wysig",
+      "delete": "Vee uit",
+      "delete_confirm": "Is jy seker jy wil hierdie adres uitvee?"
+    },
+    "log_in": "Meld aan",
+    "log_out": "Teken uit",
+    "login_page": {
+      "cancel": "Kanselleer",
+      "create_account": "Skep rekening",
+      "email": "E-pos",
+      "forgot_password": "Het jy jou wagwoord vergeet?",
+      "guest_continue": "Gaan voort",
+      "guest_title": "Gaan voort as 'n gas",
+      "password": "Wagwoord",
+      "title": "Teken in",
+      "sign_in": "Meld aan",
+      "submit": "Dien in",
+      "alternate_provider_separator": "of"
+    },
+    "order": {
+      "title": "Bestel {{ name }}",
+      "date_html": "Geplaas op {{ date }}",
+      "cancelled_html": "Bestelling gekanselleer op {{ date }}",
+      "cancelled_reason": "Rede: {{ reason }}",
+      "billing_address": "Rekeningadres",
+      "payment_status": "Betaling Status",
+      "shipping_address": "Afleweringsadres",
+      "fulfillment_status": "Vervulling Status",
+      "discount": "Afslag",
+      "shipping": "Versending",
+      "tax": "Belasting",
+      "product": "Produk",
+      "quantity": "Hoeveelheid",
+      "total": "Totaal",
+      "total_refunded": "Terugbetaal",
+      "fulfilled_at_html": "Voltooi {{ date }}",
+      "track_shipment": "Volg versending",
+      "tracking_url": "Volg skakel",
+      "tracking_company": "Draer",
+      "tracking_number": "Spoornommer",
+      "subtotal": "Subtotaal",
+      "total_duties": "Pligte"
+    },
+    "orders": {
+      "title": "Bestelgeskiedenis",
+      "order_number": "Bestel",
+      "order_number_link": "Bestelnommer {{ number }}",
+      "date": "Datum",
+      "payment_status": "Betalingstatus",
+      "fulfillment_status": "Vervulling status",
+      "total": "Totaal",
+      "none": "Jy het nog geen bestellings geplaas nie."
+    },
+    "recover_password": {
+      "title": "Stel jou wagwoord terug",
+      "subtext": "Ons sal vir jou 'n e-pos stuur om jou wagwoord terug te stel",
+      "success": "Ons het vir jou 'n e-pos gestuur met 'n skakel om jou wagwoord op te dateer."
+    },
+    "register": {
+      "title": "Skep rekening",
+      "first_name": "Voornaam",
+      "last_name": "Van",
+      "email": "E-pos",
+      "password": "Wagwoord",
+      "submit": "Skep"
     }
   }
 }
