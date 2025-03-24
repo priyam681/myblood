@@ -346,7 +346,60 @@
           "ddu_caption": "Bykomende fooie kan van toepassing wees",
           "ddp_title": "Betaal nou",
           "ddp_caption": "Geen bykomende fooie by aflewering nie"
-        }
+        },
+        "shipping_method_combinations": {
+          "combination": "%{rest} en %{current}"
+        },
+        "shipping_used_as_billing_notice": "Dit sal ook as jou faktuuradres vir hierdie bestelling gebruik word.",
+        "address_update": "Dateer adres op",
+        "shipping_address_title": "Stuur na",
+        "add_address": "Gebruik 'n ander adres",
+        "add_delivery_instructions": "Voeg afleweringsinstruksies by",
+        "edit": "Wysig",
+        "delete": "Vee uit",
+        "address_more": "Meer aksies vir hierdie adres",
+        "address_edit": "Wysig adres",
+        "address_delete": "Vee adres uit",
+        "address_confirm": "Is jy seker jy wil hierdie adres uit jou rekening uitvee?",
+        "address_default": "Stel as verstek",
+        "address_form": {
+          "add_address": "Voeg adres by",
+          "save": "Stoor",
+          "cancel": "Kanselleer",
+          "generic_error": "Kon nie jou adres stoor nie. Probeer asseblief weer.",
+          "one_time_address_subtitle": "Gebruik 'n eenmalige adres vir hierdie bestelling"
+        },
+        "different_shipping_method_summary": "Voer 'n ander afleweringsadres in om beskikbare versendingmetodes te sien",
+        "invalid_shipping_method_summary": "Voer 'n geldige afleweringsadres in om beskikbare afleweringsmetodes te sien",
+        "method_summary": {
+          "incomplete_address_entered": "Voer 'n volledige afleweringsadres in om beskikbare afleweringsmetodes te sien",
+          "incomplete_address_selected": "Kies 'n volledige afleweringsadres om beskikbare afleweringsmetodes te sien"
+        },
+        "local_pickup": {
+          "search_address": "Soek vir adres",
+          "rollup_title": "Winkel ligging"
+        },
+        "missing_shipping_address": "Afleweringsadres ontbreek",
+        "split_shipping_merchandise_quantity_label_additional": "+%{quantity} meer",
+        "split_shipping_merchandise_shipment_number": "Versending %{number} van %{total}",
+        "pre_order_ships_now": "Skep nou",
+        "pre_order_ships_later": "Word later gestuur",
+        "pre_order_ships_date": "Versend %{date}",
+        "split_shipping_shipped_by_shop": "Gestuur deur %{shop_name}",
+        "split_shipping_multiple_shipment_label": "Veelvuldige besendings",
+        "split_shipping_shipping_label": "Metode",
+        "split_shipping_shipment_notice": "Jou bestelling sal in %{quantity_shipments} aankom",
+        "split_shipping_multiple_shipment_quantity_label": "%{quantity} versendings",
+        "split_shipping_multiple_shipment_notice": "Jou bestelling sal in verskeie besendings aankom",
+        "split_shipping_multiple_shipment_notice_one_time_purchase": "Jou bestelling sal in %{quantity} verskepings aankom",
+        "split_shipping_more_shipping_options": "Meer afleweringsopsies",
+        "split_shipping_shipment_number": "Versending %{number}",
+        "split_shipping_merchandise_quantity_label_inline_primary": "Hoeveelheid: %{quantity}",
+        "split_shipping_option_free": "Gratis versending",
+        "split_shipping_option_lowest_price": "Laagste prys",
+        "split_shipping_option_fastest": "Vinnigste",
+        "split_shipping_option_recommended": "Aanbeveel",
+        "split_shipping_option_custom": "Pasgemaak"
       },
       "payment": {
         "store_credit": {
@@ -601,7 +654,56 @@
         },
         "update_payment_method": "Dateer betaalmetode op",
         "order_covered_by_store_credit_notice": "Jou bestelling word deur jou winkelkrediet gedek.",
-        "order_covered_by_redeemables_notice": "Jou bestelling is gedek."
+        "order_covered_by_redeemables_notice": "Jou bestelling is gedek.",
+        "network_card_payment_options": "Kies 'n kaartnetwerk",
+        "network_card_persistence_description": "Die geselekteerde netwerk sal met jou betaalmetode gestoor word vir toekomstige transaksies.",
+        "amazon_payments_login_hint": "Jy sal gevra word om by Amazon aan te meld.",
+        "amazon_payments_logout": "Meld uit van Amazon Pay",
+        "amazon_payments_failed_mfa_challenge": "Die gekose betaalmetode kon nie gebruik word nie. Kies 'n ander metode of kontak jou bank of kaartuitreiker.",
+        "amazon_payments_abandoned_mfa_challenge": "Jou betaling kon nie voltooi word nie. Probeer 'n ander betaalmetode of kontak jou bank of kaartuitreiker.",
+        "amazon_payments_could_not_enqueue_authorize": "Daar was 'n probleem met die verwerking van jou betaling. Probeer weer of gebruik 'n ander betaalmetode.",
+        "title": "Betaling",
+        "amount_left_to_pay_label": "Betaling verskuldig:",
+        "discount_button_action_label": "Pas afslagkode toe",
+        "gift_card_code_label": "Geskenkbewyskode",
+        "apply_gift_card_button_label": "Doen aansoek",
+        "gift_card_balance_label": "Saldo:",
+        "supported_card_brands_more_label": "en meer…",
+        "detected_card_brand": "Bespeur kaarthandelsmerk: {brand}",
+        "credit_card_vaulting_sign_in_banner_title": "Stoor jou kredietkaart",
+        "credit_card_vaulting_sign_in_banner_info": "Meld aan of skep 'n rekening om jou kredietkaart te stoor vir toekomstige aankope.",
+        "credit_card_vaulting_sign_in_banner_button_label": "Meld aan",
+        "ftd_vault_credit_card_label": "Stoor hierdie kredietkaart in my rekening vir 'n vinniger afhandeling",
+        "card_number_label": "Kaartnommer",
+        "card_number_placeholder": "Kaartnommer",
+        "card_pay_with": "Betaal met:",
+        "card_security_notice": "Alle transaksies is veilig en geïnkripteer.",
+        "card_security_vault_notice": "Ons benodig jou besonderhede vir toekomstige betalings. Alle transaksies is veilig en geïnkripteer.",
+        "card_information_notice": "Alle transaksies is veilig en geïnkripteer. Kredietkaartinligting word nooit gestoor nie.",
+        "name_on_card_label": "Naam op kaart",
+        "name_on_card_placeholder": "Naam op kaart",
+        "card_nickname_label": "Bynaam (opsioneel)",
+        "card_expired": "Verval",
+        "card_expiry_label": "Vervaldatum (MM / JJ)",
+        "card_expiry_placeholder": "Vervaldatum (MM / JJ)",
+        "credit_card_start_month": "Begin maand",
+        "credit_card_start_year": "Begin jaar",
+        "delete_customer_mandate_modal_title": "Verwyder hierdie betaalkaart?",
+        "delete_customer_mandate_modal_body": "As jy hierdie kaart verwyder, sal jy dit weer moet byvoeg voordat jy dit vir betalings gebruik.",
+        "delete_customer_mandate_modal_confirm": "Verwyder kaart",
+        "delete_customer_mandate_modal_cancel": "Kanselleer",
+        "card_verification_value_label": "Sekuriteitskode",
+        "card_verification_value_placeholder": "Sekuriteitskode",
+        "card_verification_confirm": "Vir verifikasiedoeleindes, voer jou kaart se sekuriteitskode in.",
+        "card_expiry_date_explanation": "Kaartvervaldatum in formaat: maand, maand, jaar, jaar",
+        "card_expiration_month_label": "Verval maand",
+        "card_expiration_year_label": "Vervaljaar",
+        "card_verification_value_explanation": "3-syfer sekuriteitskode word gewoonlik op die agterkant van jou kaart gevind. American Express-kaarte het 'n 4-syfer-kode aan die voorkant.",
+        "card_verification_value_explanation_amex": "4-syfer sekuriteitskode op die voorkant van jou kaart",
+        "card_verification_value_explanation_other": "3-syfer sekuriteitskode op die agterkant van jou kaart",
+        "card_start_label": "Uitreikingsdatum (MM/JJ)",
+        "card_start_placeholder": "Uitreikingsdatum (MM/JJ)",
+        "card_issue_number_label": "Uitgawe nommer"
       },
       "wallets": {
         "errors": {
@@ -1576,6 +1678,11 @@
         "draft_order_payment_due_on_fulfillment": "Jou betaling sal betaalbaar wees sodra jou bestelling bevestig en vervul is.",
         "draft_order_deposit_due_later": "{{depositAmount}} sal betaalbaar wees wanneer jou bestelling bevestig is. Die balans sal op {{translatedName}} terme wees.",
         "draft_order_deposit_due_on_fulfillment": "{{depositAmount}} sal betaalbaar wees wanneer jou bestelling bevestig is. Die balans sal wees sodra jou bestelling vervul is."
+      },
+      "localized_fields": {
+        "additional_information": {
+          "title": "Bykomende inligting"
+        }
       }
     },
     "pagination": {
