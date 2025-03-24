@@ -98,14 +98,11 @@ button#open-modal-2:hover {
   background: #f7f5ef;
 }
  @media screen and (max-width: 990px) {
-     .custom-modal {
+     custom-modal {
         width: 90%;
         max-width: 450px;
      }
   
  }
 
-.custom-modal {
-        width: 90%;
-        max-width: 450px;
-}
+
