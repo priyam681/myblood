@@ -1675,7 +1675,9 @@
           "credit_card_number_invalid": "Voer 'n geldige kaartnommer in",
           "credit_card_expiry_invalid": "Voer 'n geldige kaartvervaldatum in",
           "credit_card_verification_value_blank": "Voer die CVV of sekuriteitskode op jou kaart in"
-        }
+        },
+        "card_number_label": "Kaartnommer",
+        "card_number_placeholder": "Kaartnommer"
       },
       "payment_delete": {
         "title": "Vee betaalmetode uit",
@@ -1715,6 +1717,114 @@
       },
       "three_d_secure": {
         "title": "3D Veilig"
+      },
+      "title": "Betaalmetodes",
+      "add_payment_method_button": "Voeg betaalmetode by",
+      "add_payment_method_banner": "Voeg betaalmetode by vir vinniger afreken of voorafgoedgekeurde dienste",
+      "no_payment_methods_banner": "Geen betaalmetodes bygevoeg nie",
+      "edit_payment_method_button_accessibility_label": "Wysig {{paymentMethodName}} wat eindig op {{lastDigits}}",
+      "edit_payment_method_brand_button_accessibility_label": "Wysig {{paymentMethodName}}",
+      "delete_payment_method_button": "Vee uit",
+      "delete_payment_method_button_accessibility_label": "Vee {{paymentMethodName}} uit",
+      "back_button": "Terug",
+      "back_button_accessibility_label": "Terug na {{paymentMethodStepTitle}}",
+      "default": "Verstek",
+      "generic_card": "Kaart",
+      "expiration_warning_button_accessibility_label": "Wys vervalwaarskuwing vir {{paymentMethodName}} wat eindig op {{lastDigits}}",
+      "expires_soon": "Hierdie kaart verval binnekort",
+      "expired": "Hierdie kaart het verval",
+      "card_update_consent": "Hierdie betaalmetode sal vir toekomstige aankope gestoor word.",
+      "digital_wallet_title": "Digitale beursie",
+      "credit_or_debit_card_title": "Krediet- of debietkaart",
+      "google_pay": {
+        "iframe_title_accessibility_label": "Voeg Google Pay-betaalmetode by",
+        "loading_accessibility_message": "Laai tans Google Pay",
+        "loading": "Laai tans Google Pay",
+        "errors": {
+          "generic": "Daar was 'n probleem met Google Pay. Probeer weer of gebruik 'n ander betaalmetode.",
+          "missing_billing_address": "Google Pay vereis 'n faktuuradres. Voeg asseblief een by jou rekening."
+        }
+      },
+      "pay_pal": {
+        "iframe_title_accessibility_label": "Voeg PayPal-betaalmetode by",
+        "loading_accessibility_message": "Laai tans PayPal"
+      },
+      "apple_pay": {
+        "loading": "Laai tans Apple Pay",
+        "errors": {
+          "generic": "Daar was 'n probleem met Apple Pay. Probeer weer of gebruik 'n ander betaalmetode.",
+          "not_available": "Apple Pay is nie op hierdie toestel beskikbaar nie.",
+          "missing_billing_address": "Apple Pay vereis 'n faktuuradres. Voeg asseblief een by jou rekening."
+        }
+      },
+      "store_credit": {
+        "label": "Winkel krediet",
+        "accesibility_label": "Winkelkrediet - {{formattedBalance}}",
+        "expirable_amounts_button": "Bekyk vervalbare bedrae",
+        "expirable_amounts_label": "Vervalbare bedrae",
+        "details_modal": {
+          "title": "Vervalbare winkelkrediet",
+          "balance_label": "Balans",
+          "expiration_date_label": "Vervaldatum",
+          "amount_label": "Bedrag",
+          "date_label": "Datum",
+          "event_label": "Gebeurtenis",
+          "events": {
+            "adjustment": "Aanpassing",
+            "order_payment": "Bestel betaling",
+            "order_refund": "Bestelling terugbetaling",
+            "payment_failure": "Betaling mislukking",
+            "payment_returned": "Betaling teruggestuur",
+            "order_cancellation": "Bestelling kansellasie",
+            "tax_finalization": "Belasting finalisering"
+          },
+          "expirable_balance_info": "Sommige van jou saldo sal op 'n toekomstige datum verval",
+          "expirable_amount_label": "Totale vervalbare bedrag",
+          "expirable_amounts_info": "Bedrae wat vroeër verval, word eers by die betaalpunt toegepas",
+          "expirable_amounts_button": "Uitsig",
+          "expired_amounts_button": "Bekyk verval bedrae",
+          "pagination": {
+            "load_more_label": "Laai meer",
+            "load_more_accessibility_label": "Laai meer vervalbare bedrae"
+          }
+        }
+      },
+      "payment_details": {
+        "title": "Betaalmetode besonderhede",
+        "credit_card_details_accessibility_label": "eindig op {{lastDigits}}",
+        "billing_title": "Faktuuradres",
+        "card_info_title": "Kaart inligting",
+        "payment_method_expiring_on": "Verval op {{expiryDate}}",
+        "payment_method_expired_on": "Verval op {{expiryDate}}",
+        "preauthorized_payments": "Vooraf gemagtigde betalings",
+        "close_payment_modal": "Maak toe",
+        "close_payment_modal_accessibility_label": "Maak betaalmetodebesonderhede modaal toe",
+        "payment_method_not_found_error": "Kan nie betaalmetode vind nie",
+        "payment_details_loading": "Laai tans betaalmetodebesonderhede",
+        "pre_authorized_payments": "Vooraf gemagtigde betalings",
+        "total_amount_of_subscription_line_items_left": "en nog {{total}}",
+        "total_amount_of_subscription_line_items_left_accessibility_label": "{{totalItems}} items totaal, wat {{totalItemsToDisplay}} items vertoon.",
+        "next_payment_due": "Volgende betaling verskuldig {{dueDateInMonthDayYear}}",
+        "edit_payment_method_button": "Wysig",
+        "edit_payment_method_button_accessibility_label": "Wysig betaalmetode wat eindig op {{lastDigits}}",
+        "loading_shop_pay": "Laai Winkel Pay",
+        "invalid_payment_method": "Ongeldige betaalmetode",
+        "invalid_payment_method_message": "Gebruik 'n nuwe kredietkaart om voort te gaan om komende bestellings te ontvang.",
+        "replace_payment_method": "Vervang betaalmetode",
+        "checkout_card_banner": "Hierdie betaalmetode kan slegs vir voorafgoedgekeurde betalings gebruik word. Dit sal nie by die betaalpunt verskyn as jy by hierdie winkel aangemeld is nie.",
+        "default_checkbox": "Stel as verstek",
+        "default_checkbox_accessibility_label": "Stel hierdie betaalmetode as verstek"
+      },
+      "edit_payment_method": {
+        "title": "Wysig betaalmetode",
+        "save_payment_method_button": "Stoor",
+        "cancel_edit_payment_method_button": "Kanselleer",
+        "payment_method_updated_toast": "Betaalmetode opgedateer",
+        "billing_address": "Faktuuradres",
+        "billing_address_add_new": "Voeg nuwe by",
+        "billing_address_choose_from_list": "Kies uit lys",
+        "future_purchases_notice": "Hierdie betaalmetode sal vir toekomstige aankope gestoor word.",
+        "generic_error": "Daar was 'n probleem met opdatering. Probeer asseblief weer."
       }
     },
     "payment_method_brands": {
@@ -1731,6 +1841,34 @@
       "subscription_policy": "Kansellasiebeleid",
       "terms_of_sale": "Verkoopsvoorwaardes",
       "terms_of_service": "Diensbepalings"
+    },
+    "errors": {
+      "no_access_to_locations": {
+        "description": "Jy het nie toegang tot enige liggings nie"
+      },
+      "not_found": {
+        "description": "Gaan die URL na of probeer weer oor 'n paar minute.",
+        "title": "Daar is 'n probleem om hierdie bladsy te laai"
+      },
+      "order_not_found": {
+        "description": "Hierdie bestelling bestaan ​​nie of jy het nie toestemming om dit te bekyk nie.",
+        "title": "Bestelling nie gevind nie"
+      },
+      "profile_update_error": {
+        "description": "Kon nie jou profiel opdateer nie. Probeer hierdie bladsy herlaai of gaan jou internetverbinding na."
+      },
+      "retry_action_label": "Probeer weer",
+      "load_extension_error": {
+        "title": "Fout",
+        "description": "Herlaai hierdie bladsy of probeer weer oor 'n paar minute.",
+        "refresh_button": "Herlaai bladsy"
+      }
+    },
+    "throttle": {
+      "too_many_attempts": {
+        "message": "Te veel pogings",
+        "description": "Probeer asseblief weer oor 'n paar minute"
+      }
     }
   },
   "templates": {
