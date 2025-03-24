@@ -65,21 +65,6 @@
             "reviews": 4.2,
             "text": "review"
           }
-        },
-        "social_icons_8rxYxT": {
-          "type": "social_icons",
-          "settings": {
-            "is_facebook": true,
-            "is_twitter": true,
-            "is_pinterest": true,
-            "is_tumblr": true,
-            "is_reddit": true,
-            "is_vk": true,
-            "is_whatsapp": true,
-            "is_telegram": true,
-            "is_linkedin": true,
-            "is_instagram": true
-          }
         }
       },
       "block_order": [
@@ -92,8 +77,7 @@
         "rating_xyTk6d",
         "buy_buttons",
         "text_with_link_pFh6ai",
-        "star_FCHPVx",
-        "social_icons_8rxYxT"
+        "star_FCHPVx"
       ],
       "settings": {
         "enable_sticky_info": true,
