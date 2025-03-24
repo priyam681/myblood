@@ -58,21 +58,6 @@
           "settings": {
             "text_with_link": "<p>Share information about your brand with your customers.<a href=\"https://www.sprinix.com/\" title=\"https://www.sprinix.com/\">sprinix</a></p>"
           }
-        },
-        "social_icons_KVFcrw": {
-          "type": "social_icons",
-          "settings": {
-            "is_facebook": false,
-            "is_twitter": false,
-            "is_pinterest": false,
-            "is_tumblr": false,
-            "is_reddit": false,
-            "is_vk": false,
-            "is_whatsapp": false,
-            "is_telegram": false,
-            "is_linkedin": false,
-            "is_instagram": false
-          }
         }
       },
       "block_order": [
@@ -84,8 +69,7 @@
         "quantity_selector",
         "rating_xyTk6d",
         "buy_buttons",
-        "text_with_link_pFh6ai",
-        "social_icons_KVFcrw"
+        "text_with_link_pFh6ai"
       ],
       "settings": {
         "enable_sticky_info": true,
