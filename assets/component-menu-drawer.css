@@ -32,7 +32,6 @@ menu-drawer > details[open] > summary::before {
 }
 div#menu-drawer {
     overflow: auto;
-    max-height: 500px;
 }
 .menu-drawer {
   position: absolute;
