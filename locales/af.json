@@ -1275,7 +1275,23 @@
       },
       "shipping_errors": {
         "shipping_method": "Die afleweringsopsies het vir jou bestelling verander. Hersien jou keuse en probeer weer.",
-        "shipping_method_not_available": "Jou mandjie is opgedateer en die items wat jy bygevoeg het, kan nie na jou adres gestuur word nie. Verwyder die items om jou bestelling te voltooi."
+        "shipping_method_not_available": "Jou mandjie is opgedateer en die items wat jy bygevoeg het, kan nie na jou adres gestuur word nie. Verwyder die items om jou bestelling te voltooi.",
+        "shipping_method_not_available_generic": {
+          "one": "Jou bestelling kan nie na die geselekteerde adres gestuur word nie. Gaan jou adres na om te verseker dat dit korrek is en probeer weer, of kies 'n ander adres.",
+          "other": "Sommige items in jou mandjie kan nie na die adres wat jy ingevoer het gestuur word nie. Gaan jou adres na om te verseker dat dit korrek is en probeer weer, of kies 'n ander adres."
+        },
+        "shipping_method_not_available_due_to_unsatisfied_conditions": "Items in die mandjie voldoen nie aan prys- of gewigvereistes om vir versending te kwalifiseer nie. Dateer jou mandjie op en probeer weer.",
+        "shipping_method_not_available_updated": {
+          "one": "Die item wat jy bygevoeg het, word nie na jou ligging gestuur nie. Verwyder dit om af te betaal, of kontak die winkel.",
+          "other": "Een of meer items wat jy bygevoeg het, word nie na jou ligging gestuur nie. Verwyder hulle om af te betaal, of kontak die winkel."
+        },
+        "payment_method_not_supported": "Jy kan nie hierdie betaalmetode vir %{country} gebruik nie. Gebruik asseblief 'n ander betaalmetode om na hierdie land te stuur.",
+        "empty_state": "Voer jou afleweringsadres in om beskikbare versendingmetodes te sien.",
+        "title": "Versending nie beskikbaar nie",
+        "invalid_selected_address": "Geselekteerde afleweringsadres is nie geldig nie",
+        "invalid_selected_address_with_update_link": "Geselekteerde afleweringsadres is nie geldig nie. %{update_address_link} of kies 'n ander adres",
+        "unavailable_selected_address": "Versending nie beskikbaar vir geselekteerde adres nie",
+        "unavailable_selected_address_for_region": "Versending is nie beskikbaar vir {{region}} nie. Kies 'n ander adres om voort te gaan"
       },
       "thank_you": {
         "billing_address_title": "Faktuuradres",
@@ -1377,7 +1393,20 @@
         "order_status_payments_app_pending_payment_description_buyer_action_required_with_phone_payment": "Nadat jy jou betaling voltooi het, sal jy 'n bevestigingsboodskap kry. Volg jou bestelling met die Shop-toepassing.",
         "order_status_payments_app_pending_payment_description_buyer_action_required_with_phone_pick_up": "Nadat jy jou betaling voltooi het, sal jy 'n bevestigingsboodskap kry. Volg jou bestelling met die Shop-toepassing.",
         "order_status_payments_app_failed_pending_payment": "Jy is nie vir jou bestelling gehef nie. Keer terug na jou mandjie om jou bestelling te hersien en weer te betaal.",
-        "order_status_payments_app_failed_pending_payment_payment": "Jy is nie vir jou bestelling gehef nie. Keer terug na jou mandjie om jou bestelling te hersien en weer te betaal."
+        "order_status_payments_app_failed_pending_payment_payment": "Jy is nie vir jou bestelling gehef nie. Keer terug na jou mandjie om jou bestelling te hersien en weer te betaal.",
+        "title": "Dankie vir jou aankoop!",
+        "confirmation_email_sent_text": "'n Bevestigings-e-pos is aan %{email} gestuur",
+        "return_to_store_link_label": "Gaan voort met inkopies",
+        "print_link_label": "Druk kwitansie",
+        "payment_information_title": "Betaling inligting",
+        "shipping_information_title": "Gestuur inligting",
+        "page_title": "Dankie, %{display_name}!",
+        "page_title_no_name": "Dankie!",
+        "purchase_order_number_title": "PO-nommer #%{purchase_order_number}",
+        "cancelled_page_title": "Bestelling gekanselleer",
+        "failed_pending_payment_page_title": "Daar is 'n probleem met jou betaling",
+        "customer_information_title": "Bestel besonderhede",
+        "contact_information_title": "Kontak inligting"
       },
       "contact": {
         "emirate_label": "Emiraat",
@@ -1447,6 +1476,106 @@
         },
         "saved_address_option_link": "Gebruik 'n gestoorde adres",
         "saved_address_modal_title": "Gebruik my gestoorde adres"
+      },
+      "alternative_payment_method_banner": {
+        "express_checkout": "Snel afreken",
+        "or": "OF",
+        "or_pay_another_way": "Of betaal op 'n ander manier",
+        "or_check_out_another_way": "Of kyk op 'n ander manier",
+        "or_pay_with_credit_card": "Of betaal met kredietkaart",
+        "show_more_options": "Wys meer opsies",
+        "hide_more_options": "Versteek meer opsies"
+      },
+      "post_purchase": {
+        "page_title": "Na-aankoop",
+        "title": "Na-aankoop",
+        "escape_confirmation": "Jy het vir jou bestelling betaal.",
+        "escape_action": "Bekyk bestellingbevestiging ›",
+        "components": {
+          "close": "Maak toe",
+          "expand": "Bekyk meer",
+          "processing": "Verwerk tans …",
+          "submit": "Dien in"
+        }
+      },
+      "processing": {
+        "redirecting_page_title": "Herlei tans …",
+        "redirecting_title": "Herlei tans …",
+        "redirecting_notice": "Wag terwyl ons jou herlei.",
+        "redirecting_to_bank": "Herlei tans na {{bank}}",
+        "complete_your_purchase_title": "Voltooi jou aankoop",
+        "continue_to_payment_gateway_notice": "Gaan voort met betaling om jou betalinginligting by te voeg.",
+        "continue_to_payment_gateway_button_label": "Gaan voort met betaling",
+        "complete_your_purchase_title_error": "Maak jou betalingsinligting reg",
+        "continue_to_payment_gateway_notice_error": "Jou betalinginligting kon nie geverifieer word nie.",
+        "continue_to_payment_gateway_button_label_error": "Dateer betalingsinligting op",
+        "page_title": "Verwerk bestelling",
+        "title": "Verwerk bestelling",
+        "your_order_has_been_received_title": "Dankie vir jou bestelling",
+        "you_will_receive_confirmation": "Ons kry tans baie bestellings. Jy behoort binnekort bevestiging per e-pos of sms te ontvang. As jy dit nie binne die volgende uur ontvang nie, laat weet ons.",
+        "you_will_not_be_charged": "Jy sal nog nie gehef word nie",
+        "wait": {
+          "short": "Jou bestelling word verwerk.",
+          "medium": {
+            "one": "Jou bestelling word verwerk. Geskatte wagtyd is %{count} minuut.",
+            "other": "Jou bestelling word verwerk. Geskatte wagtyd is %{count} minute."
+          },
+          "long": "Jy sal 'n e-pos ontvang sodra jou bestelling verwerk is. Daar is tans 'n groot volume bestellings.",
+          "no_auto_refresh_html": "As jy nie outomaties herlei word nie, %{link}.",
+          "refresh_this_page": "verfris hierdie bladsy"
+        },
+        "action_required": "Optrede vereis",
+        "modal_notice": "Ons kontak tans {{paymentMethod}}"
+      },
+      "payment_challenge_modal": {
+        "instructions": "Voltooi jou aankoop deur jou {{paymentMethod}} kode te gebruik",
+        "timer_message": "Jy het {{timeLeft}} om te betaal",
+        "copy_text": "Kopieer {{paymentMethod}} -kode",
+        "header": "Betaal met {{paymentMethod}}",
+        "qr_code": {
+          "instructions": "Voltooi jou aankoop deur jou {{paymentMethod}} kode te gebruik"
+        },
+        "external": {
+          "instructions": "Bevestig betaling op jou program om hierdie aankoop te voltooi"
+        },
+        "close": "Maak die uitdaging toe"
+      },
+      "failed_payment": {
+        "page_title": "Betaling kon nie verwerk word nie",
+        "title": "Betaling kon nie verwerk word nie",
+        "payment_not_processed_title": "Jou betaling kon nie verwerk word nie",
+        "payment_not_processed_text": "Jy is nie aangekla nie. Keer terug na jou mandjie om jou aankoop te voltooi.",
+        "return_to_cart_button_label": "Keer terug na kar"
+      },
+      "payment_gateway": {
+        "credit_card_label": "Kredietkaart",
+        "bank_deposit_label": "Bankdeposito",
+        "cash_on_delivery_label": "Kontant by aflewering (COD)",
+        "debit_card_label": "Debietkaart",
+        "deferred_payment_label": "Kies later betaalmetode",
+        "fixed_payment_label": "Jou betaling sal op {{dueDate}} betaalbaar wees.",
+        "generic_payment_terms": "Jy is op {{translatedName}} terme. Jou betaling sal op {{dueDate}} betaalbaar wees.",
+        "login_prompt": {
+          "no_access": {
+            "message": "{{logIn}} na 'n rekening met toegang tot hierdie ligging om gestoorde betaalmetodes by te voeg of te gebruik.",
+            "link": "Meld aan"
+          }
+        },
+        "direct_payment_terms": "Jy is op {{translatedName}} terme. Jou kaart sal op {{dueDate}} gehef word.",
+        "fixed_direct_payment_terms": "Jou kaart sal op {{dueDate}} gehef word.",
+        "order_due_on_fulfillment_choose_later": "U betaling sal betaalbaar wees sodra u bestelling uitgevoer is.",
+        "order_due_on_fulfillment_payment": "Jou kaart sal gehef word sodra jou bestelling uitgevoer is.",
+        "order_due_on_receipt_choose_later": "Jou betaling sal betaalbaar wees by ontvangs.",
+        "order_deposit_due_now": "{{depositAmount}} is vandag betaalbaar. Die saldo is op {{translatedName}} terme en is betaalbaar op {{dueDate}} .",
+        "order_deposit_due_on_fulfillment": "{{depositAmount}} is vandag betaalbaar. Die balans sal betaalbaar wees sodra u bestelling uitgevoer is.",
+        "order_deposit_due_on_receipt": "{{depositAmount}} is vandag betaalbaar. Die balans sal later betaalbaar wees.",
+        "order_deposit_due_on_fixed_date": "{{depositAmount}} is vandag betaalbaar. Die balans sal op {{dueDate}} betaalbaar wees.",
+        "draft_order_payment_due_later_no_terms": "Jou betaling sal betaalbaar wees sodra jou bestelling bevestig is.",
+        "draft_order_payment_due_later_no_terms_payment_selected": "Jou kaart sal gehef word sodra jou bestelling bevestig is.",
+        "draft_order_payment_due_later_terms": "Jy sal op {{translatedName}} -bepalings wees sodra jou bestelling bevestig is.",
+        "draft_order_payment_due_on_fulfillment": "Jou betaling sal betaalbaar wees sodra jou bestelling bevestig en vervul is.",
+        "draft_order_deposit_due_later": "{{depositAmount}} sal betaalbaar wees wanneer jou bestelling bevestig is. Die balans sal op {{translatedName}} terme wees.",
+        "draft_order_deposit_due_on_fulfillment": "{{depositAmount}} sal betaalbaar wees wanneer jou bestelling bevestig is. Die balans sal wees sodra jou bestelling vervul is."
       }
     },
     "pagination": {
