@@ -424,6 +424,12 @@
     display: none;
   }
 }
+@media screen and (max-width: 990px) {
+    .desktop-localization-wrapper {
+    display:none;
+  }
+}
+
 
 .menu-drawer__localization localization-form {
   display: block;

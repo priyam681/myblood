@@ -32,7 +32,6 @@ menu-drawer > details[open] > summary::before {
 }
 div#menu-drawer {
     overflow: auto;
-    max-height: 500px;
 }
 .menu-drawer {
   position: absolute;
@@ -191,6 +190,10 @@ details[open].menu-opening > .menu-drawer__submenu {
 @media screen and (max-width: 749px) {
   .header--has-account:where(:not(.header--has-social):not(.header--has-localizations)) .menu-drawer__utility-links {
     padding: 2rem 3rem;
+  }
+  
+  .menu-drawer .list-social {
+    display:none;
   }
 }
 
