@@ -2409,6 +2409,45 @@
       "email": "E-pos",
       "password": "Wagwoord",
       "submit": "Skep"
+    },
+    "reset_password": {
+      "title": "Stel rekeningwagwoord terug",
+      "subtext": "Voer 'n nuwe wagwoord in",
+      "password": "Wagwoord",
+      "password_confirm": "Bevestig wagwoord",
+      "submit": "Stel wagwoord terug"
+    }
+  },
+  "gift_cards": {
+    "issued": {
+      "how_to_use_gift_card": "Gebruik die geskenkbewyskode aanlyn of QR-kode in die winkel",
+      "title": "Hier is jou {{ value }} geskenkbewyssaldo vir {{ shop }} !",
+      "subtext": "Jou geskenkbewys",
+      "gift_card_code": "Geskenkbewyskode",
+      "shop_link": "Besoek aanlyn winkel",
+      "add_to_apple_wallet": "Voeg by Apple Wallet",
+      "qr_image_alt": "QR-kode – skandeer om geskenkbewys te gebruik",
+      "copy_code": "Kopieer geskenkbewyskode",
+      "expiration_date": "Verval {{ expires_on }}",
+      "copy_code_success": "Kode is suksesvol gekopieer",
+      "expired": "Verval"
+    }
+  },
+  "recipient": {
+    "form": {
+      "checkbox": "Ek wil dit as geskenk stuur",
+      "expanded": "Geskenkbewys ontvangervorm uitgebrei",
+      "collapsed": "Geskenkbewys-ontvangervorm het ingevou",
+      "email_label": "Ontvanger e-pos",
+      "email_label_optional_for_no_js_behavior": "Ontvanger-e-pos (opsioneel)",
+      "email": "E-pos",
+      "name_label": "Ontvanger naam (opsioneel)",
+      "name": "Naam",
+      "message_label": "Boodskap (opsioneel)",
+      "message": "Boodskap",
+      "max_characters": "{{ max_chars }} karakters maksimum",
+      "send_on": "JJJJ-MM-DD",
+      "send_on_label": "Stuur aan (opsioneel)"
     }
   }
 }
