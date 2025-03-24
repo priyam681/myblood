@@ -68,7 +68,7 @@
             "is_tumblr": false,
             "is_reddit": false,
             "is_vk": false,
-            "is_whatsapp": true,
+            "is_whatsapp": false,
             "is_telegram": false,
             "is_linkedin": false,
             "is_instagram": false
