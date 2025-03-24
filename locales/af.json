@@ -695,5 +695,286 @@
       "invalid_state_in_country": "is nie 'n geldige staat in %{country}",
       "invalid_region_in_country": "is nie 'n geldige streek in %{country}"
     }
+  },
+  "sections": {
+    "slideshow": {
+      "load_slide": "Laai skyfie",
+      "previous_slideshow": "Vorige skyfie",
+      "next_slideshow": "Volgende skyfie",
+      "pause_slideshow": "Onderbreek skyfievertoning",
+      "play_slideshow": "Speel skyfievertoning",
+      "carousel": "Karrousel",
+      "slide": "Skyfie"
+    },
+    "page": {
+      "title": "Bladsy titel"
+    },
+    "quick_order_list": {
+      "product_total": "Produk subtotaal",
+      "view_cart": "Bekyk karretjie",
+      "each": "{{ money }} /ea",
+      "product": "Produk",
+      "variant_total": "Variant totaal",
+      "items_added": {
+        "one": "{{ quantity }} item bygevoeg",
+        "other": "{{ quantity }} items bygevoeg"
+      },
+      "items_removed": {
+        "one": "{{ quantity }} item verwyder",
+        "other": "{{ quantity }} items verwyder"
+      },
+      "product_variants": "Produkvariante",
+      "total_items": "Totale items",
+      "remove_all_single_item_confirmation": "Verwyder 1 item uit jou mandjie?",
+      "remove_all_items_confirmation": "Verwyder alle {{ quantity }} items uit jou mandjie?",
+      "remove_all": "Verwyder alles",
+      "cancel": "Kanselleer",
+      "min_error": "Hierdie item het 'n minimum van {{ min }}",
+      "max_error": "Hierdie item het 'n maksimum van {{ max }}",
+      "step_error": "Jy kan hierdie item slegs in inkremente van {{ step }} byvoeg"
+    }
+  },
+  "general": {
+    "password_page": {
+      "login_form_heading": "Voer winkel in met wagwoord:",
+      "login_password_button": "Tik met wagwoord in",
+      "login_form_password_label": "Wagwoord",
+      "login_form_password_placeholder": "Jou wagwoord",
+      "login_form_error": "Verkeerde wagwoord!",
+      "login_form_submit": "Voer in",
+      "admin_link_html": "Is jy die winkeleienaar? <a href=\"/admin\" class=\"link underlined-link\">Meld hier aan</a>",
+      "powered_by_shopify_html": "Hierdie winkel sal aangedryf word deur {{ shopify }}"
+    },
+    "social": {
+      "alt_text": {
+        "share_on_facebook": "Deel op Facebook",
+        "share_on_twitter": "Deel op X",
+        "share_on_pinterest": "Speld op Pinterest"
+      }
+    },
+    "continue_shopping": "Gaan voort met inkopies",
+    "pagination": {
+      "label": "Paginering",
+      "page": "Bladsy {{ number }}",
+      "next": "Volgende bladsy",
+      "previous": "Vorige bladsy"
+    },
+    "search": {
+      "search": "Soek",
+      "reset": "Vee soekterm uit"
+    },
+    "cart": {
+      "view": "Bekyk mandjie ( {{ count }} )",
+      "view_empty_cart": "Bekyk karretjie",
+      "item_added": "Item is by jou mandjie gevoeg"
+    },
+    "share": {
+      "close": "Maak deel",
+      "copy_to_clipboard": "Kopieer skakel",
+      "share_url": "Skakel",
+      "success_message": "Skakel na knipbord gekopieer"
+    },
+    "slider": {
+      "of": "van",
+      "next_slide": "Skuif regs",
+      "previous_slide": "Skuif links",
+      "name": "Skuifbalk"
+    }
+  },
+  "newsletter": {
+    "label": "Voer jou e-pos in",
+    "success": "Dankie dat jy ingeteken het",
+    "button_label": "Teken in"
+  },
+  "accessibility": {
+    "skip_to_text": "Slaan oor na inhoud",
+    "skip_to_product_info": "Slaan oor na produkinligting",
+    "close": "Maak toe",
+    "vendor": "Verkoper:",
+    "error": "Fout",
+    "refresh_page": "Die keuse van 'n keuse lei tot 'n volledige bladsy herlaai.",
+    "link_messages": {
+      "new_window": "Maak in 'n nuwe venster oop.",
+      "external": "Maak eksterne webwerf oop."
+    },
+    "loading": "Laai tans...",
+    "total_reviews": "totale resensies",
+    "star_reviews_info": "{{ rating_value }} uit {{ rating_max }} sterre",
+    "collapsible_content_title": "Opvoubare inhoud",
+    "complementary_products": "Komplementêre produkte"
+  },
+  "blogs": {
+    "article": {
+      "read_more_title": "Lees meer: {{ title }}",
+      "comments": {
+        "one": "{{ count }} opmerking",
+        "other": "{{ count }} opmerkings"
+      },
+      "moderated": "Neem asseblief kennis dat kommentaar goedgekeur moet word voordat dit gepubliseer word.",
+      "comment_form_title": "Los 'n opmerking",
+      "name": "Naam",
+      "email": "E-pos",
+      "message": "Lewer kommentaar",
+      "post": "Plaas kommentaar",
+      "back_to_blog": "Terug na blog",
+      "share": "Deel hierdie artikel",
+      "success": "Jou opmerking is suksesvol geplaas! Dankie!",
+      "success_moderated": "Jou opmerking is suksesvol geplaas. Ons sal dit binne 'n rukkie publiseer, aangesien ons blog gemodereer word."
+    }
+  },
+  "onboarding": {
+    "product_title": "Voorbeeld produk titel",
+    "collection_title": "Jou versameling se naam"
+  },
+  "products": {
+    "product": {
+      "add_to_cart": "Voeg by mandjie",
+      "choose_options": "Kies opsies"
+    }
+  },
+  "customer_accounts": {
+    "orders": {
+      "order_list": {
+        "payment_status": {
+          "table_view": {
+            "overdue": "Agterstallig",
+            "due": "Sperdatum {{date}}",
+            "due_today": "Vandag betaalbaar",
+            "paid": "Betaal",
+            "due_without_date": "Verskuldig",
+            "due_on_fulfillment": "Verskuldig op vervulling",
+            "pay_to_confirm": "Betaal om te bevestig",
+            "payment_not_due": "Nog nie verskuldig nie"
+          }
+        },
+        "sort_by": "Sorteer volgens: {{option}}",
+        "sort_hide_options_accessibility_label": "Versteek sorteeropsies vir bevestigde bestellings.",
+        "sort_show_options_accessibility_label": "Wys sorteeropsies vir bevestigde bestellings.",
+        "sort_currently_sorted_by_accessibility_label": "Tans gesorteer volgens: {{option}}",
+        "sort_title": "Sorteer",
+        "sort": {
+          "date": {
+            "newest": "Nuutste tot oudste",
+            "oldest": "Oudste tot nuutste"
+          },
+          "location": {
+            "ascending": "Ligging (AZ)",
+            "descending": "Ligging (ZA)"
+          },
+          "order_number": {
+            "ascending": "Bestelnommer (laag na hoog)",
+            "descending": "Bestelnommer (hoog na laag)"
+          },
+          "order_total": {
+            "ascending": "Besteltotaal (laag na hoog)",
+            "descending": "Bestelling totaal (hoog na laag)"
+          }
+        },
+        "filter": {
+          "clear_section": "Vee afdeling uit",
+          "clear_all": "Vee alles uit",
+          "apply": "Doen aansoek",
+          "date": {
+            "start_date": "Begin datum",
+            "end_date": "Einddatum",
+            "title": "Bestel datum",
+            "today": "Vandag",
+            "last_7_days": "Laaste 7 dae",
+            "last_30_days": "Laaste 30 dae",
+            "last_90_days": "Laaste 90 dae",
+            "last_365_days": "Laaste 12 maande",
+            "custom": "Pasgemaak"
+          }
+        },
+        "table_view": "Wys tabelaansig",
+        "show_order_actions_accessibility_label": "Wys bestellingshandelinge vir bestelling {{name}}"
+      },
+      "order_status": {
+        "attempted_delivery_label": "Poging tot aflewering",
+        "attempted_delivery_description": "Die afleweringspoging was onsuksesvol.",
+        "attempted_to_deliver_label": "Poging om af te lewer",
+        "confirmed_description": "Ons het jou bestelling ontvang.",
+        "on_its_way_description": "Hierdie besending is op pad.",
+        "out_for_delivery_description": "Hierdie besending is uit vir aflewering.",
+        "preparing_for_shipping_label": "Berei voor vir versending",
+        "preparing_for_shipping_description": "Hierdie items word voorberei vir versending.",
+        "ready_for_pickup_label": "Gereed vir afhaal",
+        "ready_for_pickup_description": "Hierdie items is gereed vir afhaal. Bring asseblief jou bestellingbevestiging saam wanneer jy jou bestelling afhaal.",
+        "ready_for_pickup_location": "Jou bestelling is gereed vir afhaal by plek",
+        "picked_up_label": "Opgeneem",
+        "picked_up_description": "Hierdie items is opgetel.",
+        "canceled_description": "Jou bestelling is op {{date}} gekanselleer.",
+        "canceled_label": "Gekanselleer",
+        "canceled_title": "Jou bestelling is gekanselleer",
+        "come_back": "Kom terug na hierdie bladsy vir opdaterings oor jou versendingstatus.",
+        "company_tracking_number": "{{company}} spoornommer:",
+        "confirmed_label": "Bevestig",
+        "confirmed_title": "Jou bestelling is bevestig",
+        "confirmed_description_pickup": "Jy sal 'n e-pos ontvang wanneer jou bestelling gereed is vir afhaal.",
+        "confirmed_description_digital": "Jy sal 'n e-pos ontvang wanneer jou bestelling gereed is.",
+        "confirmed_description_gift_card_text": "Jy sal 'n SMS ontvang wanneer jou bestelling gereed is.",
+        "delivered_description": "Hierdie besending is afgelewer.",
+        "complete_label": "Voltooi",
+        "delivered_label": "Afgelewer",
+        "delivered_title": "Jou besending is afgelewer",
+        "delivered_description_digital": {
+          "one": "Hierdie item is voltooi.",
+          "other": "Hierdie items is voltooi."
+        },
+        "delivered_description_gift_card": {
+          "one": "Geskenkbewys is per e-pos gestuur.",
+          "other": "Geskenkbewyse is per e-pos gestuur."
+        },
+        "delivered_description_gift_card_text": {
+          "one": "Geskenkbewys is per SMS gestuur.",
+          "other": "Geskenkbewyse is per SMS gestuur."
+        },
+        "gift_card_label": {
+          "one": "Geskenkbewys",
+          "other": "Geskenkbewyse"
+        },
+        "gift_card_resend_button": {
+          "one": "Stuur geskenkbewys weer",
+          "other": "Stuur geskenkbewyse weer"
+        },
+        "gift_resend_success": {
+          "one": "Geskenkbewys weer gestuur",
+          "other": "Geskenkbewyse verwerp"
+        },
+        "gift_resend_failure": {
+          "one": "Kon nie jou geskenkbewys weer stuur nie. Probeer weer of kontak ons.",
+          "other": "Kon nie jou geskenkbewyse herstuur nie. Probeer weer of kontak ons."
+        },
+        "confirmed_gift_card_additional_description": {
+          "one": "Geskenkbewys sal in 'n aparte e-pos gestuur word.",
+          "other": "Elke geskenkbewys sal in 'n aparte e-pos gestuur word."
+        },
+        "confirmed_gift_card_additional_description_text": {
+          "one": "Geskenkbewys sal in 'n aparte teks gestuur word.",
+          "other": "Elke geskenkbewys sal in 'n aparte teks gestuur word."
+        },
+        "status_timestamp": "Opgedateer {{date}}",
+        "estimated_delivery": "Verwag {{date}}",
+        "delivered": "Aangekom {{date}}",
+        "buy_with_prime_logo_accessibility_label": "Amazon Koop met Prime-logo",
+        "in_review_description": "Ons sal jou laat weet as ons meer inligting benodig of wanneer jou bestelling bevestig is.",
+        "in_review_label": "In hersiening",
+        "in_review_title": "Jou bestelling word hersien",
+        "last_updated": "Laas opgedateer {{date}}",
+        "multiple_shipments_label": "Veelvuldige besendings",
+        "multiple_statuses_label": "Veelvuldige bestellingstatusse",
+        "no_tracking_number": "Daar is geen spoornommer vir hierdie versending nie.",
+        "tracking_number": {
+          "one": "Spoornommer",
+          "other": "Volg nommers"
+        },
+        "on_its_way_label": "Op pad",
+        "on_its_way_title": "Jou besending is op pad",
+        "out_for_delivery_label": "Uit vir aflewering",
+        "out_for_delivery_title": "Jou besending is uit vir aflewering",
+        "resume_tracking": "Hervat dop",
+        "submitted_label": "Ingedien"
+      }
+    }
   }
 }
