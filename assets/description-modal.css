@@ -104,3 +104,8 @@ button#open-modal-2:hover {
      }
   
  }
+
+.custom-modal {
+        width: 90%;
+        max-width: 450px;
+     }
