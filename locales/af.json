@@ -112,7 +112,85 @@
         "discount_discovery": {
           "add_code": "Voeg afslag by"
         },
-        "alternative_payment_currency_total": "Gehef as %{amount_due}"
+        "alternative_payment_currency_total": "Gehef as %{amount_due}",
+        "title": "Opsomming van bestellings",
+        "group_title_label": "Deel van \"%{group_title}\"",
+        "view_all_items": {
+          "one": "Bekyk %{count} item",
+          "other": "Bekyk alle %{count} items"
+        },
+        "more_items_modal": {
+          "search_item": "Soek",
+          "clear_search": "Vee soektog uit",
+          "empty_results": "Geen resultate gevind vir \"%{searchText}\" nie. Kontroleer die spelling of gebruik 'n ander woord of frase.",
+          "number_items_shown": "%{shownNumber} van %{totalNumber} items"
+        },
+        "order_name_label": "Bestelling %{name}",
+        "shopping_cart_label": "Inkopiemandjie",
+        "discount_title": "Afslag",
+        "discount_title_stacking": {
+          "one": "Afslag",
+          "other": "Afslag"
+        },
+        "discount_order_stacking": {
+          "one": "Bestel afslag",
+          "other": "Bestel afslag"
+        },
+        "discount_label": "Afslag kode",
+        "discount_not_found": "Kan nie 'n geldige afslag vind wat ooreenstem met die kode wat ingevoer is nie",
+        "discount_placeholder": "Afslag kode",
+        "discount_code_applied": "Afslagkode toegepas",
+        "gift_card_applied": "Geskenkbewys toegepas",
+        "enter_shipping_address": "Voer versendingsadres in",
+        "gift_card_title": "Geskenkbewys",
+        "gift_card_label": "Geskenkbewys",
+        "gift_card_placeholder": "Geskenkbewys",
+        "gift_card_and_discount_title": "Afslagkode of geskenkbewys",
+        "gift_card_and_discount_label": "Afslagkode of geskenkbewys",
+        "gift_card_and_discount_placeholder": "Afslagkode of geskenkbewys",
+        "remove_gift_card_label": "Duidelike geskenkbewys",
+        "remove_discount_label": "Verwyder afslag",
+        "return_restocking_fee_label": "Hervoorraadfooi",
+        "return_shipping_fee_label": "Retourversending",
+        "free_shipping_discount_label": "Gratis versending",
+        "applied_free_shipping_discount_label": "Toegepas",
+        "apply_discount_button_label": "Doen aansoek",
+        "applied_discount_message": "%{amount} afslag op totale bestelprys",
+        "discount_has_been_applied": "Afslag is toegepas",
+        "discount_has_been_removed": "Afslag is verwyder",
+        "gift_card_has_been_applied": "Geskenkbewys is toegepas",
+        "gift_card_has_been_removed": "Geskenkbewys is verwyder",
+        "gift_card_subscriptions_notice": "Geskenkbewyse sal slegs van toepassing wees op jou eerste betaling",
+        "discount_already_applied": "'n Afslag is op hierdie bestelling toegepas. Jy kan nie nog 'n afslag byvoeg nie.",
+        "cart_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}</strong> afslagkode is nie geldig vir die items in jou mandjie nie",
+        "discount_requires_customer_notice": "Voer jou afleweringsinligting in om die <strong style=\"text-transform:uppercase\">%{code}</strong> -afslagkode toe te pas",
+        "customer_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}</strong> afslagkode is nie tans vir jou beskikbaar nie",
+        "eligible_customer_missing_notice": "<strong style=\"text-transform:uppercase\">%{code}</strong> afslagkode vereis kwalifiserende klant",
+        "shipping_information_does_not_meet_discount_requirements_notice": "<strong style=\"text-transform:uppercase\">%{code}</strong> afslagkode is nie vir jou afleweringsadres beskikbaar nie",
+        "customer_already_used_once_per_customer_discount_notice": "Die <strong style=\"text-transform:uppercase\">%{code}</strong> afslagkode is reeds gebruik",
+        "subtotal_label": "Subtotaal",
+        "subtotal_label_with_quantity": {
+          "one": "Subtotaal · %{count} item",
+          "other": "Subtotaal · %{count} items"
+        },
+        "shipping_label": "Versending",
+        "pickup_label": "Afhaal in winkel",
+        "no_pickup_location": "Daar is geen optelplekke beskikbaar nie.",
+        "pickup_unavailable_banner_title": {
+          "one": "Jou item is nie beskikbaar vir afhaal in die winkel nie",
+          "other": "Jou items is nie beskikbaar vir afhaal in die winkel nie"
+        },
+        "pickup_unavailable_banner_body": {
+          "ship_to_address": "Stuur na adres",
+          "ship_to_address_instead_html": "%{link} plaas"
+        },
+        "tip_label": "Wenk",
+        "calculating_shipping": "Bereken tans …",
+        "calculating": "Bereken tans …",
+        "shipping_default_value": "Bereken by volgende stap",
+        "shipping_discount_title": "Gestuurafslag",
+        "shipping_pending_message": "Nog nie beskikbaar nie",
+        "shipping_policy_link": "Gestuurkoste"
       },
       "shipping": {
         "title": "Versending",
@@ -413,7 +491,209 @@
         },
         "alternative_payment_currency_total_notice": "Let wel: %{amount_due} sal van jou gehef word.",
         "alternative_payment_currency_total_manual_payment_notice": "Let wel: omgeskakelde totaal is %{amount_due}."
+      },
+      "wallets": {
+        "errors": {
+          "invalid": {
+            "email": "Voer 'n geldige e-posadres in",
+            "zone": "Voer 'n geldige staat / provinsie in",
+            "billing_zone": "Voer 'n geldige faktuuradres staat/provinsie in",
+            "emirate": "Voer 'n geldige emiraat in",
+            "postal_code": "Voer 'n geldige poskode in",
+            "phone": "Voer 'n geldige telefoonnommer in",
+            "billing_phone": "Voer 'n geldige faktuuradres telefoonnommer in",
+            "reduction_code": "Voer 'n geldige afslagkode of geskenkbewys in",
+            "billing_must_match_shipping": "Moet ooreenstem met afleweringsadres",
+            "billing_zip": "Voer 'n geldige faktuuradres pos-/poskode in"
+          },
+          "missing": {
+            "first_name": "Voer 'n voornaam in",
+            "billing_first_name": "Voer 'n faktuuradres voornaam in",
+            "last_name": "Voer 'n van in",
+            "address1": "Voer 'n adres in",
+            "billing_address1": "Voer 'n faktuuradres in",
+            "address2": "Voer 'n woonstel, suite, ens.",
+            "billing_address2": "Voer 'n faktuuradres woonstel, suite, ens.",
+            "city": "Voer 'n stad in",
+            "billing_city": "Voer 'n faktuuradres stad in",
+            "province": "Kies 'n staat/provinsie",
+            "billing_province": "Kies 'n faktuuradres staat/provinsie",
+            "country": "Kies 'n land/streek",
+            "zip": "Voer 'n poskode in",
+            "billing_zip": "Voer 'n faktuuradres pos-/poskode in",
+            "phone": "Voer 'n telefoonnommer in"
+          },
+          "formatting": {
+            "name_contains_emojis": "Vee emoji uit jou naam uit",
+            "postal_code_contains_emoji": "Vee emoji uit jou poskode uit",
+            "first_name_too_long": "Voornaam bevat te veel letters",
+            "last_name_too_long": "Van bevat te veel letters"
+          },
+          "select_different_shipping_address_to_resolve_errors": "Jou afleweringsadres is ongeldig. Kies 'n ander adres of gebruik 'n nuwe een."
+        },
+        "scrim": {
+          "continue_purchase_in_window": "Gaan voort met jou aankoop in die {{walletName}} venster",
+          "and_return_to_checkout": "en keer terug na Checkout",
+          "cancel": "Kanselleer"
+        }
+      },
+      "note": {
+        "length_exceeds_maximum": "Verminder die grootte van die nota tot 5000 of minder karakters."
+      },
+      "one": {
+        "errors": {
+          "merchandise": {
+            "gift_card_price_must_be_greater_than_zero": "Geskenkbewysprys moet groter as 0 wees.",
+            "gift_card_price_must_not_exceed_limit": "Geskenkbewysprys mag nie %{gift_card_limit} oorskry nie.",
+            "subtotal_limit_reached": "Die maksimum waarde van lynitems is bereik."
+          }
+        }
+      },
+      "stock": {
+        "unshippable_product": {
+          "message": {
+            "one": "Hierdie item sal uit jou mandjie verwyder word omdat daar geen afleweringsmetodes vir jou adres beskikbaar is nie.",
+            "other": "Hierdie items sal uit jou mandjie verwyder word omdat daar geen afleweringsmetodes vir jou adres beskikbaar is nie."
+          },
+          "status_column_header": "Geen aflewering nie"
+        },
+        "price_update": {
+          "title": "Prys opdatering",
+          "description": "Pryse vir hierdie items het verander en word in jou mandjie opgedateer."
+        },
+        "price_and_quantity_update": {
+          "title": "Prys en hoeveelheid opdatering",
+          "description": "Pryse en beskikbare hoeveelhede vir hierdie items het verander en word in jou mandjie opgedateer."
+        },
+        "out_of_stock": {
+          "description": "Hierdie items is nie meer beskikbaar nie en is uit jou mandjie verwyder.",
+          "items_unavailable": "Sommige items is nie meer beskikbaar nie en is uit jou mandjie verwyder."
+        }
+      },
+      "contextual_availability": {
+        "title": {
+          "one": "Onbeskikbare produk",
+          "other": "Onbeskikbare produkte"
+        },
+        "products_not_available": {
+          "one": "Hierdie produk sal uit jou mandjie verwyder word omdat dit nie in jou land/streek beskikbaar is nie.",
+          "other": "Hierdie produkte sal uit jou mandjie verwyder word omdat hulle nie in jou land/streek beskikbaar is nie."
+        },
+        "all_products_in_cart_unavailable": {
+          "one": "Hierdie produk is nie in jou land/streek beskikbaar nie.",
+          "other": "Hierdie produkte is nie in jou land/streek beskikbaar nie."
+        },
+        "unavailable_label": "Onbeskikbaar"
+      },
+      "merchandise_unavailable_in_buyer_location": {
+        "banner_title": {
+          "some_products_one": "Hierdie produk is nie beskikbaar vir aflewering aan %{location_name} nie.",
+          "some_products_other": "Hierdie produkte is nie beskikbaar vir aflewering aan %{location_name} nie.",
+          "all_products_one": "Die produk in jou mandjie is nie beskikbaar vir aflewering aan %{location_name} nie.",
+          "all_products_other": "Die produkte in jou mandjie is nie beskikbaar vir aflewering aan %{location_name} nie."
+        },
+        "missing_country_fallback": "jou land",
+        "indeterminate_location_fallback": "jou ligging",
+        "cart_updated": "Jou mandjie is opgedateer.",
+        "change_address_only": "Verander afleweringsadres om voort te gaan.",
+        "change_address_or_remove": "Verander afleweringsadres of %{remove_action}.",
+        "remove_items_action": {
+          "one": "verwyder onbeskikbare item",
+          "other": "verwyder onbeskikbare items"
+        },
+        "empty_cart_action": "leë wa en keer terug na die winkel"
+      },
+      "deliverability": {
+        "not_deliverable": {
+          "title": {
+            "one": "Geen aflewering beskikbaar vir %{count} item nie",
+            "other": "Geen aflewering beskikbaar vir %{count} items nie"
+          },
+          "message": {
+            "one": "Hierdie item sal uit jou mandjie verwyder word omdat daar geen afleweringsmetodes vir jou adres beskikbaar is nie.",
+            "other": "Hierdie items sal uit jou mandjie verwyder word omdat daar geen afleweringsmetodes vir jou adres beskikbaar is nie."
+          },
+          "label": "Geen aflewering nie"
+        }
       }
+    },
+    "pagination": {
+      "previous": "Vorige",
+      "next": "Volgende"
+    },
+    "links": {
+      "powered_by_shopify": "Aangedryf deur Shopify",
+      "learn_more": "Kom meer te wete"
+    },
+    "feed": {
+      "more": "Meer"
+    },
+    "attributes": {
+      "email": "e-pos",
+      "password": "wagwoord",
+      "password_confirmation": "Die wagwoord bevestiging",
+      "first_name": "voornaam",
+      "last_name": "van",
+      "body": "liggaam",
+      "signature": "Adres"
+    },
+    "addresses": {
+      "zip_code": "Poskode",
+      "postal_code": "Poskode",
+      "postcode": "Poskode",
+      "pincode": "Pinkode",
+      "region": "Streek",
+      "prefecture": "Prefektuur",
+      "province": "Provinsie",
+      "state": "Staat",
+      "state_and_territory": "Staat/gebied",
+      "emirate": "Emiraat",
+      "governorate": "Goewerneur",
+      "confirm": "Is jy seker jy wil hierdie adres uitvee?"
+    },
+    "collections": {
+      "sorting": {
+        "manual": "Uitgestalte",
+        "best_selling": "Beste verkoop",
+        "az": "Alfabeties, AZ",
+        "za": "Alfabeties, ZA",
+        "price_ascending": "Prys, laag tot hoog",
+        "price_descending": "Prys, hoog tot laag",
+        "date_ascending": "Datum, oud tot nuut",
+        "date_descending": "Datum, nuut tot oud"
+      }
+    },
+    "errors": {
+      "blank": "kan nie leeg wees nie",
+      "blocked_address": "Hierdie ligging word nie gesteun nie",
+      "credit_card_session_expired": "Kredietkaartmagtiging het verval. Voer asseblief weer jou betalinginligting in. Jou kaart is nie gehef nie.",
+      "empty": "kan nie leeg wees nie",
+      "invalid_email": "moet 'n geldige e-posadres wees",
+      "discount_disabled": "Hierdie afslag is gedeaktiveer",
+      "discount_expired": "Hierdie afslag is nie meer geldig nie",
+      "discount_limit_reached": "Hierdie afslag het sy gebruikslimiet bereik",
+      "discount_not_found": "Kan nie 'n geldige afslag vind wat ooreenstem met die kode wat ingevoer is nie",
+      "customer_already_used_once_per_customer_discount_notice": "Hierdie afslag het sy gebruikslimiet bereik",
+      "gift_card_already_applied": "Kode is reeds op jou betaalpunt toegepas",
+      "gift_card_code_invalid": "Kode is ongeldig",
+      "gift_card_currency_mismatch": "Jou geskenkbewys is in %{gift_card_currency}. Kontak ons ​​om dit weer in %{checkout_currency} te laat uitreik.",
+      "gift_card_depleted": "Daar is geen fondse oor op hierdie geskenkbewys nie",
+      "gift_card_disabled": "Geskenkbewys is gedeaktiveer",
+      "gift_card_expired": "Geskenkbewys het verval",
+      "invalid": "ongeldig is",
+      "bad_domain": "bevat 'n ongeldige domeinnaam",
+      "taken": "reeds geneem is",
+      "contains_html_tags": "kan nie HTML-merkers bevat nie",
+      "too_short": "is te kort (minimum is %{count} karakters)",
+      "too_long": "is te lank (maksimum is %{count} karakters)",
+      "password_mismatch": "moet ooreenstem met die verskafde wagwoord",
+      "contains_spaces": "begin of eindig met spasies.",
+      "email_domain_invalid": "verskaffer word nie ondersteun nie",
+      "invalid_for_country": "is nie geldig vir %{country}",
+      "invalid_for_country_and_province": "is nie geldig vir %{province} en %{country}",
+      "invalid_province_in_country": "is nie 'n geldige provinsie in %{country}",
+      "invalid_state_in_country": "is nie 'n geldige staat in %{country}",
+      "invalid_region_in_country": "is nie 'n geldige streek in %{country}"
     }
   }
 }
