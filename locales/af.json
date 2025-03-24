@@ -2270,6 +2270,15 @@
             "due_on_fulfillment": "Verskuldig op vervulling",
             "pay_to_confirm": "Betaal om te bevestig",
             "payment_not_due": "Nog nie verskuldig nie"
+          },
+          "list_view": {
+            "overdue": "Betaling agterstallig",
+            "due": "Betaling betaalbaar {{date}}",
+            "due_today": "Betaling vandag betaalbaar",
+            "due_without_date": "Betaling verskuldig",
+            "due_on_fulfillment": "Betaling verskuldig by vervulling",
+            "pay_to_confirm": "Betaal om te bevestig",
+            "payment_not_due": "Betaling nog nie betaalbaar nie"
           }
         },
         "sort_by": "Sorteer volgens: {{option}}",
@@ -2312,7 +2321,70 @@
           }
         },
         "table_view": "Wys tabelaansig",
-        "show_order_actions_accessibility_label": "Wys bestellingshandelinge vir bestelling {{name}}"
+        "show_order_actions_accessibility_label": "Wys bestellingshandelinge vir bestelling {{name}}",
+        "column_headers": {
+          "order": "Bestel",
+          "total": "Totaal",
+          "actions_accessibility_label": "Aksies",
+          "products_accessibility_label": "Produkte"
+        },
+        "delivered": "Afgelewer op {{date}}",
+        "empty_state_order_source_description": "Slegs bestellings wat deur {{email}} geplaas is, sal hier wys.",
+        "empty_state_subtitle": "Gaan winkel toe om 'n bestelling te plaas.",
+        "empty_state_title": "Nog geen bestellings nie",
+        "empty_state_title_for_pending_orders": "Geen hangende bestellings nie",
+        "no_order_banner": "Om jou uitbreiding op die Bestellingstatusbladsy te toets, skep 'n bestelling.",
+        "estimated_shortform": "Geskatte {{date}}",
+        "estimated_delivery": "Verwag {{date}}",
+        "one_images_accessibility_label": "Bestelling sluit {{lineItemName1}} in",
+        "two_images_accessibility_label": "Bestelling sluit in {{lineItemName1}} , {{lineItemName2}}",
+        "three_images_accessibility_label": "Bestelling sluit in {{lineItemName1}} , {{lineItemName2}} , {{lineItemName3}}",
+        "four_images_accessibility_label": "Bestelling sluit in {{lineItemName1}} , {{lineItemName2}} , {{lineItemName3}} , {{lineItemName4}}",
+        "more_than_three_products_accessibility_label": "Bestelling sluit in {{lineItemName1}} , {{lineItemName2}} {{numberOfAdditionalProducts}} produkte",
+        "more_than_four_products_accessibility_label": "Bestelling sluit in {{lineItemName1}} , {{lineItemName2}} {{lineItemName3}} lineItemName2}} , {{numberOfAdditionalProducts}} en nog {{numberOfAdditionalProducts}} produkte",
+        "plus_more": "+ {{numberOfAdditionalProducts}}",
+        "plus_more_products": "+ {{numberOfAdditionalProducts}} produkte",
+        "carousel": {
+          "one_products_accessibility_label": "Bestelling sluit in {{lineItemName1}} hoeveelheid {{lineItemQuantity1}}",
+          "two_products_accessibility_label": "Bestelling sluit in {{lineItemName1}} hoeveelheid {{lineItemQuantity1}} , {{lineItemName2}} hoeveelheid {{lineItemQuantity2}}",
+          "three_products_accessibility_label": "Bestelling sluit in {{lineItemName1}} hoeveelheid {{lineItemQuantity1}} , {{lineItemName2}} hoeveelheid {{lineItemQuantity2}} , {{lineItemName3}} hoeveelheid {{lineItemQuantity3}}",
+          "four_products_accessibility_label": "Bestelling sluit in {{lineItemName1}} hoeveelheid {{lineItemQuantity1}} , {{lineItemName2}} hoeveelheid {{lineItemQuantity2}} , {{lineItemName3}} hoeveelheid {{lineItemQuantity3}} , {{lineItemName4}} hoeveelheid {{lineItemQuantity4}}",
+          "five_products_accessibility_label": "Bestelling sluit in {{lineItemName1}} hoeveelheid {{lineItemQuantity1}} , {{lineItemName2}} hoeveelheid {{lineItemQuantity2}} , {{lineItemName3}} hoeveelheid {{lineItemQuantity3}} , {{lineItemName4}} hoeveelheid {{lineItemQuantity4}} {{lineItemName5}} hoeveelheid {{lineItemQuantity5}}",
+          "six_products_accessibility_label": "Bestelling sluit in {{lineItemName1}} hoeveelheid {{lineItemQuantity1}} , {{lineItemName2}} hoeveelheid {{lineItemQuantity2}} , {{lineItemName3}} hoeveelheid {{lineItemQuantity3}} , {{lineItemName4}} hoeveelheid {{lineItemQuantity4}} {{lineItemName5}} hoeveelheid {{lineItemQuantity5}} , {{lineItemName6}} hoeveelheid {{lineItemQuantity6}}",
+          "six_and_more_products_accessibility_label": "Bestelling sluit in {{lineItemName1}} hoeveelheid {{lineItemQuantity1}} , {{lineItemName2}} hoeveelheid {{lineItemQuantity2}} , {{lineItemName3}} hoeveelheid {{lineItemQuantity3}} , {{lineItemName4}} hoeveelheid {{lineItemQuantity4}} {{lineItemName5}} hoeveelheid {{lineItemQuantity5}} , {{lineItemName6}} hoeveelheid {{lineItemQuantity6}} en meer",
+          "view_order_details": "Bekyk bestellingbesonderhede",
+          "previous": "Vorige",
+          "next": "Volgende"
+        },
+        "items": {
+          "one": "{{count}} item",
+          "other": "{{count}} items"
+        },
+        "list_view": "Wys lysaansig",
+        "no_filtered_results_description": "Verwyder of pas filters aan om jou bestellings te sien",
+        "no_filtered_results_title": "Geen gefiltreerde resultate nie",
+        "order_link": "Bekyk bestelling {{name}}",
+        "order_number": "Bestel {{name}}",
+        "orders_title": "Bevestig",
+        "pagination": {
+          "nav_accessibility_label": "Bestellings navigasie knoppies",
+          "next": "Volgende",
+          "next_accessibility_label": "Volgende bestellings",
+          "previous": "Vorige",
+          "previous_accessibility_label": "Vorige bestellings",
+          "load_more": "Laai meer",
+          "load_more_accessibility_label": "Laai meer bestellings"
+        },
+        "order_status_message": {
+          "list_view": {
+            "view_order_for_details": "Sien bestelling vir besonderhede",
+            "estimated_delivery": "Verwag {{date}}",
+            "last_updated": "Laas opgedateer {{date}}"
+          },
+          "table_view": {
+            "estimated_delivery": "Geskatte aflewering {{date}}"
+          }
+        }
       },
       "order_status": {
         "attempted_delivery_label": "Poging tot aflewering",
@@ -2477,7 +2549,14 @@
       "buy_again": "Koop weer",
       "buy_again_accessibility_label": "Koop weer vir bestelling {{orderId}}",
       "manage": "Bestuur",
-      "manage_accessiblity_label": "Bestuur bestelling {{orderId}}"
+      "manage_accessiblity_label": "Bestuur bestelling {{orderId}}",
+      "list_layout_accessibility_label": "Uitleg opsies",
+      "list_title": "Bestellings",
+      "list_title_with_pending_orders": "Bestellings:",
+      "list_title_confirmed_orders_accessibility_label": "Bestellings: bevestig",
+      "list_title_pending_orders_accessibility_label": "Bestellings: hangende",
+      "switch_order_type_pending_orders_accessibility_label": "Wissel bestellingtipe, bekyk tans hangende bestellings",
+      "switch_order_type_confirmed_orders_accessibility_label": "Wissel bestellingtipe, bekyk tans bevestigde bestellings"
     },
     "addresses": {
       "default_address": {
@@ -3014,7 +3093,53 @@
       },
       "action_menu_accessibility_label": "Meer aksies",
       "close_menu_accessibility_label": "Maak hoofnavigasie toe",
-      "contact_email_subject": "Kontak vanaf {{shopName}} aanlyn winkel"
+      "contact_email_subject": "Kontak vanaf {{shopName}} aanlyn winkel",
+      "contact_link": "Kontak inligting",
+      "delete_confirmation": {
+        "cancel": "Kanselleer",
+        "delete": "Vee uit"
+      },
+      "dismiss_toast": "Verwerp",
+      "document_title": "{{sectionName}} - {{shopName}} - Rekening",
+      "go_to_store_link": "Gaan winkel toe",
+      "loading_message": "Laai tans",
+      "log_out_link": "Teken uit",
+      "logout_overlay_label": "Meld jou tans af...",
+      "nav_label_accessibility_label": "Hoofnavigasie",
+      "navigation_accessibility_message": "Jy het na {{sectionName}} navigeer",
+      "open_menu_accessibility_label": "Maak hoofnavigasie oop",
+      "orders_link_label": "Bestellings",
+      "shop_logo_accessibility_label": "{{shopName}} -logo",
+      "subscriptions_link_label": "Subskripsies",
+      "settings_link": "Instellings"
+    },
+    "account_information": {
+      "loading_accessibility_message": "Laai tans rekeninginligting",
+      "loading_finished_accessibility_message": "Rekeninginligting is gelaai",
+      "profile_card": {
+        "cancel": "Kanselleer",
+        "cancel_accessibility_label": "Kanselleer wysiging van profiel",
+        "edit": "Wysig",
+        "edit_accessibility_label": "Wysig profiel",
+        "email_help_text": "E-pos wat vir aanmelding gebruik word, kan nie verander word nie",
+        "first_name": "Voornaam",
+        "last_name": "Van",
+        "no_name_provided_accessibility_label": "Geen naam bygevoeg nie",
+        "phone_number_help_text": "Telefoonnommer wat vir aanmelding gebruik word, kan nie verander word nie",
+        "save": "Stoor",
+        "save_accessibility_label": "Stoor profiel",
+        "title": "Profiel"
+      },
+      "profile_update_confirmation_message": "Profiel opgedateer",
+      "title": "Profiel",
+      "people": {
+        "pagination": {
+          "load_more": "Laai meer",
+          "load_more_accessibility_label": "Laai meer mense",
+          "loading_accessibility_label": "Laai mense"
+        }
+      },
+      "add_button": "Voeg by"
     }
   },
   "templates": {
