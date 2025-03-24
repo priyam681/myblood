@@ -58,13 +58,6 @@
           "settings": {
             "text_with_link": "<p>Share information about your brand with your customers.<a href=\"https://www.sprinix.com/\" title=\"https://www.sprinix.com/\">sprinix</a></p>"
           }
-        },
-        "star_FCHPVx": {
-          "type": "star",
-          "settings": {
-            "reviews": 4.2,
-            "text": "review"
-          }
         }
       },
       "block_order": [
@@ -76,8 +69,7 @@
         "quantity_selector",
         "rating_xyTk6d",
         "buy_buttons",
-        "text_with_link_pFh6ai",
-        "star_FCHPVx"
+        "text_with_link_pFh6ai"
       ],
       "settings": {
         "enable_sticky_info": true,
