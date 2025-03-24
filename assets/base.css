@@ -50,7 +50,11 @@
   font-style: normal;
   font-display: swap;
 }
-
+.country-localization {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
 .card--media .card__inner .card__content.sp-card_content {
   position: relative;
   padding: 0;
