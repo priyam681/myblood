@@ -15,12 +15,41 @@
         "slide_WWbWh3": {
           "type": "slide",
           "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify://shop_images/living-room-2569325_1280.jpg",
+            "heading": "<strong>Designed for adventure</strong>",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "New in ",
+            "link": "shopify://products/antique-drawers",
+            "button_label2": "Winter Sale ",
+            "link2": "shopify://products/camp-stool",
+            "button_style_secondary": false,
+            "box_align": "middle-left",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 10,
+            "color_scheme": "scheme-3",
+            "text_alignment_mobile": "center"
+          }
+        },
+        "slide_R9UFpC": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/living-room-2732939_1280.jpg",
+            "heading": "<strong>Designed for adventure</strong>",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "New in ",
+            "link": "shopify://products/camp-stool",
+            "button_label2": "Winter Sale ",
+            "link2": "shopify://products/antique-drawers",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 40,
+            "color_scheme": "scheme-3",
+            "text_alignment_mobile": "center"
           }
         }
       },

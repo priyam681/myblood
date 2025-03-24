@@ -1,6 +1,7 @@
 {% comment %} {{ 'custom-popup.css' | asset_url | stylesheet_tag }} {% endcomment %}
 {{ 'description-modal.css' | asset_url | stylesheet_tag }}
 <script src="{{ 'description-modal.js' | asset_url }}" defer></script>
+<script src="{{ 'facets.js' | asset_url }}" defer></script>
 
 {% style %}
   .text_with_link--{{ section.id }},
@@ -373,7 +374,82 @@
                     </span>
                   </label>
                   <div class="price-per-item__container">
-                    <quantity-input class="quantity" data-url="{{ product.url }}" data-section="{{ section.id }}">
+                    {%  if block.settings.quantity_event=="default" %}
+
+                      <quantity-input class="quantity sp-qty-default" data-url="{{ product.url }}" data-section="{{ section.id }}">
+                        <button class="quantity__button" name="minus" type="button">
+                          <span class="visually-hidden">
+                            {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                          </span>
+                          <span class="svg-wrapper">
+                            {{- 'icon-minus.svg' | inline_asset_content -}}
+                          </span>
+                        </button>
+                        <input
+                          class="quantity__input"
+                          type="number"
+                          name="quantity"
+                          id="Quantity-{{ section.id }}"
+                          data-cart-quantity="{{ cart_qty }}"
+                          data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                          min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                          {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                            data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                            max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                          {% endif %}
+                          step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                          value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                          form="{{ product_form_id }}"
+                        >
+                        <button class="quantity__button" name="plus" type="button">
+                          <span class="visually-hidden">
+                            {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                          </span>
+                          <span class="svg-wrapper">
+                            {{- 'icon-plus.svg' | inline_asset_content -}}
+                          </span>
+                        </button>
+                      </quantity-input>
+
+                    {% elsif block.settings.quantity_event=="hover"  %}
+
+                      <quantity-input class="quantity sp-qty-hover" data-url="{{ product.url }}" data-section="{{ section.id }}">
+                        <button class="quantity__button" name="minus" type="button">
+                          <span class="visually-hidden">
+                            {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
+                          </span>
+                          <span class="svg-wrapper">
+                            {{- 'icon-minus.svg' | inline_asset_content -}}
+                          </span>
+                        </button>
+                        <input
+                          class="quantity__input"
+                          type="number"
+                          name="quantity"
+                          id="Quantity-{{ section.id }}"
+                          data-cart-quantity="{{ cart_qty }}"
+                          data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                          min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                          {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
+                            data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                            max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
+                          {% endif %}
+                          step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
+                          value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
+                          form="{{ product_form_id }}"
+                        >
+                        <button class="quantity__button" name="plus" type="button">
+                          <span class="visually-hidden">
+                            {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                          </span>
+                          <span class="svg-wrapper">
+                            {{- 'icon-plus.svg' | inline_asset_content -}}
+                          </span>
+                        </button>
+                      </quantity-input>
+
+                    {% elsif block.settings.quantity_event=="click"  %}
+                  <div class="sp-quantity-click">
                       <button class="quantity__button" name="minus" type="button">
                         <span class="visually-hidden">
                           {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
@@ -382,31 +458,37 @@
                           {{- 'icon-minus.svg' | inline_asset_content -}}
                         </span>
                       </button>
-                      <input
-                        class="quantity__input"
-                        type="number"
-                        name="quantity"
-                        id="Quantity-{{ section.id }}"
-                        data-cart-quantity="{{ cart_qty }}"
-                        data-min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                        min="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                        {% if product.selected_or_first_available_variant.quantity_rule.max != null %}
-                          data-max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                          max="{{ product.selected_or_first_available_variant.quantity_rule.max }}"
-                        {% endif %}
-                        step="{{ product.selected_or_first_available_variant.quantity_rule.increment }}"
-                        value="{{ product.selected_or_first_available_variant.quantity_rule.min }}"
-                        form="{{ product_form_id }}"
-                      >
+                      <select-component>
+                        <div class="custom-dropdown">
+                            <button class="dropdown-btn">{{product.selected_or_first_available_variant.quantity_rule.min }}</button>
+                            <ul class="dropdown-menu">
+                                {%- for i in (block.settings.quantity_min..block.settings.quantity_max) -%}
+                                    <li
+                                            class="dropdown-item   {% if i == block.settings.quantity_min %}
+                                                selected
+                                            {% endif %}"
+                                            data-value="{{ i }}"
+                                            value="{{ i }}"
+                                          
+                                    >
+                                        {{ i }}
+                                    </li>
+                                {%- endfor -%}
+                            </ul>
+                        </div>
+                        <input type="hidden" id="dropdownValue" name="quantity" form="{{ product_form_id }}" value="{{ block.settings.quantity_min }}">
+                      </select-component>
                       <button class="quantity__button" name="plus" type="button">
-                        <span class="visually-hidden">
-                          {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
-                        </span>
-                        <span class="svg-wrapper">
-                          {{- 'icon-plus.svg' | inline_asset_content -}}
-                        </span>
+                      <span class="visually-hidden">
+                        {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
+                      </span>
+                      <span class="svg-wrapper">
+                        {{- 'icon-plus.svg' | inline_asset_content -}}
+                      </span>
                       </button>
-                    </quantity-input>
+                  </div>
+                    {% endif %}
+                 
                     {%- liquid
                       assign volume_pricing_array = product.selected_or_first_available_variant.quantity_price_breaks | sort: 'quantity' | reverse
                       assign current_qty_for_volume_pricing = cart_qty | plus: product.selected_or_first_available_variant.quantity_rule.min
@@ -891,6 +973,15 @@
   </div>
 </product-info>
 
+{%- if product.media.size > 0 -%}
+  <script src="{{ 'product-modal.js' | asset_url }}" defer></script>
+  {% if section.settings.enable_single_image_zoom %}
+    <script src="{{ 'product-modal-single.js' | asset_url }}" defer></script>
+  {% endif %}
+  <script src="{{ 'media-gallery.js' | asset_url }}" defer></script>
+{%- endif -%}
+
+
 {% schema %}
 {
   "name": "t:sections.main-product.name",
@@ -1064,6 +1155,7 @@
       "name": "t:sections.main-product.blocks.sku.name",
       "limit": 1,
       "settings": [
+        
         {
           "type": "select",
           "id": "text_style",
@@ -1086,6 +1178,9 @@
         }
       ]
     },
+
+    
+
     {
       "type": "inventory",
       "name": "t:sections.main-product.blocks.inventory.name",
@@ -1132,7 +1227,47 @@
     {
       "type": "quantity_selector",
       "name": "t:sections.main-product.blocks.quantity_selector.name",
-      "limit": 1
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "quantity_event",
+          "options": [
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "hover",
+              "label": "Hover"
+            },
+            {
+              "value": "click",
+              "label": "Click"
+            }
+          ],
+          "default": "default",
+          "label": "Quantity Event"
+        },
+        {
+          "type":"range",
+          "id":"quantity_min",
+          "min":1,
+          "max":100,
+          "step":1,
+          "default":1,
+          "label":"Minimum quantity",
+        },
+        {
+          "type":"range",
+          "id":"quantity_max",
+          "min":1,
+          "max":100,
+          "step":1,
+          "default":10,
+          "label":"Maximum quantity",
+        }
+      ]
     },
     {
       "type": "variant_picker",
@@ -2362,6 +2497,13 @@
       "default": true,
       "label": "t:sections.main-product.settings.enable_sticky_info.label"
     },
+    {
+      "type":"checkbox",
+      "id":"enable_single_image_zoom",
+      "label":"Show only one image at a time in zoom modal",
+      "default":false
+    },
+
     {
       "type": "checkbox",
       "id": "sp-media-gallery-container",

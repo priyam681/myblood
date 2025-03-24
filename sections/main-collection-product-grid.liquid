@@ -188,9 +188,17 @@
                     style="--animation-order: {{ forloop.index }};"
                   {% endif %}
                 >
+                  {% assign variant_picker_block = null %}
+                  {%- for block in section.blocks -%}
+                    {%- if block.type == 'variant_picker' -%}
+                      {% assign variant_picker_block = block %}
+                      {% break %}
+                    {%- endif -%}
+                  {%- endfor -%}
+
                   {% render 'card-product',
-                    show-varient: section.settings['show-varient'],
                     card_product: product,
+                    block: variant_picker_block,
                     media_aspect_ratio: section.settings.image_ratio,
                     image_shape: section.settings.image_shape,
                     show_secondary_image: section.settings.show_secondary_image,
@@ -240,6 +248,58 @@
 {
   "name": "t:sections.main-collection-product-grid.name",
   "class": "section",
+  "blocks": [
+    {
+      "type": "variant_picker",
+      "name": "t:sections.main-product.blocks.variant_picker.name",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "select",
+          "id": "picker_type",
+          "options": [
+            {
+              "value": "dropdown",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
+            },
+            {
+              "value": "button",
+              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
+            }
+          ],
+          "default": "button",
+          "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
+        },
+        {
+          "type": "select",
+          "id": "swatch_display",
+          "options": [
+            {
+              "value": "first_swatch",
+              "label": "Show swatches for first color/colour option"
+            },
+            {
+              "value": "all_swatches",
+              "label": "Show swatches for all color options"
+            },
+            {
+              "value": "no_swatches",
+              "label": "Don't show swatches"
+            }
+          ],
+          "default": "first_swatch",
+          "label": "Swatch display"
+        },
+     
+        {
+          "type": "checkbox",
+          "id": "selector_mode",
+          "default": true,
+          "label": "Product page variant selector"
+        }
+      ]
+    }
+  ],
   "settings": [
     {
       "type": "range",
@@ -250,6 +310,7 @@
       "default": 16,
       "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
     },
+    
     {
       "type": "checkbox",
       "id": "show-varient",

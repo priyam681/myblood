@@ -285,7 +285,7 @@
                       disabled
                     {% endif %}
                   >
-                    <span>
+                    <span class="add-to-cart">
                       {%- if card_product.selected_or_first_available_variant.available -%}
                         {{- 'cartt.svg' | inline_asset_content -}}
                       {%- else -%}
@@ -546,6 +546,14 @@
               {{ card_product.title | escape }}
             </a>
           </h3>
+          <product-swatch>
+            <script type="application/json" data-variants>
+              {{ card_product | json }}
+            </script>
+
+            {% render 'product-varients', product: card_product, block: block, product_form_id: product_form_id %}
+          </product-swatch>
+
           <div class="card-information">
             {%- if show_vendor -%}
               <span class="visually-hidden">{{ 'accessibility.vendor' | t }}</span>
@@ -756,7 +764,7 @@
                       disabled
                     {% endif %}
                   >
-                    <span>
+                    <span class="add-to-cart">
                       {%- if card_product.selected_or_first_available_variant.available -%}
                         {{ 'products.product.add_to_cart' | t }}
                       {%- else -%}
@@ -795,7 +803,7 @@
                   data-sold-out-message="true"
                   disabled
                 >
-                  <span>{{ 'products.product.sold_out' | t }}</span>
+                  <span class="add-to-cart">{{ 'products.product.sold_out' | t }}</span>
                   <span class="sold-out-message hidden">
                     {{ 'products.product.sold_out' | t }}
                   </span>
@@ -993,7 +1001,7 @@
         </div>
       </div>
       <div class="card__content">
-        <div class="card__information">
+        <div class="card__information hello 3">
           <h3 class="card__heading card__heading--placeholder{% if settings.card_style == 'standard' %} h5{% endif %}">
             <a role="link" aria-disabled="true" class="full-unstyled-link">
               {{ 'onboarding.product_title' | t }}
@@ -1010,6 +1018,6 @@
       </div>
     </div>
   </div>
-
- 
 {%- endif -%}
+
+<script src="{{ 'product-swatch.js' | asset_url }}" defer></script>

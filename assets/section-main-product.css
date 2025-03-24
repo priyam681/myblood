@@ -1,6 +1,40 @@
 product-info {
   display: block;
 }
+.sp-product-zoom-container .sp-product-zoom-media .product-modal-nav-arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.sp-product-zoom-container .product-modal-thumbnails {
+  display: flex !important;
+  overflow: hidden;
+  gap: 0.5rem;
+}
+button.product-modal-nav-button {
+  border: none;
+  --tw-shadow: 0px 1px 11px 0px #c8c2c2;
+  --tw-shadow-colored: 0px 1px 11px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 9999px;
+  background: transparent;
+  transform: rotate(90deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+}
+.sp-product-zoom-container button.product-modal-thumbnail.media-fit-cover {
+  border: 0;
+  padding: 0;
+}
+.sp-product-zoom-container button.product-modal-thumbnail.media-fit-cover.active {
+border: 0.1rem solid rgb(var(--color-foreground));
+}
+.sp-product-zoom-container .product-modal-thumbnail img {
+  height: 100%;
+  object-fit: cover;
+}
 .sp-quick-view-container quick-add-modal .sp-quick-modal .product__title h1,
 .sp-quick-view-container quick-add-modal .sp-quick-modal .product__title .h1 {
   font-size: 24px;
