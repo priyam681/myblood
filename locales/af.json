@@ -1667,8 +1667,143 @@
         "changed": "Karretjie verander",
         "items_changed": "Een of meer items het verander.",
         "product_sold_out": "Die produk '%{name}' is reeds uitverkoop.",
-        "variant_not_found": "Kan nie variant vind nie"
+        "variant_not_found": "Kan nie variant vind nie",
+        "variant_requires_selling_plan": "Variant kan slegs met 'n verkoopsplan gekoop word.",
+        "selling_plan_not_available_for_company_locations": "Slegs eenmalige aankoop is beskikbaar vir B2B-bestellings",
+        "digital_product_not_available_for_company_locations": "Hierdie item kan nie by 'n B2B-bestelling gevoeg word nie",
+        "buyer_cannot_purchase_for_company_locations": "Jy kan nie vir hierdie ligging koop nie",
+        "selling_plan_not_applicable": "Kan nie verkoopplan op variant toepas nie",
+        "shipping_address_not_required": "Hierdie mandjie benodig nie versending nie",
+        "shipping_address_invalid": "Daar was 'n probleem met die berekening van jou versendingstariewe. Gaan voort na die betaalpunt om 'n afleweringskoers te kies voordat jy jou bestelling voltooi.",
+        "bundle_requires_components": "Die bondelproduk '%{name}' kan nie by die mandjie gevoeg word nie.",
+        "gift_card_with_components_not_supported": "Die bondelproduk '%{name}' kan nie by die mandjie gevoeg word nie.",
+        "gift_card_price_must_be_greater_than_zero": "Die bondelproduk '%{name}' kan nie by die mandjie gevoeg word nie.",
+        "gift_card_recipient_validation_error": "Die gespesifiseerde geskenkbewys ontvanger is ongeldig",
+        "view_lines_limit_reached": "Lyne moet minder as %{limit} wees",
+        "cart_too_large": "Karretjie is te groot.",
+        "merchandise_line_transformers": {
+          "run_error": "'n Fout het in jou mandjie voorgekom."
+        }
+      },
+      "storefront": {
+        "invalid_password": "Wagwoord verkeerd, probeer asseblief weer."
+      },
+      "tags": {
+        "add_articles": "Beperk soektog na artikels wat ook merker %{tag} het",
+        "add_products": "Beperk seleksie tot produkte wat ooreenstem met merker %{tag}",
+        "remove_articles": "Brei soektog uit na artikels wat nie %{tag} gemerk is nie",
+        "remove_products": "Verwyder merker %{tag}"
       }
+    },
+    "email_marketing": {
+      "subscribed": {
+        "confirmation": "Dankie dat jy op ons poslys ingeteken het.",
+        "disclaimer": "Jy kan enige tyd uitteken.",
+        "unsubscribe": "Teken uit"
+      },
+      "unsubscribed": {
+        "confirmation": "Jy het van ons poslys uitgeteken.",
+        "disclaimer": "Jy sal nie meer bemarkingsopdaterings van ons ontvang nie. Jy kan enige tyd weer inteken.",
+        "preview": "Jy kyk na wat kliënte sal sien wanneer hulle uitteken."
+      },
+      "open_tracking": {
+        "opt_in": {
+          "opted_in_html": "<b>Jy het ingeteken op e-pos oopnasporing.</b>",
+          "visibility": "E-pos oop tariewe sal anoniem gerapporteer word. Ons sal net sien of jy 'n e-pos oopgemaak het as deel van 'n saamgevoegde e-pos oopmaakkoers.",
+          "opt_out_html": "Jy kan <a style=\"text-decoration:underline;\" href=\"%{link}\">onttrek</a> van e-pos oopnasporing as jy nie hierdie inligting wil deel nie.",
+          "preview_bar": "Jy is besig om 'n voorskou te maak van wat klante sal sien wanneer hulle inteken op e-pos oopnasporing."
+        },
+        "opt_out": {
+          "opted_out_html": "<b>Jy het onttrek van oopnasporing van e-pos.</b>",
+          "visibility": "Ons sal nie sien of jy ons e-posse oopgemaak het nie.",
+          "opt_in_html": "<a style=\"text-decoration:underline;\" href=\"%{link}\">Teken in</a> op e-pos oopnasporing.",
+          "preview_bar": "Jy is besig om 'n voorskou te maak van wat kliënte sal sien wanneer hulle onttrek van e-pos-opsporing."
+        },
+        "no_longer_track": {
+          "status_html": "<b>Ons spoor nie meer enige e-pos oop nie.</b>",
+          "privacy_policy": "Nadat hierdie e-pos gestuur is, het ons ons privaatheidsbeleid opgedateer en ons volg nie meer oopmaak nie."
+        },
+        "track": {
+          "status_html": "<b>E-pos oopopsporing word aangemeld.</b>",
+          "visibility": "Ons sal net sien of jy die e-pos oopgemaak het, as deel van die totale e-pos oopmaakkoers."
+        },
+        "updated_policy": {
+          "status_html": "<b>E-pos oopopsporing word aangemeld.</b>",
+          "visibility": "Ons het ons beleid opgedateer en spoor-e-posse word nou oopgemaak. E-pos oop tariewe sal anoniem gerapporteer word. Ons sal net sien of jy 'n e-pos oopgemaak het as deel van die totale e-pos oopmaakkoers.",
+          "opt_out_html": "As jy nie hierdie inligting wil deel nie, kan jy <a style=\"text-decoration:underline;\" href=\"%{link}\">uitteken.</a>"
+        }
+      }
+    },
+    "filters": {
+      "availability": {
+        "value": {
+          "in_stock": "In voorraad",
+          "out_of_stock": "Uit voorraad"
+        }
+      },
+      "boolean": {
+        "true_label": "Ja",
+        "false_label": "Nee"
+      }
+    },
+    "search": {
+      "error": "Kon nie jou soekresultate laai nie. Herlaai asseblief die bladsy of probeer later weer.",
+      "sorting": {
+        "relevance": "Relevansie",
+        "price_ascending": "Prys, laag tot hoog",
+        "price_descending": "Prys, hoog tot laag"
+      }
+    },
+    "page_titles": {
+      "blog_or_article_with_error": "Fout - %{title}",
+      "products": "Produkte",
+      "shopping_cart": "Jou inkopiemandjie",
+      "account": "Rekening",
+      "create_account": "Skep rekening",
+      "reset_account": "Stel rekening terug",
+      "addresses": "Adresse",
+      "order": "Bestelling %{name}",
+      "search": "Soek",
+      "search_results": {
+        "one": "Soek: %{count} resultaat gevind vir \"%{terms}\"",
+        "other": "Soek: %{count} resultate gevind vir \"%{terms}\""
+      },
+      "collections": "Versamelings",
+      "not_found": "404 Nie gevind nie",
+      "challenge": "Uitdaging",
+      "checkpoint": "Kontrolepunt"
+    },
+    "cart": {
+      "discounts_with_count": "%{count} afslag is toegepas"
+    },
+    "challenge": {
+      "message": "Laat weet ons dat jy nie 'n robot is om voort te gaan nie.",
+      "error": "Jou antwoord was nie korrek nie, probeer asseblief weer.",
+      "submit_button_text": "Dien in"
+    },
+    "checkpoint": {
+      "message": "Los Captcha op om voort te gaan",
+      "error": "Captcha-bekragtiging het misluk",
+      "submit_button_text": "Dien in"
+    },
+    "store_availability": {
+      "pick_up_time": {
+        "one_hour": "Gewoonlik gereed in 1 uur",
+        "two_hours": "Gewoonlik binne 2 uur gereed",
+        "four_hours": "Gewoonlik binne 4 uur gereed",
+        "twenty_four_hours": "Gewoonlik binne 24 uur gereed",
+        "two_to_four_days": "Gewoonlik gereed in 2-4 dae",
+        "five_or_more_days": "Gewoonlik gereed in 5+ dae",
+        "zero_to_two_hours": "Gewoonlik binne 2 uur gereed",
+        "two_to_four_hours": "Gewoonlik binne 4 uur gereed",
+        "immediately": "Gereed vir afhaal nou",
+        "next_day": "Klaar vir afhaal volgende dag"
+      }
+    },
+    "subscriptions": {
+      "buyer_consent_product": "Hierdie item is 'n herhalende of uitgestelde aankoop. Deur voort te gaan, stem ek in tot die %{cancellationPolicyLink} en magtig ek jou om my betaalmetode te hef teen die pryse, frekwensie en datums wat op hierdie bladsy gelys word totdat my bestelling vervul is of ek kanselleer, indien toegelaat.",
+      "buyer_consent_cart": "Een of meer van die items in jou mandjie is 'n herhalende of uitgestelde aankoop. Deur voort te gaan, stem ek in tot die %{cancellationPolicyLink} en magtig ek jou om my betaalmetode te hef teen die pryse, frekwensie en datums wat op hierdie bladsy gelys word totdat my bestelling vervul is of ek kanselleer, indien toegelaat.",
+      "cancellation_policy": "kansellasiebeleid"
     }
   },
   "sections": {
@@ -2617,6 +2752,33 @@
         "message": "Te veel pogings",
         "description": "Probeer asseblief weer oor 'n paar minute"
       }
+    },
+    "date": {
+      "humanize": {
+        "lessThanOneHourAgo": {
+          "one": "{{count}} minuut gelede",
+          "other": "{{count}} minute gelede"
+        },
+        "lessThanOneMinuteAgo": "Netnou",
+        "yesterday": "Gister om {{time}}",
+        "today": "Vandag om {{time}}",
+        "tomorrow": "Môre om {{time}}"
+      }
+    },
+    "enable_javascript": "Om jou rekening te bekyk, aktiveer JavaScript in jou blaaierinstellings of meld aan met 'n ander blaaier.",
+    "navigation_and_structure": {
+      "account_menu": {
+        "hide_accessibility_label": "Versteek rekeningkieslys",
+        "label": "Rekening",
+        "show_accessibility_label": "Wys rekeningkieslys",
+        "nav_accessibility_label": "Rekeningnavigasie",
+        "open_menu_accessibility_label": "Maak rekeningnavigasie oop",
+        "close_menu_accessibility_label": "Maak rekeningnavigasie toe",
+        "loading_message": "Laai tans rekeningnavigasie"
+      },
+      "action_menu_accessibility_label": "Meer aksies",
+      "close_menu_accessibility_label": "Maak hoofnavigasie toe",
+      "contact_email_subject": "Kontak vanaf {{shopName}} aanlyn winkel"
     }
   },
   "templates": {
