@@ -263,7 +263,7 @@
               {%- when 'description' -%}
                 {%- if product.description != blank -%}
                   <div class="product__description rte quick-add-hidden" {{ block.shopify_attributes }}>
-                    {{ product.description | truncatewords: 20 }}
+                    {{ product.description | truncatewords: 200 }}
                     <button id="open-modal">Read more</button>
                   </div>
                 {%- endif -%}
