@@ -916,11 +916,150 @@
       "invalid_for_country_and_province": "is nie geldig vir %{province} en %{country}",
       "invalid_province_in_country": "is nie 'n geldige provinsie in %{country}",
       "invalid_state_in_country": "is nie 'n geldige staat in %{country}",
-      "invalid_region_in_country": "is nie 'n geldige streek in %{country}"
+      "invalid_region_in_country": "is nie 'n geldige streek in %{country}",
+      "less_than_or_equal_to": "moet minder as of gelyk aan %{count} wees",
+      "not_supported": "word nie ondersteun nie",
+      "full_name_required": "Voer 'n voornaam en van in",
+      "invalid_for_card_type": "is nie geldig nie",
+      "invalid_type": "jammer, ons aanvaar nie kaarte van hierdie tipe nie",
+      "invalid_format": "formaat is nie geldig nie",
+      "expired": "het verval",
+      "invalid_start_date_or_issue_number_for_debit": "'n geldige begindatum of uitgawenommer word vereis",
+      "invalid_expiry_year": "is nie 'n geldige vervaljaar nie",
+      "reset_password_html": "Hierdie e-posadres word reeds met 'n rekening geassosieer. As hierdie rekening joune is, kan jy <a href=\"/account/login#recover\">jou wagwoord terugstel</a>",
+      "verify_email": "Ons het 'n e-pos aan %{customer_email} gestuur, klik asseblief op die skakel wat ingesluit is om jou e-posadres te verifieer.",
+      "product_not_available": "produk word nie vir hierdie kliënt gepubliseer nie.",
+      "shop_404": {
+        "title": "Skep 'n e-handelswebwerf en verkoop aanlyn! E-handelsagteware deur Shopify",
+        "heros": {
+          "store_unavailable": "Jammer, hierdie winkel is tans nie beskikbaar nie.",
+          "store_not_exist": "Hierdie winkel bestaan ​​nie.",
+          "no_storefront": "Hierdie winkel het nog nie 'n webwerf nie."
+        },
+        "links": {
+          "explore_other_stores": "Verken ander winkels",
+          "start_free_trial": "Begin 'n gratis proeflopie"
+        },
+        "owner_ctas": {
+          "header": "Is jy die winkeleienaar?",
+          "fix_domain": "Voltooi die opstel van jou nuwe webadres, gaan na %{domain_settings_link}. Klik “Connect domain” en voer in: %{domain}.<br> As jy probleme ondervind om by jou winkel in te kom, probeer die %{forgot_your_store_link}-bladsy.",
+          "fix_domain_link_text": "jou domeininstellings",
+          "forgot_your_store_link_text": "het jou winkel vergeet",
+          "add_storefront": "Jy kan jou webwerf opstel deur die Aanlynwinkelkanaal in jou %{admin_link} by te voeg. As jy probleme ondervind om by jou winkel in te kom, probeer die %{forgot_your_store_link}-bladsy."
+        },
+        "ctas": {
+          "sell_in_person": {
+            "header": "Verkoop persoonlik",
+            "caption": "Kry die funksies wat jy nodig het om jou kleinhandelwinkel te bestuur, of jy nou begin of opskaal.",
+            "link_text": "Begin gratis proeflopie"
+          },
+          "open_a_store": {
+            "header": "Maak 'n nuwe Shopify-winkel oop",
+            "caption": "Begin 'n gratis proeftydperk van 3 dae en gaan dan voort vir $1 per maand vir die volgende 3 maande.",
+            "link_text": "Teken nou in"
+          },
+          "editions": {
+            "header": "Kyk na Shopify Editions",
+            "caption": "Met 100+ produkopdaterings kan jy meer produktief en kreatief wees, en kragtiger in die handel as wat jy ooit gedink het.",
+            "link_text": "Verken nuutste uitgawes"
+          },
+          "store_owner": {
+            "header": "Is jy die winkeleienaar?",
+            "caption": "Sukkel jy om by jou winkel in te kom? Probeer die %{forgot_your_store_link}-kenmerk. As jy jou winkel wil heraktiveer, kontak %{shopify_support_link}.",
+            "shopify_support_link_text": "Shopify-ondersteuning"
+          }
+        }
+      }
     },
     "sentence": {
       "two_words_connector": " en ",
       "last_word_connector": ", en "
+    },
+    "notices": {
+      "customer": {
+        "password_reset_error": "Fout om wagwoord terug te stel",
+        "no_account_found": "Geen rekening gevind met daardie e-pos nie.",
+        "invalid_credentials": "Verkeerde e-pos of wagwoord.",
+        "denylisted_reset_password": "Daar kon nie toegang tot jou rekening verkry word nie omdat die huidige wagwoord nie veilig is nie. Jy sal 'n e-pos ontvang om jou wagwoord op te dateer.",
+        "signup_disabled": "Kliëntrekeningskepping is gedeaktiveer."
+      },
+      "address": {
+        "updated": "Adres suksesvol opgedateer.",
+        "error_updating": "Kon nie adres opdateer nie",
+        "created": "Adres suksesvol geskep",
+        "error_creating": "Kon nie adres skep nie.",
+        "deleted": "Adres suksesvol uitgevee",
+        "error_deleting": "Kon nie adres uitvee nie."
+      },
+      "line_item": {
+        "item_status": {
+          "add_variant": "Bygevoeg %{delta}",
+          "increment_item": "Bygevoeg %{delta}",
+          "decrement_item": "Het %{delta} van %{total} verwyder",
+          "decrement_fulfilled_line_item": "Het %{delta} van %{total} teruggegee",
+          "decrement_return_line_item": "Het %{delta} van terugkeer verwyder"
+        }
+      },
+      "order": {
+        "not_available": "Hierdie bestelling is nie beskikbaar nie",
+        "financial_status": {
+          "authorized": "Gemagtig",
+          "pending": "Hangende",
+          "paid": "Betaal",
+          "unpaid": "Onbetaald",
+          "voided": "Nietig verklaar",
+          "partially_paid": "Gedeeltelik betaal",
+          "partially_refunded": "Gedeeltelik terugbetaal",
+          "refunded": "Terugbetaal",
+          "expired": "Verval"
+        },
+        "fulfillment_status": {
+          "fulfilled": "Vervul",
+          "complete": "Voltooi",
+          "partial": "Gedeeltelik",
+          "unfulfilled": "Onvervuld",
+          "restocked": "Hervoorraad"
+        },
+        "transaction_status": {
+          "success": "Sukses",
+          "pending": "Hangende",
+          "failure": "Mislukking",
+          "error": "Fout"
+        },
+        "cancel_reason": {
+          "declined": "Betaling geweier",
+          "inventory": "Items nie beskikbaar nie",
+          "fraud": "Bedrieglike bestelling",
+          "customer": "Kliënt het bestelling verander/gekanselleer",
+          "staff": "Personeel fout",
+          "other": "Ander"
+        },
+        "cash_on_delivery": "Kontant by aflewering (COD)"
+      },
+      "cart": {
+        "only_n_items_available": "Jy kan net %{count} %{name} by die mandjie voeg.",
+        "too_many_items_in_cart": "Jy kan nie meer %{name} by die mandjie voeg nie.",
+        "only_one_added_to_cart": "Slegs 1 item is by jou mandjie gevoeg weens beskikbaarheid.",
+        "only_n_added_to_cart": "Slegs %{quantity} items is by jou mandjie gevoeg weens beskikbaarheid.",
+        "maximum_available_quantity_reached": "Die maksimum hoeveelheid van hierdie item is reeds in jou mandjie.",
+        "less_than_minimum": "Hierdie item het 'n minimum van %{min}.",
+        "more_than_maximum": "Hierdie item het 'n maksimum van %{max}.",
+        "not_respect_step": "Jy kan hierdie item slegs in inkremente van %{step} byvoeg.",
+        "all_items_in_cart": "Alle %{count} %{name} is in jou mandjie.",
+        "empty_update": "kan nie leë mandjie opdateer nie",
+        "missing_parameters": "geen geldige ID of lynparameter nie",
+        "generic_error": "Karfout",
+        "invalid_input": "%{parameter} parameter is ongeldig.",
+        "product_not_available": "Produk is nie beskikbaar nie",
+        "too_many_line_items_error": "Jou mandjie kan nie meer as %{max} items bevat nie.",
+        "link_expired": "Skakel het verval",
+        "link_no_longer_exists": "Skakel bestaan ​​nie meer nie.",
+        "stock_problems_html": "Een of meer items is nie meer beskikbaar nie. Ons het 'n <a href=\"%{link}\">opgedateerde mandjie</a> verskaf.",
+        "changed": "Karretjie verander",
+        "items_changed": "Een of meer items het verander.",
+        "product_sold_out": "Die produk '%{name}' is reeds uitverkoop.",
+        "variant_not_found": "Kan nie variant vind nie"
+      }
     }
   },
   "sections": {
