@@ -1336,7 +1336,33 @@
       "qrCode": "QR-kode",
       "addFile": "Voeg lêer by",
       "dropzoneInvalidFileType": "Lêertipe word nie ondersteun nie",
-      "dropzoneDraggedOver": "Los lêer om op te laai"
+      "dropzoneDraggedOver": "Los lêer om op te laai",
+      "clipboardCopied": "Gekopieer",
+      "clipboardFailedToCopy": "Kon nie kopieer nie",
+      "closeNotification": "Maak toe",
+      "expandNotification": "Bekyk meer",
+      "closeModal": "Maak toe",
+      "submit": "Dien in",
+      "processing": "Verwerk tans …",
+      "increase": "Verhoog {{type}}",
+      "decrease": "Verminder {{type}}",
+      "minimumReached": "Minimum van {{value}} bereik",
+      "maximumReached": "Maksimum van {{value}} bereik",
+      "january": "Januarie",
+      "february": "Februarie",
+      "march": "Maart",
+      "may": "Mei",
+      "june": "Junie",
+      "july": "Julie",
+      "august": "Augustus",
+      "october": "Oktober",
+      "december": "Desember",
+      "monday": "Maandag",
+      "tuesday": "Dinsdag",
+      "wednesday": "Woensdag",
+      "thursday": "Donderdag",
+      "friday": "Vrydag",
+      "saturday": "Saterdag"
     },
     "profile_preview_bar": {
       "customize_button": "Pasmaak",
@@ -1380,6 +1406,85 @@
       "button": "Verken op Winkel",
       "previous_button": "Vorige",
       "next_button": "Volgende"
+    },
+    "payment_methods": {
+      "card_fields": {
+        "name_on_card_label": "Naam op kaart",
+        "name_on_card_placeholder": "Naam op kaart",
+        "card_expiry_label": "Vervaldatum (MM / JJ)",
+        "card_expiry_placeholder": "Vervaldatum (MM / JJ)",
+        "card_verification_value_label": "Sekuriteitskode",
+        "card_verification_value_placeholder": "Sekuriteitskode",
+        "card_start_label": "Uitreikingsdatum (MM / JJ)",
+        "card_start_placeholder": "Uitreikingsdatum (MM/JJ)",
+        "tooltip": {
+          "tooltip_accessibility_label": "Meer inligting",
+          "card_verification_value_explanation_amex": "4-syfer sekuriteitskode op die voorkant van jou kaart",
+          "card_verification_value_explanation_other": "3-syfer sekuriteitskode op die agterkant van jou kaart",
+          "card_verification_value_explanation": "3-syfer sekuriteitskode word gewoonlik op die agterkant van jou kaart gevind. American Express-kaarte het 'n 4-syfer-kode aan die voorkant.",
+          "card_security_notice": "Alle transaksies is veilig en geïnkripteer."
+        },
+        "field_errors": {
+          "credit_card_name_invalid": "Tik jou naam presies soos dit op jou kaart geskryf is",
+          "credit_card_number_invalid": "Voer 'n geldige kaartnommer in",
+          "credit_card_expiry_invalid": "Voer 'n geldige kaartvervaldatum in",
+          "credit_card_verification_value_blank": "Voer die CVV of sekuriteitskode op jou kaart in"
+        }
+      },
+      "payment_delete": {
+        "title": "Vee betaalmetode uit",
+        "description_without_replacement": "Hierdie betaalmetode sal nie meer vir toekomstige aankope beskikbaar wees nie.",
+        "description_with_replacement": "Die uitvee van hierdie betaalmetode sal voorafmagtigde betalings beïnvloed. Jy kan dit opsioneel vervang met 'n ander betaalmetode om voort te gaan om komende bestellings te ontvang.",
+        "warning_message_with_replacement": {
+          "with_pending_orders_and_subscriptions": "Die uitvee van hierdie betaalmetode sal voorafmagtigde betalings beïnvloed. Tensy jy 'n alternatiewe betaalmetode kies, sal hierdie betaalmetode steeds gehef word vir enige uitstaande saldo's op bestaande bestellings. Die keuse van 'n alternatiewe betaalmetode sal jou toelaat om opkomende intekeningbestellings sonder onderbreking te ontvang.",
+          "with_pending_orders": "As jy hierdie betaalmetode uitvee, sal dit uit jou rekening verwyder word en sal dit nie meer vir toekomstige aankope beskikbaar wees nie. Tensy jy 'n alternatiewe betaalmetode kies, sal dit steeds gehef word vir enige uitstaande saldo's op bestaande bestellings.",
+          "with_subscriptions": "Die uitvee van hierdie betaalmetode sal voorafmagtigde betalings beïnvloed. Vervang dit met 'n alternatiewe betaalmetode om voort te gaan om komende bestellings te ontvang."
+        },
+        "warning_message_without_replacement": {
+          "with_pending_orders_and_subscriptions": "Die uitvee van hierdie betaalmetode sal voorafmagtigde betalings beïnvloed. Hierdie betaalmetode sal steeds gehef word vir enige uitstaande saldo's op bestaande bestellings, maar jy sal nie komende intekeningbestellings ontvang nie. Voeg 'n alternatiewe betaalmetode by om voort te gaan om intekeningbestellings te ontvang.",
+          "with_pending_orders": "As jy hierdie betaalmetode uitvee, sal dit uit jou rekening verwyder word en sal dit nie meer vir toekomstige aankope beskikbaar wees nie. Dit sal steeds gehef word vir enige uitstaande saldo's op bestaande bestellings.",
+          "with_subscriptions": "Die uitvee van hierdie betaalmetode sal voorafmagtigde betalings beïnvloed. Voeg 'n alternatiewe betaalmetode by om voort te gaan om komende bestellings te ontvang."
+        },
+        "payment_method_selector_placeholder": "Kies 'n vervangende betaalmetode (opsioneel)",
+        "payment_method_selector_no_alternative_payment": "Geen vervangingsmetode nie",
+        "replace_method_with_new_method_description": "Jou {{currentPaymentMethodName}} sal uitgevee word en met jou {{newPaymentMethodName}} vervang word.",
+        "error_when_deleting": "Ons vra om verskoning, maar iets het verkeerd geloop en ons kon nie hierdie betaalmetode uitvee nie. Probeer asseblief later weer of verfris die bladsy.",
+        "delete_and_replace_button": "Vee uit en vervang",
+        "delete_and_replace_button_accessibility_label": "Vee {{currentPaymentMethodName}} uit en vervang met {{newPaymentMethodName}} .",
+        "deleted_successfully": "Betaalmetode is suksesvol uitgevee.",
+        "loading_available_payment_methods_accessibility_label": "Laai tans beskikbare betaalmetodes"
+      },
+      "add_payment_method": {
+        "title": "Voeg betaalmetode by",
+        "payment_method_added_confirmation": "Betaalmetode bygevoeg",
+        "billing_address": {
+          "title": "Faktuuradres",
+          "add_billing_address_button": "Voeg nuwe by",
+          "add_billing_address_button_accessibility_label": "Voeg nuwe faktuuradres by",
+          "choose_billing_address_from_list_button": "Kies uit lys",
+          "choose_billing_address_from_list_button_accessibility_label": "Kies 'n faktuuradres uit die lys",
+          "missing_billing_address_error_message": "Spesifiseer asseblief 'n faktuuradres",
+          "default_checkbox": "Stel as verstek betaalmetode"
+        }
+      },
+      "three_d_secure": {
+        "title": "3D Veilig"
+      }
+    },
+    "payment_method_brands": {
+      "discover": "Ontdek",
+      "hipercard": "Hiperkaart",
+      "shoppay": "Winkel Pay",
+      "storecredit": "Winkel krediet"
+    },
+    "shop_policies": {
+      "legal_notice": "Regskennisgewing",
+      "privacy_policy": "Privaatheidsbeleid",
+      "refund_policy": "Terugbetalingsbeleid",
+      "shipping_policy": "Versendingsbeleid",
+      "subscription_policy": "Kansellasiebeleid",
+      "terms_of_sale": "Verkoopsvoorwaardes",
+      "terms_of_service": "Diensbepalings"
     }
   },
   "templates": {
