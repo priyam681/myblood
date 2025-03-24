@@ -2589,7 +2589,18 @@
       },
       "save_new_address_accessibility_label": "Stoor adres",
       "title": "Adresse",
-      "billing_address_dropdown_placeholder": "Faktuuradres"
+      "billing_address_dropdown_placeholder": "Faktuuradres",
+      "add_button": "Voeg adres by",
+      "add_button_text": "Voeg by",
+      "add_button_accessibility_label": "Voeg adres by",
+      "back_button": "Terug",
+      "back_button_accessibility_label": "Terug na redigering adres {{address}}",
+      "add_address_banner": "Voeg adresse by om by die betaalpunt te gebruik",
+      "no_addresses_banner": "Geen adresse bygevoeg nie",
+      "address_deleted_notification": "Adres uitgevee",
+      "cancel_adding_address_accessibility_label": "Kanselleer byvoeging van adres",
+      "cancel_deletion_button": "Kanselleer",
+      "cancel_deletion_button_accessibility_label": "Kanselleer die uitvee van {{address}}"
     },
     "address_form": {
       "attention": "Aandag",
@@ -2741,14 +2752,128 @@
         "gift_card_payment_details": "eindig met {{lastDigits}} - {{formattedTransactionAmount}}",
         "store_credit_payment_details": "Winkelkrediet - {{formattedTransactionAmount}}",
         "shop_pay_installments": {
-          "paid_in_installments": "Betaal met Shop Pay-paaiemente"
+          "paid_in_installments": "Betaal met Shop Pay-paaiemente",
+          "view_schedule": "Bekyk skedule"
+        },
+        "manual_payment_methods": {
+          "money_order": "Poswissel - {{formattedTransactionAmount}}",
+          "cash_on_delivery": "Kontant by aflewering (COD) - {{formattedTransactionAmount}}",
+          "bank_deposit": "Bankdeposito - {{formattedTransactionAmount}}",
+          "manual": "Handleiding - {{formattedTransactionAmount}}"
+        },
+        "transactions": {
+          "show_all": "Wys alles",
+          "show_less": "Wys minder",
+          "details": "Besonderhede",
+          "payment_details": "Betaling Besonderhede"
+        },
+        "emv_details": {
+          "aid": "HULP:",
+          "source": "BRON:"
         }
       },
       "contact": "Kontak",
       "company": "Maatskappy",
       "shipping": {
-        "free_shipping_discount": "Gratis aflewering"
-      }
+        "free_shipping_discount": "Gratis aflewering",
+        "address": "Afleweringsadres",
+        "address_map_marker": "Afleweringsadres",
+        "method": "Versending metode",
+        "summary": "Versending",
+        "free": "Gratis",
+        "one_time": "Eenmalige aflewering",
+        "subscription": "Intekeningversending"
+      },
+      "paid_with_shop_pay_installments_card": {
+        "paid_with_shop_pay_installments": "Betaal met Shop Pay-paaiemente",
+        "description": "Bly op hoogte van jou betalingskedule met aanmanings in die Winkel-toepassing.",
+        "payment_reminders_button": "Kry betalingsherinneringe",
+        "desktop_qr_code_content": {
+          "title": "Soek vir onthounotas",
+          "description": "Kry onthounotas van jou paaiemente met Shop."
+        }
+      },
+      "refunded_amount": "Terugbetaal",
+      "request_return_failed": "Daar was 'n probleem met die verwerking van jou versoek. Probeer asseblief weer.",
+      "remaining_amount": "Oorblywende",
+      "marketing_section_title": "Nuus en aanbiedinge",
+      "marketing_description": "Jy sal bemarkings-e-posse ontvang. Jy kan enige tyd uitteken.",
+      "marketing_checkbox_label": "E-pos my met nuus en aanbiedinge",
+      "marketing_checkmark_label": "Jy is ingeteken om e-posnuus en aanbiedinge te ontvang",
+      "returns": {
+        "expand_events_label": "Wys besonderhede",
+        "hide_events_label": "Versteek besonderhede",
+        "ineligible_return_message": "Geen items in hierdie bestelling kom in aanmerking vir terugstuur nie.",
+        "ineligible_return_message_when_returned": "Geen bykomende items in hierdie bestelling kom in aanmerking vir terugbesorging nie.",
+        "print_shipping_label": "Druk versendingetiket",
+        "return_and_refund_modal_header": "Terugbetalingsbeleid",
+        "tracking_number": "Naspoornommer:"
+      },
+      "pickup": {
+        "pickup": "Bakkie",
+        "pickup_location": "Optelplek",
+        "pickup_point": "Optelpunt"
+      },
+      "show_items": "Wys items",
+      "show_order_summary": "Wys bestellingopsomming",
+      "hide_order_summary": "Versteek bestellingopsomming",
+      "subtitle": "Bevestig {{date}}",
+      "subtotal": "Subtotaal",
+      "summary_list_title_accessibility_label": "Bestel items",
+      "summary_title": "Opsomming van bestelling",
+      "summary_totals_title_accessibility_label": "Besteltotale",
+      "shop_order_tracking": {
+        "download_shop_to_track": "Laai Winkel af om pakket op te spoor",
+        "track_order_with_shop": "Volg bestelling met Winkel",
+        "title_header": "Skandeer met jou foon",
+        "real_time_delivery_updates": "Winkel sal vir jou intydse afleweringsopdaterings stuur sodra jou bestelling verskeep is."
+      },
+      "edit_summary": {
+        "added": "Bygevoeg",
+        "added_with_quantity": "Bygevoeg {{quantity}}",
+        "removed": "Verwyder",
+        "removed_with_quantity": "Verwyder {{quantity}}",
+        "updated_at": "Jou bestelling is op {{date}} opgedateer",
+        "returned": "Teruggekeer",
+        "returned_with_quantities": "Het {{delta}} van {{total}} teruggegee",
+        "removed_with_quantities": "Verwyder {{delta}} van {{total}}",
+        "return_line_item_removed": "Verwyder van terugkeer",
+        "return_line_item_removed_with_quantities": "Verwyder {{delta}} van terugkeer"
+      },
+      "shop_pay": {
+        "order_completed_with": "Bestelling voltooi met",
+        "learn_more": "Kom meer te wete"
+      },
+      "taxes": "Belasting",
+      "taxes_included": "Insluitend {{amount}} in belasting",
+      "duties_and_taxes_included": "Totaal sluit pligte en belasting in. Geen ekstra koste by aflewering nie.",
+      "duties": "Pligte",
+      "ok_duties_tooltip": "Hierdie bestelling word van 'n ander land af gestuur, so pligte is by jou bestellingtotaal gevoeg.",
+      "error_duties_tooltip": "Hierdie bestelling word van 'n ander land af gestuur, dus kan heffings en belasting gehef word by aflewering.",
+      "zero_duties_tooltip": "Hierdie bestelling word van 'n ander land af gestuur. Pligte word nie gehef op bestellings van hierdie waarde nie.",
+      "tip": "Wenk",
+      "title": "Bestel {{name}}",
+      "total": "Totaal",
+      "unit_price": "{{price}} /ea",
+      "pagination": {
+        "load_more": "Laai meer",
+        "load_more_accessibility_label": "Laai meer items",
+        "loading_accessibility_label": "Laai items"
+      },
+      "login_to_view_all_order_details": "Meld aan om alle bestellingbesonderhede te sien.",
+      "log_in": "Meld aan",
+      "logged_in_account_no_permission_to_order": "Jy is aangemeld as {{email}} . Hierdie rekening het nie toestemming om hierdie bestelling te bestuur nie.",
+      "log_in_to_a_different_account": "Meld aan by 'n ander rekening",
+      "fees": {
+        "restocking_fee": "Hervoorraadfooi",
+        "return_shipping_fee": "Retourversending"
+      },
+      "vat_invoices": {
+        "title": "BTW-fakture"
+      },
+      "cash_rounding": "Kontantafronding",
+      "adjusted_payment": "Aangepaste betaling",
+      "adjusted_total": "Aangepaste totaal"
     },
     "ui_components": {
       "sunday": "Sondag",
