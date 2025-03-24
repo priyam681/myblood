@@ -33,7 +33,13 @@
     aria-controls="{{ localPosition }}-country-results"
     aria-describedby="{{ localPosition }}Label"
   >
-    <span>
+    <span class="country-localization">
+      <img
+        src="https://flagcdn.com/w40/{{ localization.country.iso_code | downcase }}.png"
+        alt="{{ localization.country.name }} flag"
+        width="20"
+        height="14"
+      >
       {{- localization.country.name }} |
       {{ localization.country.currency.iso_code }}
       {{ localization.country.currency.symbol -}}
