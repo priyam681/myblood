@@ -4,54 +4,297 @@
   Accepts:
   - product: {Object} Product liquid object
   - variant_images: {Array} Product images associated with a variant
+  - single_zoom_image: {Boolean} Whether to show only one image at a time
 
   Usage:
   {% render 'product-media-modal' %}
 {% endcomment %}
 
-<product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
-  <div
-    class="product-media-modal__dialog color-{{ section.settings.color_scheme }} gradient"
-    role="dialog"
-    aria-label="{{ 'products.modal.label' | t }}"
-    aria-modal="true"
-    tabindex="-1"
+{% if section.settings.enable_single_image_zoom %}
+  <product-modal-single
+    id="ProductModal-{{ section.id }}"
+    class="product-media-modal media-modal"
+    data-zoom-single="true"
   >
-    <button
-      id="ModalClose-{{ section.id }}"
-      type="button"
-      class="product-media-modal__toggle"
-      aria-label="{{ 'accessibility.close' | t }}"
-    >
-      {{ 'icon-close.svg' | inline_asset_content }}
-    </button>
-
     <div
-      class="product-media-modal__content color-{{ section.settings.color_scheme }} gradient"
-      role="document"
+      class="product-media-modal__dialog color-{{ section.settings.color_scheme }} gradient"
+      role="dialog"
       aria-label="{{ 'products.modal.label' | t }}"
-      tabindex="0"
+      aria-modal="true"
+      tabindex="-1"
     >
-      {%- liquid
-        if product.selected_or_first_available_variant.featured_media != null
-          assign media = product.selected_or_first_available_variant.featured_media
-          render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: section.settings.hide_variants
-        endif
-      -%}
+      <button
+        id="ModalClose-{{ section.id }}"
+        type="button"
+        class="product-media-modal__toggle"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {{ 'icon-close.svg' | inline_asset_content }}
+      </button>
 
-      {%- for media in product.media -%}
-        {%- liquid
-          if section.settings.hide_variants and variant_images contains media.src or variant_images contains media.id
-            assign variant_image = true
-          else
-            assign variant_image = false
-          endif
+      <div
+        class="sp-product-zoom-container product-media-modal__content color-{{ section.settings.color_scheme }} gradient"
+        role="document"
+        aria-label="{{ 'products.modal.label' | t }}"
+        tabindex="0"
+      >
+        <!-- Add navigation arrows for mobile -->
+          <div class="sp-product-zoom-media">
+            <div class="product-modal-nav-arrows">
+              <button
+                class="product-modal-nav-button product-modal-prev"
+                aria-label="{{ 'general.slider.previous_slide' | t }}"
+              >
+                <span class="svg-wrapper">
+                  {{- 'icon-caret.svg' | inline_asset_content -}}
+                </span>
+              </button>
+              <div class="product-modal-main-image">
+                {% if product.selected_or_first_available_variant.featured_media != null %}
+                  {% assign media = product.selected_or_first_available_variant.featured_media %}
+                  <div data-media-id="{{ media.id }}" class="product-modal-media-container">
+                    {% render 'product-media',
+                      media: media,
+                      loop: section.settings.enable_video_looping,
+                      variant_image: section.settings.hide_variants
+                    %}
+                  </div>
+                {% endif %}
+      
+                {% for media in product.media %}
+                  {% unless media.id == product.selected_or_first_available_variant.featured_media.id %}
+                    {% liquid
+                      if section.settings.hide_variants and variant_images contains media.src or variant_images contains media.id
+                        assign variant_image = true
+                      else
+                        assign variant_image = false
+                      endif
+                    %}
+                    <div data-media-id="{{ media.id }}" class="product-modal-media-container hidden">
+                      {% render 'product-media',
+                        media: media,
+                        loop: section.settings.enable_video_looping,
+                        variant_image: variant_image
+                      %}
+                    </div>
+                  {% endunless %}
+                {% endfor %}
+              </div>
+              <button
+                class="product-modal-nav-button product-modal-next"
+                aria-label="{{ 'general.slider.next_slide' | t }}"
+              >
+                <span class="svg-wrapper" style="transform: rotate(180deg);">
+                  {{- 'icon-caret.svg' | inline_asset_content -}}
+                </span>
+              </button>
+            </div>
+          </div>
+      
+          {% comment %} hdgfjheghrfghpowrighprtihbwerpo==== {% endcomment %}
 
-          unless media.id == product.selected_or_first_available_variant.featured_media.id
-            render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: variant_image
-          endunless
-        -%}
-      {%- endfor -%}
+      
+
+        <div class="product-modal-thumbnails">
+          {% if product.selected_or_first_available_variant.featured_media != null %}
+            <button
+              class="product-modal-thumbnail active"
+              data-media-id="{{ product.selected_or_first_available_variant.featured_media.id }}"
+            >
+              {{
+                product.selected_or_first_available_variant.featured_media
+                | image_url: width: 100
+                | image_tag: loading: 'lazy', alt: product.selected_or_first_available_variant.featured_media.alt
+              }}
+            </button>
+          {% endif %}
+
+          {% for media in product.media %}
+            {% unless media.id == product.selected_or_first_available_variant.featured_media.id %}
+              {% liquid
+                if section.settings.hide_variants and variant_images contains media.src or variant_images contains media.id
+                  continue
+                endif
+              %}
+              <button class="product-modal-thumbnail  {% if section.settings.media_fit.value == "contain" %} media-fit-contain {% else %} media-fit-cover {% endif %}" data-media-id="{{ media.id }}">
+                {{ media | image_url: width: 100 | image_tag: loading: 'lazy', alt: media.alt }}
+              </button>
+            {% endunless %}
+          {% endfor %}
+        </div>
+      </div>
     </div>
-  </div>
-</product-modal>
+  </product-modal-single>
+{% else %}
+  <product-modal id="ProductModal-{{ section.id }}" class="product-media-modal media-modal">
+    <div
+      class="product-media-modal__dialog color-{{ section.settings.color_scheme }} gradient"
+      role="dialog"
+      aria-label="{{ 'products.modal.label' | t }}"
+      aria-modal="true"
+      tabindex="-1"
+    >
+      <button
+        id="ModalClose-{{ section.id }}"
+        type="button"
+        class="product-media-modal__toggle"
+        aria-label="{{ 'accessibility.close' | t }}"
+      >
+        {{ 'icon-close.svg' | inline_asset_content }}
+      </button>
+
+      <div
+        class="product-media-modal__content color-{{ section.settings.color_scheme }} gradient"
+        role="document"
+        aria-label="{{ 'products.modal.label' | t }}"
+        tabindex="0"
+      >
+        {%- liquid
+          if product.selected_or_first_available_variant.featured_media != null
+            assign media = product.selected_or_first_available_variant.featured_media
+            render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: section.settings.hide_variants
+          endif
+        -%}
+
+        {%- for media in product.media -%}
+          {%- liquid
+            if section.settings.hide_variants and variant_images contains media.src or variant_images contains media.id
+              assign variant_image = true
+            else
+              assign variant_image = false
+            endif
+
+            unless media.id == product.selected_or_first_available_variant.featured_media.id
+              render 'product-media', media: media, loop: section.settings.enable_video_looping, variant_image: variant_image
+            endunless
+          -%}
+        {%- endfor -%}
+      </div>
+    </div>
+  </product-modal>
+{% endif %}
+
+{% if single_zoom_image %}
+  <style>
+    .product-modal-thumbnails {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 20px;
+      justify-content: center;
+    }
+
+    .product-modal-thumbnail {
+      width: 60px;
+      height: 60px;
+      border: 1px solid #e8e8e8;
+      padding: 2px;
+      cursor: pointer;
+      background: none;
+      border-radius: 4px;
+      overflow: hidden;
+      touch-action: manipulation; / Improve touch behavior /
+    }
+
+    .product-modal-thumbnail.active {
+      border-color: #000;
+      box-shadow: 0 0 0 1px #000;
+    }
+
+    .product-modal-thumbnail img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    .product-modal-media-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+
+    / Mobile-specific styles /
+    @media screen and (max-width: 749px) {
+      .product-modal-thumbnails {
+        gap: 8px;
+      }
+
+      .product-modal-thumbnail {
+        width: 50px;
+        height: 50px;
+      }
+
+      / Make sure modal content is properly sized for mobile /
+      .product-media-modal__content {
+        width: 100%;
+        height: auto;
+        max-height: 80vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch; / Smooth scrolling on iOS /
+      }
+
+      / Ensure media fits properly on mobile screens /
+      .product-modal-media-container img,
+      .product-modal-media-container video,
+      .product-modal-media-container model-viewer {
+        max-width: 100%;
+        max-height: 60vh;
+        width: auto;
+        height: auto;
+        object-fit: contain;
+      }
+    }
+
+    / Navigation arrows for mobile /
+    .product-modal-nav-arrows {
+      display: flex;
+      justify-content: space-between;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 100%;
+      padding: 0 15px;
+      pointer-events: none;
+      z-index: 2;
+    }
+
+    .product-modal-nav-button {
+      background: rgba(255, 255, 255, 0.8);
+      border: none;
+      border-radius: 50%;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      pointer-events: auto;
+      transition: background-color 0.2s ease;
+    }
+
+    .product-modal-nav-button:hover {
+      background: rgba(255, 255, 255, 0.95);
+    }
+
+    .product-modal-nav-button .svg-wrapper {
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .product-modal-prev .svg-wrapper {
+      transform: rotate(90deg);
+    }
+
+    .product-modal-next .svg-wrapper {
+      transform: rotate(-90deg);
+    }
+  </style>
+{% endif %}
