@@ -310,7 +310,7 @@
   display: grid;
   grid-template-columns: auto 1fr auto;
   gap: 0.5rem;
-  padding: 0.9rem 1.5rem;
+  padding: 0.5rem 1.5rem;
   text-decoration: none;
   line-height: calc(1 + 0.8 / var(--font-body-scale));
   color: rgba(var(--color-foreground), 0.75);
