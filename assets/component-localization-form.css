@@ -14,6 +14,9 @@
     width: 18px;
     height: 18px;
 }
+.country-filter__reset-button.field__button {
+border: none;
+}
   .country-filter .field__label {
     display: none;
   } 
