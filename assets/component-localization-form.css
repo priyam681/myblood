@@ -236,6 +236,10 @@ border: none;
   cursor: text;
 }
 
+.country-filter__search-icon--hidden {
+  opacity: 0;
+  visibility: hidden;
+}
 .country-selector__close-button.link {
     display: flex;
     justify-content: center;
