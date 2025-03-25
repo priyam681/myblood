@@ -5,7 +5,8 @@
   padding: 1rem;
   margin: 0 auto;
 }
-.country-filter__search-icon.field__button.motion-reduce {
+.country-filter__search-icon.field__button.motion-reduce,
+.country-filter__reset-button.field__button {
   position: absolute;
     right: 10px;
     top: 50%;
