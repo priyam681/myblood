@@ -535,6 +535,11 @@ footer.footer {
     }
   }
 }
+@media screen and (max-width: 992px) {
+  footer.footer {
+    padding-bottom: 70px;
+  }
+}
 @media screen and (min-width: 992px) {
   .footer-block__heading {
     font-size: calc(var(--font-heading-scale) * 1.8rem);
