@@ -108,6 +108,12 @@ p.custom-para-login {
   padding: 15px;
   font-size: 1.5rem;
 }
+.login-container-wrapper h5 {
+  text-align: center;
+    font-size: 2rem;
+    font-weight: 900;
+    margin-block: 20px;
+}
 .eye-icon {
     position: absolute;
     right: 10px;
