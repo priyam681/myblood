@@ -574,7 +574,7 @@ h2.form__message {
   margin-top: 0;
 }
 
-/* #recover,
+#recover,
 #recover + div {
   display: none;
 }
@@ -590,7 +590,7 @@ h2.form__message {
 #recover:target ~ #login,
 #recover:target ~ #login + div {
   display: none;
-} */
+}
 
 #recover,
 #login {
