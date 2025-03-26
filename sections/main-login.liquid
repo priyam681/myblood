@@ -232,9 +232,11 @@
       </div>
       <div class="login-container-wrapper">
         <h5 class="">New customer?</h5>
-        <a href="{{ routes.account_register_url }}">
-          {{ 'customer.login_page.create_account' | t }}
-        </a>
+        <button class="account-button">
+          <a href="{{ routes.account_register_url }}">
+            {{ 'customer.login_page.create_account' | t }}
+          </a>
+        </button>
       </div>
       {%- if shop.checkout.guest_login -%}
         <div>
