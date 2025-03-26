@@ -114,6 +114,9 @@ p.custom-para-login {
     font-weight: 900;
     margin-block: 20px;
 }
+.login-container-wrapper p {
+  text-align: center;
+}
 .eye-icon {
     position: absolute;
     right: 10px;
