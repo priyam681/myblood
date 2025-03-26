@@ -1,15 +1,7 @@
 .customer button:hover {
   background-color: rgba(var(--color-button), 0.8);
 }
-#recover:target~.login-container-wrapper {
-    display: none;
-}
-.recover-password.new-recovery-password {
-    display: none;
-}
-#recover:target {
-    display: block;
-}
+
 .customer.login {
   margin: 0 auto;
   max-width: 50rem;
