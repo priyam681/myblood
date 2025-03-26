@@ -1,7 +1,7 @@
 .customer button:hover {
   background-color: rgba(var(--color-button), 0.8);
 }
-#recover:target~#login {
+#recover:target~#logins {
     display: none;
 }
 #recover {
@@ -593,7 +593,7 @@ h2.form__message {
 } */
 
 #recover,
-#login {
+#logins {
   scroll-margin-top: 20rem;
 }
 
