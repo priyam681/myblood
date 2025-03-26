@@ -170,6 +170,7 @@
   min-width: auto;
   min-height: auto;
   transition: none;
+  padding: 0 10px;
 }
 
 .select .icon-caret {
