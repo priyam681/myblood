@@ -592,7 +592,8 @@ h2.form__message {
   display: none;
 } */
 
-#recover {
+#recover,
+#login {
   scroll-margin-top: 20rem;
 }
 
