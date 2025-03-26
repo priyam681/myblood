@@ -229,14 +229,13 @@
             {{ 'customer.login_page.sign_in' | t }}
           </button>
         {%- endform -%}
-        <div class="have-account">
-          <h5 class="">Don't have an account yet?</h5>
-          <a href="{{ routes.account_register_url }}">
-            {{ 'customer.login_page.create_account' | t }}
-          </a>
-        </div>
       </div>
-
+      <div class="have-account">
+        <h5 class="">Don't have an account yet?</h5>
+        <a href="{{ routes.account_register_url }}">
+          {{ 'customer.login_page.create_account' | t }}
+        </a>
+      </div>
       {%- if shop.checkout.guest_login -%}
         <div>
           <hr>
