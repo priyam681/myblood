@@ -84,7 +84,7 @@ p.custom-para-login {
   margin-block: 20px;
    margin: 0 0 7px 0;
 }
-.login-container .account-button,
+.login-container-wrapper .account-button,
 .sign-up-button {
   width: 100%;
   font-weight: bold;
