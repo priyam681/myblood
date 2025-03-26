@@ -7,7 +7,7 @@
 .recover-password.new-recovery-password {
     display: none;
 }
-.recover-password.new-recovery-passwordr:target {
+.recover-password.new-recovery-password:target {
     display: block;
 }
 .customer.login {
