@@ -1,13 +1,13 @@
 .customer button:hover {
   background-color: rgba(var(--color-button), 0.8);
 }
-.recover-password.new-recovery-password:target~.login-container-wrapper {
+#recover:target~.login-container-wrapper {
     display: none;
 }
 .recover-password.new-recovery-password {
     display: none;
 }
-.recover-password.new-recovery-password:target {
+#recover:target {
     display: block;
 }
 .customer.login {
