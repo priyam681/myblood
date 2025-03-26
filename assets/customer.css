@@ -101,7 +101,7 @@ p.custom-para-login {
     top: 10px;
     left: 0px;
 }
-.login-container .account-button a {
+.login-container-wrapper .account-button a {
   color: #fff;
   text-decoration: none;
   width: 100%;
