@@ -68,7 +68,7 @@
         {{ 'customer.recover_password.title' | t }}
       </h1>
     -->
-    <div class="recover-password new-recovery-password">
+    <div id="recover" class="recover-password new-recovery-password">
       <h2 style="margin:0;font-weight:bold">{{ 'customer.recover_password.title' | t }}</h2>
       <p style="margin-top:0px">
         {{ 'customer.recover_password.subtext' | t }}
@@ -118,7 +118,7 @@
       {%- endform -%}
     </div>
 
-    <div class="login-container-wrapper">
+    <div id="login" class="login-container-wrapper">
       <!--
         <div class="for-image" >
         <img src="{{ section.settings.custom_image | image_url }}" alt="Banner" height="300" width="300"/>
