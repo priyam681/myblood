@@ -118,13 +118,13 @@
       {%- endform -%}
     </div>
 
-    <div id="logins" class="login-container-wrapper">
+    <div id="logins" class="">
       <!--
         <div class="for-image" >
         <img src="{{ section.settings.custom_image | image_url }}" alt="Banner" height="300" width="300"/>
         </div>
       -->
-      <div class="login-container">
+      <div class="login-container login-container-wrapper">
         <div class="login-text-box">
           <h1 id="login" tabindex="-1" class="custom-paragraph-login">
             {{ 'customer.login_page.title' | t }}
@@ -230,7 +230,7 @@
           </button>
         {%- endform -%}
       </div>
-      <div class="have-account">
+      <div class="login-container-wrapper">
         <h5 class="">Don't have an account yet?</h5>
         <a href="{{ routes.account_register_url }}">
           {{ 'customer.login_page.create_account' | t }}
