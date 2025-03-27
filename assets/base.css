@@ -223,7 +223,7 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     line-height: normal;
     max-width: 200px;
     text-align: center;
-    border-radius: 10px;
+    border-radius: 4px;
     font-size: 18px;
     font-weight: 700;
     color: white;
