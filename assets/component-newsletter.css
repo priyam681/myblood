@@ -85,6 +85,10 @@
   .footer-block__newsletter {
         padding: 5rem 1.5rem;
   }
+  .newsletter-form__field-wrapper .field {
+       flex-wrap: wrap; 
+  }
+  
  .footer-block__newsletter .footer-block__heading {
     font-size: 24px;
   }
@@ -108,8 +112,8 @@
       position: relative;
       display: flex;
       justify-content: space-between;
-    align-items: center;
-    font-weight:800;
+      align-items: center;
+      font-weight:800;
 }
 
 /* Chevron after the heading */
@@ -140,12 +144,19 @@
         margin: 0 20px;
   } */
  .newsletter-form__field-wrapper .field__input {
-        max-height: 44px;
+        max-height: 46px;
   }
   .newsletter-form__button.field__button {
-        max-height: 42px;
-        padding: 13px 21px;
+        max-height: 46px;
+        padding: 15px 21px;
+        width: 100%;
+        max-width: 100%;
   }
+  .newsletter-form__field-wrapper .field input {
+    max-width: 100%;
+    min-width: 100%;
+    margin: 0;
+}
    .privacy-policy-section {
         margin-top: 0;
   }
