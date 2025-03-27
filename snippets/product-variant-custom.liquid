@@ -1,0 +1,433 @@
+<style>
+    .product-form__input--swatch{
+        display:flex;
+        flex-wrap: wrap;
+        gap:0.6reml
+        margin-bottom:1.5rem;
+        border:none;
+        padding:0;
+    }
+
+    .product-form__input--swatch legend.form__label{
+          display:block;
+          margin-bottom:0.8rem;
+          font-weight:500;
+          font-size:1rem;
+          with:100%;
+      }
+
+      .product-form__input--swatch input[type="radio"]{
+          position:absolute;
+          opacity:0;
+          width:0;
+          height:0;
+          padding:0;
+      }
+
+      .swatch{
+          position:relative;
+          display:inline-block;
+          height:3rem;
+          width:3rem;
+          border-radius:50%;
+          border:1px solid rgba(var(--color-foreground), 0.1);
+          cursor:pointer;
+          transition:transform 0.2s ease-in-out;
+      }
+
+      .swatch--square{
+          border-radius:0.4rem;
+      }
+
+      .swatch--color{
+          background-size:cover;
+          background-position:center;
+      }
+
+      .swatch--image{
+          background-size:cover;
+          background-position:center;
+      }
+
+      input[type="radio"]:checked + .swatch{
+          box-shadow:0 0 0 0.2rem var(--color-base-accent-1);
+          transform:scale(1.05);
+      }
+
+      .swatch:hover{
+          transform:scale(1.05);
+      }
+
+      .input[type="radio"]:disabled + .swatch{
+          opacity:0.5;
+          cursor:not-allowed;
+      }
+
+      .visually-hidden{
+          position:absolute;
+          width:1px;
+          height:1px;
+          margin:-1px;
+          padding:0;
+          overflow:hidden;
+          clip:rect(0,0,0,0);
+          border:0;
+      }
+
+      .variant-plus-icon{
+          display:none;
+          margin-left:auto;
+          cursor:pointer;
+      }
+
+      @media screen and (max-width:749px){
+          .variant-plus-icon{
+              display:block;
+          }
+      }
+
+      .product-form__input--dropdown{
+          max-width:25rem;
+          margin-bottom:1.5rem;
+      }
+
+      .product-form__input--dropdown .select {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .product-form__input--dropdown .select__select {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 100%;
+    padding: 0.8rem 3rem 0.8rem 1rem;
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+    border-radius: 0.4rem;
+    background-color: transparent;
+    font-size: 1rem;
+    cursor: pointer;
+  }
+
+  .product-form__input--dropdown .svg-wrapper {
+    position: absolute;
+    right: 1rem;
+    pointer-events: none;
+  }
+
+  / Dropdown swatch preview /
+  .dropdown-swatch {
+    display: inline-flex;
+    align-items: center;
+    position: absolute;
+    left: 1rem;
+    z-index: 1;
+  }
+
+  .dropdown-swatch .swatch {
+    height: 2rem;
+    width: 2rem;
+    margin-right: 0.5rem;
+  }
+
+  / Button/pill style variant selectors /
+  .product-form__input--pill {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    border: none;
+    padding: 0;
+  }
+
+  .product-form__input--pill legend.form__label {
+    display: block;
+    margin-bottom: 0.8rem;
+    font-weight: 500;
+    font-size: 1rem;
+    width: 100%;
+  }
+
+  .product-form__input--pill input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  .product-form__input--pill label {
+    display: inline-block;
+    padding: 0.6rem 1.2rem;
+    border: 1px solid rgba(var(--color-foreground), 0.1);
+    border-radius: 2rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+  }
+
+  .product-form__input--pill input[type="radio"]:checked + label {
+    background-color: var(--color-base-accent-1);
+    color: rgb(var(--color-base-background-1));
+    border-color: var(--color-base-accent-1);
+  }
+
+  .product-form__input--pill label:hover {
+    border-color: rgba(var(--color-foreground), 0.3);
+  }
+
+  .product-form__input--pill input[type="radio"].disabled + label {
+    opacity: 0.5;
+    cursor: not-allowed;
+    text-decoration: line-through;
+  }
+</style>
+
+{% liquid
+  assign product_form_id = 'product-form-' | append: section.id
+%}
+
+{% unless product.has_only_default_variant %}
+  {% for option in product.options_with_values %}
+    {%- liquid
+      assign swatch_count = option.values | map: 'swatch' | compact | size
+      assign picker_type = block.settings.picker_type
+
+      if swatch_count > 0 and block.settings.swatch_shape != 'none'
+        if block.settings.picker_type == 'dropdown'
+          assign picker_type = 'swatch_dropdown'
+        else
+          assign picker_type = 'swatch'
+        endif
+      endif
+    -%}
+
+    {%- if picker_type == 'swatch' -%}
+      <fieldset class="js product-form__input product-form__input--swatch">
+        <legend class="form__label">
+          {{ option.name }}:
+          <span data-selected-value>
+            {{- option.selected_value -}}
+          </span>
+        </legend>
+
+        {% for value in option.values %}
+          {% liquid
+            assign swatch_focal = null
+            if value.swatch.image
+              assign image_url = value.swatch.image | image_url: width: 50
+              assign swatch_value = 'url(' | append: image_url | append: ')'
+              assign swatch_focal_point = value.swatch.image.presentation.focal_point
+            elsif value.swatch.color
+              assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')'
+            else
+              assign swatch_value = null
+            endif
+
+            assign option_disabled = true
+            if value.available
+              assign option_disabled = false
+            endif
+          %}
+
+          {%- capture input_id -%}
+                        {{ section.id }}-{{ product.id }}-{{ option.position }}-{{- forloop.index0 -}}
+                    {% endcapture %}
+          {%- capture input_name -%}
+                        {{ product.id }}-{{ option.name }}-{{ option.position }}
+                    {%- endcapture -%}
+
+          {%- capture input_dataset -%}
+                        data-product-url="{{ value.product_url }}"
+                        data-option-value-id="{{ value.id }}"
+                        data-product-id="{{ product.id }}"
+                    {% endcapture %}
+
+          {% capture label_unavailable %}
+                        <span class="visually-hidden label-unavailable">
+                            {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
+                        </span>
+                    {% endcapture %}
+
+          {%- capture help_text -%}
+                        <span class="visually-hidden">{{ value | escape }}</span>
+                        {{ label_unavailable }}
+                    {% endcapture %}
+
+          {%
+            render 'swatch-input',
+            id: input_id,
+            name: input_name,
+            value: value | escape,
+            swatch: value.swatch,
+            product_form_id: product_form_id,
+            checked: value.selected,
+            visually_disabled: option_disabled,
+            shape: block.settings.swatch_shape,
+            help_text: help_text,
+            additional_props: input_dataset
+          %}
+        {% endfor %}
+        <img src="{{ 'cross.svg' | asset_url }}" alt="plus" width="24" height="24" class="variant-plus-icon">
+      </fieldset>
+
+    {% elsif picker_type == 'button' %}
+      <fieldset class="js product-form__input product-form__input--pill">
+        <legend class="form__label">
+          {{ option.name }}
+        </legend>
+
+        {% for value in option.values %}
+          {% liquid
+            assign swatch_focal = null
+            if value.swatch.image
+              assign image_url = value.swatch.image | image_url: width: 50
+              assign swatch_value = 'url(' | append: image_url | append: ')'
+              assign swatch_focal_point = value.swatch.image.presentation.focal_point
+            elsif value.swatch.color
+              assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')'
+            else
+              assign swatch_value = null
+            endif
+
+            assign option_disabled = true
+            if value.available
+              assign option_disabled = false
+            endif
+          %}
+
+          {%- capture input_id -%}
+                        {{ section.id }}-{{ product.id }}-{{ option.position }}-{{- forloop.index0 -}}
+                    {% endcapture %}
+          {%- capture input_name -%}
+                        {{ product.id }}-{{ option.name }}-{{ option.position }}
+                    {%- endcapture -%}
+
+          {%- capture input_dataset -%}
+                        data-product-url="{{ value.product_url }}"
+                        data-option-value-id="{{ value.id }}"
+                        data-product-id="{{ product.id }}"
+                    {% endcapture %}
+
+          {% capture label_unavailable %}
+                        <span class="visually-hidden label-unavailable">
+                            {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
+                        </span>
+                    {% endcapture %}
+
+          <input
+            autocomplete="off"
+            type="radio"
+            id="{{ input_id }}"
+            name="{{ input_name | escape }}"
+            value="{{ value | escape }}"
+            form="{{ product_form_id }}"
+            {% if value.selected %}
+              checked
+            {% endif %}
+            {% if option_disabled %}
+              disabled
+            {% endif %}
+            {% if option_disabled %}
+              class="disabled"
+            {% endif %}
+            {{ input_dataset }}
+          >
+          <label for="{{ input_id }}">
+            {{ value -}}
+            {% if option_disabled %}{{ label_unavailable }}{% endif %}
+          </label>
+        {% endfor %}
+        <img src="{{ 'cross.svg' | asset_url }}" alt="plus" width="24" height="24" class="variant-plus-icon">
+      </fieldset>
+
+    {% else %}
+      <div class="product-form__input product-form__input--dropdown">
+        <label class="form__label" for="Option-{{ section.id }}-{{ product.id }}-{{ forloop.index0 }}">
+          {{ option.name }}
+        </label>
+        <div class="select">
+          {% if picker_type == 'swatch_dropdown' %}
+            <span data-selected-value class="dropdown-swatch">
+              {% render 'swatch', swatch: option.selected_value.swatch, shape: block.settings.swatch_shape %}
+            </span>
+          {% endif %}
+          <select
+            id="Option-{{ section.id }}-{{ product.id }}-{{ forloop.index0 }}"
+            class="select__select"
+            name="options[{{ option.name | escape }}]"
+            form="{{ product_form_id }}"
+            data-product-id="{{ product.id }}"
+          >
+            {% for value in option.values %}
+              {% liquid
+                assign swatch_focal = null
+                if value.swatch.image
+                  assign image_url = value.swatch.image | image_url: width: 50
+                  assign swatch_value = 'url(' | append: image_url | append: ')'
+                  assign swatch_focal_point = value.swatch.image.presentation.focal_point
+                elsif value.swatch.color
+                  assign swatch_value = 'rgb(' | append: value.swatch.color.rgb | append: ')'
+                else
+                  assign swatch_value = null
+                endif
+
+                assign option_disabled = true
+                if value.available
+                  assign option_disabled = false
+                endif
+              %}
+
+              {%- capture input_id -%}
+                                {{ section.id }}-{{ product.id }}-{{ option.position }}-{{- forloop.index0 -}}
+                            {% endcapture %}
+              {%- capture input_name -%}
+                                {{ product.id }}-{{ option.name }}-{{ option.position }}
+                            {%- endcapture -%}
+
+              {%- capture input_dataset -%}
+                                data-product-url="{{ value.product_url }}"
+                                data-option-value-id="{{ value.id }}"
+                                data-product-id="{{ product.id }}"
+                            {% endcapture %}
+
+              {% capture label_unavailable %}
+                                <span class="visually-hidden label-unavailable">
+                                    {{- 'products.product.variant_sold_out_or_unavailable' | t -}}
+                                </span>
+                            {% endcapture %}
+
+              <option
+                id="{{ input_id }}"
+                value="{{ value | escape }}"
+                {% if value.selected %}
+                  selected="selected"
+                {% endif %}
+                {% if swatch_value and swatch_focal_point %}
+                  data-swatch-focal-point="{{ swatch_focal_point }}"
+                  data-swatch-value="{{ swatch_value }}"
+                {% endif %}
+                {% if option_disabled %}
+                  disabled
+                {% endif %}
+                {{ input_dataset }}
+              >
+                {% if option_disabled %}
+                  {{- 'products.product.value_unavailable' | t: option_value: value -}}
+                {% else %}
+                  {{- value -}}
+                {% endif %}
+              </option>
+            {% endfor %}
+          </select>
+          <span class="svg-wrapper">
+            {{- 'icon-caret.svg' | inline_asset_content -}}
+          </span>
+        </div>
+      </div>
+    {% endif %}
+  {% endfor %}
+
+  <script type="application/json" data-selected-variant>
+    {{ product.selected_or_first_available_variant | json }}
+  </script>
+{% endunless %}

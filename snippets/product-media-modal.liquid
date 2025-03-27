@@ -52,7 +52,7 @@
               <div class="product-modal-main-image">
                 {% if product.selected_or_first_available_variant.featured_media != null %}
                   {% assign media = product.selected_or_first_available_variant.featured_media %}
-                  <div data-media-id="{{ media.id }}" class="product-modal-media-container">
+                  <div data-media-id="{{ media.id }}" class="product-modal-media-container sp-zoom-img">
                     {% render 'product-media',
                       media: media,
                       loop: section.settings.enable_video_looping,
@@ -70,7 +70,7 @@
                         assign variant_image = false
                       endif
                     %}
-                    <div data-media-id="{{ media.id }}" class="product-modal-media-container hidden">
+                    <div data-media-id="{{ media.id }}" class="product-modal-media-container sp-zoom-img hidden">
                       {% render 'product-media',
                         media: media,
                         loop: section.settings.enable_video_looping,
@@ -174,17 +174,35 @@
   </product-modal>
 {% endif %}
 
-{% if single_zoom_image %}
-  <style>
-    .product-modal-thumbnails {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 20px;
-      justify-content: center;
-    }
 
-    .product-modal-thumbnail {
+  <style>
+    .sp-quick-view-container .product-media-modal__content > *:not(.active), .product__media-list .deferred-media{
+      display: block;
+    }
+    .sp-zoom-img {
+      height: 600px;
+      object-fit: cover;
+    }
+    .sp-zoom-img img {
+      height: 600px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .sp-quick-view-container .product-modal-thumbnails {
+      display: flex;
+      gap: 10px;
+      justify-content: center;
+      margin: 20px 20px 0;
+      overflow: auto;
+    }
+    .sp-quick-view-container .product-modal-thumbnail:first-child {
+      margin-left: 70px;
+    }
+    .sp-quick-view-container .product-modal-thumbnail:last-child {
+      margin-right: 5px;
+    }
+    .sp-quick-view-container .product-modal-thumbnail {
+      min-width: 60px;
       width: 60px;
       height: 60px;
       border: 1px solid #e8e8e8;
@@ -216,8 +234,28 @@
       justify-content: center;
       align-items: center;
       width: 100%;
+      overflow: hidden;
     }
-
+    @media screen and (min-width: 749px) {
+      .sp-product-zoom-media button.product-modal-nav-button.product-modal-prev {
+        transform: rotate(0deg);
+      }
+      .product-media-modal__content{
+        overflow: hidden;
+      }
+      .sp-quick-view-container .product-modal-thumbnails {
+        max-width: 749px;
+        margin: 20px auto 0;
+      }
+      {% comment %} .product-modal-thumbnails::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Hide scrollbar for IE, Edge and Firefox */
+      .product-modal-thumbnails {
+        -ms-overflow-style: none;  /* IE and Edge */
+        scrollba
+    } {% endcomment %}
     / Mobile-specific styles /
     @media screen and (max-width: 749px) {
       .product-modal-thumbnails {
@@ -297,4 +335,3 @@
       transform: rotate(-90deg);
     }
   </style>
-{% endif %}

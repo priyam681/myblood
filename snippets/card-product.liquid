@@ -28,6 +28,7 @@
   {{ 'quick-order-list.css' | asset_url | stylesheet_tag }}
   {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {%- endunless -%}
+<script src="{{ 'product-swatch.js' | asset_url }}"></script>
 
 <style>
   .variant-options {
@@ -388,7 +389,7 @@
               class="full-unstyled-link"
               aria-labelledby="StandardCardNoMediaLink-{{ section_id }}-{{ card_product.id }} NoMediaStandardBadge-{{ section_id }}-{{ card_product.id }}"
             >
-              <div class="product__slider-wrapper">
+              <div class="card__media product__slider-wrapper">
                 {% for media in card_product.media limit: 4 %}
                   <div class="product__slider-item {% if forloop.first %}active{% endif %}">
                     {% if media.media_type == 'image' %}
@@ -550,8 +551,7 @@
             <script type="application/json" data-variants>
               {{ card_product | json }}
             </script>
-
-            {% render 'product-varients', product: card_product, block: block, product_form_id: product_form_id %}
+            {% render 'product-variant-custom', product: card_product, block: block, product_form_id: product_form_id %}
           </product-swatch>
 
           <div class="card-information">

@@ -82,9 +82,9 @@ if (!customElements.get('custom-modal')) {
 
 }
 
-document.getElementById('open-modal').addEventListener('click', () => {
+document.getElementById('open-modal')?.addEventListener('click', () => {
     document.getElementById('modal-1').open();
 });
-document.getElementById('open-modal-2').addEventListener('click', () => {
+document.getElementById('open-modal-2')?.addEventListener('click', () => {
     document.getElementById('modal-2').open();
 });
