@@ -1,15 +1,50 @@
 {%- style -%}
-  .thank-you-page {
-         width: 90%;
-         max-width: 460px;
-         margin: 30px auto auto;
-         padding: 20px;
-         gap: 5rem;
-         background: #fff;
-         box-shadow: #63636333 0 2px 8px;
-         border-radius: 5px;
-         text-align: center;
-   }
+    .thank-you-page {
+           width: 90%;
+           max-width: 460px;
+           margin: 30px auto auto;
+           padding: 20px;
+           gap: 5rem;
+           background: #fff;
+           box-shadow: #63636333 0 2px 8px;
+           border-radius: 5px;
+           text-align: center;
+     }
+    .thank-you-page h1 {
+       font-family: 'Kaushan Script', cursive;
+    font-size:4em;
+    letter-spacing:3px;
+    color:#5892FF ;
+      color: #44ca91;
+    margin:0;
+    margin-bottom:20px;
+    }
+    .thank-you-page h4 {
+      margin: 0;
+      font-size: 1.3em;
+      margin-bottom: 14px;
+      color: #3e3e3e;
+      font-family: 'Source Sans Pro', sans-serif;
+      letter-spacing: 1px;
+  }
+  .thank-you-page p {
+      margin: 0;
+      color: #5f5f5f;
+      font-family: 'Source Sans Pro', sans-serif;
+      letter-spacing: 1px;
+      font-size: 18px;
+  }
+  .thank-you-page .go-home {
+    color:#fff;
+    background:#5892FF;
+    background: #44ca90;
+    border:none;
+    padding:10px 50px;
+    margin:30px 0;
+    border-radius:30px;
+    text-transform:capitalize;
+    box-shadow: 0 10px 16px 1px rgba(174, 199, 251, 1);
+  }
 {%- endstyle -%}
 <div class="thank-you-page">
   <h1>Thank you !</h1>
@@ -19,5 +54,5 @@
     @sprinix-kart.myshopify.com so that you do not miss out on important future correspondence.
   </p>
 
-  <a href="/">Go Back</a>
+  <a href="/" class="go-home">Go Back</a>
 </div>
