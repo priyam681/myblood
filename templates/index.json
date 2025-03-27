@@ -224,8 +224,8 @@
         "collection-1"
       ],
       "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
+        "heading": "<strong>Latest Product</strong>",
+        "heading_size": "h1",
         "desktop_layout": "left",
         "mobile_layout": "collage",
         "card_styles": "none",
