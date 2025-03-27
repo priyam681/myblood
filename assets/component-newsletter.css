@@ -142,6 +142,12 @@
         max-height: 42px;
         padding: 13px 21px;
   }
+   .privacy-policy-section {
+        margin-top: 0;
+  }
+  .newsletter-form {
+    margin-top: 13px;
+  }
 }
 .newsletter-form__field-wrapper .field:before,
 .newsletter-form__field-wrapper .field:after {
