@@ -94,7 +94,7 @@
  .footer__blocks-wrapper .footer-block-menu {
     margin:0;
   }
-  .footer-block-menu {
+  .footer-block-menu:not(:last-child) {
     border-bottom: 1px solid #d4d4d4;
 }
   .footer-block-heading-link {
