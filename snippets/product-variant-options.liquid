@@ -16,6 +16,7 @@
     picker_type: picker_type
   %}
 {% endcomment %}
+
 {%- liquid
   assign product_form_id = 'product-form-' | append: section.id
 -%}
@@ -76,6 +77,7 @@
       help_text: help_text,
       additional_props: input_dataset
     %}
+
   {%- elsif picker_type == 'button' -%}
     <input
       type="radio"
@@ -118,3 +120,5 @@
     </option>
   {%- endif -%}
 {%- endfor -%}
+
+

@@ -56,6 +56,24 @@
   opacity: 0;
   transition: 0.5s;
 }
+@media screen and (max-width: 750px)  {
+  .sp-card-inner .sp-btn-wrapper .quick-add__submit,
+  .sp-card-inner .sp-btn-wrapper .quick-add__submit img {
+    min-height: 16px;
+    min-width: 16px;
+  }
+  .sp-card-inner .sp-btn-wrapper .quick-add__submit span,
+  .sp-card-inner .sp-btn-wrapper .quick-add__submit span svg {
+    height: 16px;
+    width: 16px;
+    display: flex;
+  }
+  .sp-card-inner .sp-btn-wrapper {
+    z-index: 1;
+    opacity: 1;
+    bottom: 0;
+  }
+}
 .quick-add.sp-hover-cart {
   position: absolute;
 }

@@ -12,16 +12,15 @@
     "main": {
       "type": "main-product",
       "blocks": {
+        "vendor": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase"
+          }
+        },
         "title": {
           "type": "title",
-          "settings": {}
-        },
-        "price": {
-          "type": "price",
-          "settings": {}
-        },
-        "description": {
-          "type": "description",
           "settings": {}
         },
         "caption": {
@@ -30,6 +29,10 @@
             "text": "{{ product.metafields.descriptors.subtitle.value }}",
             "text_style": "subtitle"
           }
+        },
+        "price": {
+          "type": "price",
+          "settings": {}
         },
         "variant_picker": {
           "type": "variant_picker",
@@ -42,10 +45,6 @@
           "type": "quantity_selector",
           "settings": {}
         },
-        "rating_xyTk6d": {
-          "type": "rating",
-          "settings": {}
-        },
         "buy_buttons": {
           "type": "buy_buttons",
           "settings": {
@@ -53,36 +52,63 @@
             "show_gift_card_recipient": true
           }
         },
-        "text_with_link_pFh6ai": {
-          "type": "text_with_link",
+        "description": {
+          "type": "description",
+          "settings": {}
+        },
+        "collapsible-row-0": {
+          "type": "collapsible_tab",
           "settings": {
-            "text_with_link": "<p>Share information about your brand with your customers.<a href=\"https://www.sprinix.com/\" title=\"https://www.sprinix.com/\">sprinix</a></p>"
+            "heading": "Materials",
+            "icon": "leather",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible-row-1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping & Returns",
+            "icon": "truck",
+            "content": "",
+            "page": ""
+          }
+        },
+        "collapsible-row-2": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Dimensions",
+            "icon": "ruler",
+            "content": "",
+            "page": ""
           }
         }
       },
       "block_order": [
+        "vendor",
         "title",
-        "price",
-        "description",
         "caption",
+        "price",
         "variant_picker",
         "quantity_selector",
-        "rating_xyTk6d",
         "buy_buttons",
         "text_with_link_pFh6ai"
       ],
       "settings": {
         "enable_sticky_info": true,
+        "sp-media-gallery-container": true,
+        "initial_media_count": 4,
+        "load_more_count": 3,
         "color_scheme": "",
-        "media_size": "small",
+        "media_size": "large",
         "constrain_to_viewport": true,
-        "media_fit": "contain",
-        "gallery_layout": "thumbnail_slider",
+        "media_fit": "cover",
+        "gallery_layout": "stacked",
         "media_position": "left",
         "image_zoom": "lightbox",
-        "mobile_thumbnails": "show",
+        "mobile_thumbnails": "hide",
         "hide_variants": true,
-        "enable_video_looping": true,
+        "enable_video_looping": false,
         "padding_top": 36,
         "padding_bottom": 12
       }

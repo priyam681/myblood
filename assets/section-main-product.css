@@ -1,6 +1,42 @@
 product-info {
   display: block;
 }
+.sp-product-zoom-container .sp-product-zoom-media .product-modal-nav-arrows {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+}
+.sp-product-zoom-container .product-modal-thumbnails {
+  display: flex !important;
+  overflow: hidden;
+  gap: 0.5rem;
+}
+.sp-product-zoom-media button.product-modal-nav-button {
+  border: none;
+  --tw-shadow: 0px 1px 11px 0px #c8c2c2;
+  --tw-shadow-colored: 0px 1px 11px 0px var(--tw-shadow-color);
+  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
+  border-radius: 9999px;
+  background: transparent;
+  transform: rotate(90deg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  aspect-ratio: 1;
+  margin: 0 10px;
+}
+.sp-product-zoom-container button.product-modal-thumbnail.media-fit-cover {
+  border: 0;
+  padding: 0;
+}
+.sp-product-zoom-container button.product-modal-thumbnail.media-fit-cover.active {
+border: 0.1rem solid rgb(var(--color-foreground));
+}
+.sp-product-zoom-container .product-modal-thumbnail img {
+  height: 100%;
+  object-fit: cover;
+}
 .sp-quick-view-container quick-add-modal .sp-quick-modal .product__title h1,
 .sp-quick-view-container quick-add-modal .sp-quick-modal .product__title .h1 {
   font-size: 24px;
@@ -572,6 +608,14 @@ a.product__text {
 }
 
 @media screen and (min-width: 990px) {
+  /* .custm-gallery-image:nth-child(5n+10), .custm-gallery-image:nth-child(5n+3), .custm-gallery-image:nth-child(5n+4), .custm-gallery-image:nth-child(5n+5), .custm-gallery-image:nth-child(5n+8), .custm-gallery-image:nth-child(5n+9) {
+    width: 32%;
+} */
+.product--stacked .sp-media-gallery .product__media-item:nth-child(5n+2),
+.product--stacked .sp-media-gallery .product__media-item:nth-child(5n+3),
+.product--stacked .sp-media-gallery .product__media-item:nth-child(5n+4)  {
+  max-width: calc(33% - var(--grid-desktop-horizontal-spacing) / 2);
+  }
   .product--stacked .product__media-item {
     max-width: calc(50% - var(--grid-desktop-horizontal-spacing) / 2);
   }
