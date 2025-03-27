@@ -169,7 +169,7 @@
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
-        "title": "Featured products",
+        "title": "<strong>Featured products</strong>",
         "heading_size": "h2",
         "description": "",
         "show_description": false,
@@ -225,7 +225,7 @@
       ],
       "settings": {
         "heading": "<strong>Latest Product</strong>",
-        "heading_size": "h1",
+        "heading_size": "h2",
         "desktop_layout": "left",
         "mobile_layout": "collage",
         "card_styles": "none",
