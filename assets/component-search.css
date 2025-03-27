@@ -1,3 +1,9 @@
+.search__button.field__button {
+    position: absolute;
+    top: 50%;
+    transform: translate(-10px, -50%);
+    border: none;
+}
 .search__input.field__input {
   padding-right: 9.8rem;
 }
