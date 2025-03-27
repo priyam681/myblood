@@ -596,6 +596,11 @@ table:not([class]) th {
     display: none !important;
   }
 }
+@media screen and (max-width: 749px) {
+    .link-btn a {
+      max-width: 119px;
+  }
+}
 
 @media screen and (min-width: 750px) and (max-width: 989px) {
   .medium-hide {
