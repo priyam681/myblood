@@ -20,7 +20,7 @@
 
 .newsletter-form__field-wrapper .field__input {
     padding-right: 5rem;
-    max-height: 54px;
+    max-height: 50px;
     padding: 15px;
     height: 100%;
     color:black;
@@ -28,12 +28,12 @@
 }
 
 .newsletter-form__button.field__button {
-    padding: 20px 21px;
+    padding: 16px 21px;
     min-height: 8px;
     border: none;
     background: black;
     color: #fff;
-    max-height: 54px;
+    max-height: 50px;
     border-radius: 6px;
     max-width: 107px;
 }
