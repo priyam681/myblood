@@ -603,6 +603,12 @@ table:not([class]) th {
       min-width: 161px;
       text-align: center
   }
+  .privacy-policy-section {
+        margin-top: 0;
+  }
+  .newsletter-form {
+    margin-top: 13px;
+  }
 }
 
 @media screen and (min-width: 750px) and (max-width: 989px) {
