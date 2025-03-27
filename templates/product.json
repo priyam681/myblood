@@ -91,8 +91,7 @@
         "price",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons",
-        "text_with_link_pFh6ai"
+        "buy_buttons"
       ],
       "settings": {
         "enable_sticky_info": true,
