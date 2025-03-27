@@ -12,7 +12,7 @@
     "slideshow_fFBCHt": {
       "type": "slideshow",
       "blocks": {
-        "slide_HCrC9i": {
+        "slide_dzArDe": {
           "type": "slide",
           "settings": {
             "heading": "Image slide",
@@ -33,7 +33,7 @@
         }
       },
       "block_order": [
-        "slide_HCrC9i"
+        "slide_dzArDe"
       ],
       "settings": {
         "layout": "full_bleed",
