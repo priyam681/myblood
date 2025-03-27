@@ -25,7 +25,7 @@
           "settings": {
             "picker_type": "button",
             "swatch_display": "first_swatch",
-            "selector_mode": true
+            "selector_mode": false
           }
         }
       },
