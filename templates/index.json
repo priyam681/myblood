@@ -31,10 +31,31 @@
             "color_scheme": "scheme-3",
             "text_alignment_mobile": "center"
           }
+        },
+        "slide_bXxqh3": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/banner2.webp",
+            "heading": "<strong>Designed for adventure</strong>",
+            "heading_size": "h1",
+            "subheading": "Tell your brand's story through images",
+            "button_label": "New in ",
+            "link": "shopify://collections/accessories",
+            "button_label2": "Winter Sale ",
+            "link2": "shopify://collections/loungesets",
+            "button_style_secondary": false,
+            "box_align": "middle-center",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 40,
+            "color_scheme": "scheme-3",
+            "text_alignment_mobile": "center"
+          }
         }
       },
       "block_order": [
-        "slide_dzArDe"
+        "slide_dzArDe",
+        "slide_bXxqh3"
       ],
       "settings": {
         "layout": "full_bleed",
