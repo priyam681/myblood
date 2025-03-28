@@ -270,7 +270,7 @@
         "collection-1"
       ],
       "settings": {
-        "heading": "<strong>Latest Product</strong>",
+        "heading": "<strong>Our Latest Arrivals</strong>",
         "heading_size": "h2",
         "desktop_layout": "left",
         "mobile_layout": "collage",
