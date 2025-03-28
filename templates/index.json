@@ -15,19 +15,20 @@
         "slide_dzArDe": {
           "type": "slide",
           "settings": {
-            "heading": "Image slide",
+            "image": "shopify://shop_images/banner1.webp",
+            "heading": "<strong>Designed for adventure</strong>",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
-            "button_label": "Button label",
-            "link": "",
-            "button_label2": "button_label2",
-            "link2": "",
+            "button_label": "New in",
+            "link": "shopify://collections/chair",
+            "button_label2": "Winter Sale ",
+            "link2": "shopify://products/5-panel-hat",
             "button_style_secondary": false,
             "box_align": "middle-center",
-            "show_text_box": true,
-            "text_alignment": "center",
-            "image_overlay_opacity": 0,
-            "color_scheme": "scheme-1",
+            "show_text_box": false,
+            "text_alignment": "left",
+            "image_overlay_opacity": 10,
+            "color_scheme": "scheme-3",
             "text_alignment_mobile": "center"
           }
         }
