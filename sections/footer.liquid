@@ -300,7 +300,6 @@
                       {%- endif -%}
                     </div>
                   {%- when 'image' -%}
-                    {{ block.settings.richtext }}
                     <div class="footer-block__details-content footer-block-image {{ block.settings.alignment }}">
                       {%- if block.settings.image != blank -%}
                         {%- assign image_size_2x = block.settings.image_width | times: 2 | at_most: 5760 -%}
@@ -322,6 +321,7 @@
                         {{ 'image' | placeholder_svg_tag: 'placeholder-svg placeholder' }}
                       {%- endif -%}
                     </div>
+                    {{ block.settings.richtext }}
                 {%- endcase -%}
               </div>
             {%- endfor -%}
