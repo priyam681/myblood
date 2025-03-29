@@ -18,7 +18,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/sprinix-kart_3.svg",
-            "richtext": "<p><strong>3rd Floor, M-1/64 Sector-B,Kapoorthala, Aliganj, Lucknow</strong></p>",
+            "richtext": "<p><strong>3rd Floor, M-1/64 Sector-B, Kapoorthala, Aliganj, Lucknow</strong></p>",
             "image_width": 135,
             "accept_privacy_policy": true,
             "alignment": ""
