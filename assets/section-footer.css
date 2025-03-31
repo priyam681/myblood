@@ -9,6 +9,7 @@
 .footer__content-top {
   padding-block: 5rem;
   display: block;
+  min-height: 350px;
 }
 
 a.link.link--text.list-menu__item:hover {
