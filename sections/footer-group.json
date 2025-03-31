@@ -34,7 +34,7 @@
         "footer-0": {
           "type": "link_list",
           "settings": {
-            "heading": "<strong>Quick links</strong>",
+            "heading": "<strong>About</strong>",
             "menu": "footer"
           }
         },
