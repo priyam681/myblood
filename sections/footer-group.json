@@ -35,7 +35,7 @@
           "type": "link_list",
           "settings": {
             "heading": "<strong>About</strong>",
-            "menu": "footer"
+            "menu": "footer-about"
           }
         },
         "footer-1": {
