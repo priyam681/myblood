@@ -216,6 +216,7 @@
       "type": "featured-collection",
       "settings": {
         "title": "<strong>Featured products</strong>",
+        "variant": true,
         "heading_size": "h2",
         "description": "",
         "show_description": false,
