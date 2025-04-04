@@ -12,7 +12,6 @@
 
     function updateDetailsBehavior() {
       const isMobile = window.innerWidth < 769;
-
       detailsElements.forEach(details => {
         if (isMobile) {
           details.removeAttribute('open'); // Ensure closed by default on mobile
@@ -20,6 +19,12 @@
         } else {
           details.setAttribute('open', 'true'); // Open by default on desktop
           details.querySelector('summary').style.pointerEvents = 'none'; // Disable toggling
+        }
+      });
+      detailsElements.forEach(details => {
+        if (!isMobile) {
+          details.setAttribute('open'); // Ensure closed by default on mobile
+          details.querySelector('summary').style.pointerEvents = 'auto'; // Enable toggling
         }
       });
     }
