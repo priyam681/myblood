@@ -1,4 +1,4 @@
-if (typeof ProductMediaLoadMore === 'undefined') {
+
   if (!customElements.get('product-media-load-more')) {
     class ProductMediaLoadMore extends HTMLElement {
       constructor() {
@@ -76,4 +76,3 @@ if (typeof ProductMediaLoadMore === 'undefined') {
       }
     }
   }
-}
