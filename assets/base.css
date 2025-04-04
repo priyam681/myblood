@@ -4361,7 +4361,7 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
   cursor: pointer;
   transition: background-color 0.2s ease;
   position: absolute;
-  z-index: -1;
+  /* z-index: -1; */
 }
 
 .sp-quantity-click .quantity__button:hover {
