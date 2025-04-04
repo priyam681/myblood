@@ -170,8 +170,8 @@
       "type": "related-products",
       "settings": {
         "heading": "You may also like",
-        "variant": false,
-        "quick_add": "none",
+        "variant": true,
+        "quick_add": "standard",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
