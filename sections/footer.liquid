@@ -5,6 +5,31 @@
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 
+ <script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    const detailsElements = document.querySelectorAll('.footer-dropdown');
+    const summaryElements = document.querySelectorAll('.footer-dropdown .footer-block__heading');
+
+    function updateDetailsBehavior() {
+      const isMobile = window.innerWidth < 769;
+
+      detailsElements.forEach((detailsElement) => {
+        if (isMobile) {
+          detailsElement.removeAttribute('open'); // Close on mobile
+        } else {
+          detailsElement.setAttribute('open', 'true'); // Open on desktop
+        }
+      });
+
+      summaryElements.forEach((summary) => {
+        summary.style.pointerEvents = isMobile ? '' : 'none'; // Clickable on mobile only
+      });
+    }
+
+    updateDetailsBehavior();
+    window.addEventListener('resize', updateDetailsBehavior);
+  });
+</script>
 
 {%- style -%}
     @media (min-width: 768px) {
