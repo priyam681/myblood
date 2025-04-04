@@ -4369,6 +4369,11 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
     flex-wrap: nowrap;
 }
 
+.sp-quick-view-container quick-add-modal .quick-add-hidden, 
+.sp-quick-view-container quick-add-modal .product__modal-opener:not(.product__modal-opener--image),
+.sp-quick-view-container quick-add-modal .product__media-item:not(:first-child) {
+  display: block !important;
+}
 .sp-quantity-click .quantity__button:hover {
   background-color: #e0e0e0;
 }
