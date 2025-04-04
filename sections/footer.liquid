@@ -9,35 +9,41 @@
   document.addEventListener('DOMContentLoaded', function () {
     const detailsElements = document.querySelectorAll('.footer-dropdown');
 
-
-    function updateDetailsBehavior(){
-      const size = window.innerWidth;
-     
-      
-      if (size > 768){
-        console.log(size);
-         console.log("if");
-        detailsElements.forEach(el => el.setAttribute('open', true));
-      }
-
-      if (size < 768){
-        console.log(size);
-         console.log("else");
-        detailsElements.forEach(el => el.removeAttribute('open'));
-      }
+    // Debounce function to limit the rate at which a function can fire
+    function debounce(func, wait) {
+      let timeout;
+      return function (...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+      };
     }
 
-    updateDetailsBehavior();
+    // Function to update details behavior based on screen size
+    function updateDetailsBehavior() {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+      detailsElements.forEach((el) => {
+        if (isMobile) {
+          el.removeAttribute('open');
+        } else {
+          el.setAttribute('open', 'true');
+        }
+      });
+    }
+
     // Initial check
+    updateDetailsBehavior();
 
-     window.addEventListener('pageshow', updateDetailsBehavior)
-    // Update on window resize
-    window.addEventListener('resize', updateDetailsBehavior);
-   
+    // Debounced resize event listener
+    const debouncedUpdate = debounce(updateDetailsBehavior, 200);
+    window.addEventListener('resize', debouncedUpdate);
+
+    // pageshow event listener
+    window.addEventListener('pageshow', updateDetailsBehavior);
   });
-
-  
 </script>
+
 
 
 
