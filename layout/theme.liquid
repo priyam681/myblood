@@ -41,7 +41,7 @@
        
       document.addEventListener('DOMContentLoaded', (e) => {
         e.preventDefault();
-        console.log("test")
+        
         const detailsElements = document.querySelectorAll('.footer-dropdown');
         const summaryElement = document.querySelectorAll('.footer-dropdown .footer-block__heading');
        
@@ -52,7 +52,7 @@
 
            detailsElements.forEach((detailsElement) => {
               // On desktop: Open all dropdowns and disable toggle functionality
-              detailsElement.setAttribute('open', false);
+              detailsElement.removeAttribute('open');
           });
     
           summaryElement.forEach((summaryElement) => {
