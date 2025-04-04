@@ -6,14 +6,13 @@
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 
 <script defer>
-  document.querySelector('load', function(){
-
-    
-    window.addEventListener('resize', ()=>{
-      console.log("dfdssd")
-    })
+  window.addEventListener('load', function () {
+    window.addEventListener('resize', () => {
+      console.log("dfdssd");
+    });
   });
 </script>
+
 
 {%- style -%}
     @media (min-width: 768px) {
