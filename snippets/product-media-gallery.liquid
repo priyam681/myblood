@@ -426,7 +426,7 @@
     </slider-component>
   {%- endif -%}
 
-  {%- if section.settings.gallery_layout == 'stacked' and has_more_media -%}
+  {%- if section.settings.gallery_layout == 'stacked' and has_more_media and section.settings.mobile_thumbnails != 'none' -%}
     <product-media-load-more
       class="product-media-load-more medium-up-only"
       data-initial-count="{{ initial_limit }}"
