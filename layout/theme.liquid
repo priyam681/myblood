@@ -37,53 +37,7 @@
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-    <script>
-       
-      document.addEventListener('DOMContentLoaded', (e) => {
-        e.preventDefault();
-        
-        const detailsElements = document.querySelectorAll('.footer-dropdown');
-        const summaryElement = document.querySelectorAll('.footer-dropdown .footer-block__heading');
-
-         detailsElements.forEach((detailsElement) => {
-           console.log(detailsElement);
-              // On desktop: Open all dropdowns and disable toggle functionality
-              detailsElement.removeAttribute('open');
-          });
-       
-        // Monitor screen size changes
-        function updateDetailsBehavior() {
-          const isMobile = window.innerWidth < 769;
-          console.log(isMobile)
-
-          
-    
-          summaryElement.forEach((summaryElement) => {
-            if (!isMobile) {
-              summaryElement.style.pointerEvents = 'none'; // Disable clicks
-            } else {
-              summaryElement.style.pointerEvents = ''; // Re-enable clicks
-            }
-          });
-    
-          detailsElements.forEach((detailsElement) => {
-            if (!isMobile) {
-              // On desktop: Open all dropdowns and disable toggle functionality
-              detailsElement.setAttribute('open', true);
-            } else {
-              // On mobile: Allow toggle functionality
-              detailsElement.removeAttribute('open', false);
-            }
-          });
-        }
-    
-        // Run the function on page load
-        updateDetailsBehavior();
-    
-        // Update behavior whenever the window is resized
-        window.addEventListener('resize', updateDetailsBehavior);
-      });
-    </script>
+   
     {%- if settings.animations_reveal_on_scroll -%}
       <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
@@ -486,6 +440,53 @@
       });
     </script>
   </body>
+     <script defer>
+       
+      document.addEventListener('DOMContentLoaded', (e) => {
+        e.preventDefault();
+        
+        const detailsElements = document.querySelectorAll('.footer-dropdown');
+        const summaryElement = document.querySelectorAll('.footer-dropdown .footer-block__heading');
+
+         detailsElements.forEach((detailsElement) => {
+           console.log(detailsElement);
+              // On desktop: Open all dropdowns and disable toggle functionality
+              detailsElement.removeAttribute('open');
+          });
+       
+        // Monitor screen size changes
+        function updateDetailsBehavior() {
+          const isMobile = window.innerWidth < 769;
+          console.log(isMobile)
+
+          
+    
+          summaryElement.forEach((summaryElement) => {
+            if (!isMobile) {
+              summaryElement.style.pointerEvents = 'none'; // Disable clicks
+            } else {
+              summaryElement.style.pointerEvents = ''; // Re-enable clicks
+            }
+          });
+    
+          detailsElements.forEach((detailsElement) => {
+            if (!isMobile) {
+              // On desktop: Open all dropdowns and disable toggle functionality
+              detailsElement.setAttribute('open', true);
+            } else {
+              // On mobile: Allow toggle functionality
+              detailsElement.removeAttribute('open', false);
+            }
+          });
+        }
+    
+        // Run the function on page load
+        updateDetailsBehavior();
+    
+        // Update behavior whenever the window is resized
+        window.addEventListener('resize', updateDetailsBehavior);
+      });
+    </script>
   <script defer>
     document.addEventListener('DOMContentLoaded', function () {
       document.querySelectorAll('section[id*="featured_collection"]').forEach((item) => {
