@@ -16,6 +16,10 @@
       if (size > 768){
         detailsElements.forEach(el => el.setAttribute('open', true));
       }
+
+      if (size < 768){
+        detailsElements.forEach(el => el.removeAttribute('open'));
+      }
     }
 
     // Initial check
