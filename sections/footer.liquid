@@ -6,6 +6,11 @@
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 
  <script defer>
+document.addEventListener('load', () => {
+   const detailsElements = document.querySelectorAll('.footer-dropdown');
+   detailsElements.forEach(el => el.remove('open')); 
+})
+   
   document.addEventListener('DOMContentLoaded', () => {
     const detailsElements = document.querySelectorAll('.footer-dropdown');
     const summaryElements = document.querySelectorAll('.footer-dropdown .footer-block__heading');
