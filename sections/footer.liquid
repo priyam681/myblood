@@ -29,13 +29,14 @@
 
     updateDetailsBehavior();
     // Initial check
-    
+
+     window.addEventListener('pageshow', updateDetailsBehavior)
+    // Update on window resize
+    window.addEventListener('resize', updateDetailsBehavior);
    
   });
 
-   window.addEventListener('pageshow', updateDetailsBehaviour)
-    // Update on window resize
-    window.addEventListener('resize', updateDetailsBehavior);
+  
 </script>
 
 
