@@ -11,7 +11,7 @@
   {% render 'product-media-gallery' %}
 {% endcomment %}
 
-{{ 'product-media-load-more.js' | script_tag }}
+{{ 'product-media-load-more.js' | asset_url | script_tag }}
 
 <style>
   /* Add these styles to your theme's CSS */
