@@ -36,7 +36,7 @@
     updateDetailsBehavior();
 
     // Debounced resize event listener
-    const debouncedUpdate = debounce(updateDetailsBehavior, 100);
+    const debouncedUpdate = debounce(updateDetailsBehavior, 200);
     window.addEventListener('resize', debouncedUpdate);
 
     // pageshow event listener
