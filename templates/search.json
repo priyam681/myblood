@@ -13,6 +13,7 @@
       "type": "main-search",
       "settings": {
         "columns_desktop": 4,
+        "variant": true,
         "quick_add": "standard",
         "image_ratio": "adapt",
         "image_shape": "default",
