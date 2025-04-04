@@ -445,30 +445,31 @@
     const detailsElements = document.querySelectorAll('.footer-dropdown');
     const summaryElements = document.querySelectorAll('.footer-dropdown .footer-block__heading');
 
-    // Function to apply behavior based on screen width
     function updateDetailsBehavior() {
       const isMobile = window.innerWidth < 769;
 
       detailsElements.forEach((detailsElement) => {
         if (isMobile) {
-          detailsElement.removeAttribute('open'); // Collapse on mobile
+          detailsElement.removeAttribute('open'); // Collapse dropdown on mobile
         } else {
-          detailsElement.setAttribute('open', 'true'); // Always open on desktop
+          detailsElement.setAttribute('open', 'true'); // Expand dropdown on desktop
         }
       });
 
       summaryElements.forEach((summary) => {
+        // Disable clicks on desktop, enable on mobile
         summary.style.pointerEvents = isMobile ? '' : 'none';
       });
     }
 
-    // Run once on load
+    // Apply behavior on page load
     updateDetailsBehavior();
 
-    // Update on resize
+    // Re-apply on resize
     window.addEventListener('resize', updateDetailsBehavior);
   });
 </script>
+
 
   <script defer>
     document.addEventListener('DOMContentLoaded', function () {
