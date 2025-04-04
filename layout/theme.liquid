@@ -38,10 +38,11 @@
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
     <script defer>
+       console.log(summaryElement)
       document.addEventListener('DOMContentLoaded', () => {
         const detailsElements = document.querySelectorAll('.footer-dropdown');
         const summaryElement = document.querySelectorAll('.footer-dropdown .footer-block__heading');
-        console.log(summaryElement)
+       
         // Monitor screen size changes
         function updateDetailsBehavior() {
           const isMobile = window.innerWidth < 769;
