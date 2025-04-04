@@ -74,11 +74,17 @@
           border:0;
       }
 
-      .variant-plus-icon{
-          display:none;
+      .variant-plus-icon{       
           margin-left:auto;
           cursor:pointer;
+          min-width: 30px;
+          min-height: 30px;
       }
+      {% comment %} .varient-plus-icon-svg {
+        --swatch-input--size: 2rem;
+        margin-right: 0.5rem;
+        margin-top: 7px;
+      } {% endcomment %}
 
       @media screen and (max-width:749px){
           .variant-plus-icon{
@@ -190,14 +196,10 @@
   {% for option in product.options_with_values %}
     {%- liquid
       assign swatch_count = option.values | map: 'swatch' | compact | size
-      assign picker_type = block.settings.picker_type
+      assign picker_type = "button"
 
       if swatch_count > 0 and block.settings.swatch_shape != 'none'
-        if block.settings.picker_type == 'dropdown'
-          assign picker_type = 'swatch_dropdown'
-        else
-          assign picker_type = 'swatch'
-        endif
+        assign picker_type = 'swatch'
       endif
     -%}
 
@@ -210,7 +212,7 @@
           </span>
         </legend>
 
-        {% for value in option.values %}
+        {% for value in option.values limit: section.settings.swatches_limits %}
           {% liquid
             assign swatch_focal = null
             if value.swatch.image
@@ -267,7 +269,11 @@
             additional_props: input_dataset
           %}
         {% endfor %}
-        <img src="{{ 'cross.svg' | asset_url }}" alt="plus" width="24" height="24" class="variant-plus-icon">
+
+          <a href="{{ url }}" class="varient-plus-icon-svg">
+            <img src="{{ 'variant-plus.svg' | asset_url }}" alt="plus" width="24" height="24" class="variant-plus-icon">
+          </a>
+
       </fieldset>
 
     {% elsif picker_type == 'button' %}
@@ -337,7 +343,6 @@
             {% if option_disabled %}{{ label_unavailable }}{% endif %}
           </label>
         {% endfor %}
-        <img src="{{ 'cross.svg' | asset_url }}" alt="plus" width="24" height="24" class="variant-plus-icon">
       </fieldset>
 
     {% else %}

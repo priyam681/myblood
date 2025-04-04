@@ -7,6 +7,8 @@ if (!customElements.get('product-swatch')) {
       this.defaultImage = null;
       this.sliderItems = null;
       this.productId = null;
+      this.pageCurrency = null;
+      this.symbol = null;
     }
 
     disconnectedCallback() {
@@ -39,14 +41,31 @@ if (!customElements.get('product-swatch')) {
       return str;
     }
 
-    handleSwatchChange(e) {
+    async handleSwatchChange(e) {
       e.preventDefault();
       e.stopPropagation();
 
+
+
+      const parent = e.target.parentNode;
+
       const productId = e.target.getAttribute('data-product-id');
+      const dataProductId = e.target.getAttribute('data-option-value-id');
+
+      parent.querySelectorAll('input[type="radio"]').forEach((element)=>{
+
+        if(element.getAttribute('data-option-value-id') === dataProductId) {
+          element.setAttribute('checked', '');
+        }else{
+          element.removeAttribute('checked');
+        }
+
+      })
+
 
       // Get product data from this specific component
       const productScript = this.cardContainer.querySelector('script[data-variants]');
+      
       if (!productScript) return;
 
       const product = JSON.parse(productScript.textContent);
@@ -61,7 +80,26 @@ if (!customElements.get('product-swatch')) {
       this.updateProduct(variant);
     }
 
-    updateProduct(variant) {
+    async fetchPrices(url) {
+      try {
+        const response = await fetch(url.href);
+
+        if (!response.ok) {
+          throw new Error(`HTTP error! Status: ${response.status}`);
+        }
+
+        const responseText = await response.text();
+        const dom = new DOMParser().parseFromString(responseText, 'text/html');
+        return dom;
+      } catch (error) {
+        console.error('Error fetching prices:', error);
+        return null;
+      }
+    }
+
+
+
+    async updateProduct(variant) {
       if (!this.cardContainer || !variant) return;
 
       const priceRegular = this.cardContainer.querySelector('.price-item--regular');
@@ -121,15 +159,7 @@ if (!customElements.get('product-swatch')) {
         this.updateProductImage(this.defaultImage);
       }
 
-      if (priceRegular && priceSale) {
-        if (variant.compare_at_price && variant.compare_at_price > variant.price) {
-          priceSale.textContent = `Rs ${this.formatPrice(variant.price)}`;
-          priceRegular.textContent = `Rs ${this.formatPrice(variant.compare_at_price)}`;
-        } else {
-          priceSale.textContent = `Rs ${this.formatPrice(variant.price)}`;
-          priceRegular.textContent = `Rs ${this.formatPrice(variant.price)}`;
-        }
-      }
+
 
       if (productUrl && productUrl.length > 0) {
         productUrl.forEach((anchor) => {
@@ -138,6 +168,43 @@ if (!customElements.get('product-swatch')) {
           url.searchParams.set('variant', variant.id);
           anchor.href = url.toString();
         });
+      }
+
+
+      // Get the first anchor to use for fetching prices
+      const anchor = this.cardContainer.querySelector('a[href*="/products/"]');
+
+      if (anchor) {
+        const url = new URL(anchor.href, window.location.origin);
+        url.searchParams.set('variant', variant.id);
+
+        try {
+          const updatedPriceDOM = await this.fetchPrices(url);
+
+          if (updatedPriceDOM) {
+            // Extract price elements from the fetched DOM
+            const fetchedPriceRegular = updatedPriceDOM.querySelector('.price__regular .price-item');
+            const fetchedPriceSale = updatedPriceDOM.querySelector('.price__sale .price-item--sale');
+            const fetchedPriceCompare = updatedPriceDOM.querySelector('.price__sale .price-item--regular');
+
+            // Update prices in the current DOM
+            const priceRegular = this.cardContainer.querySelector('.price-item--regular');
+            const priceSale = this.cardContainer.querySelector('.price-item--sale');
+
+            if (priceRegular && fetchedPriceRegular) {
+              priceRegular.textContent = fetchedPriceRegular.textContent;
+            }
+
+            if (priceSale && fetchedPriceSale) {
+              priceSale.textContent = fetchedPriceSale.textContent;
+            } else if (priceSale && fetchedPriceCompare) {
+              // If there's no sale price but there is a compare price, use the regular price
+              priceSale.textContent = fetchedPriceRegular.textContent;
+            }
+          } 
+        } catch (error) {
+          console.error('Error updating prices:', error);
+        }
       }
     }
 
@@ -165,9 +232,7 @@ if (!customElements.get('product-swatch')) {
       if (image.alt) productImage.alt = image.alt;
     }
 
-    formatPrice(price) {
-      return (price / 100).toFixed(2);
-    }
+
   }
 
   customElements.define('product-swatch', ProductSwatchComponent);

@@ -867,6 +867,7 @@ a.active-facets__button.focused .active-facets__button-inner {
   padding-top: 0;
   display: flex;
   align-items: flex-start;
+  flex-wrap: wrap;
 }
 
 .facets-vertical .active-facets__button {

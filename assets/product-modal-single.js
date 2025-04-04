@@ -2,20 +2,36 @@ if (!customElements.get('product-modal-single')) {
   class ProductModalSingle extends ModalDialog {
     constructor() {
       super();
-      this.productMedia = null;
-      this.zoomSingle = true;
       this.mediaToggle = this.querySelector('.product-media-modal__toggle');
       this.thumbnails = this.querySelectorAll('.product-modal-thumbnail');
       this.modalContent = this.querySelector('.product-media-modal__content');
       this.modalDialog = this.querySelector('.product-media-modal__dialog');
       this.thumbnailContainer = this.querySelector('.product-modal-thumbnails');
-      this.productMainImage = this.querySelector('.product-modal-media-container');
+      this.drag = false;
+      this.dragStartTime = 0;
+      this.dragStartX = null;
+      this.scrollStartX = null;
+      this.mouseUp = false;
+      this.isDragging = false;
+
+
+
+      // click and drag
+
+      this.boundStartDrag = this.startDrag.bind(this);
+      this.boundMovePointer = this.movePointer.bind(this);
+      this.boundEndDrag = this.endDrag.bind(this);
+
+
+      this.thumbnailContainer.addEventListener('mouseup',this.boundEndDrag.bind(this), false);
+
+      this.thumbnailContainer.addEventListener('mousedown', this.boundStartDrag.bind(this), false);
+
+      this.thumbnailContainer.addEventListener('mousemove',this.boundMovePointer.bind(this))
+
+      this.thumbnailContainer.addEventListener('mouseleave', this.cancelDrag.bind(this));
 
       this.isMobile = window.innerWidth < 750;
-      this.visibleThumbnails = new Set();
-
-      // Set up observers
-      this.setupIntersectionObserver();
 
       // Update isMobile value on resize
       this.resizeHandler = () => {
@@ -81,45 +97,89 @@ if (!customElements.get('product-modal-single')) {
         });
       }
 
-      // Also observe scroll events on the thumbnail container
-      if (this.thumbnailContainer) {
-        this.thumbnailContainer.addEventListener('scroll', this.handleThumbnailScroll.bind(this));
-      }
-
-      // Handle swipe gestures for mobile
+      // Setup swipe handling for mobile
       this.setupSwipeHandling();
     }
 
-    setupIntersectionObserver() {
-      if (!this.thumbnailContainer || !this.thumbnails.length) return;
 
-      // Options for the observer
-      const options = {
-        root: this.thumbnailContainer,
-        rootMargin: '0px',
-        threshold: 0.6, // Consider visible when 60% of thumbnail is visible
-      };
+    startDrag(event){
 
-      // Create the observer
-      this.thumbnailObserver = new IntersectionObserver((entries) => {
-        entries.forEach((entry) => {
-          const thumbnail = entry.target;
+      this.drag = true;
+      this.dragStartTime = Date.now();
+      this.dragStartX = event.clientX;
+      this.scrollStartX = this.thumbnailContainer.scrollLeft;
 
-          if (entry.isIntersecting) {
-            this.visibleThumbnails.add(thumbnail.dataset.mediaId);
-            thumbnail.setAttribute('data-visible', 'true');
-          } else {
-            this.visibleThumbnails.delete(thumbnail.dataset.mediaId);
-            thumbnail.setAttribute('data-visible', 'false');
-          }
-        });
-      }, options);
+      document.addEventListener('mousemove', this.boundMovePointer);
+      document.addEventListener('mouseup', this.boundEndDrag);
 
-      // Observe all thumbnails
-      this.thumbnails.forEach((thumbnail) => {
-        this.thumbnailObserver.observe(thumbnail);
+      const buttonThumbnail = this.thumbnailContainer.querySelectorAll('.product-modal-thumbnail img');
+      buttonThumbnail.forEach(item => {
+        item.style.cursor = 'grabbing';
+        item.setAttribute('draggable', 'false')
       });
+      this.thumbnailContainer.style.cursor = 'grabbing';
+      event.preventDefault();
     }
+
+    endDrag(event){
+      if (event.cancelable) {
+        event.preventDefault();
+      }
+
+      this.drag = false;
+
+      // remove document-level event listeners
+      document.removeEventListener('mousemove', this.boundMovePointer);
+      document.removeEventListener('mouseup', this.boundEndDrag);
+
+      const buttonThumbnail = this.thumbnailContainer.querySelectorAll('.product-modal-thumbnail img');
+      buttonThumbnail.forEach(item => {
+        item.style.cursor = 'pointer';
+        item.setAttribute('draggable','true')
+      });
+      this.thumbnailContainer.style.cursor = 'pointer';
+
+      setTimeout(()=>{
+        this.isDragging = false;
+      }, 500)
+    }
+
+    cancelDrag(event){
+      if (this.drag) {
+        this.drag = false;
+        this.resetDragStyles();
+      }
+    }
+
+    resetDragStyles() {
+
+      const buttonThumbnail = this.thumbnailContainer.querySelectorAll('.product-modal-thumbnail img');
+      buttonThumbnail.forEach(item => {
+        item.style.cursor = 'pointer';
+        item.setAttribute('draggable', 'true')
+      });
+      this.thumbnailContainer.style.cursor = 'pointer';
+    }
+
+    movePointer(event){
+      if (this.drag){
+        // if mouse has moved, and we have been dragging for more than 100ms
+        if (Date.now() - this.dragStartTime > 100){
+          this.isDragging = true;
+        }
+
+        // how far we moved
+        const dx = event.clientX - this.dragStartX;
+        // scroll the container
+        this.thumbnailContainer.scrollLeft = this.scrollStartX - dx;
+
+        if (event.cancelable) {
+          event.preventDefault();
+        }
+      }
+    }
+
+
 
     debounceResize(func, wait) {
       let timeout;
@@ -131,29 +191,6 @@ if (!customElements.get('product-modal-single')) {
           func.apply(context, args);
         }, wait);
       };
-    }
-
-    handleThumbnailScroll() {
-      // Update visibility when scrolling
-      // This provides a backup for the IntersectionObserver
-      requestAnimationFrame(() => {
-        if (!this.thumbnailContainer) return;
-
-        const containerRect = this.thumbnailContainer.getBoundingClientRect();
-
-        this.thumbnails.forEach((thumbnail) => {
-          const thumbRect = thumbnail.getBoundingClientRect();
-          const isVisible = !(thumbRect.right < containerRect.left || thumbRect.left > containerRect.right);
-
-          if (isVisible) {
-            this.visibleThumbnails.add(thumbnail.dataset.mediaId);
-            thumbnail.setAttribute('data-visible', 'true');
-          } else {
-            this.visibleThumbnails.delete(thumbnail.dataset.mediaId);
-            thumbnail.setAttribute('data-visible', 'false');
-          }
-        });
-      });
     }
 
     handleResize() {
@@ -168,19 +205,13 @@ if (!customElements.get('product-modal-single')) {
       }
 
       this.isMobile = window.innerWidth < 750;
-
-      // Re-evaluate thumbnail visibility after resize
-      this.handleThumbnailScroll();
     }
 
     adjustMediaToViewport(mediaElement) {
       const viewportHeight = window.innerHeight;
       const viewportWidth = window.innerWidth;
 
-      // set maxium dimensions based on viewport.
-
       const maxHeight = viewportHeight * 0.9;
-
       const maxWidth = viewportWidth * 0.9;
 
       mediaElement.style.maxHeight = `${maxHeight}px`;
@@ -194,15 +225,6 @@ if (!customElements.get('product-modal-single')) {
       // Clean up all event listeners
       document.removeEventListener('click', this.documentClickHandler);
       window.removeEventListener('resize', this.resizeHandler);
-
-      // Disconnect intersection observer
-      if (this.thumbnailObserver) {
-        this.thumbnailObserver.disconnect();
-      }
-
-      if (this.thumbnailContainer) {
-        this.thumbnailContainer.removeEventListener('scroll', this.handleThumbnailScroll);
-      }
     }
 
     // Override the hide method to prevent closing except through the close button
@@ -283,29 +305,13 @@ if (!customElements.get('product-modal-single')) {
 
       const prevThumb = activeThumb.previousElementSibling;
       if (prevThumb && prevThumb.classList.contains('product-modal-thumbnail')) {
+        // Simply activate the previous thumbnail
         this.handleThumbnailClick({ currentTarget: prevThumb, stopPropagation: () => {} });
-
-        // Ensure we show up to 3 thumbnails on the left side
-        const activeIndex = Array.from(this.thumbnails).findIndex((thumb) => thumb === prevThumb);
-
-        // Calculate which thumbnail should be at the left edge of the visible area
-        let targetIndex = Math.max(0, activeIndex - 3);
-        if (targetIndex > 0) {
-          // Scroll to position the target thumbnail at the left edge
-          this.thumbnailContainer.scrollLeft = this.thumbnails[targetIndex].offsetLeft;
-        } else {
-          // If we're near the beginning, scroll to the start
-          this.thumbnailContainer.scrollLeft = 0;
-        }
       } else {
         // Loop to the last thumbnail if at the beginning
         const lastThumb = this.thumbnails[this.thumbnails.length - 1];
         if (lastThumb) {
           this.handleThumbnailClick({ currentTarget: lastThumb, stopPropagation: () => {} });
-
-          // When looping to the end, show the last set of thumbnails
-          this.thumbnailContainer.scrollLeft =
-            this.thumbnailContainer.scrollWidth - this.thumbnailContainer.clientWidth;
         }
       }
     }
@@ -316,39 +322,50 @@ if (!customElements.get('product-modal-single')) {
 
       const nextThumb = activeThumb.nextElementSibling;
       if (nextThumb && nextThumb.classList.contains('product-modal-thumbnail')) {
+        // Simply activate the next thumbnail
         this.handleThumbnailClick({ currentTarget: nextThumb, stopPropagation: () => {} });
-
-        // Ensure we show up to 3 thumbnails on the right side
-        const activeIndex = Array.from(this.thumbnails).findIndex((thumb) => thumb === nextThumb);
-
-        // If we're near the end, ensure we can see 3 thumbnails to the right
-        if (activeIndex >= this.thumbnails.length - 3) {
-          // Scroll to show the end of the thumbnails
-          this.thumbnailContainer.scrollLeft =
-            this.thumbnailContainer.scrollWidth - this.thumbnailContainer.clientWidth;
-        } else {
-          // Otherwise, position the active thumbnail with space for 3 more
-          const containerWidth = this.thumbnailContainer.offsetWidth;
-          const thumbnailWidth = nextThumb.offsetWidth;
-
-          // Calculate the target scroll position to show the active thumbnail
-          // plus 3 more to the right
-          const targetPosition = nextThumb.offsetLeft - containerWidth / 2 + thumbnailWidth * 2;
-          this.thumbnailContainer.scrollLeft = Math.max(0, targetPosition);
-        }
       } else {
         // Loop to the first thumbnail if at the end
         const firstThumb = this.thumbnails[0];
         if (firstThumb) {
           this.handleThumbnailClick({ currentTarget: firstThumb, stopPropagation: () => {} });
-
-          // When looping to the beginning, scroll to the start
-          this.thumbnailContainer.scrollLeft = 0;
         }
       }
     }
 
+    scrollThumbnailIntoView(thumbnail) {
+      if (!this.thumbnailContainer || !thumbnail) return;
+
+      // Get the index of the current thumbnail
+      const activeIndex = Array.from(this.thumbnails).findIndex((thumb) => thumb === thumbnail);
+
+      // ALWAYS scroll to the beginning when we're in the first 6 thumbnails
+      if (activeIndex < 6) {
+        this.thumbnailContainer.scrollLeft = 0;
+        return;
+      }
+
+      // Special handling for last thumbnails
+      if (activeIndex >= this.thumbnails.length - 3) {
+        this.thumbnailContainer.scrollLeft = this.thumbnailContainer.scrollWidth - this.thumbnailContainer.clientWidth;
+        return;
+      }
+
+      // For middle thumbnails
+      const containerWidth = this.thumbnailContainer.offsetWidth;
+      const thumbnailWidth = thumbnail.offsetWidth;
+
+      // Center the active thumbnail in the container
+      const scrollPosition = thumbnail.offsetLeft - (containerWidth / 2) + (thumbnailWidth / 2);
+      this.thumbnailContainer.scrollLeft = Math.max(0, scrollPosition);
+    }
+
     handleThumbnailClick(event) {
+
+      if (this.isDragging) {
+        return;
+      }
+
       // Stop propagation to prevent the modal from closing
       if (event.stopPropagation) {
         event.stopPropagation();
@@ -364,55 +381,6 @@ if (!customElements.get('product-modal-single')) {
 
       // Scroll the thumbnail into view
       this.scrollThumbnailIntoView(event.currentTarget);
-    }
-
-    scrollThumbnailIntoView(thumbnail) {
-      if (!this.thumbnailContainer || !thumbnail) return;
-
-      // Get the index of the current thumbnail
-      const activeIndex = Array.from(this.thumbnails).findIndex((thumb) => thumb === thumbnail);
-
-      // Get the current active thumbnail (for detecting direction)
-      const currentActive = this.querySelector('.product-modal-thumbnail.active');
-      const currentActiveIndex = currentActive
-        ? Array.from(this.thumbnails).findIndex((thumb) => thumb === currentActive)
-        : -1;
-
-      // Check if we're scrolling left
-      const isScrollingLeft = currentActiveIndex > activeIndex;
-
-      // Special handling for first thumbnails
-      if (activeIndex <= 2) {
-        this.thumbnailContainer.scrollLeft = 0;
-        return;
-      }
-
-      // Special handling for last thumbnails
-      if (activeIndex >= this.thumbnails.length - 3) {
-        this.thumbnailContainer.scrollLeft = this.thumbnailContainer.scrollWidth - this.thumbnailContainer.clientWidth;
-        return;
-      }
-
-      // For middle thumbnails
-      if (isScrollingLeft) {
-        // When scrolling left, ensure we can see 3 thumbnails before the active one
-        let leftmostIndex = Math.max(0, activeIndex - 3);
-        const leftmostThumb = this.thumbnails[leftmostIndex];
-
-        if (leftmostThumb) {
-          this.thumbnailContainer.scrollLeft = leftmostThumb.offsetLeft;
-
-          console.log()
-        }
-      } else {
-        // When scrolling right, ensure we can see 3 thumbnails after the active one
-        const containerWidth = this.thumbnailContainer.offsetWidth;
-        const thumbnailWidth = thumbnail.offsetWidth;
-
-        // Position the thumbnail with room for 3 more on the right
-        const scrollPosition = thumbnail.offsetLeft - containerWidth / 2 + thumbnailWidth * 2;
-        this.thumbnailContainer.scrollLeft = Math.max(0, scrollPosition);
-      }
     }
 
     showMedia(mediaId) {
@@ -434,12 +402,17 @@ if (!customElements.get('product-modal-single')) {
       }
 
       // Call resize handler to adjust the image to viewport
-
       this.handleResize();
     }
 
     show(opener) {
       super.show(opener);
+
+      // Force scroll to beginning when modal opens
+      if (this.thumbnailContainer) {
+        this.thumbnailContainer.scrollLeft = 0;
+      }
+
       this.showActiveMedia();
 
       // Update mobile status when modal is opened
@@ -451,11 +424,6 @@ if (!customElements.get('product-modal-single')) {
       } else {
         this.classList.remove('product-media-modal--mobile');
       }
-
-      // Re-evaluate thumbnail visibility
-      setTimeout(() => {
-        this.handleThumbnailScroll();
-      }, 100);
     }
 
     showActiveMedia() {

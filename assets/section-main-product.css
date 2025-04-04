@@ -166,6 +166,11 @@ border: 0.1rem solid rgb(var(--color-foreground));
 }
 
 .shopify-payment-button__button--unbranded {
+  background-color: #1990c6;
+  padding: 1em 1em;
+}
+
+.shopify-payment-button__button--unbranded {
   background-color: rgba(var(--color-button), var(--alpha-button-background));
   color: rgb(var(--color-button-text));
   font-size: 1.4rem;

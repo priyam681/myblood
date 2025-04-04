@@ -619,6 +619,7 @@ class ModalDialog extends HTMLElement {
   connectedCallback() {
     if (this.moved) return;
     this.moved = true;
+    console.log('section: ', this.closest('.shopify-section').id.replace('shopify-section-', ''));
     this.dataset.section = this.closest('.shopify-section').id.replace('shopify-section-', '');
     document.body.appendChild(this);
   }
@@ -696,7 +697,7 @@ class DeferredMedia extends HTMLElement {
     const poster = this.querySelector('[id^="Deferred-Poster-"]');
     const video_action = poster.dataset.triggerEvent;
     if (!poster) return;
-     if (video_action === 'load') {
+    if (video_action === 'load') {
       requestAnimationFrame(() => {
         this.loadContent();
       });
@@ -717,7 +718,7 @@ class DeferredMedia extends HTMLElement {
       if (focus) deferredElement.focus();
       if (deferredElement.nodeName == 'VIDEO' && deferredElement.getAttribute('autoplay')) {
         // force autoplay for safari
-               deferredElement.muted = true;
+        deferredElement.muted = true;
         deferredElement.play();
         deferredElement.setAttribute('playsinline', '');
       }

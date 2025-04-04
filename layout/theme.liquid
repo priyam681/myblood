@@ -265,6 +265,7 @@
     {% endstyle %}
 
     {{ 'base.css' | asset_url | stylesheet_tag }}
+    {{ 'quick-add.css' | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
 
     {%- if settings.cart_type == 'drawer' -%}
@@ -305,12 +306,13 @@
         document.documentElement.classList.add('shopify-design-mode');
       }
     </script>
+    <script src="{{ 'load-more.js' | asset_url }}" defer></script>
+    <script src="{{ 'product-slider.js' | asset_url }}" defer></script>
   </head>
 
   <body
     class="
-      gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}
-      {% if settings.sp-quick-view-container %} sp-quick-view-container{% endif %}
+                                                            gradient{% if settings.animations_hover_elements != 'none' %} animate--hover-{{ settings.animations_hover_elements }}{% endif %}
     "
   >
     <a class="skip-to-content-link button visually-hidden" href="#MainContent">
@@ -378,7 +380,26 @@
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
     </script>
-
+    <script defer>
+      document.addEventListener('DOMContentLoaded', function () {
+          const quickButtons = document.querySelectorAll('.quick-add__submit');
+          const quickCloseButtons = document.querySelectorAll('.quick-add-modal__toggle');
+      
+          quickButtons.forEach(function (button) {
+              button.addEventListener('click', function () {
+                  document.body.classList.add('sp-quick-view-container');
+              });
+          });
+      
+          quickCloseButtons.forEach(function (button) {
+              button.addEventListener('click', function () {
+                  document.body.classList.remove('sp-quick-view-container');
+              });
+          });
+      });
+      </script>
+      
+      
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
@@ -388,35 +409,42 @@
     {%- endif -%}
     {% render 'back-to-the-top' %}
     <script>
-      document.addEventListener("DOMContentLoaded", function() {
-  var inputFields = document.querySelectorAll(".customer-name");
-  inputFields.forEach(function(inputField) {
-    var label = document.querySelector(`label[for="${inputField.id}"]`);
+      document.addEventListener('DOMContentLoaded', function () {
+        var inputFields = document.querySelectorAll('.customer-name');
+        inputFields.forEach(function (inputField) {
+          var label = document.querySelector(`label[for="${inputField.id}"]`);
 
-    if (!label) return; // Agar label na mile, toh kuch na kare
+          if (!label) return; // Agar label na mile, toh kuch na kare
 
-    // Focus hone par label upar chala jaye
-    inputField.addEventListener("focus", () => {
-      label.style.top = "5px";
-      label.style.fontSize = "12px";
-      label.style.color = "#333";
-    });
-    // Focus chhodne (blur) par check kare field empty hai ya nahi
-    inputField.addEventListener("blur", () => {
-      if (inputField.value.trim() === "") {
-        label.style.top = "50%";
-        label.style.fontSize = "12px";
-        label.style.color = "#333";
-      }
-    });
-    // Page load hone par agar field pre-filled ho toh label upar hi rahe
-    if (inputField.value.trim() !== "") {
-      label.style.top = "5px";
-      label.style.fontSize = "12px";
-      label.style.color = "#333";
-    }
-  });
-});
+          // Focus hone par label upar chala jaye
+          inputField.addEventListener('focus', () => {
+            label.style.top = '5px';
+            label.style.fontSize = '12px';
+            label.style.color = '#333';
+          });
+          // Focus chhodne (blur) par check kare field empty hai ya nahi
+          inputField.addEventListener('blur', () => {
+            if (inputField.value.trim() === '') {
+              label.style.top = '50%';
+              label.style.fontSize = '12px';
+              label.style.color = '#333';
+            }
+          });
+          // Page load hone par agar field pre-filled ho toh label upar hi rahe
+          if (inputField.value.trim() !== '') {
+            label.style.top = '5px';
+            label.style.fontSize = '12px';
+            label.style.color = '#333';
+          }
+        });
+      });
     </script>
   </body>
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function () {
+      document.querySelectorAll('section[id*="featured_collection"]').forEach((item) => {
+        item.classList.add('sp-featured');
+      });
+    });
+  </script>
 </html>

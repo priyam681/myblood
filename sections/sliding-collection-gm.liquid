@@ -126,10 +126,27 @@
       padding-inline: 50px;
       gap: 10px;
     }
+  .sliding-collection-list {
+     display: flex;
+     {% comment %} overflow: auto; {% endcomment %}
+    }
 </style>
+{% comment %}
+  <script defer>
+    document.addEventListener('DOMContentLoaded', function() {
+      const collectionWrapper = document.querySelector('.sliding-collection-wrapper');
+      collectionWrapper.classList.add('sliding-collection-wrapper-load');
+    });
+
+  </script>
+{% endcomment %}
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick-theme.min.css">
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js" defer></script>
+
 <h2 class="collection-heading-title">{{ section.settings.sliding_collection_heading_title }}</h2>
 <div class="sliding-collection-wrapper">
   <div class="carousel-button">
@@ -152,62 +169,58 @@
   </div>
 </div>
 
-<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.9.0/slick.min.js"></script>
-
 <script>
-  
-    $(document).ready(function(){
-      var $carousel = $('.sliding-collection-list.{{ section.id }}');
+  $(document).ready(function () {
+    var $carousel = $('.sliding-collection-list.{{ section.id }}');
 
-      $carousel.slick({
-        dots: false,
-        arrows: false,
-        infinite: true,  // Infinite loop disable kiya
-        autoplay: true,
-        autoplaySpeed: 2000,
-        slidesToShow: 6,
-        slidesToScroll: 1,
-        variableWidth: true,
-        responsive: [
-          { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, dots: true } },
-          { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
-          { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } }
-        ]
-      });
+    $carousel.slick({
+      dots: false,
+      arrows: false,
+      infinite: true, // Infinite loop disable kiya
+      autoplay: true,
+      autoplaySpeed: 2000,
+      slidesToShow: 6,
+      slidesToScroll: 1,
+      variableWidth: true,
+      responsive: [
+        { breakpoint: 1024, settings: { slidesToShow: 3, slidesToScroll: 1, dots: true } },
+        { breakpoint: 600, settings: { slidesToShow: 2, slidesToScroll: 1 } },
+        { breakpoint: 480, settings: { slidesToShow: 1, slidesToScroll: 1 } },
+      ],
+    });
 
-      function updateButtons() {
-        var currentSlide = $carousel.slick('slickCurrentSlide');
-        var totalSlides = $carousel.slick('getSlick').slideCount - $carousel.slick('getSlick').options.slidesToShow;
+    function updateButtons() {
+      var currentSlide = $carousel.slick('slickCurrentSlide');
+      var totalSlides = $carousel.slick('getSlick').slideCount - $carousel.slick('getSlick').options.slidesToShow;
 
-       if (currentSlide === 0) {
-    $('.prev-btn').prop('disabled', true).addClass('disabled'); // First slide pe prev-btn disable
-  } else {
-    $('.prev-btn').prop('disabled', false).removeClass('disabled');
-  }
-
-  if (currentSlide >= totalSlides - 1) {
-    $('.next-btn').prop('disabled', true).addClass('disabled'); // Last slide pe next-btn disable
-  } else {
-    $('.next-btn').prop('disabled', false).removeClass('disabled');
-  }
+      if (currentSlide === 0) {
+        $('.prev-btn').prop('disabled', true).addClass('disabled'); // First slide pe prev-btn disable
+      } else {
+        $('.prev-btn').prop('disabled', false).removeClass('disabled');
       }
 
-      $('.prev-btn').click(function(){
-        $carousel.slick('slickPrev');
-      });
+      if (currentSlide >= totalSlides - 1) {
+        $('.next-btn').prop('disabled', true).addClass('disabled'); // Last slide pe next-btn disable
+      } else {
+        $('.next-btn').prop('disabled', false).removeClass('disabled');
+      }
+    }
 
-      $('.next-btn').click(function(){
-        $carousel.slick('slickNext');
-      });
+    $('.prev-btn').click(function () {
+      $carousel.slick('slickPrev');
+    });
 
-      $carousel.on('afterChange', function(){
-        updateButtons();
-      });
+    $('.next-btn').click(function () {
+      $carousel.slick('slickNext');
+    });
 
-      // Page load hone par bhi check kare
+    $carousel.on('afterChange', function () {
       updateButtons();
     });
+
+    // Page load hone par bhi check kare
+    updateButtons();
+  });
 </script>
 
 {% schema %}
@@ -226,17 +239,17 @@
       "label": "Title Image",
       "info": "Image Under Title"
     },
-      {
+    {
       "type": "color",
       "label": "Title Color",
       "id": "title_color"
-     },
-         {
+    },
+    {
       "type": "color_background",
       "label": "section background",
       "id": "section_background"
-     },
-  {
+    },
+    {
       "type": "range",
       "id": "title_image_width_desktop",
       "label": "Image Width Desktop",
@@ -246,7 +259,7 @@
       "step": 10,
       "unit": "px"
     },
-      {
+    {
       "type": "range",
       "id": "title_image_width_mobile",
       "label": "Image Width Mobile",
@@ -255,8 +268,8 @@
       "max": 1000,
       "step": 10,
       "unit": "px"
-      },
-     {
+    },
+    {
       "type": "font_picker",
       "label": "Heading Font",
       "id": "heading_font",
@@ -272,7 +285,7 @@
       "step": 1,
       "unit": "px"
     },
-     {
+    {
       "type": "range",
       "label": "Slider Gap",
       "id": "gap",
@@ -293,12 +306,12 @@
       "unit": "px"
     },
 
-  {
+    {
       "type": "font_picker",
       "id": "collection_font",
       "label": "Body Font",
       "default": "serif"
-  },
+    },
     {
       "type": "range",
       "label": "Collection Name Font Size Desktop",
@@ -308,7 +321,7 @@
       "max": 40,
       "step": 1,
       "unit": "px"
-    } ,
+    },
 
     {
       "type": "range",
@@ -319,89 +332,88 @@
       "max": 40,
       "step": 1,
       "unit": "px"
-    } ,
-      {
+    },
+    {
       "type": "color_background",
       "label": "collection name background",
       "id": "collection_name_background"
-     },
+    },
     {
       "type": "color",
       "label": "collection name color",
       "id": "collection_name_color"
     },
     {
-          "type": "range",
-          "id": "radius",
-          "label": "Collection Image Radius",
-          "default": 50,
-          "min": 5,
-          "max": 100,
-          "step": 5,
-          "unit": "%"
-        },
+      "type": "range",
+      "id": "radius",
+      "label": "Collection Image Radius",
+      "default": 50,
+      "min": 5,
+      "max": 100,
+      "step": 5,
+      "unit": "%"
+    },
 
-	    {
-          "type": "range",
-          "id": "image_height_desktop",
-          "min": 100,
-          "max": 1000,
-          "step": 10,
-          "unit": "px",
-          "label": "Image Height Desktop",
-          "default": 200
-		},
-    		 {
-          "type": "range",
-          "id": "image_width_desktop",
-          "min": 100,
-          "max": 1000,
-          "step": 10,
-          "unit": "px",
-          "label": "Image Width Desktop",
-          "default": 200
-		},
-		{
-          "type": "range",
-          "id": "image_height_mobile",
-          "min": 100,
-          "max": 1000,
-          "step": 10,
-          "unit": "px",
-          "label": "Image Height Mobile",
-          "default": 150
-		},
-		 {
-          "type": "range",
-          "id": "image_width_mobile",
-          "min": 100,
-          "max": 1000,
-          "step": 10,
-          "unit": "px",
-          "label": "Image Width Mobile",
-          "default": 150
-  		},
-		{
-          "type": "range",
-          "id": "padding_top",
-          "label": "Padding Top",
-          "default": 10,
-          "min": 0,
-          "max": 100,
-          "step": 2,
-          "unit": "px"
-		},
-        {
-            "type": "range",
-            "id": "padding_bottom",
-            "label": "Padding Bottom",
-            "default": 10,
-            "min": -20,
-            "max": 100,
-            "step": 2,
-            "unit": "px"
-		 }
-
+    {
+      "type": "range",
+      "id": "image_height_desktop",
+      "min": 100,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Image Height Desktop",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "image_width_desktop",
+      "min": 100,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Image Width Desktop",
+      "default": 200
+    },
+    {
+      "type": "range",
+      "id": "image_height_mobile",
+      "min": 100,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Image Height Mobile",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "image_width_mobile",
+      "min": 100,
+      "max": 1000,
+      "step": 10,
+      "unit": "px",
+      "label": "Image Width Mobile",
+      "default": 150
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "label": "Padding Top",
+      "default": 10,
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "label": "Padding Bottom",
+      "default": 10,
+      "min": -20,
+      "max": 100,
+      "step": 2,
+      "unit": "px"
+    }
   ],
   "blocks": [
     {

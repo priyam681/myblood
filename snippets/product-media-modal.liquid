@@ -236,6 +236,37 @@
       width: 100%;
       overflow: hidden;
     }
+    .product-media-modal .product-modal-thumbnails {
+      display: flex;
+      gap: 10px;
+      margin: 20px auto;
+      overflow: auto;
+      width: 80%;
+    }
+    .product-media-modal .product-modal-thumbnails::-webkit-scrollbar {
+      height: 3px;
+    }
+    .product-media-modal  button.product-modal-thumbnail.media-fit-cover {
+      min-width: 60px;
+      width: 60px;
+      height: 60px;
+      border: 1px solid #e8e8e8;
+      padding: 2px;
+      cursor: pointer;
+      background: none;
+      border-radius: 4px;
+      overflow: hidden;
+      touch-action: manipulation;
+  }
+
+    @media screen and (min-width: 749px) {
+      .product-media-modal .product-modal-thumbnails {
+          max-width: 749px;
+          margin: 20px auto 0;
+          padding: 4px 0;
+      }
+    }
+   
     @media screen and (min-width: 749px) {
       .sp-product-zoom-media button.product-modal-nav-button.product-modal-prev {
         transform: rotate(0deg);

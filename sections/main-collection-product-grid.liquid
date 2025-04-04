@@ -22,8 +22,7 @@
   <script src="{{ 'quick-order-list.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
-<script src="{{ 'load-more.js' | asset_url }}" defer></script>
-<script src="{{ 'product-slider.js' | asset_url }}" defer></script>
+
 
 {%- style -%}
   /* Existing styles */
@@ -259,43 +258,12 @@
           "id": "picker_type",
           "options": [
             {
-              "value": "dropdown",
-              "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__1.label"
-            },
-            {
               "value": "button",
               "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.options__2.label"
             }
           ],
           "default": "button",
           "label": "t:sections.main-product.blocks.variant_picker.settings.picker_type.label"
-        },
-        {
-          "type": "select",
-          "id": "swatch_display",
-          "options": [
-            {
-              "value": "first_swatch",
-              "label": "Show swatches for first color/colour option"
-            },
-            {
-              "value": "all_swatches",
-              "label": "Show swatches for all color options"
-            },
-            {
-              "value": "no_swatches",
-              "label": "Don't show swatches"
-            }
-          ],
-          "default": "first_swatch",
-          "label": "Swatch display"
-        },
-     
-        {
-          "type": "checkbox",
-          "id": "selector_mode",
-          "default": true,
-          "label": "Product page variant selector"
         }
       ]
     }
@@ -310,20 +278,29 @@
       "default": 16,
       "label": "t:sections.main-collection-product-grid.settings.products_per_page.label"
     },
-    
+    {
+      "type": "checkbox",
+      "id": "variant",
+      "label": "Variant",
+      "default": false
+    },
+    {
+      "type": "range",
+      "id": "swatches_limits",
+      "label": "Swatches Limits",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 1
+    },
+
     {
       "type": "checkbox",
       "id": "show-varient",
       "default": false,
       "label": "show variant option"
     },
-    {
-      "type": "checkbox",
-      "id": "enable_product_card_slider",
-      "label": "Enable Product Card Slider",
-      "default": false
-    },
-
+    
     {
       "type": "range",
       "id": "columns_desktop",
