@@ -4365,7 +4365,7 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
 }
 .sp-quick-view-container .slider--mobile {
     display: flex;
-    overflow: auto;
+    overflow: auto !important; 
     flex-wrap: nowrap;
 }
 
