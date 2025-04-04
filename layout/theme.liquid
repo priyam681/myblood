@@ -39,7 +39,8 @@
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
     <script defer>
        
-      document.addEventListener('DOMContentLoaded', () => {
+      document.addEventListener('DOMContentLoaded', (e) => {
+        e.preventDefault();
         console.log("test")
         const detailsElements = document.querySelectorAll('.footer-dropdown');
         const summaryElement = document.querySelectorAll('.footer-dropdown .footer-block__heading');
