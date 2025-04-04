@@ -48,6 +48,11 @@
         function updateDetailsBehavior() {
           const isMobile = window.innerWidth < 769;
           console.log(isMobile)
+
+           detailsElements.forEach((detailsElement) => {
+              // On desktop: Open all dropdowns and disable toggle functionality
+              detailsElement.setAttribute('open', false);
+          });
     
           summaryElement.forEach((summaryElement) => {
             if (!isMobile) {
