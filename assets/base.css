@@ -4114,6 +4114,11 @@ figure {
   footer .cols {
     flex-direction: column;
   }
+  .sp-quick-view-container .slider--mobile {
+    display: flex;
+    overflow: auto !important; 
+    flex-wrap: nowrap;
+}
 }
 /* =========================================================================================================
  */
@@ -4362,11 +4367,6 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
   transition: background-color 0.2s ease;
   position: absolute;
   /* z-index: -1; */
-}
-.sp-quick-view-container .slider--mobile {
-    display: flex;
-    overflow: auto !important; 
-    flex-wrap: nowrap;
 }
 
 .sp-quick-view-container quick-add-modal .quick-add-hidden, 
