@@ -13,6 +13,9 @@
     function updateDetailsBehavior(){
       const size = window.innerWidth;
       console.log(size);
+      if (size > 768){
+        detailsElements.forEach(el => el.setAttribute('open'));
+      }
     }
 
     // Initial check
