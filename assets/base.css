@@ -4497,7 +4497,7 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
   font-size: 14px;
   height: auto;
   line-height: 18px;
-  padding: 7px 0;
+  padding: 7px 3px;
   max-width: 180px;
   color: black;
   display: flex;
