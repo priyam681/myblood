@@ -450,25 +450,22 @@
 
       detailsElements.forEach((detailsElement) => {
         if (isMobile) {
-          detailsElement.removeAttribute('open'); // Collapse dropdown on mobile
+          detailsElement.removeAttribute('open'); // Close on mobile
         } else {
-          detailsElement.setAttribute('open', 'true'); // Expand dropdown on desktop
+          detailsElement.setAttribute('open', 'true'); // Open on desktop
         }
       });
 
       summaryElements.forEach((summary) => {
-        // Disable clicks on desktop, enable on mobile
-        summary.style.pointerEvents = isMobile ? '' : 'none';
+        summary.style.pointerEvents = isMobile ? '' : 'none'; // Clickable on mobile only
       });
     }
 
-    // Apply behavior on page load
     updateDetailsBehavior();
-
-    // Re-apply on resize
     window.addEventListener('resize', updateDetailsBehavior);
   });
 </script>
+
 
 
   <script defer>
