@@ -21,8 +21,7 @@
 
       init() {
         this.loadMoreButton = this.querySelector('button[id^="LoadMoreMedia-"]');
-        console.log("load more: ", this.loadMoreButton);
-
+        
         if (this.loadMoreButton) {
           console.log(`Load more button found. Will load ${this.itemsPerLoad} more images each time.`);
           this.loadMoreButton.addEventListener('click', () => this.handleLoadMore());
