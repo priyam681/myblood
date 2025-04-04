@@ -1,4 +1,3 @@
-
   if (!customElements.get('product-media-load-more')) {
     class ProductMediaLoadMore extends HTMLElement {
       constructor() {
@@ -75,4 +74,6 @@
         return false; // Prevent default behavior
       }
     }
+
+     customElements.define('product-media-load-more', ProductMediaLoadMore);
   }
