@@ -9,49 +9,29 @@
 <script defer>
   document.addEventListener('DOMContentLoaded', function () {
     const detailsElements = document.querySelectorAll('.footer-dropdown');
-    const summaryElements = document.querySelectorAll('.footer-dropdown .footer-block__heading');
 
     function updateDetailsBehavior() {
       const isMobile = window.innerWidth < 769;
 
       detailsElements.forEach(details => {
         if (isMobile) {
-          details.removeAttribute('open'); // closed by default
+          details.removeAttribute('open'); // Ensure closed by default on mobile
+          details.querySelector('summary').style.pointerEvents = 'auto'; // Enable toggling
         } else {
-          details.setAttribute('open', 'true'); // always open on desktop
-        }
-      });
-
-      summaryElements.forEach(summary => {
-        if (window.innerWidth >= 769) {
-          summary.style.pointerEvents = 'none'; // desktop: disable toggle
-        } else {
-          summary.style.pointerEvents = 'auto'; // mobile: enable toggle
+          details.setAttribute('open', 'true'); // Open by default on desktop
+          details.querySelector('summary').style.pointerEvents = 'none'; // Disable toggling
         }
       });
     }
 
-    // Add custom click toggle for mobile
-    document.querySelectorAll('.footer-dropdown .footer-block__heading').forEach(summary => {
-      summary.addEventListener('click', function (e) {
-        const details = summary.closest('details');
-
-        // Only toggle manually on mobile
-        if (window.innerWidth < 769) {
-          e.preventDefault(); // prevent native toggle
-          if (details.hasAttribute('open')) {
-            details.removeAttribute('open');
-          } else {
-            details.setAttribute('open', 'true');
-          }
-        }
-      });
-    });
-
+    // Initial check
     updateDetailsBehavior();
+
+    // Update on window resize
     window.addEventListener('resize', updateDetailsBehavior);
   });
 </script>
+
 
 </script>
 
