@@ -4363,6 +4363,11 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
   position: absolute;
   /* z-index: -1; */
 }
+.sp-quick-view-container .slider--mobile {
+    display: flex;
+    overflow: auto;
+    flex-wrap: nowrap;
+}
 
 .sp-quantity-click .quantity__button:hover {
   background-color: #e0e0e0;
