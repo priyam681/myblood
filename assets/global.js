@@ -695,7 +695,7 @@ class DeferredMedia extends HTMLElement {
   constructor() {
     super();
     const poster = this.querySelector('[id^="Deferred-Poster-"]');
-    const video_action = poster?.dataset.triggerEvent;
+    const video_action = poster.dataset.triggerEvent;
     if (!poster) return;
     if (video_action === 'load') {
       requestAnimationFrame(() => {
