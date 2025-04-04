@@ -14,30 +14,41 @@
     "footer": {
       "type": "footer",
       "blocks": {
-        "footer-2": {
-          "type": "text",
+        "image_hThDwT": {
+          "type": "image",
           "settings": {
-            "heading": "<strong>Follow us</strong>",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
+            "image": "shopify://shop_images/footer-logo.svg",
+            "richtext": "<p><strong>3rd Floor, M-1/64 Sector-B, Aliganj, Lucknow,India</strong></p>",
+            "image_width": 135,
+            "accept_privacy_policy": true,
+            "alignment": ""
+          }
+        },
+        "link_list_tezaKL": {
+          "type": "link_list",
+          "settings": {
+            "heading": "<strong>Shop</strong>",
+            "menu": "footer-menu-left"
           }
         },
         "footer-0": {
           "type": "link_list",
           "settings": {
-            "heading": "<strong>Quick links</strong>",
-            "menu": "footer"
+            "heading": "<strong>About</strong>",
+            "menu": "footer-about"
           }
         },
         "footer-1": {
           "type": "link_list",
           "settings": {
-            "heading": "<strong>Info</strong>",
-            "menu": "footer"
+            "heading": "HELP",
+            "menu": "footer-help"
           }
         }
       },
       "block_order": [
-        "footer-2",
+        "image_hThDwT",
+        "link_list_tezaKL",
         "footer-0",
         "footer-1"
       ],

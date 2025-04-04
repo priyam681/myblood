@@ -4287,7 +4287,7 @@ product-media-load-more.sp-media-load-more {
   color: rgb(var(--color-foreground));
   display: inline-block;
   margin: 0 .5rem 0 0;
-  padding: .2rem 2rem;
+  padding: 1rem 2rem;
   font-size: 1.4rem;
   letter-spacing: .1rem;
   line-height: 1;
