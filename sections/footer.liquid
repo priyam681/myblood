@@ -13,13 +13,15 @@
     function updateDetailsBehavior(){
       const size = window.innerWidth;
      
-      console.log(size);
+      
       if (size > 768){
+        console.log(size);
          console.log("if");
         detailsElements.forEach(el => el.setAttribute('open', true));
       }
 
       if (size < 768){
+        console.log(size);
          console.log("else");
         detailsElements.forEach(el => el.removeAttribute('open'));
       }
