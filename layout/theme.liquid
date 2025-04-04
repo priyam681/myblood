@@ -44,16 +44,18 @@
         
         const detailsElements = document.querySelectorAll('.footer-dropdown');
         const summaryElement = document.querySelectorAll('.footer-dropdown .footer-block__heading');
+
+         detailsElements.forEach((detailsElement) => {
+              // On desktop: Open all dropdowns and disable toggle functionality
+              detailsElement.removeAttribute('open');
+          });
        
         // Monitor screen size changes
         function updateDetailsBehavior() {
           const isMobile = window.innerWidth < 769;
           console.log(isMobile)
 
-           detailsElements.forEach((detailsElement) => {
-              // On desktop: Open all dropdowns and disable toggle functionality
-              detailsElement.removeAttribute('open');
-          });
+          
     
           summaryElement.forEach((summaryElement) => {
             if (!isMobile) {
