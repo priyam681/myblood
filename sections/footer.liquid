@@ -25,7 +25,7 @@
 
     // Initial check
     updateDetailsBehavior();
-    window.addEventListener('pageshow', ()=> detailsElements.forEach(el => el.removeAttribute('open'));)
+    window.addEventListener('pageshow', updateDetailsBehaviour)
     // Update on window resize
     window.addEventListener('resize', updateDetailsBehavior);
   });
