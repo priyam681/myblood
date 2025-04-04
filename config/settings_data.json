@@ -18,6 +18,7 @@
     "body_scale": 100,
     "sp-quick-view-container": true,
     "sp-quick-view-varient": "box",
+    "enable_product_card_slider": true,
     "page_width": 1600,
     "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
