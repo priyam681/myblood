@@ -606,7 +606,7 @@ table:not([class]) th {
       min-width: 161px;
       text-align: center
   }
-  .custom-sectioon-filter {
+  .sp-filter-open .custom-section-filter {
     select-component {
       padding: 1.1rem 2.5rem;
       width: 100%;
