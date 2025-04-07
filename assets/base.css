@@ -629,10 +629,10 @@ table:not([class]) th {
   .large-up-hide {
     display: block !important;
   }
-  .medium-hide,
-   .small-hide {
+  
+  .small-hide {
    display:none; 
-  }
+  }  
   .link-btn a {
     padding: 10px 18px;
     line-height: normal;
