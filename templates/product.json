@@ -46,7 +46,7 @@
           "settings": {
             "quantity_event": "click",
             "quantity_min": 1,
-            "quantity_max": 10
+            "quantity_max": 100
           }
         },
         "buy_buttons": {
