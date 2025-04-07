@@ -311,8 +311,10 @@
 }
 
 .facts-summery-wrapper svg.icon.icon-caret {
-    height: unset; 
     margin: unset;
+    width: 12px;
+    height: 20px;
+    top: calc(50% - 0.9rem);
 }
 .facets__summary span:first-of-type {
   transition: text-decoration var(--duration-short) ease;
