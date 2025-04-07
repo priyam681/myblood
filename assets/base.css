@@ -632,15 +632,6 @@ table:not([class]) th {
       display: block !important;
   }
 }
-@media screen and (max-width: 992px) { 
-  .small-hide,
-  .medium-hide {
-    display:none;
-  }
-}
-
-
-
 @media screen and (min-width: 990px) {
   .large-up-hide {
     display: none !important;
