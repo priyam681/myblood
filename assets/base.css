@@ -625,14 +625,12 @@ table:not([class]) th {
   }
 }
 @media screen and (min-width: 749px) and (max-width: 989px) {
-.medium-hide  {
-  display:none;
-}
-  .small-hide {
-    display: block;
-}
-
-
+  .medium-hide  {
+    display:none;
+  }
+    .small-hide {
+      display: block !important;
+  }
 }
 @media screen and (max-width: 992px) { 
   .small-hide,
