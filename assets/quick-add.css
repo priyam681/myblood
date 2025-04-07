@@ -103,7 +103,7 @@
   width: 90%;
 }
 
-.quick-add-modal__content {
+.sp-quick-view-containerv .quick-add-modal__content {
   --modal-height-offset: 3.2rem;
   position: absolute;
   top: 0;
