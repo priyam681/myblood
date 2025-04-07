@@ -627,9 +627,8 @@ table:not([class]) th {
 
 @media screen and (min-width: 990px) {
   .large-up-hide {
-    display: block !important;
+    display: none !important;
   }
-  
   .small-hide {
    display:none; 
   }  
