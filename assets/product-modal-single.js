@@ -102,6 +102,18 @@ if (!customElements.get('product-modal-single')) {
     }
 
 
+        connectedCallback(){ 
+     if (this.moved) return; 
+      this.moved = true; 
+      // Safely get the section ID with null checking 
+       const shopifySection = this.closest('.shopify-section'); 
+        if (shopifySection && shopifySection.id) { 
+           this.dataset.section = shopifySection.id.replace('shopify-section-', '');
+         } 
+              // Move the modal to the body for proper stacking  
+       document.body.appendChild(this);
+       }
+
     startDrag(event){
 
       this.drag = true;
