@@ -456,7 +456,8 @@
 
                     {% elsif block.settings.quantity_event == 'click' %}
                       <div class="sp-quantity-click">
-                        <button class="quantity__button" name="minus" type="button">
+                        <select-component>
+                          <button class="quantity__button" name="minus" type="button">
                           <span class="visually-hidden">
                             {{- 'products.product.quantity.decrease' | t: product: product.title | escape -}}
                           </span>
@@ -464,7 +465,6 @@
                             {{- 'icon-minus.svg' | inline_asset_content -}}
                           </span>
                         </button>
-                        <select-component>
                           <div class="custom-dropdown">
                             <button class="dropdown-btn">
                               {{ product.selected_or_first_available_variant.quantity_rule.min }}
@@ -483,7 +483,7 @@
                                   {{ i }}
                                 </li>
                               {%- endfor -%}
-                            </ul>
+                            </ul>                          
                           </div>
                           <input
                             type="hidden"
@@ -492,8 +492,7 @@
                             form="{{ product_form_id }}"
                             value="{{ block.settings.quantity_min }}"
                           >
-                        </select-component>
-                        <button class="quantity__button" name="plus" type="button">
+                         <button class="quantity__button" name="plus" type="button">
                           <span class="visually-hidden">
                             {{- 'products.product.quantity.increase' | t: product: product.title | escape -}}
                           </span>
@@ -501,6 +500,8 @@
                             {{- 'icon-plus.svg' | inline_asset_content -}}
                           </span>
                         </button>
+                        </select-component>
+                       
                       </div>
                     {% endif %}
 
