@@ -305,6 +305,15 @@
   animation: animateMenuOpen var(--duration-default) ease;
 }
 
+.facts-summery-wrapper {
+  display:flex;
+  align-items:center;
+}
+
+.facts-summery-wrapper .sp-fliter svg.icon.icon-caret {
+    height: unset; 
+    margin: unset;
+}
 .facets__summary span:first-of-type {
   transition: text-decoration var(--duration-short) ease;
 }
