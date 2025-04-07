@@ -620,7 +620,7 @@ table:not([class]) th {
   }
 }
 @media screen and (min-width: 750px) and (max-width: 989px) {
-  .medium-hide {
+ body .medium-hide {
     display: none !important;
   }
 }
