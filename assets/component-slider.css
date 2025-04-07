@@ -31,6 +31,20 @@ slider-component.slider-component-full-width {
   flex-shrink: 0;
   padding-bottom: 0;
 }
+@media screen and (max-width: 992px) {
+  .slider.slider--mobile {
+    position: relative;
+    flex-wrap: inherit;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    scroll-padding-left: 1.5rem;
+    -webkit-overflow-scrolling: touch;
+    margin-bottom: 1rem;
+  }
+  
+}
+ 
 
 @media screen and (max-width: 749px) {
   .slider.slider--mobile {
