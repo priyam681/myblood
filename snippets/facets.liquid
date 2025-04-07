@@ -138,7 +138,7 @@
                       class="facets__summary caption-large focus-offset"
                       aria-label="{{ filter.label | escape }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"
                     >
-                      <div>
+                      <div class="facts-summery-wrapper" >
                         <span class="facets__summary-label">
                           {{- filter.label | escape }}
                           {%- if filter_type == 'vertical' -%}
@@ -306,7 +306,7 @@
                     {% endif %}
                   >
                     <summary class="facets__summary caption-large focus-offset">
-                      <div class="facts-summery-wrapper">
+                      <div>
                         <span>{{ filter.label | escape }}</span>
                         {{- 'icon-caret.svg' | inline_asset_content -}}
                       </div>
