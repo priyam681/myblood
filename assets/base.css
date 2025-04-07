@@ -629,7 +629,8 @@ table:not([class]) th {
   .large-up-hide {
     display: block !important;
   }
-  .medium-hide  {
+  .medium-hide,
+   .small-hide {
    display:none; 
   }
   .link-btn a {
