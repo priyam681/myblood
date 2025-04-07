@@ -619,14 +619,17 @@ class ModalDialog extends HTMLElement {
   connectedCallback() {
     if (this.moved) return;
     this.moved = true;
-    console.log('section: ', this.closest('.shopify-section').id.replace('shopify-section-', ''));
-    this.dataset.section = this.closest('.shopify-section').id.replace('shopify-section-', '');
+    const shopifySection = this.closest('.shopify-section');
+     if (shopifySection && shopifySection.id) {
+   this.dataset.section = shopifySection.id.replace('shopify-section-', '');
+ }
     document.body.appendChild(this);
   }
 
   show(opener) {
     this.openedBy = opener;
     const popup = this.querySelector('.template-popup');
+     document.body.classList.add('sp-quick-view-container');
     document.body.classList.add('overflow-hidden');
     this.setAttribute('open', '');
     if (popup) popup.loadContent();
@@ -640,6 +643,7 @@ class ModalDialog extends HTMLElement {
     this.removeAttribute('open');
     removeTrapFocus(this.openedBy);
     window.pauseAllMedia();
+     document.body.classList.remove('sp-quick-view-container');
   }
 }
 customElements.define('modal-dialog', ModalDialog);
