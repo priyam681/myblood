@@ -1105,9 +1105,9 @@ a.product__text {
     display: flex;
   }
 }
-@media screen and (min-width: 768px) { 
+@media screen and (min-width: 992px) { 
   .product__media-wrapper .slider-mobile-gutter .slider-button {
-    display: none;
+    display: block;
   }
 }
 
