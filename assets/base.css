@@ -627,7 +627,10 @@ table:not([class]) th {
 
 @media screen and (min-width: 990px) {
   .large-up-hide {
-    display: none !important;
+    display: block !important;
+  }
+  .medium-hide  {
+   display:none; 
   }
   .link-btn a {
     padding: 10px 18px;
