@@ -628,6 +628,11 @@ table:not([class]) th {
 .medium-hide  {
   display:none;
 }
+  .small-hide {
+    display: block;
+}
+
+
 }
 @media screen and (max-width: 992px) { 
   .small-hide,
