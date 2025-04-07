@@ -624,6 +624,11 @@ table:not([class]) th {
     display: none !important;
   }
 }
+@media screen and (min-width: 749px) and (max-width: 989px) {
+.medium-hide  {
+  display:none;
+}
+}
 @media screen and (max-width: 992px) { 
   .small-hide,
   .medium-hide {
