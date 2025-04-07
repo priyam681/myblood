@@ -310,7 +310,7 @@
   align-items:center;
 }
 
-.facts-summery-wrapper .sp-fliter svg.icon.icon-caret {
+.facts-summery-wrapper svg.icon.icon-caret {
     height: unset; 
     margin: unset;
 }
