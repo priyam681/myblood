@@ -614,7 +614,11 @@ table:not([class]) th {
     }
   }
 }
-
+@media screen and (min-width: 768px) {
+   .custom-section-filter { 
+    display:none;
+  }
+}
 @media screen and (min-width: 750px) and (max-width: 989px) {
   .medium-hide {
     display: none !important;
