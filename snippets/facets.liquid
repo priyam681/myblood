@@ -720,10 +720,10 @@
               {%- if enable_sorting -%}
                 <div
                   id="Details-Mobile-SortBy-{{ section.id }}"
-                  class="custom-sectioon-filter mobile-facets__details js-filter{% if filter_type == 'drawer' %} medium-hide large-up-hide{% endif %}"
+                  class="custom-section-filter mobile-facets__details js-filter{% if filter_type == 'drawer' %} medium-hide large-up-hide{% endif %}"
                   data-index="mobile-{{ forloop.index }}"
                 >
-             <select-component>
+             <select-component class="custom-section-filter">
                 <div class="custom-dropdown" >
                   <button class="dropdown-btn">
                     <span class="sp-dropdown-btn-text">
