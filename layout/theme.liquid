@@ -380,26 +380,7 @@
         countrySelectorSearchCount: `{{ 'localization.country_results_count' | t: count: '[count]' }}`,
       };
     </script>
-    <script defer>
-      document.addEventListener('DOMContentLoaded', function () {
-          const quickButtons = document.querySelectorAll('.quick-add__submit');
-          const quickCloseButtons = document.querySelectorAll('.quick-add-modal__toggle');
-      
-          quickButtons.forEach(function (button) {
-              button.addEventListener('click', function () {
-                  document.body.classList.add('sp-quick-view-container');
-              });
-          });
-      
-          quickCloseButtons.forEach(function (button) {
-              button.addEventListener('click', function () {
-                  document.body.classList.remove('sp-quick-view-container');
-              });
-          });
-      });
-      </script>
-      
-      
+   
     {%- if settings.predictive_search_enabled -%}
       <script src="{{ 'predictive-search.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
