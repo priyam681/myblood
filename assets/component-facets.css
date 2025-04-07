@@ -1398,6 +1398,7 @@ input.mobile-facets__checkbox {
   .facets-vertical .active-facets {
     margin: 0;
     align-items: flex-start;
+    flex-wrap:wrap
   }
 
   .facets__disclosure-vertical[open] .facets__summary .icon-caret {
