@@ -108,9 +108,9 @@ variant-selects {
   }
 }
 
-.product-form__input--pill input[type='radio']:checked + label::selection {
+/* .product-form__input--pill input[type='radio']:checked + label::selection {
   background-color: rgba(var(--color-background), 0.3);
-}
+} */
 
 .product-form__input--pill input[type='radio']:disabled + label,
 .product-form__input--pill input[type='radio'].disabled + label {
