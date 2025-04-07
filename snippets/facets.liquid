@@ -723,33 +723,33 @@
                   class="mobile-facets__details js-filter{% if filter_type == 'drawer' %} medium-hide large-up-hide{% endif %}"
                   data-index="mobile-{{ forloop.index }}"
                 >
-                  <div class="mobile-facets__summary">
-                    <div class="mobile-facets__sort">
-                      <label for="SortBy-mobile">{{ 'products.facets.sort_by_label' | t }}</label>
-                      <div class="select">
-                        <select
-                          name="sort_by"
-                          class="select__select"
-                          id="SortBy-mobile"
-                          aria-describedby="a11y-refresh-page-message"
-                        >
-                          {%- for option in results.sort_options -%}
-                            <option
-                              value="{{ option.value | escape }}"
-                              {% if option.value == sort_by %}
-                                selected="selected"
-                              {% endif %}
-                            >
-                              {{ option.name | escape }}
-                            </option>
-                          {%- endfor -%}
-                        </select>
-                        <span class="svg-wrapper">
-                          {{- 'icon-caret.svg' | inline_asset_content -}}
-                        </span>
-                      </div>
-                    </div>
-                  </div>
+                   <select-component>
+                <div class="custom-dropdown">
+                  <button class="dropdown-btn">
+                    <span class="sp-dropdown-btn-text">
+                      Select Option
+                    </span>
+                    <span class="sp-svg-wrapper">
+                      <svg class="icon icon-caret" viewBox="0 0 10 6"><path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"></path></svg>
+                    </span>
+                  </button>
+                  <ul class="dropdown-menu">
+                    {%- for option in results.sort_options -%}
+                      <li
+                        class="dropdown-item"
+                        data-value="{{ option.value | escape }}"
+                        value="{{ option.value | escape }}"
+                        {% if option.value == sort_by %}
+                          selected="selected"
+                        {% endif %}
+                      >
+                        {{ option.name | escape }}
+                      </li>
+                    {%- endfor -%}
+                  </ul>
+                </div>
+              <input type="hidden" id="dropdownValue" name="sort_by">
+            </select-component>
                 </div>
               {%- endif -%}
 
