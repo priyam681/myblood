@@ -11,8 +11,12 @@
 
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
-      padding-top: 0px;
-      padding-bottom: 0px;
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    .cart__footer {
+      padding-top:0;
+      padding-bottom:0;
     }
   }
 {%- endstyle -%}
