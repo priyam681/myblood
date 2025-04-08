@@ -349,9 +349,9 @@
   z-index: 1;
 }
 
-.banner--mobile-bottom .banner__box {
+/* .banner--mobile-bottom .banner__box {
   padding: 4rem 3.5rem;
-}
+} */
 
 @media screen and (min-width: 750px) {
   .banner__box {
