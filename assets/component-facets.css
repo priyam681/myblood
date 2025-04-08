@@ -4,9 +4,9 @@
   overflow-x: scroll;
   width: calc(100% - 400px);
 }
-.sp-fliter span.facet-checkbox__text {
+/* .sp-fliter span.facet-checkbox__text {
   padding-left: 25px;
-}
+} */
 
 .sp-fliter .mobile-facets__highlight {
   position: absolute;
