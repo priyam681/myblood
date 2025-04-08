@@ -41,7 +41,7 @@
         "footer-1": {
           "type": "link_list",
           "settings": {
-            "heading": "Help",
+            "heading": "<strong>Help</strong>",
             "menu": "footer-help"
           }
         }
