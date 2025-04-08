@@ -16,6 +16,9 @@ variant-selects {
   flex-wrap: wrap;
   margin: 0 auto 1.2rem auto;
 }
+a.varient-plus-icon-svg {
+    margin: .7rem 1.2rem .2rem 0;
+} 
 
 .product--no-media .product-form__input--dropdown {
   flex-direction: column;
