@@ -1178,7 +1178,7 @@ summary::-webkit-details-marker {
   }
 
   .slider--tablet.grid--peek {
-    margin: 0;
+    margin: 0 !important;
     width: 100%;
   }
 
