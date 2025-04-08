@@ -642,8 +642,8 @@ table:not([class]) th {
     line-height: normal;
   }
   .blog .page-width-desktop {
-   padding: 0;
-}
+   padding: 36px 0;
+ }
 }
 
 .left {
