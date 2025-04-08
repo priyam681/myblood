@@ -18,7 +18,7 @@
           "type": "image",
           "settings": {
             "image": "shopify://shop_images/footer-logo.svg",
-            "richtext": "<p><strong>3rd Floor, M-1/64 Sector-B, Aliganj, Lucknow,India</strong></p>",
+            "richtext": "<p><strong>3rd Floor, M-1/64 Sector-B, Aliganj, Lucknow, India</strong></p>",
             "image_width": 135,
             "accept_privacy_policy": true,
             "alignment": ""
@@ -41,7 +41,7 @@
         "footer-1": {
           "type": "link_list",
           "settings": {
-            "heading": "HELP",
+            "heading": "Help",
             "menu": "footer-help"
           }
         }
