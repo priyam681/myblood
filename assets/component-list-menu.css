@@ -12,7 +12,9 @@
 .list-menu--disclosure:focus {
   outline: none;
 }
-
+.list-menu {
+   padding: 0 15px;
+}
 .list-menu__item--active {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
