@@ -1201,6 +1201,9 @@ summary::-webkit-details-marker {
   .scroll-trigger:not(.scroll-trigger--offscreen) .slider--tablet {
     animation: var(--animation-slide-in);
   }
+  .interior-professionals-wrapper h1.heading {
+    font-size: 35px;
+}
 }
 
 @media screen and (min-width: 990px) {
