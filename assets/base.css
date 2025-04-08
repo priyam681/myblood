@@ -563,6 +563,9 @@ blockquote {
   letter-spacing: 0.18rem;
 }
 
+.blog .page-width-desktop {
+   padding: 0;
+}
 .caption-large,
 .customer .field input,
 .customer select,
