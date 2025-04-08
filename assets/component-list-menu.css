@@ -15,6 +15,9 @@
 .list-menu {
    padding: 0 15px;
 }
+.js .menu-drawer__menu li:not(:last-child) {
+      border-bottom: 1px solid #d0d0d0;
+}
 .list-menu__item--active {
   text-decoration: underline;
   text-underline-offset: 0.3rem;
