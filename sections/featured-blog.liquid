@@ -16,8 +16,9 @@
     font-weight: 500;
   }
    .blog-section .card__content .article-card__excerpt {
-    line-height: normal;
+    line-height: calc(1 + 0.8 / var(--font-body-scale));
      color: #191919;
+     font-size: 14px;
   }
     @media screen and (min-width: 750px) {
       .section-{{ section.id }}-padding {
