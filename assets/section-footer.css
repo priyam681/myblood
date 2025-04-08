@@ -132,6 +132,9 @@ a.link.link--text.list-menu__item:hover {
     display: block;
     margin-top: 0;
   }
+  summary.footer-block__heading {
+    pointer-events: none;
+  }
 }
 
 .footer-block:empty {
