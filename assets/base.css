@@ -1204,7 +1204,7 @@ summary::-webkit-details-marker {
 }
 
 
-@media screen and (min-width: 1200px) {
+@media screen and (max-width: 1200px) {
     .interior-professionals-wrapper h1.heading {
       font-size: 35px;
   }
