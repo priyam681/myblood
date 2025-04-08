@@ -5,11 +5,11 @@
   }
 }
 
-@media screen and (max-width: 989px) {
+/* @media screen and (max-width: 989px) {
   .collection .slider.slider--tablet {
     margin-bottom: 1.5rem;
   }
-}
+} */
 
 .collection .loading-overlay {
   position: absolute;
