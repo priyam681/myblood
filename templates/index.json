@@ -73,89 +73,16 @@
     "sliding_collection_gm_47ERrV": {
       "type": "sliding-collection-gm",
       "blocks": {
-        "sliding_collection_custom_Gjkb3Y": {
+        "sliding_collection_custom_CjwQEM": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/bride-8182890_1920.jpg",
-            "collection_name_custom": "Best Seller",
-            "collection_link_custom": ""
-          }
-        },
-        "sliding_collection_custom_xG8cbL": {
-          "type": "sliding-collection-custom",
-          "settings": {
-            "collection_image_custom": "shopify://shop_images/home-slider-02.webp",
-            "collection_name_custom": "Best Seller",
-            "collection_link_custom": ""
-          }
-        },
-        "sliding_collection_custom_jk8ENW": {
-          "type": "sliding-collection-custom",
-          "settings": {
-            "collection_image_custom": "shopify://shop_images/slide2_1.webp",
-            "collection_name_custom": "Best Seller",
-            "collection_link_custom": ""
-          }
-        },
-        "sliding_collection_custom_tadPPM": {
-          "type": "sliding-collection-custom",
-          "settings": {
-            "collection_image_custom": "shopify://shop_images/slide-03.webp",
-            "collection_name_custom": "Best Seller",
-            "collection_link_custom": ""
-          }
-        },
-        "sliding_collection_custom_b6bHrw": {
-          "type": "sliding-collection-custom",
-          "settings": {
-            "collection_image_custom": "shopify://shop_images/slide-01.webp",
-            "collection_name_custom": "Best Seller",
-            "collection_link_custom": ""
-          }
-        },
-        "sliding_collection_custom_hTnmYP": {
-          "type": "sliding-collection-custom",
-          "settings": {
-            "collection_image_custom": "shopify://shop_images/19.png",
-            "collection_name_custom": "Best Seller",
-            "collection_link_custom": ""
-          }
-        },
-        "sliding_collection_custom_tE3tVm": {
-          "type": "sliding-collection-custom",
-          "settings": {
-            "collection_image_custom": "shopify://shop_images/15.png",
-            "collection_name_custom": "Best Seller",
-            "collection_link_custom": ""
-          }
-        },
-        "sliding_collection_custom_DmL69J": {
-          "type": "sliding-collection-custom",
-          "settings": {
-            "collection_image_custom": "shopify://shop_images/15.png",
-            "collection_name_custom": "Best Seller",
-            "collection_link_custom": ""
-          }
-        },
-        "sliding_collection_custom_jWHTCk": {
-          "type": "sliding-collection-custom",
-          "settings": {
-            "collection_image_custom": "shopify://shop_images/bride-8182890_1920.jpg",
             "collection_name_custom": "Best Seller",
             "collection_link_custom": ""
           }
         }
       },
       "block_order": [
-        "sliding_collection_custom_Gjkb3Y",
-        "sliding_collection_custom_xG8cbL",
-        "sliding_collection_custom_jk8ENW",
-        "sliding_collection_custom_tadPPM",
-        "sliding_collection_custom_b6bHrw",
-        "sliding_collection_custom_hTnmYP",
-        "sliding_collection_custom_tE3tVm",
-        "sliding_collection_custom_DmL69J",
-        "sliding_collection_custom_jWHTCk"
+        "sliding_collection_custom_CjwQEM"
       ],
       "settings": {
         "sliding_collection_heading_title": "Shop Our Collections",
