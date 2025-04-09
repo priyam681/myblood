@@ -159,7 +159,7 @@
         <a href="{{ block.settings.collection_link_custom }}">
           <img
             class="collection-image-custom"
-            src="{{ block.settings.collection_image_custom | img_url: 'master' }}"
+            src="{{ block.settings.collection_image_custom | img_url: 'master' | default: asset_url: 'placeholder.png' }}"
             alt="{{ block.settings.collection_name_custom }}"
           >
           <p class="collection-name-custom">{{ block.settings.collection_name_custom }}</p>
