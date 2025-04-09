@@ -124,14 +124,25 @@
       </div>
     </div>
     <div class="first-image">
-            <img src="{{  section.settings.image-1 | image_url: width: 800 }}" alt="Custom Image">
+<img
+  src="{% if section.settings.image-1 %}{{ section.settings.image-1 | image_url: width: 800 }}{% else %}{{ 'placeholder.png' | asset_url }}{% endif %}"
+  alt="Custom Image"
+>
     </div>
     <div class="second-image">
-      <img src="{{  section.settings.image-2 | image_url: width: 800 }}" alt="Custom Image">
+      
+      <img
+  src="{% if section.settings.image-2 %}{{ section.settings.image-2 | image_url: width: 800 }}{% else %}{{ 'placeholder.png' | asset_url }}{% endif %}"
+  alt="Custom Image"
+>
      
     </div>
     <div class="third-image">
-      <img src="{{  section.settings.image-3 | image_url: width: 800 }}" alt="Custom Image">
+ 
+         <img
+  src="{% if section.settings.image-3 %}{{ section.settings.image-3 | image_url: width: 800 }}{% else %}{{ 'placeholder.png' | asset_url }}{% endif %}"
+  alt="Custom Image"
+>
      
     </div>
   </div>
