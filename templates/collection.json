@@ -31,9 +31,9 @@
         "variant_picker_KrcAwd"
       ],
       "settings": {
-        "products_per_page": 8,
+        "products_per_page": 16,
         "variant": false,
-        "swatches_limits": 1,
+        "swatches_limits": 4,
         "show-varient": true,
         "columns_desktop": 4,
         "color_scheme": "",
