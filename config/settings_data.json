@@ -17,7 +17,7 @@
     "type_body_font": "assistant_n4",
     "body_scale": 100,
     "sp-quick-view-container": true,
-    "sp-quick-view-varient": "box",
+    "sp-quick-view-varient": "default",
     "enable_product_card_slider": true,
     "page_width": 1600,
     "spacing_sections": 0,
