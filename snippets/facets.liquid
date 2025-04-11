@@ -720,11 +720,10 @@
               {%- if enable_sorting -%}
                 <details
                   id="Details-Mobile-SortBy-{{ section.id }}"
-                  class="custom-section-filter mobile-facets__details js-filter{% if filter_type == 'drawer' %} medium-hide large-up-hide{% endif %}"
+                  class="custom-section-filter  mobile-facets__details js-filter{% if filter_type == 'drawer' %} medium-hide large-up-hide{% endif %}"
                   data-index="mobile-{{ forloop.index }}"
                 >
-             <select-component class="custom-section-filter">
-                <div class="custom-dropdown" >
+                 <summary class="custom-dropdown" role="button"  aria-expanded="false" aria-controls="FacetMobile-3-template--19286807675116__product-grid">
                   <button class="dropdown-btn">
                     <span class="sp-dropdown-btn-text">
                       Select Option
@@ -733,7 +732,9 @@
                       <svg class="icon icon-caret" viewBox="0 0 10 6"><path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"></path></svg>
                     </span>
                   </button>
-                  <ul class="dropdown-menu">
+                </summary>
+             <select-component class="custom-section-filter">
+               <ul class="dropdown-menu">
                     {%- for option in results.sort_options -%}
                       <li
                         class="dropdown-item"
@@ -747,7 +748,6 @@
                       </li>
                     {%- endfor -%}
                   </ul>
-                </div>
               <input type="hidden" id="dropdownValue" name="sort_by">
             </select-component>
                 </details>
