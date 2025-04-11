@@ -82,6 +82,10 @@
   padding-top: 1rem;
 }
 
+span.facet-checkbox__text {
+    padding-left: 2.5rem;
+}
+
 .active-facets-mobile {
   margin-bottom: 0.5rem;
 }
