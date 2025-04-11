@@ -718,7 +718,7 @@
               {%- endif -%}
 
               {%- if enable_sorting -%}
-                <details
+                <div
                   id="Details-Mobile-SortBy-{{ section.id }}"
                   class="custom-section-filter mobile-facets__details js-filter{% if filter_type == 'drawer' %} medium-hide large-up-hide{% endif %}"
                   data-index="mobile-{{ forloop.index }}"
@@ -750,7 +750,7 @@
                 </div>
               <input type="hidden" id="dropdownValue" name="sort_by">
             </select-component>
-                </details>
+                </div>
               {%- endif -%}
 
               <div class="mobile-facets__footer">
@@ -834,34 +834,31 @@
             </h2>
             {% comment %} custom {% endcomment %}
 
-            <select-component >
-              <div class="custom-dropdown">
-                <button class="dropdown-btn">
-                  <span class="sp-dropdown-btn-text">
-                    Select Option
-                  </span>
-                  <span class="sp-svg-wrapper">
-                    <svg class="icon icon-caret" viewBox="0 0 10 6"><path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"></path></svg>
-                  </span>
-                </button>
-                <ul class="dropdown-menu">
-                  {%- for option in results.sort_options -%}
-                    <li
-                      class="dropdown-item"
-                      data-value="{{ option.value | escape }}"
-                      value="{{ option.value | escape }}"
-                      {% if option.value == sort_by %}
-                        selected="selected"
-                      {% endif %}
-                    >
-                      {{ option.name | escape }}
-                    </li>
-                  {%- endfor -%}
-                </ul>
-              </div>
-              <input type="hidden" id="dropdownValue" name="sort_by">
-            </select-component>
-
+            <details class="custom-dropdown">
+            <summary class="dropdown-btn">
+              <span class="sp-dropdown-btn-text">Select Option</span>
+              <span class="sp-svg-wrapper">
+                <svg class="icon icon-caret" viewBox="0 0 10 6">
+                  <path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"></path>
+                </svg>
+              </span>
+            </summary>
+          
+            <ul class="dropdown-menu">
+              {%- for option in results.sort_options -%}
+                <li
+                  class="dropdown-item"
+                  data-value="{{ option.value | escape }}"
+                  {% if option.value == sort_by %}
+                    aria-selected="true"
+                  {% endif %}
+                  onclick="document.getElementById('dropdownValue').value = '{{ option.value | escape }}'"
+                >
+                  {{ option.name | escape }}
+                </li>
+              {%- endfor -%}
+            </ul>
+          </details>
             {% comment %} end custom {% endcomment %}
           </div>
         </div>
