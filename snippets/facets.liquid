@@ -17,19 +17,19 @@
 {{ 'component-swatch.css' | asset_url | stylesheet_tag }}
 
 <style>
-  .js .mobile-facets .submenu-open {
-    visibility: unset;
-}
-  ul.dropdown-menu-block {
-    list-style-type: none;
-}
-  ul.dropdown-menu-block {
-    list-style-type: none;
-    padding-left: 27px;
-    line-height: 29px;
-}
+    .js .mobile-facets .submenu-open {
+      visibility: unset;
+  }
+    ul.dropdown-menu-block {
+      list-style-type: none;
+  }
+    ul.dropdown-menu-block {
+      list-style-type: none;
+      padding-left: 27px;
+      line-height: 29px;
+  }
 </style>
-  
+
 {%- liquid
   assign sort_by = results.sort_by | default: results.default_sort_by
   assign total_active_values = 0
@@ -151,7 +151,7 @@
                       class="facets__summary caption-large focus-offset"
                       aria-label="{{ filter.label | escape }} ({{ 'products.facets.filters_selected.one' | t: count: filter.active_values.size }})"
                     >
-                      <div class="facts-summery-wrapper" >
+                      <div class="facts-summery-wrapper">
                         <span class="facets__summary-label">
                           {{- filter.label | escape }}
                           {%- if filter_type == 'vertical' -%}
@@ -731,39 +731,37 @@
               {%- endif -%}
 
               {%- if enable_sorting -%}
-                <details
+                <div
                   id="Details-Mobile-SortBy-{{ section.id }}"
                   class="mobile-facets__details js-filter{% if filter_type == 'drawer' %} medium-hide large-up-hide{% endif %}"
                   data-index="mobile-{{ forloop.index }}"
                 >
-                 <summary class="mobile-facets__summary focus-inset"  role="button"  aria-expanded="false" aria-controls="FacetMobile-4-template--19286807675116__product-grid">
-                  <button class="dropdown-btn" aria-expanded="true" type="button"> 
-                    <span class="sp-dropdown-btn-text">
-                      Select Option
-                    </span>
-                    <span class="sp-svg-wrapper">
-                      <svg class="icon icon-caret" viewBox="0 0 10 6"><path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"></path></svg>
-                    </span>
-                  </button>
-                </summary>
-          
-               <ul class="dropdown-menu-block">
-                    {%- for option in results.sort_options -%}
-                      <li
-                        class="dropdown-item"
-                        data-value="{{ option.value | escape }}"
-                        value="{{ option.value | escape }}"
-                        {% if option.value == sort_by %}
-                          selected="selected"
-                        {% endif %}
-                      >
-                        {{ option.name | escape }}
-                      </li>
-                    {%- endfor -%}
-                  </ul>
-              <input type="hidden" id="dropdownValue" name="sort_by">
-      
-                </details>
+                  <div class="mobile-facets__summary">
+                    <div class="mobile-facets__sort">
+                      <label for="SortBy-mobile">{{ 'products.facets.sort_by_label' | t }}</label>
+                      <select-component>
+                        <div class="custom-dropdown">
+                          <button class="dropdown-btn">Select Option</button>
+                          <ul class="dropdown-menu">
+                            {%- for option in results.sort_options -%}
+                              <li
+                                class="dropdown-item"
+                                data-value="{{ option.value | escape }}"
+                                value="{{ option.value | escape }}"
+                                {% if option.value == sort_by %}
+                                  selected="selected"
+                                {% endif %}
+                              >
+                                {{ option.name | escape }}
+                              </li>
+                            {%- endfor -%}
+                          </ul>
+                        </div>
+                        <input type="hidden" id="dropdownValue" name="sort_by">
+                      </select-component>
+                    </div>
+                  </div>
+                </div>
               {%- endif -%}
 
               <div class="mobile-facets__footer">
@@ -847,14 +845,14 @@
             </h2>
             {% comment %} custom {% endcomment %}
 
-            <select-component >
+            <select-component>
               <div class="custom-dropdown">
                 <button class="dropdown-btn">
-                  <span class="sp-dropdown-btn-text">
-                    Select Option
-                  </span>
+                  <span class="sp-dropdown-btn-text"> Select Option </span>
                   <span class="sp-svg-wrapper">
-                    <svg class="icon icon-caret" viewBox="0 0 10 6"><path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"></path></svg>
+                    <svg class="icon icon-caret" viewBox="0 0 10 6">
+                      <path fill="currentColor" fill-rule="evenodd" d="M9.354.646a.5.5 0 0 0-.708 0L5 4.293 1.354.646a.5.5 0 0 0-.708.708l4 4a.5.5 0 0 0 .708 0l4-4a.5.5 0 0 0 0-.708" clip-rule="evenodd"></path>
+                    </svg>
                   </span>
                 </button>
                 <ul class="dropdown-menu">
