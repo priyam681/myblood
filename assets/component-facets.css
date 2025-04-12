@@ -26,6 +26,8 @@
 .sp-fliter .select-option .dropdown-menu {
       width: 100%;
       box-shadow: unset;
+      padding: 0 15px;
+      border: unset;
 }
 
 /* Hide the default checkbox */
