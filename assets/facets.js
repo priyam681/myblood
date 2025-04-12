@@ -299,76 +299,14 @@ FacetFiltersForm.searchParamsPrev = window.location.search.slice(1);
 customElements.define('facet-filters-form', FacetFiltersForm);
 FacetFiltersForm.setListeners();
 
-// class SelectComponent extends FacetFiltersForm {
-//   constructor() {
-//     super();
-//     this.dropdownBtn = this.querySelector('.dropdown-btn');
-//     this.dropdownMenu = this.querySelector('.dropdown-menu');
-//     this.hiddenInput = this.querySelector('#dropdownValue');
-//     this.dropdownItems = this.querySelectorAll('.dropdown-item');
-//     console.log(this.dropdownItems)
 
-//     if (this.dropdownBtn) {
-//       this.initialDropDown();
-//       this.initializeSelectedOption();
-//     }
-//   }
-
-//   initializeSelectedOption() {
-//     const searchParams = new URLSearchParams(window.location.search);
-//     const currentSortedValue = searchParams.get('sort_by');
-
-//     if (currentSortedValue) {
-//       const matchingItem = Array.from(this.dropdownItems).find((item) => item.dataset.value === currentSortedValue);
-
-//       if (matchingItem) {
-//         // update dropdown text to show current selection.
-//         this.dropdownBtn.children[0].textContent = matchingItem.textContent;
-//         if (this.hiddenInput) {
-//           this.hiddenInput.value = currentSortedValue;
-//         }
-//       }
-//     }
-//   }
-
-//   initialDropDown() {
-//     this.dropdownBtn.addEventListener('click', this.toggleDropdown.bind(this));
-//     this.dropdownMenu.addEventListener('click', this.handleMenuClick.bind(this));
-//     document.addEventListener('click', this.closeDropdown.bind(this));
-//   }
-
-//   closeDropdown(e) {
-//     if (!this.contains(e.target)) {
-//       this.dropdownMenu.classList.remove('dropdown_active');
-//     }
-//   }
-
-//   handleMenuClick(e) {
-//     if (e.target.classList.contains('dropdown-item')) {
-//       console.log(this.dropdownBtn.children[0])
-//       this.dropdownBtn.children[0].textContent = e.target.textContent;
-//       const sortValue = e.target.dataset.value;
-//       if (this.hiddenInput) {
-//         this.hiddenInput.value = sortValue;
-//         this.debouncedOnSubmit(e);
-//       }
-//     }
-//   }
-
-//   toggleDropdown(e) {
-//     e.preventDefault();
-//     this.dropdownMenu.classList.toggle('dropdown_active');
-//   }
-// }
-
-// customElements.define('select-component', SelectComponent);
 class SelectComponent extends FacetFiltersForm {
   constructor() {
     super();
+
     this.dropdownBtn = this.querySelector('.dropdown-btn');
     this.dropdownMenu = this.querySelector('.dropdown-menu');
     this.hiddenInput = this.querySelector('#dropdownValue');
-
     this.dropdownItems = this.querySelectorAll('.dropdown-item');
 
     if (this.dropdownBtn) {
@@ -379,14 +317,15 @@ class SelectComponent extends FacetFiltersForm {
 
   initializeSelectedOption() {
     const searchParams = new URLSearchParams(window.location.search);
-
     const currentSortedValue = searchParams.get('sort_by');
 
     if (currentSortedValue) {
-      const matchingItem = Array.from(this.dropdownItems).find((item) => item.dataset.value === currentSortedValue);
+      const matchingItem = Array.from(this.dropdownItems).find(
+        (item) => item.dataset.value === currentSortedValue
+      );
 
       if (matchingItem) {
-        // updating  dropdown text to show current selection.
+        // Update dropdown text to show current selection
         this.dropdownBtn.innerHTML = matchingItem.textContent;
 
         // Update hidden input
@@ -398,11 +337,9 @@ class SelectComponent extends FacetFiltersForm {
   }
 
   initialDropdown() {
-    this.dropdownBtn.addEventListener('click', this.toggleDropdown.bind(this));
-
-    this.dropdownMenu.addEventListener('click', this.handleMenuClick.bind(this));
-
-    document.addEventListener('click', this.closeDropdown.bind(this));
+    this.dropdownBtn.addEventListener('click', this.toggleDropdown.bind(this), true);
+    this.dropdownMenu.addEventListener('click', this.handleMenuClick.bind(this), true);
+    document.addEventListener('click', this.closeDropdown.bind(this), false);
   }
 
   closeDropdown(e) {
@@ -416,30 +353,27 @@ class SelectComponent extends FacetFiltersForm {
 
     if (e.target.classList.contains('dropdown-item')) {
       this.dropdownBtn.innerHTML = e.target.textContent;
-
-      if (document.querySelector('.sp-quantity-click')) {
-        console.log('true');
-        this.dropdownItems.forEach((item) => item.classList.remove('selected'));
-
-        e.target.classList.add('selected');
-      }
-
       const sortValue = e.target.dataset.value;
 
-      // updating the hidden input with selected value
+      // Update hidden input with selected value
       if (this.hiddenInput) {
         this.hiddenInput.value = sortValue;
-        this.debouncedOnSubmit(e);
+        this.dropdownMenu.classList.remove('dropdown_active');
+
+        setTimeout(() => {
+          this.debouncedOnSubmit(e);
+        }, 10);
       }
     }
   }
 
   toggleDropdown(e) {
     e.preventDefault();
-
+    e.stopPropagation();
     this.dropdownMenu.classList.toggle('dropdown_active');
   }
 }
+
 
 customElements.define('select-component', SelectComponent);
 class PriceRange extends HTMLElement {
