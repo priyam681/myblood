@@ -27,6 +27,7 @@
       width: 100%;
       box-shadow: unset;
       padding: 0 15px;
+     border-top: 1px solid #d7d7d7 !important;
       border: unset;
 }
 
