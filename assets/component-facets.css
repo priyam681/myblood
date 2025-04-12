@@ -20,6 +20,13 @@
   visibility: visible;
 }
 
+.sp-fliter .custom-dropdown.select-option {
+      position: unset;
+}  
+.sp-fliter select-option .dropdown-menu {
+      width: 100%;
+}
+
 /* Hide the default checkbox */
 .sp-fliter .mobile-facets__checkbox {
   display: none;
