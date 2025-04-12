@@ -39,10 +39,8 @@
   <div class="container">
     <div class="image-slider">
       <div class="first-image-container image image-container">
-        <img
-          src="{{image_1 | asset_url}}"
-          alt="Custom Image"
-        >
+      <img src="{{ section.settings.introduction_image_1 | image_url: 'master' }}" alt="Image 1">
+
       </div>
       <div class="second-image-container image image-container">
         <img
