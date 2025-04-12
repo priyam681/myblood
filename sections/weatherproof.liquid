@@ -81,7 +81,8 @@
 <div class="weatherproof-wrapper">
   <div class="weatherproof-image">
         {% if section.settings.introduction_image_1 != blank %}
-  <img src="{{ section.settings.introduction_image_1 | image_url }}" alt="Image 1">
+  <img src="{{ section.settings.introduction_image_1 | image_url:width: 800 }}" alt="Custom Image"  width="100%"
+      height="100%">
 {% else %}
   <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image">
 {% endif %}
