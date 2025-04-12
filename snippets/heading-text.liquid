@@ -47,22 +47,25 @@
 
       </div>
       <div class="second-image-container image image-container">
-        <img
-          src="https://cdn.shopify.com/s/files/1/0744/5197/6428/files/borek-horizon-sofa-teak-63800393564538.jpg?v=1740481513"
-          alt="Custom Image"
-        >
+         {% if section.settings.introduction_image_2 != blank %}
+  <img src="{{ section.settings.introduction_image_2 | image_url }}" alt="Image 1">
+{% else %}
+  <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image">
+{% endif %}
       </div>
       <div class="third-image-container image image-container">
-        <img
-          src="https://cdn.shopify.com/s/files/1/0744/5197/6428/files/borek-peniche-tafel-o-140cm-x-75-cm-2-kleuren-371775397563442.jpg?v=1740481621"
-          alt="Custom Image"
-        >
+         {% if section.settings.introduction_image_3 != blank %}
+  <img src="{{ section.settings.introduction_image_3 | image_url }}" alt="Image 1">
+{% else %}
+  <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image">
+{% endif %}
       </div>
       <div class="fourth-image-container image image-container">
-        <img
-          src="https://cdn.shopify.com/s/files/1/0744/5197/6428/files/wolfwood-tuinmeubelen-coffee-bay-loungeset-opstelling-17-35861391769912.jpg?v=1740481817"
-          alt="Custom Image"
-        >
+         {% if section.settings.introduction_image_4 != blank %}
+  <img src="{{ section.settings.introduction_image_4 | image_url }}" alt="Image 1">
+{% else %}
+  <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image">
+{% endif %}
       </div>
     </div>
     <p class="details">
