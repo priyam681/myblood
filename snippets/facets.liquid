@@ -740,7 +740,7 @@
                     <div class="mobile-facets__sort">
                       <label for="SortBy-mobile">{{ 'products.facets.sort_by_label' | t }}</label>
                       <select-component>
-                        <div class="custom-dropdown">
+                        <div class="custom-dropdown select-option">
                           <button class="dropdown-btn">Select Option</button>
                           <ul class="dropdown-menu">
                             {%- for option in results.sort_options -%}
@@ -846,7 +846,7 @@
             {% comment %} custom {% endcomment %}
 
             <select-component>
-               <div class="custom-dropdown ">
+              <div class="custom-dropdown">
                 <button class="dropdown-btn">
                   <span class="sp-dropdown-btn-text"> Select Option </span>
                   <span class="sp-svg-wrapper">
