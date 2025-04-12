@@ -39,7 +39,11 @@
   <div class="container">
     <div class="image-slider">
       <div class="first-image-container image image-container">
-      <img src="{{ section.settings.introduction_image_1 | image_url }}" alt="Image 1">
+     {% if section.settings.introduction_image_1 != blank %}
+  <img src="{{ section.settings.introduction_image_1 | image_url }}" alt="Image 1">
+{% else %}
+  <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image">
+{% endif %}
 
       </div>
       <div class="second-image-container image image-container">
