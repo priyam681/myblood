@@ -45,7 +45,7 @@
                 line-height: 27px !important;;
                 color: rgb(25, 25, 25);
             }
-         
+
          h2.collage-wrapper-title {
             font-size: 24px;
             margin-bottom: 20px;
@@ -175,7 +175,7 @@
           .place-wrapper .wrapper .container {
               padding-inline: 30px;
           }
-           
+
          .place-wrapper .wrapper .image-slider {
                 width: 100%;
                 position: relative;
@@ -243,7 +243,7 @@
       }
 {%- endstyle -%}
 <div class="place-wrapper">
-  {% render 'heading-text' %}
+  {% render 'heading-text',image_1: section.settings.introduction_image_1, image_2: section.settings.introduction_image_2, image_3: section.settings.introduction_image_3, image_4: section.settings.introduction_image_4,%}
 </div>
 
 {% schema %}
@@ -283,6 +283,10 @@
           "default": "Test",
           "label": "Detail Text"
         },
+    {  "type":"image_picker",  "id":"introduction_image_1",  "label":"Image 1"},
+    {  "type":"image_picker",  "id":"introduction_image_2",  "label":"Image 2"},
+    {  "type":"image_picker",  "id":"introduction_image_3",  "label":"Image 3"},
+    {  "type":"image_picker",  "id":"introduction_image_4",  "label":"Image 4"}
 
   ],
   "presets": [
