@@ -222,6 +222,19 @@
     },
     "promotion_cards_pinning_HcwXaj": {
       "type": "promotion-cards-pinning",
+      "blocks": {
+        "card_mK8XmB": {
+          "type": "card",
+          "settings": {
+            "card_title": "First",
+            "card_background": "#f8f8f8",
+            "card_text_color": "#333333"
+          }
+        }
+      },
+      "block_order": [
+        "card_mK8XmB"
+      ],
       "settings": {
         "card_height": 400,
         "enable_pinning": true
