@@ -230,10 +230,55 @@
             "card_background": "#f8f8f8",
             "card_text_color": "#333333"
           }
+        },
+        "card_9bAt9R": {
+          "type": "card",
+          "settings": {
+            "card_title": "Second",
+            "card_background": "#f8f8f8",
+            "card_text_color": "#333333"
+          }
+        },
+        "card_73ADqM": {
+          "type": "card",
+          "settings": {
+            "card_title": "Third",
+            "card_background": "#f8f8f8",
+            "card_text_color": "#333333"
+          }
+        },
+        "card_6Bgdpr": {
+          "type": "card",
+          "settings": {
+            "card_title": "Four",
+            "card_background": "#f8f8f8",
+            "card_text_color": "#333333"
+          }
+        },
+        "card_ARETAc": {
+          "type": "card",
+          "settings": {
+            "card_title": "Five",
+            "card_background": "#f8f8f8",
+            "card_text_color": "#333333"
+          }
+        },
+        "card_nrdGbn": {
+          "type": "card",
+          "settings": {
+            "card_title": "",
+            "card_background": "#f8f8f8",
+            "card_text_color": "#333333"
+          }
         }
       },
       "block_order": [
-        "card_mK8XmB"
+        "card_mK8XmB",
+        "card_9bAt9R",
+        "card_73ADqM",
+        "card_6Bgdpr",
+        "card_ARETAc",
+        "card_nrdGbn"
       ],
       "settings": {
         "card_height": 400,
