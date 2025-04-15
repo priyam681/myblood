@@ -1,0 +1,99 @@
+<style>
+    .promotion-cards {
+        position: relative;
+        width: 100%;
+        height: auto;
+    }
+
+    .promotion-cards .card {
+        width: 100%;
+        height: {{ section.settings.card_height }}px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        background-color: {{ block.settings.card_background }};
+        color: {{ block.settings.card_text_color }};
+        transition: transform 0.3s ease;
+    }
+
+    .promotion-cards .card h3 {
+        font-size: 24px;
+        margin: 0;
+    }
+</style>
+<script src="{{ 'pinning-list.js' | asset_url }}" defer></script>
+
+<div class="promotion-cards">
+    <pinning-list>
+        <div class="pinning-list-container">
+            {% for block in section.blocks %}
+                <div class="card pinning-list-card">
+                    <h3>{{ block.settings.card_title }}</h3>
+                </div>
+            {% endfor %}
+        </div>
+    </pinning-list>
+</div>
+
+<script>
+
+</script>
+
+{% schema %}
+{
+  "name": "Promotion cards pinning",
+  "max_blocks": 10,
+  "blocks": [
+    {
+      "type": "card",
+      "name": "card",
+      "settings": [
+        {
+          "type": "text",
+          "id": "card_title",
+          "label": "Card Title"
+        },
+        {
+          "type": "color",
+          "id": "card_background",
+          "label": "Card Background",
+          "default": "#f8f8f8"
+        },
+        {
+          "type": "color",
+          "id": "card_text_color",
+          "label": "Text Color",
+          "default": "#333333"
+        }
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "type": "range",
+      "id": "card_height",
+      "min": 200,
+      "max": 800,
+      "step": 50,
+      "unit": "px",
+      "label": "Card Height",
+      "default": 400
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_pinning",
+      "label": "Enable Card Pinning",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Promotion cards pinning"
+    }
+  ]
+}
+
+{% endschema %}
