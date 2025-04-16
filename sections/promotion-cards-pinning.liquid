@@ -1,46 +1,94 @@
 <style>
-    .promotion-cards {
-        position: relative;
-        width: 100%;
-        height: auto;
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
     }
 
-    .promotion-cards .card {
+    .pinning-section {
         width: 100%;
-        height: {{ section.settings.card_height }}px;
+        background-color: lightsalmon;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .pinning-header {
+        display: flex;
+        flex-direction: column;
+        gap: 1vw;
+        padding: 4vw 4vw 2vw;
+        position: relative;
+        z-index: 2;
+    }
+
+    .pinning-header-text {
+        font-size: 1.5vw;
+        font-weight: 500;
+    }
+
+    .pinning-header-subtext {
+        font-size: 4vw;
+        font-weight: bold;
+        line-height: 1;
+    }
+
+    .pinning-card-container {
+        height: 100vh;
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        padding: 0 4vw;
+    }
+
+    .pinning-card-list {
+        display: inline-flex;
+        gap: 2vw;
+        height: 100%;
+        align-items: center;
+        will-change: transform;
+        transform: translateX(100%);
+    }
+
+    .pinning-card-item {
+        width: 25vw;
+        height: 90vh;
+        background: white;
+        border-radius: 20px;
+        flex-shrink: 0;
         display: flex;
         align-items: center;
         justify-content: center;
-        margin-bottom: 20px;
-        border-radius: 8px;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-        background-color: {{ block.settings.card_background }};
-        color: {{ block.settings.card_text_color }};
-        transition: transform 0.3s ease;
-    }
-
-    .promotion-cards .card h3 {
-        font-size: 24px;
-        margin: 0;
+        font-size: 4rem;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        position: relative;
     }
 </style>
-<script src="{{ 'pinning-list.js' | asset_url }}" defer></script>
 
-<div class="promotion-cards">
-    <pinning-list>
-        <div class="pinning-list-container">
-            {% for block in section.blocks %}
-                <div class="card pinning-list-card">
-                    <h3>{{ block.settings.card_title }}</h3>
-                </div>
-            {% endfor %}
+
+<pinning-list>
+    <div class="pinning-section">
+        <div class="pinning-header">
+            <span class="pinning-header-text">
+                {{ section.settings.pinning_header_caption }}
+            </span>
+            <span class="pinning-header-subtext">
+                Pinning Section
+            </span>
         </div>
-    </pinning-list>
-</div>
+        <div class="pinning-card-container">
+            <div class="pinning-card-list">
+                {% for block in section.blocks %}
+                    <div class="pinning-card-item"
+                         style="background-color: {{ block.settings.card_background }}; color: {{ block.settings.card_text_color }};">
+                        <h1>{{ block.settings.card_title }}</h1>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</pinning-list>
 
-<script>
-
-</script>
+<script src="{{ 'pinning-list.js' | asset_url }}" defer></script>
 
 {% schema %}
 {
@@ -87,6 +135,12 @@
       "id": "enable_pinning",
       "label": "Enable Card Pinning",
       "default": true
+    },
+    {
+      "type": "text",
+      "id": "pinning_header_caption",
+      "label": "Caption",
+      "default": "Caption"
     }
   ],
   "presets": [
