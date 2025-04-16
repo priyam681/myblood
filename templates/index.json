@@ -243,7 +243,7 @@
           "type": "card",
           "settings": {
             "card_title": "Third",
-            "card_background": "#f8f8f8",
+            "card_background": "#2d72d2",
             "card_text_color": "#333333"
           }
         },
@@ -251,7 +251,7 @@
           "type": "card",
           "settings": {
             "card_title": "Four",
-            "card_background": "#f8f8f8",
+            "card_background": "#c44ed4",
             "card_text_color": "#333333"
           }
         },
