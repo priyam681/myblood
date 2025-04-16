@@ -235,7 +235,7 @@
           "type": "card",
           "settings": {
             "card_title": "Second",
-            "card_background": "#f8f8f8",
+            "card_background": "#1fbf7f",
             "card_text_color": "#333333"
           }
         },
