@@ -227,7 +227,7 @@
           "type": "card",
           "settings": {
             "card_title": "First",
-            "card_background": "#f8f8f8",
+            "card_background": "#c22929",
             "card_text_color": "#333333"
           }
         },
@@ -282,7 +282,8 @@
       ],
       "settings": {
         "card_height": 400,
-        "enable_pinning": true
+        "enable_pinning": true,
+        "pinning_header_caption": "Caption"
       }
     }
   },
