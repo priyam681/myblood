@@ -267,7 +267,7 @@
           "type": "card",
           "settings": {
             "card_title": "",
-            "card_background": "#f8f8f8",
+            "card_background": "#bbd11c",
             "card_text_color": "#333333"
           }
         }
