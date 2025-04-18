@@ -38,6 +38,18 @@
     "header": {
       "type": "header",
       "blocks": {
+        "customize_top_menu_item_jrQrVV": {
+          "type": "customize-top-menu-item",
+          "settings": {
+            "mega_menu_trigger": "tables",
+            "enable_color_scheme": true,
+            "menu_item_color_scheme": "",
+            "menu_item_background-color": "",
+            "menu_style_on_desktop": "solid",
+            "menu_apply_on": "all",
+            "open_link_new_tab": true
+          }
+        },
         "mega_menu_promotion_pjyAwD": {
           "type": "mega-menu-promotion",
           "settings": {
@@ -102,6 +114,7 @@
         }
       },
       "block_order": [
+        "customize_top_menu_item_jrQrVV",
         "mega_menu_promotion_pjyAwD",
         "mega_menu_promotion_yF4Yfq",
         "mega_menu_promotion_beNDHk"
