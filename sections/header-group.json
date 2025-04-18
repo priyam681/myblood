@@ -25,20 +25,99 @@
       "block_order": [
         "announcement-bar-0"
       ],
-      "settings": {}
+      "settings": {
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "color_scheme": "",
+        "show_line_separator": true,
+        "show_social": false,
+        "enable_country_selector": false,
+        "enable_language_selector": false
+      }
     },
     "header": {
       "type": "header",
+      "blocks": {
+        "mega_menu_promotion_pjyAwD": {
+          "type": "mega-menu-promotion",
+          "settings": {
+            "menu_promotion_trigger": "chairs",
+            "mega_menu_promotion_item": "",
+            "mega_menu_promotion_image": "shopify://shop_images/2015-07-08_Laydown_51238_24365.jpg",
+            "menu_promotion_image_ratio": "adapt to image",
+            "menu_promotion_caption": "",
+            "menu_promotion_heading": "Heading",
+            "menu_promotion_subheading": "Subheading",
+            "menu_promotion_button_label": "Button",
+            "menu_promotion_button_style": "solid button",
+            "menu_promotion_text_alignment": "left",
+            "menu_promotion_text_position": "middle",
+            "menu_promotion_url": "",
+            "menu_promotion_position": "first column",
+            "menu_promotion_enable": true,
+            "menu_promotion_range": 50,
+            "menu_promotion_overlay_color": "accent-1"
+          }
+        },
+        "mega_menu_promotion_yF4Yfq": {
+          "type": "mega-menu-promotion",
+          "settings": {
+            "menu_promotion_trigger": "chairs",
+            "mega_menu_promotion_item": "",
+            "mega_menu_promotion_image": "shopify://shop_images/2015-07-08_Laydown_51238_24365.jpg",
+            "menu_promotion_image_ratio": "adapt to image",
+            "menu_promotion_caption": "",
+            "menu_promotion_heading": "Heading",
+            "menu_promotion_subheading": "Subheading",
+            "menu_promotion_button_label": "Button",
+            "menu_promotion_button_style": "solid button",
+            "menu_promotion_text_alignment": "left",
+            "menu_promotion_text_position": "middle",
+            "menu_promotion_url": "",
+            "menu_promotion_position": "first column",
+            "menu_promotion_enable": true,
+            "menu_promotion_range": 50,
+            "menu_promotion_overlay_color": "accent-1"
+          }
+        },
+        "mega_menu_promotion_beNDHk": {
+          "type": "mega-menu-promotion",
+          "settings": {
+            "menu_promotion_trigger": "tables",
+            "mega_menu_promotion_item": "",
+            "menu_promotion_image_ratio": "adapt to image",
+            "menu_promotion_caption": "",
+            "menu_promotion_heading": "Heading",
+            "menu_promotion_subheading": "Subheading",
+            "menu_promotion_button_label": "Button",
+            "menu_promotion_button_style": "solid button",
+            "menu_promotion_text_alignment": "left",
+            "menu_promotion_text_position": "middle",
+            "menu_promotion_url": "",
+            "menu_promotion_position": "first column",
+            "menu_promotion_enable": true,
+            "menu_promotion_range": 50,
+            "menu_promotion_overlay_color": "accent-1"
+          }
+        }
+      },
+      "block_order": [
+        "mega_menu_promotion_pjyAwD",
+        "mega_menu_promotion_yF4Yfq",
+        "mega_menu_promotion_beNDHk"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
         "menu": "main-menu",
-        "menu_type_desktop": "dropdown",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "on-scroll-up",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
+        "menu_color_scheme": "",
         "enable_country_selector": true,
         "enable_language_selector": true,
+        "enable_customer_avatar": true,
         "margin_bottom": 0,
         "padding_top": 20,
         "padding_bottom": 20
