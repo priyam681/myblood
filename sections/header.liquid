@@ -12,6 +12,14 @@
     <link rel="stylesheet" href="{{ 'component-mega-menu.css' | asset_url }}" media="print" onload="this.media='all'">
 {%- endif -%}
 
+{% if block.settings.enable_color_scheme and block.settings.mega_menu_trigger %}
+    <style>
+        :root {
+            --menu-item-color: {{ block.settings.menu_item_color_scheme }};
+            --menu-item-bg: {{ block.settings.menu_item_background-color }};
+        }
+    </style>
+{% endif %}
 
 <style>
     header-drawer {
@@ -635,8 +643,8 @@ customElements.define('sticky-header', StickyHeader);
   ],
   "blocks": [
     {
-      "type": "mega-menu-trigger",
-      "name": "Mega menu trigger",
+      "type": "customize-top-menu-item",
+      "name": "Customize top menu item",
       "settings": [
         {
           "type": "text",
