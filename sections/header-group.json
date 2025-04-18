@@ -43,8 +43,20 @@
           "settings": {
             "mega_menu_trigger": "tables",
             "enable_color_scheme": true,
-            "menu_item_color_scheme": "",
-            "menu_item_background-color": "",
+            "menu_item_color_scheme": "#f1e1e1",
+            "menu_item_background-color": "#bf2a2a",
+            "menu_style_on_desktop": "solid",
+            "menu_apply_on": "all",
+            "open_link_new_tab": true
+          }
+        },
+        "customize_top_menu_item_gtKAAY": {
+          "type": "customize-top-menu-item",
+          "settings": {
+            "mega_menu_trigger": "sale",
+            "enable_color_scheme": true,
+            "menu_item_color_scheme": "#f4f0f0",
+            "menu_item_background-color": "#1c35c4",
             "menu_style_on_desktop": "solid",
             "menu_apply_on": "all",
             "open_link_new_tab": true
@@ -115,6 +127,7 @@
       },
       "block_order": [
         "customize_top_menu_item_jrQrVV",
+        "customize_top_menu_item_gtKAAY",
         "mega_menu_promotion_pjyAwD",
         "mega_menu_promotion_yF4Yfq",
         "mega_menu_promotion_beNDHk"
