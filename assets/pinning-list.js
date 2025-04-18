@@ -12,25 +12,26 @@ if (!customElements.get('pinning-list')) {
       this.initPinning();
     }
 
+
     initPinning() {
       const cards = document.querySelectorAll('.pinning-card-item');
       const pinningSection = document.querySelector('.pinning-section');
-
+      const extraSpace = 100;
       const firstCardColor = cards[0].getAttribute('data-bg-color') ||
         window.getComputedStyle(cards[0]).backgroundColor;
       pinningSection.style.backgroundColor = firstCardColor;
 
       this.tl.to('.pinning-card-list', {
-        x: () => -(document.querySelector('.pinning-card-list').scrollWidth - window.innerWidth),
+        x: () => -((document.querySelector('.pinning-card-list').scrollWidth + extraSpace) - window.innerWidth),
         opacity: 1,
-        ease: 'easeOut',
+        ease: 'none',
         scrollTrigger: {
           trigger: '.pinning-section',
           start: 'top top',
           end: () => `+=${document.querySelector('.pinning-card-list').scrollWidth - window.innerWidth}`,
           pin: true,
-          scrub: 1,
-          markers: true, // Remove in production
+          scrub: 2,
+          markers: false,
           anticipatePin: 1,
           invalidateOnRefresh: true,
           onUpdate: (self) => {
@@ -48,20 +49,6 @@ if (!customElements.get('pinning-list')) {
         }
       });
 
-      /*      this.tl.to('.pinning-card-list .pinning-card-item', {
-              x: () => -(document.querySelector('.pinning-card-list').scrollWidth - window.innerWidth),
-
-              scrollTrigger: {
-                trigger: '.pinning-section',
-                scroller: 'body',
-                start: 'top top',
-                end: '+=100%',
-                scrub: 1,
-                pin: true,
-                markers: true, // Changed from true to false for production
-                anticipatePin: 1
-              }
-            });*/
 
       this.tl.from('.pinning-header span', {
         y: -50,
@@ -72,7 +59,7 @@ if (!customElements.get('pinning-list')) {
           scroller: 'body',
           start: 'top 0%',
           scrub: 2,
-          markers: true // Changed from true to false for production
+          markers: false // Changed from true to false for production
         }
       });
     }

@@ -1,0 +1,21 @@
+{% if link != blank %}
+    {% liquid
+        assign link_handle = link.title | handleize | downcase
+        assign my = ''
+
+        for block in section.blocks
+            if block.type == 'mega-menu-product-brand'
+                assign link_handle = link_handle | append: '_brand'
+            endif
+
+            if block.type == 'mega-menu-promotion' and block.settings.menu_promotion_trigger == link_handle
+                assign my = my | append: link_handle
+                render 'mega-menu-promotion', block: block
+            endif
+        endfor
+    %}
+
+    <script defer>
+      console.log('Link: ', {{ my | json }});
+    </script>
+{% endif %}

@@ -220,6 +220,7 @@
         "padding_bottom": 36
       }
     },
+<<<<<<< Updated upstream
     "promotion_cards_pinning_HcwXaj": {
       "type": "promotion-cards-pinning",
       "blocks": {
@@ -267,12 +268,66 @@
           "type": "card",
           "settings": {
             "card_title": "",
+<<<<<<< Updated upstream
             "card_background": "#bbd11c",
+=======
+=======
+    "promotion_cards_pinning_8HwLwF": {
+      "type": "promotion-cards-pinning",
+      "blocks": {
+        "card_3gzJBP": {
+          "type": "card",
+          "settings": {
+            "card_title": "First",
+            "card_background": "#a70b0b",
+            "card_text_color": "#333333"
+          }
+        },
+        "card_AWcAjD": {
+          "type": "card",
+          "settings": {
+            "card_title": "Second",
+            "card_background": "#68ff19",
+            "card_text_color": "#333333"
+          }
+        },
+        "card_DqrDwB": {
+          "type": "card",
+          "settings": {
+            "card_title": "Third",
+            "card_background": "#63b8f2",
+            "card_text_color": "#333333"
+          }
+        },
+        "card_ELpWri": {
+          "type": "card",
+          "settings": {
+            "card_title": "Fourth",
+            "card_background": "#84af1f",
+            "card_text_color": "#333333"
+          }
+        },
+        "card_Ui9wRT": {
+          "type": "card",
+          "settings": {
+            "card_title": "Fifth",
+            "card_background": "#b93381",
+            "card_text_color": "#333333"
+          }
+        },
+        "card_9FJNmW": {
+          "type": "card",
+          "settings": {
+            "card_title": "Six",
+>>>>>>> Stashed changes
+            "card_background": "#f8f8f8",
+>>>>>>> Stashed changes
             "card_text_color": "#333333"
           }
         }
       },
       "block_order": [
+<<<<<<< Updated upstream
         "card_mK8XmB",
         "card_9bAt9R",
         "card_73ADqM",
@@ -282,8 +337,26 @@
       ],
       "settings": {
         "card_height": 400,
+<<<<<<< Updated upstream
         "enable_pinning": true,
         "pinning_header_caption": "Caption"
+=======
+        "enable_pinning": true
+=======
+        "card_3gzJBP",
+        "card_AWcAjD",
+        "card_DqrDwB",
+        "card_ELpWri",
+        "card_Ui9wRT",
+        "card_9FJNmW"
+      ],
+      "name": "Promotion cards pinning",
+      "settings": {
+        "card_height": 400,
+        "enable_pinning": true,
+        "pinning_header_caption": "Caption"
+>>>>>>> Stashed changes
+>>>>>>> Stashed changes
       }
     }
   },
@@ -294,6 +367,10 @@
     "collage",
     "video",
     "multicolumn",
+<<<<<<< Updated upstream
     "promotion_cards_pinning_HcwXaj"
+=======
+    "promotion_cards_pinning_8HwLwF"
+>>>>>>> Stashed changes
   ]
 }
