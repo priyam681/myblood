@@ -42,7 +42,7 @@
         "logo_position": "middle-left",
         "menu": "main-menu",
         "enable_mobile": true,
-        "menu_type_desktop": "drawer",
+        "menu_type_desktop": "mega",
         "sticky_header_type": "always",
         "show_line_separator": true,
         "color_scheme": "scheme-1",
