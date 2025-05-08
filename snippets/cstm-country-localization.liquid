@@ -25,7 +25,7 @@
   endif
 %}
 
-<div class="disclosure">
+<div class="disclosure country-disclosure">
   <button
     type="button"
     class="disclosure__button localization-form__select localization-selector link link--text caption-large"
@@ -34,9 +34,10 @@
     aria-describedby="{{ localPosition }}Label"
   >
     <span>
-      {{- localization.country.name }} |
-      {{ localization.country.currency.iso_code }}
-      {{ localization.country.currency.symbol -}}
+
+      {{- localization.country.name }}
+      ({{ localization.country.currency.iso_code }}
+      {{ localization.country.currency.symbol -}})
     </span>
     {{ 'icon-caret.svg' | inline_asset_content }}
   </button>

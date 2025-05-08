@@ -3,7 +3,7 @@
   display: inline-block;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .email-signup-banner:not(.banner--desktop-transparent) .email-signup-banner__box {
     width: 100%;
   }
@@ -38,7 +38,7 @@
   }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .banner--desktop-transparent .email-signup-banner__box--no-image * {
     color: rgb(var(--color-foreground));
   }
@@ -61,7 +61,7 @@
   }
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .email-signup-banner-background-mobile {
     display: none;
   }
@@ -87,7 +87,7 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .banner--content-align-center .newsletter-form__message {
     justify-content: center;
   }

@@ -233,7 +233,6 @@
         font-size: calc(var(--font-body-scale) * 62.5%);
         height: 100%;
         }
-
         body {
         display: grid;
         grid-template-rows: auto auto 1fr auto;
@@ -307,16 +306,16 @@
 </a>
 
 {%- if settings.cart_type == 'drawer' -%}
-    {%- render 'cart-drawer' -%}
+    {%- render 'cstm-cart-drawer' -%}
 {%- endif -%}
 
-{% sections 'header-group' %}
+{% sections 'cstm-header-group' %}
 
 <main id="MainContent" class="content-for-layout focus-none" role="main" tabindex="-1">
     {{ content_for_layout }}
 </main>
 
-{% sections 'footer-group' %}
+{% sections 'cstm-footer-group' %}
 
 <ul hidden>
     <li id="a11y-refresh-page-message">{{ 'accessibility.refresh_page' | t }}</li>

@@ -9,6 +9,100 @@
  */
 {
   "sections": {
+    "cstm_slideshow_VppyJG": {
+      "type": "cstm-slideshow",
+      "blocks": {
+        "slide_AVhbMN": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/banner-first.png",
+            "image_overlay_opacity": 10,
+            "heading": "<strong>Engineered for Performance. Styled for Life</strong>.",
+            "heading_size": "h1",
+            "subheading": "<strong>Because your shoes should do more than look good — they should move with you, support you, and tell your story.</strong>",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-da20b869-f8ba-4d79-b1f2-052907ec1143"
+          }
+        },
+        "slide_XfAeET": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/banner-first.png",
+            "image_overlay_opacity": 10,
+            "heading": "<strong>Engineered for Performance. Styled for Life</strong>.",
+            "heading_size": "h1",
+            "subheading": "<strong>Because your shoes should do more than look good — they should move with you, support you, and tell your story.</strong>",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-da20b869-f8ba-4d79-b1f2-052907ec1143"
+          }
+        },
+        "slide_chqFB9": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/banner-first.png",
+            "image_overlay_opacity": 10,
+            "heading": "<strong>Engineered for Performance. Styled for Life</strong>.",
+            "heading_size": "h1",
+            "subheading": "<strong>Because your shoes should do more than look good — they should move with you, support you, and tell your story.</strong>",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-da20b869-f8ba-4d79-b1f2-052907ec1143"
+          }
+        },
+        "slide_jd3CRh": {
+          "type": "slide",
+          "settings": {
+            "image": "shopify://shop_images/banner-first.png",
+            "image_overlay_opacity": 10,
+            "heading": "<strong>Engineered for Performance. Styled for Life</strong>.",
+            "heading_size": "h1",
+            "subheading": "<strong>Because your shoes should do more than look good — they should move with you, support you, and tell your story.</strong>",
+            "button_label": "Button label",
+            "link": "",
+            "button_style_secondary": false,
+            "show_text_box": false,
+            "box_align": "middle-center",
+            "text_alignment": "center",
+            "text_alignment_mobile": "center",
+            "color_scheme": "scheme-da20b869-f8ba-4d79-b1f2-052907ec1143"
+          }
+        }
+      },
+      "block_order": [
+        "slide_AVhbMN",
+        "slide_XfAeET",
+        "slide_chqFB9",
+        "slide_jd3CRh"
+      ],
+      "name": "t:sections.slideshow.presets.name",
+      "settings": {
+        "layout": "full_bleed",
+        "slide_height": "medium",
+        "slider_visual": "dots",
+        "auto_rotate": false,
+        "change_slides_speed": 5,
+        "image_behavior": "none",
+        "show_text_below": true,
+        "accessibility_info": "Slideshow about our brand"
+      }
+    },
     "image_banner": {
       "type": "image-banner",
       "blocks": {
@@ -43,6 +137,7 @@
         "text",
         "button"
       ],
+      "disabled": true,
       "settings": {
         "image_overlay_opacity": 40,
         "image_height": "large",
@@ -114,45 +209,6 @@
         "padding_bottom": 36
       }
     },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        },
-        "product": {
-          "type": "product",
-          "settings": {
-            "product": "",
-            "second_image": false
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection-0",
-        "product",
-        "collection-1"
-      ],
-      "settings": {
-        "heading": "Multimedia collage",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "card_styles": "product-card-wrapper",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "video": {
       "type": "video",
       "settings": {
@@ -219,158 +275,14 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-<<<<<<< Updated upstream
-    "promotion_cards_pinning_HcwXaj": {
-      "type": "promotion-cards-pinning",
-      "blocks": {
-        "card_mK8XmB": {
-          "type": "card",
-          "settings": {
-            "card_title": "First",
-            "card_background": "#c22929",
-            "card_text_color": "#333333"
-          }
-        },
-        "card_9bAt9R": {
-          "type": "card",
-          "settings": {
-            "card_title": "Second",
-            "card_background": "#1fbf7f",
-            "card_text_color": "#333333"
-          }
-        },
-        "card_73ADqM": {
-          "type": "card",
-          "settings": {
-            "card_title": "Third",
-            "card_background": "#2d72d2",
-            "card_text_color": "#333333"
-          }
-        },
-        "card_6Bgdpr": {
-          "type": "card",
-          "settings": {
-            "card_title": "Four",
-            "card_background": "#c44ed4",
-            "card_text_color": "#333333"
-          }
-        },
-        "card_ARETAc": {
-          "type": "card",
-          "settings": {
-            "card_title": "Five",
-            "card_background": "#f8f8f8",
-            "card_text_color": "#333333"
-          }
-        },
-        "card_nrdGbn": {
-          "type": "card",
-          "settings": {
-            "card_title": "",
-<<<<<<< Updated upstream
-            "card_background": "#bbd11c",
-=======
-=======
-    "promotion_cards_pinning_8HwLwF": {
-      "type": "promotion-cards-pinning",
-      "blocks": {
-        "card_3gzJBP": {
-          "type": "card",
-          "settings": {
-            "card_title": "First",
-            "card_background": "#a70b0b",
-            "card_text_color": "#333333"
-          }
-        },
-        "card_AWcAjD": {
-          "type": "card",
-          "settings": {
-            "card_title": "Second",
-            "card_background": "#68ff19",
-            "card_text_color": "#333333"
-          }
-        },
-        "card_DqrDwB": {
-          "type": "card",
-          "settings": {
-            "card_title": "Third",
-            "card_background": "#63b8f2",
-            "card_text_color": "#333333"
-          }
-        },
-        "card_ELpWri": {
-          "type": "card",
-          "settings": {
-            "card_title": "Fourth",
-            "card_background": "#84af1f",
-            "card_text_color": "#333333"
-          }
-        },
-        "card_Ui9wRT": {
-          "type": "card",
-          "settings": {
-            "card_title": "Fifth",
-            "card_background": "#b93381",
-            "card_text_color": "#333333"
-          }
-        },
-        "card_9FJNmW": {
-          "type": "card",
-          "settings": {
-            "card_title": "Six",
->>>>>>> Stashed changes
-            "card_background": "#f8f8f8",
->>>>>>> Stashed changes
-            "card_text_color": "#333333"
-          }
-        }
-      },
-      "block_order": [
-<<<<<<< Updated upstream
-        "card_mK8XmB",
-        "card_9bAt9R",
-        "card_73ADqM",
-        "card_6Bgdpr",
-        "card_ARETAc",
-        "card_nrdGbn"
-      ],
-      "settings": {
-        "card_height": 400,
-<<<<<<< Updated upstream
-        "enable_pinning": true,
-        "pinning_header_caption": "Caption"
-=======
-        "enable_pinning": true
-=======
-        "card_3gzJBP",
-        "card_AWcAjD",
-        "card_DqrDwB",
-        "card_ELpWri",
-        "card_Ui9wRT",
-        "card_9FJNmW"
-      ],
-      "name": "Promotion cards pinning",
-      "settings": {
-        "card_height": 400,
-        "enable_pinning": true,
-        "pinning_header_caption": "Caption"
->>>>>>> Stashed changes
->>>>>>> Stashed changes
-      }
     }
   },
   "order": [
+    "cstm_slideshow_VppyJG",
     "image_banner",
     "rich_text",
     "featured_collection",
-    "collage",
     "video",
-    "multicolumn",
-<<<<<<< Updated upstream
-    "promotion_cards_pinning_HcwXaj"
-=======
-    "promotion_cards_pinning_8HwLwF"
->>>>>>> Stashed changes
+    "multicolumn"
   ]
 }

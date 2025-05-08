@@ -182,6 +182,16 @@
                 >
                   {{- block.settings.button_label | escape -}}
                 </a>
+                 <a
+                                  {% if block.settings.link %}
+                                    href="{{ block.settings.link_2 }}"
+                                  {% else %}
+                                    role="link" aria-disabled="true"
+                                  {% endif %}
+                                  class="button {% if block.settings.button_style_secondary %}button--secondary{% else %}button--primary{% endif %}"
+                                >
+                                  {{- block.settings.button_label_2 | escape -}}
+                                </a>
               </div>
             {%- endif -%}
           </div>
@@ -200,7 +210,7 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
+          {{- 'left-arrow.svg' | inline_asset_content -}}
         </span>
       </button>
       <div class="slider-counter slider-counter--{{ section.settings.slider_visual }}{% if section.settings.slider_visual == 'counter' or section.settings.slider_visual == 'numbers' %} caption{% endif %}">
@@ -235,7 +245,7 @@
         aria-controls="Slider-{{ section.id }}"
       >
         <span class="svg-wrapper">
-          {{- 'icon-caret.svg' | inline_asset_content -}}
+          {{- 'right-arrow.svg' | inline_asset_content -}}
         </span>
       </button>
 
@@ -461,8 +471,20 @@
           "info": "t:sections.slideshow.blocks.slide.settings.button_label.info"
         },
         {
+                  "type": "url",
+                  "id": "link",
+                  "label": "t:sections.slideshow.blocks.slide.settings.link.label"
+                },
+        {
+                  "type": "text",
+                  "id": "button_label_2",
+                  "default": "Button",
+                  "label": "Second Button",
+                  "info": "t:sections.slideshow.blocks.slide.settings.button_label.info"
+                },
+        {
           "type": "url",
-          "id": "link",
+          "id": "link_2",
           "label": "t:sections.slideshow.blocks.slide.settings.link.label"
         },
         {
