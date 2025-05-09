@@ -10,7 +10,7 @@
 {
   "sections": {
     "main": {
-      "type": "main-404",
+      "type": "cstm-main-404",
       "settings": {}
     }
   },
