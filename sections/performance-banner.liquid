@@ -1,0 +1,118 @@
+<style>
+.performance-banner {
+  display: flex;
+  flex-wrap: wrap;
+  min-height: 500px;
+}
+.performance-banner .text-content {
+  flex: 1;
+  background-color: #000;
+  color: #fff;
+  padding: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.performance-banner .text-content .text-container {
+  max-width: 450px;
+}
+.performance-banner .text-content h2 {
+  font-size: 32px;
+  font-weight: bold;
+  line-height: 1.3;
+  color:#fff;
+}
+.performance-banner .text-content .highlight {
+  color: #FF4500;
+}
+.performance-banner .text-content p {
+  margin-top: 20px;
+  font-size: 16px;
+  line-height: 1.6;
+}
+.performance-banner .text-content .btn {
+  background-color: #FF4500;
+  color: white;
+  padding: 12px 24px;
+  border: none;
+  margin-top: 30px;
+  display: inline-block;
+  text-decoration: none;
+}
+.performance-banner .image-content {
+  flex: 1;
+  background-size: cover;
+  background-position: center;
+  min-height: 500px;
+}
+@media(max-width: 768px) {
+  .performance-banner {
+    flex-direction: column;
+  }
+}
+</style>
+
+<section class="performance-banner">
+  <div class="text-content">
+  <div class="text-container">
+    {% if section.settings.subheading %}
+      <p>{{ section.settings.subheading }}</p>
+    {% endif %}
+    <h2>{{ section.settings.heading }}</h2>
+    <p>{{ section.settings.description }}</p>
+    <div><a href="{{ section.settings.button_links }}" class="btn">{{ section.settings.button_label }}</a></div>
+  </div>
+  </div>
+  <div class="image-content" style="background-image: url({{ section.settings.right_image | img_url: 'master' }});">
+  </div>
+</section>
+
+
+{% schema %}
+{
+  "name": "Performance Banner",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "right_image",
+      "label": "Right Side Image"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Crafted for Comfort.<br> Built for <span class='highlight'>Performance.</span>"
+    },
+    {
+      "type": "text",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "Need a shoe for your style?"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Discover premium, hand-finished footwear designed to move with you. From classic leather formals to trendsetting casuals — we make shoes that go the extra mile."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Contact Us"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Performance Banner",
+      "category": "Custom Sections"
+    }
+  ]
+}
+{% endschema %}
+
