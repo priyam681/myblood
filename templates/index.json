@@ -295,6 +295,18 @@
         "button_label": "Contact Us",
         "button_link": ""
       }
+    },
+    "colorful_kick_fRCnyF": {
+      "type": "colorful-kick",
+      "name": "Colorful Kicks Block",
+      "settings": {
+        "product_image": "shopify://shop_images/collection-product.png",
+        "lifestyle_image": "shopify://shop_images/shoes-collection.png",
+        "heading": "COLORFUL <span class=\"highlight\">KICKS</span>, CLOUD-LIKE <span class=\"highlight\">COMFORT</span>",
+        "text": "Discover our vibrant collection of colorblocked shoes...",
+        "button_label": "Browse Collection",
+        "button_link": "#"
+      }
     }
   },
   "order": [
@@ -304,6 +316,7 @@
     "featured_collection",
     "video",
     "multicolumn",
-    "performance_banner_NfWipW"
+    "performance_banner_NfWipW",
+    "colorful_kick_fRCnyF"
   ]
 }

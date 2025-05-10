@@ -1,0 +1,141 @@
+{% schema %}
+{
+  "name": "Colorful Kicks Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "product_image",
+      "label": "Left Side Product Image"
+    },
+    {
+      "type": "image_picker",
+      "id": "lifestyle_image",
+      "label": "Right Sider Lifestyle Image"
+    },
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "COLORFUL KICKS,CLOUD-LIKE COMFORT"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Description",
+      "default": "Discover our vibrant collection of colorblocked shoes..."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Browse Collection"
+    },
+    {
+          "type": "url",
+          "id": "button_link",
+          "label": "Button Link"
+        }
+  ],
+  "presets": [
+    {
+      "name": "Colorful Kicks Block"
+    }
+  ]
+}
+{% endschema %}
+
+<section class="colorful-kicks-section">
+  <div class="container">
+    <div class="left">
+      <h4>Step Into Style & Comfort</h4>
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.text }}</p>
+
+      <div class="product-image-wrapper">
+        <div class="bg-text">COLOR<br>WORLD</div>
+        {% if section.settings.product_image %}
+          <img src="{{ section.settings.product_image | img_url: 'medium' }}" alt="Product" height="100%" width="100%">
+        {% endif %}
+      </div>
+      {% if section.settings.button_link %}
+              <a href="{{ section.settings.button_link }}" class="browse-btn">
+                {{ section.settings.button_label }}
+              </a>
+            {% endif %}
+    </div>
+    <div class="right">
+      {% if section.settings.lifestyle_image %}
+        <img src="{{ section.settings.lifestyle_image | img_url: 'master' }}" alt="Lifestyle">
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+<style>
+.colorful-kicks-section {
+  padding: 60px 20px;
+}
+.colorful-kicks-section .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 40px;
+  align-items: center;
+  max-width: 1200px;
+  margin: auto;
+}
+.colorful-kicks-section .left {
+  flex: 1;
+  min-width: 300px;
+}
+.colorful-kicks-section h2 {
+  font-size: 60px;
+      margin: 10px 0;
+      line-height: 1.2;
+      font-weight: 800;
+}
+.colorful-kicks-section .highlight {
+  color: #ff3c00;
+}
+.colorful-kicks-section p {
+  font-size: 16px;
+  color: #333;
+}
+.browse-btn {
+  display: inline-block;
+  margin-top: 20px;
+  background: #ff3c00;
+  color: #fff;
+  padding: 10px 20px;
+  border-radius: 4px;
+  text-decoration: none;
+}
+.product-image-wrapper {
+  position: relative;
+  margin-top: 40px;
+}
+.product-image-wrapper .bg-text {
+  position: absolute;
+  font-size: 60px;
+  font-weight: bold;
+  color: rgba(0, 0, 0, 0.05);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  line-height: 1;
+  text-align: center;
+  z-index: 1;
+}
+.product-image-wrapper img {
+  position: relative;
+  z-index: 2;
+  max-width: 100%;
+}
+.colorful-kicks-section .right {
+  flex: 1;
+  min-width: 300px;
+}
+.colorful-kicks-section .right img {
+  width: 100%;
+  border-radius: 8px;
+}
+</style>
