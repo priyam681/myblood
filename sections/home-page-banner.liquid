@@ -1,0 +1,270 @@
+{% schema %}
+{
+  "name": "Banner Slideshow",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "banner_slide",
+      "name": "Banner Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Main Heading",
+          "default": "IN MOTION WE FIND FREEDOM AND JOY"
+        },
+        {
+          "type": "textarea",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Unlock the full potential of your online store with our custom Magento development services, designed to enhance performance, boost sales, and deliver a seamless shopping experience."
+        },
+        {
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main Banner Image"
+        },
+        {
+          "type": "image_picker",
+          "id": "search_image",
+          "label": "Hot Search Image"
+        },
+        {
+          "type": "text",
+          "id": "product_1_name",
+          "label": "Product 1 Name",
+          "default": "THE ELVIS"
+        },
+        {
+          "type": "text",
+          "id": "product_1_price",
+          "label": "Product 1 Price",
+          "default": "$300"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_1_image",
+          "label": "Product 1 Image"
+        },
+        {
+          "type": "text",
+          "id": "product_2_name",
+          "label": "Product 2 Name"
+        },
+        {
+          "type": "text",
+          "id": "product_2_price",
+          "label": "Product 2 Price"
+        },
+        {
+          "type": "image_picker",
+          "id": "product_2_image",
+          "label": "Product 2 Image"
+        },
+        {
+           "type": "text",
+           "id": "product_3_name",
+            "label": "Product 3 Name"
+                },
+         {
+           "type": "text",
+           "id": "product_3_price",
+           "label": "Product 3 Price"
+                },
+        {
+          "type": "image_picker",
+          "id": "product_3_image",
+          "label": "Product 3 Image"
+                }
+        // Add more products here if needed
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Slideshow",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}
+
+<slider-component class="banner-slideshow-wrapper">
+  <ul class="banner-slideshow slider" role="list">
+    {% for block in section.blocks %}
+      <li class="banner-slide slider__slide">
+        <div class="homepage-banner" style="background: url({{ block.settings.main_image | img_url: 'master' }}) no-repeat center/cover;">
+          <div class="banner-content page-width">
+            <h1 class="banner-heading">{{ block.settings.heading }}</h1>
+            <p class="banner-subheading">{{ block.settings.subheading }}</p>
+          </div>
+
+          <div class="page-width homepage-bar-wrapper">
+            <div class="homepage-bar">
+              <div class="label">
+                {% if block.settings.search_image %}
+                  <img src="{{ block.settings.search_image | img_url: '100x' }}" alt="Hot search">
+                {% endif %}
+                <div>
+                  🔥<div>HOT</div><div>SEARCHES</div>
+                </div>
+              </div>
+              <div class="product-items">
+                {% if block.settings.product_1_image %}
+                  <div class="product-item">
+                    <img src="{{ block.settings.product_1_image | img_url: '200x' }}" alt="{{ block.settings.product_1_name }}">
+                    <div>
+                      <p class="product-name">{{ block.settings.product_1_name }}</p>
+                      <span>{{ block.settings.product_1_price }}</span>
+                    </div>
+                  </div>
+                {% endif %}
+                {% if block.settings.product_2_image %}
+                  <div class="product-item">
+                    <img src="{{ block.settings.product_2_image | img_url: '200x' }}" alt="{{ block.settings.product_2_name }}">
+                    <div>
+                      <p class="product-name">{{ block.settings.product_2_name }}</p>
+                      <span>{{ block.settings.product_2_price }}</span>
+                    </div>
+                  </div>
+                {% endif %}
+                {% if block.settings.product_3_image %}
+                                  <div class="product-item">
+                                    <img src="{{ block.settings.product_3_image | img_url: '200x' }}" alt="{{ block.settings.product_3_name }}">
+                                    <div>
+                                      <p class="product-name">{{ block.settings.product_3_name }}</p>
+                                      <span>{{ block.settings.product_3_price }}</span>
+                                    </div>
+                                  </div>
+                                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="slider-buttons">
+    <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous">&#x25C0;</button>
+    <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next">&#x25B6;</button>
+  </div>
+</slider-component>
+
+{% style %}
+.banner-slideshow-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+.banner-slideshow {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin-block: 0;
+  padding-left: 0;
+}
+.banner-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+  color: #fff;
+  min-height: 100vh;
+  list-style-type: none;
+}
+.homepage-banner {
+  color: #fff;
+  position: relative;
+  padding-bottom: 100px;
+  height: 100%;
+}
+.banner-content {
+  position: absolute;
+  top: 10%;
+  max-width: 700px;
+}
+.banner-heading {
+  font-size: calc(25px + (75 - 25) * ((100vw - 360px) / (1920 - 360)));
+  font-weight: bold;
+  line-height: 1.2;
+  margin-block: 0;
+  color: #fff;
+}
+.banner-subheading {
+  font-size: calc(18px + (22 - 18) * ((100vw - 360px) / (1920 - 360)));
+  margin-block: 0;
+  line-height: 1.3;
+}
+.homepage-bar-wrapper {
+  position: absolute;
+  bottom: 6rem;
+  width: 100%;
+}
+.homepage-bar {
+  display: grid;
+  background: white;
+  color: black;
+  border-radius: 12px;
+  margin-top: 40px;
+  grid-template-columns: auto 1fr;
+}
+.label {
+  font-weight: bold;
+  display: flex;
+  gap: 20px;
+  padding: 4rem 2.5rem;
+  align-items: center;
+  background: #111111;
+  color: #fff;
+  border-radius: 12px 0 0 12px;
+  font-size: 4rem;
+  line-height: 1;
+}
+.product-items {
+  display: flex;
+  gap: 30px;
+  padding: 1.7rem 7rem;
+  justify-content: space-between;
+}
+.product-name {
+  margin: 10px 0;
+  font-weight: bold;
+}
+.product-item {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  gap: 20px;
+}
+.slider-buttons {
+  position: absolute;
+  bottom: 2rem;
+  right: 2rem;
+  display: flex;
+  gap: 1rem;
+}
+.slider-button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+}
+{% endstyle %}
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const slider = document.querySelector('.banner-slideshow');
+  const prevBtn = document.querySelector('.slider-button--prev');
+  const nextBtn = document.querySelector('.slider-button--next');
+
+  if (slider && prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
+    });
+  }
+});
+</script>
