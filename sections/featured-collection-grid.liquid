@@ -1,8 +1,7 @@
 {%- style -%}
 .featured-grid {
-  width: 90%;
   margin: 0 auto;
-  padding: 2rem 1rem;
+  padding-block: 2rem;
   display: grid;
   grid-template-columns: 1fr;
   gap: 4.5rem;
@@ -71,7 +70,7 @@
 {%- endstyle -%}
 
 
-<div class="featured-grid">
+<div class="featured-grid page-width">
   {% for block in section.blocks %}
     <div class="featured-card">
       {% if block.settings.image %}

@@ -1,17 +1,16 @@
 <style>
 .performance-banner {
-  display: flex;
-  flex-wrap: wrap;
-  min-height: 500px;
+  display: grid;
+ grid-template-columns: 1fr 1fr;
 }
 .performance-banner .text-content {
-  flex: 1;
   background-color: #000;
   color: #fff;
-  padding: 60px;
+  padding-block: 60px;
   display: flex;
   flex-direction: column;
   justify-content: center;
+  width: 100%;
 }
 .performance-banner .text-content .text-container {
   max-width: 450px;
@@ -39,21 +38,15 @@
   display: inline-block;
   text-decoration: none;
 }
-.performance-banner .image-content {
-  flex: 1;
-  background-size: cover;
-  background-position: center;
-  min-height: 500px;
-}
 @media(max-width: 768px) {
   .performance-banner {
-    flex-direction: column;
+   grid-template-columns: 1fr;
   }
 }
 </style>
 
 <section class="performance-banner">
-  <div class="text-content">
+  <div class="text-content page-width">
   <div class="text-container">
     {% if section.settings.subheading %}
       <p>{{ section.settings.subheading }}</p>
@@ -63,7 +56,8 @@
     <div><a href="{{ section.settings.button_links }}" class="btn">{{ section.settings.button_label }}</a></div>
   </div>
   </div>
-  <div class="image-content" style="background-image: url({{ section.settings.right_image | img_url: 'master' }});">
+  <div class="image-content">
+          <img src="{{ section.settings.right_image | img_url: 'medium' }}" alt="Performance Image" height="100%" width="100%">
   </div>
 
 </section>

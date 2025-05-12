@@ -111,173 +111,70 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "image_banner": {
-      "type": "image-banner",
+    "featured_collection_grid_gCfPH8": {
+      "type": "featured-collection-grid",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "collection_block_7Rgpmy": {
+          "type": "collection_block",
           "settings": {
-            "heading": "Image banner",
-            "heading_size": "h0"
+            "image": "shopify://shop_images/featured-collection1.png",
+            "brand": "EVOFOX",
+            "title": "ELITE CYBER-SAINT COLLECTION",
+            "price": "₹12,999.00"
           }
         },
-        "text": {
-          "type": "text",
+        "collection_block_ffnK8p": {
+          "type": "collection_block",
           "settings": {
-            "text": "Give customers details about the banner image(s) or content on the template.",
-            "text_style": "body"
-          }
-        },
-        "button": {
-          "type": "buttons",
-          "settings": {
-            "button_label_1": "Shop all",
-            "button_link_1": "shopify://collections/all",
-            "button_style_secondary_1": true,
-            "button_label_2": "",
-            "button_link_2": "",
-            "button_style_secondary_2": false
+            "image": "shopify://shop_images/featured-collection2.png",
+            "brand": "ELVIS DAWN",
+            "title": "ELVIS REBORN- COLORBLOCKER",
+            "price": "₹17,999.00"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text",
-        "button"
+        "collection_block_7Rgpmy",
+        "collection_block_ffnK8p"
       ],
-      "disabled": true,
-      "settings": {
-        "image_overlay_opacity": 40,
-        "image_height": "large",
-        "image_behavior": "none",
-        "desktop_content_position": "bottom-center",
-        "desktop_content_alignment": "center",
-        "show_text_box": false,
-        "color_scheme": "scheme-3",
-        "stack_images_on_mobile": false,
-        "mobile_content_alignment": "center",
-        "show_text_below": false
-      }
+      "name": "Featured Collection Grid",
+      "settings": {}
     },
-    "rich_text": {
-      "type": "cstm-rich-text",
+    "cstm_collection_list_iCpJGj": {
+      "type": "cstm-collection-list",
       "blocks": {
-        "heading": {
-          "type": "heading",
+        "featured_collection_9qYWaP": {
+          "type": "featured_collection",
           "settings": {
-            "heading": "Talk about your brand",
-            "heading_size": "h1"
+            "collection": "mens"
           }
         },
-        "text": {
-          "type": "text",
+        "featured_collection_j7XwhV": {
+          "type": "featured_collection",
           "settings": {
-            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+            "collection": "womens"
+          }
+        },
+        "featured_collection_6CUcAi": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "kids"
           }
         }
       },
       "block_order": [
-        "heading",
-        "text"
+        "featured_collection_9qYWaP",
+        "featured_collection_j7XwhV",
+        "featured_collection_6CUcAi"
       ],
-      "settings": {
-        "desktop_content_position": "center",
-        "content_alignment": "center",
-        "color_scheme": "scheme-1",
-        "full_width": true,
-        "padding_top": 40,
-        "padding_bottom": 0
-      }
-    },
-    "featured_collection": {
-      "type": "cstm-featured-collection",
-      "settings": {
-        "collection": "all",
-        "products_to_show": 8,
-        "title": "Featured products",
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "columns_desktop": 4,
-        "enable_desktop_slider": false,
-        "full_width": false,
-        "show_view_all": false,
-        "view_all_style": "solid",
-        "color_scheme": "scheme-1",
-        "image_ratio": "adapt",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "none",
-        "columns_mobile": "2",
-        "swipe_on_mobile": false,
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "video": {
-      "type": "cstm-video",
-      "settings": {
-        "heading": "",
-        "heading_size": "h1",
-        "enable_video_looping": false,
-        "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
-        "description": "",
-        "full_width": false,
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
-    "multicolumn": {
-      "type": "cstm-multicolumn",
-      "blocks": {
-        "column1": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column2": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        },
-        "column3": {
-          "type": "column",
-          "settings": {
-            "title": "Column",
-            "text": "<p>Pair text with an image to focus on your chosen product, collection, or blog post. Add details on availability, style, or even provide a review.</p>",
-            "link_label": "",
-            "link": ""
-          }
-        }
-      },
-      "block_order": [
-        "column1",
-        "column2",
-        "column3"
-      ],
+      "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "",
         "heading_size": "h1",
-        "image_width": "third",
-        "image_ratio": "adapt",
-        "button_label": "",
-        "button_link": "",
+        "image_ratio": "square",
         "columns_desktop": 3,
-        "column_alignment": "center",
-        "background_style": "none",
-        "color_scheme": "scheme-1",
+        "color_scheme": "",
+        "show_view_all": false,
         "columns_mobile": "1",
         "swipe_on_mobile": false,
         "padding_top": 36,
@@ -302,8 +199,8 @@
       "settings": {
         "product_image": "shopify://shop_images/collection-product.png",
         "lifestyle_image": "shopify://shop_images/shoes-collection.png",
-        "heading": "COLORFUL <span class=\"highlight\">KICKS</span>, CLOUD-LIKE <span class=\"highlight\">COMFORT</span>",
-        "text": "Discover our vibrant collection of colorblocked shoes...",
+        "heading": "COLORFUL <span class=\"highlight\">KICKS</span>,  \n CLOUD-LIKE <span class=\"highlight\">COMFORT</span>",
+        "text": "Discover our vibrant collection of colorblocked shoes, designed with plush memory foam for all-day comfort. With a wide range of bold shades, it’s easy to pick your perfect pair.",
         "button_label": "Browse Collection",
         "button_link": "#"
       }
@@ -311,11 +208,8 @@
   },
   "order": [
     "cstm_slideshow_VppyJG",
-    "image_banner",
-    "rich_text",
-    "featured_collection",
-    "video",
-    "multicolumn",
+    "featured_collection_grid_gCfPH8",
+    "cstm_collection_list_iCpJGj",
     "performance_banner_NfWipW",
     "colorful_kick_fRCnyF"
   ]

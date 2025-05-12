@@ -22,7 +22,7 @@
       "type": "textarea",
       "id": "text",
       "label": "Description",
-      "default": "Discover our vibrant collection of colorblocked shoes..."
+      "default": "Discover our vibrant collection of colorblocked shoes, designed with plush memory foam for all-day comfort. With a wide range of bold shades, it’s easy to pick your perfect pair."
     },
     {
       "type": "text",
@@ -44,15 +44,20 @@
 }
 {% endschema %}
 
-<section class="colorful-kicks-section">
+<section class="colorful-kicks-section page-width">
   <div class="container">
     <div class="left">
-      <h4>Step Into Style & Comfort</h4>
-      <h2>{{ section.settings.heading }}</h2>
+    <div class="text-container">
+      <h4 class="section-subheading">Step Into Style & Comfort</h4>
+      <h2 class="section-heading">{{ section.settings.heading }}</h2>
       <p>{{ section.settings.text }}</p>
-
+     </div>
       <div class="product-image-wrapper">
-        <div class="bg-text">COLOR<br>WORLD</div>
+        <div class="bg-text">
+          <div>COLOR</div>
+          <div class="middle-content">Your</div>
+          <div>WORLD</div>
+        </div>
         {% if section.settings.product_image %}
           <img src="{{ section.settings.product_image | img_url: 'medium' }}" alt="Product" height="100%" width="100%">
         {% endif %}
@@ -73,25 +78,26 @@
 
 <style>
 .colorful-kicks-section {
-  padding: 60px 20px;
+  padding-block: 50px;
 }
 .colorful-kicks-section .container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 40px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
   align-items: center;
-  max-width: 1200px;
   margin: auto;
 }
-.colorful-kicks-section .left {
-  flex: 1;
-  min-width: 300px;
+.colorful-kicks-section .container .left .text-container {
+  max-width: 700px;
 }
-.colorful-kicks-section h2 {
-  font-size: 60px;
+.colorful-kicks-section .section-heading {
+      font-size: calc(25px + (60 - 25) * ((100vw - 360px) / (1920 - 360)));
       margin: 10px 0;
       line-height: 1.2;
       font-weight: 800;
+}
+.colorful-kicks-section .section-subheading {
+   margin-block: 0;
 }
 .colorful-kicks-section .highlight {
   color: #ff3c00;
@@ -115,15 +121,19 @@
 }
 .product-image-wrapper .bg-text {
   position: absolute;
-  font-size: 60px;
-  font-weight: bold;
-  color: rgba(0, 0, 0, 0.05);
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+  color: #5d5d5d24;
+  top: 42%;
+  left: 7%;
+  transform: translate(0, -50%);
   line-height: 1;
   text-align: center;
   z-index: 1;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 9px;
+}
+.product-image-wrapper .bg-text .middle-content {
+     padding-left: 50%;
 }
 .product-image-wrapper img {
   position: relative;
@@ -137,5 +147,18 @@
 .colorful-kicks-section .right img {
   width: 100%;
   border-radius: 8px;
+}
+@media(max-width: 992px) {
+.colorful-kicks-section .container {
+  grid-template-columns: 1fr;
+}
+.product-image-wrapper .bg-text {
+font-size: calc(45px + (120 - 45) * ((100vw - 360px) / (992 - 360)));
+}
+}
+@media(min-width: 992px) {
+.product-image-wrapper .bg-text {
+font-size: calc(45px + (120 - 45) * ((100vw - 992px) / (1920 - 992)));
+}
 }
 </style>
