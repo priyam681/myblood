@@ -106,7 +106,8 @@
                   <img src="{{ block.settings.search_image | img_url: '100x' }}" alt="Hot search">
                 {% endif %}
                 <div>
-                  🔥<div>HOT</div><div>SEARCHES</div>
+                <div>HOT</div>
+                <div>SEARCHES</div>
                 </div>
               </div>
               <div class="product-items">
@@ -205,9 +206,7 @@
 }
 .homepage-bar {
   display: grid;
-  background: white;
   color: black;
-  border-radius: 12px;
   margin-top: 40px;
   grid-template-columns: auto 1fr;
 }
@@ -228,6 +227,8 @@
   gap: 30px;
   padding: 1.7rem 7rem;
   justify-content: space-between;
+  background: #fff;
+  border-radius: 0 12px 12px 0;
 }
 .product-name {
   margin: 10px 0;
@@ -241,10 +242,12 @@
 }
 .banner-slider-buttons {
   position: absolute;
-  bottom: 2rem;
+  bottom: 1rem;
   right: 2rem;
   display: flex;
   gap: 1rem;
+  width: 100%;
+  justify-content: center;
 }
 .slider-button {
   background: black;
