@@ -117,6 +117,11 @@
             <div class="page-width homepage-bar-wrapper">
               <div class="homepage-bar">
                 <div class="label">
+                  {% style %}
+                    .label{
+                      background-color: {{ block.settings.product_list_color_left }}
+                    }
+                  {% endstyle %}
                   {% if block.settings.product_list_image_left %}
                     <img src="{{ block.settings.product_list_image_left | img_url: '100x' }}" alt="Hot search">
                   {% endif %}
@@ -127,45 +132,59 @@
                     </span>
                     {% endif %}
 
-
                   </div>
                 </div>
 
 
                 <div class="product-items">
+                  {% style %}
+                    .product-items{
+                      background-color: {{ block.settings.product_items_color }}
+                    }
+                  {% endstyle %}
 
                   {% if block.settings.product_display_1 != blank %}
                     {% assign product = all_products[block.settings.product_display_1] %}
-
+                    <a href="{{ product.url }}">
                     <div class="product-item">
-                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy">
-                      <div>
-                        <p class="product-name">{{ product.title}}</p>
-                        <span>{{ product.price | money }}</span>
-                      </div>
+                        <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy">
+                        <div>
+                          <p class="product-name">{{ product.title}}</p>
+                          <span>{{ product.price | money }}</span>
+                        </div>
                     </div>
+                    </a>
                   {% endif %}
+
                   {% if block.settings.product_display_2 != blank %}
                     {% assign product = all_products[block.settings.product_display_2] %}
-
+                  <a href="{{ product.url }}">
                     <div class="product-item">
+
                       <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy">
                       <div>
                         <p class="product-name">{{ product.title}}</p>
                         <span>{{ product.price | money }}</span>
                       </div>
+
                     </div>
+                  </a>
                   {% endif %}
-                  {% if block.settings.product_display_3 != blank %}
-                    {% assign product = all_products[block.settings.product_display_3] %}
 
-                    <div class="product-item">
-                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy">
-                      <div>
-                        <p class="product-name">{{ product.title}}</p>
-                        <span>{{ product.price | money }}</span>
+                  {% if block.settings.product_display_3 != blank %}
+
+                    {% assign product = all_products[block.settings.product_display_3] %}
+                    <a href="{{ product.url }}">
+                      <div class="product-item">
+                        <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy">
+                        <div>
+                          <p class="product-name">{{ product.title}}</p>
+                          <span>{{ product.price | money }}</span>
+                        </div>
                       </div>
-                    </div>
+                    </a>
+
+
                   {% endif %}
 
                 </div>
@@ -256,7 +275,16 @@ document.addEventListener('DOMContentLoaded', function () {
           "id":"product_list_left_text",
           "label":"Product highlight text"
         },
-
+        {
+          "type":"color",
+          "id":"product_list_color_left",
+          "label":"Product highlight color"
+        },
+        {
+          "type":"color",
+          "id":"product_items_color",
+          "label":"Product Items color"
+        },
         {
           "type":"product",
           "id": "product_display_1",
