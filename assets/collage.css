@@ -57,7 +57,7 @@
   }
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .collage {
     grid-auto-flow: column;
     grid-column-gap: var(--grid-desktop-horizontal-spacing);

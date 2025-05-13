@@ -11,13 +11,7 @@
   "sections": {
     "main": {
       "type": "main-login",
-      "settings": {
-        "enable_shop_login_button": true,
-        "padding_top": 36,
-        "padding_bottom": 36,
-        "custom_image": "shopify://shop_images/typing-username-and-password.jpg",
-        "custom_text": "Welcome Back"
-      }
+      "settings": {}
     }
   },
   "order": [
