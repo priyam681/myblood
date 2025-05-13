@@ -144,9 +144,13 @@
       </li>
     {% endfor %}
   </ul>
-  <div class="slider-buttons">
-    <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous">&#x25C0;</button>
-    <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next">&#x25B6;</button>
+  <div class="banner-slider-buttons">
+    <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous">
+   <span class="svg-wrapper">{{- 'left-arrow.svg' | inline_asset_content -}}</span>
+    </button>
+    <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next">
+   <span class="svg-wrapper"> {{- 'right-arrow.svg' | inline_asset_content -}}</span>
+    </button>
   </div>
 </slider-component>
 
@@ -235,7 +239,7 @@
   align-items: center;
   gap: 20px;
 }
-.slider-buttons {
+.banner-slider-buttons {
   position: absolute;
   bottom: 2rem;
   right: 2rem;
