@@ -49,9 +49,7 @@
 }
 .homepage-bar {
   display: grid;
-  background: white;
   color: black;
-  border-radius: 12px;
   margin-top: 40px;
   grid-template-columns: auto 1fr;
 }
@@ -72,6 +70,9 @@
   gap: 30px;
   padding: 1.7rem 7rem;
   justify-content: space-between;
+  background: #fff;
+  border-radius: 0 12px 12px 0;
+  align-items: center;
 }
 .product-name {
   margin: 10px 0;
@@ -122,9 +123,9 @@
                   {% endif %}
                   <div>
                     {% if block.settings.product_list_left_text %}
-                      <span>
+                      <div>
                           {{ block.settings.product_list_left_text | default: "HOT SEARCHES" }}
-                    </span>
+                    </div>
                     {% endif %}
 
 
@@ -136,36 +137,41 @@
 
                   {% if block.settings.product_display_1 != blank %}
                     {% assign product = all_products[block.settings.product_display_1] %}
-
+<a href="{product.url}">
                     <div class="product-item">
-                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy">
+                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="100px" height="100px">
                       <div>
                         <p class="product-name">{{ product.title}}</p>
                         <span>{{ product.price | money }}</span>
                       </div>
                     </div>
+                    </a>
                   {% endif %}
                   {% if block.settings.product_display_2 != blank %}
                     {% assign product = all_products[block.settings.product_display_2] %}
+                    <a href="{product.url}">
+                      <div class="product-item">
+                                          <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="100px" height="100px">
+                                          <div>
+                                            <p class="product-name">{{ product.title}}</p>
+                                            <span>{{ product.price | money }}</span>
+                                          </div>
+                                        </div>
+                    </a>
 
-                    <div class="product-item">
-                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy">
-                      <div>
-                        <p class="product-name">{{ product.title}}</p>
-                        <span>{{ product.price | money }}</span>
-                      </div>
-                    </div>
                   {% endif %}
                   {% if block.settings.product_display_3 != blank %}
                     {% assign product = all_products[block.settings.product_display_3] %}
+                    <a href="{product.url}">
 
                     <div class="product-item">
-                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy">
+                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="100px" height="100px" >
                       <div>
                         <p class="product-name">{{ product.title}}</p>
                         <span>{{ product.price | money }}</span>
                       </div>
                     </div>
+                    </a>
                   {% endif %}
 
                 </div>
@@ -252,7 +258,7 @@ document.addEventListener('DOMContentLoaded', function () {
           "label":"Product highlight"
         },
         {
-          "type":"text",
+          "type":"textarea",
           "id":"product_list_left_text",
           "label":"Product highlight text"
         },
