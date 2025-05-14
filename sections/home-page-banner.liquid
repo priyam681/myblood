@@ -112,14 +112,13 @@
             <p class="banner-subheading">{{ block.settings.subheading }}</p>
           </div>
 
-
           {% if visibility == 'show' %}
             <div class="page-width homepage-bar-wrapper">
               <div class="homepage-bar">
                 <div class="label">
                   {% style %}
                     .label{
-                      background-color: {{ block.settings.product_list_color_left }}
+                      background-color: {{ block.settings.product_list_color_left }};
                     }
                   {% endstyle %}
                   {% if block.settings.product_list_image_left %}
@@ -134,7 +133,6 @@
 
                   </div>
                 </div>
-
 
                 <div class="product-items">
                   {% style %}
