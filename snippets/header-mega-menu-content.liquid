@@ -1,0 +1,11 @@
+{% if link != blank %}
+    {% liquid
+        assign link_handle = link.title | handleize | downcase
+    %}
+
+    {% for block in section.blocks %}
+        {% if block.type == 'collection_list' and block.settings.collection_menu_trigger == link_handle %}
+            {% render 'collection-list', block: block, link:link %}
+        {% endif %}
+    {% endfor %}
+{% endif %}

@@ -116,7 +116,7 @@
           {% if block.settings.banner-button_show == "show" %}
           <div class="banner-buttons">
             <button class="banner-button">
-              <a href="{{ block.settings.button_one_url }}">
+              <a href="{{ block.settings.button_one_url }}" {% if block.settings.button_one_new_tab == true %} target="_blank" {% endif %}>
                 <span>
                   {{ block.settings.button_one_text }}
                 </span>
@@ -124,7 +124,7 @@
             </button>
 
             <button class="banner-button">
-              <a href="{{ block.settings.button_two_url }}">
+              <a href="{{ block.settings.button_two_url }}" {% if block.settings.button_two_new_tab == true %} target="_blank" {% endif %}>
                 <span>
                   {{ block.settings.button_two_text }}
                 </span>
@@ -340,6 +340,12 @@ document.addEventListener('DOMContentLoaded', function () {
           "default":"Shop Now"
         },
         {
+          "type":"checkbox",
+          "id":"button_one_new_tab",
+          "label":"Open on new tab",
+          "default":false
+        },
+        {
           "type":"url",
           "id":"button_one_url",
           "label":"Button First Url"
@@ -350,12 +356,18 @@ document.addEventListener('DOMContentLoaded', function () {
           "label":"Button Second Text",
           "default":"New One"
         },
+
+        {
+          "type":"checkbox",
+          "id":"button_two_new_tab",
+          "label":"Open on new tab",
+          "default":false
+        },
         {
           "type":"url",
           "id":"button_two_url",
           "label":"Button Second Url"
         },
-
         {
           "type":"header",
           "content":"Product display list content"
