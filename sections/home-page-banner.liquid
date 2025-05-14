@@ -16,19 +16,24 @@
   scroll-snap-align: start;
   position: relative;
   color: #fff;
-  min-height: 100vh;
   list-style-type: none;
 }
 .homepage-banner {
   color: #fff;
   position: relative;
-  padding-bottom: 100px;
-  height: 100%;
+  padding-block: 5rem;
+}
+.homepage-banner .homepage-banner-wrapper {
+    position: relative;
+}
+.homepage-banner .homepage-banner-wrapper .homepage-bar-wrapper {
+    position: relative;
+    z-index: 1;
 }
 .banner-content {
-  position: absolute;
-  top: 10%;
-  max-width: 700px;
+  max-width: 600px;
+  position: relative;
+  z-index: 1;
 }
 .banner-heading {
   font-size: calc(25px + (75 - 25) * ((100vw - 360px) / (1920 - 360)));
@@ -42,17 +47,12 @@
   margin-block: 0;
   line-height: 1.3;
 }
-.homepage-bar-wrapper {
-  position: absolute;
-  bottom: 6rem;
-  width: 100%;
-}
+.banner-content .banner-buttons {
+  margin-top: 20px;
+  }
 .homepage-bar {
   display: grid;
-  background: white;
-  color: black;
-  border-radius: 12px;
-  margin-top: 40px;
+  margin-top: 8rem;
   grid-template-columns: auto 1fr;
 }
 .label {
@@ -61,21 +61,21 @@
   gap: 20px;
   padding: 4rem 2.5rem;
   align-items: center;
-  background: #111111;
-  color: #fff;
   border-radius: 12px 0 0 12px;
-  font-size: 4rem;
+ font-size: calc(25px + (40 - 30) * ((100vw - 992px) / (1920 - 992)));
   line-height: 1;
 }
 .product-items {
   display: flex;
-  gap: 30px;
-  padding: 1.7rem 7rem;
+  gap: 20px;
+  padding: 1.7rem 2rem;
   justify-content: space-between;
+  border-radius: 0 12px 12px 0;
+  align-items: center;
 }
-.product-name {
-  margin: 10px 0;
-  font-weight: bold;
+.product-items a {
+ color: inherit;
+ text-decoration: none;
 }
 .product-item {
   display: flex;
@@ -83,10 +83,18 @@
   align-items: center;
   gap: 20px;
 }
+.product-item .product-name {
+   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+   overflow: hidden;
+   margin: 0;
+   font-weight: bold;
+
+}
 .slider-buttons {
   position: absolute;
   bottom: 2rem;
-  right: 2rem;
   display: flex;
   gap: 1rem;
 }
@@ -98,6 +106,32 @@
   font-size: 2rem;
   cursor: pointer;
   }
+  .homepage-banner-wrapper .banner-buttons {
+    margin-top: 20px;
+  }
+   @media screen and (max-width: 992px) {
+  .homepage-banner .homepage-banner-wrapper .homepage-bar-wrapper {
+    display: none;
+  }
+  .homepage-banner-wrapper .banner-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .homepage-banner-wrapper .banner-content {
+      margin: auto;
+      text-align: center;
+    }
+  }
+  @media screen and (min-width: 992px) {
+  .homepage-banner .homepage-banner-wrapper .banner-center-image {
+      position: absolute;
+      top: -30px;
+      right: 0;
+      width: 65%;
+  }
+
+  }
 {% endstyle %}
 
 
@@ -107,36 +141,32 @@
       {% assign visibility = block.settings.visibility %}
       <li class="banner-slide slider__slide">
         <div class="homepage-banner" style="background: url({{ block.settings.main_image | img_url: 'master' }}) no-repeat center/cover;">
-          <div class="banner-content page-width">
+         <div class="page-width">
+         <div class="homepage-banner-wrapper">
+           <div class="banner-content">
             <h1 class="banner-heading">{{ block.settings.heading }}</h1>
             <p class="banner-subheading">{{ block.settings.subheading }}</p>
+
           </div>
-          <img src="{{ block.settings.center_image | img_url: 'master' }}" alt="{{ block.settings.center_alt_text }}"/>
+         <div class="banner-center-image"> <img src="{{ block.settings.center_image | img_url: 'master' }}" alt="{{ block.settings.center_alt_text }}" height="100%" width="100%"/></div>
+{% if block.settings.banner-button_show == "show" %}
+                      <div class="banner-buttons">
+                          <a class="button button--primary" href="{{ block.settings.button_one_url }}">
+                            <span>
+                              {{ block.settings.button_one_text }}
+                            </span>
+                          </a>
+                          <a class="button button--primary" href="{{ block.settings.button_two_url }}">
+                            <span>
+                              {{ block.settings.button_two_text }}
+                            </span>
+                          </a>
 
-          {% if block.settings.banner-button_show == "show" %}
-          <div class="banner-buttons">
-            <button class="banner-button">
-              <a href="{{ block.settings.button_one_url }}">
-                <span>
-                  {{ block.settings.button_one_text }}
-                </span>
-              </a>
-            </button>
+                      </div>
 
-            <button class="banner-button">
-              <a href="{{ block.settings.button_two_url }}">
-                <span>
-                  {{ block.settings.button_two_text }}
-                </span>
-              </a>
-            </button>
-          </div>
-
-          {% endif %}
-
-
+                      {% endif %}
           {% if visibility == 'show' %}
-            <div class="page-width homepage-bar-wrapper">
+            <div class="homepage-bar-wrapper">
               <div class="homepage-bar">
                 <div class="label">
                   {% style %}
@@ -149,9 +179,9 @@
                   {% endif %}
                   <div>
                     {% if block.settings.product_list_left_text %}
-                      <span>
+                      <div>
                           {{ block.settings.product_list_left_text | default: "HOT SEARCHES" }}
-                    </span>
+                    </div>
                     {% endif %}
 
 
@@ -162,7 +192,8 @@
                 <div class="product-items">
                   {% style %}
                     .product-items{
-                      background-color: {{ block.settings.product_items_color }}
+                      background-color: {{ block.settings.product_items_bgcolor }};
+                      color: {{ block.settings.product_list_item_color }};
                     }
                   {% endstyle %}
 
@@ -170,7 +201,7 @@
                     {% assign product = all_products[block.settings.product_display_1] %}
                     <a href="{{ product.url }}">
                     <div class="product-item">
-                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="100px" height="100px">
+                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px">
                       <div>
                         <p class="product-name">{{ product.title}}</p>
                         <span>{{ product.price | money }}</span>
@@ -181,7 +212,7 @@
                     {% assign product = all_products[block.settings.product_display_2] %}
                     <a href="{product.url}">
                       <div class="product-item">
-                                          <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="100px" height="100px">
+                                          <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px">
                                           <div>
                                             <p class="product-name">{{ product.title}}</p>
                                             <span>{{ product.price | money }}</span>
@@ -195,7 +226,7 @@
                     <a href="{product.url}">
 
                     <div class="product-item">
-                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="100px" height="100px" >
+                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px" >
                       <div>
                         <p class="product-name">{{ product.title}}</p>
                         <span>{{ product.price | money }}</span>
@@ -208,8 +239,8 @@
               </div>
             </div>
           {% endif %}
-
-
+           </div>
+         </div>
         </div>
       </li>
     {% endfor %}
@@ -384,12 +415,12 @@ document.addEventListener('DOMContentLoaded', function () {
         {
           "type":"color",
           "id":"product_list_color_left",
-          "label":"Product highlight color"
+          "label":"Product highlight Background color"
         },
         {
           "type":"color",
-          "id":"product_items_color",
-          "label":"Product Items color"
+          "id":"product_items_bgcolor",
+          "label":"Product Items Background color"
         },
         {
           "type":"product",
