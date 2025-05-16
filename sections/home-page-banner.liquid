@@ -30,11 +30,7 @@
     position: relative;
     z-index: 1;
 }
-.banner-content {
-  max-width: 600px;
-  position: relative;
-  z-index: 1;
-}
+
 .banner-heading {
   font-size: calc(25px + (75 - 25) * ((100vw - 360px) / (1920 - 360)));
   font-weight: bold;
@@ -52,14 +48,13 @@
   }
 .homepage-bar {
   display: grid;
-  margin-top: 8rem;
   grid-template-columns: auto 1fr;
 }
 .label {
   font-weight: bold;
   display: flex;
   gap: 20px;
-  padding: 4rem 2.5rem;
+  padding: 2rem 2.5rem;
   align-items: center;
   border-radius: 12px 0 0 12px;
  font-size: calc(25px + (40 - 30) * ((100vw - 992px) / (1920 - 992)));
@@ -69,7 +64,7 @@
   display: flex;
   gap: 20px;
   padding: 1.7rem 2rem;
-  justify-content: space-between;
+  justify-content: space-evenly;
   border-radius: 0 12px 12px 0;
   align-items: center;
 }
@@ -110,7 +105,8 @@
     margin-top: 20px;
   }
    @media screen and (max-width: 992px) {
-  .homepage-banner .homepage-banner-wrapper .homepage-bar-wrapper {
+  .homepage-banner .homepage-banner-wrapper .homepage-bar-wrapper,
+   .homepage-banner-wrapper .banner-buttons.hide-mobile {
     display: none;
   }
   .homepage-banner-wrapper .banner-buttons {
@@ -123,14 +119,27 @@
       text-align: center;
     }
   }
-  @media screen and (min-width: 992px) {
-  .homepage-banner .homepage-banner-wrapper .banner-center-image {
-      position: absolute;
-      top: -30px;
-      right: 0;
-      width: 65%;
+  @media screen and (min-width: 1920px) {
+  .banner-heading{
+     font-size: 75px;
   }
-
+  }
+  @media screen and (min-width: 992px) {
+  .hide-desktop {
+        display: none;
+      }
+  .homepage-banner .homepage-banner-wrapper .banner-center-image {
+      width: 65%;
+      margin-left: auto;
+  }
+.homepage-banner-wrapper .banner-buttons {
+      margin-bottom: 8rem;
+    }
+    .banner-content {
+      max-width: 600px;
+      position: absolute;
+      z-index: 1;
+    }
   }
 {% endstyle %}
 
@@ -147,10 +156,8 @@
             <h1 class="banner-heading">{{ block.settings.heading }}</h1>
             <p class="banner-subheading">{{ block.settings.subheading }}</p>
 
-          </div>
-         <div class="banner-center-image"> <img src="{{ block.settings.center_image | img_url: 'master' }}" alt="{{ block.settings.center_alt_text }}" height="100%" width="100%"/></div>
-{% if block.settings.banner-button_show == "show" %}
-                      <div class="banner-buttons">
+         {% if block.settings.banner-button_show == "show" %}
+                      <div class="banner-buttons hide-mobile">
                           <a class="button button--primary" href="{{ block.settings.button_one_url }}">
                             <span>
                               {{ block.settings.button_one_text }}
@@ -161,13 +168,28 @@
                               {{ block.settings.button_two_text }}
                             </span>
                           </a>
-
-<<<<<<< HEAD
                       </div>
 
-                      {% endif %}
-=======
->>>>>>> cbe93ba22acb86a2853856a6ec53927c87c1048a
+          {% endif %}
+          </div>
+         <div class="banner-center-image"> <img src="{{ block.settings.center_image | img_url: 'master' }}" alt="{{ block.settings.center_alt_text }}" height="100%" width="100%"/></div>
+{% if block.settings.banner-button_show == "show" %}
+                      <div class="banner-buttons hide-desktop">
+                          <a class="button button--primary" href="{{ block.settings.button_one_url }}">
+                            <span>
+                              {{ block.settings.button_one_text }}
+                            </span>
+                          </a>
+                          <a class="button button--primary" href="{{ block.settings.button_two_url }}">
+                            <span>
+                              {{ block.settings.button_two_text }}
+                            </span>
+                          </a>
+                      </div>
+
+          {% endif %}
+
+
           {% if visibility == 'show' %}
             <div class="homepage-bar-wrapper">
               <div class="homepage-bar">
@@ -257,6 +279,7 @@
 
 
 <script>
+let screen_width = window.innerWidth;
 document.addEventListener('DOMContentLoaded', function () {
   const slider = document.querySelector('.banner-slideshow');
   const prevBtn = document.querySelector('.slider-button--prev');

@@ -1,0 +1,288 @@
+{% schema %}
+{
+  "name": "Product Tabs",
+  "tag": "section",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "tab",
+      "name": "Product Tab",
+      "settings": [
+        {
+          "type": "text",
+          "id": "tab_title",
+          "label": "Tab Title",
+          "default": "MENS"
+        },
+        {
+          "type": "collection",
+          "id": "collection",
+          "label": "Collection"
+        }
+      ]
+    }
+  ],
+  "max_blocks": 4,
+  "presets": [
+    {
+      "name": "Product Tabs",
+      "blocks": [
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "LATEST"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "MENS"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "WOMENS"
+          }
+        },
+        {
+          "type": "tab",
+          "settings": {
+            "tab_title": "KIDS"
+          }
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+
+<div class="pua-tabs-wrapper page-width">
+<div class="tabs-inner-wrapper">
+  <ul class="pua-tabs">
+    {% for block in section.blocks %}
+      <li class="{% if forloop.first %}active{% endif %}" data-tab="tab-{{ forloop.index }}">
+        {{ block.settings.tab_title }}
+      </li>
+    {% endfor %}
+  </ul>
+
+  {% for block in section.blocks %}
+    <div class="pua-tab-content {% if forloop.first %}active{% endif %}" id="tab-tab-{{ forloop.index }}">
+      {% assign collection = collections[block.settings.collection] %}
+      {% if collection.products.size > 0 %}
+        <div class="pua-product-slider swiper" data-product-count="{{ collection.products.size }}">
+          <div class="swiper-wrapper">
+            {% for product in collection.products %}
+              <div class="swiper-slide">
+                <div class="product-card" itemscope itemtype="https://schema.org/Product">
+                  <a href="{{ product.url }}" itemprop="url">
+                    <img
+                      class="main-image"
+                      src="{{ product.featured_image | image_url: width: 400 }}"
+                      alt="{{ product.title }}"
+                      itemprop="image"
+                    />
+                  </a>
+
+                  <div class="thumbnail-wrapper">
+                    {% for image in product.images limit: 15 %}
+                      <img
+                        class="thumbnail"
+                        src="{{ image | image_url: width: 400 }}"
+                        alt="{{ product.title }} thumbnail"
+                        onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
+                        width="50px" height="50px"
+                      />
+                    {% endfor %}
+                  </div>
+
+                  <h3 itemprop="name">{{ product.title }}</h3>
+                  <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                    <meta itemprop="priceCurrency" content="INR" />
+                    <span itemprop="price">{{ product.price | money }}</span>
+                    <link itemprop="availability" href="https://schema.org/InStock" />
+                  </div>
+
+                  <p class="desc">Memory Foam Insole & UltraSoft Outsole</p>
+                </div>
+              </div>
+            {% endfor %}
+          </div>
+        {% if collection.products.size > 4 %}
+                    <div class="prev-next-button">
+                    <div class="item-prev pagination__item--prev">
+                     <span class="svg-wrapper">
+                        {{- 'icon-caret.svg' | inline_asset_content -}}
+                      </span>
+                    </div>
+                    <div class="item-next pagination__item--prev">
+                    <span class="svg-wrapper">
+                                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                                  </span>
+                    </div>
+                    </div>
+                  {% endif %}
+                   </div>
+      {% else %}
+        <p>No products found in this collection.</p>
+      {% endif %}
+    </div>
+  {% endfor %}
+</div>
+</div>
+
+<style>
+.thumbnail-wrapper {
+  display: flex;
+  gap: 6px;
+  margin-top: 8px;
+  overflow: auto;
+}
+
+.product-card .thumbnail {
+  width: 50px;
+  height: 50px;
+  min-width: 50px;
+  min-height: 50px;
+  object-fit: cover;
+  cursor: pointer;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  transition: border 0.2s;
+}
+
+.thumbnail:hover {
+  border-color: red;
+}
+
+  .pua-tabs {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    font-weight: bold;
+    padding: 0;
+    margin: 30px 0 40px;
+  }
+  .pua-tabs li {
+    cursor: pointer;
+    color: gray;
+  }
+  .pua-tabs li.active {
+    color: red;
+    border-bottom: 2px solid red;
+  }
+  .pua-tab-content {
+    display: none;
+  }
+  .pua-tab-content.active {
+    display: block;
+  }
+  .pua-product-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    margin-top: 20px;
+  }
+  .product-card img {
+    width: 100%;
+    height: auto;
+  }
+  .price {
+    color: #e74c3c;
+    font-weight: bold;
+  }
+  .pua-product-slider.static-grid .swiper-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .pua-product-slider.static-grid .swiper-slide {
+    width: 100%;
+    max-width: 25%;
+  }
+  .pua-product-slider .swiper-slide {
+    box-sizing: border-box;
+  }
+  .thumbnail-wrapper {
+    display: flex;
+    gap: 5px;
+    margin-top: 8px;
+  }
+  .thumbnail {
+    border: 1px solid #ccc;
+    cursor: pointer;
+  }
+  .thumbnail:hover {
+    border-color: red;
+  }
+.tabs-inner-wrapper .item-prev,
+.tabs-inner-wrapper .item-next {
+  background: black;
+  color: #fff;
+  display: flex;
+  padding: 17px;
+  cursor: pointer;
+}
+.tabs-inner-wrapper .swiper-button-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+}
+.prev-next-button {
+    display: flex;
+    gap: 20px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    z-index: 1;
+}
+.item-prev .svg-wrapper {
+ transform: rotate(90deg);
+}
+.item-next .svg-wrapper {
+ transform: rotate(270deg);
+}
+.tabs-inner-wrapper {
+   position: relative;
+}
+.tabs-inner-wrapper .swiper {
+  position: unset;
+}
+</style>
+
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tabs = document.querySelectorAll(".pua-tabs li");
+    const contents = document.querySelectorAll(".pua-tab-content");
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => {
+        tabs.forEach((t) => t.classList.remove("active"));
+        contents.forEach((c) => c.classList.remove("active"));
+
+        tab.classList.add("active");
+        contents[i].classList.add("active");
+      });
+    });
+    document.querySelectorAll(".pua-product-slider").forEach(function (sliderEl) {
+      const productCount = parseInt(sliderEl.dataset.productCount, 10);
+      if (productCount > 4) {
+        new Swiper(sliderEl, {
+          slidesPerView: 4,
+          spaceBetween: 20,
+          navigation: {
+            nextEl: sliderEl.querySelector(".item-next"),
+            prevEl: sliderEl.querySelector(".item-prev")
+          },
+          breakpoints: {
+            0: { slidesPerView: 1.5 },
+            768: { slidesPerView: 2.5 },
+            1200: { slidesPerView: 3.5 }
+          }
+        });
+      } else {
+        sliderEl.classList.add('static-grid');
+      }
+    });
+  });
+</script>
+
+
