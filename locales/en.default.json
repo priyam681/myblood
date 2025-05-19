@@ -67,9 +67,9 @@
     }
   },
   "newsletter": {
-    "label": "Enter Your Email",
+    "label": "Enter your Email Address",
     "success": "Thanks for subscribing",
-    "button_label": "Subscribe"
+    "button_label": "SIGN UP"
   },
   "accessibility": {
     "skip_to_text": "Skip to content",
