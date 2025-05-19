@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "general": {
     "password_page": {
@@ -34,6 +43,9 @@
       "page": "Page {{ number }}",
       "next": "Page suivante",
       "previous": "Page précédente"
+    },
+    "weatherproof": {
+      "heading": "Salut. Je suis Coffee Bay. Résistant aux intempéries."
     },
     "search": {
       "search": "Recherche",
@@ -383,6 +395,9 @@
       "min_error": "Cet article a un minimum de {{ min }}",
       "max_error": "Cet article a un maximum de {{ max }}",
       "step_error": "Vous pouvez ajouter cet article uniquement par incréments de {{ step }}"
+    },
+    "weatherproof": {
+      "heading": "Salut. Je suis Coffee Bay. Résistant aux intempéries."
     }
   },
   "localization": {

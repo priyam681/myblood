@@ -1,3 +1,12 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin language editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "settings_schema": {
     "global": {
@@ -1903,6 +1912,29 @@
       "shop_login_button": {
         "enable": "Enable Sign in with Shop"
       }
+    },
+    "weatherproof": {
+        "label": "heading",
+        "default":"heading here",
+         "text": {
+              "label1": "subheading here",
+              "default1": "Text block"
+            },
+      },
+    "interior-professionals" : {
+      "text" : {
+         "label1" : "subheading-label",
+         "default1":"subheading-here"
+      },
+      "image_picker" : {
+         "label2" : "select here1",
+         "label3" : "select here2",  
+         "label4" : "select here3",
+      },
+       "label2" : "paragrapgh here",
+      "default1":"paragraph",
+      "label" : "heading-label",
+      "default" : "heading-here",
     },
     "main-order": {
       "name": "Order"

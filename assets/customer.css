@@ -1,9 +1,58 @@
-.customer:not(.account):not(.order) {
+.customer button:hover {
+  background-color: rgba(var(--color-button), 0.8);
+}
+#recover:target~#logins {
+    display: none;
+}
+#recover {
+    display: none;
+}
+#recover:target {
+    display: block;
+}
+.customer.login {
   margin: 0 auto;
-  max-width: 33.4rem;
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-  text-align: center;
+  max-width: 50rem;
+  padding-inline: 1.5rem;
+}
+.customer.register {
+    padding-inline: 1.5rem;
+    max-width: 50rem;
+    margin: auto;
+    box-shadow:rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  }
+.have-account {
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    gap: 4px;
+}
+.have-account a,
+.have-account h5 {
+  margin: 0 !important;
+} 
+.login-wrapper-custom  input {
+      border-radius: 4px !important;
+  }
+.custom-para-login {
+  margin: 0 !important;
+}
+
+.login-wrapper-custom #login {
+ font-size: 40px;
+}
+.customer.login #recover,
+.customer.login .recover-password {
+  max-width: 50rem;
+  margin: auto;
+}
+.back-to-page {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+p.custom-para-login {
+    text-align: center;
 }
 
 @media screen and (min-width: 768px) {
@@ -17,12 +66,9 @@
   margin-top: 0;
 }
 
-.customer form {
-  margin-top: 4rem;
-}
 
 .customer button {
-  margin: 4rem 0 1.5rem;
+  margin: 2rem 0;
 }
 
 .customer ul {
@@ -30,6 +76,13 @@
   padding-left: 4.4rem;
   text-align: left;
   margin-bottom: 4rem;
+}
+.new-recovery-password {
+ margin: auto;
+  padding: 23px;
+  background: #fff;
+  box-shadow: #63636333 0 2px 8px;
+  border-radius: 5px;
 }
 
 .customer ul a {
@@ -40,7 +93,19 @@
   font-weight: normal;
   color: rgb(var(--color-foreground));
 }
-
+.form-errors-login ul {
+  margin: 0;
+  padding-left:0;
+}
+.form-errors-login ul li {
+  font-size:14px;
+  color:red;
+  list-style-type: none;
+}
+h2.form__message {
+    margin-top: 0;
+  margin-bottom: 8px;
+}
 .customer h2.form__message {
   font-size: calc(var(--font-heading-scale) * 1.8rem);
 }
@@ -48,6 +113,9 @@
 @media only screen and (min-width: 768px) {
   .customer h2.form__message {
     font-size: calc(var(--font-heading-scale) * 2.2rem);
+  }
+  .new-recovery-password  {
+    max-width:50% !important;
   }
 }
 
@@ -148,7 +216,9 @@
     padding-top: 2.4rem;
   }
 }
-
+.login-text-box {
+  margin-bottom: 20px;
+}
 .customer tbody td:last-of-type {
   padding-bottom: 4rem;
 }
@@ -336,16 +406,12 @@
 }
 
 .login a[href='#recover'] {
-  margin-left: 0;
+  margin-left: auto;
   margin-right: 0;
 }
 
 .login .field + a {
   margin-top: 1rem;
-}
-
-.login p {
-  margin: 1.5rem 0;
 }
 
 .login h3 {
@@ -358,7 +424,7 @@
   margin-top: 0;
 }
 
-#recover,
+/* #recover,
 #recover + div {
   display: none;
 }
@@ -374,10 +440,10 @@
 #recover:target ~ #login,
 #recover:target ~ #login + div {
   display: none;
-}
+} */
 
 #recover,
-#login {
+#logins {
   scroll-margin-top: 20rem;
 }
 

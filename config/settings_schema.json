@@ -147,6 +147,50 @@
     ]
   },
   {
+    "name": "Sp Quickview",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "sp-quick-view-container",
+        "label": "sp-quick-view-container",
+        "default": false
+      }
+    ]
+  },
+  {
+    "name": "Sp variant",
+    "settings": [
+      {
+        "type": "select",
+        "id": "sp-quick-view-varient",
+        "label": "sp-quick-view-varient",
+        "options": [
+          {
+            "value": "default",
+            "label": "sp-quick-view-default"
+          },
+          {
+            "value": "box",
+            "label": "sp-quick-view-box"
+          }
+        ],
+        "default": "default"
+      }
+    ]
+  },
+  {
+    "name": "Sp enable product card slider",
+    "settings": [
+      {
+        "type": "checkbox",
+        "id": "enable_product_card_slider",
+        "label": "Enable Product Card Slider",
+        "default": false
+      },
+    ]
+  },
+  
+  {
     "name": "t:settings_schema.layout.name",
     "settings": [
       {

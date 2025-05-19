@@ -14,55 +14,63 @@
     "footer": {
       "type": "cstm-footer",
       "blocks": {
-        "image_XBCmC9": {
+        "image_hThDwT": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/hot-search.png",
-            "image_width": 100,
-            "alignment": "center"
+            "image": "shopify://shop_images/footer-logo.svg",
+            "richtext": "<p><strong>3rd Floor, M-1/64 Sector-B, Aliganj, Lucknow, India</strong></p>",
+            "image_width": 135,
+            "accept_privacy_policy": true,
+            "alignment": ""
+          }
+        },
+        "link_list_tezaKL": {
+          "type": "link_list",
+          "settings": {
+            "heading": "<strong>Shop</strong>",
+            "menu": "footer-menu-left"
           }
         },
         "footer-0": {
           "type": "link_list",
           "settings": {
-            "heading": "Quick links",
-            "menu": "footer"
+            "heading": "<strong>About</strong>",
+            "menu": "footer-about"
           }
         },
         "footer-1": {
           "type": "link_list",
           "settings": {
-            "heading": "Info",
-            "menu": "footer"
-          }
-        },
-        "footer-2": {
-          "type": "text",
-          "settings": {
-            "heading": "Our mission",
-            "subtext": "<p>Share contact information, store details, and brand content with your customers.</p>"
+            "heading": "<strong>Help</strong>",
+            "menu": "footer-help"
           }
         }
       },
       "block_order": [
-        "image_XBCmC9",
+        "image_hThDwT",
+        "link_list_tezaKL",
         "footer-0",
-        "footer-1",
-        "footer-2"
+        "footer-1"
       ],
       "settings": {
-        "color_scheme": "scheme-3",
+        "color_scheme": "scheme-1",
+        "Subscribe": "",
+        "block-heading-color": "#000000",
+        "newsletter_paragraph_color": "#333333",
         "newsletter_enable": true,
         "newsletter_heading": "Subscribe to our emails",
+        "newsletter_paragraph": "Never miss any news and be the first to know about sale and offers",
+        "newsletter_paragraph-privacy": "I accept the <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">privacy policy</a>",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": false,
         "enable_language_selector": false,
         "payment_enable": true,
-        "show_policy": false,
-        "margin_top": 48,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "show_policy": true,
+        "margin_top": 20,
+        "padding_top": 0,
+        "padding_bottom": 20,
+        "privacy_policy_label": false
       }
     }
   },

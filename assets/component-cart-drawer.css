@@ -36,7 +36,9 @@
   display: flex;
   flex-direction: column;
 }
-
+.facets-vertical .active-facets {
+  flex-wrap:wrap;
+}
 .cart-drawer__warnings {
   display: flex;
   flex-direction: column;

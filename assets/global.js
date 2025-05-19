@@ -620,13 +620,17 @@ class ModalDialog extends HTMLElement {
   connectedCallback() {
     if (this.moved) return;
     this.moved = true;
-    this.dataset.section = this.closest('.shopify-section').id.replace('shopify-section-', '');
+    const shopifySection = this.closest('.shopify-section');
+     if (shopifySection && shopifySection.id) {
+   this.dataset.section = shopifySection.id.replace('shopify-section-', '');
+ }
     document.body.appendChild(this);
   }
 
   show(opener) {
     this.openedBy = opener;
     const popup = this.querySelector('.template-popup');
+     document.body.classList.add('sp-quick-view-container');
     document.body.classList.add('overflow-hidden');
     this.setAttribute('open', '');
     if (popup) popup.loadContent();
@@ -640,6 +644,7 @@ class ModalDialog extends HTMLElement {
     this.removeAttribute('open');
     removeTrapFocus(this.openedBy);
     window.pauseAllMedia();
+     document.body.classList.remove('sp-quick-view-container');
   }
 }
 customElements.define('modal-dialog', ModalDialog);
@@ -695,8 +700,16 @@ class DeferredMedia extends HTMLElement {
   constructor() {
     super();
     const poster = this.querySelector('[id^="Deferred-Poster-"]');
+    const video_action = poster?.dataset.triggerEvent;
     if (!poster) return;
-    poster.addEventListener('click', this.loadContent.bind(this));
+    if (video_action === 'load') {
+      requestAnimationFrame(() => {
+        this.loadContent();
+      });
+    }
+    if (video_action === 'click') {
+      poster.addEventListener('click', this.loadContent.bind(this));
+    }
   }
 
   loadContent(focus = true) {
@@ -710,7 +723,9 @@ class DeferredMedia extends HTMLElement {
       if (focus) deferredElement.focus();
       if (deferredElement.nodeName == 'VIDEO' && deferredElement.getAttribute('autoplay')) {
         // force autoplay for safari
+        deferredElement.muted = true;
         deferredElement.play();
+        deferredElement.setAttribute('playsinline', '');
       }
 
       // Workaround for safari iframe bug

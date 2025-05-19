@@ -1,0 +1,28 @@
+{% if card_product.variants.size > 1 %}
+  <div class="variant-options sp-variant-options">
+    {% for option in card_product.options %}
+      {% assign position = forloop.index0 %}
+      <div class="variant-category">
+        <div class="flex-container">
+          {% assign unique_values = '' %}
+          {% for variant in card_product.variants %}
+            {% assign option_value = variant.options[position] %}
+            {% if option_value == null or option_value == blank %}
+              {% continue %}
+            {% endif %}
+            {% unless unique_values contains option_value %}
+              {% assign unique_values = unique_values | append: option_value | append: ',' %}
+              <a
+                href="{{ card_product.url | append: '?variant=' | append: variant.id }}"
+                class="variant-button"
+                onclick="event.stopPropagation();"
+              >
+                {{ option_value }}
+              </a>
+            {% endunless %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endfor %}
+  </div>
+{% endif %}

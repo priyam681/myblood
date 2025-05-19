@@ -25,6 +25,7 @@ slideshow-component .slideshow.banner {
   .slideshow--placeholder.banner--adapt_image:not(.banner--mobile-bottom) {
     height: 28rem;
   }
+    
 }
 
 @media screen and (min-width: 768px) {
@@ -50,17 +51,33 @@ slideshow-component .slideshow.banner {
     border-left: var(--text-boxes-border-width) solid rgba(var(--color-foreground), var(--text-boxes-border-opacity));
   }
 
-  .banner--mobile-bottom .slideshow__text.banner__box {
+  /* .banner--mobile-bottom .slideshow__text.banner__box {
     max-width: 100%;
-  }
+  } */
 
   .banner--mobile-bottom .slideshow__text-wrapper {
     flex-grow: 1;
   }
-
   .banner--mobile-bottom .slideshow__text.banner__box {
-    height: 100%;
+        max-width: 100%;
+        position: absolute;
+        top: 0;
+        transform: translate(0%, -130%);
+        width: 100%;
+        left: 0;
+       
+    }
+  .banner--mobile-bottom .sprinix-kart-banner::before {
+        position: absolute;
+        top: 0;  
+        content:'';
+        width:100%;
+        height:100%;
+        background: linear-gradient(45deg, #454545, transparent);
   }
+  /* .banner--mobile-bottom .slideshow__text.banner__box {
+    height: 100%;
+  } */
 
   .banner--mobile-bottom .slideshow__text .button {
     flex-grow: 0;
@@ -79,7 +96,7 @@ slideshow-component .slideshow.banner {
 
 @media screen and (min-width: 768px) {
   .slideshow__text.slideshow__text--left {
-    align-items: flex-start;
+    align-items: center;
     text-align: left;
   }
 
@@ -101,7 +118,6 @@ slideshow-component .slideshow.banner {
 }
 .slideshow__controls--top {
   order: 2;
-  z-index: 1;
 }
 
 @media screen and (max-width: 749px) {
@@ -152,6 +168,9 @@ slideshow-component:not(.page-width) .slider-buttons {
     padding: 0 0 0 0.6rem;
     border-left: 0.1rem solid rgba(var(--color-foreground), 0.08);
   }
+  .sprinix-kart-banner {
+    height: 100%;
+}
 }
 
 .slideshow__autoplay .icon.icon-play,
@@ -176,7 +195,15 @@ slideshow-component:not(.page-width) .slider-buttons {
 .slideshow__autoplay:hover path {
   fill: rgb(var(--color-foreground));
 }
-
+.banner__buttons .button {
+      --border-offset: unset;
+        background: black;
+        color: white;
+  } 
+.banner__buttons .button:hover {
+  background: white;
+  color: black;
+}
 @media screen and (forced-colors: active) {
   .slideshow__autoplay path,
   .slideshow__autoplay:hover path {
