@@ -28,7 +28,10 @@
   .collage--mobile .collage__item--left:nth-child(3n - 2) {
     grid-column: span 2;
   }
-
+ .collage--mobile .collage__item.collage__item--collection.collage__item--left.scroll-trigger.animate--slide-in {
+        grid-column: span 2;
+    }
+  
   .collage--mobile .collage__item--left:nth-child(3n - 2):nth-last-child(2) {
     grid-column: span 1;
   }
@@ -59,11 +62,11 @@
     grid-auto-flow: column;
     grid-column-gap: var(--grid-desktop-horizontal-spacing);
     grid-row-gap: var(--grid-desktop-vertical-spacing);
-    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
   .collage__item--left:nth-child(3n - 2) {
-    grid-column: 1 / span 2;
+    grid-column: 1 / span 1;
     grid-row: span 2;
   }
 
@@ -73,7 +76,7 @@
 
   .collage__item--left:nth-child(3n - 1),
   .collage__item--left:nth-child(3n) {
-    grid-column-start: 3;
+    grid-column-start: 2;
   }
 
   .collage__item--left:nth-child(3n - 1):last-child {

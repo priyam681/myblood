@@ -5,7 +5,50 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
-
+ .field {
+    position: relative;
+    margin: 20px 0;
+  }
+  /* Label ko absolute position par rakhein */
+  .field label {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.2s ease;
+    pointer-events: none;
+    background: #fff;
+    padding: 0 5px;
+    color: #999 !important;
+    font-size: 14px;
+    z-index: 3;
+  }
+  .eye-icon {
+    top: 11px;
+  }
+  /* Focus mein label ko upar shift kar dein */
+  .field:focus-within label {
+    top: -3px;
+    left: 10px;
+    font-size: 12px;
+  }
+  /* Input styling */
+  .field input {
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 12px 10px;
+    font-size: 14px;
+    box-sizing: border-box;
+  }
+  .field input:focus {
+    outline: none;
+    border-color: #2196F3;
+  }
+  /* Placeholder ko hide karne ke liye */
+  .login-wrapper-custom .field input::placeholder {
+    color: transparent;
+  }
   @media screen and (min-width: 750px) {
     .section-{{ section.id }}-padding {
       padding-top: {{ section.settings.padding_top }}px;
@@ -14,8 +57,9 @@
   }
 {%- endstyle -%}
 
-<div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact page-width page-width--narrow section-{{ section.id }}-padding">
+<div class="sprinix-cart-box-wrapper">
+  <div class="color-{{ section.settings.color_scheme }} gradient">
+  <div class="contact sprinix-kart-contact-us  page-width page-width--narrow section-{{ section.id }}-padding">
     {%- if section.settings.heading != blank -%}
       <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.heading }}
@@ -53,8 +97,12 @@
       {%- endif -%}
       <div class="contact__fields">
         <div class="field">
+          <label class="field__label" for="ContactForm-name">
+            {{- 'templates.contact.form.name' | t }}
+            <span aria-hidden="true">*</span></label
+          >
           <input
-            class="field__input"
+            class="field__input customer-name"
             autocomplete="name"
             type="text"
             id="ContactForm-name"
@@ -62,14 +110,17 @@
             value="{% if form.name %}{{ form.name }}{% elsif customer %}{{ customer.name }}{% endif %}"
             placeholder="{{ 'templates.contact.form.name' | t }}"
           >
-          <label class="field__label" for="ContactForm-name">{{ 'templates.contact.form.name' | t }}</label>
         </div>
         <div class="field field--with-error">
+          <label class="field__label" for="ContactForm-email">
+            {{- 'templates.contact.form.email' | t }}
+            <span aria-hidden="true">*</span></label
+          >
           <input
             autocomplete="email"
             type="email"
             id="ContactForm-email"
-            class="field__input"
+            class="field__input customer-name"
             name="contact[email]"
             spellcheck="false"
             autocapitalize="off"
@@ -81,10 +132,7 @@
             {% endif %}
             placeholder="{{ 'templates.contact.form.email' | t }}"
           >
-          <label class="field__label" for="ContactForm-email">
-            {{- 'templates.contact.form.email' | t }}
-            <span aria-hidden="true">*</span></label
-          >
+
           {%- if form.errors contains 'email' -%}
             <small class="contact__field-error" id="ContactForm-email-error">
               <span class="visually-hidden">{{ 'accessibility.error' | t }}</span>
@@ -100,31 +148,34 @@
         </div>
       </div>
       <div class="field">
+        <label class="field__label" for="ContactForm-phone">
+          {{- 'templates.contact.form.phone' | t }}
+          <span aria-hidden="true">*</span></label
+        >
         <input
           type="tel"
           id="ContactForm-phone"
-          class="field__input"
+          class="field__input customer-name"
           autocomplete="tel"
           name="contact[{{ 'templates.contact.form.phone' | t }}]"
           pattern="[0-9\-]*"
           value="{% if form.phone %}{{ form.phone }}{% elsif customer %}{{ customer.phone }}{% endif %}"
           placeholder="{{ 'templates.contact.form.phone' | t }}"
         >
-        <label class="field__label" for="ContactForm-phone">{{ 'templates.contact.form.phone' | t }}</label>
       </div>
       <div class="field">
-        <textarea
-          rows="10"
-          id="ContactForm-body"
-          class="text-area field__input"
-          name="contact[{{ 'templates.contact.form.comment' | t }}]"
-          placeholder="{{ 'templates.contact.form.comment' | t }}"
-        >
-          {{- form.body -}}
-        </textarea>
         <label class="form__label field__label" for="ContactForm-body">
           {{- 'templates.contact.form.comment' | t -}}
         </label>
+        <textarea
+          rows="3"
+          id="ContactForm-body"
+          class="text-area field__input customer-name"
+          name="contact[{{ 'templates.contact.form.comment' | t }}]"
+        
+        >
+          {{- form.body -}}
+        </textarea>
       </div>
       <div class="contact__button">
         <button type="submit" class="button">
@@ -133,6 +184,7 @@
       </div>
     {%- endform -%}
   </div>
+</div>
 </div>
 
 {% schema %}

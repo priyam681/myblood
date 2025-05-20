@@ -1,45 +1,165 @@
-<span class="field-currency">{{ cart.currency.symbol }}</span>
+<style>
+  .sp-fliter price-range input[type='range'].active::-webkit-slider-thumb {
+    transform: scale(1.2);
+    background-color: var(--color-accent,rgb(0, 0, 0));
+    {% comment %} box-shadow: 0 0 5px #eee; {% endcomment %}
+    transition: transform 0.1s ease;
+    box-shadow: var(--focused-base-box-shadow);
+  }
 
-<div class="field">
-  <input
-    class="field__input"
-    name="{{ filter.min_value.param_name }}"
-    id="{{ id_prefix }}{{ filter.label | escape }}-GTE"
-    {%- if filter.min_value.value -%}
-      value="{{ filter.min_value.value | money_without_currency }}"
-    {%- endif -%}
-    type="text"
-    inputmode="decimal"
-    placeholder="0"
-    data-pattern="\d| |,|\."
-    data-min="0"
-    data-max="{{ filter.range_max | money_without_currency }}"
-  >
-  <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-GTE">
-    {{- 'products.facets.from' | t -}}
-  </label>
-</div>
+  .sp-fliter price-range input[type='range'].active::-moz-range-thumb {
+    transform: scale(1.2);
+    background-color: var(--color-accent,rgb(0, 0, 0));
+    {% comment %} box-shadow: 0 0 5px #eee; {% endcomment %}
+    transition: transform 0.1s ease;
+    box-shadow: var(--focused-base-box-shadow);
+  }
 
-{%- if filter_type != 'vertical' -%}
-  <span class="field-currency">{{ cart.currency.symbol }}</span>
-{%- endif -%}
+  .sp-fliter .range_container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
 
-<div class="field">
-  <input
-    class="field__input"
-    name="{{ filter.max_value.param_name }}"
-    id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
-    {%- if filter.max_value.value -%}
-      value="{{ filter.max_value.value | money_without_currency }}"
-    {%- endif -%}
-    type="text"
-    inputmode="decimal"
-    placeholder="{{ filter.range_max | money_without_currency }}"
-    data-pattern="\d| |,|\."
-    data-min="0"
-    data-max="{{ filter.range_max | money_without_currency }}"
-  >
-  <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-LTE">
-    {{- 'products.facets.to' | t -}}
-  </label>
+  .sp-fliter .sliders_control {
+    position: relative;
+    min-height: 50px;
+  }
+
+  .sp-fliter .form_control {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    color: #635a5a;
+  }
+
+  .sp-fliter input[type='range']::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    pointer-events: all;
+    width: 20px;
+    height: 20px;
+    background-color: #f7f5ef;
+    border-radius: 50%;
+    box-shadow: 0 0 0 1px #c6c6c6;
+    cursor: pointer;
+    border-radius: 34px;
+    transition: background-color 0.4s;
+    vertical-align: middle;
+    margin-right: 10px;
+    cursor: pointer;
+    box-shadow: var(--focused-base-box-shadow);
+    {% comment %} box-shadow: offset 0 0 3px 5px rgba(0, 0, 0, 0.0) {% endcomment %}
+  }
+
+  .sp-fliter input[type='range']::-moz-range-thumb {
+    -webkit-appearance: none;
+    pointer-events: all;
+    width: 20px;
+    height: 20px;
+    background-color: #f7f5ef;
+    border-radius: 50%;
+    {% comment %} box-shadow: 0 0 0 1px #eee; {% endcomment %}
+    box-shadow: var(--focused-base-box-shadow);
+    cursor: pointer;
+  }
+
+  .sp-fliter input[type='range']::-webkit-slider-thumb:hover {
+    background-color: #eee;
+  }
+
+  .sp-fliter input[type='number'] {
+    color: #8a8383;
+    width: 50px;
+    height: 20px;
+    font-size: 20px;
+    border: none;
+  }
+
+  .sp-fliter input[type='number']::-webkit-inner-spin-button,
+  .sp-fliter input[type='number']::-webkit-outer-spin-button {
+    opacity: 1;
+  }
+
+  .sp-fliter input[type='range'] {
+    -webkit-appearance: none;
+    appearance: none;
+    height: 2px;
+    width: 100%;
+    position: absolute;
+    background-color: #eee;
+    pointer-events: none;
+  }
+
+  .sp-fliter #fromSlider {
+    height: 0;
+    z-index: 1;
+  }
+  .sp-fliter .facets__price .field {
+    display: flex;
+    align-items: center;
+}
+.sp-fliter .range__value {
+  display: flex;
+}
+.sp-fliter .mobile-facets__info {
+  padding: 0 2.6rem;
+  font-family: 'Knockout-31';
+  font-weight: 400;
+  letter-spacing: 0.2px;
+}
+</style>
+
+<div class="range_container">
+  <div class="sliders_control">
+    <input id="fromSlider" type="range" value="10" min="0" max="100">
+    <input id="toSlider" type="range" value="40" min="0" max="100">
+  </div>
+  <div class="form_control">
+    <div class="range__value">
+      <span class="field-currency">{{ cart.currency.symbol }}</span>
+      <div class="field">
+        <input
+          class="field__input"
+          name="{{ filter.min_value.param_name }}"
+          id="{{ id_prefix }}{{ filter.label | escape }}-GTE"
+          {%- if filter.min_value.value -%}
+            value="{{ filter.min_value.value | money_without_currency }}"
+          {%- endif -%}
+          type="text"
+          inputmode="decimal"
+          placeholder="0"
+          data-pattern="\d| |,|\."
+          data-min="0"
+          data-max="{{ filter.range_max | money_without_currency }}"
+        >
+        <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-GTE">
+          {{- 'products.facets.from' | t -}}
+        </label>
+      </div>
+
+      {%- if filter_type != 'vertical' -%}
+        <span class="field-currency">{{ cart.currency.symbol }}</span>
+      {%- endif -%}
+
+      <div class="field">
+        <input
+          class="field__input"
+          name="{{ filter.max_value.param_name }}"
+          id="{{ id_prefix }}{{ filter.label | escape }}-LTE"
+          {%- if filter.max_value.value -%}
+            value="{{ filter.max_value.value | money_without_currency }}"
+          {%- endif -%}
+          type="text"
+          inputmode="decimal"
+          placeholder="{{ filter.range_max | money_without_currency }}"
+          data-pattern="\d| |,|\."
+          data-min="0"
+          data-max="{{ filter.range_max | money_without_currency }}"
+        >
+        <label class="field__label" for="{{ id_prefix }}{{ filter.label | escape }}-LTE">
+          {{- 'products.facets.to' | t -}}
+        </label>
+      </div>
+    </div>
+  </div>
 </div>

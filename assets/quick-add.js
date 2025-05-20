@@ -32,6 +32,7 @@ if (!customElements.get('quick-add-modal')) {
             const productElement = responseHTML.querySelector('product-info');
 
             this.preprocessHTML(productElement);
+            console.log('productElement', productElement);
             HTMLUpdateUtility.setInnerHTML(this.modalContent, productElement.outerHTML);
 
             if (window.Shopify && Shopify.PaymentButton) {
@@ -64,14 +65,16 @@ if (!customElements.get('quick-add-modal')) {
         productElement.setAttribute('data-update-url', 'false');
       }
 
-      removeDOMElements(productElement) {
-        const pickupAvailability = productElement.querySelector('pickup-availability');
-        if (pickupAvailability) pickupAvailability.remove();
-
-        const productModal = productElement.querySelector('product-modal');
-        if (productModal) productModal.remove();
-
-        const modalDialog = productElement.querySelectorAll('modal-dialog');
+      removeDOMElements(productElement) {  
+        const pickupAvailability = productElement.querySelector('pickup-availability');  
+        if (pickupAvailability) pickupAvailability.remove();  
+        const productModal = productElement.querySelector('product-modal');  
+        if (productModal) productModal.remove();  
+        const loadMore = productElement.querySelector('product-media-load-more');  
+        if (loadMore) {    loadMore.remove();  }  
+        const customModal = productElement.querySelectorAll('custom-modal');  
+        if (customModal) customModal.forEach(modal => modal.remove());  
+        const modalDialog = productElement.querySelectorAll('modal-dialog');  
         if (modalDialog) modalDialog.forEach((modal) => modal.remove());
       }
 

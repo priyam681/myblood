@@ -19,12 +19,20 @@
   transition: opacity 0s, visibility 0s;
 }
 
+.menu-drawer__inner-container {
+  .list-social {
+    display: flex;
+    align-items: center;
+  }
+}
 menu-drawer > details[open] > summary::before {
   visibility: visible;
   opacity: 1;
   transition: opacity var(--duration-default) ease, visibility var(--duration-default) ease;
 }
-
+div#menu-drawer {
+    overflow: auto;
+}
 .menu-drawer {
   position: absolute;
   transform: translateX(-100%);
@@ -155,7 +163,7 @@ details[open].menu-opening > .menu-drawer__submenu {
   text-decoration: none;
   display: flex;
   align-items: center;
-  font-size: 1.4rem;
+  font-size: 2rem;
   width: 100%;
   background-color: transparent;
   font-family: var(--font-body-family);
@@ -177,11 +185,16 @@ details[open].menu-opening > .menu-drawer__submenu {
 
 .header--has-social .menu-drawer__utility-links {
   padding: 2rem 3rem;
+  flex-wrap: wrap;
 }
 
 @media screen and (max-width: 749px) {
   .header--has-account:where(:not(.header--has-social):not(.header--has-localizations)) .menu-drawer__utility-links {
     padding: 2rem 3rem;
+  }
+  
+  .menu-drawer .list-social {
+    display:none;
   }
 }
 
@@ -224,6 +237,7 @@ details[open].menu-opening > .menu-drawer__submenu {
 .menu-drawer .list-social {
   justify-content: flex-start;
   margin-left: -1.25rem;
+  display: none;
 }
 
 .menu-drawer .list-social:empty {

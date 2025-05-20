@@ -68,7 +68,7 @@
   class="color-{{ section.settings.color_scheme }} isolate gradient"
 >
   <div
-    class="collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
+    class="{% if section.settings.image_shape != "default" %} featured-image-shape {% endif %} collection{% if section.settings.quick_add == 'bulk' %} collection-quick-add-bulk{% endif %} section-{{ section.id }}-padding{% if section.settings.full_width %} collection--full-width{% endif %}"
     id="collection-{{ section.id }}"
     data-id="{{ section.id }}"
   >
@@ -246,6 +246,13 @@
       "id": "title",
       "default": "t:sections.featured-collection.settings.title.default",
       "label": "t:sections.featured-collection.settings.title.label"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "variant",
+      "label": "Variant",
+      "default": false
     },
     {
       "type": "select",

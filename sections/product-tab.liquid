@@ -57,6 +57,47 @@
 }
 {% endschema %}
 
+<style>
+  .more-images-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 50px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: none;
+  }
+
+  .more-images-indicator:hover {
+    background-color: #f0f0f0;
+    border-color: #ddd;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    height:100%;
+  }
+
+  .icon-wrapper img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .count {
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+    margin-top: 2px;
+  }
+</style>
+
 <div class="pua-tabs-wrapper page-width">
 <div class="tabs-inner-wrapper">
   <ul class="pua-tabs">
@@ -86,15 +127,16 @@
                   </a>
 
                   <div class="thumbnail-wrapper">
-                    {% for image in product.images limit: 15 %}
-                      <img
-                        class="thumbnail"
-                        src="{{ image | image_url: width: 400 }}"
-                        alt="{{ product.title }} thumbnail"
-                        onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
-                        width="50px" height="50px"
-                      />
-                    {% endfor %}
+                      {% for image in product.images limit: 15 %}
+                        <img
+                                class="thumbnail"
+                                src="{{ image | image_url: width: 400 }}"
+                                alt="{{ product.title }} thumbnail"
+                                onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
+                                width="50px" height="50px"
+                        />
+                      {% endfor %}
+
                   </div>
 
                   <h3 itemprop="name">{{ product.title }}</h3>
@@ -132,12 +174,152 @@
 </div>
 </div>
 
+{% comment %}<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Use querySelectorAll to handle multiple thumbnail wrappers on the page
+    const thumbnailWrappers = document.querySelectorAll(".thumbnail-wrapper");
+
+
+    thumbnailWrappers.forEach(parent => {
+      const children = parent.querySelectorAll(".thumbnail");
+      const totalLength = children.length;
+      let childrenLength = totalLength;
+
+      const observer = new ResizeObserver(() => {
+        const parentWidth = parent.clientWidth;
+        let currentWidth = 0;
+
+        // Calculate visibility for each thumbnail
+        children.forEach(child => {
+          // Reset display before measuring
+          child.style.display = 'block';
+
+          const childWidth = child.offsetWidth;
+          const margins = parseFloat(getComputedStyle(child).marginLeft) +
+                  parseFloat(getComputedStyle(child).marginRight);
+
+          currentWidth += childWidth + margins;
+
+          // Hide thumbnails that would overflow
+          if (currentWidth > parentWidth) {
+            childrenLength--;
+            child.style.display = 'none';
+          }
+        });
+
+        let remaining = totalLength - childrenLength;
+
+        if (totalLength <= remaining) {
+          const plus = `<span class="more-images-indicator">
+                      <span class="icon-wrapper">
+                        <img src="{{ 'asterix.jpg' | asset_url }}" alt="More images" width="20" height="20"/>
+                      </span>
+                      <span class="count">0</span>
+                   </span>`
+          children.insertAdjacentHTML('afterend', plus)
+        }
+
+
+      });
+
+      observer.observe(parent);
+
+    // Update the count in the span
+
+
+
+    });
+  });
+</script>
+{% endcomment %}
+
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    // Handle multiple thumbnail wrappers on the page
+    document.querySelectorAll(".thumbnail-wrapper").forEach(parent => {
+      const thumbnails = Array.from(parent.querySelectorAll(".thumbnail"));
+      const totalThumbnails = thumbnails.length;
+      let indicator = null;
+
+      const observer = new ResizeObserver(() => {
+        // Remove any existing indicator before recalculating
+        if (indicator) {
+          indicator.remove();
+          indicator = null;
+        }
+
+        const parentWidth = parent.clientWidth;
+        let currentWidth = 0;
+        let visibleCount = 0;
+
+        let lastVisibleIndex = -1;
+
+        // Calculate which thumbnails can be displayed
+        thumbnails.forEach((thumbnail, i) => {
+          // Reset display before measuring
+          thumbnail.style.display = 'block';
+
+          const thumbnailWidth = thumbnail.offsetWidth;
+          const margins = parseFloat(getComputedStyle(thumbnail).marginLeft) +
+                  parseFloat(getComputedStyle(thumbnail).marginRight);
+
+          currentWidth += thumbnailWidth + margins;
+
+          if (currentWidth <= parentWidth) {
+            visibleCount++;
+            lastVisibleIndex = i;
+          } else {
+            thumbnail.style.display = 'none';
+          }
+        });
+
+        // Calculate remaining hidden thumbnails
+        const hiddenCount = totalThumbnails - visibleCount;
+
+        // Only show indicator if there are hidden thumbnails
+        if (hiddenCount > 0 && lastVisibleIndex >= 0) {
+          thumbnails[lastVisibleIndex].style.display = 'none';
+
+          // create the indicator
+          indicator = document.createElement('span');
+          indicator.className = 'more-images-indicator';
+          indicator.style.display = 'flex';
+
+          // count includes the last hidden thumbnail plus any others.
+
+          const indicatorCount = hiddenCount + 1;
+
+          indicator.innerHTML = `
+            <span class="count">+${indicatorCount}</span>
+          `;
+
+          // Add click handler to show all thumbnails in a modal or expand the container
+          indicator.addEventListener('click', () => {
+            // Implement your logic to show all thumbnails here
+            thumbnails.forEach(thumbnail => {
+              thumbnail.style.display = 'block';
+            });
+
+            indicator.remove();
+            indicator = null;
+          });
+
+          parent.appendChild(indicator);
+        }
+      });
+
+      observer.observe(parent);
+    });
+  });
+</script>
+
+
 <style>
 .thumbnail-wrapper {
   display: flex;
   gap: 6px;
   margin-top: 8px;
-  overflow: auto;
+  flex-wrap: wrap;
 }
 
 .product-card .thumbnail {
@@ -202,11 +384,6 @@
   }
   .pua-product-slider .swiper-slide {
     box-sizing: border-box;
-  }
-  .thumbnail-wrapper {
-    display: flex;
-    gap: 5px;
-    margin-top: 8px;
   }
   .thumbnail {
     border: 1px solid #ccc;

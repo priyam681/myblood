@@ -12,7 +12,15 @@
 .list-menu--disclosure:focus {
   outline: none;
 }
-
+.list-menu {
+   padding: 0 5px;
+}
+.header {
+   border-bottom: 1px solid #d7d7d7;
+}
+.js .menu-drawer__menu li:not(:last-child) {
+      border-bottom: 1px solid #d0d0d0;
+}
 .list-menu__item--active {
   text-decoration: underline;
   text-underline-offset: 0.3rem;

@@ -1,3 +1,38 @@
+@media screen and (max-width: 768px) {
+  .collage__item .card-wrapper .card--media .card__content .card__heading {
+  font-size : 24px;
+}
+  .collage__item .card-wrapper .card--media .card__content  .price {
+  font-size : 16px;
+}
+}
+@media screen and (min-width: 768px) {
+  .collage__item .card-wrapper .card--media .card__content .card__heading {
+  font-size : 40px;
+}
+  .collage__item .card-wrapper .card--media .card__content  .price {
+  font-size : 18px;
+}
+}
+.collage__item .card-wrapper .card--media .card__content {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #4d4d4d4d;
+}
+.collage__item .card-wrapper .card--media .card__content .card__heading {
+  color: #fff;
+}
+.collage__item .card-wrapper .card--media .card__content .card__heading a{
+  text-decoration: none;
+}
+.collage__item .card-wrapper .card--media .card__content  .price {
+  color: #fff;
+  text-align: center;
+}
 .card-wrapper {
   color: inherit;
   height: 100%;
@@ -278,8 +313,8 @@
 
 @media screen and (min-width: 750px) {
   .card__information {
-    padding-bottom: 1.7rem;
-    padding-top: 1.7rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
   }
 }
 
@@ -366,7 +401,7 @@
   position: absolute;
   right: 0;
   top: 0;
-  z-index: 1;
+  z-index: -1;
 }
 
 .card__heading a:after {
@@ -401,7 +436,7 @@
 
   .card:hover .media.media--hover-effect > img:first-child:only-child,
   .card-wrapper:hover .media.media--hover-effect > img:first-child:only-child {
-    transform: scale(1.03);
+    transform: scale(1.2);
   }
 
   .card-wrapper:hover .media.media--hover-effect > img:first-child:not(:only-child) {
@@ -411,7 +446,7 @@
   .card-wrapper:hover .media.media--hover-effect > img + img {
     opacity: 1;
     transition: transform var(--duration-long) ease;
-    transform: scale(1.03);
+    transform: scale(1.2);
   }
 
   .underline-links-hover:hover a {

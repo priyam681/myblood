@@ -16,6 +16,9 @@ variant-selects {
   flex-wrap: wrap;
   margin: 0 auto 1.2rem auto;
 }
+a.varient-plus-icon-svg {
+    margin: .7rem 1.2rem .2rem 0;
+} 
 
 .product--no-media .product-form__input--dropdown {
   flex-direction: column;
@@ -119,10 +122,10 @@ variant-selects {
   text-decoration: line-through;
 }
 
-.product-form__input--pill input[type='radio'].disabled:checked + label,
+/* .product-form__input--pill input[type='radio'].disabled:checked + label,
 .product-form__input--pill input[type='radio']:disabled:checked + label {
   color: rgba(var(--color-background), 0.6);
-}
+} */
 .product-form__input--pill input[type='radio']:focus-visible + label {
   box-shadow: 0 0 0 0.3rem rgb(var(--color-background)), 0 0 0 0.5rem rgba(var(--color-foreground), 0.55);
 }
@@ -139,7 +142,7 @@ variant-selects {
 }
 
 .product-form__input--swatch .swatch-input__input + .swatch-input__label {
-  --swatch-input--size: 3.6rem;
+  --swatch-input--size: 2rem;
 
   margin: 0.7rem 1.2rem 0.2rem 0;
 }

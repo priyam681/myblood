@@ -1,0 +1,128 @@
+{%- style -%}
+    .natural-design-container {
+      padding-inline: 15px;
+      position: relative;
+    }
+     .natural-design-container::before {
+          content: '';
+          width: 100%;
+          background: #f7f5ef;
+          position: absolute;
+          top: 0;
+          z-index: -1;
+          left: 0;
+          height: 100%;
+      }
+      .natural-design-container .natural-design-wrapper {
+        padding-inline: 0;
+      }
+    .natural-design-container .natural-design-wrapper .natural-design-content {
+        padding: 20px 0;
+  }
+    .natural-design-container .natural-design-wrapper .natural-design-image {
+        padding-top: 20px
+    }
+    .natural-design-container .natural-design-wrapper .natural-design-image img {
+      object-fit: cover;
+    }
+      .natural-design-container .natural-design-wrapper .natural-design-content h2 {
+        font-size: 20px;
+        font-weight: 700;
+        margin: 0;
+      }
+       .natural-design-container .natural-design-wrapper .natural-design-content p {
+        font-size: 14px;
+         margin-top: 10px;
+         margin-bottom: 0;
+      }
+    @media screen and (min-width: 768px) {
+       .natural-design-container .natural-design-wrapper {
+        display: flex;
+        align-items: center;
+        position: relative;
+       justify-content: end;
+      }
+      .natural-design-container::before {
+          height: 85%;
+      }
+      .natural-design-container .natural-design-wrapper .natural-design-content {
+        width: 50%;
+       padding: 15% 5%;
+      }
+       .natural-design-container .natural-design-wrapper .natural-design-content h2 {
+        font-size: 24px;
+      }
+      .natural-design-container .natural-design-wrapper .natural-design-content p {
+        font-size: 16px;
+      }
+       .natural-design-container .natural-design-wrapper .natural-design-image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50%;
+        height: 100%;
+        padding-top: 50px
+    }
+      .natural-design-container {
+      padding-inline: 30px;
+    }
+    }
+    @media screen and (min-width: 992px) {
+         .natural-design-container {
+      padding-inline: 50px;
+    }
+       .natural-design-container .natural-design-wrapper .natural-design-content {
+       padding: 15% 8%;
+      }
+       .natural-design-container .natural-design-wrapper .natural-design-content h2 {
+        font-size: 40px;
+      }
+    }
+{%- endstyle -%}
+
+<div class="natural-design-container">
+  <div class="natural-design-wrapper page-width">
+    <div class="natural-design-image">
+      {% if section.settings['natural-image'] != null %}
+        {{
+          section.settings['natural-image']
+          | image_url: width: 3200
+          | image_tag: width: '100%', height: '100%', sizes: sizes
+        }}
+      {% endif %}
+    </div>
+    <div class="natural-design-content">
+      <h2>{{ section.settings.heading }}</h2>
+      <p>{{ section.settings.caption }}</p>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "About Natural Design",
+  "settings": [
+       {
+        "type": "image_picker",
+        "id": "natural-image",
+        "label": "Natural Image"
+      },
+    {
+    "type": "inline_richtext",
+    "id": "heading",
+    "label": "Heading",
+  },
+  {
+    "type": "text",
+    "id": "caption",
+    "label": "content"
+  },
+
+  ],
+  "presets": [
+  {
+    "name": "About Natural Design",
+  }
+]
+}
+{% endschema %}

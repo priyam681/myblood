@@ -100,7 +100,7 @@
                   spellcheck="false"
                 {%- endif -%}
               >
-              <label class="field__label" for="Search-In-Template">{{ 'general.search.search' | t }}</label>
+              <!-- <label class="field__label" for="Search-In-Template">{{ 'general.search.search' | t }}</label> -->
               <input name="options[prefix]" type="hidden" value="last">
 
               {%- if settings.predictive_search_enabled -%}
@@ -111,15 +111,6 @@
                 <span class="predictive-search-status visually-hidden" role="status" aria-hidden="true"></span>
               {%- endif -%}
 
-              <button
-                type="reset"
-                class="reset__button field__button{% if search.terms == blank %} hidden{% endif %}"
-                aria-label="{{ 'general.search.reset' | t }}"
-              >
-                <span class="svg-wrapper">
-                  {{- 'icon-reset.svg' | inline_asset_content -}}
-                </span>
-              </button>
               <button type="submit" class="search__button field__button" aria-label="{{ 'general.search.search' | t }}">
                 <span class="svg-wrapper">
                   {{- 'icon-search.svg' | inline_asset_content -}}
@@ -157,7 +148,7 @@
                 <h2 class="facet-filters__label caption-large text-body">
                   <label for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
                 </h2>
-                <div class="select">
+                <div class="select hello 4">
                   {%- assign sort_by = search.sort_by | default: search.default_sort_by -%}
                   <select
                     name="sort_by"
@@ -347,6 +338,33 @@
       "step": 1,
       "default": 4,
       "label": "t:sections.main-search.settings.columns_desktop.label"
+    },
+      {
+      "type": "checkbox",
+      "id": "variant",
+      "label": "Variant",
+      "default": false
+    },
+        {
+      "type": "select",
+      "id": "quick_add",
+      "default": "none",
+      "label": "t:sections.main-collection-product-grid.settings.quick_add.label",
+      "info": "t:sections.main-collection-product-grid.settings.quick_add.info",
+      "options": [
+        {
+          "value": "none",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_1"
+        },
+        {
+          "value": "standard",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_2"
+        },
+        {
+          "value": "bulk",
+          "label": "t:sections.main-collection-product-grid.settings.quick_add.options.option_3"
+        }
+      ]
     },
     {
       "type": "select",
