@@ -290,9 +290,6 @@
           const indicatorCount = hiddenCount + 1;
 
           indicator.innerHTML = `
-            <span class="icon-wrapper">
-              <img src="{{ 'asterix.jpg' | asset_url }}" alt="More images" width="20" height="20"/>
-            </span>
             <span class="count">+${indicatorCount}</span>
           `;
 
@@ -322,7 +319,7 @@
   display: flex;
   gap: 6px;
   margin-top: 8px;
-  overflow: auto;
+  flex-wrap: wrap;
 }
 
 .product-card .thumbnail {
@@ -387,11 +384,6 @@
   }
   .pua-product-slider .swiper-slide {
     box-sizing: border-box;
-  }
-  .thumbnail-wrapper {
-    display: flex;
-    gap: 5px;
-    margin-top: 8px;
   }
   .thumbnail {
     border: 1px solid #ccc;
