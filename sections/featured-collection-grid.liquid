@@ -79,18 +79,56 @@
 
 <div class="featured-grid page-width">
   {% for block in section.blocks %}
-    <div class="featured-card">
-      {% if block.settings.image %}
-        <img src="{{ block.settings.image | image_url: width: 800 }}" alt="{{ block.settings.title | escape }}">
-      {% endif %}
-      <div class="featured-overlay">
-        <p class="brand">{{ block.settings.brand }}</p>
-        <h2 class="title">{{ block.settings.title }}</h2>
-        <div class="price"><span>Starting from</span> <span class="price-value">{{ block.settings.price }}</span></div>
+    {% assign collection = collections[block.settings.collection] %}
+    {% if collection.products.size > 0 %}
+      {% case block.settings.product_to_display %}
+        {% when 'first' %}
+          {% assign product = collection.products.first %}
+        {% when 'last' %}
+          {% assign product = collection.products.last %}
+        {% when 'specific' %}
+          {% if block.settings.specific_product != blank %}
+            {% assign product = all_products[block.settings.specific_product] %}
+          {% else %}
+            {% assign product = collection.products.first %}
+          {% endif %}
+        {% when 'random' %}
+          {% assign random_number = "now" | date: "%N" | modulo: collection.products.size %}
+          {% assign product = collection.products[random_number] %}
+        {% else %}
+          {% assign product = collection.products.first %}
+      {% endcase %}
+
+      <div class="featured-card">
+        {% if block.settings.custom_image != blank %}
+          <img src="{{ block.settings.custom_image | image_url: width: 800 }}" alt="{{ collection.title | escape }}">
+        {% else %}
+          <img src="{{ product.featured_image | image_url: width: 800 }}" alt="{{ product.title | escape }}">
+        {% endif %}
+
+        <div class="featured-overlay">
+          <p class="brand">{{ block.settings.brand }}</p>
+
+          {% if block.settings.show_collection_title %}
+            <h2 class="title">{{ collection.title }}</h2>
+          {% else %}
+            <h2 class="title">{{ product.title }}</h2>
+          {% endif %}
+
+          <div class="price">
+            <span style="color: {{ block.settings.highlighted_text_color }};">{{ block.settings.highlighted_text }}</span>
+            {% if block.settings.custom_price != blank %}
+              <span class="price-value" style="color: {{ block.settings.price_color }};">{{ block.settings.custom_price |  money }}</span>
+            {% else %}
+              <span class="price-value" style="color: {{ block.settings.price_color }};">{{ product.price | money }}</span>
+            {% endif %}
+          </div>
+        </div>
       </div>
-    </div>
+    {% endif %}
   {% endfor %}
 </div>
+
 
 {% schema %}
 {
@@ -103,29 +141,90 @@
       "name": "Collection Block",
       "settings": [
         {
+          "type": "collection",
+          "id": "collection",
+          "label": "Add Collection"
+        },
+        {
+          "type": "header",
+          "content": "Product Display Options"
+        },
+        {
+          "type": "select",
+          "id": "product_to_display",
+          "label": "Product to Display",
+          "options": [
+            {
+              "value": "first",
+              "label": "First Product"
+            },
+            {
+              "value": "last",
+              "label": "Last Product"
+            },
+            {
+              "value": "specific",
+              "label": "Specific Product"
+            },
+            {
+              "value": "random",
+              "label": "Random Product"
+            }
+          ],
+          "default": "first"
+        },
+        {
+          "type": "product",
+          "id": "specific_product",
+          "label": "Specific Product",
+          "info": "Only used if 'Specific Product' is selected above"
+        },
+        {
+          "type": "checkbox",
+          "id": "show_collection_title",
+          "label": "Show Collection Title (instead of Product Title)",
+          "default": true
+        },
+        {
           "type": "image_picker",
-          "id": "image",
-          "label": "Collection Image"
+          "id": "custom_image",
+          "label": "Custom Image (optional)"
+        },
+        {
+          "type": "text",
+          "id": "custom_price",
+          "label": "Custom Price (optional)",
+          "info": "Overrides product price if provided"
+        },
+        {
+          "type": "header",
+          "content": "Content Settings"
         },
         {
           "type": "text",
           "id": "brand",
-          "label": "Brand Name"
+          "label": "Brand"
         },
         {
           "type": "text",
-          "id": "title",
-          "label": "Collection Title"
+          "id": "highlighted_text",
+          "label": "Highlighted Text",
+          "default": "Starting from"
         },
         {
-          "type": "text",
-          "id": "price",
-          "label": "Starting Price"
+          "type": "color",
+          "id": "highlighted_text_color",
+          "label": "Highlighted Text Color",
+          "default": "#FFFFFF"
+        },
+        {
+          "type":"color",
+          "id":"price_color",
+          "label":"Price Color",
         }
       ]
     }
-  ]
-,
+  ],
   "max_blocks": 2,
   "presets": [
     {
