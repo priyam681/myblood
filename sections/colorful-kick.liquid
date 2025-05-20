@@ -3,6 +3,10 @@
   "name": "Colorful Kicks Section",
   "settings": [
     {
+      "type":"header",
+      "content":"Images section"
+    },
+    {
       "type": "image_picker",
       "id": "product_image",
       "label": "Left Side Product Image"
@@ -12,17 +16,65 @@
       "id": "lifestyle_image",
       "label": "Right Sider Lifestyle Image"
     },
+
     {
-      "type": "textarea",
-      "id": "heading",
-      "label": "Heading",
-      "default": "COLORFUL KICKS,CLOUD-LIKE COMFORT"
+      "type":"header",
+      "content":"Content section"
+    },
+    {
+      "type":"text",
+      "id":"content_subheading",
+      "label":"Subheading"
+    },
+    {
+      "type":"text",
+      "id":"behind_the_design",
+      "label":"Behind the design",
     },
     {
       "type": "textarea",
-      "id": "text",
+      "id": "content_description",
       "label": "Description",
       "default": "Discover our vibrant collection of colorblocked shoes, designed with plush memory foam for all-day comfort. With a wide range of bold shades, it’s easy to pick your perfect pair."
+    },
+    {
+      "type":"header",
+      "content":"Colorful content part"
+    },
+    {
+      "type":"text",
+      "id":"colourless_content_first",
+      "label":"Colorless content first"
+    },
+    {
+      "type":"text",
+      "id":"colourful_content_first",
+      "label":"Colorful content first"
+    },
+    {
+      "type":"color",
+      "id":"colourful_content_first_color",
+      "label":"Colorful content first color"
+    },
+    {
+      "type":"text",
+      "id":"colourless_content_second",
+      "label":"Colorless content second"
+    },
+    {
+      "type":"text",
+      "id":"colourful_content_second",
+      "label":"Colorful content second"
+    },
+    {
+      "type":"color",
+      "id":"colourful_content_second_color",
+      "label":"Colorful content second color"
+    },
+
+    {
+      "type":"header",
+      "content":"Button settings"
     },
     {
       "type": "text",
@@ -31,11 +83,33 @@
       "default": "Browse Collection"
     },
     {
-          "type": "url",
-          "id": "button_link",
-          "label": "Button Link"
-        }
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+
+    {
+      "type": "textarea",
+      "id": "heading",
+      "label": "Heading",
+      "default": "COLORFUL KICKS,CLOUD-LIKE COMFORT"
+    }
+
   ],
+  "blocks":[
+    {
+      "type":"image_showcase",
+      "name":"Showcase product",
+      "settings":[
+        {
+          "type":"product",
+          "id":"product",
+          "label":"Product Image"
+        }
+      ]
+    }
+  ],
+
   "presets": [
     {
       "name": "Colorful Kicks Block"
@@ -48,15 +122,33 @@
   <div class="container">
     <div class="left">
     <div class="text-container">
-      <h4 class="section-subheading">Step Into Style & Comfort</h4>
-      <h2 class="section-heading">{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.text }}</p>
+      <h4 class="section-subheading">{{ section.settings.content_subheading }}</h4>
+      <div class="text-container-wrapper">
+        <h2 class="section-heading">{{ section.settings.colourless_content_first }}</h2>
+        <h2 class="section-heading" {% if section.settings.colourful_content_first_color %}style="color: {{ section.settings.colourful_content_first_color }};"{% endif %}>
+          {{ section.settings.colourful_content_first }}
+        </h2>
+        <h2 class="section-heading">{{ section.settings.colourless_content_second }}</h2>
+        <h2 class="section-heading">
+          {% style %}
+            {% if section.settings.colourful_content_second_color %}
+              .colorful-kicks-section .text-container-wrapper h2:last-child {
+              color: {{ section.settings.colourful_content_second_color }};
+              }
+            {% endif %}
+          {% endstyle %}
+          {{ section.settings.colourful_content_second }}
+        </h2>
+      </div>
+
+
+      <p>{{ section.settings.content_description }}</p>
      </div>
       <div class="product-image-wrapper">
         <div class="bg-text">
-          <div>COLOR</div>
-          <div class="middle-content">Your</div>
-          <div>WORLD</div>
+         <span>
+           {{ section.settings.behind_the_design }}
+         </span>
         </div>
         {% if section.settings.product_image %}
           <img src="{{ section.settings.product_image | img_url: 'medium' }}" alt="Product" height="100%" width="100%">
