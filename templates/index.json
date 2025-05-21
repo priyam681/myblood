@@ -52,19 +52,29 @@
         "collection_block_7Rgpmy": {
           "type": "collection_block",
           "settings": {
-            "image": "shopify://shop_images/featured-collection1.png",
+            "collection": "",
+            "product_to_display": "first",
+            "specific_product": "",
+            "show_collection_title": true,
+            "custom_price": "",
             "brand": "EVOFOX",
-            "title": "ELITE CYBER-SAINT COLLECTION",
-            "price": "₹12,999.00"
+            "highlighted_text": "Starting from",
+            "highlighted_text_color": "#ffffff",
+            "price_color": ""
           }
         },
         "collection_block_ffnK8p": {
           "type": "collection_block",
           "settings": {
-            "image": "shopify://shop_images/featured-collection2.png",
+            "collection": "",
+            "product_to_display": "first",
+            "specific_product": "",
+            "show_collection_title": true,
+            "custom_price": "",
             "brand": "ELVIS DAWN",
-            "title": "ELVIS REBORN- COLORBLOCKER",
-            "price": "₹17,999.00"
+            "highlighted_text": "Starting from",
+            "highlighted_text_color": "#ffffff",
+            "price_color": ""
           }
         }
       },
@@ -105,6 +115,7 @@
       "name": "t:sections.collection-list.presets.name",
       "settings": {
         "title": "",
+        "variant": false,
         "heading_size": "h1",
         "image_ratio": "square",
         "columns_desktop": 3,
@@ -130,15 +141,58 @@
     },
     "colorful_kick_fRCnyF": {
       "type": "colorful-kick",
+      "blocks": {
+        "image_showcase_mekXhE": {
+          "type": "image_showcase",
+          "settings": {
+            "product": ""
+          }
+        }
+      },
+      "block_order": [
+        "image_showcase_mekXhE"
+      ],
       "name": "Colorful Kicks Block",
       "settings": {
         "product_image": "shopify://shop_images/collection-product.png",
         "lifestyle_image": "shopify://shop_images/shoes-collection.png",
-        "heading": "COLORFUL <span class=\"highlight\">KICKS</span>,  \n CLOUD-LIKE <span class=\"highlight\">COMFORT</span>",
-        "text": "Discover our vibrant collection of colorblocked shoes, designed with plush memory foam for all-day comfort. With a wide range of bold shades, it’s easy to pick your perfect pair.",
+        "content_subheading": "",
+        "behind_the_design": "",
+        "content_description": "Discover our vibrant collection of colorblocked shoes, designed with plush memory foam for all-day comfort. With a wide range of bold shades, it’s easy to pick your perfect pair.",
+        "colourless_content_first": "",
+        "colourful_content_first": "",
+        "colourful_content_first_color": "",
+        "colourless_content_second": "",
+        "colourful_content_second": "",
+        "colourful_content_second_color": "",
         "button_label": "Browse Collection",
-        "button_link": "#"
+        "button_link": "#",
+        "heading": "COLORFUL <span class=\"highlight\">KICKS</span>,  \n CLOUD-LIKE <span class=\"highlight\">COMFORT</span>"
       }
+    },
+    "featured_collection_grid_CDJyH7": {
+      "type": "featured-collection-grid",
+      "blocks": {
+        "collection_block_4hkmJx": {
+          "type": "collection_block",
+          "settings": {
+            "collection": "chair",
+            "product_to_display": "first",
+            "specific_product": "",
+            "show_collection_title": true,
+            "custom_price": "",
+            "brand": "",
+            "highlighted_text": "Starting from",
+            "highlighted_text_color": "#FFFFFF",
+            "price_color": ""
+          }
+        }
+      },
+      "block_order": [
+        "collection_block_4hkmJx"
+      ],
+      "name": "Featured Collection Grid",
+      "settings": {}
     }
   },
   "order": [
@@ -146,6 +200,7 @@
     "featured_collection_grid_gCfPH8",
     "cstm_collection_list_iCpJGj",
     "performance_banner_NfWipW",
-    "colorful_kick_fRCnyF"
+    "colorful_kick_fRCnyF",
+    "featured_collection_grid_CDJyH7"
   ]
 }
