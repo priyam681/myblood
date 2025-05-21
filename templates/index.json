@@ -85,48 +85,6 @@
       "name": "Featured Collection Grid",
       "settings": {}
     },
-    "cstm_collection_list_iCpJGj": {
-      "type": "cstm-collection-list",
-      "blocks": {
-        "featured_collection_9qYWaP": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "mens"
-          }
-        },
-        "featured_collection_j7XwhV": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "womens"
-          }
-        },
-        "featured_collection_6CUcAi": {
-          "type": "featured_collection",
-          "settings": {
-            "collection": "kids"
-          }
-        }
-      },
-      "block_order": [
-        "featured_collection_9qYWaP",
-        "featured_collection_j7XwhV",
-        "featured_collection_6CUcAi"
-      ],
-      "name": "t:sections.collection-list.presets.name",
-      "settings": {
-        "title": "",
-        "variant": false,
-        "heading_size": "h1",
-        "image_ratio": "square",
-        "columns_desktop": 3,
-        "color_scheme": "",
-        "show_view_all": false,
-        "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
-    },
     "performance_banner_NfWipW": {
       "type": "performance-banner",
       "name": "Performance Banner",
@@ -177,7 +135,7 @@
           "type": "collection_block",
           "settings": {
             "collection": "jewellery",
-            "product_to_display": "first",
+            "product_to_display": "last",
             "specific_product": "",
             "show_collection_title": true,
             "custom_price": "",
@@ -198,7 +156,6 @@
   "order": [
     "home_page_banner_cNVjDp",
     "featured_collection_grid_gCfPH8",
-    "cstm_collection_list_iCpJGj",
     "performance_banner_NfWipW",
     "colorful_kick_fRCnyF",
     "featured_collection_grid_CDJyH7"
