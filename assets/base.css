@@ -612,14 +612,7 @@ table:not([class]) th {
     display: none !important;
   }
 }
-@media screen and (min-width: 749px) and (max-width: 989px) {
-  .medium-hide  {
-    display:none;
-  }
-    .small-hide {
-      display: block !important;
-  }
-}
+
 @media screen and (min-width: 990px) {
   .large-up-hide {
     display: none !important;
