@@ -52,7 +52,7 @@
         "collection_block_7Rgpmy": {
           "type": "collection_block",
           "settings": {
-            "collection": "",
+            "collection": "loungesets",
             "product_to_display": "first",
             "specific_product": "",
             "show_collection_title": true,
@@ -62,25 +62,10 @@
             "highlighted_text_color": "#ffffff",
             "price_color": ""
           }
-        },
-        "collection_block_ffnK8p": {
-          "type": "collection_block",
-          "settings": {
-            "collection": "",
-            "product_to_display": "first",
-            "specific_product": "",
-            "show_collection_title": true,
-            "custom_price": "",
-            "brand": "ELVIS DAWN",
-            "highlighted_text": "Starting from",
-            "highlighted_text_color": "#ffffff",
-            "price_color": ""
-          }
         }
       },
       "block_order": [
-        "collection_block_7Rgpmy",
-        "collection_block_ffnK8p"
+        "collection_block_7Rgpmy"
       ],
       "name": "Featured Collection Grid",
       "settings": {}
