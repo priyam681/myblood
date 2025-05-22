@@ -37,8 +37,7 @@
         "variant_picker": {
           "type": "variant_picker",
           "settings": {
-            "picker_type": "button",
-            "swatch_shape": "circle"
+            "picker_type": "button"
           }
         },
         "quantity_selector": {
@@ -106,7 +105,13 @@
         "price",
         "variant_picker",
         "quantity_selector",
-        "buy_buttons"
+        "buy_buttons",
+        "description",
+        "collapsible-row-0",
+        "collapsible-row-1",
+        "collapsible-row-2",
+        "collapsible-row-3",
+        "share"
       ],
       "settings": {
         "enable_sticky_info": true,
@@ -202,16 +207,12 @@
       "type": "related-products",
       "settings": {
         "heading": "You may also like",
-        "variant": true,
-        "quick_add": "standard",
         "heading_size": "h2",
-        "products_to_show": 4,
         "columns_desktop": 4,
         "columns_mobile": "2",
         "color_scheme": "scheme-1",
         "image_ratio": "square",
-        "image_shape": "default",
-        "show_secondary_image": false,
+        "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": false,
         "padding_top": 36,

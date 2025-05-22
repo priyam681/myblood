@@ -21,7 +21,7 @@
 .homepage-banner {
   color: #fff;
   position: relative;
-  padding-block: 5rem;
+  padding: 5rem 0 8rem;
 }
 .homepage-banner .homepage-banner-wrapper {
     position: relative;
@@ -71,13 +71,12 @@
   border-radius: 0 12px 12px 0;
   align-items: center;
 }
-.product-items a {
+.product-items .product-item a {
  color: inherit;
  text-decoration: none;
- padding-inline: 20px;
- position: relative;
+ display: flex;
 }
-.product-items a:after {
+.product-item:after {
  content:'';
  position: absolute;
  left: 0;
@@ -87,16 +86,18 @@
  background: #d9d9d9;
  border-radius: 10px;
 }
-.product-items a:first-child:after {
+.product-item:first-child:after {
   display: none;
 }
-.product-items a .product-item {
+.product-items .product-item {
   display: flex;
   align-items: center;
   gap: 20px;
   justify-content: center;
+  position: relative;
+   padding-inline: 20px;
 }
-.product-items a .product-item img {
+.product-items .product-item img {
  border-radius: 10px;
  aspect-ratio: 1;
 }
@@ -111,19 +112,23 @@
    font-weight: bold;
 
 }
-.slider-buttons {
+.slider-buttons-wrapper {
   position: absolute;
   bottom: 2rem;
   display: flex;
   gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
 }
 .slider-button {
   background: black;
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
+  padding: 1rem;
   font-size: 2rem;
   cursor: pointer;
+  border-radius: 50%;
   }
   .homepage-banner-wrapper .banner-buttons {
     margin-top: 20px;
@@ -156,9 +161,6 @@
       width: 65%;
       margin-left: auto;
   }
-.homepage-banner-wrapper .banner-buttons {
-      margin-bottom: 8rem;
-    }
     .banner-content {
       max-width: 600px;
       position: absolute;
@@ -245,40 +247,39 @@
                 <div class="product-items">
                   {% if block.settings.product_display_1 != blank %}
                     {% assign product = all_products[block.settings.product_display_1] %}
-                    <a href="{{ product.url }}">
+
                     <div class="product-item">
-                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px">
+                     <a href="{{ product.url }}">  <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px"></a>
                       <div>
-                        <p class="product-name">{{ product.title}}</p>
-                        <span>{{ product.price | money }}</span>
+                        <a href="{{ product.url }}"> <p class="product-name">{{ product.title}}</p></a>
+                         <a href="{{ product.url }}"><span>{{ product.price | money }}</span></a>
                       </div>
                     </div>
                   {% endif %}
                   {% if block.settings.product_display_2 != blank %}
                     {% assign product = all_products[block.settings.product_display_2] %}
-                    <a href="{product.url}">
+
                       <div class="product-item">
-                                          <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px">
+                                           <a href="{product.url}"><img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px"></a>
                                           <div>
-                                            <p class="product-name">{{ product.title}}</p>
-                                            <span>{{ product.price | money }}</span>
+                                            <a href="{product.url}"> <p class="product-name">{{ product.title}}</p> </a>
+                                            <a href="{product.url}"> <span>{{ product.price | money }}</span> </a>
                                           </div>
                                         </div>
-                    </a>
+
 
                   {% endif %}
                   {% if block.settings.product_display_3 != blank %}
                     {% assign product = all_products[block.settings.product_display_3] %}
-                    <a href="{product.url}">
 
                     <div class="product-item">
-                      <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px" >
+                       <a href="{product.url}"><img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px" ></a>
                       <div>
-                        <p class="product-name">{{ product.title}}</p>
-                        <span>{{ product.price | money }}</span>
+                        <a href="{product.url}"> <p class="product-name">{{ product.title}}</p></a>
+                         <a href="{product.url}"><span>{{ product.price | money }}</span></a>
                       </div>
                     </div>
-                    </a>
+
                   {% endif %}
 
                 </div>
@@ -291,9 +292,13 @@
       </li>
     {% endfor %}
   </ul>
-  <div class="slider-buttons">
-    <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous">&#x25C0;</button>
-    <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next">&#x25B6;</button>
+  <div class="slider-buttons-wrapper">
+    <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous">
+    <span class="svg-wrapper">{{- 'left-arrow.svg' | inline_asset_content -}}</span>
+    </button>
+    <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next">
+    <span class="svg-wrapper">{{- 'right-arrow.svg' | inline_asset_content -}}</span>
+    </button>
   </div>
 </slider-component>
 

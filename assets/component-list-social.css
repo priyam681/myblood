@@ -1,5 +1,4 @@
-
-  .footer-block__details-content .list-social {
+.footer-block__details-content .list-social {
     display: flex;
     padding-left: 0;
   }
@@ -72,6 +71,12 @@
   } 
   
 }
+
+.list-social__item .icon {
+  height: 2.2rem;
+  width: 2.2rem;
+}
+
 .list-social__link {
   align-items: center;
   display: flex;
@@ -81,6 +86,7 @@
 
 .utility-bar .list-social__link {
   padding: 0 0.8rem;
+  height: 3.8rem;
 }
 
 .list-social__link:hover .icon {
