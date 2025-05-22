@@ -61,6 +61,7 @@
         "newsletter_heading": "Subscribe to our emails",
         "newsletter_paragraph": "Never miss any news and be the first to know about sale and offers",
         "newsletter_paragraph-privacy": "I accept the <a href=\"/policies/privacy-policy\" title=\"Privacy Policy\">privacy policy</a>",
+        "images": "shopify://shop_images/Frame_138.png",
         "enable_follow_on_shop": true,
         "show_social": true,
         "enable_country_selector": false,
