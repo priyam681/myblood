@@ -70,6 +70,83 @@
       "name": "Featured Collection Grid",
       "settings": {}
     },
+    "choose_your_action_ekDx6H": {
+      "type": "choose-your-action",
+      "blocks": {
+        "action_item_h8fkBY": {
+          "type": "action_item",
+          "settings": {
+            "label": "HIKING",
+            "image1": "shopify://shop_images/image-1.png",
+            "image2": "shopify://shop_images/image-2.png",
+            "image3": "shopify://shop_images/image-3.png",
+            "image4": "shopify://shop_images/image-4.png"
+          }
+        },
+        "action_item_GdgQDb": {
+          "type": "action_item",
+          "settings": {
+            "label": "TRAILRUNNING",
+            "image1": "shopify://shop_images/image-1.png",
+            "image2": "shopify://shop_images/image-2.png",
+            "image3": "shopify://shop_images/image-3.png",
+            "image4": "shopify://shop_images/image-4.png"
+          }
+        },
+        "action_item_DWKRRr": {
+          "type": "action_item",
+          "settings": {
+            "label": "TRAINING",
+            "image1": "shopify://shop_images/image-1.png",
+            "image2": "shopify://shop_images/image-2.png",
+            "image3": "shopify://shop_images/image-3.png",
+            "image4": "shopify://shop_images/image-4.png"
+          }
+        },
+        "action_item_tX3yzc": {
+          "type": "action_item",
+          "settings": {
+            "label": "EVERYDAY",
+            "image1": "shopify://shop_images/image-1.png",
+            "image2": "shopify://shop_images/image-2.png",
+            "image3": "shopify://shop_images/image-3.png",
+            "image4": "shopify://shop_images/image-4.png"
+          }
+        },
+        "action_item_cC7Wr4": {
+          "type": "action_item",
+          "settings": {
+            "label": "ROAD RUNNING",
+            "image1": "shopify://shop_images/image-1.png",
+            "image2": "shopify://shop_images/image-2.png",
+            "image3": "shopify://shop_images/image-3.png",
+            "image4": "shopify://shop_images/image-4.png"
+          }
+        },
+        "action_item_frzxbW": {
+          "type": "action_item",
+          "settings": {
+            "label": "SWIMRUN",
+            "image1": "shopify://shop_images/image-1.png",
+            "image2": "shopify://shop_images/image-2.png",
+            "image3": "shopify://shop_images/image-3.png",
+            "image4": "shopify://shop_images/image-4.png"
+          }
+        }
+      },
+      "block_order": [
+        "action_item_h8fkBY",
+        "action_item_GdgQDb",
+        "action_item_DWKRRr",
+        "action_item_tX3yzc",
+        "action_item_cC7Wr4",
+        "action_item_frzxbW"
+      ],
+      "name": "Choose Your Action",
+      "settings": {
+        "section_title": "CHOOSE YOUR ACTION"
+      }
+    },
     "performance_banner_NfWipW": {
       "type": "performance-banner",
       "name": "Performance Banner",
@@ -126,7 +203,7 @@
             "custom_price": "",
             "brand": "",
             "highlighted_text": "Starting from",
-            "highlighted_text_color": "#FFFFFF",
+            "highlighted_text_color": "#ffffff",
             "price_color": ""
           }
         }
@@ -141,6 +218,7 @@
   "order": [
     "home_page_banner_cNVjDp",
     "featured_collection_grid_gCfPH8",
+    "choose_your_action_ekDx6H",
     "performance_banner_NfWipW",
     "colorful_kick_fRCnyF",
     "featured_collection_grid_CDJyH7"

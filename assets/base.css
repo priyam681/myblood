@@ -272,10 +272,6 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   .page-width {
     padding: 0 3rem;
   }
-  .utility-bar__grid {
-    display: flex;
-    justify-content: space-between;
-  }
   .header.page-width,
   .utility-bar__grid.page-width {
     padding-left: 3rem;
@@ -299,8 +295,12 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
   .page-width {
     padding: 0 5rem;
   }
-    .shopify-policy__container {
-  padding-inline: 5rem;
+  .utility-bar__grid {
+    display: flex;
+    justify-content: space-between;
+  }
+  .shopify-policy__container {
+    padding-inline: 5rem;
 }
   .header:not(.drawer-menu).page-width {
     padding-left: 5rem;
