@@ -161,9 +161,12 @@
             {% for block in section.blocks %}
               {% if block.type == 'image_showcase' %}
                 {% assign product = all_products[block.settings.product] %}
-                <div class="product-image-info" data-product-id="{{ product.id }}">
-                     <h4>{{ product.title }}</h4>
-                </div>
+                {% if section.settings.show_product_info %}
+                  <div class="product-image-info" data-product-id="{{ product.id }}">
+                    <h4>{{ product.title }}</h4>
+                  </div>
+                {% endif %}
+
                 <img
                   class="collection-image"
                   src="{{ product.featured_image | img_url: 'medium' }}"
