@@ -173,17 +173,10 @@
           "settings": {
             "product": "a-line-jacket-in-black"
           }
-        },
-        "image_showcase_tKnGgM": {
-          "type": "image_showcase",
-          "settings": {
-            "product": "a-line-pocket-shift-black"
-          }
         }
       },
       "block_order": [
-        "image_showcase_mekXhE",
-        "image_showcase_tKnGgM"
+        "image_showcase_mekXhE"
       ],
       "name": "Colorful Kicks Block",
       "settings": {
