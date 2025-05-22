@@ -1,0 +1,501 @@
+{% style %}
+  .banner-slideshow-wrapper {
+  position: relative;
+  overflow: hidden;
+  }
+  .banner-slideshow {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  margin-block: 0;
+  padding-left: 0;
+  }
+  .banner-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+  color: #fff;
+  list-style-type: none;
+}
+.homepage-banner {
+  color: #fff;
+  position: relative;
+  padding: 5rem 0 8rem;
+}
+.homepage-banner .homepage-banner-wrapper {
+    position: relative;
+}
+.homepage-banner .homepage-banner-wrapper .homepage-bar-wrapper {
+    position: relative;
+    z-index: 1;
+}
+
+.banner-heading {
+  font-size: calc(25px + (75 - 25) * ((100vw - 360px) / (1920 - 360)));
+  font-weight: bold;
+  line-height: 1.2;
+  margin-block: 0;
+  color: #fff;
+}
+.banner-subheading {
+  font-size: calc(18px + (22 - 18) * ((100vw - 360px) / (1920 - 360)));
+  margin-block: 0;
+  line-height: 1.3;
+}
+.banner-content .banner-buttons {
+  margin-top: 20px;
+  }
+.homepage-bar {
+  display: grid;
+  grid-template-columns: auto 1fr;
+}
+.homepage-banner-wrapper .homepage-bar-wrapper .homepage-bar .label {
+  font-weight: 500;
+  display: flex;
+  gap: 20px;
+  padding: 2rem 2.5rem;
+  align-items: center;
+  border-radius: 12px 0 0 12px;
+  font-size: calc(20px + (30 - 20) * ((100vw - 992px) / (1920 - 992)));
+  line-height: 1;
+}
+.homepage-banner-wrapper .homepage-bar-wrapper .homepage-bar .label img {
+  width: 40px;
+}
+.product-items {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 1.7rem 2rem;
+  justify-content: space-evenly;
+  border-radius: 0 12px 12px 0;
+  align-items: center;
+}
+.product-items .product-item a {
+ color: inherit;
+ text-decoration: none;
+ display: flex;
+}
+.product-item:after {
+ content:'';
+ position: absolute;
+ left: 0;
+ top: 10%;
+ width: 3px;
+ height: 80%;
+ background: #d9d9d9;
+ border-radius: 10px;
+}
+.product-item:first-child:after {
+  display: none;
+}
+.product-items .product-item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  justify-content: center;
+  position: relative;
+   padding-inline: 20px;
+}
+.product-items .product-item img {
+ border-radius: 10px;
+ aspect-ratio: 1;
+}
+.product-item .product-name {
+  font-size: calc(14px + (22 - 14) * ((100vw - 992px) / (1920 - 992)));
+   line-height: 1.2;
+   display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+   overflow: hidden;
+   margin: 0;
+   font-weight: bold;
+
+}
+.slider-buttons-wrapper {
+  position: absolute;
+  bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+.slider-button {
+  background: black;
+  color: white;
+  border: none;
+  padding: 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  border-radius: 50%;
+  }
+  .homepage-banner-wrapper .banner-buttons {
+    margin-top: 20px;
+  }
+   @media screen and (max-width: 992px) {
+  .homepage-banner .homepage-banner-wrapper .homepage-bar-wrapper,
+   .homepage-banner-wrapper .banner-buttons.hide-mobile {
+    display: none;
+  }
+  .homepage-banner-wrapper .banner-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+    }
+    .homepage-banner-wrapper .banner-content {
+      margin: auto;
+      text-align: center;
+    }
+  }
+  @media screen and (min-width: 1920px) {
+  .banner-heading{
+     font-size: 75px;
+  }
+  }
+  @media screen and (min-width: 992px) {
+  .hide-desktop {
+        display: none;
+      }
+  .homepage-banner .homepage-banner-wrapper .banner-center-image {
+      width: 65%;
+      margin-left: auto;
+  }
+    .banner-content {
+      max-width: 600px;
+      position: absolute;
+      z-index: 1;
+    }
+  }
+{% endstyle %}
+
+
+<slider-component class="banner-slideshow-wrapper">
+  <ul class="banner-slideshow slider" role="list">
+    {% for block in section.blocks %}
+      {% assign visibility = block.settings.visibility %}
+      <li class="banner-slide slider__slide">
+        <div class="homepage-banner" style="background: url({{ block.settings.main_image | img_url: 'master' }}) no-repeat center/cover;">
+         <div class="page-width">
+         <div class="homepage-banner-wrapper">
+           <div class="banner-content">
+            <h1 class="banner-heading">{{ block.settings.heading }}</h1>
+            <p class="banner-subheading">{{ block.settings.subheading }}</p>
+
+         {% if block.settings.banner-button_show == "show" %}
+                      <div class="banner-buttons hide-mobile">
+                          <a class="button button--primary" href="{{ block.settings.button_one_url }}">
+                            <span>
+                              {{ block.settings.button_one_text }}
+                            </span>
+                          </a>
+                          <a class="button button--primary" href="{{ block.settings.button_two_url }}">
+                            <span>
+                              {{ block.settings.button_two_text }}
+                            </span>
+                          </a>
+                      </div>
+
+          {% endif %}
+          </div>
+         <div class="banner-center-image"> <img src="{{ block.settings.center_image | img_url: 'master' }}" alt="{{ block.settings.center_alt_text }}" height="100%" width="100%"/></div>
+{% if block.settings.banner-button_show == "show" %}
+                      <div class="banner-buttons hide-desktop">
+                          <a class="button button--primary" href="{{ block.settings.button_one_url }}">
+                            <span>
+                              {{ block.settings.button_one_text }}
+                            </span>
+                          </a>
+                          <a class="button button--primary" href="{{ block.settings.button_two_url }}">
+                            <span>
+                              {{ block.settings.button_two_text }}
+                            </span>
+                          </a>
+                      </div>
+
+          {% endif %}
+
+
+          {% if visibility == 'show' %}
+            <div class="homepage-bar-wrapper">
+              <div class="homepage-bar">
+                <div class="label">
+                  {% style %}
+                    .label{
+                      background-color: {{ block.settings.product_list_color_left }};
+                    }
+                  {% endstyle %}
+                  {% if block.settings.product_list_image_left %}
+                    <img src="{{ block.settings.product_list_image_left | img_url: '100x' }}" alt="Hot search">
+                  {% endif %}
+                  <div>
+                    {% if block.settings.product_list_left_text %}
+                      <div>
+                          {{ block.settings.product_list_left_text | default: "HOT SEARCHES" }}
+                    </div>
+                    {% endif %}
+
+
+                  </div>
+                </div>
+                  {% style %}
+                    .product-items {
+                      background-color: {{ block.settings.product_items_bgcolor }};
+                      color: {{ block.settings.product_list_item_color }};
+                    }
+                  {% endstyle %}
+                <div class="product-items">
+                  {% if block.settings.product_display_1 != blank %}
+                    {% assign product = all_products[block.settings.product_display_1] %}
+
+                    <div class="product-item">
+                     <a href="{{ product.url }}">  <img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px"></a>
+                      <div>
+                        <a href="{{ product.url }}"> <p class="product-name">{{ product.title}}</p></a>
+                         <a href="{{ product.url }}"><span>{{ product.price | money }}</span></a>
+                      </div>
+                    </div>
+                  {% endif %}
+                  {% if block.settings.product_display_2 != blank %}
+                    {% assign product = all_products[block.settings.product_display_2] %}
+
+                      <div class="product-item">
+                                           <a href="{product.url}"><img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px"></a>
+                                          <div>
+                                            <a href="{product.url}"> <p class="product-name">{{ product.title}}</p> </a>
+                                            <a href="{product.url}"> <span>{{ product.price | money }}</span> </a>
+                                          </div>
+                                        </div>
+
+
+                  {% endif %}
+                  {% if block.settings.product_display_3 != blank %}
+                    {% assign product = all_products[block.settings.product_display_3] %}
+
+                    <div class="product-item">
+                       <a href="{product.url}"><img src="{{ product.featured_image | img_url: '200x' }}" alt="{{ product.title }}" loading="lazy" width="80px" height="80px" ></a>
+                      <div>
+                        <a href="{product.url}"> <p class="product-name">{{ product.title}}</p></a>
+                         <a href="{product.url}"><span>{{ product.price | money }}</span></a>
+                      </div>
+                    </div>
+
+                  {% endif %}
+
+                </div>
+              </div>
+            </div>
+          {% endif %}
+           </div>
+         </div>
+        </div>
+      </li>
+    {% endfor %}
+  </ul>
+  <div class="slider-buttons-wrapper">
+    <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous">
+    <span class="svg-wrapper">{{- 'left-arrow.svg' | inline_asset_content -}}</span>
+    </button>
+    <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next">
+    <span class="svg-wrapper">{{- 'right-arrow.svg' | inline_asset_content -}}</span>
+    </button>
+  </div>
+</slider-component>
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  const slider = document.querySelector('.banner-slideshow');
+  const prevBtn = document.querySelector('.slider-button--prev');
+  const nextBtn = document.querySelector('.slider-button--next');
+
+  if (slider && prevBtn && nextBtn) {
+    prevBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
+    });
+    nextBtn.addEventListener('click', () => {
+      slider.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
+    });
+  }
+});
+</script>
+
+
+{% schema %}
+{
+  "name": "Banner Slideshow",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "banner_slide",
+      "name": "Banner Slide",
+      "settings": [
+        {
+          "type": "text",
+          "id": "heading",
+          "label": "Main Heading",
+          "default": "IN MOTION WE FIND FREEDOM AND JOY"
+        },
+
+        {
+          "type":"image_picker",
+          "id":"main_image",
+          "label":"Main Image"
+        },
+        {
+          "type": "textarea",
+          "id": "subheading",
+          "label": "Subheading",
+          "default": "Unlock the full potential of your online store with our custom Magento development services, designed to enhance performance, boost sales, and deliver a seamless shopping experience."
+        },
+        {
+        "type": "header",
+          "content":"content font color"
+        },
+        {
+          "type":"color",
+          "id":"heading_color",
+          "label":"Heading Color"
+        },
+        {
+          "type":"color",
+          "id":"subheading_color",
+          "label":"Subheading Color"
+        },
+        {
+          "type":"color",
+          "id":"product_list_heading_color",
+          "label":"Product List Heading Color"
+        },
+        {
+          "type":"color",
+          "id":"product_list_item_color",
+          "label":"Product List Item Color"
+        },
+
+        {
+          "type":"header",
+          "content":"Center Image"
+        },
+        {
+          "type":"image_picker",
+          "id":"center_image",
+          "label":"center image"
+        },
+        {
+          "type":"text",
+          "id":"center_alt_text",
+          "label":"Center Image Alt Text",
+          "default":"center image"
+        },
+        {
+          "type":"header",
+          "content":"Button settings"
+        },
+
+        {
+          "type":"select",
+          "id":"banner-button_show",
+          "options":[
+            {
+              "value": "show",
+              "label": "Show button"
+            },
+            {
+              "value": "hide",
+              "label": "Hide button"
+            }
+          ],
+          "label":"Show buttons"
+        },
+        {
+          "type":"text",
+          "id":"button_one_text",
+          "label":"Button First Text",
+          "default":"Shop Now"
+        },
+        {
+          "type":"url",
+          "id":"button_one_url",
+          "label":"Button First Url"
+        },
+        {
+          "type":"text",
+          "id":"button_two_text",
+          "label":"Button Second Text",
+          "default":"New One"
+        },
+        {
+          "type":"url",
+          "id":"button_two_url",
+          "label":"Button Second Url"
+        },
+
+        {
+          "type":"header",
+          "content":"Product display list content"
+        },
+        {
+          "type":"select",
+          "id":"visibility",
+          "label": "Visibility",
+          "options": [
+          {
+            "value": "show",
+            "label": "Show product list"
+          },
+            {
+              "value": "hide",
+              "label": "Hide product list"
+            }
+          ]
+        },
+
+        {
+          "type":"image_picker",
+          "id":"product_list_image_left",
+          "label":"Product highlight"
+        },
+        {
+          "type":"textarea",
+          "id":"product_list_left_text",
+          "label":"Product highlight text"
+        },
+        {
+          "type":"color",
+          "id":"product_list_color_left",
+          "label":"Product highlight Background color"
+        },
+        {
+          "type":"color",
+          "id":"product_items_bgcolor",
+          "label":"Product Items Background color"
+        },
+        {
+          "type":"product",
+          "id": "product_display_1",
+          "label": "Product Name"
+        },
+        {
+          "type":"product",
+          "id": "product_display_2",
+          "label": "Product Name"
+        },
+        {
+          "type":"product",
+          "id": "product_display_3",
+          "label": "Product Name"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Banner Slideshow",
+      "category": "Custom"
+    }
+  ]
+}
+{% endschema %}

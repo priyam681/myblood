@@ -25,7 +25,7 @@
   endif
 %}
 
-<div class="disclosure">
+<div class="disclosure country-disclosure">
   <button
     type="button"
     class="disclosure__button localization-form__select localization-selector link link--text caption-large"
@@ -33,16 +33,11 @@
     aria-controls="{{ localPosition }}-country-results"
     aria-describedby="{{ localPosition }}Label"
   >
-    <span class="country-localization">
-      <img
-        src="https://flagcdn.com/w40/{{ localization.country.iso_code | downcase }}.png"
-        alt="{{ localization.country.name }} flag"
-        width="20"
-        height="14"
-      >
-      {{- localization.country.name }} |
-      {{ localization.country.currency.iso_code }}
-      {{ localization.country.currency.symbol -}}
+    <span>
+
+      {{- localization.country.name }}
+      ({{ localization.country.currency.iso_code }}
+      {{ localization.country.currency.symbol -}})
     </span>
     {{ 'icon-caret.svg' | inline_asset_content }}
   </button>

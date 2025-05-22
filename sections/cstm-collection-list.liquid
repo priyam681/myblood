@@ -1,5 +1,5 @@
 {{ 'section-collection-list.css' | asset_url | stylesheet_tag }}
-{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'cstm-component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-slider.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
@@ -72,7 +72,7 @@
           >
             {%- assign placeholder_image_index = forloop.index0 | modulo: 4 | plus: 1 -%}
             {%- assign placeholder_image = 'collection-apparel-' | append: placeholder_image_index -%}
-            {% render 'card-collection',
+            {% render 'cstm-card-collection',
               card_collection: block.settings.collection,
               media_aspect_ratio: section.settings.image_ratio,
               columns: columns,
@@ -185,6 +185,10 @@
       "label": "t:sections.all.heading_size.label"
     },
     {
+      "type": "header",
+      "content": "t:sections.collection-list.settings.header_layout.content"
+    },    
+    {
       "type": "select",
       "id": "image_ratio",
       "options": [
@@ -202,8 +206,7 @@
         }
       ],
       "default": "square",
-      "label": "t:sections.collection-list.settings.image_ratio.label",
-      "info": "t:sections.collection-list.settings.image_ratio.info"
+      "label": "t:sections.collection-list.settings.image_ratio.label"
     },
     {
       "type": "range",
@@ -225,7 +228,8 @@
       "type": "checkbox",
       "id": "show_view_all",
       "default": false,
-      "label": "t:sections.collection-list.settings.show_view_all.label"
+      "label": "t:sections.collection-list.settings.show_view_all.label",
+      "info": "t:sections.collection-list.settings.show_view_all.info"   
     },
     {
       "type": "header",

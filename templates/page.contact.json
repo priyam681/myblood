@@ -22,7 +22,7 @@
       "settings": {}
     },
     "form": {
-      "type": "contact-form",
+      "type": "cstm-contact-form",
       "settings": {
         "heading": "<strong>Contact Form</strong>",
         "heading_size": "h2",

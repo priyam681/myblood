@@ -54,170 +54,10 @@
 p.custom-para-login {
     text-align: center;
 }
-.new-recovery-password h2,
-.new-recovery-password p {
- text-align: center;
-}
-.new-recovery-password p,
-.custom-para-login {
- font-size: 14px;
-}
-.customer.login h1,
-.customer.register  h1 {
-  margin-bottom: 0;
-  font-size: 24px;
-  font-weight: 600;
-}
-.customer.login h1 {
-  margin-bottom: 0;
-}
-.customer.register  h1  {
-  margin-bottom: 20px;
-}
- .login-wrapper-custom #login {
-        margin-top: 0;
-        text-align:center;
-  }
-.login-container h5 {
-  font-size: 15px;
-  font-weight: 600;
-  margin-block: 20px;
-   margin: 0 0 7px 0;
-}
-.login-container-wrapper .account-button,
-.sign-up-button {
-  width: 100%;
-  font-weight: bold;
-  display: block;
-  padding: 0;
-}
-.eye-icon.eye-cross:after {
-    content: "";
-    position: absolute;
-    width: 24px;
-    height: 2px;
-    background: currentColor;
-    transform: rotate(50deg);
-    top: 10px;
-    left: 0px;
-}
-.login-container-wrapper .account-button a {
-  color: #fff;
-  text-decoration: none;
-  width: 100%;
-  padding: 15px;
-  font-size: 1.5rem;
-}
-.login-container-wrapper h5 {
-  text-align: center;
-    font-size: 2.4rem;
-    font-weight: 900;
-    margin-block: 20px;
-}
-.login-container-wrapper p {
-  text-align: center;
-}
-.eye-icon {
-    position: absolute;
-    right: 10px;
-    z-index: 2;
-    top: 41px;
-}
-.register-account-page {
-  border:1px solid black;
-}
-.register-account-page {
-    border: 1px solid #ece9e9;
-    border-radius: 22px;
-    margin-top: 30px !important;
-    max-width: 84rem !important;
-    padding-inline: 20px !important;
-}
-.register-account-page h1 {
-  text-align:center;
-}
-#MainContent .register-account-page input {
-  border-radius: 5px;
-}
 
-@media screen and (max-width: 768px) {
-  .login-container {
-    position: relative;
-    background: white;
-    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-    padding: 20px !important;
-    border-radius: 4px;
-        margin-top: 30px;
- }
-  .have-account {
-    gap: 1px;
-  }
-  .login-wrapper-custom {
-    position: relative;
-}
-  .login-wrapper-custom #login {
-        margin-top: 0;
-        text-align:center;
-  }
-  .custom-para-login {
-    text-align:center;
-  }
-    .for-image img {
-     display:none;
-  }
-  .section-template--19286807412972__main-padding {
-    padding-bottom:0;
-  }
-  .customer.register {
-    margin: auto;
-    width: 80% !important;
-  }
-}
-@media screen and (max-width: 992px) {
-  .customer.register {
-    width:50%
-  }
-  .menu-drawer .list-social {
-    display:none;
-  }
-}
-@media screen and (min-width: 992px) { 
-    .customer.register { 
-    width: 30%;
-}
-  }
 @media screen and (min-width: 768px) {
-  .customer.login {
-     padding-inline: 3rem;
-    max-width: 120rem;
-  }
-  .new-recovery-password {
-         margin-bottom: 26px !important;    
-  }
-  .login-container-wrapper {
-    width: 50%;
-    margin: 10px auto auto;
-    padding: 23px;
-    gap: 5rem;
-    margin-top: 10px;
-    background: white;
-    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
-    border-radius: 5px;
-    overflow: hidden;
-  }
-  .for-image img {
-    height: 100%;
-    width: 100%;
-    aspect-ratio: 1;
-    object-fit: cover;
-  }
-}
-.login-container {
-    padding: 20px 0;
-}
-@media screen and (min-width: 992px) {
-  .customer.login {
-     padding-inline: 5rem;
+  .customer:not(.account):not(.order) {
+    max-width: 47.8rem;
   }
 }
 
@@ -270,7 +110,7 @@ h2.form__message {
   font-size: calc(var(--font-heading-scale) * 1.8rem);
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .customer h2.form__message {
     font-size: calc(var(--font-heading-scale) * 2.2rem);
   }
@@ -298,7 +138,7 @@ h2.form__message {
   position: relative;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .customer table {
     border: none;
     box-shadow: 0 0 0 0.1rem rgba(var(--color-foreground), 0.08);
@@ -324,7 +164,7 @@ h2.form__message {
   padding: 0;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .customer td {
     padding-right: 2.2rem;
   }
@@ -349,7 +189,7 @@ h2.form__message {
   padding-top: 4rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .customer th,
   .customer td:first-of-type {
     text-align: left;
@@ -383,7 +223,7 @@ h2.form__message {
   padding-bottom: 4rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .customer tbody td:last-of-type {
     padding-bottom: 0;
   }
@@ -393,7 +233,7 @@ h2.form__message {
   border-top: 0.01rem solid rgba(var(--color-foreground), 0.08);
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .customer tbody tr:first-of-type {
     border-top: none;
   }
@@ -419,7 +259,7 @@ h2.form__message {
   padding-top: 4rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .customer tfoot tr:first-of-type td,
   .customer tfoot tr:first-of-type th {
     padding-top: 2.4rem;
@@ -430,7 +270,7 @@ h2.form__message {
   padding-bottom: 4rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .customer tfoot tr:last-of-type td,
   .customer tfoot tr:last-of-type th {
     padding-bottom: 2.4rem;
@@ -618,7 +458,7 @@ h2.form__message {
   color: rgb(var(--color-link));
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .activate button[name='decline'] {
     margin-top: inherit;
     margin-left: 1rem;
@@ -633,7 +473,7 @@ h2.form__message {
   padding-right: 2rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   :is(.account, .order) {
     padding-left: 5rem;
     padding-right: 5rem;
@@ -654,7 +494,7 @@ h2.form__message {
   }
 }
 
-@media screen and (min-width: 750px) and (max-width: 989px) {
+@media screen and (min-width: 768px) and (max-width: 989px) {
   .order > div:nth-of-type(2) > div:last-of-type {
     display: flex;
   }
@@ -695,7 +535,7 @@ h2.form__message {
   margin-right: 1rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .account thead th:last-child,
   .account td:last-child {
     text-align: right;
@@ -723,7 +563,7 @@ h2.form__message {
   align-items: initial;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .order thead th:nth-last-child(-n + 3),
   .order td:nth-last-child(-n + 3) {
     text-align: right;
@@ -737,7 +577,7 @@ h2.form__message {
   padding-bottom: 4rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .order tfoot tr:last-of-type td,
   .order tfoot tr:last-of-type th {
     padding-bottom: 2.4rem;
@@ -799,7 +639,7 @@ h2.form__message {
   font-size: 1.2rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .order td .cart-discount {
     display: none;
   }
@@ -814,7 +654,7 @@ h2.form__message {
   margin-bottom: 0;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .order tbody ul {
     text-align: left;
   }
@@ -830,7 +670,7 @@ h2.form__message {
   align-items: flex-end;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .order tbody tr:first-of-type td:first-of-type > div {
     align-items: flex-start;
   }
@@ -889,7 +729,7 @@ h2.form__message {
   margin-top: 0rem;
 }
 
-@media screen and (min-width: 750px) {
+@media screen and (min-width: 768px) {
   .addresses li > button:first-of-type {
     margin-top: 3rem;
   }
@@ -944,7 +784,7 @@ li[data-address] > h2 {
   margin-bottom: 0;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   li[data-address] > h2 {
     font-size: calc(var(--font-heading-scale) * 2.2rem);
   }
@@ -959,7 +799,7 @@ li[data-address] > h2 {
   margin-left: 0;
 }
 
-@media only screen and (min-width: 750px) {
+@media only screen and (min-width: 768px) {
   .addresses form > div:nth-of-type(1) {
     margin-right: 2rem;
   }
