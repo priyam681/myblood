@@ -84,7 +84,8 @@
         "sliding_collection_custom_YikH9B": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_name_custom": "Best Seller",
+            "collection_image_custom": "shopify://shop_images/shop-image2.webp",
+            "collection_name_custom": "water resistant rings",
             "collection_link_custom": ""
           }
         },
