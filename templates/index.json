@@ -178,7 +178,11 @@
         "padding": 50,
         "font-size": 100,
         "headingtext": "Home, Heart, Harmony",
-        "details": "Since it’s an online furniture store, its primary goal is selling furniture in the fastest and easiest way. To achieve this, think about how to organize the content of your site."
+        "details": "Since it’s an online furniture store, its primary goal is selling furniture in the fastest and easiest way. To achieve this, think about how to organize the content of your site.",
+        "introduction_image_1": "shopify://shop_images/image1.webp",
+        "introduction_image_2": "shopify://shop_images/image2.webp",
+        "introduction_image_3": "shopify://shop_images/image3.webp",
+        "introduction_image_4": "shopify://shop_images/image4_093f1ba5-e968-40ab-9b60-a29be54dcdd7.jpg"
       }
     },
     "interior_professionals_VE84C4": {
