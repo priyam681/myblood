@@ -190,7 +190,7 @@
       "settings": {
         "subheading": "Looking for a custom-made jewelry piece?",
         "background_color": "#ffffff",
-        "heading": "Say Hi to our jewelry expert.",
+        "heading": "Say Hi to our",
         "paragrapgh": "Our jewelry stylists are here to help you!Visit our boutique and let us help you find or create the perfect piece made just for you.",
         "image-1": "shopify://shop_images/shop-image-1.webp",
         "image-2": "shopify://shop_images/shop-image3.webp",
@@ -201,7 +201,7 @@
       "type": "weatherproof",
       "settings": {
         "heading": "Hi, I’m sprinix. Elegant. Enduring.",
-        "image": "shopify://shop_images/shop-image-1.webp",
+        "image": "shopify://shop_images/WhatsApp_Image_2024-09-03_at_9.25.10_PM_1_1400x_9ff97e40-dd44-4745-8a16-0a8d618f5dec.webp",
         "subheading": "Our jewelry pieces feature durable, high-quality materials, ensuring they withstand the test of time while adding timeless beauty to your collection.",
         "span1": "Everyday elegance",
         "span2": "You can order this product on",
@@ -217,7 +217,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "jewellery",
+        "collection": "all",
         "products_to_show": 4,
         "columns_desktop": 4,
         "full_width": false,
@@ -251,13 +251,13 @@
         "collection-0": {
           "type": "collection",
           "settings": {
-            "collection": "jewellery"
+            "collection": "accessories"
           }
         },
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": "rings"
+            "collection": "loungesets"
           }
         }
       },
