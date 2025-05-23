@@ -50,6 +50,9 @@
   font-style: normal;
   font-display: swap;
 }
+product-swatch {
+    display: none;
+}
 .country-localization {
   display: flex;
   align-items: center;
