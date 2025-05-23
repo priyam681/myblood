@@ -99,7 +99,8 @@
         "sliding_collection_custom_CjwQEM": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_name_custom": "Best Seller",
+            "collection_image_custom": "shopify://shop_images/shop-image4.webp",
+            "collection_name_custom": "water resistant earrings",
             "collection_link_custom": ""
           }
         }
