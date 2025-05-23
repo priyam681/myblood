@@ -104,13 +104,31 @@
             "collection_name_custom": "water resistant earrings",
             "collection_link_custom": ""
           }
+        },
+        "sliding_collection_custom_XhVriC": {
+          "type": "sliding-collection-custom",
+          "settings": {
+            "collection_image_custom": "shopify://shop_images/shop-image-1.webp",
+            "collection_name_custom": "water resistant necklaces",
+            "collection_link_custom": ""
+          }
+        },
+        "sliding_collection_custom_RnBjcF": {
+          "type": "sliding-collection-custom",
+          "settings": {
+            "collection_image_custom": "shopify://shop_images/shop-image2.webp",
+            "collection_name_custom": "water resistant rings",
+            "collection_link_custom": ""
+          }
         }
       },
       "block_order": [
         "sliding_collection_custom_LwtEgd",
         "sliding_collection_custom_YikH9B",
         "sliding_collection_custom_mj9Vby",
-        "sliding_collection_custom_CjwQEM"
+        "sliding_collection_custom_CjwQEM",
+        "sliding_collection_custom_XhVriC",
+        "sliding_collection_custom_RnBjcF"
       ],
       "settings": {
         "sliding_collection_heading_title": "Shop Our Collections",
