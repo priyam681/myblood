@@ -35,13 +35,13 @@
         "slide_bXxqh3": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner2.webp",
-            "heading": "<strong>Designed for adventure</strong>",
+            "image": "shopify://shop_images/home-page-banner-2.webp",
+            "heading": "",
             "heading_size": "h1",
-            "subheading": "Tell your brand's story through images",
-            "button_label": "New in ",
+            "subheading": "",
+            "button_label": "",
             "link": "shopify://collections/accessories",
-            "button_label2": "Winter Sale ",
+            "button_label2": "",
             "link2": "shopify://collections/loungesets",
             "button_style_secondary": false,
             "box_align": "middle-center",
