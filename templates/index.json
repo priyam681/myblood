@@ -190,7 +190,7 @@
       "settings": {
         "subheading": "Looking for a custom-made jewelry piece?",
         "background_color": "#ffffff",
-        "heading": "Say Hi to our",
+        "heading": "Say Hi to our jewelry expert.",
         "paragrapgh": "Our jewelry stylists are here to help you!Visit our boutique and let us help you find or create the perfect piece made just for you.",
         "image-1": "shopify://shop_images/shop-image-1.webp",
         "image-2": "shopify://shop_images/shop-image3.webp",
@@ -201,7 +201,7 @@
       "type": "weatherproof",
       "settings": {
         "heading": "Hi, I’m sprinix. Elegant. Enduring.",
-        "image": "shopify://shop_images/WhatsApp_Image_2024-09-03_at_9.25.10_PM_1_1400x_9ff97e40-dd44-4745-8a16-0a8d618f5dec.webp",
+        "image": "shopify://shop_images/shop-image-1.webp",
         "subheading": "Our jewelry pieces feature durable, high-quality materials, ensuring they withstand the test of time while adding timeless beauty to your collection.",
         "span1": "Everyday elegance",
         "span2": "You can order this product on",
@@ -217,7 +217,7 @@
         "description": "",
         "show_description": false,
         "description_style": "body",
-        "collection": "all",
+        "collection": "jewellery",
         "products_to_show": 4,
         "columns_desktop": 4,
         "full_width": false,
@@ -243,21 +243,21 @@
         "video_c9fQmJ": {
           "type": "video",
           "settings": {
-            "cover_image": "shopify://shop_images/home-slider-02.webp",
-            "video_url": "https://www.youtube.com/watch?v=_9VUPq3SxOc",
+            "cover_image": "shopify://shop_images/Screenshot_from_2025-05-23_17-24-13.png",
+            "video_url": "https://youtu.be/8EPFqerB6qU?si=gXMb-UC3aZHEzAbS",
             "description": "Describe the video"
           }
         },
         "collection-0": {
           "type": "collection",
           "settings": {
-            "collection": "accessories"
+            "collection": "jewellery"
           }
         },
         "collection-1": {
           "type": "collection",
           "settings": {
-            "collection": "loungesets"
+            "collection": "rings"
           }
         }
       },
