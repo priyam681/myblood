@@ -15,7 +15,7 @@
         "slide_dzArDe": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/banner1.webp",
+            "image": "shopify://shop_images/home-page-banner.webp",
             "heading": "<strong>Designed for adventure</strong>",
             "heading_size": "h1",
             "subheading": "Tell your brand's story through images",
