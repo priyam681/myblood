@@ -431,12 +431,12 @@ border: none;
 }
 
 /* Menu drawer */
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 768px) {
   .menu-drawer__localization {
     display: none;
   }
 }
-@media screen and (max-width: 990px) {
+@media screen and (max-width: 768px) {
     .desktop-localization-wrapper {
     display:none;
   }
