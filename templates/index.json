@@ -188,10 +188,13 @@
     "interior_professionals_VE84C4": {
       "type": "interior-professionals",
       "settings": {
-        "subheading": "In need of a custom made lounge set?",
+        "subheading": "Looking for a custom-made jewelry piece?",
         "background_color": "#ffffff",
-        "heading": "Say Hi. to our interior professionals.",
-        "paragrapgh": "Our interior designers are here to help you! Come and visit our showroom and we create a beautiful lounge set  especially for you!"
+        "heading": "Say Hi to our jewelry experts.",
+        "paragrapgh": "Our jewelry stylists are here to help you!Visit our boutique and let us help you find or create the perfect piece made just for you.",
+        "image-1": "shopify://shop_images/shop-image-1.webp",
+        "image-2": "shopify://shop_images/shop-image3.webp",
+        "image-3": "shopify://shop_images/shop-image4.webp"
       }
     },
     "weatherproof_Paw7fm": {
