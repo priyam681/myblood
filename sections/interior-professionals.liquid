@@ -111,39 +111,35 @@
   <div class="interior-professionals-wrapper">
     <div class="content">
       <h4 class="sub-heading">
-        {{ 'sections.interior-professional.subheading' | t }}
-       </h4>
+        {{ sections['interior-professional'].subheading | t }}
+      </h4>
       <h1 class="heading">
-        {{ 'sections.interior-professional.heading' | t }}
+        {{ sections['interior-professional'].heading | t }}
       </h1>
       <p>
-        {{ 'sections.interior-professional.paragraph' | t }}
+        {{ sections['interior-professional'].paragraph | t }}
       </p>
       <div class="link-btn">
         <a href="/pages/contact">Contact</a>
       </div>
     </div>
     <div class="first-image">
-<img
-  src="{% if section.settings.image-1 %}{{ section.settings.image-1 | image_url: width: 800 }}{% else %}{{ 'placeholder.png' | asset_url }}{% endif %}"
-  alt="Custom Image"
->
+      <img
+        src="{% if section.settings.image-1 %}{{ section.settings.image-1 | image_url: width: 800 }}{% else %}{{ 'placeholder.png' | asset_url }}{% endif %}"
+        alt="Custom Image"
+      >
     </div>
     <div class="second-image">
-      
       <img
-  src="{% if section.settings.image-2 %}{{ section.settings.image-2 | image_url: width: 800 }}{% else %}{{ 'placeholder.png' | asset_url }}{% endif %}"
-  alt="Custom Image"
->
-     
+        src="{% if section.settings.image-2 %}{{ section.settings.image-2 | image_url: width: 800 }}{% else %}{{ 'placeholder.png' | asset_url }}{% endif %}"
+        alt="Custom Image"
+      >
     </div>
     <div class="third-image">
- 
-         <img
-  src="{% if section.settings.image-3 %}{{ section.settings.image-3 | image_url: width: 800 }}{% else %}{{ 'placeholder.png' | asset_url }}{% endif %}"
-  alt="Custom Image"
->
-     
+      <img
+        src="{% if section.settings.image-3 %}{{ section.settings.image-3 | image_url: width: 800 }}{% else %}{{ 'placeholder.png' | asset_url }}{% endif %}"
+        alt="Custom Image"
+      >
     </div>
   </div>
 </div>
@@ -196,7 +192,7 @@
     "presets": [
     {
       "name": "Get in touch",
-    
+
     }
   ]
 
