@@ -92,6 +92,7 @@
         "sliding_collection_custom_mj9Vby": {
           "type": "sliding-collection-custom",
           "settings": {
+            "collection_image_custom": "shopify://shop_images/shop-image3.webp",
             "collection_name_custom": "water resistant bracelets",
             "collection_link_custom": ""
           }
