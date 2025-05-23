@@ -76,7 +76,8 @@
         "sliding_collection_custom_LwtEgd": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_name_custom": "Best Seller",
+            "collection_image_custom": "shopify://shop_images/shop-image-1.webp",
+            "collection_name_custom": "water resistant necklaces",
             "collection_link_custom": ""
           }
         },
