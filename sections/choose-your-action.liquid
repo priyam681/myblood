@@ -2,6 +2,11 @@
 {
   "name": "Choose Your Action",
   "settings": [
+  {
+              "type": "image_picker",
+              "id": "bg_image",
+              "label": "Background Image"
+            },
     {
       "type": "text",
       "id": "section_title",
@@ -14,6 +19,7 @@
       "type": "action_item",
       "name": "Action Item",
       "settings": [
+
         {
           "type": "text",
           "id": "label",
@@ -52,7 +58,7 @@
 }
 {% endschema %}
 
-<div class="choose-action-wrapper">
+<div class="choose-action-wrapper page-width">
   <div class="choose-action-container">
     <!-- Left Side -->
     <div class="choose-action-left">
@@ -92,9 +98,19 @@
 
 {% style %}
 .choose-action-wrapper {
-  padding: 40px 20px;
+  position: relative;
 }
-
+ .choose-action-wrapper:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    left: 0;
+    background-image: url('{{ section.settings.bg_image | image_url }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+ }
 .choose-action-title {
   font-size: calc(14px + (20 - 14) * ((100vw - 360px) / (1920 - 360)));
   text-transform: uppercase;
@@ -107,14 +123,17 @@
 }
 
 .choose-action-left .action-label a {
-  font-size: calc(40px + (80 - 40) * ((100vw - 360px) / (1920 - 360)));
   font-weight: bold;
-  padding-bottom: 25px;
+  margin-bottom: 25px;
   cursor: pointer;
   color: #212121;
   line-height: 1;
   display: block;
   text-decoration: none;
+  width: fit-content;
+}
+.choose-action-left .action-label:last-child a {
+    margin-bottom: 0;
 }
 .action-label a:hover {
   color: #FF3200;
@@ -128,6 +147,7 @@
 .action-image-set {
   display: none;
   gap: 20px;
+  grid-template-columns: 1fr 1fr;
 }
 .choose-action-right .action-image-set img {
   width: 100%;
@@ -142,7 +162,7 @@
   padding-top: 40px;
 }
 .action-image-set.active {
-  display: flex;
+  display: grid;
 }
 /* Responsive */
 @media screen and (max-width: 768px) {
@@ -154,14 +174,23 @@
   }
 }
 @media screen and (max-width: 992px) {
+.choose-action-wrapper:before {
+  width: 100%;
+}
 .choose-action-container .choose-action-left .choose-action-title {
   margin-bottom: 3rem;
+  margin-top: 0px;
 }
+.choose-action-left .action-label a {
+  font-size: calc(40px + (60 - 40) * ((100vw - 360px) / (992 - 360)));
+  margin: auto;
+  }
 .choose-action-container .choose-action-right {
   display: none;
 }
 .choose-action-container .choose-action-left {
  text-align: center;
+ padding-block: 30px;
 }
 .choose-action-container .choose-action-left .action-labels {
    margin: auto;
@@ -169,14 +198,23 @@
 }
 }
 @media screen and (min-width: 992px) {
+.choose-action-left .action-label a {
+  font-size: calc(40px + (80 - 40) * ((100vw - 992px) / (1920 - 992)));
+  }
+.choose-action-wrapper:before {
+  width: 50%;
+  top: 7%;
+}
 .choose-action-wrapper .choose-action-container {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 7rem;
   align-items: center;
 }
+.choose-action-wrapper .choose-action-container .choose-action-left {
+   padding-right: 20px;
+ }
 .choose-action-container .choose-action-left .choose-action-title {
-  margin-bottom: 5rem;
+  margin-bottom: 4rem;
 }
 }
 {% endstyle %}
