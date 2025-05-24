@@ -77,6 +77,7 @@
           "type": "action_item",
           "settings": {
             "label": "HIKING",
+            "collection_url": "",
             "image1": "shopify://shop_images/image-1.png",
             "image2": "shopify://shop_images/image-2.png",
             "image3": "shopify://shop_images/image-3.png",
@@ -87,6 +88,7 @@
           "type": "action_item",
           "settings": {
             "label": "TRAILRUNNING",
+            "collection_url": "",
             "image1": "shopify://shop_images/image-1.png",
             "image2": "shopify://shop_images/image-2.png",
             "image3": "shopify://shop_images/image-3.png",
@@ -97,6 +99,7 @@
           "type": "action_item",
           "settings": {
             "label": "TRAINING",
+            "collection_url": "",
             "image1": "shopify://shop_images/image-1.png",
             "image2": "shopify://shop_images/image-2.png",
             "image3": "shopify://shop_images/image-3.png",
@@ -107,6 +110,7 @@
           "type": "action_item",
           "settings": {
             "label": "EVERYDAY",
+            "collection_url": "",
             "image1": "shopify://shop_images/image-1.png",
             "image2": "shopify://shop_images/image-2.png",
             "image3": "shopify://shop_images/image-3.png",
@@ -117,6 +121,7 @@
           "type": "action_item",
           "settings": {
             "label": "ROAD RUNNING",
+            "collection_url": "",
             "image1": "shopify://shop_images/image-1.png",
             "image2": "shopify://shop_images/image-2.png",
             "image3": "shopify://shop_images/image-3.png",
@@ -127,6 +132,7 @@
           "type": "action_item",
           "settings": {
             "label": "SWIMRUN",
+            "collection_url": "",
             "image1": "shopify://shop_images/image-1.png",
             "image2": "shopify://shop_images/image-2.png",
             "image3": "shopify://shop_images/image-3.png",
@@ -165,7 +171,7 @@
         "image_showcase_mekXhE": {
           "type": "image_showcase",
           "settings": {
-            "product": ""
+            "product": "a-line-jacket-in-black"
           }
         }
       },
@@ -174,7 +180,6 @@
       ],
       "name": "Colorful Kicks Block",
       "settings": {
-        "product_image": "shopify://shop_images/collection-product.png",
         "lifestyle_image": "shopify://shop_images/shoes-collection.png",
         "content_subheading": "",
         "behind_the_design": "",
@@ -187,7 +192,8 @@
         "colourful_content_second_color": "",
         "button_label": "Browse Collection",
         "button_link": "#",
-        "heading": "COLORFUL <span class=\"highlight\">KICKS</span>,  \n CLOUD-LIKE <span class=\"highlight\">COMFORT</span>"
+        "interval": 3,
+        "show_product_info": false
       }
     },
     "featured_collection_grid_CDJyH7": {
