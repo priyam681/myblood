@@ -13,6 +13,7 @@ if (!customElements.get('colourful-hover')) {
       if (!this.container) return;
 
       this.productImages = this.querySelectorAll('.collection-image');
+      this.productwrapper = this.querySelectorAll('.product-image-wrapper-sec');
       if (this.productImages.length === 0) return;
 
       // Set up event listeners with bound methods to avoid creating new functions
@@ -95,8 +96,8 @@ if (!customElements.get('colourful-hover')) {
     initialProductImages() {
 
       // No need to pass productImages as parameter since it's a class property
-      this.productImages.forEach((image, i) => {
-        image.style.opacity = i === this.currentIndex ? 1 : 0;
+      this.productwrapper.forEach((image, i) => {
+        image.style.display = i === this.currentIndex ? 'block' : 'none';
       });
     }
 
@@ -104,12 +105,12 @@ if (!customElements.get('colourful-hover')) {
       if (this.hoverState || this.productImages.length <= 1) return;
 
       this.currentIndex = (this.currentIndex + 1) % this.productImages.length;
-      this.updateImagesOpacity();
+      this.updateImagesDisplay();
     }
 
-    updateImagesOpacity() {
-      this.productImages.forEach((image, i) => {
-        image.style.opacity = i === this.currentIndex ? 1 : 0;
+    updateImagesDisplay() {
+      this.productwrapper.forEach((image, i) => {
+        image.style.display = i === this.currentIndex ? 'block' : 'none';
       });
     }
 
