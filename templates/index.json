@@ -165,37 +165,6 @@
         "button_link": ""
       }
     },
-    "colorful_kick_fRCnyF": {
-      "type": "colorful-kick",
-      "blocks": {
-        "image_showcase_mekXhE": {
-          "type": "image_showcase",
-          "settings": {
-            "product": "a-line-jacket-in-black"
-          }
-        }
-      },
-      "block_order": [
-        "image_showcase_mekXhE"
-      ],
-      "name": "Colorful Kicks Block",
-      "settings": {
-        "lifestyle_image": "shopify://shop_images/shoes-collection.png",
-        "content_subheading": "",
-        "behind_the_design": "",
-        "content_description": "Discover our vibrant collection of colorblocked shoes, designed with plush memory foam for all-day comfort. With a wide range of bold shades, it’s easy to pick your perfect pair.",
-        "colourless_content_first": "",
-        "colourful_content_first": "",
-        "colourful_content_first_color": "",
-        "colourless_content_second": "",
-        "colourful_content_second": "",
-        "colourful_content_second_color": "",
-        "button_label": "Browse Collection",
-        "button_link": "#",
-        "interval": 3,
-        "show_product_info": false
-      }
-    },
     "featured_collection_grid_CDJyH7": {
       "type": "featured-collection-grid",
       "blocks": {
@@ -219,20 +188,6 @@
       ],
       "name": "Featured Collection Grid",
       "settings": {}
-    },
-    "from_place_URibYG": {
-      "type": "from-place",
-      "name": "Introduction",
-      "settings": {
-        "padding": 50,
-        "font-size": 50,
-        "headingtext": "Test",
-        "details": "Test",
-        "introduction_image_1": "shopify://shop_images/image-3.png",
-        "introduction_image_2": "shopify://shop_images/image-2.png",
-        "introduction_image_3": "shopify://shop_images/image-4.png",
-        "introduction_image_4": "shopify://shop_images/image-1.png"
-      }
     }
   },
   "order": [
@@ -240,8 +195,6 @@
     "featured_collection_grid_gCfPH8",
     "choose_your_action_ekDx6H",
     "performance_banner_NfWipW",
-    "colorful_kick_fRCnyF",
-    "featured_collection_grid_CDJyH7",
-    "from_place_URibYG"
+    "featured_collection_grid_CDJyH7"
   ]
 }
