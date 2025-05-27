@@ -219,20 +219,6 @@
       ],
       "name": "Featured Collection Grid",
       "settings": {}
-    },
-    "from_place_URibYG": {
-      "type": "from-place",
-      "name": "Introduction",
-      "settings": {
-        "padding": 50,
-        "font-size": 50,
-        "headingtext": "Test",
-        "details": "Test",
-        "introduction_image_1": "shopify://shop_images/image-3.png",
-        "introduction_image_2": "shopify://shop_images/image-2.png",
-        "introduction_image_3": "shopify://shop_images/image-4.png",
-        "introduction_image_4": "shopify://shop_images/image-1.png"
-      }
     }
   },
   "order": [
@@ -241,7 +227,6 @@
     "choose_your_action_ekDx6H",
     "performance_banner_NfWipW",
     "colorful_kick_fRCnyF",
-    "featured_collection_grid_CDJyH7",
-    "from_place_URibYG"
+    "featured_collection_grid_CDJyH7"
   ]
 }

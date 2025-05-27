@@ -183,6 +183,11 @@
             <p class="banner-subheading">{{ block.settings.subheading }}</p>
 
          {% if block.settings.banner-button_show == "show" %}
+           {%- liquid
+            assign button_one = block.settings.button_one_url
+           -%}
+
+
                       <div class="banner-buttons hide-mobile">
                           <a class="button button--primary" href="{{ block.settings.button_one_url }}">
                             <span>
