@@ -1,60 +1,60 @@
 {{ 'customer.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-      padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    }
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
   .field {
-      position: relative;
-      margin: 20px 0;
-    }
-    /* Label ko absolute position par rakhein */
-    .login-container-wrapper .field label {
-      position: absolute;
-      left: 10px;
-      top: 50%;
-      transform: translateY(-50%);
-      transition: all 0.2s ease;
-      pointer-events: none;
-      background: #fff;
-      padding: 0 5px;
-      color: #999 !important;
-      font-size: 14px;
-      z-index: 1;
-    }
-    .eye-icon {
-      top: 11px;
-    }
-    /* Focus mein label ko upar shift kar dein */
-    .field:focus-within label {
-      top: -3px;
-      left: 10px;
-      font-size: 12px;
-    }
-    /* Input styling */
-    .field input {
-      width: 100%;
-      border: 1px solid #ccc;
-      border-radius: 4px;
-      padding: 12px 10px;
-      font-size: 14px;
-      box-sizing: border-box;
-    }
-    .field input:focus {
-      outline: none;
-      border-color: #2196F3;
-    }
-    /* Placeholder ko hide karne ke liye */
-    .login-wrapper-custom .field input::placeholder {
-      color: transparent;
-    }
-    @media screen and (min-width: 750px) {
-      .section-{{ section.id }}-padding {
-        padding-top: {{ section.settings.padding_top }}px;
-        padding-bottom: {{ section.settings.padding_bottom }}px;
-      }
-    }
+  position: relative;
+  margin: 20px 0;
+  }
+  /* Label ko absolute position par rakhein */
+  .login-container-wrapper .field label {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  transition: all 0.2s ease;
+  pointer-events: none;
+  background: #fff;
+  padding: 0 5px;
+  color: #999 !important;
+  font-size: 14px;
+  z-index: 1;
+  }
+  .eye-icon {
+  top: 11px;
+  }
+  /* Focus mein label ko upar shift kar dein */
+  .field:focus-within label {
+  top: -3px;
+  left: 10px;
+  font-size: 12px;
+  }
+  /* Input styling */
+  .login-container-wrapper .field input {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  padding: 12px 10px;
+  font-size: 14px;
+  box-sizing: border-box;
+  }
+  .field input:focus {
+  outline: none;
+  border-color: #2196F3;
+  }
+  /* Placeholder ko hide karne ke liye */
+  .login-wrapper-custom .field input::placeholder {
+  color: transparent;
+  }
+  @media screen and (min-width: 750px) {
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  }
 {%- endstyle -%}
 
 {%- if section.settings.enable_shop_login_button == false -%}
@@ -81,20 +81,20 @@
             {{ 'customer.login_page.email' | t }}
           </label>
           <input
-            type="email"
-            value=""
-            name="email"
-            id="RecoverEmail"
-            autocorrect="off"
-            class="customer-name"
-            autocapitalize="off"
-            autocomplete="email"
-            {% if form.errors %}
-              aria-invalid="true"
-              aria-describedby="RecoverEmail-email-error"
-              autofocus
-            {% endif %}
-            placeholder="{{ 'customer.login_page.email' | t }}"
+                  type="email"
+                  value=""
+                  name="email"
+                  id="RecoverEmail"
+                  autocorrect="off"
+                  class="customer-name"
+                  autocapitalize="off"
+                  autocomplete="email"
+                  {% if form.errors %}
+                    aria-invalid="true"
+                    aria-describedby="RecoverEmail-email-error"
+                    autofocus
+                  {% endif %}
+                  placeholder="{{ 'customer.login_page.email' | t }}"
           >
         </div>
         {%- if form.errors -%}
@@ -173,17 +173,17 @@
               {{ 'customer.login_page.email' | t }}
             </label>
             <input
-              type="email"
-              name="customer[email]"
-              id="CustomerEmail"
-              autocomplete="email"
-              autocorrect="off"
-              class="customer-name"
-              autocapitalize="off"
-              {% if form.errors contains 'form' %}
-                aria-invalid="true"
-              {% endif %}
-              placeholder="{{ 'customer.login_page.email' | t }}"
+                    type="email"
+                    name="customer[email]"
+                    id="CustomerEmail"
+                    autocomplete="email"
+                    autocorrect="off"
+                    class="customer-name"
+                    autocapitalize="off"
+                    {% if form.errors contains 'form' %}
+                      aria-invalid="true"
+                    {% endif %}
+                    placeholder="{{ 'customer.login_page.email' | t }}"
             >
           </div>
 
@@ -194,32 +194,32 @@
               </label>
               <a id="togglePassword" class="eye-icon">
                 <svg
-                  id="eyeIcon"
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="22"
-                  height="22"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
+                        id="eyeIcon"
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
                 >
                   <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                   <circle cx="12" cy="12" r="3"></circle>
                 </svg>
               </a>
               <input
-                type="password"
-                value=""
-                name="customer[password]"
-                class="customer-name"
-                id="CustomerPassword"
-                autocomplete="current-password"
-                {% if form.errors contains 'form' %}
-                  aria-invalid="true"
-                {% endif %}
-                placeholder="{{ 'customer.login_page.password' | t }}"
+                      type="password"
+                      value=""
+                      name="customer[password]"
+                      class="customer-name"
+                      id="CustomerPassword"
+                      autocomplete="current-password"
+                      {% if form.errors contains 'form' %}
+                        aria-invalid="true"
+                      {% endif %}
+                      placeholder="{{ 'customer.login_page.password' | t }}"
               >
             </div>
 
@@ -258,23 +258,23 @@
   </div>
 </div>
 <script>
-   document.addEventListener("DOMContentLoaded", function() {
-            const passwordInput = document.getElementById("CustomerPassword");
-            const togglePassword = document.getElementById("togglePassword");
-            const eyeIcon = document.getElementById("eyeIcon");
+  document.addEventListener("DOMContentLoaded", function() {
+    const passwordInput = document.getElementById("CustomerPassword");
+    const togglePassword = document.getElementById("togglePassword");
+    const eyeIcon = document.getElementById("eyeIcon");
 
-            togglePassword.addEventListener("click", function() {
-                if (passwordInput.type === "password") {
-                    passwordInput.type = "text";
-                    eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
-                    togglePassword.classList.add("eye-cross"); // Add class for cross effect
-                } else {
-                    passwordInput.type = "password";
-                    eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
-                    togglePassword.classList.remove("eye-cross"); // Remove class
-                }
-            });
-        });
+    togglePassword.addEventListener("click", function() {
+      if (passwordInput.type === "password") {
+        passwordInput.type = "text";
+        eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
+        togglePassword.classList.add("eye-cross"); // Add class for cross effect
+      } else {
+        passwordInput.type = "password";
+        eyeIcon.innerHTML = `<path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path><circle cx="12" cy="12" r="3"></circle>`;
+        togglePassword.classList.remove("eye-cross"); // Remove class
+      }
+    });
+  });
 </script>
 
 {% schema %}

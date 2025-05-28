@@ -7,5 +7,9 @@
         {% if block.type == 'collection_list' and block.settings.collection_menu_trigger == link_handle %}
             {% render 'collection-list', block: block, link:link %}
         {% endif %}
+
+        {% if block.type == 'promotion_image' and block.settings.target_link == link_handle %}
+            {% render 'promotion-image', block: block, link:link %}
+        {% endif %}
     {% endfor %}
 {% endif %}

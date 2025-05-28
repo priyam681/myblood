@@ -141,6 +141,9 @@
    .footer-section-menu-block  .newsletter-form__button.field__button:hover {
        color: #FFF;
    }
+    .footer-setion-bottom .footer-bottom-section-icon {
+       border-top: unset;
+    }
    footer.footer {
        background: #000;
        margin-top: auto;
@@ -338,6 +341,22 @@
        .newsletter-form {
            margin-top: 0;
        }
+    .footer-copyright-wrapper {
+      order: 2;
+    }
+    .footer-setion-bottom .footer-bottom-section-icon {
+       order: 3;
+    }
+    .footer__payment {
+       margin-top: 0;
+    }
+    .footer__copyright.caption {
+        margin-top: 0;
+        order: 2;
+        width: 50%;
+        text-align: left;
+    }
+
    }
 {%- endstyle -%}
 
@@ -636,6 +655,22 @@
           </small>
           <small class="copyright__content">{{ powered_by_link }}</small>
         </div>
+        <div class="footer__column--info footer-bottom-section-icon">
+              {%- if section.settings.payment_enable -%}
+                  <div class="footer__payment">
+                      <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
+                      <div class="payment-icons">
+                          <img src="{{ 'Amex.svg' | asset_url }}" alt="Amex">
+                          <img src="{{ 'Visa.svg' | asset_url }}" alt="Visa">
+                          <img src="{{ 'DinersClub.svg' | asset_url }}" alt="DinersClub">
+                          <img src="{{ 'Discover.svg' | asset_url }}" alt="Discover">
+                          <img src="{{ 'Mastercard.svg' | asset_url }}" alt="MasterCard">
+                          <img src="{{ 'PayPal.svg' | asset_url }}" alt="PayPal">
+                          <img src="{{ 'Stripe.svg' | asset_url }}" alt="Stripe">
+                      </div>
+                  </div>
+              {%- endif -%}
+          </div>
         <div class="footer-copyright-wrapper">
           {%- if section.settings.show_policy -%}
             <ul class="policies list-unstyled">
@@ -653,22 +688,7 @@
         </div>
       </div>
     </div>
-    <div class="footer__column footer__column--info">
-      {%- if section.settings.payment_enable -%}
-        <div class="footer__payment">
-          <span class="visually-hidden">{{ 'sections.footer.payment' | t }}</span>
-          <div class="payment-icons">
-            <img src="{{ 'Amex.svg' | asset_url }}" alt="Amex">
-            <img src="{{ 'Visa.svg' | asset_url }}" alt="Visa">
-            <img src="{{ 'DinersClub.svg' | asset_url }}" alt="DinersClub">
-            <img src="{{ 'Discover.svg' | asset_url }}" alt="Discover">
-            <img src="{{ 'Mastercard.svg' | asset_url }}" alt="MasterCard">
-            <img src="{{ 'PayPal.svg' | asset_url }}" alt="PayPal">
-            <img src="{{ 'Stripe.svg' | asset_url }}" alt="Stripe">
-          </div>
-        </div>
-      {%- endif -%}
-    </div>
+
   </div>
 </footer>
 
