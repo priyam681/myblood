@@ -1,0 +1,117 @@
+
+{% if block != blank and block.settings.image != blank %}
+
+    {% style %}
+        /* Base image container styles */
+        .image-container.mega-menu-image {
+        position: relative;
+        display: inline-block;
+        overflow: hidden;
+        border-radius: 8px;
+        }
+
+        /* Image wrapper */
+        .image-wrapper {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        border-radius: inherit;
+        }
+
+        /* Category image styles */
+        .category-image.mega-menu-category-image {
+        width: 100%;
+        height: auto;
+        display: block;
+        object-fit: cover;
+        border-radius: inherit;
+        }
+
+        /* Category title below image */
+        .category-title.mega-menu-title {
+        margin-top: 0.75rem;
+        text-align: center;
+        font-size: 0.875rem;
+        font-weight: 500;
+        color: var(--color-foreground, #333);
+        line-height: 1.3;
+        }
+
+        /* Responsive styles */
+        @media screen and (max-width: 768px) {
+        .image-container.mega-menu-image {
+        border-radius: 6px;
+        }
+
+        .category-title.mega-menu-title {
+        font-size: 0.8125rem;
+        margin-top: 0.5rem;
+        }
+        }
+
+        @media screen and (max-width: 480px) {
+        .category-title.mega-menu-title {
+        font-size: 0.75rem;
+        }
+        }
+
+        /* Focus states for accessibility */
+        .image-container.mega-menu-image:focus-within {
+        outline: 2px solid var(--color-accent, #007acc);
+        outline-offset: 2px;
+        }
+
+        /* Loading state */
+        .category-image.mega-menu-category-image[loading="lazy"] {
+        background-color: var(--color-background-secondary, #f5f5f5);
+        }
+
+        /* Dark mode support */
+        @media (prefers-color-scheme: dark) {
+        .category-title.mega-menu-title {
+        color: var(--color-foreground-dark, #e5e5e5);
+        }
+        }
+
+    {% endstyle %}
+
+    {% liquid
+        assign image_alt = block.settings.alt_text | default: block.settings.image.alt | default: ''
+        assign image_size = block.settings.image_size | default: 'medium'
+
+        case image_size
+            when 'small'
+                assign img_dimensions = '200x200'
+                assign img_width = 200
+            when 'large'
+                assign img_dimensions = '400x400'
+                assign img_width = 400
+            else
+                assign img_dimensions = '300x300'
+                assign img_width = 300
+        endcase
+    %}
+
+    <div class="image-container mega-menu-image">
+        <div class="image-wrapper">
+            <img
+                    src="{{ block.settings.image | img_url: img_dimensions }}"
+                    alt="{{ image_alt }}"
+                    width="{{ img_width }}"
+                    height="{{ img_width }}"
+                    loading="lazy"
+                    class="category-image mega-menu-category-image"
+                    srcset="{{ block.settings.image | img_url: '200x200' }} 200w,
+                {{ block.settings.image | img_url: '300x300' }} 300w,
+                {{ block.settings.image | img_url: '400x400' }} 400w"
+                    sizes="(max-width: 768px) 200px, (max-width: 1024px) 300px, {{ img_width }}px"
+            />
+        </div>
+
+        {% if block.settings.category_title != blank %}
+            <div class="category-title mega-menu-title">
+                {{ block.settings.category_title }}
+            </div>
+        {% endif %}
+    </div>
+{% endif %}

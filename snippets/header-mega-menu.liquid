@@ -39,10 +39,14 @@
 
 
                                     {% render 'header-mega-menu-content', link: link  %}
-                                    <p>Hello world</p>
+
 
                                     {%- for childlink in link.links -%}
+
                                         <li>
+                                            <p>inside</p>
+                                            {% render 'category-images', link: childlink, underlink: link.links %}
+
                                             <a
                                                     id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
                                                     href="{{ childlink.url }}"
@@ -53,9 +57,13 @@
                                             >
                                                 {{ childlink.title | escape }}
                                             </a>
+
                                             {%- if childlink.links != blank -%}
+
                                                 <ul class="list-unstyled" role="list">
+
                                                     {%- for grandchildlink in childlink.links -%}
+
                                                         <li>
                                                             <a
                                                                     id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"

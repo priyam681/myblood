@@ -167,6 +167,275 @@
       z-index: 1;
     }
   }
+
+
+  .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 1.4;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  min-width: 120px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  }
+
+  .banner-content .banner-buttons {
+  margin-top: 20px;
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  }
+
+  /* Solid Button Style */
+  .button--solid {
+  background-color: #000;
+  color: #fff;
+  border-color: #000;
+  }
+
+  .button--solid:hover {
+  background-color: #333;
+  border-color: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Outline Button Style */
+  .button--outline {
+  background-color: transparent;
+  color: #000;
+  border-color: #000;
+  }
+
+  .button--outline:hover {
+  background-color: #000;
+  color: #fff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Mobile Button Visibility Classes */
+  .banner-buttons--mobile-hide {
+  display: flex;
+  }
+
+  .banner-buttons--mobile-show {
+  display: flex;
+  }
+
+  /* Mobile Responsive */
+  @media screen and (max-width: 992px) {
+  .banner-buttons--mobile-hide {
+  display: none !important;
+  }
+
+  .banner-buttons--mobile-show {
+  display: flex !important;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  }
+
+  .banner-buttons--mobile-show .button {
+  width: 100%;
+  max-width: 280px;
+  }
+
+  .homepage-banner-wrapper .banner-content {
+  margin: auto;
+  text-align: center;
+  }
+  }
+
+  @media screen and (min-width: 993px) {
+  .banner-buttons--mobile-hide,
+  .banner-buttons--mobile-show {
+  display: flex;
+  justify-content: flex-start;
+  }
+  }
+
+{% endstyle %}
+
+
+
+
+{% style %}
+
+  .banner-slideshow-wrapper {
+  position: relative;
+  overflow: hidden;
+  {% case section.settings.section_height %}
+    {% when 'small' %}
+      min-height: 400px;
+    {% when 'medium' %}
+      min-height: 500px;
+    {% when 'large' %}
+      min-height: 600px;
+    {% when 'extra_large' %}
+      min-height: 700px;
+    {% when 'full_screen' %}
+      min-height: 100vh;
+  {% endcase %}
+  }
+
+  .homepage-banner {
+  {% if section.settings.enable_overlay %}
+    position: relative;
+  {% endif %}
+  {% case section.settings.content_position %}
+    {% when 'top' %}
+      align-items: flex-start;
+      padding-top: 3rem;
+    {% when 'center' %}
+      align-items: center;
+    {% when 'bottom' %}
+      align-items: flex-end;
+      padding-bottom: 3rem;
+  {% endcase %}
+  }
+
+  {% if section.settings.enable_overlay %}
+    .homepage-banner::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: {{ section.settings.overlay_color | default: '#000000' }};
+    opacity: {{ section.settings.overlay_opacity | default: 30 | divided_by: 100.0 }};
+    z-index: 0;
+    }
+  {% endif %}
+
+  .banner-content {
+  {% case section.settings.content_alignment %}
+    {% when 'center' %}
+      text-align: center;
+      margin: 0 auto;
+    {% when 'right' %}
+      text-align: right;
+      margin-left: auto;
+    {% else %}
+      text-align: left;
+  {% endcase %}
+  max-width: {{ section.settings.content_width | default: 50 }}%;
+  position: relative;
+  z-index: 1;
+  }
+
+  {% unless section.settings.show_navigation_arrows %}
+    .slider-buttons-wrapper {
+    display: none !important;
+    }
+  {% endunless %}
+
+  {% if section.settings.show_navigation_arrows %}
+    .slider-button {
+    background: {{ section.settings.arrow_background | default: '#000000' | color_modify: 'alpha', section.settings.arrow_opacity | default: 70 | divided_by: 100.0 }};
+    color: {{ section.settings.arrow_color | default: '#ffffff' }};
+    {% if section.settings.arrow_position == 'outside' %}
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+    {% endif %}
+    }
+
+    {% if section.settings.arrow_position == 'outside' %}
+      .slider-button--prev {
+      left: -60px;
+      }
+      .slider-button--next {
+      right: -60px;
+      }
+      .slider-buttons-wrapper {
+      position: static;
+      width: 100%;
+      height: 0;
+      }
+    {% endif %}
+  {% endif %}
+
+  {% if section.settings.show_slide_dots %}
+    .slide-dots {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    }
+    .slide-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.5);
+    cursor: pointer;
+    transition: all 0.3s ease;
+    }
+    .slide-dot.active {
+    background: rgba(255, 255, 255, 1);
+    transform: scale(1.2);
+    }
+  {% endif %}
+
+  /* Mobile Settings */
+  @media screen and (max-width: 992px) {
+  .banner-slideshow-wrapper {
+  {% case section.settings.mobile_height %}
+    {% when 'small' %}
+      min-height: 300px;
+    {% when 'medium' %}
+      min-height: 400px;
+    {% when 'large' %}
+      min-height: 500px;
+    {% when 'auto' %}
+      /* Keep desktop height */
+  {% endcase %}
+  }
+
+  {% if section.settings.mobile_stack_content %}
+    .banner-content {
+    max-width: 90%;
+    text-align: center;
+    margin: 0 auto;
+    }
+  {% endif %}
+
+  {% if section.settings.arrow_position == 'outside' %}
+    .slider-button--prev {
+    left: 10px;
+    }
+    .slider-button--next {
+    right: 10px;
+    }
+  {% endif %}
+  }
+
+  /* Reduced Motion */
+  {% if section.settings.reduce_motion %}
+    @media (prefers-reduced-motion: reduce) {
+    .banner-slideshow {
+    scroll-behavior: auto;
+    }
+    .slider-button,
+    .button {
+    transition: none;
+    }
+    }
+  {% endif %}
 {% endstyle %}
 
 
@@ -182,26 +451,22 @@
             <h1 class="banner-heading">{{ block.settings.heading }}</h1>
             <p class="banner-subheading">{{ block.settings.subheading }}</p>
 
-         {% if block.settings.banner-button_show == "show" %}
-           {%- liquid
-            assign button_one = block.settings.button_one_url
-           -%}
+             {% if block.settings.banner_button_show == "show" %}
+               {% assign mobile_class = 'banner-buttons--mobile-' | append: block.settings.mobile_button_visibility %}
+               <div class="banner-buttons {{ mobile_class }}">
+                 {% if block.settings.button_one_text != blank and block.settings.button_one_url != blank %}
+                   <a class="button button--{{ block.settings.button_one_style | default: 'solid' }}" href="{{ block.settings.button_one_url }}">
+                     <span>{{ block.settings.button_one_text }}</span>
+                   </a>
+                 {% endif %}
 
-
-                      <div class="banner-buttons hide-mobile">
-                          <a class="button button--primary" href="{{ block.settings.button_one_url }}">
-                            <span>
-                              {{ block.settings.button_one_text }}
-                            </span>
-                          </a>
-                          <a class="button button--primary" href="{{ block.settings.button_two_url }}">
-                            <span>
-                              {{ block.settings.button_two_text }}
-                            </span>
-                          </a>
-                      </div>
-
-          {% endif %}
+                 {% if block.settings.button_two_text != blank and block.settings.button_two_url != blank %}
+                   <a class="button button--{{ block.settings.button_two_style | default: 'outline' }}" href="{{ block.settings.button_two_url }}">
+                     <span>{{ block.settings.button_two_text }}</span>
+                   </a>
+                 {% endif %}
+               </div>
+             {% endif %}
           </div>
          <div class="banner-center-image"> <img src="{{ block.settings.center_image | img_url: 'master' }}" alt="{{ block.settings.center_alt_text }}" height="100%" width="100%"/></div>
 {% if block.settings.banner-button_show == "show" %}
@@ -307,9 +572,6 @@
   </div>
 </slider-component>
 
-
-
-
 <script>
 document.addEventListener('DOMContentLoaded', function () {
   const slider = document.querySelector('.banner-slideshow');
@@ -327,11 +589,354 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const slider = document.querySelector('.banner-slideshow');
+    const prevBtn = document.querySelector('.slider-button--prev');
+    const nextBtn = document.querySelector('.slider-button--next');
+    const slides = document.querySelectorAll('.banner-slide');
+
+    // Section settings
+    const autoplayEnabled = {{ section.settings.enable_autoplay | json }};
+    const autoplaySpeed = {{ section.settings.autoplay_speed | default: 5 }} * 1000;
+    const pauseOnHover = {{ section.settings.pause_on_hover | json }};
+    const enableSwipe = {{ section.settings.enable_mobile_swipe | json }};
+
+    if (!slider || slides.length <= 1) return;
+
+    let currentSlide = 0;
+    const totalSlides = slides.length;
+    let autoPlayInterval;
+
+    // Create slide dots if enabled
+    {% if section.settings.show_slide_dots %}
+    const dotsContainer = document.createElement('div');
+    dotsContainer.className = 'slide-dots';
+    slides.forEach((_, index) => {
+      const dot = document.createElement('button');
+      dot.className = `slide-dot ${index === 0 ? 'active' : ''}`;
+      dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
+      dot.addEventListener('click', () => goToSlide(index));
+      dotsContainer.appendChild(dot);
+    });
+    document.querySelector('.banner-slideshow-wrapper').appendChild(dotsContainer);
+    {% endif %}
+
+    function updateButtonStates() {
+      if (prevBtn) prevBtn.disabled = currentSlide === 0;
+      if (nextBtn) nextBtn.disabled = currentSlide === totalSlides - 1;
+
+      // Update dots
+      {% if section.settings.show_slide_dots %}
+      document.querySelectorAll('.slide-dot').forEach((dot, index) => {
+        dot.classList.toggle('active', index === currentSlide);
+      });
+      {% endif %}
+    }
+
+    function goToSlide(index) {
+      if (index < 0 || index >= totalSlides) return;
+
+      currentSlide = index;
+      const scrollPosition = window.innerWidth * currentSlide;
+      slider.scrollTo({ left: scrollPosition, behavior: 'smooth' });
+      updateButtonStates();
+    }
+
+    // Navigation buttons
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        goToSlide(currentSlide - 1);
+      });
+    }
+
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        goToSlide(currentSlide + 1);
+      });
+    }
+
+    // Auto-play functionality
+    if (autoplayEnabled && totalSlides > 1) {
+      function startAutoPlay() {
+        autoPlayInterval = setInterval(() => {
+          const nextIndex = currentSlide === totalSlides - 1 ? 0 : currentSlide + 1;
+          goToSlide(nextIndex);
+        }, autoplaySpeed);
+      }
+
+      function stopAutoPlay() {
+        clearInterval(autoPlayInterval);
+      }
+
+      startAutoPlay();
+
+      if (pauseOnHover) {
+        slider.addEventListener('mouseenter', stopAutoPlay);
+        slider.addEventListener('mouseleave', startAutoPlay);
+        slider.addEventListener('focusin', stopAutoPlay);
+        slider.addEventListener('focusout', startAutoPlay);
+      }
+    }
+
+    // Touch/Swipe support for mobile
+    if (enableSwipe) {
+      let startX = 0;
+      let endX = 0;
+
+      slider.addEventListener('touchstart', (e) => {
+        startX = e.touches[0].clientX;
+      });
+
+      slider.addEventListener('touchend', (e) => {
+        endX = e.changedTouches[0].clientX;
+        const diff = startX - endX;
+
+        if (Math.abs(diff) > 50) { // Minimum swipe distance
+          if (diff > 0 && currentSlide < totalSlides - 1) {
+            goToSlide(currentSlide + 1);
+          } else if (diff < 0 && currentSlide > 0) {
+            goToSlide(currentSlide - 1);
+          }
+        }
+      });
+    }
+
+    // Initialize
+    updateButtonStates();
+  });
+</script>
+
+
 
 {% schema %}
 {
   "name": "Banner Slideshow",
-  "settings": [],
+  "settings": [
+    {
+      "type": "header",
+      "content": "Slideshow Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_autoplay",
+      "label": "Enable Autoplay",
+      "default": true,
+      "info": "Automatically advance slides"
+    },
+    {
+      "type": "range",
+      "id": "autoplay_speed",
+      "min": 2,
+      "max": 10,
+      "step": 1,
+      "unit": "s",
+      "label": "Autoplay Speed",
+      "default": 5,
+      "info": "Time between slide transitions"
+    },
+    {
+      "type": "checkbox",
+      "id": "pause_on_hover",
+      "label": "Pause on Hover",
+      "default": true,
+      "info": "Pause autoplay when hovering over slideshow"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_navigation_arrows",
+      "label": "Show Navigation Arrows",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_slide_dots",
+      "label": "Show Slide Indicators",
+      "default": false,
+      "info": "Show dots at bottom to indicate current slide"
+    },
+    {
+      "type": "header",
+      "content": "Layout Settings"
+    },
+    {
+      "type": "select",
+      "id": "content_alignment",
+      "label": "Content Alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "Left"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "right",
+          "label": "Right"
+        }
+      ],
+      "default": "left"
+    },
+    {
+      "type": "select",
+      "id": "content_position",
+      "label": "Content Vertical Position",
+      "options": [
+        {
+          "value": "top",
+          "label": "Top"
+        },
+        {
+          "value": "center",
+          "label": "Center"
+        },
+        {
+          "value": "bottom",
+          "label": "Bottom"
+        }
+      ],
+      "default": "center"
+    },
+    {
+      "type": "header",
+      "content": "Overlay Settings"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_overlay",
+      "label": "Enable Background Overlay",
+      "default": true,
+      "info": "Add dark overlay to improve text readability"
+    },
+    {
+      "type": "color",
+      "id": "overlay_color",
+      "label": "Overlay Color",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "overlay_opacity",
+      "min": 0,
+      "max": 80,
+      "step": 5,
+      "unit": "%",
+      "label": "Overlay Opacity",
+      "default": 30
+    },
+    {
+      "type": "header",
+      "content": "Navigation Styling"
+    },
+    {
+      "type": "color",
+      "id": "arrow_color",
+      "label": "Arrow Color",
+      "default": "#ffffff"
+    },
+    {
+      "type": "color",
+      "id": "arrow_background",
+      "label": "Arrow Background",
+      "default": "#000000"
+    },
+    {
+      "type": "range",
+      "id": "arrow_opacity",
+      "min": 50,
+      "max": 100,
+      "step": 5,
+      "unit": "%",
+      "label": "Arrow Background Opacity",
+      "default": 70
+    },
+    {
+      "type": "select",
+      "id": "arrow_position",
+      "label": "Arrow Position",
+      "options": [
+        {
+          "value": "inside",
+          "label": "Inside Slideshow"
+        },
+        {
+          "value": "outside",
+          "label": "Outside Slideshow"
+        }
+      ],
+      "default": "inside"
+    },
+    {
+      "type": "header",
+      "content": "Mobile Settings"
+    },
+
+    {
+      "type": "checkbox",
+      "id": "mobile_stack_content",
+      "label": "Stack Content on Mobile",
+      "default": true,
+      "info": "Stack text and images vertically on mobile"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mobile_swipe",
+      "label": "Enable Touch Swipe",
+      "default": true,
+      "info": "Allow swiping to change slides on mobile"
+    },
+    {
+      "type": "header",
+      "content": "Performance"
+    },
+    {
+      "type": "checkbox",
+      "id": "lazy_load_images",
+      "label": "Lazy Load Images",
+      "default": true,
+      "info": "Load images only when needed for better performance"
+    },
+    {
+      "type": "select",
+      "id": "image_quality",
+      "label": "Image Quality",
+      "options": [
+        {
+          "value": "medium",
+          "label": "Medium (Faster loading)"
+        },
+        {
+          "value": "high",
+          "label": "High (Better quality)"
+        },
+        {
+          "value": "master",
+          "label": "Original (Best quality)"
+        }
+      ],
+      "default": "high"
+    },
+    {
+      "type": "header",
+      "content": "Accessibility"
+    },
+    {
+      "type": "checkbox",
+      "id": "reduce_motion",
+      "label": "Respect Reduced Motion",
+      "default": true,
+      "info": "Disable animations for users who prefer reduced motion"
+    },
+    {
+      "type": "text",
+      "id": "slideshow_label",
+      "label": "Slideshow Aria Label",
+      "default": "Featured content slideshow",
+      "info": "Screen reader description for the slideshow"
+    }
+  ],
   "blocks": [
     {
       "type": "banner_slide",
@@ -379,7 +984,6 @@ document.addEventListener('DOMContentLoaded', function () {
           "id":"product_list_item_color",
           "label":"Product List Item Color"
         },
-
         {
           "type":"header",
           "content":"Center Image"
@@ -401,19 +1005,37 @@ document.addEventListener('DOMContentLoaded', function () {
         },
 
         {
-          "type":"select",
-          "id":"banner-button_show",
-          "options":[
+          "type": "select",
+          "id": "banner_button_show",
+          "options": [
             {
               "value": "show",
-              "label": "Show button"
+              "label": "Show buttons"
             },
             {
               "value": "hide",
-              "label": "Hide button"
+              "label": "Hide buttons"
             }
           ],
-          "label":"Show buttons"
+          "label": "Button Visibility",
+          "default": "show"
+        },
+        {
+          "type": "select",
+          "id": "mobile_button_visibility",
+          "label": "Mobile Button Visibility",
+          "options": [
+            {
+              "value": "show",
+              "label": "Show on mobile"
+            },
+            {
+              "value": "hide",
+              "label": "Hide on mobile"
+            }
+          ],
+          "default": "hide",
+          "info": "Control whether buttons are visible on mobile devices"
         },
         {
           "type":"text",
@@ -427,15 +1049,82 @@ document.addEventListener('DOMContentLoaded', function () {
           "label":"Button First Url"
         },
         {
+          "type": "select",
+          "id": "button_one_style",
+          "label": "First Button Style",
+          "options": [
+            {
+              "value": "solid",
+              "label": "Solid Black"
+            },
+            {
+              "value": "outline",
+              "label": "Outline Black"
+            },
+            {
+              "value": "solid-white",
+              "label": "Solid White"
+            },
+            {
+              "value": "outline-white",
+              "label": "Outline White"
+            },
+            {
+              "value": "solid-primary",
+              "label": "Solid Primary"
+            },
+            {
+              "value": "outline-primary",
+              "label": "Outline Primary"
+            }
+          ],
+          "default": "solid"
+        },
+
+        {
           "type":"text",
           "id":"button_two_text",
           "label":"Button Second Text",
           "default":"New One"
         },
+
+
         {
           "type":"url",
           "id":"button_two_url",
           "label":"Button Second Url"
+        },
+        {
+          "type": "select",
+          "id": "button_two_style",
+          "label": "Second Button Style",
+          "options": [
+            {
+              "value": "solid",
+              "label": "Solid Black"
+            },
+            {
+              "value": "outline",
+              "label": "Outline Black"
+            },
+            {
+              "value": "solid-white",
+              "label": "Solid White"
+            },
+            {
+              "value": "outline-white",
+              "label": "Outline White"
+            },
+            {
+              "value": "solid-primary",
+              "label": "Solid Primary"
+            },
+            {
+              "value": "outline-primary",
+              "label": "Outline Primary"
+            }
+          ],
+          "default": "outline"
         },
 
         {
