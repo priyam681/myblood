@@ -159,7 +159,14 @@
       }
   .homepage-banner .homepage-banner-wrapper .banner-center-image {
       width: 65%;
-      margin-left: auto;
+      {% case section.settings.content_alignment %}
+          {% when 'center' %}
+            margin: auto;
+          {% when 'right' %}
+             margin-right: auto;
+          {% else %}
+             margin-left: auto;
+        {% endcase %}
   }
     .banner-content {
       max-width: 600px;
@@ -262,6 +269,22 @@
   display: flex;
   justify-content: flex-start;
   }
+   .banner-content {
+    {% case section.settings.content_alignment %}
+      {% when 'center' %}
+        text-align: center;
+        left: 50%;
+        transform: translateX(-50%);
+      {% when 'right' %}
+        right: 0;
+        text-align: right;
+      {% else %}
+        left: 0;
+        text-align: left;
+    {% endcase %}
+    max-width: {{ section.settings.content_width | default: 50 }}%;
+    z-index: 1;
+    }
   }
 
 {% endstyle %}
@@ -318,21 +341,7 @@
     }
   {% endif %}
 
-  .banner-content {
-  {% case section.settings.content_alignment %}
-    {% when 'center' %}
-      text-align: center;
-      margin: 0 auto;
-    {% when 'right' %}
-      text-align: right;
-      margin-left: auto;
-    {% else %}
-      text-align: left;
-  {% endcase %}
-  max-width: {{ section.settings.content_width | default: 50 }}%;
-  position: relative;
-  z-index: 1;
-  }
+
 
   {% unless section.settings.show_navigation_arrows %}
     .slider-buttons-wrapper {
