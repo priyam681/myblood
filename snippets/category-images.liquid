@@ -2,22 +2,15 @@
     {% liquid
         assign link_handle = link.title | handleize | downcase
     %}
+    <div class="category-images">
+        {% for block in section.blocks %}
+            {% if block.type == 'category_image' and block.settings.category_menu_trigger == link_handle %}
+                {% render 'category-image', block: block, link:link %}
+            {% endif %}
+        {% endfor %}
+    </div>
 
-    {% for block in section.blocks %}
-        {% if block.type == 'category_image' and block.settings.target_link == link_handle %}
-            {% render 'category-image', block: block, link:link %}
-        {% endif %}
-    {% endfor %}
 
 {% endif %}
 
-<script defer>
-  console.log('link: {{ link.title }} : {{ link.url }}');
 
-  {% for link in underlink %}
-  {% for childlink in link.links %}
-
-  console.log(' -> {{ link.title }}');
-  {% endfor %}
-  {% endfor %}
-</script>

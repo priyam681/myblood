@@ -1,6 +1,101 @@
-{% if block != blank %}
-    <p>
-        category image
-    </p>
+{% if block != blank and link != blank %}
+    <div class="category-images-container" data-parent-handle="{{ link.handle }}">
+        {% for child_link in link.links %}
+            {% if child_link.type == 'collection_link' and child_link.object.featured_image %}
+                {% assign image_url = child_link.object.featured_image | image_url: width: 300 %}
+                {% assign image_alt = child_link.object.featured_image.alt | default: child_link.title %}
 
+                <div class="category-image" data-image="{{ child_link.handle }}">
+                    <img
+                            src="{{ image_url }}"
+                            alt="{{ image_alt }}"
+                            width="300"
+                            height="200"
+                            loading="lazy"
+                            class="category-image__img"
+                    >
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
 {% endif %}
+
+
+{% style %}
+    .category-images-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 15px;
+    }
+
+    .category-image {
+    display: none; /* Hidden by default */
+    transition: opacity 0.3s ease;
+    }
+
+    .category-image.active {
+    display: block;
+    }
+
+    .category-image__img {
+    width: 100%;
+    height: 200px;
+    border-radius: 8px;
+    object-fit: cover;
+    }
+
+
+
+{% endstyle %}
+
+<script defer>
+
+  class CategoryImageController {
+    constructor() {
+      this.init();
+    }
+
+    init() {
+      document.addEventListener('DOMContentLoaded', () => {
+        this.setupImageContainers();
+      });
+    }
+
+    setupImageContainers() {
+      const containers = document.querySelectorAll('.category-images-container');
+
+      containers.forEach(container => {
+        const parentHandle = container.dataset.parentHandle;
+        const categoryImages = container.querySelectorAll('.category-image');
+        const childLinks = document.querySelectorAll(`li[data-childlink="${parentHandle}"]`);
+
+        // Show first image by default
+        if (categoryImages.length > 0) {
+          categoryImages[0].classList.add('active');
+        }
+
+        // Setup hover handlers
+        childLinks.forEach(link => {
+          link.addEventListener('mouseenter', (event) => {
+            this.handleImageSwitch(event, categoryImages);
+          });
+        });
+      });
+    }
+
+    handleImageSwitch(event, categoryImages) {
+      const targetHandle = event.target.dataset.grandchildlink;
+
+      if (!targetHandle) return;
+
+      categoryImages.forEach(imageEl => {
+        imageEl.classList.toggle('active', imageEl.dataset.image === targetHandle);
+      });
+    }
+  }
+
+  // Initialize the controller
+  new CategoryImageController();
+
+</script>

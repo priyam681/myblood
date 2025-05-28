@@ -44,8 +44,8 @@
                                     {%- for childlink in link.links -%}
 
                                         <li>
-                                            <p>inside</p>
-                                            {% render 'category-images', link: childlink, underlink: link.links %}
+
+                                            {% render 'category-images', link: childlink %}
 
                                             <a
                                                     id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}"
@@ -64,11 +64,11 @@
 
                                                     {%- for grandchildlink in childlink.links -%}
 
-                                                        <li>
+                                                        <li data-link="{{ link.handle }}" data-childlink="{{ childlink.handle }}" data-grandchildlink="{{ grandchildlink.handle }}" class="mega-menu__item mega-menu__item--level-3">
                                                             <a
                                                                     id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
                                                                     href="{{ grandchildlink.url }}"
-                                                                    class="mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
+                                                                    class="mega-hello mega-menu__link link{% if grandchildlink.current %} mega-menu__link--active{% endif %}"
                                                                     {% if grandchildlink.current %}
                                                                         aria-current="page"
                                                                     {% endif %}
