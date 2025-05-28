@@ -696,6 +696,54 @@ customElements.define('sticky-header', StickyHeader);
         }
       ]
     },
+    {
+      "type":"mini_banner",
+      "name":"Mini Banner",
+      "settings":[
+        {
+          "type":"text",
+          "id":"mini_banner_trigger",
+          "label":"Menu trigger"
+        },
+        {
+          "type":"image_picker",
+          "id":"image",
+          "label":"Image"
+        },
+        {
+          "type":"text",
+          "id":"alt_text",
+          "label":"Alt text"
+        },
+        {
+          "type":"text",
+          "id":"main_heading",
+          "label":"Main heading"
+        },
+
+        {
+          "type":"richtext",
+          "id":"sub_heading",
+          "label":"Sub heading"
+        },
+        {
+          "type":"richtext",
+          "id":"offer_text",
+          "label":"Offer text"
+        },
+        {
+          "type":"checkbox",
+          "id":"page_open",
+          "label":"Open in new tab",
+          "default":false
+        },
+        {
+          "type":"url",
+          "id":"banner_url",
+          "label":"Banner URL"
+        }
+      ]
+    },
 
     {
       "type": "@app"

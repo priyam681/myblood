@@ -11,5 +11,9 @@
         {% if block.type == 'promotion_image' and block.settings.target_link == link_handle %}
             {% render 'promotion-image', block: block, link:link %}
         {% endif %}
+        {% if block.type == 'mini_banner' and block.settings.mini_banner_trigger == link_handle %}
+            {% render 'mini-banner', block: block, link:link %}
+        {% endif %}
+
     {% endfor %}
 {% endif %}
