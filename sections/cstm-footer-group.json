@@ -64,8 +64,6 @@
         "images": "shopify://shop_images/Frame_138.png",
         "enable_follow_on_shop": true,
         "show_social": true,
-        "enable_country_selector": false,
-        "enable_language_selector": false,
         "payment_enable": true,
         "show_policy": true,
         "margin_top": 20,
