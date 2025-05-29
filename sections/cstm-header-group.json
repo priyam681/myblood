@@ -38,9 +38,6 @@
     },
     "header": {
       "type": "cstm-header",
-      "blocks": {
-      },
-      "block_order": [],
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",

@@ -2,7 +2,15 @@
 {
   "name": "Product Tabs",
   "tag": "section",
-  "settings": [],
+  "settings": [
+   {
+       "type": "text",
+       "id": "tab_heading",
+       "label": "Tab Heading",
+       "default": "LATEST"
+    }
+  ],
+
   "blocks": [
     {
       "type": "tab",
@@ -30,12 +38,6 @@
         {
           "type": "tab",
           "settings": {
-            "tab_title": "LATEST"
-          }
-        },
-        {
-          "type": "tab",
-          "settings": {
             "tab_title": "MENS"
           }
         },
@@ -57,49 +59,10 @@
 }
 {% endschema %}
 
-<style>
-  .more-images-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 50px;
-    height: 50px;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    display: none;
-  }
-
-  .more-images-indicator:hover {
-    background-color: #f0f0f0;
-    border-color: #ddd;
-  }
-
-  .icon-wrapper {
-    display: flex;
-    justify-content: center;
-    height:100%;
-  }
-
-  .icon-wrapper img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-  }
-
-  .count {
-    font-size: 12px;
-    font-weight: bold;
-    color: #666;
-    margin-top: 2px;
-  }
-</style>
-
 <div class="pua-tabs-wrapper page-width">
 <div class="tabs-inner-wrapper">
+<div class="tabs-wrapper">
+<div class="tab_heading">{{ section.settings.tab_heading }}</div>
   <ul class="pua-tabs">
     {% for block in section.blocks %}
       <li class="{% if forloop.first %}active{% endif %}" data-tab="tab-{{ forloop.index }}">
@@ -107,7 +70,7 @@
       </li>
     {% endfor %}
   </ul>
-
+</div>
   {% for block in section.blocks %}
     <div class="pua-tab-content {% if forloop.first %}active{% endif %}" id="tab-tab-{{ forloop.index }}">
       {% assign collection = collections[block.settings.collection] %}
@@ -139,8 +102,8 @@
 
                   </div>
 
-                  <h3 itemprop="name">{{ product.title }}</h3>
-                  <div itemprop="offers" itemscope itemtype="https://schema.org/Offer">
+                  <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
+                  <div itemprop="offers"  class="product-price" itemscope itemtype="https://schema.org/Offer">
                     <meta itemprop="priceCurrency" content="INR" />
                     <span itemprop="price">{{ product.price | money }}</span>
                     <link itemprop="availability" href="https://schema.org/InStock" />
@@ -315,6 +278,52 @@
 
 
 <style>
+.more-images-indicator {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-width: 50px;
+    height: 50px;
+    border: 1px solid #eee;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    transition: background-color 0.2s;
+    display: none;
+  }
+
+  .more-images-indicator:hover {
+    background-color: #f0f0f0;
+    border-color: #ddd;
+  }
+
+  .icon-wrapper {
+    display: flex;
+    justify-content: center;
+    height:100%;
+  }
+
+  .icon-wrapper img {
+    width: 20px;
+    height: 20px;
+    object-fit: contain;
+  }
+
+  .count {
+    font-size: 12px;
+    font-weight: bold;
+    color: #666;
+    margin-top: 2px;
+  }
+  .tabs-wrapper {
+    margin: 30px 0 40px;
+  }
+  .tabs-wrapper .tab_heading {
+    font-weight: bold;
+    color: #000;
+  }
+
 .thumbnail-wrapper {
   display: flex;
   gap: 6px;
@@ -323,10 +332,10 @@
 }
 
 .product-card .thumbnail {
-  width: 50px;
-  height: 50px;
-  min-width: 50px;
-  min-height: 50px;
+  width: calc(40px + (70 - 40) * ((100vw - 360px) / (1920 - 360)));
+  height: calc(40px + (70 - 40) * ((100vw - 360px) / (1920 - 360)));
+  min-width: calc(40px + (70 - 40) * ((100vw - 360px) / (1920 - 360)));
+  min-height: calc(40px + (70 - 40) * ((100vw - 360px) / (1920 - 360)));
   object-fit: cover;
   cursor: pointer;
   border: 1px solid #eee;
@@ -344,7 +353,7 @@
     gap: 20px;
     font-weight: bold;
     padding: 0;
-    margin: 30px 0 40px;
+    margin: 0;
   }
   .pua-tabs li {
     cursor: pointer;
@@ -370,10 +379,24 @@
     width: 100%;
     height: auto;
   }
-  .price {
-    color: #e74c3c;
-    font-weight: bold;
+  .product-card .main-image {
+    aspect-ratio: 1;
   }
+  .product-card .product-price {
+    font-size: calc(14px + (22 - 14) * ((100vw - 360px) / (1920 - 360)));
+    line-height: 1;
+    color: #ff3200;
+    font-weight: 500;
+  }
+  .product-card .product-name {
+    font-size: calc(16px + (24 - 16) * ((100vw - 360px) / (1920 - 360)));
+    line-height: 1;
+    margin: 2.4rem 0 0.8rem;
+    font-weight: 500;
+  }
+   .product-card .desc {
+     margin-top: 1.2rem;
+   }
   .pua-product-slider.static-grid .swiper-wrapper {
     display: flex;
     flex-wrap: wrap;
@@ -424,6 +447,18 @@
 .tabs-inner-wrapper .swiper {
   position: unset;
 }
+@media screen and (max-width: 768px) {
+.tabs-wrapper .tab_heading {
+    margin-bottom: 12px;
+  }
+  }
+
+@media screen and (min-width: 768px) {
+.tabs-wrapper {
+    display: flex;
+    gap: 20px;
+  }
+  }
 </style>
 
 <script>
