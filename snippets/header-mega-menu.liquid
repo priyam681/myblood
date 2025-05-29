@@ -86,14 +86,63 @@
                         </details>
                     </header-menu>
                 {%- else -%}
-                    <a
-                            id="HeaderMenu-{{ link.handle }}"
-                            href="{{ link.url }}"
-                            class="header__menu-item list-menu__item link link--text focus-inset"
-                            {% if link.current %}
-                                aria-current="page"
-                            {% endif %}
-                    >
+                    {% assign link_handle = link.title | handleize | downcase %}
+                     {% assign check_block_present = false %}
+
+                {% for block in section.blocks %}
+                    {% if block.type == 'collection_list' and block.settings.collection_menu_trigger == link_handle %}
+                        {% assign check_block_present = true %}
+                        {% break %}
+                    {% endif %}
+                    {% if block.type == 'promotion_image' and block.settings.target_link == link_handle %}
+                        {% assign check_block_present = true %}
+                        {% break %}
+                    {% endif %}
+                    {% if block.type == 'mini_banner' and block.settings.mini_banner_trigger == link_handle %}
+                        {% assign check_block_present = true %}
+                        {% break %}
+                    {% endif %}
+                    {% if block.type == 'category_image' and block.settings.category_menu_trigger == link_handle %}
+                        {% assign check_block_present = true %}
+                        {% break %}
+                    {% endif %}
+                {% endfor %}
+
+                    {% if check_block_present %}
+                        <header-menu>
+                            <details id="Details-HeaderMenu-{{ forloop.index }}" class="mega-menu">
+                                <summary
+                                        id="HeaderMenu-{{ link.handle }}"
+                                        class="header__menu-item list-menu__item link focus-inset"
+                                >
+                <span
+                  {%- if link.child_active %}
+                      class="header__active-menu-item"
+                  {% endif %}
+                >
+                  {{- link.title | escape -}}
+                </span>
+                                    {{- 'icon-caret.svg' | inline_asset_content -}}
+                                </summary>
+                                <div
+                                        id="MegaMenu-Content-{{ forloop.index }}"
+                                        class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
+                                        tabindex="-1"
+                                >
+                                    {% render 'header-mega-menu-content', link: link  %}
+
+                                </div>
+                            </details>
+                        </header-menu>
+                    {% else %}
+                        <a
+                                id="HeaderMenu-{{ link.handle }}"
+                                href="{{ link.url }}"
+                                class="header__menu-item list-menu__item link link--text focus-inset"
+                                {% if link.current %}
+                                    aria-current="page"
+                                {% endif %}
+                        >
             <span
               {%- if link.current %}
                   class="header__active-menu-item"
@@ -101,7 +150,9 @@
             >
               {{- link.title | escape -}}
             </span>
-                    </a>
+                        </a>
+                    {% endif %}
+
                 {%- endif -%}
             </li>
 
