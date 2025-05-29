@@ -24,11 +24,14 @@
             "product_list_item_color": "#000000",
             "center_image": "shopify://shop_images/banner-image_1.png",
             "center_alt_text": "center image",
-            "banner-button_show": "show",
+            "banner_button_show": "show",
+            "mobile_button_visibility": "show",
             "button_one_text": "Shop Now",
             "button_one_url": "",
+            "button_one_style": "solid",
             "button_two_text": "New One",
             "button_two_url": "",
+            "button_two_style": "outline",
             "visibility": "show",
             "product_list_image_left": "shopify://shop_images/hot-search.png",
             "product_list_left_text": "<div>HOT</div><div>SEARCHES</div>",
@@ -38,13 +41,64 @@
             "product_display_2": "a-line-jacket-in-black",
             "product_display_3": "adania-pant"
           }
+        },
+        "banner_slide_BDgDwV": {
+          "type": "banner_slide",
+          "settings": {
+            "heading": "IN MOTION WE FIND FREEDOM AND JOY",
+            "main_image": "shopify://shop_images/top-view-sneakers-compass-table.jpg",
+            "subheading": "Unlock the full potential of your online store with our custom Magento development services, designed to enhance performance, boost sales, and deliver a seamless shopping experience.",
+            "heading_color": "#ed1717",
+            "subheading_color": "#a72929",
+            "product_list_heading_color": "#c27474",
+            "product_list_item_color": "#ffb518",
+            "center_image": "shopify://shop_images/banner-image_1.png",
+            "center_alt_text": "center image",
+            "banner_button_show": "show",
+            "mobile_button_visibility": "hide",
+            "button_one_text": "Shop Now",
+            "button_one_url": "",
+            "button_one_style": "solid",
+            "button_two_text": "New One",
+            "button_two_url": "",
+            "button_two_style": "outline",
+            "visibility": "show",
+            "product_list_image_left": "shopify://shop_images/image_20.png",
+            "product_list_left_text": "New One",
+            "product_list_color_left": "#121212",
+            "product_items_bgcolor": "#242833",
+            "product_display_1": "5-pocket-jean",
+            "product_display_2": "acb-top-in-chipped-brick",
+            "product_display_3": "alex-twill-pant-navy"
+          }
         }
       },
       "block_order": [
-        "banner_slide_7xPjma"
+        "banner_slide_7xPjma",
+        "banner_slide_BDgDwV"
       ],
-      "name": "Banner Slideshow",
-      "settings": {}
+      "settings": {
+        "enable_autoplay": true,
+        "autoplay_speed": 7,
+        "pause_on_hover": true,
+        "show_navigation_arrows": true,
+        "show_slide_dots": true,
+        "content_alignment": "left",
+        "content_position": "top",
+        "enable_overlay": true,
+        "overlay_color": "#450303",
+        "overlay_opacity": 50,
+        "arrow_color": "#ffffff",
+        "arrow_background": "#000000",
+        "arrow_opacity": 70,
+        "arrow_position": "inside",
+        "mobile_stack_content": true,
+        "enable_mobile_swipe": true,
+        "lazy_load_images": true,
+        "image_quality": "high",
+        "reduce_motion": true,
+        "slideshow_label": "Featured content slideshow"
+      }
     },
     "featured_collection_grid_gCfPH8": {
       "type": "featured-collection-grid",
@@ -67,7 +121,6 @@
       "block_order": [
         "collection_block_7Rgpmy"
       ],
-      "name": "Featured Collection Grid",
       "settings": {}
     },
     "choose_your_action_ekDx6H": {
@@ -148,14 +201,12 @@
         "action_item_cC7Wr4",
         "action_item_frzxbW"
       ],
-      "name": "Choose Your Action",
       "settings": {
         "section_title": "CHOOSE YOUR ACTION"
       }
     },
     "performance_banner_NfWipW": {
       "type": "performance-banner",
-      "name": "Performance Banner",
       "settings": {
         "right_image": "shopify://shop_images/performance-banner.png",
         "heading": "Crafted for Comfort.  Built for Performance.",
@@ -178,7 +229,6 @@
       "block_order": [
         "image_showcase_mekXhE"
       ],
-      "name": "Colorful Kicks Block",
       "settings": {
         "lifestyle_image": "shopify://shop_images/shoes-collection.png",
         "content_subheading": "",
@@ -193,7 +243,8 @@
         "button_label": "Browse Collection",
         "button_link": "#",
         "interval": 3,
-        "show_product_info": false
+        "show_product_info": false,
+        "only_desktop": false
       }
     },
     "featured_collection_grid_CDJyH7": {
@@ -217,7 +268,6 @@
       "block_order": [
         "collection_block_4hkmJx"
       ],
-      "name": "Featured Collection Grid",
       "settings": {}
     }
   },
