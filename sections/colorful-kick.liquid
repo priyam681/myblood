@@ -135,26 +135,19 @@
         <div class="text-container">
           <h4 class="section-subheading">{{ section.settings.content_subheading }}</h4>
           <div class="text-container-wrapper">
-            <h2 class="section-heading">{{ section.settings.colourless_content_first }}</h2>
-            <h2
-              class="section-heading"
-              {% if section.settings.colourful_content_first_color %}
-                style="color: {{ section.settings.colourful_content_first_color }};"
-              {% endif %}
+            <span class="section-heading">{{section.settings.colourless_content_first}}</span>
+            <span
+              class="section-heading" {% if section.settings.colourful_content_first_color %}
+                style="color: {{section.settings.colourful_content_first_color}};"
+              {% endif %}>{{section.settings.colourful_content_first}}</span>
+            <span class="section-heading">{{ section.settings.colourless_content_second }}</span>
+            <span class="section-heading"
+            {% if section.settings.colourful_content_second_color %}
+                            style="color: {{section.settings.colourful_content_second_color}};"
+                          {% endif %}
             >
-              {{ section.settings.colourful_content_first }}
-            </h2>
-            <h2 class="section-heading">{{ section.settings.colourless_content_second }}</h2>
-            <h2 class="section-heading">
-              {% style %}
-                {% if section.settings.colourful_content_second_color %}
-                  .colorful-kicks-section .text-container-wrapper h2:last-child {
-                    color: {{ section.settings.colourful_content_second_color }};
-                  }
-                {% endif %}
-              {% endstyle %}
-              {{ section.settings.colourful_content_second }}
-            </h2>
+              {{section.settings.colourful_content_second}}
+            </span>
           </div>
           <p>{{ section.settings.content_description }}</p>
         </div>
@@ -304,15 +297,12 @@
      top: 10%;
      padding: 10px 25px;
      text-align: center;
+     z-index: 3;
   }
   .product-image-wrapper-sec .img-wrap {
       max-width: 156px;
       margin: auto;
   }
-  .product-image-wrapper-img {
-    width: 55%;
-  }
-
   .collection-image {
     position: relative;
     width: 100%;
@@ -343,7 +333,6 @@
     z-index: 2;
     max-width: 100%;
     width: 100%;
-    mix-blend-mode: darken;
   }
   .colorful-kicks-section .right {
     flex: 1;
