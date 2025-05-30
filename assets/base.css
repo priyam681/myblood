@@ -1418,8 +1418,7 @@ button.shopify-payment-button__button--unbranded {
   transition: box-shadow var(--duration-short) ease;
   -webkit-appearance: none;
   appearance: none;
-  /*background-color: rgba(var(--color-button), var(--alpha-button-background));*/
-  background: #ff3200;
+  background-color: rgba(var(--color-button), var(--alpha-button-background));
 }
 
 .button:before,
@@ -1448,8 +1447,8 @@ button.shopify-payment-button__button--unbranded {
   left: var(--buttons-border-width);
   z-index: 1;
   border-radius: var(--buttons-radius);
-  /*box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))*/
-      /*rgba(var(--color-button-text), var(--border-opacity)),*/
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
+      rgba(var(--color-button-text), var(--border-opacity)),
     0 0 0 var(--buttons-border-width) rgba(var(--color-button), var(--alpha-button-background));
   transition: box-shadow var(--duration-short) ease;
 }
@@ -1459,11 +1458,16 @@ button.shopify-payment-button__button--unbranded {
 .customer button:hover::after,
 .shopify-payment-button__button--unbranded:hover::after {
   --border-offset: 1.3px;
-  /*box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))*/
-      /*rgba(var(--color-button-text), var(--border-opacity)),*/
-    /*0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button), var(--alpha-button-background));*/
+  box-shadow: 0 0 0 calc(var(--buttons-border-width) + var(--border-offset))
+      rgba(var(--color-button-text), var(--border-opacity)),
+    0 0 0 calc(var(--buttons-border-width) + 1px) rgba(var(--color-button), var(--alpha-button-background));
 }
-
+.button:not([disabled]):hover,
+.shopify-challenge__button:hover,
+.customer button:hover,
+.shopify-payment-button__button--unbranded:hover {
+background-color: rgba(var(--color-button), 0.75);
+}
 .button--secondary:after {
   --border-opacity: var(--buttons-border-opacity);
 }
@@ -2646,7 +2650,7 @@ input[type="checkbox"] {
 
 /* section-header */
 .section-header.shopify-section-group-cstm-header-group {
-  z-index: 3;
+  z-index: 10;
 }
 
 .shopify-section-header-sticky {
