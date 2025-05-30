@@ -3,6 +3,7 @@
   position: relative;
   overflow: hidden;
   }
+
   .banner-slideshow {
   display: flex;
   scroll-snap-type: x mandatory;
@@ -10,6 +11,7 @@
   scroll-behavior: smooth;
   margin-block: 0;
   padding-left: 0;
+  transition: transform 0.5s ease-in-out;
   }
   .banner-slide {
   flex: 0 0 100%;
@@ -449,7 +451,7 @@
 
 
 <banner-slideshow class="banner-slideshow-wrapper" autoplay="{{ section.settings.enable_autoplay }}" {% if section.settings.enable_autoplay %} autoplay-speed="{{ section.settings.autoplay_speed }}"{% endif %}>
-  <ul id="Banner-{{ section.id }}" class="banner-slideshow" role="list" data-total-slide="{{ section.blocks.size }}" data-current-slide="0">
+  <ul id="Banner-{{ section.id }}" class="banner-slideshow" role="list" data-total-slide="{{ section.blocks.size }}" data-current-slide="0" pause-on-hover="{{ section.settings.pause_on_hover }}">
     {% for block in section.blocks %}
       {% assign visibility = block.settings.visibility %}
       <li class="banner-slide slider__slide" id="Banner-slide-{{ block.id }}" {{ block.shopify_attributes }}>
@@ -581,61 +583,281 @@
   </div>
 </banner-slideshow>
 
+
+
 <script defer>
   if (!customElements.get('banner-slideshow')){
     class BannerSlideshow extends HTMLElement{
       constructor(){
         super();
         this.interval = null;
-
         this.currentIndex = 0;
-
+        this.initialized = false;
+        this.touchStartX = null;
+        this.touchStartY = null;
+        this.enablePauseHover = this.getAttribute('pause-on-hover') === 'true';
       }
 
       connectedCallback(){
+        if (this.initialized) {
+          console.log('Already connected, skipping...');
+          return;
+        }
+
+        this.initialized = true;
+        console.log('BannerSlideshow connected');
+
 
         this.banner = this.querySelector('[id^="Banner-"]');
         this.slides = Array.from(this.querySelectorAll('[id^="Banner-slide-"]'));
+        this.totalSlides = this.slides.length;
+
+        if (this.totalSlides === 0) {
+          console.warn('No slides found');
+          return;
+        }
+
         this.previous = this.querySelector('.slider-button--prev');
         this.next = this.querySelector('.slider-button--next');
-        const onMouseEnterBind = this.onHover.bind(this);
-        const onMouseLeaveBind = this.onMouseLeave.bind(this);
+        this.dots = Array.from(this.querySelectorAll('.slide-dot'));
 
-        console.log("Banner: ", this.banner);
+        this.speed = this.getAttribute('autoplay-speed');
 
+        const speedAttr = this.speed;
+        this.autoplaySpeed = speedAttr ? parseInt(speedAttr) * 1000 : 5000;
+
+        this.setupEventListeners();
+        this.goToSlide(0);
       }
 
+      setSpeedAttr(speedValue){
+        this.speed = speedValue;
+      }
 
+      setEnablePauseHover(enablePauseHover) {
+        this.enablePauseHover = enablePauseHover;
+      }
 
+      setupEventListeners(){
+        // Mouse events
+        this.mouseEnterHandler = this.onHover.bind(this);
+        this.mouseLeaveHandler = this.onMouseLeave.bind(this);
+
+        console.log("Setting up event: ", this.enablePauseHover);
+
+        if (this.banner && this.enablePauseHover) {
+          this.banner.addEventListener('mouseenter', this.mouseEnterHandler);
+          this.banner.addEventListener('mouseleave', this.mouseLeaveHandler);
+        }
+
+        // Navigation buttons
+        if (this.previous) {
+          this.prevClickHandler = () => this.previousSlide();
+          this.previous.addEventListener('click', this.prevClickHandler);
+        }
+
+        if (this.next) {
+          this.nextClickHandler = () => this.nextSlide();
+          this.next.addEventListener('click', this.nextClickHandler);
+        }
+
+        // Dot navigation
+        this.dots.forEach((dot, index) => {
+          dot.addEventListener('click', () => this.goToSlide(index));
+        });
+
+        // Touch events for mobile swipe
+        if (this.banner && this.enablePauseHover) {
+          this.banner.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
+          this.banner.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: true });
+          this.banner.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: true });
+        }
+      }
 
       disconnectedCallback(){
+        console.log('BannerSlideshow disconnected');
+        this.initialized = false;
+        this.stopAutoPlay();
 
+        // Remove all event listeners
+        if (this.banner && this.mouseEnterHandler) {
+          this.banner.removeEventListener('mouseenter', this.mouseEnterHandler);
+          this.banner.removeEventListener('mouseleave', this.mouseLeaveHandler);
+          this.banner.removeEventListener('touchstart', this.handleTouchStart);
+          this.banner.removeEventListener('touchmove', this.handleTouchMove);
+          this.banner.removeEventListener('touchend', this.handleTouchEnd);
+        }
+
+        if (this.previous && this.prevClickHandler) {
+          this.previous.removeEventListener('click', this.prevClickHandler);
+        }
+
+        if (this.next && this.nextClickHandler) {
+          this.next.removeEventListener('click', this.nextClickHandler);
+        }
       }
 
       static get observedAttributes(){
-
+        return ['autoplay', 'autoplay-speed', 'pause-on-hover'];
       }
 
       attributeChangedCallback(name, oldValue, newValue){
+        if (!this.initialized || !this.totalSlides) return;
 
+        if(name === 'autoplay'){
+          if (newValue === 'true'){
+            console.log("Starting Autoplay");
+            this.startAutoPlay();
+          } else {
+            this.stopAutoPlay();
+          }
+        }else if (name === 'autoplay-speed'){
+          if (oldValue !== newValue){
+            console.log("autoplay-speed: ", newValue);
+            this.setSpeedAttr(newValue);
+            this.startAutoPlay();
+          }
+        }else if (name === 'pause-on-hover'){
+          if (newValue === 'true'){
+            this.setEnablePauseHover(true);
+            this.startAutoPlay();
+          }
+        }
+      }
+
+      startAutoPlay(){
+        this.stopAutoPlay();
+
+        if (this.totalSlides > 1 && this.initialized) {
+          console.log('Starting autoplay with speed:', this.autoplaySpeed);
+          this.interval = setInterval(() => {
+            if (!this.initialized) {
+              this.stopAutoPlay();
+              return;
+            }
+            this.nextSlide();
+          }, this.autoplaySpeed);
+        }
+      }
+
+      stopAutoPlay(){
+        if (this.interval) {
+          console.log('Stopping autoplay');
+          clearInterval(this.interval);
+          this.interval = null;
+        }
+      }
+
+      nextSlide(){
+        if (this.totalSlides <= 1 || !this.initialized) return;
+        this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+        this.goToSlide(this.currentIndex);
+      }
+
+      previousSlide(){
+        if (this.totalSlides <= 1 || !this.initialized) return;
+        this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+        this.goToSlide(this.currentIndex);
+      }
+
+      goToSlide(index){
+        if (this.totalSlides <= 1 || !this.banner || !this.initialized) return;
+
+        if (index < 0 || index >= this.totalSlides) {
+          console.error('Invalid slide index:', index);
+          return;
+        }
+
+        this.currentIndex = index;
+
+        // Use scrollTo method for smooth sliding
+        const slideWidth = this.banner.offsetWidth;
+        const scrollPosition = slideWidth * this.currentIndex;
+
+        this.banner.scrollTo({
+          left: scrollPosition,
+          behavior: 'smooth'
+        });
+
+        this.banner.dataset.currentSlide = index;
+        this.updateButtonStates();
+        this.updateDots();
+
+      }
+
+      updateButtonStates(){
+        if (!this.previous || !this.next) return;
+
+        // For infinite loop, don't disable buttons
+        // If you want to disable at start/end, uncomment these:
+        // this.previous.classList.toggle('disabled', this.currentIndex === 0);
+        // this.next.classList.toggle('disabled', this.currentIndex === this.totalSlides - 1);
+      }
+
+      updateDots(){
+        this.dots.forEach((dot, index) => {
+          dot.classList.toggle('active', index === this.currentIndex);
+        });
+      }
+
+      // Touch/Swipe handlers
+      handleTouchStart(e) {
+        this.touchStartX = e.touches[0].clientX;
+        this.touchStartY = e.touches[0].clientY;
+      }
+
+      handleTouchMove(e) {
+        if (!this.touchStartX || !this.touchStartY) return;
+
+        const touchX = e.touches[0].clientX;
+        const touchY = e.touches[0].clientY;
+
+        const diffX = this.touchStartX - touchX;
+        const diffY = this.touchStartY - touchY;
+
+        // Only handle horizontal swipes (ignore vertical scrolling)
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+          e.preventDefault();
+        }
+      }
+
+      handleTouchEnd(e) {
+        if (!this.touchStartX) return;
+
+        const touchEndX = e.changedTouches[0].clientX;
+        const diff = this.touchStartX - touchEndX;
+
+        // Minimum swipe distance
+        if (Math.abs(diff) > 50) {
+          if (diff > 0) {
+            this.nextSlide();
+          } else {
+            this.previousSlide();
+          }
+        }
+
+        this.touchStartX = null;
+        this.touchStartY = null;
       }
 
       onHover(){
-
+        if (!this.initialized) return;
+        console.log("onHover - pausing autoplay");
+        this.stopAutoPlay();
       }
 
       onMouseLeave() {
-
+        if (!this.initialized) return;
+        console.log("onMouseLeave - resuming autoplay");
+        if (this.getAttribute('autoplay') === 'true') {
+          this.startAutoPlay();
+        }
       }
-
-
     }
 
     customElements.define('banner-slideshow', BannerSlideshow);
   }
 </script>
-
-
 
 
 {% schema %}
