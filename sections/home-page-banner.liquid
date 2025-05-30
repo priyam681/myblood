@@ -6,7 +6,7 @@
   .banner-slideshow {
   display: flex;
   scroll-snap-type: x mandatory;
-  overflow-x: auto;
+  overflow-x: hidden;
   scroll-behavior: smooth;
   margin-block: 0;
   padding-left: 0;
@@ -448,11 +448,11 @@
 {% endstyle %}
 
 
-<slider-component class="banner-slideshow-wrapper">
-  <ul class="banner-slideshow slider" role="list">
+<banner-slideshow class="banner-slideshow-wrapper" autoplay="{{ section.settings.enable_autoplay }}" {% if section.settings.enable_autoplay %} autoplay-speed="{{ section.settings.autoplay_speed }}"{% endif %}>
+  <ul id="Banner-{{ section.id }}" class="banner-slideshow" role="list" data-total-slide="{{ section.blocks.size }}" data-current-slide="0">
     {% for block in section.blocks %}
       {% assign visibility = block.settings.visibility %}
-      <li class="banner-slide slider__slide">
+      <li class="banner-slide slider__slide" id="Banner-slide-{{ block.id }}" {{ block.shopify_attributes }}>
         <div class="homepage-banner" style="background: url({{ block.settings.main_image | img_url: 'master' }}) no-repeat center/cover;">
          <div class="page-width">
          <div class="homepage-banner-wrapper">
@@ -579,142 +579,62 @@
     <span class="svg-wrapper">{{- 'right-arrow.svg' | inline_asset_content -}}</span>
     </button>
   </div>
-</slider-component>
+</banner-slideshow>
 
-<script>
-document.addEventListener('DOMContentLoaded', function () {
-  const slider = document.querySelector('.banner-slideshow');
-  const prevBtn = document.querySelector('.slider-button--prev');
-  const nextBtn = document.querySelector('.slider-button--next');
+<script defer>
+  if (!customElements.get('banner-slideshow')){
+    class BannerSlideshow extends HTMLElement{
+      constructor(){
+        super();
+        this.interval = null;
 
-  if (slider && prevBtn && nextBtn) {
-    prevBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: -window.innerWidth, behavior: 'smooth' });
-    });
-    nextBtn.addEventListener('click', () => {
-      slider.scrollBy({ left: window.innerWidth, behavior: 'smooth' });
-    });
+        this.currentIndex = 0;
+
+      }
+
+      connectedCallback(){
+
+        this.banner = this.querySelector('[id^="Banner-"]');
+        this.slides = Array.from(this.querySelectorAll('[id^="Banner-slide-"]'));
+        this.previous = this.querySelector('.slider-button--prev');
+        this.next = this.querySelector('.slider-button--next');
+        const onMouseEnterBind = this.onHover.bind(this);
+        const onMouseLeaveBind = this.onMouseLeave.bind(this);
+
+        console.log("Banner: ", this.banner);
+
+      }
+
+
+
+
+      disconnectedCallback(){
+
+      }
+
+      static get observedAttributes(){
+
+      }
+
+      attributeChangedCallback(name, oldValue, newValue){
+
+      }
+
+      onHover(){
+
+      }
+
+      onMouseLeave() {
+
+      }
+
+
+    }
+
+    customElements.define('banner-slideshow', BannerSlideshow);
   }
-});
 </script>
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const slider = document.querySelector('.banner-slideshow');
-    const prevBtn = document.querySelector('.slider-button--prev');
-    const nextBtn = document.querySelector('.slider-button--next');
-    const slides = document.querySelectorAll('.banner-slide');
-
-    // Section settings
-    const autoplayEnabled = {{ section.settings.enable_autoplay | json }};
-    const autoplaySpeed = {{ section.settings.autoplay_speed | default: 5 }} * 1000;
-    const pauseOnHover = {{ section.settings.pause_on_hover | json }};
-    const enableSwipe = {{ section.settings.enable_mobile_swipe | json }};
-
-    if (!slider || slides.length <= 1) return;
-
-    let currentSlide = 0;
-    const totalSlides = slides.length;
-    let autoPlayInterval;
-
-    // Create slide dots if enabled
-    {% if section.settings.show_slide_dots %}
-    const dotsContainer = document.createElement('div');
-    dotsContainer.className = 'slide-dots';
-    slides.forEach((_, index) => {
-      const dot = document.createElement('button');
-      dot.className = `slide-dot ${index === 0 ? 'active' : ''}`;
-      dot.setAttribute('aria-label', `Go to slide ${index + 1}`);
-      dot.addEventListener('click', () => goToSlide(index));
-      dotsContainer.appendChild(dot);
-    });
-    document.querySelector('.banner-slideshow-wrapper').appendChild(dotsContainer);
-    {% endif %}
-
-    function updateButtonStates() {
-      if (prevBtn) prevBtn.disabled = currentSlide === 0;
-      if (nextBtn) nextBtn.disabled = currentSlide === totalSlides - 1;
-
-      // Update dots
-      {% if section.settings.show_slide_dots %}
-      document.querySelectorAll('.slide-dot').forEach((dot, index) => {
-        dot.classList.toggle('active', index === currentSlide);
-      });
-      {% endif %}
-    }
-
-    function goToSlide(index) {
-      if (index < 0 || index >= totalSlides) return;
-
-      currentSlide = index;
-      const scrollPosition = window.innerWidth * currentSlide;
-      slider.scrollTo({ left: scrollPosition, behavior: 'smooth' });
-      updateButtonStates();
-    }
-
-    // Navigation buttons
-    if (prevBtn) {
-      prevBtn.addEventListener('click', () => {
-        goToSlide(currentSlide - 1);
-      });
-    }
-
-    if (nextBtn) {
-      nextBtn.addEventListener('click', () => {
-        goToSlide(currentSlide + 1);
-      });
-    }
-
-    // Auto-play functionality
-    if (autoplayEnabled && totalSlides > 1) {
-      function startAutoPlay() {
-        autoPlayInterval = setInterval(() => {
-          const nextIndex = currentSlide === totalSlides - 1 ? 0 : currentSlide + 1;
-          goToSlide(nextIndex);
-        }, autoplaySpeed);
-      }
-
-      function stopAutoPlay() {
-        clearInterval(autoPlayInterval);
-      }
-
-      startAutoPlay();
-
-      if (pauseOnHover) {
-        slider.addEventListener('mouseenter', stopAutoPlay);
-        slider.addEventListener('mouseleave', startAutoPlay);
-        slider.addEventListener('focusin', stopAutoPlay);
-        slider.addEventListener('focusout', startAutoPlay);
-      }
-    }
-
-    // Touch/Swipe support for mobile
-    if (enableSwipe) {
-      let startX = 0;
-      let endX = 0;
-
-      slider.addEventListener('touchstart', (e) => {
-        startX = e.touches[0].clientX;
-      });
-
-      slider.addEventListener('touchend', (e) => {
-        endX = e.changedTouches[0].clientX;
-        const diff = startX - endX;
-
-        if (Math.abs(diff) > 50) { // Minimum swipe distance
-          if (diff > 0 && currentSlide < totalSlides - 1) {
-            goToSlide(currentSlide + 1);
-          } else if (diff < 0 && currentSlide > 0) {
-            goToSlide(currentSlide - 1);
-          }
-        }
-      });
-    }
-
-    // Initialize
-    updateButtonStates();
-  });
-</script>
 
 
 
