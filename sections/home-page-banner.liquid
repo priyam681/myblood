@@ -450,8 +450,8 @@
 {% endstyle %}
 
 
-<banner-slideshow class="banner-slideshow-wrapper" autoplay="{{ section.settings.enable_autoplay }}" {% if section.settings.enable_autoplay %} autoplay-speed="{{ section.settings.autoplay_speed }}"{% endif %}>
-  <ul id="Banner-{{ section.id }}" class="banner-slideshow" role="list" data-total-slide="{{ section.blocks.size }}" data-current-slide="0" pause-on-hover="{{ section.settings.pause_on_hover }}">
+<banner-slideshow class="banner-slideshow-wrapper" pause-on-hover="{{ section.settings.pause_on_hover }}" autoplay="{{ section.settings.enable_autoplay }}" {% if section.settings.enable_autoplay %} autoplay-speed="{{ section.settings.autoplay_speed }}"{% endif %}>
+  <ul id="Banner-{{ section.id }}" class="banner-slideshow" role="list" data-total-slide="{{ section.blocks.size }}" data-current-slide="0">
     {% for block in section.blocks %}
       {% assign visibility = block.settings.visibility %}
       <li class="banner-slide slider__slide" id="Banner-slide-{{ block.id }}" {{ block.shopify_attributes }}>
@@ -479,7 +479,7 @@
                </div>
              {% endif %}
           </div>
-         <div class="banner-center-image"> <img src="{{ block.settings.center_image | img_url: 'master' }}" alt="{{ block.settings.center_alt_text }}" height="100%" width="100%"/></div>
+         <div class="banner-center-image"> <img src="{{ block.settings.center_image | img_url: 'master' }}" alt="{{ block.settings.center_alt_text }}" height="100%" width="100%" loading="{% if section.settings.lazy_load_images == 'lazy' %}lazy{% else %}eager{% endif %}"/></div>
 {% if block.settings.banner-button_show == "show" %}
                       <div class="banner-buttons hide-desktop">
                           <a class="button button--primary" href="{{ block.settings.button_one_url }}">
@@ -586,27 +586,21 @@
 
 
 <script defer>
-  if (!customElements.get('banner-slideshow')){
-    class BannerSlideshow extends HTMLElement{
-      constructor(){
+  if (!customElements.get('banner-slideshow')) {
+    class BannerSlideshow extends HTMLElement {
+      constructor() {
         super();
         this.interval = null;
         this.currentIndex = 0;
         this.initialized = false;
         this.touchStartX = null;
         this.touchStartY = null;
-        this.enablePauseHover = this.getAttribute('pause-on-hover') === 'true';
+        this.enablePauseHover = false;
       }
 
-      connectedCallback(){
-        if (this.initialized) {
-          console.log('Already connected, skipping...');
-          return;
-        }
-
+      connectedCallback() {
+        if (this.initialized) return;
         this.initialized = true;
-        console.log('BannerSlideshow connected');
-
 
         this.banner = this.querySelector('[id^="Banner-"]');
         this.slides = Array.from(this.querySelectorAll('[id^="Banner-slide-"]'));
@@ -622,35 +616,64 @@
         this.dots = Array.from(this.querySelectorAll('.slide-dot'));
 
         this.speed = this.getAttribute('autoplay-speed');
+        this.autoplaySpeed = this.speed ? parseInt(this.speed) * 1000 : 5000;
 
-        const speedAttr = this.speed;
-        this.autoplaySpeed = speedAttr ? parseInt(speedAttr) * 1000 : 5000;
+        this.enablePauseHover = this.getAttribute('pause-on-hover') === 'true';
 
         this.setupEventListeners();
         this.goToSlide(0);
+
+        if (this.getAttribute('autoplay') === 'true') {
+          this.startAutoPlay();
+        }
       }
 
-      setSpeedAttr(speedValue){
-        this.speed = speedValue;
+      static get observedAttributes() {
+        return ['autoplay', 'autoplay-speed', 'pause-on-hover'];
       }
 
-      setEnablePauseHover(enablePauseHover) {
-        this.enablePauseHover = enablePauseHover;
+      attributeChangedCallback(name, oldValue, newValue) {
+        if (!this.initialized || !this.totalSlides) return;
+
+        switch (name) {
+          case 'autoplay':
+            newValue === 'true' ? this.startAutoPlay() : this.stopAutoPlay();
+            break;
+          case 'autoplay-speed':
+            if (oldValue !== newValue) {
+              this.autoplaySpeed = parseInt(newValue) * 1000;
+              this.startAutoPlay();
+            }
+            break;
+          case 'pause-on-hover':
+            const shouldEnable = newValue === 'true';
+            this.setEnablePauseHover(shouldEnable);
+            break;
+        }
       }
 
-      setupEventListeners(){
-        // Mouse events
+      setEnablePauseHover(enable) {
+        this.enablePauseHover = enable;
+        if (!this.banner) return;
+
+        this.banner.removeEventListener('mouseenter', this.mouseEnterHandler);
+        this.banner.removeEventListener('mouseleave', this.mouseLeaveHandler);
+
+        if (enable) {
+          this.banner.addEventListener('mouseenter', this.mouseEnterHandler);
+          this.banner.addEventListener('mouseleave', this.mouseLeaveHandler);
+        }
+      }
+
+      setupEventListeners() {
         this.mouseEnterHandler = this.onHover.bind(this);
         this.mouseLeaveHandler = this.onMouseLeave.bind(this);
-
-        console.log("Setting up event: ", this.enablePauseHover);
 
         if (this.banner && this.enablePauseHover) {
           this.banner.addEventListener('mouseenter', this.mouseEnterHandler);
           this.banner.addEventListener('mouseleave', this.mouseLeaveHandler);
         }
 
-        // Navigation buttons
         if (this.previous) {
           this.prevClickHandler = () => this.previousSlide();
           this.previous.addEventListener('click', this.prevClickHandler);
@@ -661,26 +684,22 @@
           this.next.addEventListener('click', this.nextClickHandler);
         }
 
-        // Dot navigation
         this.dots.forEach((dot, index) => {
           dot.addEventListener('click', () => this.goToSlide(index));
         });
 
-        // Touch events for mobile swipe
-        if (this.banner && this.enablePauseHover) {
+        if (this.banner) {
           this.banner.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
-          this.banner.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: true });
+          this.banner.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
           this.banner.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: true });
         }
       }
 
-      disconnectedCallback(){
-        console.log('BannerSlideshow disconnected');
+      disconnectedCallback() {
         this.initialized = false;
         this.stopAutoPlay();
 
-        // Remove all event listeners
-        if (this.banner && this.mouseEnterHandler) {
+        if (this.banner) {
           this.banner.removeEventListener('mouseenter', this.mouseEnterHandler);
           this.banner.removeEventListener('mouseleave', this.mouseLeaveHandler);
           this.banner.removeEventListener('touchstart', this.handleTouchStart);
@@ -697,39 +716,9 @@
         }
       }
 
-      static get observedAttributes(){
-        return ['autoplay', 'autoplay-speed', 'pause-on-hover'];
-      }
-
-      attributeChangedCallback(name, oldValue, newValue){
-        if (!this.initialized || !this.totalSlides) return;
-
-        if(name === 'autoplay'){
-          if (newValue === 'true'){
-            console.log("Starting Autoplay");
-            this.startAutoPlay();
-          } else {
-            this.stopAutoPlay();
-          }
-        }else if (name === 'autoplay-speed'){
-          if (oldValue !== newValue){
-            console.log("autoplay-speed: ", newValue);
-            this.setSpeedAttr(newValue);
-            this.startAutoPlay();
-          }
-        }else if (name === 'pause-on-hover'){
-          if (newValue === 'true'){
-            this.setEnablePauseHover(true);
-            this.startAutoPlay();
-          }
-        }
-      }
-
-      startAutoPlay(){
+      startAutoPlay() {
         this.stopAutoPlay();
-
         if (this.totalSlides > 1 && this.initialized) {
-          console.log('Starting autoplay with speed:', this.autoplaySpeed);
           this.interval = setInterval(() => {
             if (!this.initialized) {
               this.stopAutoPlay();
@@ -740,37 +729,30 @@
         }
       }
 
-      stopAutoPlay(){
+      stopAutoPlay() {
         if (this.interval) {
-          console.log('Stopping autoplay');
           clearInterval(this.interval);
           this.interval = null;
         }
       }
 
-      nextSlide(){
+      nextSlide() {
         if (this.totalSlides <= 1 || !this.initialized) return;
         this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
         this.goToSlide(this.currentIndex);
       }
 
-      previousSlide(){
+      previousSlide() {
         if (this.totalSlides <= 1 || !this.initialized) return;
         this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
         this.goToSlide(this.currentIndex);
       }
 
-      goToSlide(index){
+      goToSlide(index) {
         if (this.totalSlides <= 1 || !this.banner || !this.initialized) return;
-
-        if (index < 0 || index >= this.totalSlides) {
-          console.error('Invalid slide index:', index);
-          return;
-        }
+        if (index < 0 || index >= this.totalSlides) return;
 
         this.currentIndex = index;
-
-        // Use scrollTo method for smooth sliding
         const slideWidth = this.banner.offsetWidth;
         const scrollPosition = slideWidth * this.currentIndex;
 
@@ -780,27 +762,15 @@
         });
 
         this.banner.dataset.currentSlide = index;
-        this.updateButtonStates();
         this.updateDots();
-
       }
 
-      updateButtonStates(){
-        if (!this.previous || !this.next) return;
-
-        // For infinite loop, don't disable buttons
-        // If you want to disable at start/end, uncomment these:
-        // this.previous.classList.toggle('disabled', this.currentIndex === 0);
-        // this.next.classList.toggle('disabled', this.currentIndex === this.totalSlides - 1);
-      }
-
-      updateDots(){
+      updateDots() {
         this.dots.forEach((dot, index) => {
           dot.classList.toggle('active', index === this.currentIndex);
         });
       }
 
-      // Touch/Swipe handlers
       handleTouchStart(e) {
         this.touchStartX = e.touches[0].clientX;
         this.touchStartY = e.touches[0].clientY;
@@ -808,14 +778,11 @@
 
       handleTouchMove(e) {
         if (!this.touchStartX || !this.touchStartY) return;
-
         const touchX = e.touches[0].clientX;
         const touchY = e.touches[0].clientY;
-
         const diffX = this.touchStartX - touchX;
         const diffY = this.touchStartY - touchY;
 
-        // Only handle horizontal swipes (ignore vertical scrolling)
         if (Math.abs(diffX) > Math.abs(diffY)) {
           e.preventDefault();
         }
@@ -823,32 +790,24 @@
 
       handleTouchEnd(e) {
         if (!this.touchStartX) return;
-
         const touchEndX = e.changedTouches[0].clientX;
         const diff = this.touchStartX - touchEndX;
 
-        // Minimum swipe distance
         if (Math.abs(diff) > 50) {
-          if (diff > 0) {
-            this.nextSlide();
-          } else {
-            this.previousSlide();
-          }
+          diff > 0 ? this.nextSlide() : this.previousSlide();
         }
 
         this.touchStartX = null;
         this.touchStartY = null;
       }
 
-      onHover(){
+      onHover() {
         if (!this.initialized) return;
-        console.log("onHover - pausing autoplay");
         this.stopAutoPlay();
       }
 
       onMouseLeave() {
         if (!this.initialized) return;
-        console.log("onMouseLeave - resuming autoplay");
         if (this.getAttribute('autoplay') === 'true') {
           this.startAutoPlay();
         }
@@ -858,6 +817,7 @@
     customElements.define('banner-slideshow', BannerSlideshow);
   }
 </script>
+
 
 
 {% schema %}
@@ -1043,10 +1003,20 @@
       "content": "Performance"
     },
     {
-      "type": "checkbox",
+      "type": "select",
       "id": "lazy_load_images",
       "label": "Lazy Load Images",
-      "default": true,
+      "options":[
+        {
+          "value": "lazy",
+          "label": "Lazy"
+        },
+        {
+          "value": "eager",
+          "label": "Eager"
+        }
+      ],
+      "default": "lazy",
       "info": "Load images only when needed for better performance"
     },
     {
