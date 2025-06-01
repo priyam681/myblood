@@ -451,11 +451,11 @@
 
 
 <banner-slideshow class="banner-slideshow-wrapper" pause-on-hover="{{ section.settings.pause_on_hover }}" autoplay="{{ section.settings.enable_autoplay }}" {% if section.settings.enable_autoplay %} autoplay-speed="{{ section.settings.autoplay_speed }}"{% endif %}>
-  <ul id="Banner-{{ section.id }}" class="banner-slideshow" role="list" data-total-slide="{{ section.blocks.size }}" data-current-slide="0">
+  <ul id="Banner-{{ section.id }}" class="banner-slideshow" role="list" data-total-slide="{{ section.blocks.size }}" data-current-slide="0" aria-label="{{ section.settings.slideshow_label | default:'Featured content slideshow' }}">
     {% for block in section.blocks %}
       {% assign visibility = block.settings.visibility %}
       <li class="banner-slide slider__slide" id="Banner-slide-{{ block.id }}" {{ block.shopify_attributes }}>
-        <div class="homepage-banner" style="background: url({{ block.settings.main_image | img_url: 'master' }}) no-repeat center/cover;">
+        <div class="homepage-banner" style="background: url({{ block.settings.main_image | img_url: section.settings.image_quality }}) no-repeat center/cover;">
          <div class="page-width">
          <div class="homepage-banner-wrapper">
            <div class="banner-content">
@@ -479,7 +479,7 @@
                </div>
              {% endif %}
           </div>
-         <div class="banner-center-image"> <img src="{{ block.settings.center_image | img_url: 'master' }}" alt="{{ block.settings.center_alt_text }}" height="100%" width="100%" loading="{% if section.settings.lazy_load_images == 'lazy' %}lazy{% else %}eager{% endif %}"/></div>
+         <div class="banner-center-image"> <img src="{{ block.settings.center_image | img_url: section.settings.image_quality | default:'master' }}" alt="{{ block.settings.center_alt_text }}" height="100%" width="100%" loading="{% if section.settings.lazy_load_images == 'lazy' %}lazy{% else %}eager{% endif %}"/></div>
 {% if block.settings.banner-button_show == "show" %}
                       <div class="banner-buttons hide-desktop">
                           <a class="button button--primary" href="{{ block.settings.button_one_url }}">
@@ -573,6 +573,8 @@
       </li>
     {% endfor %}
   </ul>
+
+
   <div class="slider-buttons-wrapper">
     <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous">
     <span class="svg-wrapper">{{- 'left-arrow.svg' | inline_asset_content -}}</span>
@@ -1025,11 +1027,11 @@
       "label": "Image Quality",
       "options": [
         {
-          "value": "medium",
+          "value": "1024x1024",
           "label": "Medium (Faster loading)"
         },
         {
-          "value": "high",
+          "value": "1920x1920",
           "label": "High (Better quality)"
         },
         {
@@ -1037,7 +1039,7 @@
           "label": "Original (Best quality)"
         }
       ],
-      "default": "high"
+      "default": "master"
     },
     {
       "type": "header",
