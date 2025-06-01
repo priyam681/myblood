@@ -64,6 +64,8 @@
 
                                                     {%- for grandchildlink in childlink.links -%}
                                                         {% assign image_url = grandchildlink.object.featured_image | image_url: width: 100 %}
+
+
                                                         <img src="{{ image_url }}" alt="{{ grandchildlink.title | escape }}" class="mega-menu__image" />
 
 
