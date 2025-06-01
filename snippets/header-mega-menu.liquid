@@ -63,6 +63,9 @@
                                                 <ul class="list-unstyled" role="list">
 
                                                     {%- for grandchildlink in childlink.links -%}
+                                                        {% assign image_url = grandchildlink.object.featured_image | image_url: width: 100 %}
+                                                        <img src="{{ image_url }}" alt="{{ grandchildlink.title | escape }}" class="mega-menu__image" />
+
 
                                                         <li data-link="{{ link.handle }}" data-childlink="{{ childlink.handle }}" data-grandchildlink="{{ grandchildlink.handle }}" class="mega-menu__item mega-menu__item--level-3">
                                                             <a
