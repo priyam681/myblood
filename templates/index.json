@@ -57,10 +57,10 @@
             "banner_button_show": "show",
             "mobile_button_visibility": "hide",
             "button_one_text": "Shop Now",
-            "button_one_url": "",
+            "button_one_url": "#",
             "button_one_style": "solid",
             "button_two_text": "New One",
-            "button_two_url": "",
+            "button_two_url": "#",
             "button_two_style": "outline",
             "visibility": "show",
             "product_list_image_left": "shopify://shop_images/hot-search.png",
@@ -78,7 +78,7 @@
         "banner_slide_zQyJct"
       ],
       "settings": {
-        "enable_autoplay": true,
+        "enable_autoplay": false,
         "autoplay_speed": 5,
         "pause_on_hover": true,
         "show_navigation_arrows": true,
