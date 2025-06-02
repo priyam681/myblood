@@ -27,10 +27,10 @@
             "banner_button_show": "show",
             "mobile_button_visibility": "hide",
             "button_one_text": "Shop Now",
-            "button_one_url": "#",
-            "button_one_style": "solid-white",
+            "button_one_url": "",
+            "button_one_style": "solid",
             "button_two_text": "New One",
-            "button_two_url": "#",
+            "button_two_url": "",
             "button_two_style": "outline",
             "visibility": "show",
             "product_list_image_left": "shopify://shop_images/hot-search.png",
@@ -42,7 +42,7 @@
             "product_display_3": "adania-pant"
           }
         },
-        "banner_slide_aWBzpR": {
+        "banner_slide_zQyJct": {
           "type": "banner_slide",
           "settings": {
             "heading": "IN MOTION WE FIND FREEDOM AND JOY",
@@ -57,10 +57,10 @@
             "banner_button_show": "show",
             "mobile_button_visibility": "hide",
             "button_one_text": "Shop Now",
-            "button_one_url": "#",
-            "button_one_style": "solid-white",
+            "button_one_url": "",
+            "button_one_style": "solid",
             "button_two_text": "New One",
-            "button_two_url": "#",
+            "button_two_url": "",
             "button_two_style": "outline",
             "visibility": "show",
             "product_list_image_left": "shopify://shop_images/hot-search.png",
@@ -75,10 +75,10 @@
       },
       "block_order": [
         "banner_slide_7xPjma",
-        "banner_slide_aWBzpR"
+        "banner_slide_zQyJct"
       ],
       "settings": {
-        "enable_autoplay": false,
+        "enable_autoplay": true,
         "autoplay_speed": 5,
         "pause_on_hover": true,
         "show_navigation_arrows": true,
@@ -94,7 +94,7 @@
         "arrow_position": "inside",
         "mobile_stack_content": true,
         "enable_mobile_swipe": true,
-        "lazy_load_images": "lazy",
+        "image_quality": "high",
         "reduce_motion": true,
         "slideshow_label": "Featured content slideshow"
       }
@@ -307,11 +307,11 @@
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "title": "",
+        "title": "Collections",
         "variant": false,
         "heading_size": "h1",
-        "image_ratio": "portrait",
-        "columns_desktop": 1,
+        "image_ratio": "square",
+        "columns_desktop": 3,
         "color_scheme": "",
         "show_view_all": false,
         "columns_mobile": "1",
@@ -331,73 +331,13 @@
         "button_link": ""
       }
     },
-    "recommended_products_m4qpPD": {
-      "type": "recommended-products",
-      "blocks": {
-        "product_TCRhRp": {
-          "type": "product",
-          "settings": {
-            "product": "5-pocket-jean"
-          }
-        },
-        "product_Wbi6Rt": {
-          "type": "product",
-          "settings": {
-            "product": "a-line-jacket-in-black"
-          }
-        },
-        "product_Xhn43p": {
-          "type": "product",
-          "settings": {
-            "product": "a-line-pocket-shift-black"
-          }
-        },
-        "product_Mq4CXF": {
-          "type": "product",
-          "settings": {
-            "product": "acb-top-in-chipped-brick"
-          }
-        },
-        "product_3BFKDp": {
-          "type": "product",
-          "settings": {
-            "product": "aliam-skirt-mud"
-          }
-        },
-        "product_JeNDdz": {
-          "type": "product",
-          "settings": {
-            "product": "antidote-13-tee-mood-indigo"
-          }
-        },
-        "product_rrNpqP": {
-          "type": "product",
-          "settings": {
-            "product": "axel-coat-black"
-          }
-        }
-      },
-      "block_order": [
-        "product_TCRhRp",
-        "product_Wbi6Rt",
-        "product_Xhn43p",
-        "product_Mq4CXF",
-        "product_3BFKDp",
-        "product_JeNDdz",
-        "product_rrNpqP"
-      ],
-      "name": "Recommended Products",
-      "settings": {
-        "heading": "Recommended for You"
-      }
-    },
     "colorful_kick_fRCnyF": {
       "type": "colorful-kick",
       "blocks": {
         "image_showcase_mekXhE": {
           "type": "image_showcase",
           "settings": {
-            "product": "bizi-rose-aubergine"
+            "product": "shoes"
           }
         }
       },
@@ -431,7 +371,6 @@
     "choose_your_action_ekDx6H",
     "cstm_collection_list_DFy79n",
     "performance_banner_NfWipW",
-    "recommended_products_m4qpPD",
     "colorful_kick_fRCnyF"
   ]
 }
