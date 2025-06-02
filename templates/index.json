@@ -278,6 +278,48 @@
         "section_title": "CHOOSE YOUR ACTION"
       }
     },
+    "cstm_collection_list_KbAVeW": {
+      "type": "cstm-collection-list",
+      "blocks": {
+        "featured_collection_wCppDX": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_h7nQDD": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        },
+        "featured_collection_gh9wHk": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": ""
+          }
+        }
+      },
+      "block_order": [
+        "featured_collection_wCppDX",
+        "featured_collection_h7nQDD",
+        "featured_collection_gh9wHk"
+      ],
+      "name": "t:sections.collection-list.presets.name",
+      "settings": {
+        "title": "Collections",
+        "variant": false,
+        "heading_size": "h1",
+        "image_ratio": "adapt",
+        "columns_desktop": 1,
+        "color_scheme": "",
+        "show_view_all": false,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
     "cstm_collection_list_DFy79n": {
       "type": "cstm-collection-list",
       "blocks": {
@@ -429,6 +471,7 @@
     "product_tab_NthRmD",
     "featured_collection_grid_gCfPH8",
     "choose_your_action_ekDx6H",
+    "cstm_collection_list_KbAVeW",
     "cstm_collection_list_DFy79n",
     "performance_banner_NfWipW",
     "recommended_products_m4qpPD",
