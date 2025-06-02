@@ -42,7 +42,7 @@
             "product_display_3": "adania-pant"
           }
         },
-        "banner_slide_zQyJct": {
+        "banner_slide_aWBzpR": {
           "type": "banner_slide",
           "settings": {
             "heading": "IN MOTION WE FIND FREEDOM AND JOY",
@@ -58,7 +58,7 @@
             "mobile_button_visibility": "hide",
             "button_one_text": "Shop Now",
             "button_one_url": "#",
-            "button_one_style": "solid",
+            "button_one_style": "solid-white",
             "button_two_text": "New One",
             "button_two_url": "#",
             "button_two_style": "outline",
@@ -75,7 +75,7 @@
       },
       "block_order": [
         "banner_slide_7xPjma",
-        "banner_slide_zQyJct"
+        "banner_slide_aWBzpR"
       ],
       "settings": {
         "enable_autoplay": false,
