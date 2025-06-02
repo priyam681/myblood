@@ -455,7 +455,7 @@
     {% for block in section.blocks %}
       {% assign visibility = block.settings.visibility %}
       <li class="banner-slide slider__slide" id="Banner-slide-{{ block.id }}" {{ block.shopify_attributes }}>
-        <div class="homepage-banner" style="background: url({{ block.settings.main_image | img_url: section.settings.image_quality }}) no-repeat center/cover;">
+        <div class="homepage-banner" style="background: url({{ block.settings.main_image | img_url:'master' }}) no-repeat center/cover;">
          <div class="page-width">
          <div class="homepage-banner-wrapper">
            <div class="banner-content">
@@ -479,7 +479,12 @@
                </div>
              {% endif %}
           </div>
-         <div class="banner-center-image"> <img src="{{ block.settings.center_image | img_url: section.settings.image_quality | default:'master' }}" alt="{{ block.settings.center_alt_text }}" height="100%" width="100%" loading="{% if section.settings.lazy_load_images == 'lazy' %}lazy{% else %}eager{% endif %}"/></div>
+         <div class="banner-center-image">
+           {% if block.settings.center_image %}
+             <img src="{{ block.settings.center_image | img_url: 'master' }}" alt="{{ block.settings.center_alt_text | default: 'center image' }}" height="100%" width="100%" loading="{% if section.settings.lazy_load_images == 'lazy' %}lazy{% else %}eager{% endif %}"/>
+           {% endif %}
+
+         </div>
 {% if block.settings.banner-button_show == "show" %}
                       <div class="banner-buttons hide-desktop">
                           <a class="button button--primary" href="{{ block.settings.button_one_url }}">
@@ -1020,26 +1025,6 @@
       ],
       "default": "lazy",
       "info": "Load images only when needed for better performance"
-    },
-    {
-      "type": "select",
-      "id": "image_quality",
-      "label": "Image Quality",
-      "options": [
-        {
-          "value": "1024x1024",
-          "label": "Medium (Faster loading)"
-        },
-        {
-          "value": "1920x1920",
-          "label": "High (Better quality)"
-        },
-        {
-          "value": "master",
-          "label": "Original (Best quality)"
-        }
-      ],
-      "default": "master"
     },
     {
       "type": "header",
