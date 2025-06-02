@@ -2,8 +2,8 @@
     padding-block: 5rem;
 }
 .recommended-heading {
-    font-size: 24px;
-    font-weight: bold;
+   font-size: calc(22px + (45 - 22) * ((100vw - 360px) / (1920 - 360)));
+    font-weight: 70;
     height: 50px;
     margin: 0 0 20px;
 }
