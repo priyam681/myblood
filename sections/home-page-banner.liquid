@@ -162,8 +162,6 @@
   .homepage-banner .homepage-banner-wrapper .banner-center-image {
       width: 65%;
       {% case section.settings.content_alignment %}
-          {% when 'center' %}
-            margin: auto;
           {% when 'right' %}
              margin-right: auto;
           {% else %}
@@ -265,6 +263,8 @@
   }
   }
 
+
+
   @media screen and (min-width: 993px) {
   .banner-buttons--mobile-hide,
   .banner-buttons--mobile-show {
@@ -273,21 +273,27 @@
   }
    .banner-content {
     {% case section.settings.content_alignment %}
-      {% when 'center' %}
-        text-align: center;
-        left: 50%;
-        transform: translateX(-50%);
       {% when 'right' %}
         right: 0;
         text-align: right;
       {% else %}
         left: 0;
         text-align: left;
+        z-index: 1;
     {% endcase %}
-    max-width: {{ section.settings.content_width | default: 50 }}%;
-    z-index: 1;
     }
   }
+  @media screen and (min-width: 1200px) {
+    .banner-content {
+       max-width: {{ section.settings.content_width | default: 40 }}%;
+    }
+  }
+  @media screen and (max-width: 1200px) {
+  .banner-content {
+  max-width: {{ section.settings.content_width | default: 50 }}%;
+  }
+  }
+
 
 {% endstyle %}
 
@@ -885,10 +891,6 @@
         {
           "value": "left",
           "label": "Left"
-        },
-        {
-          "value": "center",
-          "label": "Center"
         },
         {
           "value": "right",
