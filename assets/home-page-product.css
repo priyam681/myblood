@@ -23,10 +23,6 @@
     margin-bottom: 10px;
 }
 
-.product-card .main-image {
-    aspect-ratio: 1;
-}
-
 .product-card .product-name {
     font-size: calc(16px + (24 - 16) * ((100vw - 360px) / (1920 - 360)));
     line-height: 1;
