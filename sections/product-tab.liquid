@@ -1,3 +1,5 @@
+{{ 'home-page-product.css' | asset_url | stylesheet_tag }}
+
 {% schema %}
 {
   "name": "Product Tabs",
@@ -52,7 +54,7 @@
   </ul>
 </div>
   {% for block in section.blocks %}
-    <div class="pua-tab-content {% if forloop.first %}active{% endif %}" id="tab-tab-{{ forloop.index }}">
+    <div class="pua-tab-content test {% if forloop.first %}active{% endif %}" id="tab-tab-{{ forloop.index }}">
       {% assign collection = collections[block.settings.collection] %}
       {% if collection.products.size > 0 %}
         <div class="pua-product-slider swiper" data-product-count="{{ collection.products.size }}">
@@ -89,7 +91,11 @@
                     <link itemprop="availability" href="https://schema.org/InStock" />
                   </div>
 
-                  <p class="desc">Memory Foam Insole & UltraSoft Outsole</p>
+{% if product.metafields.custom.short_description %}
+  <p class="product-short-desc">
+    {{ product.metafields.custom.short_description }}
+  </p>
+{% endif %}
                 </div>
               </div>
             {% endfor %}
@@ -117,75 +123,14 @@
 </div>
 </div>
 
-{% comment %}<script defer>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Use querySelectorAll to handle multiple thumbnail wrappers on the page
-    const thumbnailWrappers = document.querySelectorAll(".thumbnail-wrapper");
-
-
-    thumbnailWrappers.forEach(parent => {
-      const children = parent.querySelectorAll(".thumbnail");
-      const totalLength = children.length;
-      let childrenLength = totalLength;
-
-      const observer = new ResizeObserver(() => {
-        const parentWidth = parent.clientWidth;
-        let currentWidth = 0;
-
-        // Calculate visibility for each thumbnail
-        children.forEach(child => {
-          // Reset display before measuring
-          child.style.display = 'block';
-
-          const childWidth = child.offsetWidth;
-          const margins = parseFloat(getComputedStyle(child).marginLeft) +
-                  parseFloat(getComputedStyle(child).marginRight);
-
-          currentWidth += childWidth + margins;
-
-          // Hide thumbnails that would overflow
-          if (currentWidth > parentWidth) {
-            childrenLength--;
-            child.style.display = 'none';
-          }
-        });
-
-        let remaining = totalLength - childrenLength;
-
-        if (totalLength <= remaining) {
-          const plus = `<span class="more-images-indicator">
-                      <span class="icon-wrapper">
-                        <img src="{{ 'asterix.jpg' | asset_url }}" alt="More images" width="20" height="20"/>
-                      </span>
-                      <span class="count">0</span>
-                   </span>`
-          children.insertAdjacentHTML('afterend', plus)
-        }
-
-
-      });
-
-      observer.observe(parent);
-
-    // Update the count in the span
-
-
-
-    });
-  });
-</script>
-{% endcomment %}
-
 <script defer>
   document.addEventListener('DOMContentLoaded', () => {
-    // Handle multiple thumbnail wrappers on the page
     document.querySelectorAll(".thumbnail-wrapper").forEach(parent => {
       const thumbnails = Array.from(parent.querySelectorAll(".thumbnail"));
       const totalThumbnails = thumbnails.length;
       let indicator = null;
 
       const observer = new ResizeObserver(() => {
-        // Remove any existing indicator before recalculating
         if (indicator) {
           indicator.remove();
           indicator = null;
@@ -196,10 +141,7 @@
         let visibleCount = 0;
 
         let lastVisibleIndex = -1;
-
-        // Calculate which thumbnails can be displayed
         thumbnails.forEach((thumbnail, i) => {
-          // Reset display before measuring
           thumbnail.style.display = 'block';
 
           const thumbnailWidth = thumbnail.offsetWidth;
@@ -215,21 +157,12 @@
             thumbnail.style.display = 'none';
           }
         });
-
-        // Calculate remaining hidden thumbnails
         const hiddenCount = totalThumbnails - visibleCount;
-
-        // Only show indicator if there are hidden thumbnails
         if (hiddenCount > 0 && lastVisibleIndex >= 0) {
           thumbnails[lastVisibleIndex].style.display = 'none';
-
-          // create the indicator
           indicator = document.createElement('span');
           indicator.className = 'more-images-indicator';
           indicator.style.display = 'flex';
-
-          // count includes the last hidden thumbnail plus any others.
-
           const indicatorCount = hiddenCount + 1;
 
           indicator.innerHTML = `
@@ -238,7 +171,6 @@
 
           // Add click handler to show all thumbnails in a modal or expand the container
           indicator.addEventListener('click', () => {
-            // Implement your logic to show all thumbnails here
             thumbnails.forEach(thumbnail => {
               thumbnail.style.display = 'block';
             });
@@ -257,189 +189,6 @@
 </script>
 
 
-<style>
-.more-images-indicator {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-width: 50px;
-    height: 50px;
-    border: 1px solid #eee;
-    border-radius: 4px;
-    background-color: #f9f9f9;
-    cursor: pointer;
-    transition: background-color 0.2s;
-    display: none;
-  }
-
-  .more-images-indicator:hover {
-    background-color: #f0f0f0;
-    border-color: #ddd;
-  }
-
-  .icon-wrapper {
-    display: flex;
-    justify-content: center;
-    height:100%;
-  }
-
-  .icon-wrapper img {
-    width: 20px;
-    height: 20px;
-    object-fit: contain;
-  }
-
-  .count {
-    font-size: 12px;
-    font-weight: bold;
-    color: #666;
-    margin-top: 2px;
-  }
-  .tabs-wrapper {
-    margin: 30px 0 40px;
-  }
-  .tabs-wrapper .tab_heading {
-    font-weight: bold;
-    color: #000;
-  }
-
-.thumbnail-wrapper {
-  display: flex;
-  gap: 6px;
-  margin-top: 8px;
-  flex-wrap: wrap;
-}
-
-.product-card .thumbnail {
-  width: calc(40px + (70 - 40) * ((100vw - 360px) / (1920 - 360)));
-  height: calc(40px + (70 - 40) * ((100vw - 360px) / (1920 - 360)));
-  min-width: calc(40px + (70 - 40) * ((100vw - 360px) / (1920 - 360)));
-  min-height: calc(40px + (70 - 40) * ((100vw - 360px) / (1920 - 360)));
-  object-fit: cover;
-  cursor: pointer;
-  border: 1px solid #eee;
-  border-radius: 4px;
-  transition: border 0.2s;
-}
-
-.thumbnail:hover {
-  border-color: red;
-}
-
-  .pua-tabs {
-    display: flex;
-    list-style: none;
-    gap: 20px;
-    font-weight: bold;
-    padding: 0;
-    margin: 0;
-  }
-  .pua-tabs li {
-    cursor: pointer;
-    color: gray;
-  }
-  .pua-tabs li.active {
-    color: red;
-    border-bottom: 2px solid red;
-  }
-  .pua-tab-content {
-    display: none;
-  }
-  .pua-tab-content.active {
-    display: block;
-  }
-  .pua-product-grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
-  }
-  .product-card img {
-    width: 100%;
-    height: auto;
-  }
-  .product-card .main-image {
-    aspect-ratio: 1;
-  }
-  .product-card .product-price {
-    font-size: calc(14px + (22 - 14) * ((100vw - 360px) / (1920 - 360)));
-    line-height: 1;
-    color: #ff3200;
-    font-weight: 500;
-  }
-  .product-card .product-name {
-    font-size: calc(16px + (24 - 16) * ((100vw - 360px) / (1920 - 360)));
-    line-height: 1;
-    margin: 2.4rem 0 0.8rem;
-    font-weight: 500;
-  }
-   .product-card .desc {
-     margin-top: 1.2rem;
-   }
-  .pua-product-slider.static-grid .swiper-wrapper {
-    display: flex;
-    flex-wrap: wrap;
-  }
-  .pua-product-slider.static-grid .swiper-slide {
-    width: 100%;
-    max-width: 25%;
-  }
-  .pua-product-slider .swiper-slide {
-    box-sizing: border-box;
-  }
-  .thumbnail {
-    border: 1px solid #ccc;
-    cursor: pointer;
-  }
-  .thumbnail:hover {
-    border-color: red;
-  }
-.tabs-inner-wrapper .item-prev,
-.tabs-inner-wrapper .item-next {
-  background: black;
-  color: #fff;
-  display: flex;
-  padding: 17px;
-  cursor: pointer;
-}
-.tabs-inner-wrapper .swiper-button-disabled {
-  opacity: 0.35;
-  pointer-events: none;
-}
-.prev-next-button {
-    display: flex;
-    gap: 20px;
-    position: absolute;
-    right: 0;
-    top: 0;
-    z-index: 1;
-}
-.item-prev .svg-wrapper {
- transform: rotate(90deg);
-}
-.item-next .svg-wrapper {
- transform: rotate(270deg);
-}
-.tabs-inner-wrapper {
-   position: relative;
-}
-.tabs-inner-wrapper .swiper {
-  position: unset;
-}
-@media screen and (max-width: 768px) {
-.tabs-wrapper .tab_heading {
-    margin-bottom: 12px;
-  }
-  }
-
-@media screen and (min-width: 768px) {
-.tabs-wrapper {
-    display: flex;
-    gap: 20px;
-  }
-  }
-</style>
 
 <script>
   document.addEventListener("DOMContentLoaded", function () {

@@ -331,6 +331,66 @@
         "button_link": ""
       }
     },
+    "recommended_products_m4qpPD": {
+      "type": "recommended-products",
+      "blocks": {
+        "product_TCRhRp": {
+          "type": "product",
+          "settings": {
+            "product": "5-pocket-jean"
+          }
+        },
+        "product_Wbi6Rt": {
+          "type": "product",
+          "settings": {
+            "product": "a-line-jacket-in-black"
+          }
+        },
+        "product_Xhn43p": {
+          "type": "product",
+          "settings": {
+            "product": "a-line-pocket-shift-black"
+          }
+        },
+        "product_Mq4CXF": {
+          "type": "product",
+          "settings": {
+            "product": "acb-top-in-chipped-brick"
+          }
+        },
+        "product_3BFKDp": {
+          "type": "product",
+          "settings": {
+            "product": "aliam-skirt-mud"
+          }
+        },
+        "product_JeNDdz": {
+          "type": "product",
+          "settings": {
+            "product": "antidote-13-tee-mood-indigo"
+          }
+        },
+        "product_rrNpqP": {
+          "type": "product",
+          "settings": {
+            "product": "axel-coat-black"
+          }
+        }
+      },
+      "block_order": [
+        "product_TCRhRp",
+        "product_Wbi6Rt",
+        "product_Xhn43p",
+        "product_Mq4CXF",
+        "product_3BFKDp",
+        "product_JeNDdz",
+        "product_rrNpqP"
+      ],
+      "name": "Recommended Products",
+      "settings": {
+        "heading": "Recommended for You"
+      }
+    },
     "colorful_kick_fRCnyF": {
       "type": "colorful-kick",
       "blocks": {
@@ -371,6 +431,7 @@
     "choose_your_action_ekDx6H",
     "cstm_collection_list_DFy79n",
     "performance_banner_NfWipW",
+    "recommended_products_m4qpPD",
     "colorful_kick_fRCnyF"
   ]
 }
