@@ -299,7 +299,7 @@ a#togglePassword {
 
 @media screen and (min-width: 992px) {
   .page-width {
-    padding: 0 5rem;
+    padding: 0 8.6%;
   }
   .utility-bar__grid {
     display: flex;
@@ -309,8 +309,8 @@ a#togglePassword {
     padding-inline: 5rem;
 }
   .header:not(.drawer-menu).page-width {
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 8.6%;
+    padding-right: 8.6%;
   }
   .page-width-desktop {
     max-width: var(--page-width);
@@ -2551,8 +2551,8 @@ input[type="checkbox"] {
 
 @media screen and (min-width: 992px) {
   body:has(.section-header .header:not(.drawer-menu)) .utility-bar .page-width {
-    padding-left: 5rem;
-    padding-right: 5rem;
+    padding-left: 8.6%;
+    padding-right: 8.6%;
   }
 
   .announcement-bar-slider {
