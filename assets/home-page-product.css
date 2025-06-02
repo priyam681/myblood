@@ -1,3 +1,6 @@
+.recommended-section {
+    padding-block: 5rem;
+}
 .recommended-heading {
     font-size: 24px;
     font-weight: bold;
@@ -237,6 +240,9 @@
 @media screen and (max-width: 768px) {
     .tabs-wrapper .tab_heading {
         margin-bottom: 12px;
+    }
+    .prev-next-button {
+        display: none;
     }
 }
 
