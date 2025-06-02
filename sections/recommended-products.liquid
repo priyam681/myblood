@@ -94,6 +94,86 @@
   </div>
 </section>
 
+<script defer>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll(".thumbnail-wrapper").forEach(parent => {
+      const thumbnails = Array.from(parent.querySelectorAll(".thumbnail"));
+      const totalThumbnails = thumbnails.length;
+      let indicator = null;
+      let expanded = false;
+
+      const observer = new ResizeObserver(() => {
+        if (expanded) return;
+
+        if (indicator) {
+          indicator.remove();
+          indicator = null;
+        }
+
+        const parentWidth = parent.clientWidth;
+        let currentWidth = 0;
+        let visibleCount = 0;
+
+        let lastVisibleIndex = -1;
+        thumbnails.forEach((thumbnail, i) => {
+          thumbnail.style.display = 'block';
+
+          const thumbnailWidth = thumbnail.offsetWidth;
+          const margins = parseFloat(getComputedStyle(thumbnail).marginLeft) +
+            parseFloat(getComputedStyle(thumbnail).marginRight);
+
+          currentWidth += thumbnailWidth + margins;
+
+          if (currentWidth <= parentWidth) {
+            visibleCount++;
+            lastVisibleIndex = i;
+          } else {
+            thumbnail.style.display = 'none';
+          }
+        });
+        const hiddenCount = totalThumbnails - visibleCount;
+        if (hiddenCount > 0 && lastVisibleIndex >= 0) {
+          thumbnails[lastVisibleIndex].style.display = 'none';
+
+          indicator = document.createElement('span');
+          indicator.className = 'more-images-indicator';
+          indicator.style.display = 'flex';
+          indicator.style.cursor = 'pointer';
+          const indicatorCount = hiddenCount + 1;
+
+
+          indicator.innerHTML = `
+            <span class="count">+${indicatorCount}</span>
+          `;
+
+          // Add click handler to show all thumbnails in a modal or expand the container
+          indicator.addEventListener('click', (event) => {
+            event.preventDefault();
+            event.stopPropagation();
+            expanded = true;
+            // Add your logic to show all thumbnails in a modal or expand the container
+
+            thumbnails.forEach(thumbnail => {
+              thumbnail.style.display = 'block';
+            });
+
+            // Hide the indicator
+
+            if (indicator) {
+              indicator.remove();
+              indicator = null;
+            }
+          });
+
+          parent.appendChild(indicator);
+        }
+      });
+
+      observer.observe(parent);
+    });
+  });
+</script>
+
 
 
 {% if section.blocks.size > 4 %}
