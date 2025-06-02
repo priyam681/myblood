@@ -94,7 +94,7 @@
         "arrow_position": "inside",
         "mobile_stack_content": true,
         "enable_mobile_swipe": true,
-        "image_quality": "high",
+        "lazy_load_images": "lazy",
         "reduce_motion": true,
         "slideshow_label": "Featured content slideshow"
       }
