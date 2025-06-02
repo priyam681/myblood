@@ -31,7 +31,7 @@
             "button_one_style": "solid-white",
             "button_two_text": "New One",
             "button_two_url": "#",
-            "button_two_style": "solid-white",
+            "button_two_style": "outline",
             "visibility": "show",
             "product_list_image_left": "shopify://shop_images/hot-search.png",
             "product_list_left_text": "<div>HOT</div><div>SEARCHES</div>",
