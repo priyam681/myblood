@@ -299,7 +299,7 @@ a#togglePassword {
 
 @media screen and (min-width: 992px) {
   .page-width {
-    padding: 0 5rem;
+    padding: 0 8.6%;
   }
   .utility-bar__grid {
     display: flex;
