@@ -307,10 +307,10 @@
       ],
       "name": "t:sections.collection-list.presets.name",
       "settings": {
-        "title": "Collections",
+        "title": "",
         "variant": false,
         "heading_size": "h1",
-        "image_ratio": "square",
+        "image_ratio": "portrait",
         "columns_desktop": 1,
         "color_scheme": "",
         "show_view_all": false,
