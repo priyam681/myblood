@@ -134,10 +134,9 @@
       const observer = new ResizeObserver(() => {
         if (expanded) return;
 
-        if (indicator) {
-          indicator.remove();
-          indicator = null;
-        }
+        // Remove any existing indicators in case of duplicates
+        parent.querySelectorAll('.more-images-indicator').forEach(el => el.remove());
+
 
         const parentWidth = parent.clientWidth;
         let currentWidth = 0;
