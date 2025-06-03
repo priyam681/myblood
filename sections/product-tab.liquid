@@ -10,6 +10,32 @@
        "id": "tab_heading",
        "label": "Tab Heading",
        "default": "LATEST"
+    },
+    {
+      "type": "color",
+      "id":"tab_background_color",
+      "label": "Tab Background Color",
+      "default": "#f8f8f8"
+    },
+    {
+      "type":"range",
+      "id":"tab_padding",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Tab Padding",
+      "default":40
+    },
+    {
+      "type":"range",
+      "id":"tab_margin",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Tab Margin",
+      "default":30
     }
   ],
 
@@ -41,7 +67,7 @@
 }
 {% endschema %}
 
-<div class="pua-tabs-wrapper page-width">
+<div class="pua-tabs-wrapper page-width" style="background-color: {{ section.settings.tab_background_color }}; padding-block:{{ section.settings.tab_padding }}px; margin-block: {{ section.settings.tab_margin }}px;">
 <div class="tabs-inner-wrapper">
 <div class="tabs-wrapper">
 <div class="tab_heading">{{ section.settings.tab_heading }}</div>
