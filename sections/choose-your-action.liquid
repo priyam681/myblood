@@ -2,6 +2,11 @@
 {
   "name": "Choose Your Action",
   "settings": [
+  {
+              "type": "image_picker",
+              "id": "bg_image",
+              "label": "Background Image"
+            },
     {
       "type": "text",
       "id": "section_title",
@@ -98,23 +103,35 @@
 </div>
 
 {% style %}
-  .choose-action-wrapper {
-    padding-block: 40px;
-  }
-
-  .choose-action-title {
-    font-size: calc(14px + (20 - 14) * ((100vw - 360px) / (1920 - 360)));
-    text-transform: uppercase;
-    color: #292929;
-  }
-  .action-labels {
-    list-style: none;
-    padding: 0;
-    width: fit-content;
-  }
+.choose-action-wrapper {
+  position: relative;
+}
+ .choose-action-wrapper:before {
+    content: '';
+    position: absolute;
+    height: 100%;
+    left: 0;
+    background-image: url('{{ section.settings.bg_image | image_url }}');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    z-index: -1;
+ }
+.choose-action-title {
+  font-size: calc(14px + (20 - 14) * ((100vw - 360px) / (1920 - 360)));
+  text-transform: uppercase;
+  color: #292929;
+  font-weight: 500;
+  letter-spacing: 0.4px;
+  text-transform: uppercase;
+}
+.action-labels {
+  list-style: none;
+  padding: 0;
+  width: fit-content;
+}
 
   .choose-action-left .action-label a {
-    font-size: calc(40px + (80 - 40) * ((100vw - 360px) / (1920 - 360)));
     font-weight: bold;
     padding-bottom: 25px;
     cursor: pointer;
@@ -122,6 +139,9 @@
     line-height: 1;
     display: block;
     text-decoration: none;
+  }
+  .choose-action-left .action-label:last-child a {
+     padding-bottom: 0;
   }
   .action-label a:hover {
     color: #FF3200;
@@ -169,22 +189,42 @@
   }
   .choose-action-container .choose-action-left {
    text-align: center;
+   padding-block: 3rem;
+   margin-block: 3rem;
   }
   .choose-action-container .choose-action-left .action-labels {
      margin: auto;
 
   }
+  .choose-action-wrapper:before {
+      width: 100%;
+   }
+   .choose-action-left .action-label a {
+       font-size: calc(40px + (60 - 40) * ((100vw - 360px) / (992 - 360)));
+       }
   }
   @media screen and (min-width: 992px) {
+  .choose-action-wrapper {
+    margin-block: 7rem;
+  }
   .choose-action-wrapper .choose-action-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 7rem;
     align-items: center;
   }
   .choose-action-container .choose-action-left .choose-action-title {
     margin-bottom: 5rem;
   }
+  .choose-action-left {
+     padding-right: 12%;
+  }
+  .choose-action-wrapper:before {
+      width: 50%;
+      top: 7rem;
+   }
+   .choose-action-left .action-label a {
+          font-size: calc(40px + (80 - 40) * ((100vw - 992okpx) / (1920 - 992)));
+          }
   }
 {% endstyle %}
 
