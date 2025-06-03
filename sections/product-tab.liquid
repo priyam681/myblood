@@ -67,7 +67,8 @@
 }
 {% endschema %}
 
-<div class="pua-tabs-wrapper page-width" style="background-color: {{ section.settings.tab_background_color }}; padding-block:{{ section.settings.tab_padding }}px; margin-block: {{ section.settings.tab_margin }}px;">
+<div  style="background-color: {{ section.settings.tab_background_color }}; padding-block:{{ section.settings.tab_padding }}px; margin-block: {{ section.settings.tab_margin }}px;">
+<div class="pua-tabs-wrapper page-width">
 <div class="tabs-inner-wrapper">
 <div class="tabs-wrapper">
 <div class="tab_heading">{{ section.settings.tab_heading }}</div>
@@ -148,7 +149,7 @@
   {% endfor %}
 </div>
 </div>
-
+</div>
 <script defer>
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll(".thumbnail-wrapper").forEach(parent => {
