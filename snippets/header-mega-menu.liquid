@@ -43,7 +43,7 @@
 
                                     {%- for childlink in link.links -%}
 
-                                        <li>
+                                        <li class="mega-menu-subcategory-list">
 
                                             {% render 'category-images', link: childlink %}
 
@@ -66,10 +66,24 @@
                                                         {% assign image_url = grandchildlink.object.featured_image | image_url: width: 100 %}
 
 
-                                                        <img src="{{ image_url }}" alt="{{ grandchildlink.title | escape }}" class="mega-menu__image" />
+
 
 
                                                         <li data-link="{{ link.handle }}" data-childlink="{{ childlink.handle }}" data-grandchildlink="{{ grandchildlink.handle }}" class="mega-menu__item mega-menu__item--level-3">
+                                                            {% if section.settings.enable_show_on_mobile %}
+                                                                {% style %}
+                                                                    @media-screen and (min-width: 768px){
+                                                                    .mega-menu__image{
+                                                                        display: none;
+                                                                    }
+                                                                    }
+
+                                                                {%endstyle%}
+                                                                <img src="{{ image_url }}" alt="{{ grandchildlink.title | escape }}" class="mega-menu__image" />
+                                                            {% endif %}
+
+
+
                                                             <a
                                                                     id="HeaderMenu-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"
                                                                     href="{{ grandchildlink.url }}"

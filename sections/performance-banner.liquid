@@ -11,7 +11,6 @@
         flex-direction: column;
         justify-content: center;
         width: 100%;
-        padding-inline: 17.2%;
       }
       .performance-banner .text-content .text-container {
         max-width: 450px;
@@ -43,6 +42,19 @@
       .performance-banner {
        grid-template-columns: 1fr;
       }
+      .performance-banner .text-content {
+              padding-inline: 1.5rem;
+            }
+  }
+   @media(min-width:  768px) {
+    .performance-banner .text-content {
+            padding-inline: 3rem;
+          }
+    }
+   @media(min-width: 992px) {
+  .performance-banner .text-content {
+          padding-inline: 17.2%;
+        }
   }
 </style>
 

@@ -23,7 +23,8 @@
   .homepage-banner {
     color: #fff;
     position: relative;
-    padding: 5rem 0 8rem;
+    padding-top: calc(50px + (109 - 50) * ((100vw - 360px) / (1920 - 360)));
+    padding-bottom: 8rem;
   }
   .homepage-banner .homepage-banner-wrapper {
       position: relative;
@@ -34,7 +35,6 @@
   }
 
   .banner-heading {
-    font-size: calc(25px + (75 - 25) * ((100vw - 360px) / (1920 - 360)));
     font-weight: bold;
     line-height: 1.2;
     margin-block: 0;
@@ -43,7 +43,7 @@
   .banner-subheading {
     font-size: calc(18px + (22 - 18) * ((100vw - 360px) / (1920 - 360)));
     margin-block: 0;
-    line-height: 1.3;
+    line-height: 1.1;
   }
   .banner-content .banner-buttons {
     margin-top: 20px;
@@ -140,6 +140,9 @@
      .homepage-banner-wrapper .banner-buttons.hide-mobile {
       display: none;
     }
+     .banner-heading {
+        font-size: calc(25px + (45 - 25) * ((100vw - 360px) / (992 - 360)));
+        }
     .homepage-banner-wrapper .banner-buttons {
         display: flex;
         justify-content: center;
@@ -150,20 +153,17 @@
         text-align: center;
       }
     }
-    @media screen and (min-width: 1920px) {
-    .banner-heading{
-       font-size: 75px;
-    }
-    }
+
     @media screen and (min-width: 992px) {
     .hide-desktop {
           display: none;
         }
+         .banner-heading {
+            font-size: calc(35px + (75 - 35) * ((100vw - 992px) / (1920 - 992)));
+            }
     .homepage-banner .homepage-banner-wrapper .banner-center-image {
         width: 70%;
         {% case section.settings.content_alignment %}
-            {% when 'center' %}
-              margin: auto;
             {% when 'right' %}
                margin-right: auto;
             {% else %}
@@ -177,7 +177,11 @@
       }
     }
 
-
+  @media screen and (min-width: 1920px) {
+  .banner-heading{
+  font-size: 75px;
+  }
+  }
     .button {
     display: inline-flex;
     align-items: center;
@@ -198,7 +202,7 @@
     }
 
     .banner-content .banner-buttons {
-    margin-top: 20px;
+    margin-top: calc(10px + (64 - 10) * ((100vw - 360px) / (1920 - 360)));
     display: flex;
     gap: 15px;
     flex-wrap: wrap;
@@ -273,10 +277,6 @@
     }
      .banner-content {
       {% case section.settings.content_alignment %}
-        {% when 'center' %}
-          text-align: center;
-          left: 50%;
-          transform: translateX(-50%);
         {% when 'right' %}
           right: 0;
           text-align: right;
@@ -285,6 +285,7 @@
           text-align: left;
       {% endcase %}
       max-width: {{ section.settings.content_width | default: 40 }}%;
+      min-width: 40rem;
       z-index: 1;
       }
     }
@@ -898,6 +899,13 @@
       "info": "Time between slide transitions"
     },
     {
+      "type":"checkbox",
+      "id": "enable_show_on_mobile",
+      "label": "Show on Mobile",
+      "default": true
+    },
+
+    {
       "type": "checkbox",
       "id": "pause_on_hover",
       "label": "Pause on Hover",
@@ -930,10 +938,7 @@
           "value": "left",
           "label": "Left"
         },
-        {
-          "value": "center",
-          "label": "Center"
-        },
+
         {
           "value": "right",
           "label": "Right"

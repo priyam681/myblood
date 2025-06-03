@@ -53,8 +53,8 @@
                           <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                             {%- for childlink in link.links -%}
                               <li>
-
-
+                                  {% assign image_url = childlink.object.featured_image | image_url: width: 100 %}
+                                  <img src="{{ image_url }}" alt="{{ childlink.title | escape }}" class="mega-menu__image" />
 
                                 {%- if childlink.links == blank -%}
                                   <a
