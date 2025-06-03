@@ -153,11 +153,7 @@
         text-align: center;
       }
     }
-    @media screen and (min-width: 1920px) {
-    .banner-heading{
-       font-size: 75px;
-    }
-    }
+
     @media screen and (min-width: 992px) {
     .hide-desktop {
           display: none;
@@ -181,7 +177,11 @@
       }
     }
 
-
+  @media screen and (min-width: 1920px) {
+  .banner-heading{
+  font-size: 75px;
+  }
+  }
     .button {
     display: inline-flex;
     align-items: center;
@@ -898,6 +898,13 @@
       "default": 5,
       "info": "Time between slide transitions"
     },
+    {
+      "type":"checkbox",
+      "id": "enable_show_on_mobile",
+      "label": "Show on Mobile",
+      "default": true
+    },
+
     {
       "type": "checkbox",
       "id": "pause_on_hover",
