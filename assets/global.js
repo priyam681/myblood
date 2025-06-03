@@ -462,6 +462,9 @@ class MenuDrawer extends HTMLElement {
       summaryElement.nextElementSibling.removeEventListener('transitionend', addTrapFocus);
     }
 
+    console.log("DetailsElement: ", detailsElement);
+    console.log("Main Details Toggle: ", this.mainDetailsToggle);
+
     if (detailsElement === this.mainDetailsToggle) {
       if (isOpen) event.preventDefault();
       isOpen ? this.closeMenuDrawer(event, summaryElement) : this.openMenuDrawer(summaryElement);
@@ -471,9 +474,17 @@ class MenuDrawer extends HTMLElement {
       }
     } else {
       setTimeout(() => {
+
+        let target = event.target.parentNode;
+        console.log("Event: ", target);
+        let svgWrapper = target.querySelector('.svg-wrapper');
+        svgWrapper.classList.toggle('svg_wrapper_rotate');
+
         detailsElement.classList.add('menu-opening');
         summaryElement.setAttribute('aria-expanded', true);
         parentMenuElement && parentMenuElement.classList.add('submenu-open');
+
+
         !reducedMotion || reducedMotion.matches
           ? addTrapFocus()
           : summaryElement.nextElementSibling.addEventListener('transitionend', addTrapFocus);

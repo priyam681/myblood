@@ -66,9 +66,11 @@ details[open].menu-opening > .menu-drawer__submenu {
   visibility: visible;
 }
 
+/*
 .js .menu-drawer__navigation .submenu-open {
-  visibility: hidden; /* hide menus from screen readers when hidden by submenu */
+  visibility: hidden; !* hide menus from screen readers when hidden by submenu *!
 }
+*/
 
 @media screen and (min-width: 768px) {
   .menu-drawer {
@@ -141,7 +143,13 @@ details[open].menu-opening > .menu-drawer__submenu {
   transform: translateY(-50%);
 }
 
-.js .menu-drawer__submenu {
+.svg_wrapper_rotate > svg{
+  transform: rotate(180deg) !important;
+  transition: transform var(--duration-default) ease, visibility 0s var(--duration-default) ease;
+}
+
+{% comment %}
+/*.js .menu-drawer__submenu {
   position: absolute;
   top: 0;
   width: 100%;
@@ -151,7 +159,9 @@ details[open].menu-opening > .menu-drawer__submenu {
   z-index: 1;
   transform: translateX(100%);
   visibility: hidden;
-}
+}*/
+
+{% endcomment %}
 
 .js .menu-drawer__submenu .menu-drawer__submenu {
   overflow-y: auto;

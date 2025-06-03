@@ -65,10 +65,6 @@
                                                     {%- for grandchildlink in childlink.links -%}
                                                         {% assign image_url = grandchildlink.object.featured_image | image_url: width: 100 %}
 
-
-
-
-
                                                         <li data-link="{{ link.handle }}" data-childlink="{{ childlink.handle }}" data-grandchildlink="{{ grandchildlink.handle }}" class="mega-menu__item mega-menu__item--level-3">
                                                             {% if section.settings.enable_show_on_mobile %}
                                                                 {% style %}
