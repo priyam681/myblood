@@ -9,8 +9,6 @@
   border-right: 0;
   left: 0;
   overflow-y: auto;
-  padding-bottom: 3rem;
-  padding-top: 3rem;
   position: absolute;
   right: 0;
   top: 100%;
@@ -37,10 +35,17 @@
 .mega-menu__list {
   display: grid;
   gap: 1.8rem 4rem;
-  grid-template-columns: repeat(6, minmax(0, 1fr));
+  grid-template-columns: repeat(5, minmax(0, 1fr));
   list-style: none;
 }
-
+.mini-banner.mini-banner--with-image {
+  grid-column: span 2 / span 2;
+}
+.mega-menu__list .mega-menu-subcategory-list,
+.mega-menu__list .mini-banner.mini-banner--with-image {
+  border-right: 1px solid #d9d9d9;
+  padding-right: 20px;
+}
 .mega-menu__link {
   color: rgba(var(--color-foreground), 0.75);
   display: block;
