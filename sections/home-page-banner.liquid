@@ -19,40 +19,40 @@
     position: relative;
     color: #fff;
     list-style-type: none;
-  }
-  .homepage-banner {
+    }
+    .homepage-banner {
     color: #fff;
     position: relative;
     padding-top: calc(50px + (109 - 50) * ((100vw - 360px) / (1920 - 360)));
     padding-bottom: 8rem;
-  }
-  .homepage-banner .homepage-banner-wrapper {
-      position: relative;
-  }
-  .homepage-banner .homepage-banner-wrapper .homepage-bar-wrapper {
-      position: relative;
-      z-index: 1;
-  }
+    }
+    .homepage-banner .homepage-banner-wrapper {
+    position: relative;
+    }
+    .homepage-banner .homepage-banner-wrapper .homepage-bar-wrapper {
+    position: relative;
+    z-index: 1;
+    }
 
-  .banner-heading {
+    .banner-heading {
     font-weight: bold;
     line-height: 1.2;
     margin-block: 0;
     color: #fff;
-  }
-  .banner-subheading {
+    }
+    .banner-subheading {
     font-size: calc(18px + (22 - 18) * ((100vw - 360px) / (1920 - 360)));
     margin-block: 0;
     line-height: 1.1;
-  }
-  .banner-content .banner-buttons {
+    }
+    .banner-content .banner-buttons {
     margin-top: 20px;
     }
-  .homepage-bar {
+    .homepage-bar {
     display: grid;
     grid-template-columns: auto 1fr;
-  }
-  .homepage-banner-wrapper .homepage-bar-wrapper .homepage-bar .label {
+    }
+    .homepage-banner-wrapper .homepage-bar-wrapper .homepage-bar .label {
     font-weight: 500;
     display: flex;
     gap: 20px;
@@ -61,60 +61,60 @@
     border-radius: 12px 0 0 12px;
     font-size: calc(20px + (30 - 20) * ((100vw - 992px) / (1920 - 992)));
     line-height: 1;
-  }
-  .homepage-banner-wrapper .homepage-bar-wrapper .homepage-bar .label img {
+    }
+    .homepage-banner-wrapper .homepage-bar-wrapper .homepage-bar .label img {
     width: 40px;
-  }
-  .product-items {
+    }
+    .product-items {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 1.7rem 2rem;
     justify-content: space-evenly;
     border-radius: 0 12px 12px 0;
     align-items: center;
-  }
-  .product-items .product-item a {
-   color: inherit;
-   text-decoration: none;
-   display: flex;
-  }
-  .product-item:after {
-   content:'';
-   position: absolute;
-   left: 0;
-   top: 10%;
-   width: 3px;
-   height: 80%;
-   background: #d9d9d9;
-   border-radius: 10px;
-  }
-  .product-item:first-child:after {
+    }
+    .product-items .product-item a {
+    color: inherit;
+    text-decoration: none;
+    display: flex;
+    }
+    .product-item:after {
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 10%;
+    width: 3px;
+    height: 80%;
+    background: #d9d9d9;
+    border-radius: 10px;
+    }
+    .product-item:first-child:after {
     display: none;
-  }
-  .product-items .product-item {
+    }
+    .product-items .product-item {
     display: flex;
     align-items: center;
     gap: 20px;
     justify-content: center;
     position: relative;
-     padding-inline: 20px;
-  }
-  .product-items .product-item img {
-   border-radius: 10px;
-   aspect-ratio: 1;
-  }
-  .product-item .product-name {
+    padding-inline: 20px;
+    }
+    .product-items .product-item img {
+    border-radius: 10px;
+    aspect-ratio: 1;
+    }
+    .product-item .product-name {
     font-size: calc(14px + (22 - 14) * ((100vw - 992px) / (1920 - 992)));
-     line-height: 1.2;
-     display: -webkit-box;
+    line-height: 1.2;
+    display: -webkit-box;
     -webkit-box-orient: vertical;
     -webkit-line-clamp: 2;
-     overflow: hidden;
-     margin: 0;
-     font-weight: bold;
+    overflow: hidden;
+    margin: 0;
+    font-weight: bold;
 
-  }
-  .slider-buttons-wrapper {
+    }
+    .slider-buttons-wrapper {
     position: absolute;
     bottom: 2rem;
     display: flex;
@@ -122,8 +122,8 @@
     align-items: center;
     justify-content: center;
     width: 100%;
-  }
-  .slider-button {
+    }
+    .slider-button {
     background: black;
     color: white;
     border: none;
@@ -133,55 +133,55 @@
     border-radius: 50%;
     }
     .homepage-banner-wrapper .banner-buttons {
-      margin-top: 20px;
+    margin-top: 20px;
     }
-     @media screen and (max-width: 992px) {
+    @media screen and (max-width: 992px) {
     .homepage-banner .homepage-banner-wrapper .homepage-bar-wrapper,
-     .homepage-banner-wrapper .banner-buttons.hide-mobile {
-      display: none;
+    .homepage-banner-wrapper .banner-buttons.hide-mobile {
+    display: none;
     }
-     .banner-heading {
-        font-size: calc(25px + (45 - 25) * ((100vw - 360px) / (992 - 360)));
-        }
+    .banner-heading {
+    font-size: calc(25px + (45 - 25) * ((100vw - 360px) / (992 - 360)));
+    }
     .homepage-banner-wrapper .banner-buttons {
-        display: flex;
-        justify-content: center;
-        gap: 10px;
-      }
-      .homepage-banner-wrapper .banner-content {
-        margin: auto;
-        text-align: center;
-      }
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    }
+    .homepage-banner-wrapper .banner-content {
+    margin: auto;
+    text-align: center;
+    }
     }
 
     @media screen and (min-width: 992px) {
     .hide-desktop {
-          display: none;
-        }
-         .banner-heading {
-            font-size: calc(35px + (75 - 35) * ((100vw - 992px) / (1920 - 992)));
-            }
-    .homepage-banner .homepage-banner-wrapper .banner-center-image {
-        width: 70%;
-        {% case section.settings.content_alignment %}
-            {% when 'right' %}
-               margin-right: auto;
-            {% else %}
-               margin-left: auto;
-          {% endcase %}
+    display: none;
     }
-      .banner-content {
-        max-width: 600px;
-        position: absolute;
-        z-index: 1;
-      }
+    .banner-heading {
+    font-size: calc(35px + (75 - 35) * ((100vw - 992px) / (1920 - 992)));
+    }
+    .homepage-banner .homepage-banner-wrapper .banner-center-image {
+    width: 70%;
+    {% case section.settings.content_alignment %}
+        {% when 'right' %}
+            margin-right: auto;
+        {% else %}
+            margin-left: auto;
+    {% endcase %}
+    }
+    .banner-content {
+    max-width: 600px;
+    position: absolute;
+    z-index: 1;
+    }
     }
 
-  @media screen and (min-width: 1920px) {
-  .banner-heading{
-  font-size: 75px;
-  }
-  }
+    @media screen and (min-width: 1920px) {
+    .banner-heading{
+    font-size: 75px;
+    }
+    }
     .button {
     display: inline-flex;
     align-items: center;
@@ -275,368 +275,374 @@
     display: flex;
     justify-content: flex-start;
     }
-     .banner-content {
-      {% case section.settings.content_alignment %}
+    .banner-content {
+    {% case section.settings.content_alignment %}
         {% when 'right' %}
-          right: 0;
-          text-align: right;
+            right: 0;
+            text-align: right;
         {% else %}
-          left: 0;
-          text-align: left;
-      {% endcase %}
-      max-width: {{ section.settings.content_width | default: 40 }}%;
-      min-width: 40rem;
-      z-index: 1;
-      }
+            left: 0;
+            text-align: left;
+    {% endcase %}
+    max-width: {{ section.settings.content_width | default: 40 }}%;
+    min-width: 40rem;
+    z-index: 1;
+    }
     }
 {% endstyle %}
 
 {% style %}
-  .banner-slideshow-wrapper {
-  position: relative;
-  overflow: hidden;
-  {% case section.settings.section_height %}
-    {% when 'small' %}
-      min-height: 400px;
-    {% when 'medium' %}
-      min-height: 500px;
-    {% when 'large' %}
-      min-height: 600px;
-    {% when 'extra_large' %}
-      min-height: 700px;
-    {% when 'full_screen' %}
-      min-height: 100vh;
-  {% endcase %}
-  }
-
-  .homepage-banner {
-  {% if section.settings.enable_overlay %}
+    .banner-slideshow-wrapper {
     position: relative;
-  {% endif %}
-  {% case section.settings.content_position %}
-    {% when 'top' %}
-      align-items: flex-start;
-      padding-top: 3rem;
-    {% when 'center' %}
-      align-items: center;
-    {% when 'bottom' %}
-      align-items: flex-end;
-      padding-bottom: 3rem;
-  {% endcase %}
-  }
-
-  {% if section.settings.enable_overlay %}
-    .homepage-banner::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: {{ section.settings.overlay_color | default: '#000000' }};
-    opacity: {{ section.settings.overlay_opacity | default: 30 | divided_by: 100.0 }};
-    z-index: 0;
+    overflow: hidden;
+    {% case section.settings.section_height %}
+        {% when 'small' %}
+            min-height: 400px;
+        {% when 'medium' %}
+            min-height: 500px;
+        {% when 'large' %}
+            min-height: 600px;
+        {% when 'extra_large' %}
+            min-height: 700px;
+        {% when 'full_screen' %}
+            min-height: 100vh;
+    {% endcase %}
     }
-  {% endif %}
 
-
-
-  {% unless section.settings.show_navigation_arrows %}
-    .slider-buttons-wrapper {
-    display: none !important;
+    .homepage-banner {
+    {% if section.settings.enable_overlay %}
+        position: relative;
+    {% endif %}
+    {% case section.settings.content_position %}
+        {% when 'top' %}
+            align-items: flex-start;
+            padding-top: 3rem;
+        {% when 'center' %}
+            align-items: center;
+        {% when 'bottom' %}
+            align-items: flex-end;
+            padding-bottom: 3rem;
+    {% endcase %}
     }
-  {% endunless %}
 
-  {% if section.settings.show_navigation_arrows %}
-    .slider-button {
-    background: {{ section.settings.arrow_background | default: '#000000' | color_modify: 'alpha', section.settings.arrow_opacity | default: 70 | divided_by: 100.0 }};
-    color: {{ section.settings.arrow_color | default: '#ffffff' }};
+    {% if section.settings.enable_overlay %}
+        .homepage-banner::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: {{ section.settings.overlay_color | default: '#000000' }};
+        opacity: {{ section.settings.overlay_opacity | default: 30 | divided_by: 100.0 }};
+        z-index: 0;
+        }
+    {% endif %}
+
+
+
+    {% unless section.settings.show_navigation_arrows %}
+        .slider-buttons-wrapper {
+        display: none !important;
+        }
+    {% endunless %}
+
+    {% if section.settings.show_navigation_arrows %}
+        .slider-buttons-wrapper  .slider-button {
+        {% assign arrow_alpha = section.settings.arrow_opacity | default: 70 | divided_by: 100.0 %}
+        background: {{ section.settings.arrow_background | default: '#000000' | color_modify: 'alpha', arrow_alpha }};
+
+        {% if section.settings.arrow_position == 'outside' %}
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+        {% endif %}
+        }
+
+        .slider-buttons-wrapper  .slider-button  .svg-wrapper {
+        color: {{ section.settings.arrow_color | default: '#ffffff' }};
+        }
+
+        {% if section.settings.arrow_position == 'outside' %}
+            .slider-button--prev {
+            left: -60px;
+            }
+            .slider-button--next {
+            right: -60px;
+            }
+            .slider-buttons-wrapper {
+            position: static;
+            width: 100%;
+            height: 0;
+            }
+        {% endif %}
+    {% endif %}
+
+    {% if section.settings.show_slide_dots %}
+        .slide-dots {
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+        position: absolute;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 2;
+        }
+        .slide-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: rgba(255, 255, 255, 0.5);
+        cursor: pointer;
+        transition: all 0.3s ease;
+        }
+        .slide-dot.active {
+        background: rgba(255, 255, 255, 1);
+        transform: scale(1.2);
+        }
+    {% endif %}
+
+    /* Mobile Settings */
+    @media screen and (max-width: 992px) {
+    .banner-slideshow-wrapper {
+    {% case section.settings.mobile_height %}
+        {% when 'small' %}
+            min-height: 300px;
+        {% when 'medium' %}
+            min-height: 400px;
+        {% when 'large' %}
+            min-height: 500px;
+        {% when 'auto' %}
+            /* Keep desktop height */
+    {% endcase %}
+    }
+
+    {% if section.settings.mobile_stack_content %}
+        .banner-content {
+        max-width: 90%;
+        text-align: center;
+        margin: 0 auto;
+        }
+    {% endif %}
+
     {% if section.settings.arrow_position == 'outside' %}
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
+        .slider-button--prev {
+        left: 10px;
+        }
+        .slider-button--next {
+        right: 10px;
+        }
     {% endif %}
     }
 
-    {% if section.settings.arrow_position == 'outside' %}
-      .slider-button--prev {
-      left: -60px;
-      }
-      .slider-button--next {
-      right: -60px;
-      }
-      .slider-buttons-wrapper {
-      position: static;
-      width: 100%;
-      height: 0;
-      }
+    /* Reduced Motion */
+    {% if section.settings.reduce_motion %}
+        @media (prefers-reduced-motion: reduce) {
+        .banner-slideshow {
+        scroll-behavior: auto;
+        }
+        .slider-button,
+        .button {
+        transition: none;
+        }
+        }
     {% endif %}
-  {% endif %}
-
-  {% if section.settings.show_slide_dots %}
-    .slide-dots {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    position: absolute;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    z-index: 2;
-    }
-    .slide-dot {
-    width: 12px;
-    height: 12px;
-    border-radius: 50%;
-    background: rgba(255, 255, 255, 0.5);
-    cursor: pointer;
-    transition: all 0.3s ease;
-    }
-    .slide-dot.active {
-    background: rgba(255, 255, 255, 1);
-    transform: scale(1.2);
-    }
-  {% endif %}
-
-  /* Mobile Settings */
-  @media screen and (max-width: 992px) {
-  .banner-slideshow-wrapper {
-  {% case section.settings.mobile_height %}
-    {% when 'small' %}
-      min-height: 300px;
-    {% when 'medium' %}
-      min-height: 400px;
-    {% when 'large' %}
-      min-height: 500px;
-    {% when 'auto' %}
-      /* Keep desktop height */
-  {% endcase %}
-  }
-
-  {% if section.settings.mobile_stack_content %}
-    .banner-content {
-    max-width: 90%;
-    text-align: center;
-    margin: 0 auto;
-    }
-  {% endif %}
-
-  {% if section.settings.arrow_position == 'outside' %}
-    .slider-button--prev {
-    left: 10px;
-    }
-    .slider-button--next {
-    right: 10px;
-    }
-  {% endif %}
-  }
-
-  /* Reduced Motion */
-  {% if section.settings.reduce_motion %}
-    @media (prefers-reduced-motion: reduce) {
-    .banner-slideshow {
-    scroll-behavior: auto;
-    }
-    .slider-button,
-    .button {
-    transition: none;
-    }
-    }
-  {% endif %}
 {% endstyle %}
 
 <banner-slideshow
-  class="banner-slideshow-wrapper"
-  pause-on-hover="{{ section.settings.pause_on_hover }}"
-  autoplay="{{ section.settings.enable_autoplay }}"
-  {% if section.settings.enable_autoplay %}
-    autoplay-speed="{{ section.settings.autoplay_speed }}"
-  {% endif %}
+        class="banner-slideshow-wrapper"
+        pause-on-hover="{{ section.settings.pause_on_hover }}"
+        autoplay="{{ section.settings.enable_autoplay }}"
+        {% if section.settings.enable_autoplay %}
+            autoplay-speed="{{ section.settings.autoplay_speed }}"
+        {% endif %}
 >
-  <ul
-    id="Banner-{{ section.id }}"
-    class="banner-slideshow"
-    role="list"
-    data-total-slide="{{ section.blocks.size }}"
-    data-current-slide="0"
-    aria-label="{{ section.settings.slideshow_label | default:'Featured content slideshow' }}"
-  >
-    {% for block in section.blocks %}
-      {% assign visibility = block.settings.visibility %}
-      <li class="banner-slide slider__slide" id="Banner-slide-{{ block.id }}" {{ block.shopify_attributes }}>
-        <div
-          class="homepage-banner"
-          style="background: url({{ block.settings.main_image | img_url:'master' }}) no-repeat center/cover;"
-        >
-          <div class="page-width">
-            <div class="homepage-banner-wrapper">
-              <div class="banner-content">
-                <h1 class="banner-heading">{{ block.settings.heading }}</h1>
-                <p class="banner-subheading">{{ block.settings.subheading }}</p>
+    <ul
+            id="Banner-{{ section.id }}"
+            class="banner-slideshow"
+            role="list"
+            data-total-slide="{{ section.blocks.size }}"
+            data-current-slide="0"
+            aria-label="{{ section.settings.slideshow_label | default: 'Featured content slideshow' }}"
+    >
+        {% for block in section.blocks %}
+            {% assign visibility = block.settings.visibility %}
+            <li class="banner-slide slider__slide" id="Banner-slide-{{ block.id }}" {{ block.shopify_attributes }}>
+                <div
+                        class="homepage-banner"
+                        style="background: url({{ block.settings.main_image | img_url: 'master' }}) no-repeat center/cover;"
+                >
+                    <div class="page-width">
+                        <div class="homepage-banner-wrapper">
+                            <div class="banner-content">
+                                <h1 class="banner-heading">{{ block.settings.heading }}</h1>
+                                <p class="banner-subheading">{{ block.settings.subheading }}</p>
 
-                {% if block.settings.banner_button_show == 'show' %}
-                  {% assign mobile_class = 'banner-buttons--mobile-'
-                    | append: block.settings.mobile_button_visibility
-                  %}
-                  <div class="banner-buttons {{ mobile_class }}">
-                    {% if block.settings.button_one_text != blank and block.settings.button_one_url != blank %}
-                      <a
-                        class="button button--{{ block.settings.button_one_style | default: 'solid' }}"
-                        href="{{ block.settings.button_one_url }}"
-                      >
-                        <span>{{ block.settings.button_one_text }}</span>
-                      </a>
-                    {% endif %}
+                                {% if block.settings.banner_button_show == 'show' %}
+                                    {% assign mobile_class = 'banner-buttons--mobile-'
+                                            | append: block.settings.mobile_button_visibility
+                                    %}
+                                    <div class="banner-buttons {{ mobile_class }}">
+                                        {% if block.settings.button_one_text != blank and block.settings.button_one_url != blank %}
+                                            <a
+                                                    class="button button--{{ block.settings.button_one_style | default: 'solid' }}"
+                                                    href="{{ block.settings.button_one_url }}"
+                                            >
+                                                <span>{{ block.settings.button_one_text }}</span>
+                                            </a>
+                                        {% endif %}
 
-                    {% if block.settings.button_two_text != blank and block.settings.button_two_url != blank %}
-                      <a
-                        class="button button--{{ block.settings.button_two_style | default: 'outline' }}"
-                        href="{{ block.settings.button_two_url }}"
-                      >
-                        <span>{{ block.settings.button_two_text }}</span>
-                      </a>
-                    {% endif %}
-                  </div>
-                {% endif %}
-              </div>
-              <div class="banner-center-image">
-                {% if block.settings.center_image %}
-                  <img
-                    src="{{ block.settings.center_image | img_url: 'master' }}"
-                    alt="{{ block.settings.center_alt_text | default: 'center image' }}"
-                    height="100%"
-                    width="100%"
-                    loading="{% if section.settings.lazy_load_images == 'lazy' %}lazy{% else %}eager{% endif %}"
-                  >
-                {% endif %}
-              </div>
-              {% if block.settings['banner-button_show'] == 'show' %}
-                <div class="banner-buttons hide-desktop">
-                  <a class="button button--primary" href="{{ block.settings.button_one_url }}">
+                                        {% if block.settings.button_two_text != blank and block.settings.button_two_url != blank %}
+                                            <a
+                                                    class="button button--{{ block.settings.button_two_style | default: 'outline' }}"
+                                                    href="{{ block.settings.button_two_url }}"
+                                            >
+                                                <span>{{ block.settings.button_two_text }}</span>
+                                            </a>
+                                        {% endif %}
+                                    </div>
+                                {% endif %}
+                            </div>
+                            <div class="banner-center-image">
+                                {% if block.settings.center_image %}
+                                    <img
+                                            src="{{ block.settings.center_image | img_url: 'master' }}"
+                                            alt="{{ block.settings.center_alt_text | default: 'center image' }}"
+                                            height="100%"
+                                            width="100%"
+                                            loading="{% if section.settings.lazy_load_images == 'lazy' %}lazy{% else %}eager{% endif %}"
+                                    >
+                                {% endif %}
+                            </div>
+                            {% if block.settings['banner-button_show'] == 'show' %}
+                                <div class="banner-buttons hide-desktop">
+                                    <a class="button button--primary" href="{{ block.settings.button_one_url }}">
                     <span>
                       {{ block.settings.button_one_text }}
                     </span>
-                  </a>
-                  <a class="button button--primary" href="{{ block.settings.button_two_url }}">
+                                    </a>
+                                    <a class="button button--primary" href="{{ block.settings.button_two_url }}">
                     <span>
                       {{ block.settings.button_two_text }}
                     </span>
-                  </a>
-                </div>
-              {% endif %}
+                                    </a>
+                                </div>
+                            {% endif %}
 
-              {% if visibility == 'show' %}
-                <div class="homepage-bar-wrapper">
-                  <div class="homepage-bar">
-                    <div class="label">
-                      {% style %}
-                        .label{
-                          background-color: {{ block.settings.product_list_color_left }};
-                        }
-                      {% endstyle %}
-                      {% if block.settings.product_list_image_left %}
-                        <img src="{{ block.settings.product_list_image_left | img_url: '100x' }}" alt="Hot search">
-                      {% endif %}
-                      <div>
-                        {% if block.settings.product_list_left_text %}
-                          <div>
-                            {{ block.settings.product_list_left_text | default: 'HOT SEARCHES' }}
-                          </div>
-                        {% endif %}
-                      </div>
+                            {% if visibility == 'show' %}
+                                <div class="homepage-bar-wrapper">
+                                    <div class="homepage-bar">
+                                        <div class="label">
+                                            {% style %}
+                                                .label{
+                                                background-color: {{ block.settings.product_list_color_left }};
+                                                }
+                                            {% endstyle %}
+                                            {% if block.settings.product_list_image_left %}
+                                                <img src="{{ block.settings.product_list_image_left | img_url: '100x' }}"
+                                                     alt="Hot search">
+                                            {% endif %}
+                                            <div>
+                                                {% if block.settings.product_list_left_text %}
+                                                    <div>
+                                                        {{ block.settings.product_list_left_text | default: 'HOT SEARCHES' }}
+                                                    </div>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                        {% style %}
+                                            .product-items {
+                                            background-color: {{ block.settings.product_items_bgcolor }};
+                                            color: {{ block.settings.product_list_item_color }};
+                                            }
+                                        {% endstyle %}
+                                        <div class="product-items">
+                                            {% if block.settings.product_display_1 != blank %}
+                                                {% assign product = all_products[block.settings.product_display_1] %}
+
+                                                <div class="product-item">
+                                                    <a href="{{ product.url }}">
+                                                        <img
+                                                                src="{{ product.featured_image | img_url: '200x' }}"
+                                                                alt="{{ product.title }}"
+                                                                loading="lazy"
+                                                                width="80px"
+                                                                height="80px"
+                                                        ></a>
+                                                    <div>
+                                                        <a href="{{ product.url }}">
+                                                            <p class="product-name">{{ product.title }}</p>
+                                                        </a>
+                                                        <a href="{{ product.url }}"
+                                                        ><span>{{ product.price | money }}</span></a
+                                                        >
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            {% if block.settings.product_display_2 != blank %}
+                                                {% assign product = all_products[block.settings.product_display_2] %}
+
+                                                <div class="product-item">
+                                                    <a href="{product.url}"
+                                                    ><img
+                                                                src="{{ product.featured_image | img_url: '200x' }}"
+                                                                alt="{{ product.title }}"
+                                                                loading="lazy"
+                                                                width="80px"
+                                                                height="80px"
+                                                        ></a>
+                                                    <div>
+                                                        <a href="{product.url}">
+                                                            <p class="product-name">{{ product.title }}</p>
+                                                        </a>
+                                                        <a href="{product.url}">
+                                                            <span>{{ product.price | money }}</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                            {% if block.settings.product_display_3 != blank %}
+                                                {% assign product = all_products[block.settings.product_display_3] %}
+
+                                                <div class="product-item">
+                                                    <a href="{product.url}"
+                                                    ><img
+                                                                src="{{ product.featured_image | img_url: '200x' }}"
+                                                                alt="{{ product.title }}"
+                                                                loading="lazy"
+                                                                width="80px"
+                                                                height="80px"
+                                                        ></a>
+                                                    <div>
+                                                        <a href="{product.url}">
+                                                            <p class="product-name">{{ product.title }}</p>
+                                                        </a>
+                                                        <a href="{product.url}"
+                                                        ><span>{{ product.price | money }}</span></a
+                                                        >
+                                                    </div>
+                                                </div>
+                                            {% endif %}
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        </div>
                     </div>
-                    {% style %}
-                      .product-items {
-                        background-color: {{ block.settings.product_items_bgcolor }};
-                        color: {{ block.settings.product_list_item_color }};
-                      }
-                    {% endstyle %}
-                    <div class="product-items">
-                      {% if block.settings.product_display_1 != blank %}
-                        {% assign product = all_products[block.settings.product_display_1] %}
-
-                        <div class="product-item">
-                          <a href="{{ product.url }}">
-                            <img
-                              src="{{ product.featured_image | img_url: '200x' }}"
-                              alt="{{ product.title }}"
-                              loading="lazy"
-                              width="80px"
-                              height="80px"
-                          ></a>
-                          <div>
-                            <a href="{{ product.url }}">
-                              <p class="product-name">{{ product.title }}</p>
-                            </a>
-                            <a href="{{ product.url }}"
-                              ><span>{{ product.price | money }}</span></a
-                            >
-                          </div>
-                        </div>
-                      {% endif %}
-                      {% if block.settings.product_display_2 != blank %}
-                        {% assign product = all_products[block.settings.product_display_2] %}
-
-                        <div class="product-item">
-                          <a href="{product.url}"
-                            ><img
-                              src="{{ product.featured_image | img_url: '200x' }}"
-                              alt="{{ product.title }}"
-                              loading="lazy"
-                              width="80px"
-                              height="80px"
-                          ></a>
-                          <div>
-                            <a href="{product.url}">
-                              <p class="product-name">{{ product.title }}</p>
-                            </a>
-                            <a href="{product.url}">
-                              <span>{{ product.price | money }}</span>
-                            </a>
-                          </div>
-                        </div>
-                      {% endif %}
-                      {% if block.settings.product_display_3 != blank %}
-                        {% assign product = all_products[block.settings.product_display_3] %}
-
-                        <div class="product-item">
-                          <a href="{product.url}"
-                            ><img
-                              src="{{ product.featured_image | img_url: '200x' }}"
-                              alt="{{ product.title }}"
-                              loading="lazy"
-                              width="80px"
-                              height="80px"
-                          ></a>
-                          <div>
-                            <a href="{product.url}">
-                              <p class="product-name">{{ product.title }}</p>
-                            </a>
-                            <a href="{product.url}"
-                              ><span>{{ product.price | money }}</span></a
-                            >
-                          </div>
-                        </div>
-                      {% endif %}
-                    </div>
-                  </div>
                 </div>
-              {% endif %}
-            </div>
-          </div>
-        </div>
-      </li>
-    {% endfor %}
-  </ul>
+            </li>
+        {% endfor %}
+    </ul>
 
-  <div class="slider-buttons-wrapper">
-    <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous">
-      <span class="svg-wrapper">{{- 'left-arrow.svg' | inline_asset_content -}}</span>
-    </button>
-    <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next">
-      <span class="svg-wrapper">{{- 'right-arrow.svg' | inline_asset_content -}}</span>
-    </button>
-  </div>
+    <div class="slider-buttons-wrapper">
+        <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="Previous">
+            <span class="svg-wrapper">{{- 'left-arrow.svg' | inline_asset_content -}}</span>
+        </button>
+        <button type="button" class="slider-button slider-button--next" name="next" aria-label="Next">
+            <span class="svg-wrapper">{{- 'right-arrow.svg' | inline_asset_content -}}</span>
+        </button>
+    </div>
 </banner-slideshow>
 
 <script defer>
@@ -899,12 +905,11 @@
       "info": "Time between slide transitions"
     },
     {
-      "type":"checkbox",
+      "type": "checkbox",
       "id": "enable_show_on_mobile",
       "label": "Show on Mobile",
       "default": true
     },
-
     {
       "type": "checkbox",
       "id": "pause_on_hover",
@@ -938,7 +943,6 @@
           "value": "left",
           "label": "Left"
         },
-
         {
           "value": "right",
           "label": "Right"
@@ -1039,7 +1043,6 @@
       "type": "header",
       "content": "Mobile Settings"
     },
-
     {
       "type": "checkbox",
       "id": "mobile_stack_content",
@@ -1062,7 +1065,7 @@
       "type": "select",
       "id": "lazy_load_images",
       "label": "Lazy Load Images",
-      "options":[
+      "options": [
         {
           "value": "lazy",
           "label": "Lazy"
@@ -1105,11 +1108,10 @@
           "label": "Main Heading",
           "default": "IN MOTION WE FIND FREEDOM AND JOY"
         },
-
         {
-          "type":"image_picker",
-          "id":"main_image",
-          "label":"Main Image"
+          "type": "image_picker",
+          "id": "main_image",
+          "label": "Main Image"
         },
         {
           "type": "textarea",
@@ -1118,49 +1120,48 @@
           "default": "Unlock the full potential of your online store with our custom Magento development services, designed to enhance performance, boost sales, and deliver a seamless shopping experience."
         },
         {
-        "type": "header",
-          "content":"content font color"
+          "type": "header",
+          "content": "content font color"
         },
         {
-          "type":"color",
-          "id":"heading_color",
-          "label":"Heading Color"
+          "type": "color",
+          "id": "heading_color",
+          "label": "Heading Color"
         },
         {
-          "type":"color",
-          "id":"subheading_color",
-          "label":"Subheading Color"
+          "type": "color",
+          "id": "subheading_color",
+          "label": "Subheading Color"
         },
         {
-          "type":"color",
-          "id":"product_list_heading_color",
-          "label":"Product List Heading Color"
+          "type": "color",
+          "id": "product_list_heading_color",
+          "label": "Product List Heading Color"
         },
         {
-          "type":"color",
-          "id":"product_list_item_color",
-          "label":"Product List Item Color"
+          "type": "color",
+          "id": "product_list_item_color",
+          "label": "Product List Item Color"
         },
         {
-          "type":"header",
-          "content":"Center Image"
+          "type": "header",
+          "content": "Center Image"
         },
         {
-          "type":"image_picker",
-          "id":"center_image",
-          "label":"center image"
+          "type": "image_picker",
+          "id": "center_image",
+          "label": "center image"
         },
         {
-          "type":"text",
-          "id":"center_alt_text",
-          "label":"Center Image Alt Text",
-          "default":"center image"
+          "type": "text",
+          "id": "center_alt_text",
+          "label": "Center Image Alt Text",
+          "default": "center image"
         },
         {
-          "type":"header",
-          "content":"Button settings"
+          "type": "header",
+          "content": "Button settings"
         },
-
         {
           "type": "select",
           "id": "banner_button_show",
@@ -1195,15 +1196,15 @@
           "info": "Control whether buttons are visible on mobile devices"
         },
         {
-          "type":"text",
-          "id":"button_one_text",
-          "label":"Button First Text",
-          "default":"Shop Now"
+          "type": "text",
+          "id": "button_one_text",
+          "label": "Button First Text",
+          "default": "Shop Now"
         },
         {
-          "type":"url",
-          "id":"button_one_url",
-          "label":"Button First Url"
+          "type": "url",
+          "id": "button_one_url",
+          "label": "Button First Url"
         },
         {
           "type": "select",
@@ -1237,19 +1238,16 @@
           ],
           "default": "solid"
         },
-
         {
-          "type":"text",
-          "id":"button_two_text",
-          "label":"Button Second Text",
-          "default":"New One"
+          "type": "text",
+          "id": "button_two_text",
+          "label": "Button Second Text",
+          "default": "New One"
         },
-
-
         {
-          "type":"url",
-          "id":"button_two_url",
-          "label":"Button Second Url"
+          "type": "url",
+          "id": "button_two_url",
+          "label": "Button Second Url"
         },
         {
           "type": "select",
@@ -1283,59 +1281,57 @@
           ],
           "default": "outline"
         },
-
         {
-          "type":"header",
-          "content":"Product display list content"
+          "type": "header",
+          "content": "Product display list content"
         },
         {
-          "type":"select",
-          "id":"visibility",
+          "type": "select",
+          "id": "visibility",
           "label": "Visibility",
           "options": [
-          {
-            "value": "show",
-            "label": "Show product list"
-          },
+            {
+              "value": "show",
+              "label": "Show product list"
+            },
             {
               "value": "hide",
               "label": "Hide product list"
             }
           ]
         },
-
         {
-          "type":"image_picker",
-          "id":"product_list_image_left",
-          "label":"Product highlight"
+          "type": "image_picker",
+          "id": "product_list_image_left",
+          "label": "Product highlight"
         },
         {
-          "type":"textarea",
-          "id":"product_list_left_text",
-          "label":"Product highlight text"
+          "type": "textarea",
+          "id": "product_list_left_text",
+          "label": "Product highlight text"
         },
         {
-          "type":"color",
-          "id":"product_list_color_left",
-          "label":"Product highlight Background color"
+          "type": "color",
+          "id": "product_list_color_left",
+          "label": "Product highlight Background color"
         },
         {
-          "type":"color",
-          "id":"product_items_bgcolor",
-          "label":"Product Items Background color"
+          "type": "color",
+          "id": "product_items_bgcolor",
+          "label": "Product Items Background color"
         },
         {
-          "type":"product",
+          "type": "product",
           "id": "product_display_1",
           "label": "Product Name"
         },
         {
-          "type":"product",
+          "type": "product",
           "id": "product_display_2",
           "label": "Product Name"
         },
         {
-          "type":"product",
+          "type": "product",
           "id": "product_display_3",
           "label": "Product Name"
         }
