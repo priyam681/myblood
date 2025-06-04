@@ -409,9 +409,45 @@
             }
         });
     });
-
-
-
 </script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+  const wishlistBtn = document.querySelector(".wishlist-button");
+
+  if (!wishlistBtn || !wishlistBtn.dataset.customerId) return;
+
+  wishlistBtn.addEventListener("click", function () {
+    const productId = this.dataset.productId;
+    const customerId = this.dataset.customerId;
+
+    let wishlist = JSON.parse(localStorage.getItem(`wishlist_${customerId}`)) || [];
+
+    if (!wishlist.includes(productId)) {
+      wishlist.push(productId);
+      localStorage.setItem(`wishlist_${customerId}`, JSON.stringify(wishlist));
+      alert("Added to wishlist!");
+    } else {
+      alert("Already in wishlist");
+    }
+  });
+});
+</script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    {% if customer %}
+      const customerId = "{{ customer.id }}";
+      const wishlist = JSON.parse(localStorage.getItem(`wishlist_${customerId}`)) || [];
+      const countSpan = document.getElementById("wishlist-count");
+
+      if (countSpan) {
+        countSpan.textContent = `(${wishlist.length})`;
+      }
+    {% endif %}
+  });
+</script>
+
+
+
+
 </body>
 </html>

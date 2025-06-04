@@ -2887,7 +2887,6 @@ input[type="checkbox"] {
 .header__icon .icon {
   height: 2rem;
   width: 2rem;
-  fill: none;
   vertical-align: middle;
 }
 
@@ -2898,10 +2897,15 @@ input[type="checkbox"] {
   padding: 0;
 }
 
-.header__icon--cart {
+.header__icon--cart,
+.wishlist-link.header__icon {
   position: relative;
 }
-
+.wishlist-link.header__icon #wishlist-count {
+  position: absolute;
+  right: -11px;
+  top: -14px;
+}
 .header__icon--menu[aria-expanded="true"]::before {
   content: "";
   top: 100%;
@@ -4529,5 +4533,4 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
   font-size: 14px;
   margin-bottom: 0.5rem;
 }
-/* ============ sp-featured start ============== */
-.sp-featured {}
+
