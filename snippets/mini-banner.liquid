@@ -1,6 +1,7 @@
 {% if block != blank %}
-    <div class="mini-banner{% if block.settings.image %} mini-banner--with-image{% endif %}">
-        <a href="{{ block.settings.banner_url }}" target="{% if block.settings.page_open  %} _blank {% endif %}">
+    <div class="mini-banner{% if block.settings.image %} mini-banner--with-image{% endif %}"
+         style="{% if block.settings.position == 'right' %}order:2;{% endif %}">
+        <a href="{{ block.settings.banner_url }}" target="{% if block.settings.page_open %} _blank {% endif %}">
             {% if block.settings.image %}
                 <div class="mini-banner__image">
                     {{- block.settings.image | image_url: width: 600 | image_tag:

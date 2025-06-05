@@ -222,12 +222,12 @@
 
         {% render 'cstm-header-search', input_id: 'Search-In-Modal' %}
 
-  <div class="wishlist-link header__icon">
-    <a href="/pages/wishlist">
-       <span class="svg-wrapper">{{- 'icon-heart.svg' | inline_asset_content -}}</a>
-       <span id="wishlist-count"></span>
-    </a>
-  </div>
+        <div class="wishlist-link header__icon">
+            <a href="/pages/wishlist">
+                <span class="svg-wrapper">{{- 'icon-heart.svg' | inline_asset_content -}}</a>
+            <span id="wishlist-count"></span>
+            </a>
+        </div>
 
 
         {%- if shop.customer_accounts_enabled -%}
@@ -630,7 +630,7 @@ customElements.define('sticky-header', StickyHeader);
       "name": "Promotion Image",
       "settings": [
         {
-         "type": "text",
+          "type": "text",
           "id": "target_link",
           "label": "Target link"
         },
@@ -644,7 +644,22 @@ customElements.define('sticky-header', StickyHeader);
           "id": "alt_text",
           "label": "Alt text"
         },
-
+        {
+          "type": "select",
+          "label": "Position",
+          "id": "position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
         {
           "type": "select",
           "id": "image_size",
@@ -668,91 +683,120 @@ customElements.define('sticky-header', StickyHeader);
       ]
     },
     {
-      "type":"category_image",
-      "name":"Category Image",
-      "settings":[
+      "type": "category_image",
+      "name": "Category Image",
+      "settings": [
         {
-          "type":"text",
-          "id":"category_menu_trigger",
-          "label":"Menu trigger"
+          "type": "text",
+          "id": "category_menu_trigger",
+          "label": "Menu trigger"
         },
         {
-          "type":"image_picker",
-          "id":"image",
-          "label":"Image"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         }
       ]
     },
     {
-      "type":"collection_list",
-      "name":"Collection_list",
-      "settings":[
+      "type": "collection_list",
+      "name": "Collection_list",
+      "settings": [
         {
-          "type":"text",
-          "id":"collection_menu_trigger",
-          "label":"Menu trigger"
+          "type": "text",
+          "id": "collection_menu_trigger",
+          "label": "Menu trigger"
         },
         {
-          "type":"collection_list",
-          "id":"collection_list",
-          "label":"Collection"
+          "type": "collection_list",
+          "id": "collection_list",
+          "label": "Collection"
         },
         {
-          "type":"text",
-          "id":"collection_title",
-          "label":"Collection title"
+          "type": "select",
+          "id": "position",
+          "label": "Position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ]
+        },
+        {
+          "type": "text",
+          "id": "collection_title",
+          "label": "Collection title"
         }
       ]
     },
     {
-      "type":"mini_banner",
-      "name":"Mini Banner",
-      "settings":[
+      "type": "mini_banner",
+      "name": "Mini Banner",
+      "settings": [
         {
-          "type":"text",
-          "id":"mini_banner_trigger",
-          "label":"Menu trigger"
+          "type": "text",
+          "id": "mini_banner_trigger",
+          "label": "Menu trigger"
         },
         {
-          "type":"image_picker",
-          "id":"image",
-          "label":"Image"
+          "type": "select",
+          "id": "position",
+          "label": "Position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
         },
         {
-          "type":"text",
-          "id":"alt_text",
-          "label":"Alt text"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         },
         {
-          "type":"text",
-          "id":"main_heading",
-          "label":"Main heading"
-        },
-
-        {
-          "type":"richtext",
-          "id":"sub_heading",
-          "label":"Sub heading"
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text"
         },
         {
-          "type":"richtext",
-          "id":"offer_text",
-          "label":"Offer text"
+          "type": "text",
+          "id": "main_heading",
+          "label": "Main heading"
         },
         {
-          "type":"checkbox",
-          "id":"page_open",
-          "label":"Open in new tab",
-          "default":false
+          "type": "richtext",
+          "id": "sub_heading",
+          "label": "Sub heading"
         },
         {
-          "type":"url",
-          "id":"banner_url",
-          "label":"Banner URL"
+          "type": "richtext",
+          "id": "offer_text",
+          "label": "Offer text"
+        },
+        {
+          "type": "checkbox",
+          "id": "page_open",
+          "label": "Open in new tab",
+          "default": false
+        },
+        {
+          "type": "url",
+          "id": "banner_url",
+          "label": "Banner URL"
         }
       ]
     },
-
     {
       "type": "@app"
     }
