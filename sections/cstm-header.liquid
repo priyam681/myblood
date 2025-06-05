@@ -222,12 +222,12 @@
 
         {% render 'cstm-header-search', input_id: 'Search-In-Modal' %}
 
-        <div class="wishlist-link header__icon">
-            <a href="/pages/wishlist">
-                <span class="svg-wrapper">{{- 'icon-heart.svg' | inline_asset_content -}}</a>
-            <span id="wishlist-count"></span>
-            </a>
-        </div>
+  <div class="wishlist-link header__icon">
+    <a href="/pages/wishlist">
+       <span class="svg-wrapper">{{- 'icon-heart.svg' | inline_asset_content -}}</a>
+       <span id="wishlist-count">0</span>
+    </a>
+  </div>
 
 
         {%- if shop.customer_accounts_enabled -%}

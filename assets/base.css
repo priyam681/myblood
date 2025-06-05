@@ -2902,9 +2902,15 @@ input[type="checkbox"] {
   position: relative;
 }
 .wishlist-link.header__icon #wishlist-count {
-  position: absolute;
-  right: -11px;
-  top: -14px;
+    position: absolute;
+    right: -12px;
+    top: -20px;
+    padding: 8px;
+    background: black;
+    color: #fff;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
 }
 .header__icon--menu[aria-expanded="true"]::before {
   content: "";
