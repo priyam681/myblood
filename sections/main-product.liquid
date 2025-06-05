@@ -471,24 +471,10 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
-                {% if customer %}
-                  <button
-                    class="wishlist-button"
-                    data-product-id="{{ product.id }}"
-                    data-customer-id="{{ customer.id }}">
-                    <span>Add to Wishlist </span>
-                             <span class="svg-wrapper">
-                                   {{- 'icon-heart.svg' | inline_asset_content -}}
-                                                         </span>
-                  </button>
-                {% else %}
-                  <a href="/account/login" class="wishlist-button">
-                     <span>Add to Wishlist </span>
-                                                 <span class="svg-wrapper">
-                                                       {{- 'icon-heart.svg' | inline_asset_content -}}
-                                                                             </span>
-                  </a>
-                {% endif %}
+
+                {% render 'wishlist-button', product: product, class: 'wishlist-button' %}
+
+
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">

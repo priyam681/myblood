@@ -1,0 +1,21 @@
+{% if product %}
+    {% if customer %}
+        <div class="wishlist-button-wrapper">
+            <button class="wishlist-button" data-product-handle="{{ product.handle }}">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </svg>
+                <span>Add to Wishlist</span>
+            </button>
+        </div>
+        {% else %}
+        <a href="/account/login" class="wishlist-button">
+        <div class="wishlist-button-wrapper">
+            <button class="wishlist-button" data-product-handle="{{ product.handle }}">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                </svg>
+                <span>Add to Wishlist</span>
+            </button>
+        </div>
+    {% endif %}
+
+{% endif %}
