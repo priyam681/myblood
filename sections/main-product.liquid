@@ -471,9 +471,8 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
-
-                {% render 'wishlist-button', product: product, class: 'wishlist-button' %}
-
+                {%- when 'add-to-wishlist' -%}
+                 {% render 'add-to-wishlist', block: block %}
 
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
@@ -918,6 +917,11 @@
         }
       ]
     },
+    {
+       "type": "add-to-wishlist",
+       "name": "Add to Wishlist",
+       "limit": 1
+          },
     {
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
@@ -1536,6 +1540,10 @@
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
             },
             {
+               "value": "fast-delivery",
+               "label": "Fast Delivery"
+            },
+            {
               "value": "fire",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
             },
@@ -1578,6 +1586,10 @@
             {
               "value": "nut_free",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+            },
+            {
+               "value": "original-products",
+               "label": "Original Products"
             },
             {
               "value": "pants",
@@ -1736,6 +1748,10 @@
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
             },
             {
+               "value": "fast-delivery",
+               "label": "Fast Delivery"
+            },
+            {
               "value": "fire",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
             },
@@ -1778,6 +1794,10 @@
             {
               "value": "nut_free",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+            },
+            {
+               "value": "original-products",
+               "label": "Original Products"
             },
             {
               "value": "pants",
@@ -1936,9 +1956,14 @@
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
             },
             {
+               "value": "fast-delivery",
+                "label": "Fast Delivery"
+            },
+            {
               "value": "fire",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
             },
+
             {
               "value": "gluten_free",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
@@ -1978,6 +2003,10 @@
             {
               "value": "nut_free",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+            },
+            {
+               "value": "original-products",
+               "label": "Original Products"
             },
             {
               "value": "pants",

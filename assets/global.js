@@ -1,7 +1,7 @@
 function getFocusableElements(container) {
   return Array.from(
     container.querySelectorAll(
-      "summary, a[href], button:enabled, [tabindex]:not([tabindex^='-']), [draggable], area, input:not([type=hidden]):enabled, select:enabled, textarea:enabled, object, iframe"
+      'summary, a[href], button:enabled, [tabindex]:not([tabindex^=\'-\']), [draggable], area, input:not([type=hidden]):enabled, select:enabled, textarea:enabled, object, iframe'
     )
   );
 }
@@ -99,11 +99,11 @@ function trapFocus(container, elementToFocus = container) {
     document.addEventListener('keydown', trapFocusHandlers.keydown);
   };
 
-  trapFocusHandlers.focusout = function () {
+  trapFocusHandlers.focusout = function() {
     document.removeEventListener('keydown', trapFocusHandlers.keydown);
   };
 
-  trapFocusHandlers.keydown = function (event) {
+  trapFocusHandlers.keydown = function(event) {
     if (event.code.toUpperCase() !== 'TAB') return; // If not TAB key
     // On the last focusable element and tab forward, focus the first element.
     if (event.target === last && !event.shiftKey) {
@@ -152,7 +152,7 @@ function focusVisiblePolyfill() {
     'HOME',
     'END',
     'PAGEUP',
-    'PAGEDOWN',
+    'PAGEDOWN'
   ];
   let currentFocusedElement = null;
   let mouseClick = null;
@@ -266,12 +266,12 @@ class QuantityInput extends HTMLElement {
   validateQtyRules() {
     const value = parseInt(this.input.value);
     if (this.input.min) {
-      const buttonMinus = this.querySelector(".quantity__button[name='minus']");
+      const buttonMinus = this.querySelector('.quantity__button[name=\'minus\']');
       buttonMinus.classList.toggle('disabled', parseInt(value) <= parseInt(this.input.min));
     }
     if (this.input.max) {
       const max = parseInt(this.input.max);
-      const buttonPlus = this.querySelector(".quantity__button[name='plus']");
+      const buttonPlus = this.querySelector('.quantity__button[name=\'plus\']');
       buttonPlus.classList.toggle('disabled', value >= max);
     }
   }
@@ -290,7 +290,7 @@ function debounce(fn, wait) {
 
 function throttle(fn, delay) {
   let lastCall = 0;
-  return function (...args) {
+  return function(...args) {
     const now = new Date().getTime();
     if (now - lastCall < delay) {
       return;
@@ -303,7 +303,7 @@ function throttle(fn, delay) {
 function fetchConfig(type = 'json') {
   return {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: `application/${type}` },
+    headers: { 'Content-Type': 'application/json', Accept: `application/${type}` }
   };
 }
 
@@ -315,13 +315,13 @@ if (typeof window.Shopify == 'undefined') {
   window.Shopify = {};
 }
 
-Shopify.bind = function (fn, scope) {
-  return function () {
+Shopify.bind = function(fn, scope) {
+  return function() {
     return fn.apply(scope, arguments);
   };
 };
 
-Shopify.setSelectorByValue = function (selector, value) {
+Shopify.setSelectorByValue = function(selector, value) {
   for (var i = 0, count = selector.options.length; i < count; i++) {
     var option = selector.options[i];
     if (value == option.value || value == option.innerHTML) {
@@ -331,13 +331,13 @@ Shopify.setSelectorByValue = function (selector, value) {
   }
 };
 
-Shopify.addListener = function (target, eventName, callback) {
+Shopify.addListener = function(target, eventName, callback) {
   target.addEventListener
     ? target.addEventListener(eventName, callback, false)
     : target.attachEvent('on' + eventName, callback);
 };
 
-Shopify.postLink = function (path, options) {
+Shopify.postLink = function(path, options) {
   options = options || {};
   var method = options['method'] || 'post';
   var params = options['parameters'] || {};
@@ -358,7 +358,7 @@ Shopify.postLink = function (path, options) {
   document.body.removeChild(form);
 };
 
-Shopify.CountryProvinceSelector = function (country_domid, province_domid, options) {
+Shopify.CountryProvinceSelector = function(country_domid, province_domid, options) {
   this.countryEl = document.getElementById(country_domid);
   this.provinceEl = document.getElementById(province_domid);
   this.provinceContainer = document.getElementById(options['hideElement'] || province_domid);
@@ -370,20 +370,20 @@ Shopify.CountryProvinceSelector = function (country_domid, province_domid, optio
 };
 
 Shopify.CountryProvinceSelector.prototype = {
-  initCountry: function () {
+  initCountry: function() {
     var value = this.countryEl.getAttribute('data-default');
     Shopify.setSelectorByValue(this.countryEl, value);
     this.countryHandler();
   },
 
-  initProvince: function () {
+  initProvince: function() {
     var value = this.provinceEl.getAttribute('data-default');
     if (value && this.provinceEl.options.length > 0) {
       Shopify.setSelectorByValue(this.provinceEl, value);
     }
   },
 
-  countryHandler: function (e) {
+  countryHandler: function(e) {
     var opt = this.countryEl.options[this.countryEl.selectedIndex];
     var raw = opt.getAttribute('data-provinces');
     var provinces = JSON.parse(raw);
@@ -403,20 +403,20 @@ Shopify.CountryProvinceSelector.prototype = {
     }
   },
 
-  clearOptions: function (selector) {
+  clearOptions: function(selector) {
     while (selector.firstChild) {
       selector.removeChild(selector.firstChild);
     }
   },
 
-  setOptions: function (selector, values) {
+  setOptions: function(selector, values) {
     for (var i = 0, count = values.length; i < values.length; i++) {
       var opt = document.createElement('option');
       opt.value = values[i];
       opt.innerHTML = values[i];
       selector.appendChild(opt);
     }
-  },
+  }
 };
 
 class MenuDrawer extends HTMLElement {
@@ -457,10 +457,16 @@ class MenuDrawer extends HTMLElement {
     const isOpen = detailsElement.hasAttribute('open');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+    const allMenuDrawer = document.querySelectorAll('.menu-drawer__menu > li');
+    console.log('All Menu Drawer: ', allMenuDrawer);
+
     function addTrapFocus() {
       trapFocus(summaryElement.nextElementSibling, detailsElement.querySelector('button'));
       summaryElement.nextElementSibling.removeEventListener('transitionend', addTrapFocus);
     }
+
+    console.log('DetailsElement: ', detailsElement);
+    console.log('Main Details Toggle: ', this.mainDetailsToggle);
 
     if (detailsElement === this.mainDetailsToggle) {
       if (isOpen) event.preventDefault();
@@ -471,9 +477,17 @@ class MenuDrawer extends HTMLElement {
       }
     } else {
       setTimeout(() => {
+
+        let target = event.target.parentNode;
+        console.log('Event: ', target);
+        let svgWrapper = target.querySelector('.svg-wrapper');
+        svgWrapper.classList.toggle('svg_wrapper_rotate');
+
         detailsElement.classList.add('menu-opening');
         summaryElement.setAttribute('aria-expanded', true);
         parentMenuElement && parentMenuElement.classList.add('submenu-open');
+
+
         !reducedMotion || reducedMotion.matches
           ? addTrapFocus()
           : summaryElement.nextElementSibling.addEventListener('transitionend', addTrapFocus);
@@ -589,10 +603,10 @@ class HeaderDrawer extends MenuDrawer {
 
   onResize = () => {
     this.header &&
-      document.documentElement.style.setProperty(
-        '--header-bottom-position',
-        `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
-      );
+    document.documentElement.style.setProperty(
+      '--header-bottom-position',
+      `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
+    );
     document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
   };
 }
@@ -621,16 +635,16 @@ class ModalDialog extends HTMLElement {
     if (this.moved) return;
     this.moved = true;
     const shopifySection = this.closest('.shopify-section');
-     if (shopifySection && shopifySection.id) {
-   this.dataset.section = shopifySection.id.replace('shopify-section-', '');
- }
+    if (shopifySection && shopifySection.id) {
+      this.dataset.section = shopifySection.id.replace('shopify-section-', '');
+    }
     document.body.appendChild(this);
   }
 
   show(opener) {
     this.openedBy = opener;
     const popup = this.querySelector('.template-popup');
-     document.body.classList.add('sp-quick-view-container');
+    document.body.classList.add('sp-quick-view-container');
     document.body.classList.add('overflow-hidden');
     this.setAttribute('open', '');
     if (popup) popup.loadContent();
@@ -644,9 +658,10 @@ class ModalDialog extends HTMLElement {
     this.removeAttribute('open');
     removeTrapFocus(this.openedBy);
     window.pauseAllMedia();
-     document.body.classList.remove('sp-quick-view-container');
+    document.body.classList.remove('sp-quick-view-container');
   }
 }
+
 customElements.define('modal-dialog', ModalDialog);
 
 class BulkModal extends HTMLElement {
@@ -694,6 +709,7 @@ class ModalOpener extends HTMLElement {
     });
   }
 }
+
 customElements.define('modal-opener', ModalOpener);
 
 class DeferredMedia extends HTMLElement {
@@ -796,8 +812,8 @@ class SliderComponent extends HTMLElement {
         new CustomEvent('slideChanged', {
           detail: {
             currentPage: this.currentPage,
-            currentElement: this.sliderItemsToShow[this.currentPage - 1],
-          },
+            currentElement: this.sliderItemsToShow[this.currentPage - 1]
+          }
         })
       );
     }
@@ -834,7 +850,7 @@ class SliderComponent extends HTMLElement {
 
   setSlidePosition(position) {
     this.slider.scrollTo({
-      left: position,
+      left: position
     });
   }
 }
@@ -928,7 +944,7 @@ class SlideshowComponent extends SliderComponent {
     if (this.setPositionTimeout) clearTimeout(this.setPositionTimeout);
     this.setPositionTimeout = setTimeout(() => {
       this.slider.scrollTo({
-        left: position,
+        left: position
       });
     }, this.announcerBarAnimationDelay);
   }
@@ -1066,9 +1082,9 @@ class SlideshowComponent extends SliderComponent {
     const slideScrollPosition =
       this.slider.scrollLeft +
       this.sliderFirstItemNode.clientWidth *
-        (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+      (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
     this.slider.scrollTo({
-      left: slideScrollPosition,
+      left: slideScrollPosition
     });
   }
 }
@@ -1089,8 +1105,8 @@ class VariantSelects extends HTMLElement {
         data: {
           event,
           target,
-          selectedOptionValues: this.selectedOptionValues,
-        },
+          selectedOptionValues: this.selectedOptionValues
+        }
       });
     });
   }
@@ -1297,15 +1313,15 @@ if (!customElements.get('bulk-add')) {
 }
 
 class CartPerformance {
-  static #metric_prefix = "cart-performance"
+  static #metric_prefix = 'cart-performance';
 
   static createStartingMarker(benchmarkName) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     return performance.mark(`${metricName}:start`);
   }
 
   static measureFromEvent(benchmarkName, event) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     const startMarker = performance.mark(`${metricName}:start`, {
       startTime: event.timeStamp
     });
@@ -1320,7 +1336,7 @@ class CartPerformance {
   }
 
   static measureFromMarker(benchmarkName, startMarker) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     const endMarker = performance.mark(`${metricName}:end`);
 
     performance.measure(
@@ -1331,7 +1347,7 @@ class CartPerformance {
   }
 
   static measure(benchmarkName, callback) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     const startMarker = performance.mark(`${metricName}:start`);
 
     callback();

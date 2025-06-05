@@ -2049,6 +2049,9 @@
             }
           }
         },
+        "add_to_wishlist": {
+          "name": "Add To Wishlist"
+        },
         "pickup_availability": {
           "name": "Pickup availability"
         },

@@ -1,0 +1,174 @@
+{%- style -%}
+    .terrain-tabs-section h2 {
+    font-size: 32px;
+    font-weight: bold;
+    margin-bottom: 24px;
+    }
+
+    .terrain-buttons {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+    }
+
+    .terrain-buttons button {
+    padding: 16px 18px;
+    border: 1px solid rgba(113, 113, 113, 0.62);
+    color: rgba(125, 121, 121, 0.81);
+    font-weight: 600;
+    cursor: pointer;
+    font-size: 18px;
+    background: #fff;
+    }
+
+    .terrain-buttons button.active {
+    background-color: #FF3200;
+    color: white;
+    border-color: #FF3200;
+    }
+
+    .terrain-tab-content {
+    display: none;
+    }
+
+    .terrain-tab-content.active {
+    display: block;
+    }
+
+    .terrain-tab-content p {
+    font-size: 16px;
+    color: #374151;
+    }
+
+    .product-detail-image {
+    aspect-ratio: 1;
+    object-fit: content;
+    }
+
+    @media (min-width: 1024px) {
+    .terrain-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    }
+    }
+{%- endstyle -%}
+
+
+<section class="terrain-tabs-section page-width">
+
+
+    <div class="terrain-layout">
+        <!-- Left: Text Content -->
+        <div>
+            <h2>PRODUCT DETAILS</h2>
+            <h3 style="margin-bottom: 10px;">Terrain</h3>
+
+            <!-- Buttons -->
+            <div class="terrain-buttons">
+                {% if product.metafields.custom.productdetails1.value %}
+                    {% for entry in product.metafields.custom.productdetails1.value %}
+
+                        <button {% if forloop.first %}class="active"{% endif %} data-tab="{{ forloop.index }}">
+                            {{ entry.category_name | metafield_tag }}
+                        </button>
+
+                    {% endfor %}
+                {% endif %}
+
+            </div>
+
+            <!-- Tab Contents -->
+            <div id="tab-less" class="terrain-tab-content active">
+                <p><strong>{{ section.settings.less_title }}</strong><br>{{ section.settings.less_description }}</p>
+            </div>
+            <div id="tab-moderate" class="terrain-tab-content">
+                <p><strong>{{ section.settings.moderate_title }}</strong><br>{{ section.settings.moderate_description }}
+                </p>
+            </div>
+            <div id="tab-high" class="terrain-tab-content">
+                <p><strong>{{ section.settings.high_title }}</strong><br>{{ section.settings.high_description }}</p>
+            </div>
+        </div>
+
+        <!-- Right: Image -->
+        <div>
+
+            <a href="{{ product.url }}"> <img src="{{ product.images | reverse | first | image_url: width: 600 }}"
+                                              alt="{{ product.title }}" class="product-detail-image"></a>
+
+        </div>
+    </div>
+</section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const buttons = document.querySelectorAll('.terrain-buttons button');
+    const contents = document.querySelectorAll('.terrain-tab-content');
+
+    buttons.forEach(button => {
+      button.addEventListener('click', function() {
+        buttons.forEach(btn => btn.classList.remove('active'));
+        contents.forEach(tab => tab.classList.remove('active'));
+        button.classList.add('active');
+        document.getElementById(`tab-${button.dataset.tab}`).classList.add('active');
+      });
+    });
+  });
+</script>
+
+
+{% schema %}
+{
+  "name": "Product Detail Section",
+  "settings": [
+    {
+      "type": "text",
+      "id": "less_title",
+      "label": "Less Technical Title",
+      "default": "Less Technical"
+    },
+    {
+      "type": "textarea",
+      "id": "less_description",
+      "label": "Less Technical Description",
+      "default": "Smooth, flat terrain"
+    },
+    {
+      "type": "text",
+      "id": "moderate_title",
+      "label": "Moderately Technical Title",
+      "default": "Moderately Technical"
+    },
+    {
+      "type": "textarea",
+      "id": "moderate_description",
+      "label": "Moderately Technical Description",
+      "default": "Rolling hills and light obstacles"
+    },
+    {
+      "type": "text",
+      "id": "high_title",
+      "label": "High Technical Title",
+      "default": "High Technical"
+    },
+    {
+      "type": "textarea",
+      "id": "high_description",
+      "label": "High Technical Description",
+      "default": "Steep, rugged, technical terrain"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Side Image"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product Detail Section"
+    }
+  ]
+}
+{% endschema %}

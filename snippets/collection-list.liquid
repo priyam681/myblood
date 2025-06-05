@@ -1,87 +1,88 @@
 {% if block != blank %}
-  <div class="collection-list-container">
-    <h1>{{ link.title }}</h1>
+    <div class="collection-list-container">
+        <h1>{{ link.title }}</h1>
 
-    {% if block.settings.collection_title != blank %}
-      <h3 class="collection-list-title">{{ block.settings.collection_title }}</h3>
-    {% endif %}
+        {% if block.settings.collection_title != blank %}
+            <h3 class="collection-list-title">{{ block.settings.collection_title }}</h3>
+        {% endif %}
 
-    <div class="collection-list">
-      {% if block.settings.collection_list != blank %}
-        {% for collection in block.settings.collection_list %}
-          <div class="collection-card">
-            <a href="{{ collection.url }}" class="collection-card__link">
-              {% if collection.featured_image != blank %}
-                <div class="collection-card__image-container">
-                  {{
-                    collection.featured_image
-                    | image_url: width: 600
-                    | image_tag:
-                      loading: 'lazy',
-                      class: 'collection-card__image',
-                      alt: collection.title,
-                      widths: '300, 600, 900',
-                      sizes: '(max-width: 767px) 50vw, 25vw'
-                  }}
-                </div>
-              {% endif %}
-              <div class="collection-card__overlay">
-                <h4 class="collection-card__title">{{ collection.title }}</h4>
-              </div>
-            </a>
-          </div>
-        {% endfor %}
-      {% else %}
-        <p class="no-collections">{{ 'sections.collection_list.empty' | t }}</p>
-      {% endif %}
+        <div class="collection-list"
+             style="{% if  block.settings.position == 'left' %}float: left;{% else %}float: right;{% endif %}">
+            {% if block.settings.collection_list != blank %}
+                {% for collection in block.settings.collection_list %}
+                    <div class="collection-card">
+                        <a href="{{ collection.url }}" class="collection-card__link">
+                            {% if collection.featured_image != blank %}
+                                <div class="collection-card__image-container">
+                                    {{
+                                    collection.featured_image
+                                    | image_url: width: 600
+                                    | image_tag:
+                                    loading: 'lazy',
+                                    class: 'collection-card__image',
+                                    alt: collection.title,
+                                    widths: '300, 600, 900',
+                                    sizes: '(max-width: 767px) 50vw, 25vw'
+                                    }}
+                                </div>
+                            {% endif %}
+                            <div class="collection-card__overlay">
+                                <h4 class="collection-card__title">{{ collection.title }}</h4>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            {% else %}
+                <p class="no-collections">{{ 'sections.collection_list.empty' | t }}</p>
+            {% endif %}
+        </div>
     </div>
-  </div>
 {% endif %}
 
 <style>
-  .collection-list {
-      display: grid;
-      grid-template-columns: 1fr 1fr 1fr;
-      gap: 2rem;
-      padding: 1rem;
-  }
+    .collection-list {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 2rem;
+        padding: 1rem;
+    }
 
-  .collection-card {
-      position: relative;
-      overflow: hidden;
-      border-radius: 8px;
-      aspect-ratio: 3/4;
-  }
+    .collection-card {
+        position: relative;
+        overflow: hidden;
+        border-radius: 8px;
+        aspect-ratio: 3/4;
+    }
 
-  .collection-card__image-container {
-      height: 100%;
-      width: 100%;
-  }
+    .collection-card__image-container {
+        height: 100%;
+        width: 100%;
+    }
 
-  .collection-card__image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.3s ease;
-  }
+    .collection-card__image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+    }
 
-  .collection-card:hover .collection-card__image {
-      transform: scale(1.05);
-  }
+    .collection-card:hover .collection-card__image {
+        transform: scale(1.05);
+    }
 
-  .collection-card__overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(transparent, rgba(0,0,0,0.7));
-      padding: 1.5rem;
-      color: white;
-  }
+    .collection-card__overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
+        padding: 1.5rem;
+        color: white;
+    }
 
-  .collection-card__title {
-      margin: 0;
-      font-size: 1.2rem;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
-  }
+    .collection-card__title {
+        margin: 0;
+        font-size: 1.2rem;
+        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+    }
 </style>
