@@ -471,24 +471,9 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
-                {% if customer %}
-                  <button
-                    class="wishlist-button"
-                    data-product-id="{{ product.id }}"
-                    data-customer-id="{{ customer.id }}">
-                    <span>Add to Wishlist </span>
-                             <span class="svg-wrapper">
-                                   {{- 'icon-heart.svg' | inline_asset_content -}}
-                                                         </span>
-                  </button>
-                {% else %}
-                  <a href="/account/login" class="wishlist-button">
-                     <span>Add to Wishlist </span>
-                                                 <span class="svg-wrapper">
-                                                       {{- 'icon-heart.svg' | inline_asset_content -}}
-                                                                             </span>
-                  </a>
-                {% endif %}
+                {%- when 'add-to-wishlist' -%}
+                 {% render 'add-to-wishlist', block: block %}
+
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -932,6 +917,11 @@
         }
       ]
     },
+    {
+       "type": "add-to-wishlist",
+       "name": "Add to Wishlist",
+       "limit": 1
+          },
     {
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
@@ -1550,6 +1540,10 @@
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
             },
             {
+               "value": "fast-delivery",
+               "label": "Fast Delivery"
+            },
+            {
               "value": "fire",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
             },
@@ -1592,6 +1586,10 @@
             {
               "value": "nut_free",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+            },
+            {
+               "value": "original-products",
+               "label": "Original Products"
             },
             {
               "value": "pants",
@@ -1750,6 +1748,10 @@
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
             },
             {
+               "value": "fast-delivery",
+               "label": "Fast Delivery"
+            },
+            {
               "value": "fire",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
             },
@@ -1792,6 +1794,10 @@
             {
               "value": "nut_free",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+            },
+            {
+               "value": "original-products",
+               "label": "Original Products"
             },
             {
               "value": "pants",
@@ -1950,9 +1956,14 @@
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__13.label"
             },
             {
+               "value": "fast-delivery",
+                "label": "Fast Delivery"
+            },
+            {
               "value": "fire",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__14.label"
             },
+
             {
               "value": "gluten_free",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__15.label"
@@ -1992,6 +2003,10 @@
             {
               "value": "nut_free",
               "label": "t:sections.main-product.blocks.collapsible_tab.settings.icon.options__24.label"
+            },
+            {
+               "value": "original-products",
+               "label": "Original Products"
             },
             {
               "value": "pants",
