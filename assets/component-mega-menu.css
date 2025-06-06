@@ -30,6 +30,8 @@
 .mega-menu[open] .mega-menu__content {
   opacity: 1;
   transform: translateY(0);
+  background: #000000b5;
+  height: 100vh;
 }
 
 .mega-menu__list {
@@ -37,6 +39,7 @@
   gap: 1.8rem 4rem;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   list-style: none;
+  background: #ffffff;
 }
 .mini-banner.mini-banner--with-image {
   grid-column: span 2 / span 2;

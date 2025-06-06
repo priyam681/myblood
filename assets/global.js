@@ -457,16 +457,12 @@ class MenuDrawer extends HTMLElement {
     const isOpen = detailsElement.hasAttribute('open');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    const allMenuDrawer = document.querySelectorAll('.menu-drawer__menu > li');
-    console.log('All Menu Drawer: ', allMenuDrawer);
 
     function addTrapFocus() {
       trapFocus(summaryElement.nextElementSibling, detailsElement.querySelector('button'));
       summaryElement.nextElementSibling.removeEventListener('transitionend', addTrapFocus);
     }
 
-    console.log('DetailsElement: ', detailsElement);
-    console.log('Main Details Toggle: ', this.mainDetailsToggle);
 
     if (detailsElement === this.mainDetailsToggle) {
       if (isOpen) event.preventDefault();
@@ -494,6 +490,7 @@ class MenuDrawer extends HTMLElement {
       }, 100);
     }
   }
+
 
   openMenuDrawer(summaryElement) {
     setTimeout(() => {
