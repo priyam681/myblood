@@ -4,7 +4,31 @@
   Usage:
   {% render 'header-drawer' %}
 {% endcomment %}
-
+{% style %}
+    .menu-drawer__menu-submenu {
+    display: flex;
+    width: 100%;
+    padding:  1rem;
+    }
+    .menu-drawer__menu-submenu  .mega-menu__image {
+    border-radius: 50%;
+    width:  50px;
+    height: 50px;
+    }
+    .menu-drawer__submenu   details ,
+    .menu-drawer__submenu   summary {
+    width: 100%;
+    }
+    .menu-drawer__menu-submenu summary {
+    padding: 0;
+    }
+    .summary-details-heading {
+    padding: 1.1rem 3rem;
+    }
+    .menu-drawer__menu-submenu a {
+    width: 100%;
+    }
+{% endstyle %}
 <header-drawer
         data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
     <details id="Details-menu-drawer-container" class="menu-drawer-container">
@@ -48,16 +72,19 @@
 
                                                     <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                                                         {%- for childlink in link.links -%}
-                                                            <li>
-                                                                {% if childlink.type == 'collection_link' %}
-                                                                    {% assign image_url = childlink.object.featured_image | image_url: width: 100 %}
-                                                                    <img src="{{ image_url }}"
-                                                                         alt="{{ childlink.title | escape }}"
-                                                                         class="mega-menu__image" />
-                                                                {% endif %}
+                                                            <li class="menu-drawer__menu-submenu">
 
 
                                                                 {%- if childlink.links == blank -%}
+
+
+                                                                    {% if childlink.type == 'collection_link' %}
+                                                                        {% assign image_url = childlink.object.featured_image | image_url: width: 100 %}
+                                                                        <img src="{{ image_url }}"
+                                                                             alt="{{ childlink.title | escape }}"
+                                                                             class="mega-menu__image" />
+                                                                    {% endif %}
+
                                                                     <a
                                                                             id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                                                             href="{{ childlink.url }}"
@@ -71,11 +98,20 @@
                                                                 {%- else -%}
                                                                     <details
                                                                             id="Details-menu-drawer-{{ link.handle }}-{{ childlink.handle }}">
+
+
                                                                         <summary
                                                                                 id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}"
                                                                                 class="menu-drawer__menu-item link link--text list-menu__item focus-inset"
                                                                         >
-                                                                            {{ childlink.title | escape }}
+                                                                            {% if childlink.type == 'collection_link' %}
+                                                                                {% assign image_url = childlink.object.featured_image | image_url: width: 100 %}
+                                                                                <img src="{{ image_url }}"
+                                                                                     alt="{{ childlink.title | escape }}"
+                                                                                     class="mega-menu__image" />
+                                                                            {% endif %}
+
+                                                                            <span class="summary-details-heading">{{ childlink.title | escape }}</span>
                                                                             <span class="svg-wrapper">
                                         {{- 'downward.svg' | inline_asset_content -}}
                                       </span>
@@ -93,7 +129,7 @@
                                                                                     tabindex="-1"
                                                                             >
                                                                                 {%- for grandchildlink in childlink.links -%}
-                                                                                    <li>
+                                                                                    <li class="menu-drawer__menu-submenu">
                                                                                         {% if grandchildlink.type == 'collection_link' %}
                                                                                             {% assign image_url = grandchildlink.object.featured_image | image_url: width: 100 %}
                                                                                             <img src="{{ image_url }}"

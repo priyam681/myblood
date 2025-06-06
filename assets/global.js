@@ -457,8 +457,19 @@ class MenuDrawer extends HTMLElement {
     const isOpen = detailsElement.hasAttribute('open');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    const allMenuDrawer = document.querySelectorAll('.menu-drawer__menu > li');
-    console.log('All Menu Drawer: ', allMenuDrawer);
+    // const allMenuDrawer = Array.from(document.querySelectorAll('.menu-drawer__menu > li details'));
+    //
+    // allMenuDrawer.forEach((menuDrawer) => {
+    //   if (menuDrawer.classList.contains('menu-opening')) {
+    //     if (event.target !== menuDrawer) {
+    //       menuDrawer.classList.toggle('menu-opening');
+    //       menuDrawer.removeAttribute('open');
+    //     }
+    //   }
+    // });
+
+
+    // console.log('All Menu Drawer: ', allMenuDrawer);
 
     function addTrapFocus() {
       trapFocus(summaryElement.nextElementSibling, detailsElement.querySelector('button'));
