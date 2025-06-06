@@ -48,7 +48,7 @@
 
                                                     <ul class="menu-drawer__menu list-menu" role="list" tabindex="-1">
                                                         {%- for childlink in link.links -%}
-                                                            <li>
+                                                            <li style="display:flex;">
                                                                 {% if childlink.type == 'collection_link' %}
                                                                     {% assign image_url = childlink.object.featured_image | image_url: width: 100 %}
                                                                     <img src="{{ image_url }}"
