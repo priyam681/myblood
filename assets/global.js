@@ -457,6 +457,26 @@ class MenuDrawer extends HTMLElement {
     const isOpen = detailsElement.hasAttribute('open');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
+
+    // Close all other open menu drawers (including nested ones) when clicking on a new one
+    const allMenuDrawer = Array.from(document.querySelectorAll('.menu-drawer__menu details'));
+
+    allMenuDrawer.forEach((menuDrawer) => {
+      if (menuDrawer.classList.contains('menu-opening') && menuDrawer !== detailsElement) {
+        // Close the other open menu
+        this.closeMenuDrawerItem(menuDrawer);
+      }
+    });
+
+    // Also close any nested submenus within the current menu structure
+    const allNestedMenus = Array.from(document.querySelectorAll('.menu-drawer__submenu details'));
+    allNestedMenus.forEach((nestedMenu) => {
+      if (nestedMenu.classList.contains('menu-opening') && nestedMenu !== detailsElement) {
+        this.closeMenuDrawerItem(nestedMenu);
+      }
+    });
+
+
     // const allMenuDrawer = Array.from(document.querySelectorAll('.menu-drawer__menu > li details'));
     //
     // allMenuDrawer.forEach((menuDrawer) => {
@@ -505,6 +525,50 @@ class MenuDrawer extends HTMLElement {
       }, 100);
     }
   }
+
+  onSummaryClick(event) {
+    const summaryElement = event.currentTarget;
+    const detailsElement = summaryElement.parentNode;
+    const parentMenuElement = detailsElement.closest('.has-submenu');
+    const isOpen = detailsElement.hasAttribute('open');
+    const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+
+    function addTrapFocus() {
+      trapFocus(summaryElement.nextElementSibling, detailsElement.querySelector('button'));
+      summaryElement.nextElementSibling.removeEventListener('transitionend', addTrapFocus);
+    }
+
+    console.log('DetailsElement: ', detailsElement);
+    console.log('Main Details Toggle: ', this.mainDetailsToggle);
+
+    if (detailsElement === this.mainDetailsToggle) {
+      if (isOpen) event.preventDefault();
+      isOpen ? this.closeMenuDrawer(event, summaryElement) : this.openMenuDrawer(summaryElement);
+
+      if (window.matchMedia('(max-width: 990px)')) {
+        document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
+      }
+    } else {
+      setTimeout(() => {
+        let target = event.target.parentNode;
+        console.log('Event: ', target);
+        let svgWrapper = target.querySelector('.svg-wrapper');
+        if (svgWrapper) {
+          svgWrapper.classList.toggle('svg_wrapper_rotate');
+        }
+
+        detailsElement.classList.add('menu-opening');
+        summaryElement.setAttribute('aria-expanded', true);
+        parentMenuElement && parentMenuElement.classList.add('submenu-open');
+
+        !reducedMotion || reducedMotion.matches
+          ? addTrapFocus()
+          : summaryElement.nextElementSibling.addEventListener('transitionend', addTrapFocus);
+      }, 100);
+    }
+  }
+
 
   openMenuDrawer(summaryElement) {
     setTimeout(() => {

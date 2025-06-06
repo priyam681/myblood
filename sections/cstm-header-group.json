@@ -38,6 +38,30 @@
     },
     "header": {
       "type": "cstm-header",
+      "blocks": {
+        "collection_list_tNG8MH": {
+          "type": "collection_list",
+          "settings": {
+            "collection_menu_trigger": "accessories",
+            "collection_list": [
+              "accessories",
+              "chair",
+              "jewellery",
+              "kids",
+              "loungesets",
+              "mens",
+              "rings",
+              "womens"
+            ],
+            "collection_background_color": "#fafafa",
+            "collection_padding": 32,
+            "collection_title": "Accessories"
+          }
+        }
+      },
+      "block_order": [
+        "collection_list_tNG8MH"
+      ],
       "settings": {
         "logo_position": "middle-left",
         "mobile_logo_position": "center",
