@@ -1,88 +1,139 @@
 {% if block != blank %}
-    <div class="collection-list-container">
-        <h1>{{ link.title }}</h1>
+ {% assign collection_count = 0 %}
 
-        {% if block.settings.collection_title != blank %}
-            <h3 class="collection-list-title">{{ block.settings.collection_title }}</h3>
+ {% for collection in block.settings.collection_list %}
+          {% assign collection_count = collection_count | plus: 1 %}
+  {% endfor %}
+  <div class="collection-list-container" style="background-color: {{ block.settings.collection_background_color }}; padding-block: {{ block.settings.collection_padding }}px;">
+    <div class="page-width">
+      {% if block.settings.collection_title != blank %}
+        <h3 class="collection-list-title">{{ block.settings.collection_title }}</h3>
+      {% endif %}
+
+      {% if collection_count > 5 %}
+        <div class="swiper">
+          <div class="swiper-wrapper collection-list">
+      {% else %}
+        <div class="collection-list">
+      {% endif %}
+
+        {% if block.settings.collection_list != blank %}
+          {% for collection in block.settings.collection_list %}
+            <div class="collection-card {% if collection_count > 5 %}swiper-slide{% endif %}">
+              {% if collection.featured_image != blank %}
+                <div class="collection-card__image-container">
+                  <a href="{{ collection.url }}" class="collection-card__link">
+                    {{
+                      collection.featured_image
+                      | image_url: width: 600
+                      | image_url: height: 600
+                      | image_tag:
+                        loading: 'lazy',
+                        class: 'collection-card__image',
+                        alt: collection.title,
+                        widths: '200, 600, 900',
+                        sizes: '(max-width: 767px) 50vw, 25vw'
+                    }}
+                  </a>
+                </div>
+              {% endif %}
+              <a href="{{ collection.url }}" class="collection-card__link">
+                <h4 class="collection-card__title">{{ collection.title }}</h4>
+              </a>
+            </div>
+          {% endfor %}
+        {% else %}
+          <p class="no-collections">{{ 'sections.collection_list.empty' | t }}</p>
         {% endif %}
 
-        <div class="collection-list"
-             style="{% if  block.settings.position == 'left' %}float: left;{% else %}float: right;{% endif %}">
-            {% if block.settings.collection_list != blank %}
-                {% for collection in block.settings.collection_list %}
-                    <div class="collection-card">
-                        <a href="{{ collection.url }}" class="collection-card__link">
-                            {% if collection.featured_image != blank %}
-                                <div class="collection-card__image-container">
-                                    {{
-                                    collection.featured_image
-                                    | image_url: width: 600
-                                    | image_tag:
-                                    loading: 'lazy',
-                                    class: 'collection-card__image',
-                                    alt: collection.title,
-                                    widths: '300, 600, 900',
-                                    sizes: '(max-width: 767px) 50vw, 25vw'
-                                    }}
-                                </div>
-                            {% endif %}
-                            <div class="collection-card__overlay">
-                                <h4 class="collection-card__title">{{ collection.title }}</h4>
-                            </div>
-                        </a>
-                    </div>
-                {% endfor %}
-            {% else %}
-                <p class="no-collections">{{ 'sections.collection_list.empty' | t }}</p>
-            {% endif %}
+      {% if collection_count > 5 %}
+          </div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-button-next"></div>
         </div>
+      {% else %}
+        </div>
+      {% endif %}
     </div>
+  </div>
 {% endif %}
 
+{% if collection_count > 5 %}
+ <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      new Swiper('.swiper', {
+        slidesPerView: 5,
+        spaceBetween: 32,
+        loop: true,
+        autoplay:true,
+        navigation: {
+          nextEl: '.swiper-button-next',
+          prevEl: '.swiper-button-prev'
+        },
+        breakpoints: {
+          0: { slidesPerView: 1.2 },
+          768: { slidesPerView: 3 },
+          1024: { slidesPerView: 4 },
+          1200: { slidesPerView: 5 }
+        }
+      });
+    });
+  </script>
+{% endif %}
+
+
 <style>
-    .collection-list {
-        display: grid;
-        grid-template-columns: 1fr 1fr 1fr;
-        gap: 2rem;
-        padding: 1rem;
-    }
-
-    .collection-card {
-        position: relative;
-        overflow: hidden;
-        border-radius: 8px;
-        aspect-ratio: 3/4;
-    }
-
-    .collection-card__image-container {
-        height: 100%;
-        width: 100%;
-    }
-
-    .collection-card__image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-        transition: transform 0.3s ease;
-    }
-
-    .collection-card:hover .collection-card__image {
-        transform: scale(1.05);
-    }
-
-    .collection-card__overlay {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        right: 0;
-        background: linear-gradient(transparent, rgba(0, 0, 0, 0.7));
-        padding: 1.5rem;
-        color: white;
-    }
-
-    .collection-card__title {
-        margin: 0;
-        font-size: 1.2rem;
-        text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-    }
+.collection-list-container .collection-list-title {
+  font-size: 26px;
+  font-weight: 800;
+  margin-bottom: 30px;
+}
+.collection-list {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 3.2rem;
+}
+.swiper .collection-list {
+  display: flex !important;
+  gap: 0 !important;
+}
+.collection-card {
+  border-radius: 8px;
+}
+.collection-card .collection-card__link {
+  display: block;
+  text-decoration: none;
+}
+.collection-card__image-container {
+  aspect-ratio: 1;
+}
+.collection-card__image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+  aspect-ratio: 1;
+}
+.collection-card:hover .collection-card__image {
+  transform: scale(1.05);
+}
+.collection-card__title {
+  margin: 10px auto 0;
+  text-align: center;
+  font-size: 1.6rem;
+}
+.swiper-button-prev,
+.swiper-button-next {
+  color: #000;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+.swiper-button-prev {
+  left: -20px;
+}
+.swiper-button-next {
+  right: -20px;
+}
 </style>

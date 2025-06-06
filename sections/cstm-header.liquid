@@ -712,21 +712,22 @@ customElements.define('sticky-header', StickyHeader);
           "id": "collection_list",
           "label": "Collection"
         },
-        {
-          "type": "select",
-          "id": "position",
-          "label": "Position",
-          "options": [
-            {
-              "value": "left",
-              "label": "Left"
-            },
-            {
-              "value": "right",
-              "label": "Right"
-            }
-          ]
-        },
+          {
+             "type": "color",
+             "id":"collection_background_color",
+             "label": "Collection Background Color",
+             "default": "#FAFAFA"
+           },
+           {
+             "type":"range",
+             "id":"collection_padding",
+             "min": 0,
+             "max": 50,
+             "step": 1,
+             "unit": "px",
+             "label": "Collection Padding",
+             "default": 32
+               },
         {
           "type": "text",
           "id": "collection_title",
