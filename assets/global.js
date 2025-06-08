@@ -121,14 +121,14 @@ function trapFocus(container, elementToFocus = container) {
   document.addEventListener('focusout', trapFocusHandlers.focusout);
   document.addEventListener('focusin', trapFocusHandlers.focusin);
 
-  elementToFocus.focus();
+  elementToFocus?.focus();
 
   if (
-    elementToFocus.tagName === 'INPUT' &&
+    elementToFocus?.tagName === 'INPUT' &&
     ['search', 'text', 'email', 'url'].includes(elementToFocus.type) &&
     elementToFocus.value
   ) {
-    elementToFocus.setSelectionRange(0, elementToFocus.value.length);
+    elementToFocus?.setSelectionRange(0, elementToFocus.value.length);
   }
 }
 
@@ -424,7 +424,8 @@ class MenuDrawer extends HTMLElement {
     super();
 
     this.mainDetailsToggle = this.querySelector('details');
-
+    this.isAnimating = false;
+    this.clickTimeout = null;
     this.addEventListener('keyup', this.onKeyUp.bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
     this.bindEvents();
@@ -451,11 +452,36 @@ class MenuDrawer extends HTMLElement {
   }
 
   onSummaryClick(event) {
+    this.isAnimating = true;
     const summaryElement = event.currentTarget;
     const detailsElement = summaryElement.parentNode;
     const parentMenuElement = detailsElement.closest('.has-submenu');
     const isOpen = detailsElement.hasAttribute('open');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
+
+    this.manageSvgRotation(detailsElement, !isOpen);
+
+    console.log("Detail: ", detailsElement.parentElement.parentElement);
+    console.log("Event: ", event.currentTarget);
+    const  grandParent = detailsElement.parentElement.parentElement
+    const grandParentList = Array.from(detailsElement.parentElement.parentElement.children);
+
+    // grand parent
+
+    if (!grandParent.classList.contains('header')) {
+      grandParentList.forEach(item => {
+        const summaryElement = item.querySelector('summary');
+
+        if (summaryElement) {
+          const openDetails = summaryElement === event.currentTarget
+            ? item.querySelectorAll('details[open]')
+            : item.querySelectorAll('details[open]');
+
+          openDetails.forEach(detailsElement => this.closeSubmenu(detailsElement));
+        }
+      });
+
+    }
 
 
     function addTrapFocus() {
@@ -474,10 +500,6 @@ class MenuDrawer extends HTMLElement {
     } else {
       setTimeout(() => {
 
-        let target = event.target.parentNode;
-        console.log('Event: ', target);
-        let svgWrapper = target.querySelector('.svg-wrapper');
-        svgWrapper.classList.toggle('svg_wrapper_rotate');
 
         detailsElement.classList.add('menu-opening');
         summaryElement.setAttribute('aria-expanded', true);
@@ -531,12 +553,28 @@ class MenuDrawer extends HTMLElement {
     this.closeSubmenu(detailsElement);
   }
 
+  manageSvgRotation(element, isOpen) {
+    const svgWrapper = element.querySelector('.svg-wrapper');
+    if (svgWrapper) {
+      if (isOpen) {
+        svgWrapper.classList.add('svg_wrapper_rotate');
+      } else {
+        svgWrapper.classList.remove('svg_wrapper_rotate');
+      }
+    }
+  }
+
+
   closeSubmenu(detailsElement) {
     const parentMenuElement = detailsElement.closest('.submenu-open');
     parentMenuElement && parentMenuElement.classList.remove('submenu-open');
+
+    this.manageSvgRotation(detailsElement, false);
     detailsElement.classList.remove('menu-opening');
     detailsElement.querySelector('summary').setAttribute('aria-expanded', false);
     removeTrapFocus(detailsElement.querySelector('summary'));
+
+
     this.closeAnimation(detailsElement);
   }
 

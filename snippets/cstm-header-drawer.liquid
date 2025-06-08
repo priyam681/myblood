@@ -28,6 +28,14 @@
     .menu-drawer__menu-submenu a {
     width: 100%;
     }
+
+
+    .svg-wrapper {
+    transition: transform 0.25s ease;
+
+    }
+
+
 {% endstyle %}
 <header-drawer
         data-breakpoint="{% if section.settings.menu_type_desktop == 'drawer' %}desktop{% else %}tablet{% endif %}">
@@ -59,9 +67,7 @@
                                                 <span class="svg-wrapper">
                           {{- 'downward.svg' | inline_asset_content -}}
                         </span>
-                                                <span class="svg-wrapper">
-                          {{- 'icon-caret.svg' | inline_asset_content -}}
-                        </span>
+
                                             </summary>
                                             <div
                                                     id="link-{{ link.handle | escape }}"
@@ -115,9 +121,7 @@
                                                                             <span class="svg-wrapper">
                                         {{- 'downward.svg' | inline_asset_content -}}
                                       </span>
-                                                                            <span class="svg-wrapper">
-                                        {{- 'icon-caret.svg' | inline_asset_content -}}
-                                      </span>
+
                                                                         </summary>
                                                                         <div
                                                                                 id="childlink-{{ childlink.handle | escape }}"
@@ -193,9 +197,7 @@
                                                     <span class="svg-wrapper">
                           {{- 'downward.svg' | inline_asset_content -}}
                         </span>
-                                                    <span class="svg-wrapper">
-                          {{- 'icon-caret.svg' | inline_asset_content -}}
-                        </span>
+
                                                 </summary>
                                                 <div
                                                         id="link-{{ link.handle | escape }}"
