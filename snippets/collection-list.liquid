@@ -13,6 +13,7 @@
                 <h3 class="collection-list-title">{{ block.settings.collection_title }}</h3>
             {% endif %}
 
+
         {% if collection_count > 5 %}
             <div class="swiper_collection">
                 <div class="swiper-wrapper collection-list">
@@ -65,22 +66,41 @@
     <script>
 
       document.addEventListener('DOMContentLoaded', function() {
-        new Swiper('.swiper_collection', {
-          slidesPerView: 3,
-          spaceBetween: 32,
-          loop: true,
-          autoplay: true,
-          navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev'
-          },
-          breakpoints: {
-            0: { slidesPerView: 1.2 },
-            768: { slidesPerView: 3 },
-            1024: { slidesPerView: 4 },
-            1200: { slidesPerView: 5 }
+
+        function initSwiper() {
+          if (window.innerWidth > 768) {
+            if (!document.querySelector('.swiper_collection').swiper) {
+              new Swiper('.swiper_collection', {
+                slidesPerView: 3,
+                spaceBetween: 32,
+                loop: true,
+                autoplay: true,
+                navigation: {
+                  nextEl: '.swiper-button-next',
+                  prevEl: '.swiper-button-prev'
+                },
+                breakpoints: {
+                  0: { slidesPerView: 1.2 },
+                  768: { slidesPerView: 3 },
+                  1024: { slidesPerView: 4 },
+                  1200: { slidesPerView: 5 }
+                }
+              });
+            } else {
+              if (document.querySelector('.swiper_collection').swiper) {
+                document.querySelector('.swiper_collection').swiper.destroy(true, true);
+              }
+            }
+
           }
+        }
+
+        initSwiper();
+
+        window.addEventListener('resize', function() {
+          initSwiper();
         });
+
       });
     </script>
 {% endif %}
