@@ -5,40 +5,39 @@
   "name": "Product Tabs",
   "tag": "section",
   "settings": [
-   {
-       "type": "text",
-       "id": "tab_heading",
-       "label": "Tab Heading",
-       "default": "LATEST"
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "label": "Tab Heading",
+      "default": "LATEST"
     },
     {
       "type": "color",
-      "id":"tab_background_color",
+      "id": "tab_background_color",
       "label": "Tab Background Color",
       "default": "#f8f8f8"
     },
     {
-      "type":"range",
-      "id":"tab_padding",
+      "type": "range",
+      "id": "tab_padding",
       "min": 0,
       "max": 50,
       "step": 1,
       "unit": "px",
       "label": "Tab Padding",
-      "default":40
+      "default": 40
     },
     {
-      "type":"range",
-      "id":"tab_margin",
+      "type": "range",
+      "id": "tab_margin",
       "min": 0,
       "max": 50,
       "step": 1,
       "unit": "px",
       "label": "Tab Margin",
-      "default":30
+      "default": 30
     }
   ],
-
   "blocks": [
     {
       "type": "tab",
@@ -69,136 +68,202 @@
 
 <product-tabs>
 
-<div  style="background-color: {{ section.settings.tab_background_color }}; padding-block:{{ section.settings.tab_padding }}px; margin-block: {{ section.settings.tab_margin }}px;">
-<div class="pua-tabs-wrapper page-width">
-<div class="tabs-inner-wrapper">
-<div class="tabs-wrapper">
-<div class="tab_heading">{{ section.settings.tab_heading }}</div>
-  <ul class="pua-tabs">
-    {% for block in section.blocks %}
-      <li class="{% if forloop.first %}active{% endif %}" data-tab="tab-{{ forloop.index }}">
-        {{ block.settings.tab_title }}
-      </li>
-    {% endfor %}
-  </ul>
-</div>
-  {% for block in section.blocks %}
-    <div class="pua-tab-content test {% if forloop.first %}active{% endif %}" id="tab-tab-{{ forloop.index }}">
-      {% assign collection = collections[block.settings.collection] %}
-      {% if collection.products.size > 0 %}
-        <div class="pua-product-slider swiper" data-product-count="{{ collection.products.size }}">
-          <div class="swiper-wrapper">
-            {% for product in collection.products %}
-              <div class="swiper-slide">
-                <div class="product-card" itemscope itemtype="https://schema.org/Product">
-                  <a href="{{ product.url }}" itemprop="url">
-                    <img
-                      class="main-image"
-                      src="{{ product.featured_image | image_url: width: 400 }}"
-                      alt="{{ product.title }}"
-                      itemprop="image"
-                    />
-                  </a>
-
-                  <div class="thumbnail-wrapper">
-                      {% for image in product.images limit: 15 %}
-                        <img
-                                class="thumbnail"
-                                src="{{ image | image_url: width: 400 }}"
-                                alt="{{ product.title }} thumbnail"
-                                onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
-                                width="50px" height="50px"
-                        />
-                      {% endfor %}
-
-                  </div>
-
-                  <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
-                  <div itemprop="offers"  class="product-price" itemscope itemtype="https://schema.org/Offer">
-                    <meta itemprop="priceCurrency" content="INR" />
-                    <span itemprop="price">{{ product.price | money }}</span>
-                    <link itemprop="availability" href="https://schema.org/InStock" />
-                  </div>
-
-{% if product.metafields.custom.short_description %}
-  <p class="product-short-desc">
-    {{ product.metafields.custom.short_description }}
-  </p>
-{% endif %}
+    <div style="background-color: {{ section.settings.tab_background_color }}; padding-block:{{ section.settings.tab_padding }}px; margin-block: {{ section.settings.tab_margin }}px;">
+        <div class="pua-tabs-wrapper page-width">
+            <div class="tabs-inner-wrapper">
+                <div class="tabs-wrapper">
+                    <div class="tab_heading">{{ section.settings.tab_heading }}</div>
+                    <ul class="pua-tabs">
+                        {% for block in section.blocks %}
+                            <li class="{% if forloop.first %}active{% endif %}" data-tab="tab-{{ forloop.index }}">
+                                {{ block.settings.tab_title }}
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-              </div>
-            {% endfor %}
-          </div>
-        {% if collection.products.size > 4 %}
-                    <div class="prev-next-button">
-                    <div class="item-prev pagination__item--prev">
+                {% for block in section.blocks %}
+                    <div class="pua-tab-content test {% if forloop.first %}active{% endif %}"
+                         id="tab-tab-{{ forloop.index }}">
+                        {% assign collection = collections[block.settings.collection] %}
+                        {% if collection.products.size > 0 %}
+                            <div class="pua-product-slider swiper" data-product-count="{{ collection.products.size }}">
+                                <div class="swiper-wrapper">
+                                    {% for product in collection.products %}
+                                        <div class="swiper-slide">
+                                            <div class="product-card" itemscope itemtype="https://schema.org/Product">
+                                                <a href="{{ product.url }}" itemprop="url">
+                                                    <img
+                                                            class="main-image"
+                                                            src="{{ product.featured_image | image_url: width: 400 }}"
+                                                            alt="{{ product.title }}"
+                                                            itemprop="image"
+                                                    />
+                                                </a>
+
+                                                <div class="thumbnail-wrapper">
+                                                    {% for image in product.images limit: 15 %}
+                                                        <img
+                                                                class="thumbnail"
+                                                                src="{{ image | image_url: width: 400 }}"
+                                                                alt="{{ product.title }} thumbnail"
+                                                                onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
+                                                                width="50px" height="50px"
+                                                        />
+                                                    {% endfor %}
+
+                                                </div>
+
+                                                <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
+                                                <div itemprop="offers" class="product-price" itemscope
+                                                     itemtype="https://schema.org/Offer">
+                                                    <meta itemprop="priceCurrency" content="INR" />
+                                                    <span itemprop="price">{{ product.price | money }}</span>
+                                                    <link itemprop="availability" href="https://schema.org/InStock" />
+                                                </div>
+
+                                                {% if product.metafields.custom.short_description %}
+                                                    <p class="product-short-desc">
+                                                        {{ product.metafields.custom.short_description }}
+                                                    </p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                {% if collection.products.size > 4 %}
+                                    <div class="prev-next-button">
+                                        <div class="item-prev pagination__item--prev">
                      <span class="svg-wrapper">
                         {{- 'icon-caret.svg' | inline_asset_content -}}
                       </span>
-                    </div>
-                    <div class="item-next pagination__item--prev">
+                                        </div>
+                                        <div class="item-next pagination__item--prev">
                     <span class="svg-wrapper">
                                     {{- 'icon-caret.svg' | inline_asset_content -}}
                                   </span>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            <p>No products found in this collection.</p>
+                        {% endif %}
                     </div>
-                    </div>
-                  {% endif %}
-                   </div>
-      {% else %}
-        <p>No products found in this collection.</p>
-      {% endif %}
+                {% endfor %}
+            </div>
+        </div>
     </div>
-  {% endfor %}
-</div>
-</div>
-</div>
 </product-tabs>
 
 
 <script defer>
 
-  if (!customElements.get('product-tabs')){
+  if (!customElements.get('product-tabs')) {
     class ProductTabs extends HTMLElement {
       constructor() {
         super();
-        this.tabs = this.querySelectorAll('.swiper-wrapper');
+        this.tabs = Array.from(this.querySelectorAll('.product-card'));
+        this.resizeObserver = null;
       }
 
       connectedCallback() {
-        console.log("Product tab: ", this.tabs);
+        if (this.tabs.length > 0) {
+          this.initCallback();
+        }
       }
+
+
+      handleExtraImages(tab) {
+
+        this.resizeObserver = new ResizeObserver((entries) => {
+          const thumbnailWrapper = tab.querySelector('.thumbnail-wrapper');
+          const thumbnails = thumbnailWrapper.querySelectorAll('.thumbnail');
+          const tabWidth = entries[0].contentBoxSize[0].inlineSize;
+          if (thumbnails.length > 0) {
+            requestAnimationFrame(() => {
+              this.handleCalculation(thumbnails, tabWidth);
+            });
+          }
+
+          this.resizeObserver.observe(tab);
+        });
+
+
+      }
+
+      disconnectedCallback() {
+        if (this.resizeObserver) {
+          this.resizeObserver.disconnect();
+        }
+      }
+
+      handleCalculation(thumbnails, tabWidth) {
+
+        thumbnails.forEach((thumbnail, i) => {
+          const rect = thumbnail.getClientRects()[0];
+          let positionX = rect.x;
+          console.log('Rect: ', rect.x);
+          console.log('PositionX: ', positionX);
+
+
+          if (positionX > tabWidth) {
+            console.log('Thumbnail is out of bounds:', thumbnail.src);
+            thumbnail.style.display = 'none';
+          }
+
+        });
+
+
+      }
+
+      handleProductCard(tabs) {
+        tabs.forEach(tab => {
+          const tabWidth = tab.offsetWidth;
+          this.handleExtraImages(tab, tabWidth);
+        });
+      }
+
+      initCallback() {
+        this.handleProductCard(this.tabs);
+      }
+
 
     }
 
     customElements.define('product-tabs', ProductTabs);
   }
 
+  window.addEventListener('error', (e) => {
+    console.log(e);
+  });
+
 </script>
 
 
-
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const tabs = document.querySelectorAll(".pua-tabs li");
-    const contents = document.querySelectorAll(".pua-tab-content");
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.pua-tabs li');
+    const contents = document.querySelectorAll('.pua-tab-content');
     tabs.forEach((tab, i) => {
-      tab.addEventListener("click", () => {
-        tabs.forEach((t) => t.classList.remove("active"));
-        contents.forEach((c) => c.classList.remove("active"));
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => t.classList.remove('active'));
+        contents.forEach((c) => c.classList.remove('active'));
 
-        tab.classList.add("active");
-        contents[i].classList.add("active");
+        tab.classList.add('active');
+        contents[i].classList.add('active');
       });
     });
-    document.querySelectorAll(".pua-product-slider").forEach(function (sliderEl) {
+
+
+    document.querySelectorAll('.pua-product-slider').forEach(function(sliderEl) {
       const productCount = parseInt(sliderEl.dataset.productCount, 10);
       if (productCount > 4) {
         new Swiper(sliderEl, {
           slidesPerView: 4,
           spaceBetween: 20,
           navigation: {
-            nextEl: sliderEl.querySelector(".item-next"),
-            prevEl: sliderEl.querySelector(".item-prev")
+            nextEl: sliderEl.querySelector('.item-next'),
+            prevEl: sliderEl.querySelector('.item-prev')
           },
           breakpoints: {
             0: { slidesPerView: 1.5 },
