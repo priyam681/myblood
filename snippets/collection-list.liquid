@@ -32,7 +32,7 @@
                                                 | image_url: width: 600
                                                 | image_url: height: 600
                                                 | image_tag:
-                                                loading: 'lazy',
+                                                loading: 'eager',
                                                 class: 'collection-card__image',
                                                 alt: collection.title,
                                                 widths: '200, 600, 900',
@@ -63,44 +63,58 @@
 {% endif %}
 
 {% if collection_count > 5 %}
-    <script>
+<script defer>
+  document.addEventListener('DOMContentLoaded', function() {
+    function initSwiper() {
+      const swiperEl = document.querySelector('.swiper_collection');
 
-      document.addEventListener('DOMContentLoaded', function() {
-
-        function initSwiper() {
-          if (window.innerWidth > 992) {
-            if (!document.querySelector('.swiper_collection').swiper) {
-              new Swiper('.swiper_collection', {
-                slidesPerView: 5,
-                spaceBetween: 20,
-                navigation: {
-                  nextEl: '.swiper-button-next',
-                  prevEl: '.swiper-button-prev'
-                },
-                breakpoints: {
-                  0: { slidesPerView: 1.5 },
-                  768: { slidesPerView: 3.5 },
-                  1024: { slidesPerView: 4.5 },
-                  1200: { slidesPerView: 5.5 }
-                }
-              });
-            } else {
-              if (document.querySelector('.swiper_collection').swiper) {
-                document.querySelector('.swiper_collection').swiper.destroy(true, true);
-              }
-            }
-
-          }
+      if (window.innerWidth > 992) {
+        // Destroy existing Swiper instance if it exists
+        if (swiperEl.swiper) {
+          swiperEl.swiper.destroy(true, true);
         }
 
-        initSwiper();
+        // Initialize new Swiper instance
+        new Swiper('.swiper_collection', {
+          slidesPerView: 5,
+          spaceBetween: 20,
+          loop: {{ block.settings.loop }},
 
-        window.addEventListener('resize', function() {
-          initSwiper();
+          // Autoplay configuration
+          autoplay: {{ block.settings.autoplay }} ? {
+            delay: {{ block.settings.delay | times:1000 }},
+            pauseOnMouseEnter: {{ block.settings.pause }},
+            disableOnInteraction: false
+          } : false,
+
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          },
+          breakpoints: {
+            0: { slidesPerView: 1.5 },
+            768: { slidesPerView: 3.5 },
+            1024: { slidesPerView: 4.5 },
+            1200: { slidesPerView: 5.5 }
+          }
         });
+      } else {
+        // Destroy Swiper instance if it exists and window is smaller than 992px
+        if (swiperEl.swiper) {
+          swiperEl.swiper.destroy(true, true);
+        }
+      }
+    }
 
-      });
-    </script>
+    // Initialize on load
+    initSwiper();
+
+    // Reinitialize on resize
+    window.addEventListener('resize', function() {
+      initSwiper();
+    });
+  });
+</script>
 {% endif %}
 
 
@@ -113,18 +127,9 @@
 
     .collection-list {
         display: grid;
-        grid-template-columns: repeat(5, 1fr);
-        gap: 2rem;
     }
 
-    .swiper_collection .collection-list {
-        display: flex !important;
-        gap: 0 !important;
-    }
-   .swiper_collection {
-      position: relative;
-        overflow: hidden;
-    }
+
     .collection-card {
         border-radius: 8px;
     }
@@ -156,39 +161,52 @@
         font-size: 1.6rem;
     }
 
-    .swiper-button-prev,
-    .swiper-button-next {
-        color: #fff;
-        background: #000;
-        position: absolute;
-        top: 50%;
-        transform: translateY(-50%);
-        z-index: 10;
-        border-radius: 50%;
-        width: 44px;
-        height: 44px;
-    }
-    .swiper-button-prev:after,
-    .swiper-button-next:after {
-       font-size: 20px;
-    }
-    .swiper-button-prev {
-        left: 0;
-    }
 
-    .swiper-button-next {
-        right: 0;
-    }
     .collection-list {
                     display: grid;
                      }
     @media screen and (min-width: 992px){
+    .swiper_collection .collection-list {
+            display: flex !important;
+            gap: 0 !important;
+        }
+       .swiper_collection {
+          position: relative;
+            overflow: hidden;
+        }
+        .swiper-button-prev,
+        .swiper-button-next {
+                color: #fff;
+                background: #000;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+                z-index: 10;
+                border-radius: 50%;
+                width: 44px;
+                height: 44px;
+            }
+            .swiper-button-prev:after,
+            .swiper-button-next:after {
+               font-size: 20px;
+            }
+            .swiper-button-prev {
+                left: 0;
+            }
+
+            .swiper-button-next {
+                right: 0;
+            }
     .collection-list {
                 grid-template-columns: repeat(5, 1fr);
                 gap: 2rem;
             }
     }
      @media screen and (max-width: 992px){
+     .swiper-button-prev,
+     .swiper-button-next {
+             display: none;
+             }
         .collection-list {
                     grid-template-columns: repeat(3, 1fr);
                     gap: 1rem;

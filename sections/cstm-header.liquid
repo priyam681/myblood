@@ -728,6 +728,37 @@ customElements.define('sticky-header', StickyHeader);
              "label": "Collection Padding",
              "default": 32
                },
+               {
+                     "type": "checkbox",
+                     "id": "autoplay",
+                     "label": "Enable Autoplay",
+                     "default": true,
+                     "info": "Automatically advance slides autoplay"
+                   },
+                   {
+                      "type": "checkbox",
+                      "id": "loop",
+                      "label": "Enable Loop",
+                      "default": true,
+                      "info": "Automatically advance slides loop"
+                   },
+                   {
+                         "type": "checkbox",
+                         "id": "pause",
+                         "label": "Pause on Hover",
+                         "default": true,
+                         "info": "Pause autoplay when hovering over slideshow"
+                       },
+
+                       {
+                                    "type":"range",
+                                    "id":"delay",
+                                    "min": 0,
+                                    "max": 10,
+                                    "step": 1,
+                                    "label": "Delay",
+                                    "default": 3
+                                      },
         {
           "type": "text",
           "id": "collection_title",
