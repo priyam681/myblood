@@ -11,29 +11,29 @@
     },
     {
       "type": "color",
-      "id":"tab_background_color",
+      "id": "tab_background_color",
       "label": "Tab Background Color",
-      "default":"#f8f8f8"
+      "default": "#f8f8f8"
     },
     {
-      "type":"range",
-      "id":"tab_padding",
+      "type": "range",
+      "id": "tab_padding",
       "min": 0,
       "max": 50,
       "step": 1,
       "unit": "px",
       "label": "Tab Padding",
-      "default":40
+      "default": 40
     },
     {
-      "type":"range",
-      "id":"tab_margin",
+      "type": "range",
+      "id": "tab_margin",
       "min": 0,
       "max": 50,
       "step": 1,
       "unit": "px",
       "label": "Tab Margin",
-      "default":30
+      "default": 30
     }
   ],
   "blocks": [
@@ -60,164 +60,86 @@
 {% endschema %}
 
 <div style="background-color: {{ section.settings.tab_background_color }}; padding-block: {{ section.settings.tab_padding }}px; margin-block: {{ section.settings.tab_margin }}px;">
-<section class="recommended-section page-width">
-  <div class="{% if section.blocks.size > 4 %}swiper{% else %}recommended-grid{% endif %}">
-    <h2 class="recommended-heading">{{ section.settings.heading }}</h2>
-    <div class="{% if section.blocks.size > 4 %}swiper-wrapper{% endif %}">
-      {% for block in section.blocks %}
-        {% assign product = all_products[block.settings.product] %}
-        {% if product %}
-          <div class="{% if section.blocks.size > 4 %}swiper-slide{% else %}recommended-item{% endif %}">
-            <div class="product-card">
-              <a href="{{ product.url }}">
-                <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title }}">
-              </a>
-              <div class="thumbnail-wrapper">
-                      {% for image in product.images limit: 15 %}
-                        <img
-                                class="thumbnail"
-                                src="{{ image | image_url: width: 400 }}"
-                                alt="{{ product.title }} thumbnail"
-                                onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
-                                width="50px" height="50px"
-                        />
-                      {% endfor %}
+    <section class="recommended-section page-width">
+        <div class="{% if section.blocks.size > 4 %}swiper{% else %}recommended-grid{% endif %}">
+            <h2 class="recommended-heading">{{ section.settings.heading }}</h2>
+            <div class="{% if section.blocks.size > 4 %}swiper-wrapper{% endif %}">
+                {% for block in section.blocks %}
+                    {% assign product = all_products[block.settings.product] %}
+                    {% if product %}
+                        <div class="{% if section.blocks.size > 4 %}swiper-slide{% else %}recommended-item{% endif %}">
+                            <div class="product-card">
+                                <a href="{{ product.url }}">
+                                    <img src="{{ product.featured_image | image_url: width: 600 }}"
+                                         alt="{{ product.title }}">
+                                </a>
+                                <div class="thumbnail-wrapper">
+                                    {% for image in product.images limit: 15 %}
+                                        <img
+                                                class="thumbnail"
+                                                src="{{ image | image_url: width: 400 }}"
+                                                alt="{{ product.title }} thumbnail"
+                                                onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
+                                                width="50px" height="50px"
+                                        />
+                                    {% endfor %}
 
-                  </div>
+                                </div>
 
-                  <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
-                  <div itemprop="offers"  class="product-price" itemscope itemtype="https://schema.org/Offer">
-                    <meta itemprop="priceCurrency" content="INR" />
-                    <span itemprop="price">{{ product.price | money }}</span>
-                    <link itemprop="availability" href="https://schema.org/InStock" />
-                  </div>
+                                <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
+                                <div itemprop="offers" class="product-price" itemscope
+                                     itemtype="https://schema.org/Offer">
+                                    <meta itemprop="priceCurrency" content="INR" />
+                                    <span itemprop="price">{{ product.price | money }}</span>
+                                    <link itemprop="availability" href="https://schema.org/InStock" />
+                                </div>
 
-{% if product.metafields.custom.short_description %}
-  <p class="product-short-desc">
-    {{ product.metafields.custom.short_description }}
-  </p>
-{% endif %}
+                                {% if product.metafields.custom.short_description %}
+                                    <p class="product-short-desc">
+                                        {{ product.metafields.custom.short_description }}
+                                    </p>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %}
             </div>
-          </div>
-        {% endif %}
-      {% endfor %}
-    </div>
 
-     {% if section.blocks.size > 4 %}
-                        <div class="prev-next-button">
-                        <div class="item-prev pagination__item--prev">
+            {% if section.blocks.size > 4 %}
+                <div class="prev-next-button">
+                    <div class="item-prev pagination__item--prev">
                          <span class="svg-wrapper">
                             {{- 'icon-caret.svg' | inline_asset_content -}}
                           </span>
-                        </div>
-                        <div class="item-next pagination__item--prev">
+                    </div>
+                    <div class="item-next pagination__item--prev">
                         <span class="svg-wrapper">
                                         {{- 'icon-caret.svg' | inline_asset_content -}}
                                       </span>
-                        </div>
-                        </div>
-                      {% endif %}
-  </div>
-</section>
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </section>
 </div>
-<script defer>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll(".thumbnail-wrapper").forEach(parent => {
-      const thumbnails = Array.from(parent.querySelectorAll(".thumbnail"));
-      const totalThumbnails = thumbnails.length;
-      let indicator = null;
-      let expanded = false;
-
-      const observer = new ResizeObserver(() => {
-        if (expanded) return;
-
-        if (indicator) {
-          indicator.remove();
-          indicator = null;
-        }
-
-        const parentWidth = parent.clientWidth;
-        let currentWidth = 0;
-        let visibleCount = 0;
-
-        let lastVisibleIndex = -1;
-        thumbnails.forEach((thumbnail, i) => {
-          thumbnail.style.display = 'block';
-
-          const thumbnailWidth = thumbnail.offsetWidth;
-          const margins = parseFloat(getComputedStyle(thumbnail).marginLeft) +
-            parseFloat(getComputedStyle(thumbnail).marginRight);
-
-          currentWidth += thumbnailWidth + margins;
-
-          if (currentWidth <= parentWidth) {
-            visibleCount++;
-            lastVisibleIndex = i;
-          } else {
-            thumbnail.style.display = 'none';
-          }
-        });
-        const hiddenCount = totalThumbnails - visibleCount;
-        if (hiddenCount > 0 && lastVisibleIndex >= 0) {
-          thumbnails[lastVisibleIndex].style.display = 'none';
-
-          indicator = document.createElement('span');
-          indicator.className = 'more-images-indicator';
-          indicator.style.display = 'flex';
-          indicator.style.cursor = 'pointer';
-          const indicatorCount = hiddenCount + 1;
-
-
-          indicator.innerHTML = `
-            <span class="count">+${indicatorCount}</span>
-          `;
-
-          // Add click handler to show all thumbnails in a modal or expand the container
-          indicator.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            expanded = true;
-            // Add your logic to show all thumbnails in a modal or expand the container
-
-            thumbnails.forEach(thumbnail => {
-              thumbnail.style.display = 'block';
-            });
-
-            // Hide the indicator
-
-            if (indicator) {
-              indicator.remove();
-              indicator = null;
-            }
-          });
-
-          parent.appendChild(indicator);
-        }
-      });
-
-      observer.observe(parent);
-    });
-  });
-</script>
-
 
 
 {% if section.blocks.size > 4 %}
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      new Swiper('.swiper', {
-        slidesPerView: 4,
-        spaceBetween: 20,
-        navigation: {
-          nextEl: '.item-next',
-          prevEl: '.item-prev'
-        },
-        breakpoints: {
-                    0: { slidesPerView: 1.5 },
-                    768: { slidesPerView: 2.5 },
-                    1200: { slidesPerView: 3.5 }
-                  }
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        new Swiper('.swiper', {
+          slidesPerView: 4,
+          spaceBetween: 20,
+          navigation: {
+            nextEl: '.item-next',
+            prevEl: '.item-prev'
+          },
+          breakpoints: {
+            0: { slidesPerView: 1.5 },
+            768: { slidesPerView: 2.5 },
+            1200: { slidesPerView: 3.5 }
+          }
+        });
       });
-    });
-  </script>
+    </script>
 {% endif %}

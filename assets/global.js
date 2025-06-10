@@ -424,8 +424,6 @@ class MenuDrawer extends HTMLElement {
     super();
 
     this.mainDetailsToggle = this.querySelector('details');
-    this.isAnimating = false;
-    this.clickTimeout = null;
     this.addEventListener('keyup', this.onKeyUp.bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
     this.bindEvents();
@@ -459,14 +457,11 @@ class MenuDrawer extends HTMLElement {
     const isOpen = detailsElement.hasAttribute('open');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    this.manageSvgRotation(detailsElement, !isOpen);
-
-    console.log("Detail: ", detailsElement.parentElement.parentElement);
-    console.log("Event: ", event.currentTarget);
-    const  grandParent = detailsElement.parentElement.parentElement
+    const grandParent = detailsElement.parentElement.parentElement;
     const grandParentList = Array.from(detailsElement.parentElement.parentElement.children);
 
     // grand parent
+
 
     if (!grandParent.classList.contains('header')) {
       grandParentList.forEach(item => {
@@ -481,6 +476,7 @@ class MenuDrawer extends HTMLElement {
         }
       });
 
+      this.manageSvgRotation(detailsElement, !isOpen);
     }
 
 
