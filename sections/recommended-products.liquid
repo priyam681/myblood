@@ -58,72 +58,74 @@
   ]
 }
 {% endschema %}
+<recommended-product>
+    <div style="background-color: {{ section.settings.tab_background_color }}; padding-block: {{ section.settings.tab_padding }}px; margin-block: {{ section.settings.tab_margin }}px;">
+        <section class="recommended-section page-width">
+            <div class="{% if section.blocks.size > 4 %}swiper{% else %}recommended-grid{% endif %}">
+                <h2 class="recommended-heading">{{ section.settings.heading }}</h2>
+                <div class="{% if section.blocks.size > 4 %}swiper-wrapper{% endif %}">
+                    {% for block in section.blocks %}
+                        {% assign product = all_products[block.settings.product] %}
+                        {% if product %}
+                            <div class="{% if section.blocks.size > 4 %}swiper-slide{% else %}recommended-item{% endif %}">
+                                <div class="product-card">
+                                    <a href="{{ product.url }}">
+                                        <img src="{{ product.featured_image | image_url: width: 600 }}"
+                                             alt="{{ product.title }}">
+                                    </a>
+                                    <div class="thumbnail-wrapper">
+                                        {% for image in product.images limit: 15 %}
+                                            <div class="thumbnail-image-wrapper">
+                                                <img
+                                                        class="thumbnail"
+                                                        src="{{ image | image_url: width: 400 }}"
+                                                        alt="{{ product.title }} thumbnail"
+                                                        onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
+                                                        width="50px" height="50px"
+                                                />
+                                            </div>
+                                        {% endfor %}
 
-<div style="background-color: {{ section.settings.tab_background_color }}; padding-block: {{ section.settings.tab_padding }}px; margin-block: {{ section.settings.tab_margin }}px;">
-    <section class="recommended-section page-width">
-        <div class="{% if section.blocks.size > 4 %}swiper{% else %}recommended-grid{% endif %}">
-            <h2 class="recommended-heading">{{ section.settings.heading }}</h2>
-            <div class="{% if section.blocks.size > 4 %}swiper-wrapper{% endif %}">
-                {% for block in section.blocks %}
-                    {% assign product = all_products[block.settings.product] %}
-                    {% if product %}
-                        <div class="{% if section.blocks.size > 4 %}swiper-slide{% else %}recommended-item{% endif %}">
-                            <div class="product-card">
-                                <a href="{{ product.url }}">
-                                    <img src="{{ product.featured_image | image_url: width: 600 }}"
-                                         alt="{{ product.title }}">
-                                </a>
-                                <div class="thumbnail-wrapper">
-                                    {% for image in product.images limit: 15 %}
-                                        <div class="thumbnail-image-wrapper">
-                                            <img
-                                                    class="thumbnail"
-                                                    src="{{ image | image_url: width: 400 }}"
-                                                    alt="{{ product.title }} thumbnail"
-                                                    onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
-                                                    width="50px" height="50px"
-                                            />
-                                        </div>
-                                    {% endfor %}
+                                    </div>
 
+                                    <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
+                                    <div itemprop="offers" class="product-price" itemscope
+                                         itemtype="https://schema.org/Offer">
+                                        <meta itemprop="priceCurrency" content="INR" />
+                                        <span itemprop="price">{{ product.price | money }}</span>
+                                        <link itemprop="availability" href="https://schema.org/InStock" />
+                                    </div>
+
+                                    {% if product.metafields.custom.short_description %}
+                                        <p class="product-short-desc">
+                                            {{ product.metafields.custom.short_description }}
+                                        </p>
+                                    {% endif %}
                                 </div>
-
-                                <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
-                                <div itemprop="offers" class="product-price" itemscope
-                                     itemtype="https://schema.org/Offer">
-                                    <meta itemprop="priceCurrency" content="INR" />
-                                    <span itemprop="price">{{ product.price | money }}</span>
-                                    <link itemprop="availability" href="https://schema.org/InStock" />
-                                </div>
-
-                                {% if product.metafields.custom.short_description %}
-                                    <p class="product-short-desc">
-                                        {{ product.metafields.custom.short_description }}
-                                    </p>
-                                {% endif %}
                             </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
 
-            {% if section.blocks.size > 4 %}
-                <div class="prev-next-button">
-                    <div class="item-prev pagination__item--prev">
+                {% if section.blocks.size > 4 %}
+                    <div class="prev-next-button">
+                        <div class="item-prev pagination__item--prev">
                          <span class="svg-wrapper">
                             {{- 'icon-caret.svg' | inline_asset_content -}}
                           </span>
-                    </div>
-                    <div class="item-next pagination__item--prev">
+                        </div>
+                        <div class="item-next pagination__item--prev">
                         <span class="svg-wrapper">
                                         {{- 'icon-caret.svg' | inline_asset_content -}}
                                       </span>
+                        </div>
                     </div>
-                </div>
-            {% endif %}
-        </div>
-    </section>
-</div>
+                {% endif %}
+            </div>
+        </section>
+    </div>
+</recommended-product>
+
 
 
 {% if section.blocks.size > 4 %}
@@ -145,3 +147,176 @@
       });
     </script>
 {% endif %}
+
+
+{% style %}
+    .thumbnail-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    width:100%;
+    }
+
+    .thumbnail-wrapper.show-all {
+    flex-wrap: wrap;
+    height: auto;
+    overflow: visible;
+    }
+
+    .thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+    }
+
+    .expand-thumbnails {
+    position:relative;
+    color: #000;
+    border: 1px solid #898989b3;;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+    padding: 0;
+    z-index: 2;
+    height:100%;
+    border-radius: 50% !important;
+    }
+
+
+
+    .thumbnail-wrapper.show-all .thumbnail {
+    display: block !important;
+    }
+
+    .thumbnail-wrapper.show-all {
+    padding-bottom: 10px;
+    }
+
+{% endstyle %}
+
+
+<script defer>
+
+  if (!customElements.get('recommended-product')) {
+    class RecommendedProduct extends HTMLElement {
+      constructor() {
+        super();
+        this.resizeObserver = new ResizeObserver(this.debounce(this.handleResize.bind(this), 10));
+      }
+
+      debounce(fn, delay) {
+        let timeoutId;
+        return (...args) => {
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
+          timeoutId = setTimeout(() => {
+            fn(...args);
+          }, delay);
+        };
+      }
+
+      connectedCallback() {
+        this.tabs = Array.from(this.querySelectorAll('.product-card'));
+        requestAnimationFrame(() => {
+          this.tabs.forEach(tab => {
+            const thumbnailWrapper = tab.querySelector('.thumbnail-wrapper:not(.expand-thumbnails)');
+            const expandButton = document.createElement('button');
+            expandButton.className = 'expand-thumbnails thumbnail';
+            expandButton.setAttribute('aria-label', 'Show all images');
+            thumbnailWrapper.appendChild(expandButton);
+
+            expandButton.addEventListener('click', () => this.toggleThumbnails(thumbnailWrapper));
+
+            this.resizeObserver.observe(tab);
+          });
+        });
+      }
+
+      toggleThumbnails(wrapper) {
+        wrapper.classList.toggle('show-all');
+        const button = wrapper.querySelector('.expand-thumbnails');
+        button.innerHTML = wrapper.classList.contains('show-all') ? '-' : '+';
+        button.setAttribute('aria-label', wrapper.classList.contains('show-all') ? 'Show fewer images' : 'Show all images');
+      }
+
+      handleResize(entries) {
+        requestAnimationFrame(() => {
+          entries.forEach(entry => {
+            const containerWidth = entry.contentRect.width;
+            const target = entry.target;
+            const thumbnailWrapper = target.querySelector('.thumbnail-wrapper');
+            const thumbnails = Array.from(thumbnailWrapper.querySelectorAll('.thumbnail-image-wrapper'));
+            let counter = 0;
+
+
+            // Don't hide thumbnails if show-all is active
+            if (thumbnailWrapper.classList.contains('show-all')) {
+              thumbnails.forEach(thumbnail => {
+                thumbnail.style.display = '';
+              });
+              return;
+            }
+
+
+            let currentWidth = 0;
+            const gap = 5; // gap between thumbnails (match your CSS gap)
+
+            thumbnails.forEach((thumbnail, index) => {
+              // Reset display to calculate proper dimensions
+              thumbnail.style.display = '';
+
+              // Get the actual width including margins
+              const thumbnailWidth = thumbnail.offsetWidth;
+
+              // Add gap except for the first thumbnail
+              currentWidth += thumbnailWidth;
+
+              // Hide if exceeds container width
+              if (currentWidth > containerWidth) {
+                ++counter;
+                thumbnail.style.display = 'none';
+              }
+            });
+
+            if (counter > 0) {
+              let lastVisible = thumbnails.length - counter - 1;
+              thumbnails[lastVisible].style.display = 'none';
+              counter = counter + 1;
+            }
+
+
+            // Show/hide expand button based on if there are hidden thumbnails
+            const expandButton = thumbnailWrapper.querySelector('.expand-thumbnails');
+            expandButton.innerHTML = `+${counter}`;
+
+            const hasHiddenThumbnails = thumbnails.some(thumb => thumb.style.display === 'none');
+            expandButton.style.display = hasHiddenThumbnails ? '' : 'none';
+
+          });
+        });
+      }
+
+
+      disconnectedCallback() {
+        if (this.resizeObserver) {
+          this.resizeObserver.disconnect();
+        }
+      }
+    }
+
+    customElements.define('recommended-product', RecommendedProduct);
+  }
+
+  window.addEventListener('error', (e) => {
+    console.log(e);
+  });
+
+</script>
