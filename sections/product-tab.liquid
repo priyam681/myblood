@@ -155,6 +155,56 @@
     </div>
 </product-tabs>
 
+{% style %}
+    .thumbnail-wrapper {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 5px;
+    overflow: hidden;
+    position: relative;
+    transition: all 0.3s ease;
+    }
+
+    .thumbnail-wrapper.show-all {
+    flex-wrap: wrap;
+    height: auto;
+    overflow: visible;
+    }
+
+    .thumbnail {
+    width: 50px;
+    height: 50px;
+    object-fit: cover;
+    flex-shrink: 0;
+    transition: opacity 0.2s ease;
+    }
+
+    .expand-thumbnails {
+    color: #000;
+    border: 1px solid #898989b3;;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    line-height: 1;
+    padding: 0;
+    z-index: 2;
+    height:100%;
+    }
+
+
+
+    .thumbnail-wrapper.show-all .thumbnail {
+    display: block !important;
+    }
+
+    .thumbnail-wrapper.show-all {
+    padding-bottom: 10px;
+    }
+
+{% endstyle %}
+
 
 <script defer>
 
@@ -162,72 +212,106 @@
     class ProductTabs extends HTMLElement {
       constructor() {
         super();
-        this.tabs = Array.from(this.querySelectorAll('.product-card'));
-        this.resizeObserver = null;
+        this.resizeObserver = new ResizeObserver(this.debounce(this.handleResize.bind(this), 10));
+      }
+
+      debounce(fn, delay) {
+        let timeoutId;
+        return (...args) => {
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
+          timeoutId = setTimeout(() => {
+            fn(...args);
+          }, delay);
+        };
       }
 
       connectedCallback() {
-        if (this.tabs.length > 0) {
-          this.initCallback();
-        }
-      }
+        this.tabs = Array.from(this.querySelectorAll('.product-card'));
+        requestAnimationFrame(() => {
+          this.tabs.forEach(tab => {
+            const thumbnailWrapper = tab.querySelector('.thumbnail-wrapper');
+            const expandButton = document.createElement('button');
+            expandButton.className = 'expand-thumbnails thumbnail';
+            expandButton.innerHTML = '0';
+            expandButton.setAttribute('aria-label', 'Show all images');
+            thumbnailWrapper.appendChild(expandButton);
 
+            expandButton.addEventListener('click', () => this.toggleThumbnails(thumbnailWrapper));
 
-      handleExtraImages(tab) {
-
-        this.resizeObserver = new ResizeObserver((entries) => {
-          const thumbnailWrapper = tab.querySelector('.thumbnail-wrapper');
-          const thumbnails = thumbnailWrapper.querySelectorAll('.thumbnail');
-          const tabWidth = entries[0].contentBoxSize[0].inlineSize;
-          if (thumbnails.length > 0) {
-            requestAnimationFrame(() => {
-              this.handleCalculation(thumbnails, tabWidth);
-            });
-          }
-
-          this.resizeObserver.observe(tab);
+            this.resizeObserver.observe(tab);
+          });
         });
-
-
       }
+
+      toggleThumbnails(wrapper) {
+        wrapper.classList.toggle('show-all');
+        const button = wrapper.querySelector('.expand-thumbnails');
+        button.innerHTML = wrapper.classList.contains('show-all') ? '-' : '+';
+        button.setAttribute('aria-label', wrapper.classList.contains('show-all') ? 'Show fewer images' : 'Show all images');
+      }
+
+      handleResize(entries) {
+        requestAnimationFrame(() => {
+          entries.forEach(entry => {
+            const containerWidth = entry.contentRect.width;
+            const target = entry.target;
+            const thumbnailWrapper = target.querySelector('.thumbnail-wrapper');
+            const thumbnails = Array.from(thumbnailWrapper.querySelectorAll('.thumbnail'));
+            let counter = 0;
+
+
+            // Don't hide thumbnails if show-all is active
+            if (thumbnailWrapper.classList.contains('show-all')) {
+              thumbnails.forEach(thumbnail => {
+                thumbnail.style.display = '';
+              });
+              return;
+            }
+
+
+            let currentWidth = 0;
+            const gap = 5; // gap between thumbnails (match your CSS gap)
+
+            thumbnails.forEach((thumbnail, index) => {
+              // Reset display to calculate proper dimensions
+              thumbnail.style.display = '';
+
+              // Get the actual width including margins
+              const thumbnailWidth = thumbnail.offsetWidth;
+
+              // Add gap except for the first thumbnail
+              currentWidth += thumbnailWidth + (index > 0 ? gap : 0);
+
+              // Hide if exceeds container width
+              if (currentWidth > containerWidth) {
+                ++counter;
+                thumbnail.style.display = 'none';
+              }
+            });
+
+            thumbnails[counter].style.display = 'none';
+            counter = counter + 1;
+
+
+            // Show/hide expand button based on if there are hidden thumbnails
+            const expandButton = thumbnailWrapper.querySelector('.expand-thumbnails');
+            expandButton.innerHTML = `+${counter}`;
+
+            const hasHiddenThumbnails = thumbnails.some(thumb => thumb.style.display === 'none');
+            expandButton.style.display = hasHiddenThumbnails ? '' : 'none';
+
+          });
+        });
+      }
+
 
       disconnectedCallback() {
         if (this.resizeObserver) {
           this.resizeObserver.disconnect();
         }
       }
-
-      handleCalculation(thumbnails, tabWidth) {
-
-        thumbnails.forEach((thumbnail, i) => {
-          const rect = thumbnail.getClientRects()[0];
-          let positionX = rect.x;
-          console.log('Rect: ', rect.x);
-          console.log('PositionX: ', positionX);
-
-
-          if (positionX > tabWidth) {
-            console.log('Thumbnail is out of bounds:', thumbnail.src);
-            thumbnail.style.display = 'none';
-          }
-
-        });
-
-
-      }
-
-      handleProductCard(tabs) {
-        tabs.forEach(tab => {
-          const tabWidth = tab.offsetWidth;
-          this.handleExtraImages(tab, tabWidth);
-        });
-      }
-
-      initCallback() {
-        this.handleProductCard(this.tabs);
-      }
-
-
     }
 
     customElements.define('product-tabs', ProductTabs);
@@ -277,5 +361,3 @@
     });
   });
 </script>
-
-

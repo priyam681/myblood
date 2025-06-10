@@ -1,5 +1,5 @@
 .recommended-heading {
-   font-size: calc(22px + (45 - 22) * ((100vw - 360px) / (1920 - 360)));
+    font-size: calc(22px + (45 - 22) * ((100vw - 360px) / (1920 - 360)));
     font-weight: 70;
     height: 50px;
     margin: 0 0 20px;
@@ -89,9 +89,10 @@
     min-height: calc(40px + (70 - 40) * ((100vw - 360px) / (1920 - 360)));
     object-fit: cover;
     cursor: pointer;
-    border: 1px solid #000;
+    border: 1px solid #898989b3;
     border-radius: 4px;
     transition: border 0.2s;
+    align-items: center;
 }
 
 .thumbnail:hover {
@@ -99,8 +100,8 @@
 }
 
 .tabs-wrapper {
-    margin-bottom:  40px;
-   font-size: calc(22px + (40 - 22) * ((100vw - 360px) / (1920 - 360)));
+    margin-bottom: 40px;
+    font-size: calc(22px + (40 - 22) * ((100vw - 360px) / (1920 - 360)));
 }
 
 .tabs-wrapper .tab_heading {
@@ -241,6 +242,7 @@
     .tabs-wrapper .tab_heading {
         margin-bottom: 12px;
     }
+
     .prev-next-button {
         display: none;
     }

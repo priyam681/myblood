@@ -14,7 +14,10 @@
 {% endstyle %}
 
 <nav class="header__inline-menu">
-    <ul class="list-menu list-menu--inline" role="list">
+    <ul class="list-menu list-menu--inline" role="list"
+
+
+    >
         {%- for link in section.settings.menu.links -%}
             {% assign link_handle = link.title | handleize | downcase %}
 
@@ -40,10 +43,8 @@
                                     class="mega-menu__content color-{{ section.settings.menu_color_scheme }} gradient motion-reduce global-settings-popup"
                                     tabindex="-1"
                             >
-                                <ul
-                                        class="mega-menu__list page-width{% if link.levels == 1 %} mega-menu__list--condensed{% endif %}"
-                                        role="list"
-                                >
+                                <ul class="mega-menu__list page-width{%- if link.levels == 1 %} mega-menu__list--condensed{% endif -%}{%- if link != blank -%}{%- assign link_handle = link.title | handleize | downcase -%}{%- for block in section.blocks -%}{%- if block.type == 'promotion_image' and block.settings.target_link == link_handle %} promotional-banner-menu{%- elsif block.type == 'mini_banner' and block.settings.mini_banner_trigger == link_handle %} min-banner-menu{%- endif -%}{%- endfor -%}{%- endif -%}"
+                                    role="list">
 
 
                                     {% render 'header-mega-menu-content', link: link %}
