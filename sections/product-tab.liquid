@@ -102,13 +102,16 @@
 
                                                 <div class="thumbnail-wrapper">
                                                     {% for image in product.images limit: 15 %}
-                                                        <img
-                                                                class="thumbnail"
-                                                                src="{{ image | image_url: width: 400 }}"
-                                                                alt="{{ product.title }} thumbnail"
-                                                                onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
-                                                                width="50px" height="50px"
-                                                        />
+                                                        <div class="thumbnail-image-wrapper">
+                                                            <img
+                                                                    class="thumbnail"
+                                                                    src="{{ image | image_url: width: 400 }}"
+                                                                    alt="{{ product.title }} thumbnail"
+                                                                    onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
+                                                                    width="50px" height="50px"
+                                                            />
+                                                        </div>
+
                                                     {% endfor %}
 
                                                 </div>
@@ -159,10 +162,10 @@
     .thumbnail-wrapper {
     display: flex;
     flex-wrap: nowrap;
-    gap: 5px;
     overflow: hidden;
     position: relative;
     transition: all 0.3s ease;
+    width:100%;
     }
 
     .thumbnail-wrapper.show-all {
@@ -180,6 +183,7 @@
     }
 
     .expand-thumbnails {
+    position:relative;
     color: #000;
     border: 1px solid #898989b3;;
     cursor: pointer;
@@ -191,6 +195,7 @@
     padding: 0;
     z-index: 2;
     height:100%;
+    border-radius: 50% !important;
     }
 
 
@@ -231,10 +236,9 @@
         this.tabs = Array.from(this.querySelectorAll('.product-card'));
         requestAnimationFrame(() => {
           this.tabs.forEach(tab => {
-            const thumbnailWrapper = tab.querySelector('.thumbnail-wrapper');
+            const thumbnailWrapper = tab.querySelector('.thumbnail-wrapper:not(.expand-thumbnails)');
             const expandButton = document.createElement('button');
             expandButton.className = 'expand-thumbnails thumbnail';
-            expandButton.innerHTML = '0';
             expandButton.setAttribute('aria-label', 'Show all images');
             thumbnailWrapper.appendChild(expandButton);
 
@@ -258,7 +262,7 @@
             const containerWidth = entry.contentRect.width;
             const target = entry.target;
             const thumbnailWrapper = target.querySelector('.thumbnail-wrapper');
-            const thumbnails = Array.from(thumbnailWrapper.querySelectorAll('.thumbnail'));
+            const thumbnails = Array.from(thumbnailWrapper.querySelectorAll('.thumbnail-image-wrapper'));
             let counter = 0;
 
 
@@ -282,7 +286,7 @@
               const thumbnailWidth = thumbnail.offsetWidth;
 
               // Add gap except for the first thumbnail
-              currentWidth += thumbnailWidth + (index > 0 ? gap : 0);
+              currentWidth += thumbnailWidth;
 
               // Hide if exceeds container width
               if (currentWidth > containerWidth) {
@@ -291,8 +295,10 @@
               }
             });
 
-            thumbnails[counter].style.display = 'none';
-            counter = counter + 1;
+            if (counter > 0) {
+              let lastVisible = thumbnails.length - counter - 1;
+              thumbnails[lastVisible].style.display = 'none';
+            }
 
 
             // Show/hide expand button based on if there are hidden thumbnails

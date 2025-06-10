@@ -76,7 +76,6 @@
 
 .thumbnail-wrapper {
     display: flex;
-    gap: 6px;
     margin-top: 8px;
     flex-wrap: wrap;
 }
@@ -93,6 +92,10 @@
     border-radius: 4px;
     transition: border 0.2s;
     align-items: center;
+}
+
+.thumbnail-image-wrapper {
+    padding-right: 9px;
 }
 
 .thumbnail:hover {
