@@ -52,8 +52,8 @@
 
                         {% if collection_count > 5 %}
                     </div>
-                    <div class="swiper-button-prev"></div>
-                    <div class="swiper-button-next"></div>
+                    <span class="swiper-button-prev"></span>
+                    <span class="swiper-button-next"></span>
                 </div>
                 {% else %}
             </div>
@@ -68,22 +68,20 @@
       document.addEventListener('DOMContentLoaded', function() {
 
         function initSwiper() {
-          if (window.innerWidth > 768) {
+          if (window.innerWidth > 992) {
             if (!document.querySelector('.swiper_collection').swiper) {
               new Swiper('.swiper_collection', {
-                slidesPerView: 3,
-                spaceBetween: 32,
-                loop: true,
-                autoplay: true,
+                slidesPerView: 5,
+                spaceBetween: 20,
                 navigation: {
                   nextEl: '.swiper-button-next',
                   prevEl: '.swiper-button-prev'
                 },
                 breakpoints: {
-                  0: { slidesPerView: 1.2 },
-                  768: { slidesPerView: 3 },
-                  1024: { slidesPerView: 4 },
-                  1200: { slidesPerView: 5 }
+                  0: { slidesPerView: 1.5 },
+                  768: { slidesPerView: 3.5 },
+                  1024: { slidesPerView: 4.5 },
+                  1200: { slidesPerView: 5.5 }
                 }
               });
             } else {
@@ -115,21 +113,24 @@
 
     .collection-list {
         display: grid;
-        grid-template-columns: repeat(6, 1fr);
-        gap: 3.2rem;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 2rem;
     }
 
-    .swiper .collection-list {
+    .swiper_collection .collection-list {
         display: flex !important;
         gap: 0 !important;
     }
-
+   .swiper_collection {
+      position: relative;
+        overflow: hidden;
+    }
     .collection-card {
         border-radius: 8px;
     }
 
     .collection-card .collection-card__link {
-        display: block;
+        display: flex;
         text-decoration: none;
     }
 
@@ -157,20 +158,42 @@
 
     .swiper-button-prev,
     .swiper-button-next {
-        color: #000;
+        color: #fff;
+        background: #000;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
         z-index: 10;
+        border-radius: 50%;
+        width: 44px;
+        height: 44px;
     }
-
+    .swiper-button-prev:after,
+    .swiper-button-next:after {
+       font-size: 20px;
+    }
     .swiper-button-prev {
-        left: -20px;
+        left: 0;
     }
 
     .swiper-button-next {
-        right: -20px;
+        right: 0;
     }
+    .collection-list {
+                    display: grid;
+                     }
+    @media screen and (min-width: 992px){
+    .collection-list {
+                grid-template-columns: repeat(5, 1fr);
+                gap: 2rem;
+            }
+    }
+     @media screen and (max-width: 992px){
+        .collection-list {
+                    grid-template-columns: repeat(3, 1fr);
+                    gap: 1rem;
+                }
+        }
 </style>
 
 

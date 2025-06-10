@@ -357,7 +357,7 @@ a.cart-item__name.h4.break {
   }
 }
 
-@media screen and (min-width: 990px) {
+@media screen and () {
   .cart-item .cart-item__quantity,
   .cart-items .cart-items__heading--wide {
     padding-left: 6rem;

@@ -17,7 +17,7 @@ slider-component.slider-component-full-width {
   }
 }
 
-@media screen and (min-width: 749px) and (max-width: 990px) {
+@media screen and (min-width: 768px) and (max-width: 992px) {
   slider-component.page-width {
     padding: 0 5rem;
   }
@@ -146,7 +146,7 @@ slider-component.slider-component-full-width {
   scroll-snap-align: center;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and () {
   .slider-component-desktop.page-width {
     max-width: none;
   }
@@ -334,7 +334,7 @@ slider-component.slider-component-full-width {
   width: 100%;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and () {
   .slider:not(.slider--everywhere):not(.slider--desktop) + .slider-buttons {
     display: none !important;
   }
