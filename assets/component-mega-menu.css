@@ -44,11 +44,6 @@
 .mini-banner.mini-banner--with-image {
   grid-column: span 2 / span 2;
 }
-.mega-menu__list .mega-menu-subcategory-list,
-.mega-menu__list .mini-banner.mini-banner--with-image {
-  border-right: 1px solid #d9d9d9;
-  padding-right: 20px;
-}
 .mega-menu__link {
   color: rgba(var(--color-foreground), 0.75);
   display: block;
