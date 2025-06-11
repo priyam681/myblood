@@ -58,75 +58,74 @@
   ]
 }
 {% endschema %}
-
 <recommended-product>
-<div style="background-color: {{ section.settings.tab_background_color }}; padding-block: {{ section.settings.tab_padding }}px; margin-block: {{ section.settings.tab_margin }}px;">
-    <section class="recommended-section page-width">
-        <div class="{% if section.blocks.size > 4 %}swiper{% else %}recommended-grid{% endif %}">
-            <h2 class="recommended-heading">{{ section.settings.heading }}</h2>
-            <div class="{% if section.blocks.size > 4 %}swiper-wrapper{% endif %}">
-                {% for block in section.blocks %}
-                    {% assign product = all_products[block.settings.product] %}
-                    {% if product %}
-                        <div class="{% if section.blocks.size > 4 %}swiper-slide{% else %}recommended-item{% endif %}">
-                            <div class="product-card">
-                                <a href="{{ product.url }}">
-                                    <img src="{{ product.featured_image | image_url: width: 600 }}"
-                                         alt="{{ product.title }}">
-                                </a>
-                                <div class="thumbnail-wrapper">
-                                    {% for image in product.images limit: 15 %}
-                                        <div class="thumbnail-image-wrapper">
-                                            <img
-                                                    class="thumbnail"
-                                                    src="{{ image | image_url: width: 400 }}"
-                                                    alt="{{ product.title }} thumbnail"
-                                                    onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
-                                                    width="50px" height="50px"
-                                            />
-                                        </div>
-                                    {% endfor %}
+    <div style="background-color: {{ section.settings.tab_background_color }}; padding-block: {{ section.settings.tab_padding }}px; margin-block: {{ section.settings.tab_margin }}px;">
+        <section class="recommended-section page-width">
+            <div class="{% if section.blocks.size > 4 %}swiper{% else %}recommended-grid{% endif %}">
+                <h2 class="recommended-heading">{{ section.settings.heading }}</h2>
+                <div class="{% if section.blocks.size > 4 %}swiper-wrapper{% endif %}">
+                    {% for block in section.blocks %}
+                        {% assign product = all_products[block.settings.product] %}
+                        {% if product %}
+                            <div class="{% if section.blocks.size > 4 %}swiper-slide{% else %}recommended-item{% endif %}">
+                                <div class="product-card">
+                                    <a href="{{ product.url }}">
+                                        <img src="{{ product.featured_image | image_url: width: 600 }}"
+                                             alt="{{ product.title }}">
+                                    </a>
+                                    <div class="thumbnail-wrapper">
+                                        {% for image in product.images limit: 15 %}
+                                            <div class="thumbnail-image-wrapper">
+                                                <img
+                                                        class="thumbnail"
+                                                        src="{{ image | image_url: width: 400 }}"
+                                                        alt="{{ product.title }} thumbnail"
+                                                        onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
+                                                        width="50px" height="50px"
+                                                />
+                                            </div>
+                                        {% endfor %}
 
+                                    </div>
+
+                                    <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
+                                    <div itemprop="offers" class="product-price" itemscope
+                                         itemtype="https://schema.org/Offer">
+                                        <meta itemprop="priceCurrency" content="INR" />
+                                        <span itemprop="price">{{ product.price | money }}</span>
+                                        <link itemprop="availability" href="https://schema.org/InStock" />
+                                    </div>
+
+                                    {% if product.metafields.custom.short_description %}
+                                        <p class="product-short-desc">
+                                            {{ product.metafields.custom.short_description }}
+                                        </p>
+                                    {% endif %}
                                 </div>
-
-                                <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
-                                <div itemprop="offers" class="product-price" itemscope
-                                     itemtype="https://schema.org/Offer">
-                                    <meta itemprop="priceCurrency" content="INR" />
-                                    <span itemprop="price">{{ product.price | money }}</span>
-                                    <link itemprop="availability" href="https://schema.org/InStock" />
-                                </div>
-
-                                {% if product.metafields.custom.short_description %}
-                                    <p class="product-short-desc">
-                                        {{ product.metafields.custom.short_description }}
-                                    </p>
-                                {% endif %}
                             </div>
-                        </div>
-                    {% endif %}
-                {% endfor %}
-            </div>
+                        {% endif %}
+                    {% endfor %}
+                </div>
 
-            {% if section.blocks.size > 4 %}
-                <div class="prev-next-button">
-                    <div class="item-prev pagination__item--prev">
+                {% if section.blocks.size > 4 %}
+                    <div class="prev-next-button">
+                        <div class="item-prev pagination__item--prev">
                          <span class="svg-wrapper">
                             {{- 'icon-caret.svg' | inline_asset_content -}}
                           </span>
-                    </div>
-                    <div class="item-next pagination__item--prev">
+                        </div>
+                        <div class="item-next pagination__item--prev">
                         <span class="svg-wrapper">
                                         {{- 'icon-caret.svg' | inline_asset_content -}}
                                       </span>
+                        </div>
                     </div>
-                </div>
-            {% endif %}
-        </div>
-    </section>
-</div>
-
+                {% endif %}
+            </div>
+        </section>
+    </div>
 </recommended-product>
+
 
 
 {% if section.blocks.size > 4 %}
@@ -148,6 +147,7 @@
       });
     </script>
 {% endif %}
+
 
 {% style %}
     .thumbnail-wrapper {
@@ -186,6 +186,7 @@
     padding: 0;
     z-index: 2;
     height:100%;
+    border-radius: 50% !important;
     }
 
 
@@ -199,6 +200,7 @@
     }
 
 {% endstyle %}
+
 
 <script defer>
 
@@ -287,6 +289,7 @@
             if (counter > 0) {
               let lastVisible = thumbnails.length - counter - 1;
               thumbnails[lastVisible].style.display = 'none';
+              counter = counter + 1;
             }
 
 
