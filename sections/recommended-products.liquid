@@ -70,7 +70,7 @@
                             <div class="{% if section.blocks.size > 4 %}swiper-slide{% else %}recommended-item{% endif %}">
                                 <div class="product-card">
                                     <a href="{{ product.url }}">
-                                        <img src="{{ product.featured_image | image_url: width: 600 }}"
+                                        <img src="{{ product.featured_image | image_url: width: 600 }}" class="main-image"
                                              alt="{{ product.title }}">
                                     </a>
                                     <div class="thumbnail-wrapper">

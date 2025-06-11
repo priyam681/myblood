@@ -77,8 +77,13 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   }
 
   summary.addEventListener('click', (event) => {
+    if (event.currentTarget.closest('details').hasAttribute('open')) return;
     event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
   });
+
+  summary.addEventListener("hover", (event)=>{
+    console.log("Event: ", this)
+  }, false)
 
   if (summary.closest('header-drawer, menu-drawer')) return;
   summary.parentElement.addEventListener('keyup', onKeyUpEscape);
@@ -431,7 +436,7 @@ class MenuDrawer extends HTMLElement {
 
   bindEvents() {
     this.querySelectorAll('summary').forEach((summary) =>
-      summary.addEventListener('click', this.onSummaryClick.bind(this))
+      summary.addEventListener('hover', this.onSummaryClick.bind(this))
     );
     this.querySelectorAll(
       'button:not(.localization-selector):not(.country-selector__close-button):not(.country-filter__reset-button)'
