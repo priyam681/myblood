@@ -372,6 +372,28 @@
         "show_product_info": true,
         "only_desktop": true
       }
+    },
+    "choose_your_action_dircbH": {
+      "type": "choose-your-action",
+      "blocks": {
+        "action_item_3N7qBW": {
+          "type": "action_item",
+          "settings": {
+            "label": "HIKING",
+            "collection_url": "",
+            "image1": "shopify://shop_images/image_20.png",
+            "image2": "shopify://shop_images/image_22.png",
+            "image3": "shopify://shop_images/banner-image_1.png"
+          }
+        }
+      },
+      "block_order": [
+        "action_item_3N7qBW"
+      ],
+      "name": "Choose Your Action",
+      "settings": {
+        "section_title": "CHOOSE YOUR ACTION"
+      }
     }
   },
   "order": [
@@ -383,6 +405,7 @@
     "cstm_collection_list_DFy79n",
     "performance_banner_NfWipW",
     "recommended_products_m4qpPD",
-    "colorful_kick_fRCnyF"
+    "colorful_kick_fRCnyF",
+    "choose_your_action_dircbH"
   ]
 }
