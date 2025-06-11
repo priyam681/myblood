@@ -44,23 +44,66 @@
           "settings": {
             "collection_menu_trigger": "accessories",
             "collection_list": [
-              "accessories",
               "chair",
-              "jewellery",
-              "kids",
               "loungesets",
               "mens",
               "rings",
-              "womens"
+              "womens",
+              "jewellery",
+              "kids"
             ],
             "collection_background_color": "#fafafa",
             "collection_padding": 32,
+            "autoplay": true,
+            "loop": true,
+            "pause": true,
+            "delay": 7,
             "collection_title": "Accessories"
+          }
+        },
+        "promotion_image_PakmVm": {
+          "type": "promotion_image",
+          "settings": {
+            "target_link": "sale",
+            "image": "shopify://shop_images/image.png",
+            "alt_text": "",
+            "position": "left",
+            "image_size": "medium"
+          }
+        },
+        "mini_banner_4TKyBX": {
+          "type": "mini_banner",
+          "settings": {
+            "mini_banner_trigger": "jewellery",
+            "position": "left",
+            "image": "shopify://shop_images/image_2.png",
+            "alt_text": "mini banner",
+            "main_heading": "BUY MORE PAY LESS",
+            "sub_heading": "<p>Enjoy the most hottest sale of the year, get assured discount and cashbacks on eeevery order.</p>",
+            "offer_text": "<p>On orders above ₹999</p>",
+            "page_open": false,
+            "banner_url": "shopify://collections/jewellery"
+          }
+        },
+        "category_image_XWWDid": {
+          "type": "category_image",
+          "settings": {
+            "category_menu_trigger": "test"
+          }
+        },
+        "category_image_piRK3E": {
+          "type": "category_image",
+          "settings": {
+            "category_menu_trigger": "test2"
           }
         }
       },
       "block_order": [
-        "collection_list_tNG8MH"
+        "collection_list_tNG8MH",
+        "promotion_image_PakmVm",
+        "mini_banner_4TKyBX",
+        "category_image_XWWDid",
+        "category_image_piRK3E"
       ],
       "settings": {
         "logo_position": "middle-left",
