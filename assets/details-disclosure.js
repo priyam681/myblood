@@ -5,7 +5,8 @@ class DetailsDisclosure extends HTMLElement {
     this.content = this.mainDetailsToggle.querySelector('summary').nextElementSibling;
 
     this.mainDetailsToggle.addEventListener('focusout', this.onFocusOut.bind(this));
-    this.mainDetailsToggle.addEventListener('toggle', this.onToggle.bind(this));
+    this.mainDetailsToggle.addEventListener('mouseenter', this.onToggle.bind(this));
+    this.mainDetailsToggle.addEventListener('mouseleave', this.onToggle.bind(this));
   }
 
   onFocusOut() {
@@ -16,6 +17,7 @@ class DetailsDisclosure extends HTMLElement {
 
   onToggle() {
     if (!this.animations) this.animations = this.content.getAnimations();
+    console.log(this.animations);
 
     if (this.mainDetailsToggle.hasAttribute('open')) {
       this.animations.forEach((animation) => animation.play());
@@ -39,8 +41,19 @@ class HeaderMenu extends DetailsDisclosure {
   }
 
   onToggle() {
+
     if (!this.header) return;
     this.header.preventHide = this.mainDetailsToggle.open;
+    if (!this.animations) this.animations = this.content.getAnimations();
+
+    if (this.mainDetailsToggle.hasAttribute('open')) {
+      this.mainDetailsToggle.removeAttribute('open');
+      this.animations.forEach(animation => animation.cancel());
+    } else {
+      this.mainDetailsToggle.setAttribute('open', '');
+      this.animations.forEach(animation => animation.play());
+    }
+
 
     if (document.documentElement.style.getPropertyValue('--header-bottom-position-desktop') !== '') return;
     document.documentElement.style.setProperty(

@@ -70,7 +70,11 @@
             <ul class="action-labels">
                 {% for block in section.blocks %}
                     <li class="action-label {% if forloop.first %}active{% endif %}" data-id="label-{{ block.id }}">
+                        {% if block.settings.collection_url != blank %}
                         <a href="{{ block.settings.collection_url }}">{{ block.settings.label }}</a>
+                        {% else %}
+                            <span>{{ block.settings.label }}</span>
+                        {% endif %}
                     </li>
                 {% endfor %}
             </ul>
@@ -81,19 +85,19 @@
             {% for block in section.blocks %}
                 <div class="action-image-set {% if forloop.first %}active{% endif %}" id="label-{{ block.id }}">
                     <div class="action-image-left">
-                        {% if block.settings.image1 %}
-                            <img src="{{ block.settings.image1 | image_url: width: 400 }}" alt="" class="action-image">
+                        {% if block.settings.image1 != blank %}
+                            <img src="{{ block.settings.image1 | img_url:'400x' }}" alt="" class="action-image">
                         {% endif %}
-                        {% if block.settings.image2 %}
-                            <img src="{{ block.settings.image2 | image_url: width: 400 }}" alt="" class="action-image">
+                        {% if block.settings.image2 != blank %}
+                            <img src="{{ block.settings.image2 | img_url:'400x' }}" alt="" class="action-image">
                         {% endif %}
                     </div>
                     <div class="action-image-right">
-                        {% if block.settings.image3 %}
-                            <img src="{{ block.settings.image3 | image_url: width: 400 }}" alt="" class="action-image">
+                        {% if block.settings.image3 != blank %}
+                            <img src="{{ block.settings.image3 | img_url:'400x' }}" alt="" class="action-image">
                         {% endif %}
-                        {% if block.settings.image4 %}
-                            <img src="{{ block.settings.image4 | image_url: width: 400 }}" alt="" class="action-image">
+                        {% if block.settings.image4 != blank %}
+                            <img src="{{ block.settings.image4 | img_url: '400x' }}" alt="" class="action-image">
                         {% endif %}
                     </div>
                 </div>
@@ -109,6 +113,16 @@
     position: relative;
     }
 
+    .choose-action-left .action-label span {
+    font-weight: bold;
+    padding-bottom: calc(18px + (25 - 18) * ((100vw - 360px) / (1920 - 360)));
+    cursor: default;
+    color: #212121;
+    line-height: 1;
+    display: block;
+    width: fit-content;
+    }
+
 
 
     .choose-action-left:before {
@@ -116,7 +130,10 @@
     position: absolute;
     height: 100%;
     left: -147px;
-    background-image: url('{{ section.settings.bg_image | image_url }}');
+    {% if section.settings.bg_image %}
+        background-image: url('{{ section.settings.bg_image | img_url:'master' }}');
+    {% endif %}
+
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

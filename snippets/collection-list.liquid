@@ -9,7 +9,7 @@
     <div class="collection-list-container"
          style="background-color: {{ block.settings.collection_background_color }}; padding-block: {{ block.settings.collection_padding }}px;">
         <div class="page-width">
-            {% if block.settings.collection_title != blank %}
+            {% if block.settings.collection_title != blank and collection_count > 0 %}
                 <h3 class="collection-list-title">{{ block.settings.collection_title }}</h3>
             {% endif %}
 
@@ -46,8 +46,6 @@
                                     </a>
                                 </div>
                             {% endfor %}
-                        {% else %}
-                            <p class="no-collections"> No Collection </p>
                         {% endif %}
 
                         {% if collection_count > 5 %}
