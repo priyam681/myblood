@@ -4551,7 +4551,7 @@ details > *:last-child {
   position: absolute;
   top: 100%;
   left: 0;
-  margin-top: 0; /* Negative margin to remove any tiny gap */
+  margin-top: -10px; /* Negative margin to remove any tiny gap */
   z-index: 1;
 }
 
