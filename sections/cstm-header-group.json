@@ -64,7 +64,7 @@
         "promotion_image_PakmVm": {
           "type": "promotion_image",
           "settings": {
-            "target_link": "sale",
+            "target_link": "accessories",
             "image": "shopify://shop_images/image.png",
             "alt_text": "",
             "position": "left",
@@ -76,11 +76,11 @@
           "settings": {
             "mini_banner_trigger": "jewellery",
             "position": "left",
-            "image": "shopify://shop_images/mini-banner.png",
+            "image": "shopify://shop_images/image_2.png",
             "alt_text": "mini banner",
             "main_heading": "BUY MORE PAY LESS",
-            "sub_heading": "Enjoy the most hottest sale of the year, get assured discount and cashbacks on eeevery order.",
-            "offer_text": "On orders above ₹999",
+            "sub_heading": "<p>Enjoy the most hottest sale of the year, get assured discount and cashbacks on eeevery order.</p>",
+            "offer_text": "<p>On orders above ₹999</p>",
             "page_open": false,
             "banner_url": "shopify://collections/jewellery"
           }
@@ -88,19 +88,13 @@
         "category_image_XWWDid": {
           "type": "category_image",
           "settings": {
-            "category_menu_trigger": "our-collection"
+            "category_menu_trigger": "test"
           }
         },
         "category_image_piRK3E": {
           "type": "category_image",
           "settings": {
-            "category_menu_trigger": "our-collection-2"
-          }
-        },
-        "category_image_ykm4tC": {
-          "type": "category_image",
-          "settings": {
-            "category_menu_trigger": "necklace"
+            "category_menu_trigger": "test2"
           }
         }
       },
@@ -109,8 +103,7 @@
         "promotion_image_PakmVm",
         "mini_banner_4TKyBX",
         "category_image_XWWDid",
-        "category_image_piRK3E",
-        "category_image_ykm4tC"
+        "category_image_piRK3E"
       ],
       "settings": {
         "logo_position": "middle-left",
