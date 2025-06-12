@@ -36,9 +36,21 @@
           "label": "Top Left Image"
         },
         {
+           "type": "text",
+           "id": "lable1",
+           "label": "Alt Text",
+           "default": "Image"
+        },
+        {
           "type": "image_picker",
           "id": "image2",
           "label": "Bottom Left Image"
+        },
+        {
+           "type": "text",
+           "id": "lable2",
+            "label": "Alt Text",
+            "default": "Image"
         },
         {
           "type": "image_picker",
@@ -46,9 +58,21 @@
           "label": "Top Right Image"
         },
         {
+           "type": "text",
+           "id": "lable3",
+           "label": "Alt Text",
+           "default": "Image"
+        },
+        {
           "type": "image_picker",
           "id": "image4",
           "label": "Bottom Right Image"
+        },
+        {
+           "type": "text",
+           "id": "lable4",
+           "label": "Alt Text",
+           "default": "Image"
         }
       ]
     }
@@ -61,7 +85,7 @@
   ]
 }
 {% endschema %}
-
+<div class="choose-action-section">
 <div class="choose-action-wrapper page-width">
     <div class="choose-action-container">
         <!-- Left Side -->
@@ -82,18 +106,18 @@
                 <div class="action-image-set {% if forloop.first %}active{% endif %}" id="label-{{ block.id }}">
                     <div class="action-image-left">
                         {% if block.settings.image1 %}
-                            <img src="{{ block.settings.image1 | image_url: width: 400 }}" alt="" class="action-image">
+                            <img src="{{ block.settings.image1 | image_url: width: 400 }}" alt="{{ block.settings.label1 }}" class="action-image">
                         {% endif %}
                         {% if block.settings.image2 %}
-                            <img src="{{ block.settings.image2 | image_url: width: 400 }}" alt="" class="action-image">
+                            <img src="{{ block.settings.image2 | image_url: width: 400 }}" alt="{{ block.settings.label2 }}" class="action-image">
                         {% endif %}
                     </div>
                     <div class="action-image-right">
                         {% if block.settings.image3 %}
-                            <img src="{{ block.settings.image3 | image_url: width: 400 }}" alt="" class="action-image">
+                            <img src="{{ block.settings.image3 | image_url: width: 400 }}" alt="{{ block.settings.label3 }}" class="action-image">
                         {% endif %}
                         {% if block.settings.image4 %}
-                            <img src="{{ block.settings.image4 | image_url: width: 400 }}" alt="" class="action-image">
+                            <img src="{{ block.settings.image4 | image_url: width: 400 }}" alt="{{ block.settings.label4 }}" class="action-image">
                         {% endif %}
                     </div>
                 </div>
@@ -104,151 +128,143 @@
 
 {% style %}
 
-
-    .choose-action-wrapper .choose-action-container {
-    position: relative;
+    .choose-action-section {
+            position: relative;
     }
-
-
-
     .choose-action-left:before {
-    content: '';
-    position: absolute;
-    height: 100%;
-    left: -147px;
-    background-image: url('{{ section.settings.bg_image | image_url }}');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    z-index: -1;
-    top:0;
-    width:61%;
+            content: '';
+            position: absolute;
+            height: 100%;
+            left: 0;
+            background-image: url({{ section.settings.bg_image | image_url: width: 1500 }});
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: -1;
+            top: 0;
+            width: 50%;
     }
 
     .choose-action-title {
-    font-size: calc(14px + (20 - 14) * ((100vw - 360px) / (1920 - 360)));
-    text-transform: uppercase;
-    color: #292929;
-    font-weight: 500;
-    letter-spacing: 0.4px;
-    text-transform: uppercase;
+            font-size: calc(14px + (20 - 14) * ((100vw - 360px) / (1920 - 360)));
+            text-transform: uppercase;
+            color: #292929;
+            font-weight: 500;
+            letter-spacing: 0.4px;
+            text-transform: uppercase;
     }
     .action-labels {
-    list-style: none;
-    padding: 0;
-    width: fit-content;
+            list-style: none;
+            padding: 0;
+            width: fit-content;
     }
 
     .choose-action-left .action-label a {
-    font-weight: bold;
-    padding-bottom: calc(18px + (25 - 18) * ((100vw - 360px) / (1920 - 360)));
-    cursor: pointer;
-    color: #212121;
-    line-height: 1;
-    display: block;
-    text-decoration: none;
-    width: fit-content;
+            font-weight: bold;
+            padding-bottom: calc(18px + (25 - 18) * ((100vw - 360px) / (1920 - 360)));
+            cursor: pointer;
+            color: #212121;
+            line-height: 1;
+            display: block;
+            text-decoration: none;
+            width: fit-content;
     }
     .choose-action-left .action-label:last-child a {
-    padding-bottom: 0;
+            padding-bottom: 0;
     }
     .action-label a:hover {
-    color: #FF3200;
+            color: #FF3200;
     }
     .action-labels:hover .action-label {
-    opacity: 0.5;
+            opacity: 0.5;
     }
     .action-labels:hover .action-label.active {
-    opacity: 1;
+            opacity: 1;
     }
     .action-image-set {
-    display: none;
-    gap: 20px;
+            display: none;
+            gap: 20px;
     }
 
     .choose-action-right{
-    background-color:rgba(230, 230, 230, 0.16);
+            background-color:rgba(230, 230, 230, 0.16);
     }
 
     .choose-action-right .action-image-set img {
-    width: 100%;
-    min-height: 436px;
-    max-height: 436px;
-    max-width:385px;
+            width: 100%;
+            min-height: 436px;
+            max-height: 436px;
+            max-width:385px;
     }
     .choose-action-right .action-image-set .action-image-left,
     .choose-action-right .action-image-set .action-image-right {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
     }
     .choose-action-right .action-image-set .action-image-right {
-    padding-top: 40px;
+            padding-top: 40px;
     }
     .action-image-set.active {
-    display: flex;
+            display: flex;
     }
-    /* Responsive */
     @media screen and (max-width: 768px) {
-    .choose-action-container {
-    flex-direction: column;
-    }
-    .action-image {
-    width: 100%;
-    }
+            .choose-action-container {
+                    flex-direction: column;
+            }
+            .action-image {
+                     width: 100%;
+            }
     }
     @media screen and (max-width: 992px) {
-    .choose-action-container .choose-action-left .choose-action-title {
-    margin-bottom: 3rem;
-    }
-    .choose-action-container .choose-action-right {
-    display: none;
-    }
-    .choose-action-left:before{
-    width: 100%;
-    left: 0;
-    }
-
-
-    .choose-action-container .choose-action-left {
-    text-align: center;
-    padding-block: 3rem;
-    margin-block: 3rem;
-    }
-    .choose-action-container .choose-action-left .action-labels {
-    margin: auto;
-
-    }
-    .choose-action-wrapper:before {
-    width: 100%;
-    }
-    .choose-action-left .action-label a {
-    font-size: calc(40px + (60 - 40) * ((100vw - 360px) / (992 - 360)));
-    margin: auto;
-    }
+            .choose-action-container .choose-action-left .choose-action-title {
+                       margin-bottom: 3rem;
+            }
+            .choose-action-container .choose-action-right {
+                       display: none;
+            }
+            .choose-action-left:before{
+                       width: 100%;
+                       left: 0;
+            }
+            .choose-action-container .choose-action-left {
+                       text-align: center;
+                       padding-block: 3rem;
+                       margin-block: 3rem;
+            }
+            .choose-action-container .choose-action-left .action-labels {
+                       margin: auto;
+            }
+            .choose-action-wrapper:before {
+                       width: 100%;
+            }
+            .choose-action-left .action-label a {
+                       font-size: calc(40px + (60 - 40) * ((100vw - 360px) / (992 - 360)));
+                       margin: auto;
+            }
     }
     @media screen and (min-width: 992px) {
-    .choose-action-wrapper {
-    margin-block: 7rem;
-    }
-    .choose-action-wrapper .choose-action-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    }
-    .choose-action-container .choose-action-left .choose-action-title {
-    margin-bottom: calc(20px + (50 - 20) * ((100vw - 992px) / (1920 - 992)));
-    }
-    .choose-action-left {
-    padding-right: 12%;
-    }
-    .choose-action-wrapper:before {
-    width: 50%;
-    top: 7rem;
-    }
-    .choose-action-left .action-label a {
-    font-size: calc(35px + (80 - 35) * ((100vw - 992px) / (1920 - 992)));
-    }
+            .choose-action-wrapper {
+                       margin-block: 7rem;
+            }
+            .choose-action-wrapper .choose-action-container {
+                       display: grid;
+                       grid-template-columns: 1fr 1fr;
+                       align-items: center;
+            }
+            .choose-action-container .choose-action-left .choose-action-title {
+                       margin-bottom: calc(20px + (50 - 20) * ((100vw - 992px) / (1920 - 992)));
+            }
+            .choose-action-left {
+                       padding-right: 12%;
+            }
+            .choose-action-wrapper:before {
+                       width: 50%;
+                       top: 7rem;
+            }
+            .choose-action-left .action-label a {
+                       font-size: calc(35px + (80 - 35) * ((100vw - 992px) / (1920 - 992)));
+            }
     }
 {% endstyle %}
 
@@ -260,12 +276,8 @@
     labels.forEach(label => {
       label.addEventListener('mouseenter', () => {
         const id = label.getAttribute('data-id');
-
-        // Remove active class from all
         labels.forEach(l => l.classList.remove('active'));
         imageSets.forEach(set => set.classList.remove('active'));
-
-        // Add active to hovered
         label.classList.add('active');
         const targetSet = document.getElementById(id);
         if (targetSet) targetSet.classList.add('active');
