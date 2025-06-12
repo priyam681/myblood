@@ -2,11 +2,11 @@
 {
   "name": "Choose Your Action",
   "settings": [
-  {
-              "type": "image_picker",
-              "id": "bg_image",
-              "label": "Background Image"
-            },
+    {
+      "type": "image_picker",
+      "id": "bg_image",
+      "label": "Background Image"
+    },
     {
       "type": "text",
       "id": "section_title",
@@ -26,9 +26,9 @@
           "default": "HIKING"
         },
         {
-          "type":"url",
-          "id":"collection_url",
-          "label":"Collection url"
+          "type": "url",
+          "id": "collection_url",
+          "label": "Collection url"
         },
         {
           "type": "image_picker",
@@ -63,75 +63,83 @@
 {% endschema %}
 
 <div class="choose-action-wrapper page-width">
-  <div class="choose-action-container">
-    <!-- Left Side -->
-    <div class="choose-action-left">
-      <h4 class="choose-action-title">{{ section.settings.section_title }}</h4>
-      <ul class="action-labels">
-        {% for block in section.blocks %}
-          <li class="action-label {% if forloop.first %}active{% endif %}" data-id="label-{{ block.id }}">
-            <a href="{{ block.settings.collection_url }}">{{ block.settings.label }}</a>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-    <!-- Right Side -->
-    <div class="choose-action-right">
-      {% for block in section.blocks %}
-        <div class="action-image-set {% if forloop.first %}active{% endif %}" id="label-{{ block.id }}">
-          <div class="action-image-left">
-            {% if block.settings.image1 %}
-              <img src="{{ block.settings.image1 | image_url: width: 400 }}" alt="" class="action-image">
-            {% endif %}
-            {% if block.settings.image2 %}
-              <img src="{{ block.settings.image2 | image_url: width: 400 }}" alt="" class="action-image">
-            {% endif %}
-          </div>
-          <div class="action-image-right">
-            {% if block.settings.image3 %}
-              <img src="{{ block.settings.image3 | image_url: width: 400 }}" alt="" class="action-image">
-            {% endif %}
-            {% if block.settings.image4 %}
-              <img src="{{ block.settings.image4 | image_url: width: 400 }}" alt="" class="action-image">
-            {% endif %}
-          </div>
+    <div class="choose-action-container">
+        <!-- Left Side -->
+        <div class="choose-action-left">
+            <h4 class="choose-action-title">{{ section.settings.section_title }}</h4>
+            <ul class="action-labels">
+                {% for block in section.blocks %}
+                    <li class="action-label {% if forloop.first %}active{% endif %}" data-id="label-{{ block.id }}">
+                        <a href="{{ block.settings.collection_url }}">{{ block.settings.label }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
         </div>
-      {% endfor %}
+
+        <!-- Right Side -->
+        <div class="choose-action-right">
+            {% for block in section.blocks %}
+                <div class="action-image-set {% if forloop.first %}active{% endif %}" id="label-{{ block.id }}">
+                    <div class="action-image-left">
+                        {% if block.settings.image1 %}
+                            <img src="{{ block.settings.image1 | image_url: width: 400 }}" alt="" class="action-image">
+                        {% endif %}
+                        {% if block.settings.image2 %}
+                            <img src="{{ block.settings.image2 | image_url: width: 400 }}" alt="" class="action-image">
+                        {% endif %}
+                    </div>
+                    <div class="action-image-right">
+                        {% if block.settings.image3 %}
+                            <img src="{{ block.settings.image3 | image_url: width: 400 }}" alt="" class="action-image">
+                        {% endif %}
+                        {% if block.settings.image4 %}
+                            <img src="{{ block.settings.image4 | image_url: width: 400 }}" alt="" class="action-image">
+                        {% endif %}
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
     </div>
-  </div>
 </div>
 
 {% style %}
-.choose-action-wrapper {
-  position: relative;
-}
- .choose-action-wrapper:before {
+
+
+    .choose-action-wrapper .choose-action-container {
+    position: relative;
+    }
+
+
+
+    .choose-action-left:before {
     content: '';
     position: absolute;
     height: 100%;
-    left: 0;
+    left: -147px;
     background-image: url('{{ section.settings.bg_image | image_url }}');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     z-index: -1;
- }
-.choose-action-title {
-  font-size: calc(14px + (20 - 14) * ((100vw - 360px) / (1920 - 360)));
-  text-transform: uppercase;
-  color: #292929;
-  font-weight: 500;
-  letter-spacing: 0.4px;
-  text-transform: uppercase;
-}
-.action-labels {
-  list-style: none;
-  padding: 0;
-  width: fit-content;
-}
+    top:0;
+    width:61%;
+    }
 
-  .choose-action-left .action-label a {
+    .choose-action-title {
+    font-size: calc(14px + (20 - 14) * ((100vw - 360px) / (1920 - 360)));
+    text-transform: uppercase;
+    color: #292929;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+    }
+    .action-labels {
+    list-style: none;
+    padding: 0;
+    width: fit-content;
+    }
+
+    .choose-action-left .action-label a {
     font-weight: bold;
     padding-bottom: calc(18px + (25 - 18) * ((100vw - 360px) / (1920 - 360)));
     cursor: pointer;
@@ -140,113 +148,127 @@
     display: block;
     text-decoration: none;
     width: fit-content;
-  }
-  .choose-action-left .action-label:last-child a {
-     padding-bottom: 0;
-  }
-  .action-label a:hover {
+    }
+    .choose-action-left .action-label:last-child a {
+    padding-bottom: 0;
+    }
+    .action-label a:hover {
     color: #FF3200;
-  }
-  .action-labels:hover .action-label {
-   opacity: 0.5;
-  }
-  .action-labels:hover .action-label.active {
-   opacity: 1;
-  }
-  .action-image-set {
+    }
+    .action-labels:hover .action-label {
+    opacity: 0.5;
+    }
+    .action-labels:hover .action-label.active {
+    opacity: 1;
+    }
+    .action-image-set {
     display: none;
     gap: 20px;
-  }
-  .choose-action-right .action-image-set img {
+    }
+
+    .choose-action-right{
+    background-color:rgba(230, 230, 230, 0.16);
+    }
+
+    .choose-action-right .action-image-set img {
     width: 100%;
-  }
-  .choose-action-right .action-image-set .action-image-left,
-  .choose-action-right .action-image-set .action-image-right {
-     display: flex;
-     flex-direction: column;
-     gap: 20px;
-  }
-  .choose-action-right .action-image-set .action-image-right {
-    padding-top: 40px;
-  }
-  .action-image-set.active {
+    min-height: 436px;
+    max-height: 436px;
+    max-width:385px;
+    }
+    .choose-action-right .action-image-set .action-image-left,
+    .choose-action-right .action-image-set .action-image-right {
     display: flex;
-  }
-  /* Responsive */
-  @media screen and (max-width: 768px) {
+    flex-direction: column;
+    gap: 20px;
+    }
+    .choose-action-right .action-image-set .action-image-right {
+    padding-top: 40px;
+    }
+    .action-image-set.active {
+    display: flex;
+    }
+    /* Responsive */
+    @media screen and (max-width: 768px) {
     .choose-action-container {
-      flex-direction: column;
+    flex-direction: column;
     }
     .action-image {
-      width: 100%;
+    width: 100%;
     }
-  }
-  @media screen and (max-width: 992px) {
-  .choose-action-container .choose-action-left .choose-action-title {
+    }
+    @media screen and (max-width: 992px) {
+    .choose-action-container .choose-action-left .choose-action-title {
     margin-bottom: 3rem;
-  }
-  .choose-action-container .choose-action-right {
+    }
+    .choose-action-container .choose-action-right {
     display: none;
-  }
-  .choose-action-container .choose-action-left {
-   text-align: center;
-   padding-block: 3rem;
-   margin-block: 3rem;
-  }
-  .choose-action-container .choose-action-left .action-labels {
-     margin: auto;
+    }
+    .choose-action-left:before{
+    width: 100%;
+    left: 0;
+    }
 
-  }
-  .choose-action-wrapper:before {
-      width: 100%;
-   }
-   .choose-action-left .action-label a {
-       font-size: calc(40px + (60 - 40) * ((100vw - 360px) / (992 - 360)));
-       margin: auto;
-       }
-  }
-  @media screen and (min-width: 992px) {
-  .choose-action-wrapper {
+
+    .choose-action-container .choose-action-left {
+    text-align: center;
+    padding-block: 3rem;
+    margin-block: 3rem;
+    }
+    .choose-action-container .choose-action-left .action-labels {
+    margin: auto;
+
+    }
+    .choose-action-wrapper:before {
+    width: 100%;
+    }
+    .choose-action-left .action-label a {
+    font-size: calc(40px + (60 - 40) * ((100vw - 360px) / (992 - 360)));
+    margin: auto;
+    }
+    }
+    @media screen and (min-width: 992px) {
+    .choose-action-wrapper {
     margin-block: 7rem;
-  }
-  .choose-action-wrapper .choose-action-container {
+    }
+    .choose-action-wrapper .choose-action-container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-  }
-  .choose-action-container .choose-action-left .choose-action-title {
+    }
+    .choose-action-container .choose-action-left .choose-action-title {
     margin-bottom: calc(20px + (50 - 20) * ((100vw - 992px) / (1920 - 992)));
-  }
-  .choose-action-left {
-     padding-right: 12%;
-  }
-  .choose-action-wrapper:before {
-      width: 50%;
-      top: 7rem;
-   }
-   .choose-action-left .action-label a {
-          font-size: calc(35px + (80 - 35) * ((100vw - 992px) / (1920 - 992)));
-          }
-  }
+    }
+    .choose-action-left {
+    padding-right: 12%;
+    }
+    .choose-action-wrapper:before {
+    width: 50%;
+    top: 7rem;
+    }
+    .choose-action-left .action-label a {
+    font-size: calc(35px + (80 - 35) * ((100vw - 992px) / (1920 - 992)));
+    }
+    }
 {% endstyle %}
 
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const labels = document.querySelectorAll(".action-label");
-    const imageSets = document.querySelectorAll(".action-image-set");
+  document.addEventListener('DOMContentLoaded', function() {
+    const labels = document.querySelectorAll('.action-label');
+    const imageSets = document.querySelectorAll('.action-image-set');
 
     labels.forEach(label => {
-      label.addEventListener("mouseenter", () => {
-        const id = label.getAttribute("data-id");
+      label.addEventListener('mouseenter', () => {
+        const id = label.getAttribute('data-id');
 
         // Remove active class from all
-        labels.forEach(l => l.classList.remove("active"));
-        imageSets.forEach(set => set.classList.remove("active"));
+        labels.forEach(l => l.classList.remove('active'));
+        imageSets.forEach(set => set.classList.remove('active'));
 
         // Add active to hovered
-        label.classList.add("active");
+        label.classList.add('active');
         const targetSet = document.getElementById(id);
-        if (targetSet) targetSet.classList.add("active");
+        if (targetSet) targetSet.classList.add('active');
       });
     });
   });
