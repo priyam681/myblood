@@ -38,8 +38,7 @@
 
     {% style %}
     .mega-menu__list.page-width.min-banner-menu {
-      display: grid;
-      grid-template-columns: 30% auto;
+      display: flex;
       gap: 10%;
       padding-block: 25px;
     }
@@ -78,7 +77,8 @@
         }
 
         .mini-banner--with-image {
-        background-color: transparent;
+         max-width: 500px;
+         width: 35%;
         }
         .mini-banner__img {
         width: 100%;
@@ -89,7 +89,6 @@
 
        .mini-banner__content {
         width: 100%;
-        max-width: 600px;
         background: #111;
         padding: 1.6rem 4.5rem;
         display: flex;

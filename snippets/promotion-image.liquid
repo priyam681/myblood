@@ -3,8 +3,14 @@
     {% style %}
         /* Base image container styles */
         .mega-menu__list.promotional-banner-menu {
-           grid-template-columns: 2fr 3fr;
-           gap: 3rem;
+          display: flex;
+          gap: 4%;
+        }
+        .mega-menu__list.promotional-banner-menu .image-container.mega-menu-image {
+             width: 40%;
+        }
+        .mega-menu__list.promotional-banner-menu .submenu-under {
+          width: 56%;
         }
         .mega-menu__list.promotional-banner-menu .image-container.mega-menu-image {
                   padding-block: 15px;
