@@ -131,7 +131,7 @@
 <section class="colorful-kicks-section page-width">
   <colourful-hover data-interval="{{ section.settings.interval | times: 1000 }}">
     <div class="container">
-      <div class="left">
+      <div class="left-container">
         <div class="text-container">
           <h4 class="section-subheading">{{ section.settings.content_subheading }}</h4>
           <div class="text-container-wrapper">
@@ -191,7 +191,7 @@
         </div>
 
         {% if section.settings.button_link %}
-          <a href="{{ section.settings.button_link }}" class="button button--primary">
+          <a href="{{ section.settings.button_link }}" class="browse-collection-button button button--primary">
             {{ section.settings.button_label }}
           </a>
         {% endif %}
@@ -223,9 +223,12 @@
     align-items: center;
     margin: auto;
   }
-  .colorful-kicks-section .container .left .text-container {
+  .colorful-kicks-section .container .left-container .text-container {
     max-width: 700px;
   }
+   .colorful-kicks-section .container .left-container .browse-collection-button {
+      margin-top: 3rem;
+   }
   .colorful-kicks-section .section-heading {
     font-size: calc(25px + (60 - 25) * ((100vw - 360px) / (1920 - 360)));
     margin: 10px 0;
@@ -321,7 +324,10 @@
   .product-image-wrapper .bg-text .middle-content {
     padding-left: 50%;
   }
-  .product-image-wrapper img {
+  .colorful-kicks-section .container .product-image-wrapper {
+     display: flex;
+  }
+  .colorful-kicks-section .container .product-image-wrapper img {
     position: relative;
     z-index: 2;
     max-width: 100%;
@@ -351,6 +357,13 @@
     }
     .product-image-wrapper-img {
       width: 100%;
+    }
+    .colorful-kicks-section .container .left-container .text-container {
+           margin: auto;
+           text-align: center;
+    }
+    .colorful-kicks-section .container .left-container {
+           text-align: center;
     }
   }
   @media (min-width: 992px) {

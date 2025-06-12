@@ -36,13 +36,18 @@
 
 .mega-menu__list {
   display: grid;
-  gap: 1.8rem 4rem;
-  grid-template-columns: repeat(5, minmax(0, 1fr));
   list-style: none;
   background: #ffffff;
 }
-.mini-banner.mini-banner--with-image {
-  grid-column: span 2 / span 2;
+.mega-menu__list .submenu-under .mega-menu-subcategory-list {
+  padding-block: 30px;
+}
+.mega-menu__list .mega-menu-subcategory-list {
+  border-right: 1px solid rgba(162, 162, 162, 0.27);
+  padding-inline: 5%;
+}
+.mega-menu__list .mega-menu-subcategory-list:first-child {
+  border-left: 1px solid rgba(162, 162, 162, 0.27);
 }
 .mega-menu__link {
   color: rgba(var(--color-foreground), 0.75);
