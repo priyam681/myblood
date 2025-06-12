@@ -106,18 +106,18 @@
             {% for block in section.blocks %}
                 <div class="action-image-set {% if forloop.first %}active{% endif %}" id="label-{{ block.id }}">
                     <div class="action-image-left">
-                        {% if block.settings.image1 %}
+                        {% if block.settings.image1 != blank %}
                             <img src="{{ block.settings.image1 | image_url: width: 400 }}" alt="{{ block.settings.lable1 | default: 'Image 1' }}" class="action-image">
                         {% endif %}
-                        {% if block.settings.image2 %}
+                        {% if block.settings.image2 != blank %}
                             <img src="{{ block.settings.image2 | image_url: width: 400 }}" alt="{{ block.settings.lable2 | default: 'Image 2' }}" class="action-image">
                         {% endif %}
                     </div>
                     <div class="action-image-right">
-                        {% if block.settings.image3 %}
+                        {% if block.settings.image3 != blank %}
                             <img src="{{ block.settings.image3 | image_url: width: 400 }}" alt="{{ block.settings.lable3 | default: 'Image 3' }}" class="action-image">
                         {% endif %}
-                        {% if block.settings.image4 %}
+                        {% if block.settings.image4 != blank %}
                             <img src="{{ block.settings.image4 | image_url: width: 400 }}" alt="{{ block.settings.lable4 | default: 'Image 4' }}" class="action-image">
                         {% endif %}
                     </div>
