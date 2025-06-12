@@ -38,8 +38,7 @@
         {
            "type": "text",
            "id": "lable1",
-           "label": "Alt Text",
-           "default": "Image"
+           "label": "Alt Text"
         },
         {
           "type": "image_picker",
@@ -49,8 +48,7 @@
         {
            "type": "text",
            "id": "lable2",
-            "label": "Alt Text",
-            "default": "Image"
+            "label": "Alt Text"
         },
         {
           "type": "image_picker",
@@ -60,8 +58,7 @@
         {
            "type": "text",
            "id": "lable3",
-           "label": "Alt Text",
-           "default": "Image"
+           "label": "Alt Text"
         },
         {
           "type": "image_picker",
@@ -71,12 +68,12 @@
         {
            "type": "text",
            "id": "lable4",
-           "label": "Alt Text",
-           "default": "Image"
+           "label": "Alt Text"
         }
       ]
     }
   ],
+  "max_blocks": 6,
   "presets": [
     {
       "name": "Choose Your Action",
@@ -106,18 +103,18 @@
                 <div class="action-image-set {% if forloop.first %}active{% endif %}" id="label-{{ block.id }}">
                     <div class="action-image-left">
                         {% if block.settings.image1 %}
-                            <img src="{{ block.settings.image1 | image_url: width: 400 }}" alt="{{ block.settings.label1 }}" class="action-image">
+                            <img src="{{ block.settings.image1 | image_url: width: 400 }}" alt="{{ block.settings.lable1 | default: 'Image 1' }}" class="action-image">
                         {% endif %}
                         {% if block.settings.image2 %}
-                            <img src="{{ block.settings.image2 | image_url: width: 400 }}" alt="{{ block.settings.label2 }}" class="action-image">
+                            <img src="{{ block.settings.image2 | image_url: width: 400 }}" alt="{{ block.settings.lable2 | default: 'Image 2' }}" class="action-image">
                         {% endif %}
                     </div>
                     <div class="action-image-right">
                         {% if block.settings.image3 %}
-                            <img src="{{ block.settings.image3 | image_url: width: 400 }}" alt="{{ block.settings.label3 }}" class="action-image">
+                            <img src="{{ block.settings.image3 | image_url: width: 400 }}" alt="{{ block.settings.lable3 | default: 'Image 3' }}" class="action-image">
                         {% endif %}
                         {% if block.settings.image4 %}
-                            <img src="{{ block.settings.image4 | image_url: width: 400 }}" alt="{{ block.settings.label4 }}" class="action-image">
+                            <img src="{{ block.settings.image4 | image_url: width: 400 }}" alt="{{ block.settings.lable4 | default: 'Image 4' }}" class="action-image">
                         {% endif %}
                     </div>
                 </div>
@@ -125,7 +122,7 @@
         </div>
     </div>
 </div>
-
+</div>
 {% style %}
 
     .choose-action-section {
