@@ -4540,33 +4540,3 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
   margin-bottom: 0.5rem;
 }
 
-/*custom css on hover over menu*/
-
-details > summary {
-  position: relative;
-  z-index: 2;
-}
-
-details > *:last-child {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  margin-top: -10px; /* Negative margin to remove any tiny gap */
-  z-index: 1;
-}
-
-/* Ensure the submenu area includes any gap */
-details {
-  position: relative;
-}
-
-/* Add a invisible bridge between trigger and submenu */
-details > summary::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: -10px; /* Adjust based on your needs */
-  height: 10px;
-  background: transparent;
-}
