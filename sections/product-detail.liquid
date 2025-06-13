@@ -68,28 +68,34 @@
             <!-- Buttons -->
             <div class="terrain-buttons">
                 {% if product.metafields.custom.productdetails1.value %}
+                    <script defer>
+                        console.log("Product: ", {{ product.metafields.custom.productdetails1.value | json }})
+                    </script>
                     {% for entry in product.metafields.custom.productdetails1.value %}
 
-                        <button {% if forloop.first %}class="active"{% endif %} data-tab="{{ forloop.index }}">
-                            {{ entry.category_name | metafield_tag }}
-                        </button>
+                    {% if entry != blank %}
+                    <button {% if forloop.first %}class="active"{% endif %} data-tab="{{ forloop.index }}">
+                        {{ entry.category_name | metafield_tag }}
+                    </button>
+
+                    {% for row in entry.rowdetail  %}
+                    {% assign metaobject = row | split: '/' | last | row %}
+
+                    <script defer>
+
+                      console.log("Fire: ", {{ metaobject |  json }});
+                    </script>
+                    {% endfor %}
+
+
+                {% endif %}
 
                     {% endfor %}
                 {% endif %}
 
             </div>
 
-            <!-- Tab Contents -->
-            <div id="tab-less" class="terrain-tab-content active">
-                <p><strong>{{ section.settings.less_title }}</strong><br>{{ section.settings.less_description }}</p>
-            </div>
-            <div id="tab-moderate" class="terrain-tab-content">
-                <p><strong>{{ section.settings.moderate_title }}</strong><br>{{ section.settings.moderate_description }}
-                </p>
-            </div>
-            <div id="tab-high" class="terrain-tab-content">
-                <p><strong>{{ section.settings.high_title }}</strong><br>{{ section.settings.high_description }}</p>
-            </div>
+
         </div>
 
         <!-- Right: Image -->
