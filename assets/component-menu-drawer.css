@@ -40,10 +40,12 @@ div#menu-drawer {
   z-index: 3;
   left: 0;
   top: 100%;
-  width: 100%;
+  width: 90%;
+  height: 100vh;
+  max-width: 40rem;
   padding: 0;
   background-color: rgb(var(--color-background));
-  overflow-x: hidden;
+  overflow: auto;
   filter: drop-shadow(
     var(--drawer-shadow-horizontal-offset) var(--drawer-shadow-vertical-offset) var(--drawer-shadow-blur-radius)
       rgba(var(--color-shadow), var(--drawer-shadow-opacity))
@@ -52,7 +54,7 @@ div#menu-drawer {
 
 .js .menu-drawer {
   height: calc(100vh - 100%);
-  height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)));
+  height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)) - 52px);
 }
 
 .js details[open] > .menu-drawer,
@@ -60,8 +62,8 @@ div#menu-drawer {
   transition: transform var(--duration-default) ease, visibility var(--duration-default) ease;
 }
 
-.js details[open].menu-opening > .menu-drawer,
-details[open].menu-opening > .menu-drawer__submenu {
+.js details[open] > .menu-drawer,
+details[open] > .menu-drawer__submenu {
   transform: translateX(0);
   visibility: visible;
 }

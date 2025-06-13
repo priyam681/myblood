@@ -462,6 +462,8 @@ class MenuDrawer extends HTMLElement {
     const grandParent = detailsElement.parentElement.parentElement;
     const grandParentList = Array.from(detailsElement.parentElement.parentElement.children);
 
+    console.log("Grand parent: ", grandParent);
+
     // grand parent
 
 
@@ -510,6 +512,7 @@ class MenuDrawer extends HTMLElement {
       }, 100);
     }
   }
+
 
 
   openMenuDrawer(summaryElement) {
