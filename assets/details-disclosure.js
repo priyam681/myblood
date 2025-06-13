@@ -25,7 +25,6 @@ class DetailsDisclosure extends HTMLElement {
     this.boundOnFocusOut = this.onFocusOut.bind(this);
     this.boundOnToggle = this.onToggle.bind(this);
     this.boundOnHover = this.onHover.bind(this);
-    this.boundPreventClick = this.preventClick.bind(this);
 
 
     this.addEventListeners();
@@ -35,14 +34,12 @@ class DetailsDisclosure extends HTMLElement {
     this.mainDetailsToggle.addEventListener('focusout', this.boundOnFocusOut);
 
     // Add click prevention for desktop
-
-    this.mainDetailsToggle.addEventListener('click', this.boundPreventClick);
-    this.mainDetailsToggle.addEventListener('click', this.boundOnToggle);
+    // this.mainDetailsToggle.addEventListener('click', this.boundOnToggle);
 
     // only add hover listeners if the window width is above 991 px
     if (window.innerWidth > 991){
       this.mainDetailsToggle.addEventListener('mouseenter', this.boundOnHover);
-      this.mainDetailsToggle.addEventListener('mouseleave', this.boundOnToggle);
+      this.mainDetailsToggle.addEventListener('mouseleave', this.boundOnFocusOut);
     }
 
     // Add resize listener to handle hover functionality
@@ -56,13 +53,6 @@ class DetailsDisclosure extends HTMLElement {
         this.mainDetailsToggle.removeEventListener('mouseleave', this.boundOnToggle);
       }
     })
-  }
-
-  preventClick(event){
-    if (window.innerWidth > 991){
-      event.preventDefault();
-      event.stopPropagation();
-    }
   }
 
 
@@ -140,7 +130,7 @@ class DetailsDisclosure extends HTMLElement {
       this.mainDetailsToggle?.removeEventListener('focusout', this.boundOnFocusOut);
       this.mainDetailsToggle?.removeEventListener('click', this.boundOnToggle);
       this.mainDetailsToggle?.removeEventListener('mouseenter', this.boundOnHover);
-      this.mainDetailsToggle?.removeEventListener('mouseleave', this.boundOnToggle);
+      this.mainDetailsToggle?.removeEventListener('mouseleave', this.boundOnFocusOut);
     } catch (error) {
       console.error('Error in disconnectedCallback:', error);
     }
@@ -231,3 +221,4 @@ class HeaderMenu extends DetailsDisclosure {
 // Register custom elements
 customElements.define('details-disclosure', DetailsDisclosure);
 customElements.define('header-menu', HeaderMenu);
+
