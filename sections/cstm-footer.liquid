@@ -5,44 +5,6 @@
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const detailsElements = document.querySelectorAll('.footer-dropdown');
-
-    // Debounce function to limit the rate at which a function can fire
-    function debounce(func, wait) {
-      let timeout;
-      return function (...args) {
-        const context = this;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), wait);
-      };
-    }
-
-    // Function to update details behavior based on screen size
-    function updateDetailsBehavior() {
-      const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-      detailsElements.forEach((el) => {
-        if (isMobile) {
-          el.removeAttribute('open');
-        } else {
-          el.setAttribute('open', 'true');
-        }
-      });
-    }
-
-    // Initial check
-    updateDetailsBehavior();
-
-    // Debounced resize event listener
-    const debouncedUpdate = debounce(updateDetailsBehavior, 200);
-    window.addEventListener('resize', debouncedUpdate);
-
-    // pageshow event listener
-    window.addEventListener('pageshow', updateDetailsBehavior);
-  });
-</script>
 
 {%- style -%}
    @media (min-width: 768px) {
@@ -360,6 +322,46 @@
    }
 {%- endstyle -%}
 
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const detailsElements = document.querySelectorAll('.footer-dropdown');
+
+    // Debounce function to limit the rate at which a function can fire
+    function debounce(func, wait) {
+      let timeout;
+      return function (...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+      };
+    }
+
+    // Function to update details behavior based on screen size
+    function updateDetailsBehavior() {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+      detailsElements.forEach((el) => {
+        if (isMobile) {
+          el.removeAttribute('open');
+        } else {
+          el.setAttribute('open', 'true');
+        }
+      });
+    }
+
+    // Initial check
+    updateDetailsBehavior();
+
+    // Debounced resize event listener
+    const debouncedUpdate = debounce(updateDetailsBehavior, 200);
+    window.addEventListener('resize', debouncedUpdate);
+
+    // pageshow event listener
+    window.addEventListener('pageshow', updateDetailsBehavior);
+  });
+</script>
+
+
 {%- liquid
   assign has_social_icons = true
   if settings.social_facebook_link == blank and settings.social_instagram_link == blank and settings.social_youtube_link == blank and settings.social_tiktok_link == blank and settings.social_twitter_link == blank and settings.social_pinterest_link == blank and settings.social_snapchat_link == blank and settings.social_tumblr_link == blank and settings.social_vimeo_link == blank
@@ -404,9 +406,9 @@
         {%- unless only_empty_brand -%}
           <div class="imge-block">
             <img
-              srcset="{{ section.settings.images | image_url: width: section.settings.images_width }}, {{ sections.settings.images | image_url: width: image_size_2x }} 2x"
+              srcset="{{ section.settings.images | image_url: width: section.settings.images_width }}, {{ section.settings.images | image_url: width: image_size_2x }} 2x"
               src="{{ section.settings.images | image_url: width: 760 }}"
-              alt="{{ sections.settings.images.alt | escape }}"
+              alt="{{ section.settings.images.alt | escape }}"
               loading="lazy"
               width="{{ block.settings.images.width }}"
               height="{{ block.settings.image.height }}"
