@@ -4540,3 +4540,10 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
   margin-bottom: 0.5rem;
 }
 
+/*custom css on hover over menu*/
+
+details > summary {
+  position: relative;
+  z-index: 2;
+}
+
