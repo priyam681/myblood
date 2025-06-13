@@ -60,8 +60,8 @@ div#menu-drawer {
   transition: transform var(--duration-default) ease, visibility var(--duration-default) ease;
 }
 
-.js details[open].menu-opening > .menu-drawer,
-details[open].menu-opening > .menu-drawer__submenu {
+.js details[open] > .menu-drawer,
+details[open] > .menu-drawer__submenu {
   transform: translateX(0);
   visibility: visible;
 }
