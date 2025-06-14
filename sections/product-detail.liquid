@@ -78,16 +78,20 @@
                         {{ entry.category_name | metafield_tag }}
                     </button>
 
-                    {% for row in entry.rowdetail  %}
-                    {% assign metaobject = row | split: '/' | last | row %}
+                    {% assign metaobject_ids = item.rowdetail %}
 
-                    <script defer>
+                {% for metaobject_id in metaobject_ids %}
 
-                      console.log("Fire: ", {{ metaobject |  json }});
+                    {% assign metaobject = metaobject_id | metaobject %}
+                    <script>
+                      console.log('Processing Metaobject ID:', {{ metaobject_id | json }});
+                      console.log('Metaobject Data:', {{ metaobject | json }});
                     </script>
-                    {% endfor %}
 
+                {% if metaobject %}
 
+                        {% endif %}
+                {% endfor %}
                 {% endif %}
 
                     {% endfor %}
