@@ -4546,5 +4546,9 @@ details > summary {
   position: relative;
   z-index: 2;
 }
-
+.mega-menu-bg {
+  background-color: #fff;
+  height : calc(100vh - 169px);
+  overflow-y: auto;
+}
 

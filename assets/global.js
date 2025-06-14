@@ -618,6 +618,7 @@ class HeaderDrawer extends MenuDrawer {
       '--header-bottom-position',
       `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
     );
+
     this.header.classList.add('menu-open');
 
     setTimeout(() => {
