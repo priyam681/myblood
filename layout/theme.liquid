@@ -179,7 +179,7 @@
         --drawer-shadow-vertical-offset: {{ settings.drawer_shadow_vertical_offset }}px;
         --drawer-shadow-blur-radius: {{ settings.drawer_shadow_blur }}px;
 
-        --spacing-sections-desktop: {{ settings.spacing_sections }}px;
+        --spacing-sections-desktop: {{ settings.spacing_sections | default }}px;
         --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 }}{% endif %}px;
 
         --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical }}px;
@@ -411,10 +411,15 @@
     });
 </script>
 
-
-
-
-
-
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const shopifySections = document.querySelectorAll('#MainContent .shopify-section');
+    shopifySections.forEach(function(section) {
+      if (section.offsetHeight > 0) {
+        section.classList.add('has-height');
+      }
+    });
+  });
+</script>
 </body>
 </html>

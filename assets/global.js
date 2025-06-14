@@ -77,7 +77,6 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   }
 
   summary.addEventListener('click', (event) => {
-    if (event.currentTarget.closest('details').hasAttribute('open')) return;
     event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
   });
 
@@ -433,7 +432,7 @@ class MenuDrawer extends HTMLElement {
 
   bindEvents() {
     this.querySelectorAll('summary').forEach((summary) =>
-      summary.addEventListener('hover', this.onSummaryClick.bind(this))
+      summary.addEventListener('click', this.onSummaryClick.bind(this))
     );
     this.querySelectorAll(
       'button:not(.localization-selector):not(.country-selector__close-button):not(.country-filter__reset-button)'
@@ -451,61 +450,32 @@ class MenuDrawer extends HTMLElement {
       : this.closeSubmenu(openDetailsElement);
   }
 
+
   onSummaryClick(event) {
-    this.isAnimating = true;
     const summaryElement = event.currentTarget;
     const detailsElement = summaryElement.parentNode;
     const parentMenuElement = detailsElement.closest('.has-submenu');
     const isOpen = detailsElement.hasAttribute('open');
     const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-    const grandParent = detailsElement.parentElement.parentElement;
-    const grandParentList = Array.from(detailsElement.parentElement.parentElement.children);
-
-    console.log("Grand parent: ", grandParent);
-
-    // grand parent
-
-
-    if (!grandParent.classList.contains('header')) {
-      grandParentList.forEach(item => {
-        const summaryElement = item.querySelector('summary');
-
-        if (summaryElement) {
-          const openDetails = summaryElement === event.currentTarget
-            ? item.querySelectorAll('details[open]')
-            : item.querySelectorAll('details[open]');
-
-          openDetails.forEach(detailsElement => this.closeSubmenu(detailsElement));
-        }
-      });
-
-      this.manageSvgRotation(detailsElement, !isOpen);
-    }
-
-
     function addTrapFocus() {
       trapFocus(summaryElement.nextElementSibling, detailsElement.querySelector('button'));
       summaryElement.nextElementSibling.removeEventListener('transitionend', addTrapFocus);
     }
 
-
     if (detailsElement === this.mainDetailsToggle) {
       if (isOpen) event.preventDefault();
+      this.onResizeDrawer();
       isOpen ? this.closeMenuDrawer(event, summaryElement) : this.openMenuDrawer(summaryElement);
 
-      if (window.matchMedia('(max-width: 992px)')) {
+      if (window.matchMedia('(max-width: 990px)')) {
         document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
       }
     } else {
       setTimeout(() => {
-
-
         detailsElement.classList.add('menu-opening');
         summaryElement.setAttribute('aria-expanded', true);
         parentMenuElement && parentMenuElement.classList.add('submenu-open');
-
-
         !reducedMotion || reducedMotion.matches
           ? addTrapFocus()
           : summaryElement.nextElementSibling.addEventListener('transitionend', addTrapFocus);
@@ -513,12 +483,25 @@ class MenuDrawer extends HTMLElement {
     }
   }
 
+  onResizeDrawer(){
+    let announcementBar = document.querySelector(".announcement-bar-section");
+    let headerSection = document.querySelector('.header');
+
+    if (announcementBar && headerSection) {
+      let headerHeight = headerSection.getBoundingClientRect().height;
+      let announcementBarHeight = announcementBar.getBoundingClientRect().height;
+      let headerBottomPosition = headerHeight + announcementBarHeight;
+      document.documentElement.style.setProperty('--header-drawer-dynamic', `${headerBottomPosition}px`);
+    }
+  }
 
 
   openMenuDrawer(summaryElement) {
     setTimeout(() => {
       this.mainDetailsToggle.classList.add('menu-opening');
     });
+
+
     summaryElement.setAttribute('aria-expanded', true);
     trapFocus(this.mainDetailsToggle, summaryElement);
     document.body.classList.add(`overflow-hidden-${this.dataset.breakpoint}`);
@@ -532,6 +515,9 @@ class MenuDrawer extends HTMLElement {
       details.removeAttribute('open');
       details.classList.remove('menu-opening');
     });
+
+
+    console.log("CLOSE");
     this.mainDetailsToggle.querySelectorAll('.submenu-open').forEach((submenu) => {
       submenu.classList.remove('submenu-open');
     });
@@ -618,6 +604,7 @@ class HeaderDrawer extends MenuDrawer {
       '--header-bottom-position',
       `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
     );
+
     this.header.classList.add('menu-open');
 
     setTimeout(() => {
