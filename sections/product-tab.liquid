@@ -26,16 +26,6 @@
       "unit": "px",
       "label": "Tab Padding",
       "default": 40
-    },
-    {
-      "type": "range",
-      "id": "tab_margin",
-      "min": 0,
-      "max": 50,
-      "step": 1,
-      "unit": "px",
-      "label": "Tab Margin",
-      "default": 30
     }
   ],
   "blocks": [
@@ -68,7 +58,7 @@
 
 <product-tabs>
 
-    <div style="background-color: {{ section.settings.tab_background_color }}; padding-block:{{ section.settings.tab_padding }}px; margin-block: {{ section.settings.tab_margin }}px;">
+    <div style="background-color: {{ section.settings.tab_background_color }}; padding-block:{{ section.settings.tab_padding }}px;">
         <div class="pua-tabs-wrapper page-width">
             <div class="tabs-inner-wrapper">
                 <div class="tabs-wrapper">

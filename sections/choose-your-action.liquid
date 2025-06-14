@@ -92,9 +92,9 @@
                 {% for block in section.blocks %}
                     <li class="action-label {% if forloop.first %}active{% endif %}" data-id="label-{{ block.id }}">
                         {% if block.settings.collection_url != blank %}
-                        <a href="{{ block.settings.collection_url }}">{{ block.settings.label }}</a>
+                        <a class="action-label-link" href="{{ block.settings.collection_url }}">{{ block.settings.label }}</a>
                         {% else %}
-                            <span>{{ block.settings.label }}</span>
+                            <span class="action-label-link">{{ block.settings.label }}</span>
                         {% endif %}
                     </li>
                 {% endfor %}
@@ -160,7 +160,7 @@
             width: fit-content;
     }
 
-    .choose-action-left .action-label a {
+    .choose-action-left .action-label .action-label-link {
             font-weight: bold;
             padding-bottom: calc(18px + (25 - 18) * ((100vw - 360px) / (1920 - 360)));
             cursor: pointer;
@@ -170,10 +170,10 @@
             text-decoration: none;
             width: fit-content;
     }
-    .choose-action-left .action-label:last-child a {
+    .choose-action-left .action-label:last-child .action-label-link {
             padding-bottom: 0;
     }
-    .action-label a:hover {
+    .action-label .action-label-link:hover {
             color: #FF3200;
     }
     .action-labels:hover .action-label {
@@ -239,15 +239,12 @@
             .choose-action-wrapper:before {
                        width: 100%;
             }
-            .choose-action-left .action-label a {
+            .choose-action-left .action-label .action-label-link {
                        font-size: calc(40px + (60 - 40) * ((100vw - 360px) / (992 - 360)));
                        margin: auto;
             }
     }
     @media screen and (min-width: 992px) {
-            .choose-action-wrapper {
-                       margin-block: 7rem;
-            }
             .choose-action-wrapper .choose-action-container {
                        display: grid;
                        grid-template-columns: 1fr 1fr;
@@ -263,7 +260,7 @@
                        width: 50%;
                        top: 7rem;
             }
-            .choose-action-left .action-label a {
+            .choose-action-left .action-label .action-label-link {
                        font-size: calc(35px + (80 - 35) * ((100vw - 992px) / (1920 - 992)));
             }
     }

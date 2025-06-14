@@ -323,13 +323,13 @@ a#togglePassword {
   z-index: 0;
 }
 
-.section + .section {
-  margin-top: var(--spacing-sections-mobile);
+#MainContent .shopify-section {
+  margin-bottom: var(--spacing-sections-mobile);
 }
 
 @media screen and (min-width: 768px) {
-  .section + .section {
-    margin-top: var(--spacing-sections-desktop);
+  #MainContent .shopify-section {
+    margin-bottom: var(--spacing-sections-desktop);
   }
 }
 
@@ -4546,5 +4546,9 @@ details > summary {
   position: relative;
   z-index: 2;
 }
-
+.mega-menu-bg {
+  background-color: #fff;
+  height : calc(100vh - 169px);
+  overflow-y: auto;
+}
 
