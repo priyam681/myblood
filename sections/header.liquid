@@ -223,11 +223,6 @@ transform: scale(1.03);
      width: 40px;
      margin-right:0;
    }
-   a.wishlist {
-   height: 27px;
-   width: 30px;
-   display: flex;
-   }
    a#cart-icon-bubble,
    a.menu-drawer__account {
     display: none !important;
@@ -1006,11 +1001,6 @@ transform: scale(1.03);
                      {{-'material-symbols-light--home-outline.svg' | inline_asset_content -}}
                  </span>
                </a>
-             <a class="wishlist" href="/login">
-                <span class="svg-wrapper">
-                     {{- 'religious-jewish.svg' | inline_asset_content -}}
-                 </span>
-             </a>
                   {%- if shop.customer_accounts_enabled -%}
                     <a
                       href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
