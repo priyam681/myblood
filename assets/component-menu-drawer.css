@@ -54,8 +54,10 @@ div#menu-drawer {
 
 .js .menu-drawer {
   height: calc(100vh - 100%);
-  height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)) - 52px);
+  height: calc(var(--viewport-height, 100vh) - (var(--header-bottom-position, 100%)));
 }
+
+
 
 .js details[open] > .menu-drawer,
 .js details[open] > .menu-drawer__submenu {
