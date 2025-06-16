@@ -17,8 +17,8 @@
         "image_hThDwT": {
           "type": "image",
           "settings": {
-            "image": "shopify://shop_images/footer-logo.svg",
-            "richtext": "<p><strong>3rd Floor, M-1/64 Sector-B, Aliganj, Lucknow, India</strong></p>",
+            "image": "shopify://shop_images/logo_ecommerce_black.png",
+            "richtext": "",
             "image_width": 135,
             "accept_privacy_policy": true,
             "alignment": ""
@@ -28,21 +28,21 @@
           "type": "link_list",
           "settings": {
             "heading": "<strong>Shop</strong>",
-            "menu": "footer-menu-left"
+            "menu": ""
           }
         },
         "footer-0": {
           "type": "link_list",
           "settings": {
             "heading": "<strong>About</strong>",
-            "menu": "footer-about"
+            "menu": ""
           }
         },
         "footer-1": {
           "type": "link_list",
           "settings": {
             "heading": "<strong>Help</strong>",
-            "menu": "footer-help"
+            "menu": ""
           }
         }
       },
