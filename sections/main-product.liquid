@@ -471,9 +471,6 @@
                   section_id: section.id,
                   show_pickup_availability: true
                 -%}
-                {%- when 'add-to-wishlist' -%}
-                 {% render 'add-to-wishlist', block: block %}
-
               {%- when 'rating' -%}
                 {%- if product.metafields.reviews.rating.value != blank -%}
                   <div class="rating-wrapper">
@@ -917,11 +914,6 @@
         }
       ]
     },
-    {
-       "type": "add-to-wishlist",
-       "name": "Add to Wishlist",
-       "limit": 1
-          },
     {
       "type": "description",
       "name": "t:sections.main-product.blocks.description.name",
