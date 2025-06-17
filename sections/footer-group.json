@@ -14,6 +14,30 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "logo_ENHcaH": {
+          "type": "logo",
+          "settings": {
+            "logo_brand": "shopify://shop_images/shop29_brand1.png"
+          }
+        },
+        "logo_hPyRzz": {
+          "type": "logo",
+          "settings": {
+            "logo_brand": "shopify://shop_images/shop29_brand2.png"
+          }
+        },
+        "logo_MhyhQd": {
+          "type": "logo",
+          "settings": {
+            "logo_brand": "shopify://shop_images/shop29_brand3.png"
+          }
+        },
+        "logo_pFtPmQ": {
+          "type": "logo",
+          "settings": {
+            "logo_brand": "shopify://shop_images/shop29_brand4.png"
+          }
+        },
         "logo_pghmdN": {
           "type": "logo",
           "settings": {
@@ -24,30 +48,6 @@
           "type": "logo",
           "settings": {
             "logo_brand": "shopify://shop_images/shop29_brand6.png"
-          }
-        },
-        "logo_pFtPmQ": {
-          "type": "logo",
-          "settings": {
-            "logo_brand": "shopify://shop_images/shop29_brand4.png"
-          }
-        },
-        "logo_ENHcaH": {
-          "type": "logo",
-          "settings": {
-            "logo_brand": "shopify://shop_images/shop29_brand1.png"
-          }
-        },
-        "logo_MhyhQd": {
-          "type": "logo",
-          "settings": {
-            "logo_brand": "shopify://shop_images/shop29_brand3.png"
-          }
-        },
-        "logo_hPyRzz": {
-          "type": "logo",
-          "settings": {
-            "logo_brand": "shopify://shop_images/shop29_brand2.png"
           }
         },
         "image_hThDwT": {
@@ -83,12 +83,12 @@
         }
       },
       "block_order": [
+        "logo_ENHcaH",
+        "logo_hPyRzz",
+        "logo_MhyhQd",
+        "logo_pFtPmQ",
         "logo_pghmdN",
         "logo_3G9K4K",
-        "logo_pFtPmQ",
-        "logo_ENHcaH",
-        "logo_MhyhQd",
-        "logo_hPyRzz",
         "image_hThDwT",
         "link_list_tezaKL",
         "footer-0",
