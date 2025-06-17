@@ -14,6 +14,10 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "logo_hPyRzz": {
+          "type": "logo",
+          "settings": {}
+        },
         "image_hThDwT": {
           "type": "image",
           "settings": {
@@ -47,6 +51,7 @@
         }
       },
       "block_order": [
+        "logo_hPyRzz",
         "image_hThDwT",
         "link_list_tezaKL",
         "footer-0",
