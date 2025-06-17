@@ -12,7 +12,6 @@
     flex-direction: row;
     justify-content: center;
     align-content: flex-start;
-    border: solid 2px #fff;
     }
 
   .footer-logos__item img {
