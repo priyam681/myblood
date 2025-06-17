@@ -14,16 +14,40 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "logo_pghmdN": {
+          "type": "logo",
+          "settings": {
+            "logo_brand": "shopify://shop_images/shop29_brand5.png"
+          }
+        },
+        "logo_3G9K4K": {
+          "type": "logo",
+          "settings": {
+            "logo_brand": "shopify://shop_images/shop29_brand6.png"
+          }
+        },
+        "logo_pFtPmQ": {
+          "type": "logo",
+          "settings": {
+            "logo_brand": "shopify://shop_images/shop29_brand4.png"
+          }
+        },
         "logo_ENHcaH": {
           "type": "logo",
           "settings": {
-            "logo_brand": "shopify://shop_images/silver-threader-necklace_925x_9df51576-1dfe-4ca8-9f6d-b48cf7bf82a7.jpg"
+            "logo_brand": "shopify://shop_images/shop29_brand1.png"
+          }
+        },
+        "logo_MhyhQd": {
+          "type": "logo",
+          "settings": {
+            "logo_brand": "shopify://shop_images/shop29_brand3.png"
           }
         },
         "logo_hPyRzz": {
           "type": "logo",
           "settings": {
-            "logo_brand": "shopify://shop_images/inspired-woman_925x_277d0a12-c8e6-4a85-bab8-ae207d6c9099.jpg"
+            "logo_brand": "shopify://shop_images/shop29_brand2.png"
           }
         },
         "image_hThDwT": {
@@ -59,7 +83,11 @@
         }
       },
       "block_order": [
+        "logo_pghmdN",
+        "logo_3G9K4K",
+        "logo_pFtPmQ",
         "logo_ENHcaH",
+        "logo_MhyhQd",
         "logo_hPyRzz",
         "image_hThDwT",
         "link_list_tezaKL",
