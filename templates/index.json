@@ -15,7 +15,6 @@
         "slide_dzArDe": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/home-page-banner.webp",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -35,7 +34,6 @@
         "slide_bXxqh3": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/home-page-banner-2.webp",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -76,7 +74,7 @@
         "sliding_collection_custom_LwtEgd": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/shop-image-1.webp",
+            "collection_image_custom": "shopify://shop_images/pro9.jpg",
             "collection_name_custom": "water resistant necklaces",
             "collection_link_custom": ""
           }
@@ -84,7 +82,7 @@
         "sliding_collection_custom_YikH9B": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/shop-image2.webp",
+            "collection_image_custom": "shopify://shop_images/pro1.jpg",
             "collection_name_custom": "water resistant rings",
             "collection_link_custom": ""
           }
@@ -92,7 +90,7 @@
         "sliding_collection_custom_mj9Vby": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/shop-image3.webp",
+            "collection_image_custom": "shopify://shop_images/pro2.jpg",
             "collection_name_custom": "water resistant bracelets",
             "collection_link_custom": ""
           }
@@ -100,7 +98,7 @@
         "sliding_collection_custom_CjwQEM": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/shop-image4.webp",
+            "collection_image_custom": "shopify://shop_images/pro8.jpg",
             "collection_name_custom": "water resistant earrings",
             "collection_link_custom": ""
           }
@@ -108,7 +106,7 @@
         "sliding_collection_custom_UnBgKy": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/shop-image3.webp",
+            "collection_image_custom": "shopify://shop_images/pro4.jpg",
             "collection_name_custom": "water resistant bracelets",
             "collection_link_custom": ""
           }
@@ -116,7 +114,7 @@
         "sliding_collection_custom_XhVriC": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/shop-image-1.webp",
+            "collection_image_custom": "shopify://shop_images/pro3.jpg",
             "collection_name_custom": "water resistant necklaces",
             "collection_link_custom": ""
           }
@@ -124,7 +122,7 @@
         "sliding_collection_custom_GYM7C6": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/shop-image4.webp",
+            "collection_image_custom": "shopify://shop_images/pro5.jpg",
             "collection_name_custom": "water resistant earrings",
             "collection_link_custom": ""
           }
@@ -132,7 +130,7 @@
         "sliding_collection_custom_RnBjcF": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/shop-image2.webp",
+            "collection_image_custom": "shopify://shop_images/pro7.jpg",
             "collection_name_custom": "water resistant rings",
             "collection_link_custom": ""
           }
@@ -178,11 +176,7 @@
         "padding": 50,
         "font-size": 100,
         "headingtext": "Beauty, Sentiment, Legacy",
-        "details": "we believe every piece tells a story. Our handcrafted designs blend timeless elegance with modern style, giving you confidence in every detail. Discover jewelry that’s as unique as you are.",
-        "introduction_image_1": "shopify://shop_images/image1.webp",
-        "introduction_image_2": "shopify://shop_images/image2.webp",
-        "introduction_image_3": "shopify://shop_images/image3.webp",
-        "introduction_image_4": "shopify://shop_images/image4_093f1ba5-e968-40ab-9b60-a29be54dcdd7.jpg"
+        "details": "we believe every piece tells a story. Our handcrafted designs blend timeless elegance with modern style, giving you confidence in every detail. Discover jewelry that’s as unique as you are."
       }
     },
     "interior_professionals_VE84C4": {
@@ -191,17 +185,13 @@
         "subheading": "Looking for a custom-made jewelry piece?",
         "background_color": "#ffffff",
         "heading": "Say Hi to our jewelry expert.",
-        "paragrapgh": "Our jewelry stylists are here to help you!Visit our boutique and let us help you find or create the perfect piece made just for you.",
-        "image-1": "shopify://shop_images/shop-image-1.webp",
-        "image-2": "shopify://shop_images/shop-image3.webp",
-        "image-3": "shopify://shop_images/shop-image4.webp"
+        "paragraph": "paragraph"
       }
     },
     "weatherproof_Paw7fm": {
       "type": "weatherproof",
       "settings": {
         "heading": "Hi, I’m sprinix Elegant. Enduring.",
-        "image": "shopify://shop_images/shop-image-1.webp",
         "subheading": "Our jewelry pieces feature durable, high-quality materials, ensuring they withstand the test of time while adding timeless beauty to your collection.",
         "span1": "Everyday elegance",
         "span2": "You can order this product on",
@@ -243,7 +233,6 @@
         "video_c9fQmJ": {
           "type": "video",
           "settings": {
-            "cover_image": "shopify://shop_images/Screenshot_from_2025-05-23_17-24-13.png",
             "video_url": "https://youtu.be/8EPFqerB6qU?si=gXMb-UC3aZHEzAbS",
             "description": "Describe the video"
           }
