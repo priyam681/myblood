@@ -91,11 +91,13 @@
 <div class="footer-logos">
   <div class="footer-logos__container">
      <div class="footer-logos__item">
-        <img src="{{ block.settings.logobrand | image_url }}" alt="{{ block.settings.alt_text }}" loading="lazy" />
-      </div>
-     
-   
-  </div>
+        {% if block.settings.logo_brand %}
+          <img 
+            src="{{ block.settings.logo_brand | image_url: width: 760 }}" 
+            alt="{{ block.settings.alt_text | escape }}" 
+            loading="lazy"
+          />
+        {% endif %}
 </div>
 
 {%- liquid
@@ -444,7 +446,7 @@
       "settings": [
         {
           "type": "image_picker",
-          "id": "logobrand",
+          "id": "logo_brand",
           "label": "Logo Image"
         },
         
