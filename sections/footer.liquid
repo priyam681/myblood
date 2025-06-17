@@ -94,7 +94,7 @@
     {% assign logos = section.settings %}
     {% for block in section.blocks %}
       <div class="footer-logos__item">
-        <img src="{{ block.settings.logo | image_url }}" alt="{{ block.settings.alt_text }}" loading="lazy" />
+        <img src="{{ block.settings.brand-logo | image_url }}" alt="{{ block.settings.alt_text }}" loading="lazy" />
       </div>
     {% endfor %}
   </div>
@@ -440,6 +440,23 @@
             }
           ],
           "default": "center"
+        }
+      ]
+    },
+{
+      "type": "logo",
+      "name": "Logo",
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "brand-logo",
+          "label": "Logo Image"
+        },
+        {
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt Text",
+          "default": "Logo"
         }
       ]
     }
