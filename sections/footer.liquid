@@ -93,7 +93,7 @@
     {% assign logos = section.settings %}
     {% for block in section.blocks %}
       <div class="footer-logos__item">
-        <img src="{{ block.settings.logo | image_url }}" alt="{{ block.settings.alt_text }}" loading="lazy" />
+        <img src="{{ block.settings.logo-brand | image_url }}" alt="{{ block.settings.alt_text }}" loading="lazy" />
       </div>
     {% endfor %}
   </div>
