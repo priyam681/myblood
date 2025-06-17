@@ -12,10 +12,9 @@
   }
 
   .footer-logos__item img {
-    max-height: 60px;
+    max-height: 90px;
     width: auto;
     display: block;
-    filter: brightness(0) invert(1);
   }
 
   @media (max-width: 768px) {
