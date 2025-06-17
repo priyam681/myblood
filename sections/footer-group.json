@@ -16,7 +16,10 @@
       "blocks": {
         "logo_hPyRzz": {
           "type": "logo",
-          "settings": {}
+          "settings": {
+            "logo_brand": "shopify://shop_images/inspired-woman_925x_277d0a12-c8e6-4a85-bab8-ae207d6c9099.jpg",
+            "alt_text": "Logo"
+          }
         },
         "image_hThDwT": {
           "type": "image",
