@@ -90,7 +90,8 @@
 
 <div class="footer-logos">
   <div class="footer-logos__container">
-    <div class="footer-logos__item">
+    {% for block in section.blocks %}
+      <div class="footer-logos__item">
         {% if block.settings.logo_brand %}
           <img 
             src="{{ block.settings.logo_brand | image_url: width: 760 }}" 
@@ -99,6 +100,7 @@
           />
         {% endif %}
       </div>
+    {% endfor %}
   </div>
 </div>
 
@@ -452,9 +454,9 @@
           "id": "logo_brand",
           "label": "Logo Image"
         },
-        
       ]
     }
+   
   ],
   "settings": [
     {
