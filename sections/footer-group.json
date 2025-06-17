@@ -14,6 +14,12 @@
     "footer": {
       "type": "footer",
       "blocks": {
+        "logo_ENHcaH": {
+          "type": "logo",
+          "settings": {
+            "logo_brand": "shopify://shop_images/silver-threader-necklace_925x_9df51576-1dfe-4ca8-9f6d-b48cf7bf82a7.jpg"
+          }
+        },
         "logo_hPyRzz": {
           "type": "logo",
           "settings": {
@@ -53,6 +59,7 @@
         }
       },
       "block_order": [
+        "logo_ENHcaH",
         "logo_hPyRzz",
         "image_hThDwT",
         "link_list_tezaKL",
