@@ -90,11 +90,10 @@
 
 <div class="footer-logos">
   <div class="footer-logos__container">
-     {% for block in section.blocks %}
-      <div class="footer-logos__item">
+     <div class="footer-logos__item">
         <img src="{{ block.settings.logobrand | image_url }}" alt="{{ block.settings.alt_text }}" loading="lazy" />
       </div>
-    {% endfor %}
+     
    
   </div>
 </div>
