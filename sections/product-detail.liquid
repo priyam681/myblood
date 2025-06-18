@@ -53,6 +53,19 @@
     gap: 40px;
     }
     }
+
+    .row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    }
+
+    .row_title {
+    font-weight: bold;
+    display: flex;
+    }
+    }
+
 {%- endstyle -%}
 
 
@@ -77,12 +90,36 @@
                         {{ entry.category_name | metafield_tag }}
                     </button>
 
-                    {% assign rows = entry.rowdetail | join: ',' %}
-                    \
-                    <div class="terrain-tab-content {% if forloop.first %}active{% endif %}"
-                         id="tab-{{ forloop.parentloop.index }}">
+                    {% assign rows = shop.metaobjects.row.values %}
+
+                    <div class="terrain-tab-content active"
+                         id="tab-{{ forloop.index }}">
+
+                        {% for row in rows %}
+                            {% if row.target == entry.parentid %}
+                                {% assign reference_id = row.syem.id %}
+                                <script defer>
+                                  console.log('Reference: ', {{ reference_id }});
+                                </script>
+                                <div class="row">
+                                    <div class="row_title">
+                                        {{ row.title | metafield_tag }}
+                                    </div>
+                                    <div class="row_content">
+                                        {{ row.content | metafield_tag }}
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
 
                     </div>
+
+
+
+
+
+
+
 
                 {% endif %}
 
