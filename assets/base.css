@@ -1651,7 +1651,13 @@ shopify-accelerated-checkout-cart {
   display: flex;
   width: 100%;
 }
-
+.product-form__submit.button.button--full-width {
+    gap: 10px;
+}
+.product-form__submit.button.button--full-width .svg-wrapper {
+    width: 2.8rem;
+    height: 2.8rem;
+}
 .button.loading {
   color: transparent;
   position: relative;

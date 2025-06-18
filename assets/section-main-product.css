@@ -1362,9 +1362,9 @@ a.product__text {
 .icon-with-text--horizontal img + .h4,
 .icon-with-text--horizontal.icon-with-text--text-only .h4 {
   padding-top: 0;
-  font-size: 16px;
+  font-size: 12px;
   font-weight: 400;
-  line-height: 18px;
+  line-height: 14px;
   letter-spacing: -0.1px;
 }
 
