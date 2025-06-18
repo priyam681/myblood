@@ -55,6 +55,15 @@
             "share_label": "Share"
           }
         },
+        "delivery_options_KrPwPM": {
+          "type": "delivery-options",
+          "settings": {
+            "section_heading": "DELIVERY OPTIONS",
+            "placeholder_text": "Enter Pincode",
+            "button_label": "CHECK",
+            "note_text": "Please enter your PINCODE to check the availability and delivery date."
+          }
+        },
         "icon_with_text_9A9gWg": {
           "type": "icon-with-text",
           "settings": {
@@ -75,9 +84,9 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "add_to_wishlist_zkiMbP",
         "description",
         "share",
+        "delivery_options_KrPwPM",
         "icon_with_text_9A9gWg"
       ],
       "settings": {
