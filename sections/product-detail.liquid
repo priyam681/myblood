@@ -68,53 +68,28 @@
             <div class="terrain-buttons">
                 {% if product.metafields.custom.productdetails1.value %}
                     <script>
-                        console.log("Product: ", {{ product.metafields.custom.productdetails1.value | json }})
+                      console.log('Product: ', {{ product.metafields.custom.productdetails1.value | json }});
                     </script>
-                    {% for entry in product.metafields.custom.productdetails1.value %}
+                {% for entry in product.metafields.custom.productdetails1.value %}
 
-                    {% if entry != blank %}
+                {% if entry != blank %}
                     <button {% if forloop.first %}class="active"{% endif %} data-tab="{{ forloop.index }}">
                         {{ entry.category_name | metafield_tag }}
                     </button>
 
                     {% assign rows = entry.rowdetail | join: ',' %}
-                    <!-- Handle metaobjects from rowdetail array -->
-                {% for metaobject_id in entry.rowdetail %}
-                    {% assign metaobject = metaobject_id | metaobject %}
+                    \
+                    <div class="terrain-tab-content {% if forloop.first %}active{% endif %}"
+                         id="tab-{{ forloop.parentloop.index }}">
 
-                    <script>
-                      console.log("Metaobject ID:", {{ metaobject_id | json }});
-                      console.log("Metaobject full data:", {{ metaobject | json }});
-                    </script>
-
-
-                    <div class="terrain-tab-content {% if forloop.first %}active{% endif %}" id="tab-{{ forloop.parentloop.index }}">
-                        {% if metaobject %}
-                            <!-- Access metaobject fields here. Replace field_name with your actual field names -->
-                            <div class="metaobject-content">
-                                {{ metaobject.title.value }}
-                                {{ metaobject.description.value }}
-                                <!-- Add other fields as needed -->
-                            </div>
-                        {% endif %}
                     </div>
-
-                    <!-- Debug logging -->
-                    <script>
-                      console.log("Metaobject ID:", {{ metaobject_id | json }});
-                      console.log("Metaobject Data:", {{ metaobject | json }});
-                    </script>
-                {% endfor %}
-
 
                 {% endif %}
 
-                    {% endfor %}
+                {% endfor %}
                 {% endif %}
 
             </div>
-
-
 
 
         </div>
@@ -128,7 +103,6 @@
         </div>
     </div>
 </section>
-
 
 
 {% schema %}
