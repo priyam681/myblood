@@ -349,7 +349,7 @@ slider-component.slider-component-full-width {
   }
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 992px) {
   .slider--mobile + .slider-buttons {
     display: none;
   }

@@ -45,10 +45,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "add_to_wishlist_zkiMbP": {
-          "type": "add-to-wishlist",
-          "settings": {}
-        },
         "description": {
           "type": "description",
           "settings": {}
@@ -87,7 +83,7 @@
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-e1d6f1b1-2c62-42a1-b3f0-f93a9225de02",
-        "media_size": "medium",
+        "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "stacked",
