@@ -80,11 +80,11 @@
 
             <!-- Buttons -->
             <div class="terrain-buttons">
-                {% if product.metafields.custom.productdetails1.value %}
+                {% if product.metafields.custom.productdetails.value %}
                     <script>
                       console.log('Product: ', {{ product.metafields.custom.productdetails1.value | json }});
                     </script>
-                {% for entry in product.metafields.custom.productdetails1.value %}
+                {% for entry in product.metafields.custom.productdetails.value %}
 
                 {% if entry != blank %}
                     <button {% if forloop.first %}class="active"{% endif %} data-tab="{{ forloop.index }}">
