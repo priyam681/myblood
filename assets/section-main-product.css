@@ -244,11 +244,6 @@ border: 0.1rem solid rgb(var(--color-foreground));
 .product-form__input .svg-wrapper {
   right: 1.5rem;
 }
-
-.product-form__submit {
-  margin-bottom: 1rem;
-}
-
 .product-form__submit[aria-disabled="true"]
   + .shopify-payment-button
   .shopify-payment-button__button[disabled],
@@ -349,10 +344,6 @@ a.product__text {
     .product__info-container {
     max-width: 100%;
   }
-  .product__info-container {
-    max-width: 60rem;
-  }
-
   .product__info-container .price--on-sale .price-item--regular {
     font-size: 1.6rem;
   }
@@ -1328,9 +1319,9 @@ a.product__text {
 
 .icon-with-text--horizontal {
   display: flex;
-  justify-content: center;
-  column-gap: 3rem;
+  gap: 2rem;
   flex-direction: row;
+  flex-wrap: wrap;
 }
 
 .icon-with-text--vertical {
@@ -1339,11 +1330,9 @@ a.product__text {
 
 .icon-with-text .svg-wrapper {
   fill: rgb(var(--color-foreground));
-  height: var(--icon-size);
-  width: var(--icon-size);
+  height: 2.8rem;
+  width: 2.8rem;
 }
-
-.icon-with-text--horizontal .svg-wrapper,
 .icon-with-text--horizontal img {
   margin-bottom: var(--icon-spacing);
 }
@@ -1374,18 +1363,15 @@ a.product__text {
 .icon-with-text--horizontal.icon-with-text--text-only .h4 {
   padding-top: 0;
   font-size: 16px;
+  font-weight: 400;
+  line-height: 18px;
+  letter-spacing: -0.1px;
 }
 
 .icon-with-text__item {
   display: flex;
   align-items: center;
 }
-
-.icon-with-text--horizontal .icon-with-text__item {
-  flex-direction: column;
-  width: 33%;
-}
-
 .icon-with-text--vertical .icon-with-text__item {
   margin-bottom: var(--icon-size);
 }
@@ -1409,7 +1395,7 @@ a.product__text {
 .product-media-container.constrain-height {
   /* arbitrary offset value based on average theme spacing and header height */
   --viewport-offset: 400px;
-  --constrained-min-height: 300px;
+  --constrained-min-height: 500px;
   --constrained-height: max(
     var(--constrained-min-height),
     calc(100vh - var(--viewport-offset))
@@ -1431,7 +1417,7 @@ a.product__text {
   padding-top: min(var(--constrained-height), var(--ratio-percent));
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   .product-media-container.media-fit-cover {
     display: flex;
     align-self: stretch;
