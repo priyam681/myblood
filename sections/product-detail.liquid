@@ -42,9 +42,9 @@
     }
 
     .product-detail-image {
-        aspect-ratio: 1;
-        object-fit: contain;
-        width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 100%;
     }
 
     @media (min-width: 1024px) {
@@ -91,7 +91,7 @@
 
                             {% assign rows = shop.metaobjects.row.values %}
 
-                            <div class="terrain-tab-content active"
+                            <div class="terrain-tab-content  {% if forloop.first %}active{% endif %}"
                                  id="tab-{{ forloop.index }}">
 
                                 {% for row in rows %}
