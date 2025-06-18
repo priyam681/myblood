@@ -121,6 +121,7 @@ a.varient-plus-icon-svg {
 .product-form__input--pill input[type='radio'].disabled + label {
   border-color: rgba(var(--color-foreground), 0.1);
   color: rgba(var(--color-foreground), 0.6);
+  background-color: rgb(var(--color-background));
   pointer-events: none;
 }
 .product-form__input--pill input[type='radio']:disabled + label:after,
