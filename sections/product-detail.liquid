@@ -93,7 +93,7 @@
 
                     {% assign rows = shop.metaobjects.row.values %}
 
-                    <div class="terrain-tab-content active"
+                    <div class="terrain-tab-content {% if forloop.first %}active{% endif %}"
                          id="tab-{{ forloop.index }}">
 
                         {% for row in rows %}
