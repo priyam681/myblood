@@ -127,15 +127,7 @@
             addToCartButton.setAttribute('disabled', 'disabled');
             addToCartButton.setAttribute('aria-disabled', 'true');
             addToCartButton.classList.add('button--disabled');
-
-            // Add a note about unavailability
-            const unavailableNote = document.createElement('p');
-            unavailableNote.classList.add('delivery-unavailable-note');
-            unavailableNote.textContent = 'This product cannot be delivered to your location.';
-            unavailableNote.style.color = 'red';
-            unavailableNote.style.fontWeight = 'bold';
-
-            addToCartButton.parentNode.insertBefore(unavailableNote, addToCartButton);
+            
           }
         }
 
