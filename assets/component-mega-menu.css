@@ -45,7 +45,6 @@
 .mega-menu__list {
   display: grid;
   list-style: none;
-  background: #ffffff;
 }
 .mega-menu__list .submenu-under .mega-menu-subcategory-list {
   padding-block: 30px;

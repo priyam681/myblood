@@ -42,8 +42,9 @@
     }
 
     .product-detail-image {
-    aspect-ratio: 1;
-    object-fit: content;
+        aspect-ratio: 1;
+        object-fit: contain;
+        width: 100%;
     }
 
     @media (min-width: 1024px) {
@@ -53,6 +54,19 @@
     gap: 40px;
     }
     }
+
+    .row {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 12px;
+    }
+
+    .row_title {
+    font-weight: bold;
+    display: flex;
+    }
+    }
+
 {%- endstyle -%}
 
 
@@ -65,56 +79,48 @@
             <h3 style="margin-bottom: 10px;">Terrain</h3>
 
             <!-- Buttons -->
-            <div class="terrain-buttons">
-                {% if product.metafields.custom.productdetails1.value %}
-                    <script>
-                        console.log("Product: ", {{ product.metafields.custom.productdetails1.value | json }})
-                    </script>
-                    {% for entry in product.metafields.custom.productdetails1.value %}
+            <div class="terrain-container">
+                <!-- Terrain Type Buttons -->
+                <div class="terrain-buttons">
+                    {% if product.metafields.custom.productdetails.value %}
+                        {% for entry in product.metafields.custom.productdetails.value %}
+                            {% if entry != blank %}
+                                <button {% if forloop.first %}class="active"{% endif %}
+                                        data-tab="{{ forloop.index }}">
+                                    {{ entry.category_name | metafield_tag }}
+                                </button>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-                    {% if entry != blank %}
-                    <button {% if forloop.first %}class="active"{% endif %} data-tab="{{ forloop.index }}">
-                        {{ entry.category_name | metafield_tag }}
-                    </button>
+                    {% assign rows = shop.metaobjects.row.values %}
 
-                    {% assign rows = entry.rowdetail | join: ',' %}
-                    <!-- Handle metaobjects from rowdetail array -->
-                {% for metaobject_id in entry.rowdetail %}
-                    {% assign metaobject = metaobject_id | metaobject %}
+                    <div class="terrain-tab-content {% if forloop.first %}active{% endif %}"
+                         id="tab-{{ forloop.index }}">
+                <!-- Terrain Content Sections -->
+                <div class="terrain-content">
+                    {% if product.metafields.custom.productdetails.value %}
+                        {% for entry in product.metafields.custom.productdetails.value %}
+                            {% if entry != blank %}
+                                <div class="terrain-tab-content {% if forloop.first %}active{% endif %}"
+                                     id="tab-{{ forloop.index }}">
 
-                    <script>
-                      console.log("Metaobject ID:", {{ metaobject_id | json }});
-                      console.log("Metaobject full data:", {{ metaobject | json }});
-                    </script>
-
-
-                    <div class="terrain-tab-content {% if forloop.first %}active{% endif %}" id="tab-{{ forloop.parentloop.index }}">
-                        {% if metaobject %}
-                            <!-- Access metaobject fields here. Replace field_name with your actual field names -->
-                            <div class="metaobject-content">
-                                {{ metaobject.title.value }}
-                                {{ metaobject.description.value }}
-                                <!-- Add other fields as needed -->
-                            </div>
-                        {% endif %}
-                    </div>
-
-                    <!-- Debug logging -->
-                    <script>
-                      console.log("Metaobject ID:", {{ metaobject_id | json }});
-                      console.log("Metaobject Data:", {{ metaobject | json }});
-                    </script>
-                {% endfor %}
-
-
-                {% endif %}
-
-                    {% endfor %}
-                {% endif %}
-
+                                    {% assign rows = shop.metaobjects.row.values %}
+                                    {% for row in rows %}
+                                        {% if row.target == entry.parentid %}
+                                            <div class="terrain-row">
+                                                <h3 class="row-title">{{ row.title | metafield_tag }}</h3>
+                                                <div class="row-content">{{ row.content | metafield_tag }}</div>
+                                            </div>
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </div>
-
-
 
 
         </div>
@@ -127,8 +133,8 @@
 
         </div>
     </div>
+    </div>
 </section>
-
 
 
 {% schema %}

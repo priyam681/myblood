@@ -1,6 +1,5 @@
 /* swatch-input lives in its own file for reusability of the swatch in other areas than the product form context */
 .swatch-input__input + .swatch-input__label {
-  --swatch-input--border-radius: 50%;
   display: inline-block;
   max-width: 100%;
   border-radius: var(--swatch-input--border-radius);
@@ -21,15 +20,18 @@
 /* Active state */
 .swatch-input__input:active + .swatch-input__label,
 .swatch-input__input:checked + .swatch-input__label {
-  outline: 0.1rem solid rgb(var(--color-foreground));
+  border: 2px solid rgba(41, 41, 41, 0.60);
 }
-
-/* Hover state */
-.swatch-input__input + .swatch-input__label:hover,
-.swatch-input__input:hover + .swatch-input__label {
-  outline: 0.2rem solid rgba(var(--color-foreground), 0.4);
+.swatch-input__input + .swatch-input__label,
+.swatch-input__input + .swatch-input__label {
+  border: 2px solid transparent;
 }
-
+.product__info-wrapper .product-form__input--swatch {
+  margin-bottom: 3.5rem;
+}
+.product__info-wrapper .product-form__input--swatch .form__label {
+  display: none;
+}
 /* Focus visible */
 .swatch-input__input:focus-visible + .swatch-input__label {
   outline: 0.2rem solid rgba(var(--color-foreground), 0.5);

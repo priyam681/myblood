@@ -45,10 +45,6 @@
             "show_gift_card_recipient": true
           }
         },
-        "add_to_wishlist_zkiMbP": {
-          "type": "add-to-wishlist",
-          "settings": {}
-        },
         "description": {
           "type": "description",
           "settings": {}
@@ -57,6 +53,15 @@
           "type": "share",
           "settings": {
             "share_label": "Share"
+          }
+        },
+        "delivery_options_KrPwPM": {
+          "type": "delivery-options",
+          "settings": {
+            "section_heading": "DELIVERY OPTIONS",
+            "placeholder_text": "Enter Pincode",
+            "button_label": "CHECK",
+            "note_text": "Please enter your PINCODE to check the availability and delivery date."
           }
         },
         "icon_with_text_9A9gWg": {
@@ -79,15 +84,15 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "add_to_wishlist_zkiMbP",
         "description",
         "share",
+        "delivery_options_KrPwPM",
         "icon_with_text_9A9gWg"
       ],
       "settings": {
         "enable_sticky_info": true,
         "color_scheme": "scheme-e1d6f1b1-2c62-42a1-b3f0-f93a9225de02",
-        "media_size": "medium",
+        "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
         "gallery_layout": "stacked",

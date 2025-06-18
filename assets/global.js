@@ -6,6 +6,27 @@ function getFocusableElements(container) {
   );
 }
 
+function calculateHeaderHeight(event) {
+  setTimeout(() => {
+    let announcementBarHeight = parseFloat(document.querySelector('.announcement-bar').parentElement?.clientHeight);
+    let headerHeight = parseFloat(document.querySelector('.header').parentElement?.clientHeight);
+    
+
+    let calculatedHeaderHeight = Math.abs(headerHeight + announcementBarHeight);
+
+    document.querySelector('.mega-menu-bg').style.height = `calc(100vh - ${calculatedHeaderHeight}px)`;
+
+  }, 0);
+
+}
+
+requestAnimationFrame(calculateHeaderHeight);
+
+
+window.addEventListener('resize', this.calculateHeaderHeight.bind(this));
+window.addEventListener('pageshow', this.calculateHeaderHeight.bind(this));
+
+
 class SectionId {
   static #separator = '__';
 
@@ -483,8 +504,8 @@ class MenuDrawer extends HTMLElement {
     }
   }
 
-  onResizeDrawer(){
-    let announcementBar = document.querySelector(".announcement-bar-section");
+  onResizeDrawer() {
+    let announcementBar = document.querySelector('.announcement-bar-section');
     let headerSection = document.querySelector('.header');
 
     if (announcementBar && headerSection) {
@@ -517,7 +538,7 @@ class MenuDrawer extends HTMLElement {
     });
 
 
-    console.log("CLOSE");
+    console.log('CLOSE');
     this.mainDetailsToggle.querySelectorAll('.submenu-open').forEach((submenu) => {
       submenu.classList.remove('submenu-open');
     });
