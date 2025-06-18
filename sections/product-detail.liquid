@@ -80,42 +80,38 @@
             <!-- Buttons -->
             <div class="terrain-buttons">
                 {% if product.metafields.custom.productdetails1.value %}
-                    <script>
-                      console.log('Product: ', {{ product.metafields.custom.productdetails1.value | json }});
-                    </script>
-                {% for entry in product.metafields.custom.productdetails1.value %}
 
-                {% if entry != blank %}
-                    <button {% if forloop.first %}class="active"{% endif %} data-tab="{{ forloop.index }}">
-                        {{ entry.category_name | metafield_tag }}
-                    </button>
+                    {% for entry in product.metafields.custom.productdetails1.value %}
 
-                    {% assign rows = shop.metaobjects.row.values %}
+                        {% if entry != blank %}
+                            <button {% if forloop.first %}class="active"{% endif %} data-tab="{{ forloop.index }}">
+                                {{ entry.category_name | metafield_tag }}
+                            </button>
 
-                    <div class="terrain-tab-content active"
-                         id="tab-{{ forloop.index }}">
+                            {% assign rows = shop.metaobjects.row.values %}
 
-                        {% for row in rows %}
-                            {% if row.target == entry.parentid %}
-                                {% assign reference_id = row.syem.id %}
-                                <script defer>
-                                  console.log('Reference: ', {{ reference_id }});
-                                </script>
-                                <div class="row">
-                                    <div class="row_title">
-                                        {{ row.title | metafield_tag }}
-                                    </div>
-                                    <div class="row_content">
-                                        {{ row.content | metafield_tag }}
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% endfor %}
+                            <div class="terrain-tab-content active"
+                                 id="tab-{{ forloop.index }}">
 
-                    </div>
-                {% endif %}
+                                {% for row in rows %}
+                                    {% if row.target == entry.parentid %}
+                                        {% assign reference_id = row.syem.id %}
 
-                {% endfor %}
+                                        <div class="row">
+                                            <div class="row_title">
+                                                {{ row.title | metafield_tag }}
+                                            </div>
+                                            <div class="row_content">
+                                                {{ row.content | metafield_tag }}
+                                            </div>
+                                        </div>
+                                    {% endif %}
+                                {% endfor %}
+
+                            </div>
+                        {% endif %}
+
+                    {% endfor %}
                 {% endif %}
 
             </div>
@@ -132,6 +128,38 @@
         </div>
     </div>
 </section>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    let element = null;
+    let rows = null;
+    let productTabContent ={% if product.metafields.custom.productdetails1.value %}
+            {{ product.metafields.custom.productdetails1.value | json }}  {% else %} [];
+      {% endif %}
+
+    if (productTabContent == null) {
+      return;
+    }
+
+
+    productTabContent.forEach((item, index) => {
+      if (item?.rowdetail) {
+        rows = item.rowdetail;
+      }
+    });
+
+    rows.forEach(item => {
+      let row = {{ shop.metaobjects.row[item] }}
+        console.log(row);
+    });
+
+    console.log(rows);
+
+
+  });
+
+
+</script>
 
 
 {% schema %}
