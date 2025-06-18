@@ -79,42 +79,43 @@
             <h3 style="margin-bottom: 10px;">Terrain</h3>
 
             <!-- Buttons -->
-            <div class="terrain-buttons">
-                {% if product.metafields.custom.productdetails1.value %}
+            <div class="terrain-container">
+                <!-- Terrain Type Buttons -->
+                <div class="terrain-buttons">
+                    {% if product.metafields.custom.productdetails.value %}
+                        {% for entry in product.metafields.custom.productdetails.value %}
+                            {% if entry != blank %}
+                                <button {% if forloop.first %}class="active"{% endif %}
+                                        data-tab="{{ forloop.index }}">
+                                    {{ entry.category_name | metafield_tag }}
+                                </button>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
 
-                    {% for entry in product.metafields.custom.productdetails1.value %}
+                <!-- Terrain Content Sections -->
+                <div class="terrain-content">
+                    {% if product.metafields.custom.productdetails.value %}
+                        {% for entry in product.metafields.custom.productdetails.value %}
+                            {% if entry != blank %}
+                                <div class="terrain-tab-content {% if forloop.first %}active{% endif %}"
+                                     id="tab-{{ forloop.index }}">
 
-                        {% if entry != blank %}
-                            <button {% if forloop.first %}class="active"{% endif %} data-tab="{{ forloop.index }}">
-                                {{ entry.category_name | metafield_tag }}
-                            </button>
-
-                            {% assign rows = shop.metaobjects.row.values %}
-
-                            <div class="terrain-tab-content  {% if forloop.first %}active{% endif %}"
-                                 id="tab-{{ forloop.index }}">
-
-                                {% for row in rows %}
-                                    {% if row.target == entry.parentid %}
-                                        {% assign reference_id = row.syem.id %}
-
-                                        <div class="row">
-                                            <div class="row_title">
-                                                {{ row.title | metafield_tag }}
+                                    {% assign rows = shop.metaobjects.row.values %}
+                                    {% for row in rows %}
+                                        {% if row.target == entry.parentid %}
+                                            <div class="terrain-row">
+                                                <h3 class="row-title">{{ row.title | metafield_tag }}</h3>
+                                                <div class="row-content">{{ row.content | metafield_tag }}</div>
                                             </div>
-                                            <div class="row_content">
-                                                {{ row.content | metafield_tag }}
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                {% endfor %}
-
-                            </div>
-                        {% endif %}
-
-                    {% endfor %}
-                {% endif %}
-
+                                        {% endif %}
+                                    {% endfor %}
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    {% endif %}
+                </div>
             </div>
 
 
@@ -129,38 +130,6 @@
         </div>
     </div>
 </section>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function() {
-    let element = null;
-    let rows = null;
-    let productTabContent ={% if product.metafields.custom.productdetails1.value %}
-            {{ product.metafields.custom.productdetails1.value | json }}  {% else %} [];
-      {% endif %}
-
-    if (productTabContent == null) {
-      return;
-    }
-
-
-    productTabContent.forEach((item, index) => {
-      if (item?.rowdetail) {
-        rows = item.rowdetail;
-      }
-    });
-
-    rows.forEach(item => {
-      let row = {{ shop.metaobjects.row[item] }}
-        console.log(row);
-    });
-
-    console.log(rows);
-
-
-  });
-
-
-</script>
 
 
 {% schema %}
