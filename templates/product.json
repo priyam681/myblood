@@ -69,7 +69,7 @@
       "settings": {
         "enable_sticky_info": true,
         "enable_single_image_zoom": true,
-        "sp-media-gallery-container": true,
+        "sp-media-gallery-container": false,
         "initial_media_count": 4,
         "load_more_count": 3,
         "color_scheme": "",
