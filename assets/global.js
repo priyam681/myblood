@@ -10,7 +10,7 @@ function calculateHeaderHeight(event) {
   setTimeout(() => {
     let announcementBarHeight = parseFloat(document.querySelector('.announcement-bar').parentElement?.clientHeight);
     let headerHeight = parseFloat(document.querySelector('.header').parentElement?.clientHeight);
-    
+
 
     let calculatedHeaderHeight = Math.abs(headerHeight + announcementBarHeight);
 

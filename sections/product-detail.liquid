@@ -76,12 +76,12 @@
         <!-- Left: Text Content -->
         <div>
             <h2>PRODUCT DETAILS</h2>
-            <h3 style="margin-bottom: 10px;">Terrain</h3>
+            <h3 style="margin-bottom: 10px;">{{ section.settings.title }}</h3>
 
             <!-- Buttons -->
             <div class="terrain-container">
                 {% assign activeProductDetail = product.metafields.custom.activedetail %}
-                <p>Active: {{ activeProductDetail }}</p>
+
                 <!-- Terrain Type Buttons -->
                 <div class="terrain-buttons">
                     {% if product.metafields.custom.productdetails1.value %}
@@ -133,7 +133,6 @@
             </div>
         </div>
     </div>
-    </div>
 </section>
 
 
@@ -141,6 +140,12 @@
 {
   "name": "Product Detail Section",
   "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title",
+      "default": "Sample"
+    }
   ],
   "presets": [
     {
