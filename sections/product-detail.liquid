@@ -21,7 +21,13 @@
     font-size: 18px;
     background: #fff;
     }
-
+.terrain-buttons button .metafield-rich_text_field * {
+    margin: 0;
+    color: rgba(125, 121, 121, 0.81);
+}
+.terrain-buttons button.active .metafield-rich_text_field * {
+    color: #fff;
+}
     .terrain-buttons button.active {
     background-color: #FF3200;
     color: white;
@@ -31,20 +37,42 @@
     .terrain-tab-content {
     display: none;
     }
-
+.terrain-tab-content {
+  margin-bottom: 4rem;
+}
     .terrain-tab-content.active {
     display: block;
     }
-
-    .terrain-tab-content p {
-    font-size: 16px;
-    color: #374151;
-    }
-
+.terrain-tab-content .terrain-row {
+   display: flex;
+   gap: 50px;
+   border-bottom: 1px solid rgba(73, 73, 73, 0.30);
+   padding-block: 2rem;
+}
+.terrain-tab-content .terrain-row * {
+   margin: 0;
+}
+.terrain-tab-content .terrain-row .row-title * {
+   min-width: 150px;
+   color: #212121;
+   font-size: 22px;
+   font-size: calc(16px + (22 - 16) * ((100vw - 360px) / (1920 - 360)));
+   font-weight: 500;
+   line-height: 1;
+}
+.terrain-tab-content .terrain-row .row-content * {
+    color: #393939;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 18px;
+}
+.terrain-tab-content .terrain-row .row-content * ul {
+   padding-left: 0;
+ }
     .product-detail-image {
-    aspect-ratio: 1;
-    object-fit: contain;
-    width: 100%;
+        aspect-ratio: 1;
+        object-fit: contain;
+        width: 100%;
     }
 
     @media (min-width: 1024px) {
@@ -76,34 +104,34 @@
         <!-- Left: Text Content -->
         <div>
             <h2>PRODUCT DETAILS</h2>
-            <h3 style="margin-bottom: 10px;">{{ section.settings.title }}</h3>
+            <h3 style="margin-bottom: 10px;">Terrain</h3>
 
             <!-- Buttons -->
             <div class="terrain-container">
-                {% assign activeProductDetail = product.metafields.custom.activedetail %}
 
+            {% assign active = product.metafields.custom.activedetail %}
                 <!-- Terrain Type Buttons -->
                 <div class="terrain-buttons">
-                    {% if product.metafields.custom.productdetails1.value %}
-                        {% for entry in product.metafields.custom.productdetails1.value %}
+                    {% if product.metafields.custom.productdetails.value %}
+                        {% for entry in product.metafields.custom.productdetails.value %}
                             {% if entry != blank %}
                                 <button {% if activeProductDetail == entry.parentid %} class="active" {% endif %}
+                                <button {% if active == entry.parentid %}class="active"{% endif %}
                                         data-tab="{{ forloop.index }}">
-                                    {{ entry.category_name2 | metafield_tag }}
+                                    {{ entry.category_name | metafield_tag }}
                                 </button>
                             {% endif %}
                         {% endfor %}
                     {% endif %}
                 </div>
 
-                {% assign rows = shop.metaobjects.row.values %}
-
+                    {% assign rows = shop.metaobjects.row.values %}
                 <!-- Terrain Content Sections -->
                 <div class="terrain-content">
-                    {% if product.metafields.custom.productdetails1.value %}
-                        {% for entry in product.metafields.custom.productdetails1.value %}
+                    {% if product.metafields.custom.productdetails.value %}
+                        {% for entry in product.metafields.custom.productdetails.value %}
                             {% if entry != blank %}
-                                <div class="terrain-tab-content {% if activeProductDetail == entry.parentid %}active{% endif %}"
+                                <div class="terrain-tab-content {% if active == entry.parentid %}active{% endif %}"
                                      id="tab-{{ forloop.index }}">
 
                                     {% assign rows = shop.metaobjects.row.values %}
@@ -122,16 +150,16 @@
                 </div>
 
 
-            </div>
 
-            <!-- Right: Image -->
+        </div>
+</div>
+    <!-- Right: Image -->
             <div>
 
                 <a href="{{ product.url }}"> <img src="{{ product.images | reverse | first | image_url: width: 600 }}"
                                                   alt="{{ product.title }}" class="product-detail-image"></a>
 
             </div>
-        </div>
     </div>
 </section>
 
