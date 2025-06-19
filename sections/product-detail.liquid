@@ -102,7 +102,7 @@
 
 {%- endstyle -%}
 
-
+ {% if product.metafields.custom.productdetails.value != blank%}
 <section class="terrain-tabs-section page-width">
 
     <div class="terrain-layout">
@@ -166,7 +166,7 @@
             </div>
     </div>
 </section>
-
+{% endif %}
 
 {% schema %}
 {
