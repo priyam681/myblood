@@ -42,9 +42,9 @@
     }
 
     .product-detail-image {
-        aspect-ratio: 1;
-        object-fit: contain;
-        width: 100%;
+    aspect-ratio: 1;
+    object-fit: contain;
+    width: 100%;
     }
 
     @media (min-width: 1024px) {
@@ -80,30 +80,30 @@
 
             <!-- Buttons -->
             <div class="terrain-container">
+                {% assign activeProductDetail = product.metafields.custom.activedetail %}
+                <p>Active: {{ activeProductDetail }}</p>
                 <!-- Terrain Type Buttons -->
                 <div class="terrain-buttons">
-                    {% if product.metafields.custom.productdetails.value %}
-                        {% for entry in product.metafields.custom.productdetails.value %}
+                    {% if product.metafields.custom.productdetails1.value %}
+                        {% for entry in product.metafields.custom.productdetails1.value %}
                             {% if entry != blank %}
-                                <button {% if forloop.first %}class="active"{% endif %}
+                                <button {% if activeProductDetail == entry.parentid %} class="active" {% endif %}
                                         data-tab="{{ forloop.index }}">
-                                    {{ entry.category_name | metafield_tag }}
+                                    {{ entry.category_name2 | metafield_tag }}
                                 </button>
                             {% endif %}
                         {% endfor %}
                     {% endif %}
                 </div>
 
-                    {% assign rows = shop.metaobjects.row.values %}
+                {% assign rows = shop.metaobjects.row.values %}
 
-                    <div class="terrain-tab-content {% if forloop.first %}active{% endif %}"
-                         id="tab-{{ forloop.index }}">
                 <!-- Terrain Content Sections -->
                 <div class="terrain-content">
-                    {% if product.metafields.custom.productdetails.value %}
-                        {% for entry in product.metafields.custom.productdetails.value %}
+                    {% if product.metafields.custom.productdetails1.value %}
+                        {% for entry in product.metafields.custom.productdetails1.value %}
                             {% if entry != blank %}
-                                <div class="terrain-tab-content {% if forloop.first %}active{% endif %}"
+                                <div class="terrain-tab-content {% if activeProductDetail == entry.parentid %}active{% endif %}"
                                      id="tab-{{ forloop.index }}">
 
                                     {% assign rows = shop.metaobjects.row.values %}
@@ -120,17 +120,17 @@
                         {% endfor %}
                     {% endif %}
                 </div>
+
+
             </div>
 
+            <!-- Right: Image -->
+            <div>
 
-        </div>
+                <a href="{{ product.url }}"> <img src="{{ product.images | reverse | first | image_url: width: 600 }}"
+                                                  alt="{{ product.title }}" class="product-detail-image"></a>
 
-        <!-- Right: Image -->
-        <div>
-
-            <a href="{{ product.url }}"> <img src="{{ product.images | reverse | first | image_url: width: 600 }}"
-                                              alt="{{ product.title }}" class="product-detail-image"></a>
-
+            </div>
         </div>
     </div>
 </section>
@@ -140,47 +140,6 @@
 {
   "name": "Product Detail Section",
   "settings": [
-    {
-      "type": "text",
-      "id": "less_title",
-      "label": "Less Technical Title",
-      "default": "Less Technical"
-    },
-    {
-      "type": "textarea",
-      "id": "less_description",
-      "label": "Less Technical Description",
-      "default": "Smooth, flat terrain"
-    },
-    {
-      "type": "text",
-      "id": "moderate_title",
-      "label": "Moderately Technical Title",
-      "default": "Moderately Technical"
-    },
-    {
-      "type": "textarea",
-      "id": "moderate_description",
-      "label": "Moderately Technical Description",
-      "default": "Rolling hills and light obstacles"
-    },
-    {
-      "type": "text",
-      "id": "high_title",
-      "label": "High Technical Title",
-      "default": "High Technical"
-    },
-    {
-      "type": "textarea",
-      "id": "high_description",
-      "label": "High Technical Description",
-      "default": "Steep, rugged, technical terrain"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Side Image"
-    }
   ],
   "presets": [
     {
