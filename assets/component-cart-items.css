@@ -1,12 +1,6 @@
 cart-items .title-wrapper-with-link {
   margin-top: 0;
 }
-  cart-remove-button span.svg-wrapper {
-       background: #e7e4e4;
-        padding: 9px;
-        border-radius: 20px;
-        box-shadow: rgba(0, 0, 0, 0.35) 0px 0px 4px;
-}
 .cart-items td,
 .cart-items th {
   padding: 0;
