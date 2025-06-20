@@ -120,6 +120,7 @@
                     {% if product.metafields.custom.productdetails.value %}
                         {% for entry in product.metafields.custom.productdetails.value %}
                             {% if entry != blank %}
+                                <button {% if activeProductDetail == entry.parentid %} class="active" {% endif %}
                                 <button {% if active == entry.parentid %}class="active"{% endif %}
                                         data-tab="{{ forloop.index }}">
                                     {{ entry.category_name | metafield_tag }}
@@ -174,44 +175,9 @@
   "settings": [
     {
       "type": "text",
-      "id": "less_title",
-      "label": "Less Technical Title",
-      "default": "Less Technical"
-    },
-    {
-      "type": "textarea",
-      "id": "less_description",
-      "label": "Less Technical Description",
-      "default": "Smooth, flat terrain"
-    },
-    {
-      "type": "text",
-      "id": "moderate_title",
-      "label": "Moderately Technical Title",
-      "default": "Moderately Technical"
-    },
-    {
-      "type": "textarea",
-      "id": "moderate_description",
-      "label": "Moderately Technical Description",
-      "default": "Rolling hills and light obstacles"
-    },
-    {
-      "type": "text",
-      "id": "high_title",
-      "label": "High Technical Title",
-      "default": "High Technical"
-    },
-    {
-      "type": "textarea",
-      "id": "high_description",
-      "label": "High Technical Description",
-      "default": "Steep, rugged, technical terrain"
-    },
-    {
-      "type": "image_picker",
-      "id": "image",
-      "label": "Side Image"
+      "id": "title",
+      "label": "Title",
+      "default": "Sample"
     }
   ],
   "presets": [
