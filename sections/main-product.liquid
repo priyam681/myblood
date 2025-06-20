@@ -76,7 +76,13 @@
     <div class="page-width">
         <div class="product product--{{ section.settings.media_size }} product--{{ section.settings.media_position }} product--{{ section.settings.gallery_layout }} product--mobile-{{ section.settings.mobile_thumbnails }} grid grid--1-col {% if product.media.size > 0 %}grid--2-col-tablet{% else %}product--no-media{% endif %}">
             <div class="grid__item product__media-wrapper">
-                {% render 'cstm-product-media-gallery', variant_images: variant_images %}
+                {% render 'cstm-product-media-gallery',
+                        variant_images: variant_images,
+                        product: product,
+                        initial_limit: section.settings.initial_media_count,
+                        load_more_count: section.settings.load_more_count,
+                        sp-load-more: section.settings['sp-media-gallery-container']
+                %}
             </div>
             <div class="product__info-wrapper grid__item{% if settings.page_width > 1400 and section.settings.media_size == "small" %} product__info-wrapper--extra-padding{% endif %}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
                 <section
@@ -222,11 +228,11 @@
                                         {{ block.shopify_attributes }}
                                 >
                                     {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
-                                    {% # theme-check-disable     %}
+                                    {% # theme-check-disable       %}
                                     {%- assign cart_qty = cart
                                             | item_count_for_variant: product.selected_or_first_available_variant.id
                                     -%}
-                                    {% # theme-check-enable     %}
+                                    {% # theme-check-enable       %}
                                     <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
                                         {{ 'products.product.quantity.label' | t }}
                                         <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
@@ -704,6 +710,8 @@
 
 
 
+
+
             </script>
             <script src="{{ 'product-model.js' | asset_url }}" defer></script>
         {%- endif -%}
@@ -718,6 +726,8 @@
 
         <script type="application/ld+json">
       {{ product | structured_data }}
+
+
 
 
 
@@ -2142,6 +2152,30 @@
       "id": "enable_single_image_zoom",
       "label": "Show only one image in zoom view",
       "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "sp-media-gallery-container",
+      "default": true,
+      "label": "sp-media-gallery"
+    },
+    {
+      "type": "range",
+      "id": "initial_media_count",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 5,
+      "label": "Initial images to show"
+    },
+    {
+      "type": "range",
+      "id": "load_more_count",
+      "min": 1,
+      "max": 10,
+      "step": 1,
+      "default": 5,
+      "label": "Images to load more each time"
     },
     {
       "type": "color_scheme",
