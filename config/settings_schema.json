@@ -186,10 +186,9 @@
         "id": "enable_product_card_slider",
         "label": "Enable Product Card Slider",
         "default": false
-      },
+      }
     ]
   },
-  
   {
     "name": "t:settings_schema.layout.name",
     "settings": [
@@ -208,10 +207,10 @@
         "id": "spacing_sections",
         "min": 0,
         "max": 100,
-        "step": 2,
+        "step": 1,
+        "default": 50,
         "unit": "px",
-        "label": "t:settings_schema.layout.settings.spacing_sections.label",
-        "default": 50
+        "label": "spacing_sections"
       },
       {
         "type": "header",

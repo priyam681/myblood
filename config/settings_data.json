@@ -7,6 +7,7 @@
  * made to this file may be overwritten.
  * ------------------------------------------------------------
  */
+
 {
   "current": {
     "logo": "shopify://shop_images/logo_d32d2c17-0176-446f-9400-94cdc040775b.png",
@@ -17,7 +18,6 @@
     "body_scale": 100,
     "sp-quick-view-varient": "box",
     "page_width": 1920,
-    "spacing_sections": 0,
     "spacing_grid_horizontal": 8,
     "spacing_grid_vertical": 8,
     "animations_reveal_on_scroll": false,
