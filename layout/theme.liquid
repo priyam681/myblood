@@ -380,11 +380,12 @@
     <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
-{% comment %}
- // back to the top //
 
+
+{% comment %}
 {%- render 'back-to-the-top' -%}
 {% endcomment %}
+
 <script>
   document.addEventListener('DOMContentLoaded', function() {
     var inputFields = document.querySelectorAll('.customer-name');
