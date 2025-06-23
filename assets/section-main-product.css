@@ -12,6 +12,18 @@ product-info {
   overflow: hidden;
   gap: 0.5rem;
 }
+.sp-zoom-container .sp-product-zoom-media .product-modal-nav-arrows {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.sp-zoom-container .sp-product-zoom-media .product-modal-main-image {
+    width: 100%;
+} 
+.sp-zoom-container .sp-quick-view-container .product-modal-thumbnails {
+  display: flex ;
+} 
+
 .sp-product-zoom-media button.product-modal-nav-button {
   border: none;
   --tw-shadow: 0px 1px 11px 0px #c8c2c2;
