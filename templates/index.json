@@ -70,6 +70,11 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
+    "service_cstm_block_ByBqjY": {
+      "type": "service_cstm_block",
+      "name": "service-cstm-block",
+      "settings": {}
+    },
     "sliding_collection_gm_47ERrV": {
       "type": "sliding-collection-gm",
       "blocks": {
@@ -271,6 +276,7 @@
   },
   "order": [
     "slideshow_fFBCHt",
+    "service_cstm_block_ByBqjY",
     "sliding_collection_gm_47ERrV",
     "from_place_3gHkmc",
     "interior_professionals_VE84C4",
