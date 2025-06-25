@@ -69,17 +69,35 @@ class HeaderMenu extends DetailsDisclosure {
   constructor() {
     super();
     this.header = document.querySelector('.header-wrapper');
+    this.mouseLeave = this.onMouseLeaveHeader.bind(this);
+    this.header.addEventListener('mouseleave', this.mouseLeave);
   }
 
+  onMouseLeaveHeader(event) {
+    console.log('Event Leave: ', event.target.querySelector('a').closest('li'));
+
+    if (event.target.closest('a') && event.target.closest('li')) {
+      const openDetails = this.header.querySelectorAll('[open]');
+      openDetails.forEach((details) => {
+        details.removeAttribute('open');
+      });
+    }
+
+
+  }
+
+
   onMouseLeave(event) {
-    console.log('event out:', event.target);
+
     this.header.preventHide = false;
     this.header.style.setProperty('--header-bottom-position-desktop', '');
     document.body.classList.remove('overflow-menu');
 
+
     const details = event.target.closest('details');
 
-    if (details.hasAttribute('open')) {
+
+    if (details?.hasAttribute('open')) {
 
       // Add transition for arrow
       const icon = details.querySelector('.icon-caret');
@@ -92,6 +110,8 @@ class HeaderMenu extends DetailsDisclosure {
         this.close();
       }, 50);
 
+    } else if (event.target.closest('header-menu') && !event.target.closest('header-menu').contains(event.target)) {
+      console.log('Event Leave: ', event.target.closest('li'));
     }
   }
 
