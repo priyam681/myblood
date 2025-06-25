@@ -206,7 +206,7 @@
     background: white;
   }
 
-  / Add a subtle indicator that shows this card has a slider / .product-card-slider::after {
+  .product-card-slider::after {
     content: '';
     position: absolute;
     bottom: 10px;
@@ -1088,3 +1088,4 @@
 {%- endif -%}
 
 <script src="{{ 'product-swatch.js' | asset_url }}" defer></script>
+<script src="{{ 'product-slider.js' | asset_url }}" defer></script>
