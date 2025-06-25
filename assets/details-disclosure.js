@@ -13,8 +13,8 @@ class DetailsDisclosure extends HTMLElement {
 
     this.mainDetailsToggle.addEventListener('focusout', this.onFocusOut.bind(this));
     this.mainDetailsToggle.addEventListener('toggle', this.onToggle.bind(this));
-    this.summary.addEventListener('mouseenter', this.mouseEnter);
-    this.summary.addEventListener('mouseleave', this.mouseLeave);
+    this.mainDetailsToggle.addEventListener('mouseenter', this.mouseEnter);
+    this.mainDetailsToggle.addEventListener('mouseleave', this.mouseLeave);
   }
 
   onMouseLeave() {
@@ -22,8 +22,9 @@ class DetailsDisclosure extends HTMLElement {
     return null;
   }
 
-  onMouseEnter() {
+  onMouseEnter(e) {
     this.isMouseInMenu = true;
+
 
     if (!this.animations) this.animations = this.content.getAnimations();
 
@@ -71,7 +72,7 @@ class HeaderMenu extends DetailsDisclosure {
   }
 
   onMouseLeave(event) {
-
+    console.log('event out:', event.target);
     this.header.preventHide = false;
     this.header.style.setProperty('--header-bottom-position-desktop', '');
     document.body.classList.remove('overflow-menu');
@@ -97,6 +98,8 @@ class HeaderMenu extends DetailsDisclosure {
   onMouseEnter(event) {
     if (!this.header) return;
     this.header.preventHide = this.mainDetailsToggle.open;
+
+    console.log('event:', event.target);
 
     const details = event.target.closest('details');
     if (!details) return;
