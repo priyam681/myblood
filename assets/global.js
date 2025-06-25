@@ -104,7 +104,7 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
 
   window.addEventListener('resize', (event) => {
     let windowWidth = window.innerWidth;
-    if (windowWidth > 990) {
+    if (windowWidth > 990 && !summary.closest('header-drawer, menu-drawer')) {
       summary.addEventListener('click', (event) => {
         event.preventDefault();
       });
@@ -118,7 +118,7 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
 
   window.addEventListener('pageshow', (e) => {
     let windowWidth = window.innerWidth;
-    if (windowWidth > 990) {
+    if (windowWidth > 990 && !summary.closest('header-drawer, menu-drawer')) {
       summary.addEventListener('click', (event) => {
         event.preventDefault();
       });
