@@ -46,26 +46,25 @@ if (!customElements.get('product-swatch')) {
       e.stopPropagation();
 
 
-
       const parent = e.target.parentNode;
 
       const productId = e.target.getAttribute('data-product-id');
       const dataProductId = e.target.getAttribute('data-option-value-id');
 
-      parent.querySelectorAll('input[type="radio"]').forEach((element)=>{
+      parent.querySelectorAll('input[type="radio"]').forEach((element) => {
 
-        if(element.getAttribute('data-option-value-id') === dataProductId) {
+        if (element.getAttribute('data-option-value-id') === dataProductId) {
           element.setAttribute('checked', '');
-        }else{
+        } else {
           element.removeAttribute('checked');
         }
 
-      })
+      });
 
 
       // Get product data from this specific component
       const productScript = this.cardContainer.querySelector('script[data-variants]');
-      
+
       if (!productScript) return;
 
       const product = JSON.parse(productScript.textContent);
@@ -98,7 +97,6 @@ if (!customElements.get('product-swatch')) {
     }
 
 
-
     async updateProduct(variant) {
       if (!this.cardContainer || !variant) return;
 
@@ -107,8 +105,11 @@ if (!customElements.get('product-swatch')) {
       const productUrl = this.cardContainer.querySelectorAll('a');
       const productSlider = this.cardContainer.querySelector('product-slider');
 
-      // Update the variant ID in the add to cart form
+      // Update the variant ID in the added to cart form
       const variantIdInput = this.cardContainer.querySelector('.product-variant-id');
+      let label = this.cardContainer.querySelector('product-swatch .form__label > span');
+      label.textContent = variant.title;
+
 
       if (variantIdInput) {
         variantIdInput.value = variant.id;
@@ -160,7 +161,6 @@ if (!customElements.get('product-swatch')) {
       }
 
 
-
       if (productUrl && productUrl.length > 0) {
         productUrl.forEach((anchor) => {
           if (!anchor.href) return;
@@ -201,7 +201,7 @@ if (!customElements.get('product-swatch')) {
               // If there's no sale price but there is a compare price, use the regular price
               priceSale.textContent = fetchedPriceRegular.textContent;
             }
-          } 
+          }
         } catch (error) {
           console.error('Error updating prices:', error);
         }
@@ -237,9 +237,9 @@ if (!customElements.get('product-swatch')) {
 
   customElements.define('product-swatch', ProductSwatchComponent);
 
-  document.addEventListener('DOMContentLoaded', function () {
+  document.addEventListener('DOMContentLoaded', function() {
     // Add this to your product-swatch.js file
-    window.addEventListener('pageshow', function (event) {
+    window.addEventListener('pageshow', function(event) {
       if (event.persisted) {
         // Page is coming from back-forward cache
         document.querySelectorAll('product-swatch').forEach((swatch) => {
