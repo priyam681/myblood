@@ -4339,7 +4339,7 @@ product-media-load-more.sp-media-load-more {
 }
 
 .sp-card-wrapper .product-form__input--swatch .swatch-input__input + .swatch-input__label {
-    --swatch-input--size: 2rem;
+    --swatch-input--size: 6rem;
     margin-right: 0.5rem;
 }
 
