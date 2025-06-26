@@ -91,6 +91,10 @@
       ],
       "settings": {
         "enable_sticky_info": true,
+        "enable_single_image_zoom": true,
+        "sp-media-gallery-container": true,
+        "initial_media_count": 5,
+        "load_more_count": 5,
         "color_scheme": "scheme-e1d6f1b1-2c62-42a1-b3f0-f93a9225de02",
         "media_size": "large",
         "constrain_to_viewport": true,
@@ -98,7 +102,7 @@
         "gallery_layout": "stacked",
         "mobile_thumbnails": "hide",
         "media_position": "left",
-        "image_zoom": "hover",
+        "image_zoom": "lightbox",
         "hide_variants": true,
         "enable_video_looping": false,
         "padding_top": 36,
@@ -129,12 +133,7 @@
       "type": "product-detail",
       "name": "Product Detail Section",
       "settings": {
-        "less_title": "Less Technical",
-        "less_description": "Smooth, flat terrain",
-        "moderate_title": "Moderately Technical",
-        "moderate_description": "Rolling hills and light obstacles",
-        "high_title": "High Technical",
-        "high_description": "Steep, rugged, technical terrain"
+        "title": "Sample"
       }
     }
   },

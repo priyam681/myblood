@@ -97,7 +97,39 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
     summary.setAttribute('aria-controls', summary.nextElementSibling.id);
   }
 
-  summary.addEventListener('click', (event) => {
+  // summary.addEventListener('click', (event) => {
+  //   event.preventDefault();
+  //   event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+  // });
+
+  window.addEventListener('resize', (event) => {
+    let windowWidth = window.innerWidth;
+    if (windowWidth > 990 && !summary.closest('header-drawer, menu-drawer')) {
+      summary.addEventListener('click', (event) => {
+        event.preventDefault();
+      });
+      return;
+    }
+    summary.addEventListener('click', (event) => {
+      event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+    });
+  });
+
+
+  window.addEventListener('pageshow', (e) => {
+    let windowWidth = window.innerWidth;
+    if (windowWidth > 990 && !summary.closest('header-drawer, menu-drawer')) {
+      summary.addEventListener('click', (event) => {
+        event.preventDefault();
+      });
+      return;
+    }
+    summary.addEventListener('click', (event) => {
+      event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+    });
+  });
+
+  summary.addEventListener('mouseenter', (event) => {
     event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
   });
 
