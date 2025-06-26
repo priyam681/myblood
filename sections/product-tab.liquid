@@ -81,7 +81,7 @@
                                     {% for product in collection.products %}
                                         <div class="swiper-slide">
                                             <div class="product-card" itemscope itemtype="https://schema.org/Product">
-                                                <a href="{{ product.url }}" itemprop="url">
+                                                <a href="{{ product.url }}" itemprop="url" class="product-card-link">
                                                     <img
                                                             class="main-image"
                                                             src="{{ product.featured_image | image_url: width: 400 }}"

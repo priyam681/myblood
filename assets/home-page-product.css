@@ -16,17 +16,19 @@
     max-width: 270px;
     flex: 1 1 220px;
 }
-
-.product-card a img {
+.product-card .product-card-link {
+    display: flex;
+    margin-bottom: 2rem;
+}
+.product-card .product-card-link img {
     width: 100%;
     height: auto;
-    margin-bottom: 10px;
 }
 
 .product-card .product-name {
     font-size: calc(16px + (24 - 16) * ((100vw - 360px) / (1920 - 360)));
     line-height: 1;
-    margin: 2.4rem 0 0.8rem;
+    margin: 1.1rem 0 0.8rem;
     font-weight: 500;
 }
 
@@ -113,6 +115,7 @@
 .thumbnail-image-wrapper {
     padding-right: 9px;
     padding-bottom: 9px;
+    display: flex;
 }
 
 .thumbnail:hover {
