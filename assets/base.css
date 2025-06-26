@@ -59,9 +59,11 @@
 }
 
 .card--media .card__inner .card__content.sp-card_content {
-    position: relative;
+    position: absolute;
+    right: 10px;
     padding: 0;
     z-index: 1;
+    background: transparent;
 }
 
 .card--media .card__inner .card__content.sp-card_content .card__badge.bottom {
@@ -4614,23 +4616,26 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
     justify-content: center;
 }
 
-.sp-card-wrapper .sp-card-varient .product-form__input--swatch .swatch-input__input + .swatch-input__label {
-    max-height: 30px;
-}
+/*.sp-card-wrapper .sp-card-varient .product-form__input--swatch .swatch-input__input + .swatch-input__label {*/
+    /*max-height: 30px;*/
+/*}*/
 
-.sp-card-wrapper .product-form__input--swatch .swatch-input__input + .swatch-input__label {
-    max-height: 30px;
-}
+/*.sp-card-wrapper .product-form__input--swatch .swatch-input__input + .swatch-input__label {*/
+    /*max-height: 30px;*/
+/*}*/
 
-.sp-card-wrapper .sp-card-varient .swatch-input__input + .swatch-input__label:hover,
-.sp-card-wrapper .sp-card-varient .swatch-input__input:hover + .swatch-input__label {
-    outline: none;
-}
+/*.sp-card-wrapper .sp-card-varient .swatch-input__input + .swatch-input__label:hover,*/
+/*.sp-card-wrapper .sp-card-varient .swatch-input__input:hover + .swatch-input__label {*/
+    /*outline: none;*/
+/*}*/
 
-.sp-card-wrapper .sp-card-varient input[type="radio"]:checked + label {
-    outline: 1px solid rgb(0, 0, 0);
+/*.sp-card-wrapper .sp-card-varient input[type="radio"]:checked + label {*/
+    /*outline: 1px solid rgb(0, 0, 0);*/
+/*}*/
+.product-form__input.product-form__input--swatch .varient-plus-icon-svg {
+    display: flex;
+    align-items: center;
 }
-
 .sp-card-wrapper .sp-card-varient legend.form__label {
     font-size: 14px;
     margin-bottom: 0.5rem;

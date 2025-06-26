@@ -2,7 +2,7 @@
 
 
 .swatch-input__input + .swatch-input__label {
-    display: inline-block;
+    display: flex;
     max-width: 100%;
     border-radius: var(--swatch-input--border-radius);
     cursor: pointer;

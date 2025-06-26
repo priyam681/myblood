@@ -25,12 +25,10 @@
       }
 
       .swatch{
-          position:relative;
-          display:inline-block;
-          height:3rem;
-          width:3rem;
-          border-radius:50%;
-          border:1px solid rgba(var(--color-foreground), 0.1);
+          position: relative;
+          display: inline-block;
+          height: 6rem;
+          width: 6rem;
           cursor:pointer;
           transition:transform 0.2s ease-in-out;
       }
@@ -53,11 +51,6 @@
           box-shadow:0 0 0 0.2rem var(--color-base-accent-1);
           transform:scale(1.05);
       }
-
-      .swatch:hover{
-          transform:scale(1.05);
-      }
-
       .input[type="radio"]:disabled + .swatch{
           opacity:0.5;
           cursor:not-allowed;
