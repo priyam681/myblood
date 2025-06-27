@@ -108,6 +108,8 @@ if (!customElements.get('product-swatch')) {
 
       // Update the variant ID in the add to cart form
       const variantIdInput = this.cardContainer.querySelector('.product-variant-id');
+      let label = this.cardContainer.querySelector('product-swatch .form__label > span');
+      label.textContent = variant.title;
 
       if (variantIdInput) {
         variantIdInput.value = variant.id;
