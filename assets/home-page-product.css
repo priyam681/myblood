@@ -10,11 +10,12 @@
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
+    flex-direction: column;
 }
 
 .recommended-item {
-    max-width: 270px;
-    flex: 1 1 220px;
+    max-width: 360px;
+    /*flex: 1 1 250px;*/
 }
 
 .product-card .product-card-link {
@@ -126,6 +127,13 @@
 
 .thumbnail:hover {
     border-color: red;
+}
+
+
+.recommended-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .tabs-wrapper {
