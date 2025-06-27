@@ -25,10 +25,10 @@
       }
 
       .swatch{
-          position:relative;
-          display:inline-block;
-          height:6rem;
-          width:6rem;
+          position: relative;
+          display: inline-block;
+          height: 6rem;
+          width: 6rem;
           cursor:pointer;
           transition:transform 0.2s ease-in-out;
       }
@@ -51,11 +51,6 @@
           box-shadow:0 0 0 0.2rem var(--color-base-accent-1);
           transform:scale(1.05);
       }
-
-      .swatch:hover{
-          transform:scale(1.05);
-      }
-
       .input[type="radio"]:disabled + .swatch{
           opacity:0.5;
           cursor:not-allowed;
@@ -72,13 +67,12 @@
           border:0;
       }
 
-      .variant-plus-icon{       
+      .variant-plus-icon{
           margin-left:auto;
           cursor:pointer;
           min-width: 30px;
           min-height: 30px;
       }
-
       {% comment %} .varient-plus-icon-svg {
         --swatch-input--size: 2rem;
         margin-right: 0.5rem;
@@ -133,7 +127,6 @@
     width: 2rem;
     margin-right: 0.5rem;
   }
-
 
   .product-form__input--pill {
     display: flex;
@@ -273,7 +266,6 @@
           </a>
 
       </fieldset>
-
     {% endif %}
   {% endfor %}
 
