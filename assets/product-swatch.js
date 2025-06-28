@@ -46,6 +46,7 @@ if (!customElements.get('product-swatch')) {
       e.stopPropagation();
 
 
+
       const parent = e.target.parentNode;
 
       const productId = e.target.getAttribute('data-product-id');
