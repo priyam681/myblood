@@ -122,7 +122,10 @@ a.link.link--text.list-menu__item:hover {
 }
 .footer__column--info .footer__payment .payment-icons {
   display: flex;
-  gap: 5px;
+  gap: 3px;
+}
+.footer__column--info .footer__payment .payment-icons img {
+  width: calc(30px + 15 * ((100vw - 360px) / (1920 - 360)));
 }
 .footer-block:only-child:last-child {
   text-align: center;
