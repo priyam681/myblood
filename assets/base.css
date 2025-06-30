@@ -2872,7 +2872,9 @@ input[type="checkbox"] {
     transition: width 0.3s cubic-bezier(0.52, 0, 0.61, 0.99);
     min-width: 100px;
 }
-
+.header__heading-logo-wrapper img {
+    max-height: 106px;
+}
 @media screen and (max-width: 989px) {
     .header__heading,
     .header__heading-link {
@@ -3223,7 +3225,7 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item {
-    padding: 1.2rem;
+    padding: 4.4rem 1.2rem;
     text-decoration: none;
     color: rgba(var(--color-foreground), 0.75);
     z-index: 10;

@@ -9,8 +9,7 @@
     left: 0;
     position: absolute;
     right: 0;
-    top: 0;
-    padding-top: var(--header-height);
+    top: 100%;
     z-index: 0;
     background-color: transparent;
     transition: opacity 0.3s ease, transform 0.3s ease;

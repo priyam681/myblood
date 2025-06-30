@@ -85,8 +85,9 @@
 </style>
 
 {%- style -%}
-    .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    .header__heading-logo-wrapper img {
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
     }
 
     .section-header {
@@ -100,7 +101,7 @@
     }
 
     @media screen and (min-width: 992px) {
-    .header {
+    .header__heading-logo-wrapper img{
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     }
@@ -593,7 +594,7 @@ customElements.define('sticky-header', StickyHeader);
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Logo padding"
     },
     {
       "type": "range",
