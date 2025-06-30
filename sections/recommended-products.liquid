@@ -51,14 +51,14 @@
 <recommended-product>
     <div style="background-color: {{ section.settings.tab_background_color }}; padding-block: {{ section.settings.tab_padding }}px;">
         <section class="recommended-section page-width">
-            <div class="{% if section.blocks.size > 4 %}swiper{% else %}recommended-grid{% endif %}">
+            <div class="{% if section.blocks.size > 1 %}swiper{% else %}recommended-grid{% endif %}">
                 <h2 class="recommended-heading">{{ section.settings.heading }}</h2>
-                <div class="{% if section.blocks.size > 4 %}swiper-wrapper {% else %} recommended-container {% endif
+                <div class="{% if section.blocks.size > 1 %}swiper-wrapper {% else %} recommended-container {% endif
                 %}">
                     {% for block in section.blocks %}
                         {% assign product = all_products[block.settings.product] %}
                         {% if product %}
-                            <div class="{% if section.blocks.size > 4 %}swiper-slide{% else %}recommended-item{% endif %}">
+                            <div class="{% if section.blocks.size > 1 %}swiper-slide{% else %}recommended-item{% endif %}">
                                 <div class="product-card">
                                     <a href="{{ product.url }}" class="product-card-link">
                                         <img src="{{ product.featured_image | image_url: width: 600 }}"
@@ -99,7 +99,7 @@
                     {% endfor %}
                 </div>
 
-                {% if section.blocks.size > 4 %}
+                {% if section.blocks.size > 1 %}
                     <div class="prev-next-button">
                         <div class="item-prev pagination__item--prev">
                          <span class="svg-wrapper">
@@ -119,11 +119,11 @@
 </recommended-product>
 
 
-{% if section.blocks.size > 4 %}
+{% if section.blocks.size > 1 %}
     <script>
       document.addEventListener('DOMContentLoaded', function() {
         new Swiper('.swiper', {
-          slidesPerView: 4,
+          slidesPerView: 1,
           spaceBetween: 20,
           navigation: {
             nextEl: '.item-next',
