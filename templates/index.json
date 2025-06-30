@@ -272,10 +272,16 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
+    },
+    "hero_cstm_block_bhcrmU": {
+      "type": "hero_cstm_block",
+      "name": "hero_cstm_block",
+      "settings": {}
     }
   },
   "order": [
     "slideshow_fFBCHt",
+    "hero_cstm_block_bhcrmU",
     "service_cstm_block_ByBqjY",
     "sliding_collection_gm_47ERrV",
     "from_place_3gHkmc",
