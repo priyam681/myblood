@@ -69,92 +69,53 @@ class HeaderMenu extends DetailsDisclosure {
   constructor() {
     super();
     this.header = document.querySelector('.header-wrapper');
-    this.mouseLeave = this.onMouseLeaveHeader.bind(this);
-    this.header.addEventListener('mouseleave', this.mouseLeave);
-  }
-
-  onMouseLeaveHeader(event) {
-    if (event.target.closest('a') && event.target.closest('li')) {
-      const openDetails = this.header.querySelectorAll('[open]');
-      openDetails.forEach((details) => {
-        details.removeAttribute('open');
-      });
-    }
-
-
   }
 
 
   onMouseLeave(event) {
-
-    this.header.preventHide = false;
+    this.header.preventHide = true;
     this.header.style.setProperty('--header-bottom-position-desktop', '');
     document.body.classList.remove('overflow-menu');
 
-
     const details = event.target.closest('details');
 
-
     if (details?.hasAttribute('open')) {
-
-      // Add transition for arrow
       const icon = details.querySelector('.icon-caret');
-      if (icon) {
-        icon.style.transition = 'transform 0.3s ease';
-      }
+      if (icon) icon.style.transition = 'transform 0.3s ease';
 
-      // Delay closing slightly to allow for transition
-      setTimeout(() => {
-        this.close();
-      }, 50);
-
-    } else if (event.target.closest('header-menu') && !event.target.closest('header-menu').contains(event.target)) {
-      console.log('Event Leave: ', event.target.closest('li'));
+      this.close();
     }
+
   }
 
   onMouseEnter(event) {
     if (!this.header) return;
-    this.header.preventHide = this.mainDetailsToggle.open;
 
-    console.log('event:', event.target);
+    this.header.preventHide = this.mainDetailsToggle.open;
 
     const details = event.target.closest('details');
-    if (!details) return;
-
-    if (details.hasAttribute('open')) return;
+    if (!details || details.hasAttribute('open')) return;
 
     document.body.classList.add('overflow-menu');
-
     details.setAttribute('open', '');
+
     details.querySelector('summary').setAttribute('aria-expanded', true);
 
-    // Add transition for arrow
     const icon = details.querySelector('.icon-caret');
     if (icon) {
-      icon.style.transition = 'transform 0.3s ease';
+      icon.style.transition = 'transform 0.7s ease';
     }
 
-    if (document.documentElement.style.getPropertyValue('--header-bottom-position-desktop') !== '') return;
-    document.documentElement.style.setProperty(
-      '--header-bottom-position-desktop',
-      `${Math.floor(this.header.getBoundingClientRect().bottom)}px`
-    );
-
-
-  }
-
-  onToggle(event) {
-    event.preventDefault();
-    if (!this.header) return;
-    this.header.preventHide = this.mainDetailsToggle.open;
-
-    if (document.documentElement.style.getPropertyValue('--header-bottom-position-desktop') !== '') return;
-    document.documentElement.style.setProperty(
-      '--header-bottom-position-desktop',
-      `${Math.floor(this.header.getBoundingClientRect().bottom)}px`
-    );
+    if (
+      document.documentElement.style.getPropertyValue('--header-bottom-position-desktop') === ''
+    ) {
+      document.documentElement.style.setProperty(
+        '--header-bottom-position-desktop',
+        `${Math.floor(this.header.getBoundingClientRect().bottom)}px`
+      );
+    }
   }
 }
+
 
 customElements.define('header-menu', HeaderMenu);

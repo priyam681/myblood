@@ -88,9 +88,14 @@ class HTMLUpdateUtility {
     });
   }
 }
-document.querySelector(".mobile-facets__header .close-icon").addEventListener("click", function() {
-  let close =  document.querySelector(".mobile-facets__disclosure");
-  close.removeAttribute('open');
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  
+  document.querySelector('.mobile-facets__header .close-icon')?.addEventListener('click', function() {
+    let close = document.querySelector('.mobile-facets__disclosure');
+    close.removeAttribute('open');
+  });
 
 });
 
