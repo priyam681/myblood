@@ -88,6 +88,11 @@ class HTMLUpdateUtility {
     });
   }
 }
+document.querySelector(".mobile-facets__header .close-icon").addEventListener("click", function() {
+  let close =  document.querySelector(".mobile-facets__disclosure");
+  close.removeAttribute('open');
+
+});
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.setAttribute('role', 'button');

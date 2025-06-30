@@ -74,8 +74,6 @@ class HeaderMenu extends DetailsDisclosure {
   }
 
   onMouseLeaveHeader(event) {
-    console.log('Event Leave: ', event.target.querySelector('a').closest('li'));
-
     if (event.target.closest('a') && event.target.closest('li')) {
       const openDetails = this.header.querySelectorAll('[open]');
       openDetails.forEach((details) => {

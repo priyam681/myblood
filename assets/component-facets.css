@@ -990,11 +990,17 @@ a.active-facets__button.focused .active-facets__button-inner {
   padding: 1rem 2.5rem;
   text-align: center;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: sticky;
   top: 0;
   z-index: 2;
 }
-
+.mobile-facets__header .close-icon {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
 .mobile-facets__header-inner {
   flex-grow: 1;
   position: relative;

@@ -123,7 +123,7 @@
                                         </div>
                                     {% endfor %}
                                 </div>
-                                {% if collection.products.size > 4 %}
+                                {% if collection.products.size > 0 %}
                                     <div class="prev-next-button">
                                         <div class="item-prev pagination__item--prev">
                      <span class="svg-wrapper">
@@ -285,7 +285,7 @@
 
     document.querySelectorAll('.pua-product-slider').forEach(function(sliderEl) {
       const productCount = parseInt(sliderEl.dataset.productCount, 10);
-      if (productCount > 4) {
+      if (productCount > 0) {
         new Swiper(sliderEl, {
           slidesPerView: 4,
           spaceBetween: 20,
