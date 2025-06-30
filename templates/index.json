@@ -177,15 +177,6 @@
         "padding_bottom": 10
       }
     },
-    "from_place_3gHkmc": {
-      "type": "from-place",
-      "settings": {
-        "padding": 50,
-        "font-size": 100,
-        "headingtext": "Beauty, Sentiment, Legacy",
-        "details": "we believe every piece tells a story. Our handcrafted designs blend timeless elegance with modern style, giving you confidence in every detail. Discover jewelry that’s as unique as you are."
-      }
-    },
     "interior_professionals_VE84C4": {
       "type": "interior-professionals",
       "settings": {
@@ -204,84 +195,13 @@
         "span2": "You can order this product on",
         "span3": "All-occasion sparkle"
       }
-    },
-    "featured_collection": {
-      "type": "featured-collection",
-      "settings": {
-        "title": "<strong>Featured products</strong>",
-        "variant": true,
-        "heading_size": "h2",
-        "description": "",
-        "show_description": false,
-        "description_style": "body",
-        "collection": "jewellery",
-        "products_to_show": 4,
-        "columns_desktop": 4,
-        "full_width": false,
-        "show_view_all": true,
-        "view_all_style": "solid",
-        "enable_desktop_slider": false,
-        "color_scheme": "scheme-1",
-        "image_ratio": "portrait",
-        "image_shape": "default",
-        "show_secondary_image": true,
-        "show_vendor": false,
-        "show_rating": false,
-        "quick_add": "standard",
-        "columns_mobile": "2",
-        "swipe_on_mobile": true,
-        "padding_top": 28,
-        "padding_bottom": 36
-      }
-    },
-    "collage": {
-      "type": "collage",
-      "blocks": {
-        "video_c9fQmJ": {
-          "type": "video",
-          "settings": {
-            "video_url": "https://youtu.be/8EPFqerB6qU?si=gXMb-UC3aZHEzAbS",
-            "description": "Describe the video"
-          }
-        },
-        "collection-0": {
-          "type": "collection",
-          "settings": {
-            "collection": "jewellery"
-          }
-        },
-        "collection-1": {
-          "type": "collection",
-          "settings": {
-            "collection": "rings"
-          }
-        }
-      },
-      "block_order": [
-        "video_c9fQmJ",
-        "collection-0",
-        "collection-1"
-      ],
-      "settings": {
-        "heading": "<strong>Our Latest Arrivals</strong>",
-        "heading_size": "h2",
-        "desktop_layout": "left",
-        "mobile_layout": "collage",
-        "card_styles": "none",
-        "color_scheme": "scheme-1",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
     "slideshow_fFBCHt",
     "service_cstm_block_ByBqjY",
     "sliding_collection_gm_47ERrV",
-    "from_place_3gHkmc",
     "interior_professionals_VE84C4",
-    "weatherproof_Paw7fm",
-    "featured_collection",
-    "collage"
+    "weatherproof_Paw7fm"
   ]
 }
