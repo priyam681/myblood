@@ -88,15 +88,22 @@ class HTMLUpdateUtility {
     });
   }
 }
-document.querySelector(".mobile-facets__header .close-icon").addEventListener("click", function() {
-  let close =  document.querySelector(".mobile-facets__disclosure");
-  close.removeAttribute('open');
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  
+  document.querySelector('.mobile-facets__header .close-icon')?.addEventListener('click', function() {
+    let close = document.querySelector('.mobile-facets__disclosure');
+    close.removeAttribute('open');
+  });
 
 });
+
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.setAttribute('role', 'button');
   summary.setAttribute('aria-expanded', summary.parentNode.hasAttribute('open'));
+
 
   if (summary.nextElementSibling.getAttribute('id')) {
     summary.setAttribute('aria-controls', summary.nextElementSibling.id);
