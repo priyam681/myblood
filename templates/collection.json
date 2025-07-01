@@ -33,7 +33,7 @@
       "settings": {
         "products_per_page": 8,
         "variant": true,
-        "swatches_limits": 5,
+        "swatches_limits": 9,
         "show-varient": true,
         "columns_desktop": 4,
         "color_scheme": "",
