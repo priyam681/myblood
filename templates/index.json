@@ -15,7 +15,6 @@
         "slide_dzArDe": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/image_2024_10_24T10_19_00_678Z_1_dfc8e87d-5a51-458f-86fe-2c6913269c94.png",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -35,7 +34,6 @@
         "slide_bXxqh3": {
           "type": "slide",
           "settings": {
-            "image": "shopify://shop_images/image_2024_10_24T10_19_08_998Z_1_061a730b-fb80-4b6c-bc98-2e48b31a9b91.png",
             "heading": "",
             "heading_size": "h1",
             "subheading": "",
@@ -70,18 +68,12 @@
         "accessibility_info": "Slideshow about our brand"
       }
     },
-    "service_cstm_block_ByBqjY": {
-      "type": "service_cstm_block",
-      "name": "service-cstm-block",
-      "settings": {}
-    },
     "sliding_collection_gm_47ERrV": {
       "type": "sliding-collection-gm",
       "blocks": {
         "sliding_collection_custom_LwtEgd": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/pro9.jpg",
             "collection_name_custom": "water resistant necklaces",
             "collection_link_custom": ""
           }
@@ -89,7 +81,6 @@
         "sliding_collection_custom_YikH9B": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/pro1.jpg",
             "collection_name_custom": "water resistant rings",
             "collection_link_custom": ""
           }
@@ -97,7 +88,6 @@
         "sliding_collection_custom_mj9Vby": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/pro2.jpg",
             "collection_name_custom": "water resistant bracelets",
             "collection_link_custom": ""
           }
@@ -105,7 +95,6 @@
         "sliding_collection_custom_CjwQEM": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/pro8.jpg",
             "collection_name_custom": "water resistant earrings",
             "collection_link_custom": ""
           }
@@ -113,7 +102,6 @@
         "sliding_collection_custom_UnBgKy": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/pro4.jpg",
             "collection_name_custom": "water resistant bracelets",
             "collection_link_custom": ""
           }
@@ -121,7 +109,6 @@
         "sliding_collection_custom_XhVriC": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/pro3.jpg",
             "collection_name_custom": "water resistant necklaces",
             "collection_link_custom": ""
           }
@@ -129,7 +116,6 @@
         "sliding_collection_custom_GYM7C6": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/pro5.jpg",
             "collection_name_custom": "water resistant earrings",
             "collection_link_custom": ""
           }
@@ -137,7 +123,6 @@
         "sliding_collection_custom_RnBjcF": {
           "type": "sliding-collection-custom",
           "settings": {
-            "collection_image_custom": "shopify://shop_images/pro7.jpg",
             "collection_name_custom": "water resistant rings",
             "collection_link_custom": ""
           }
@@ -272,17 +257,10 @@
         "padding_top": 36,
         "padding_bottom": 36
       }
-    },
-    "hero_cstm_block_bhcrmU": {
-      "type": "hero_cstm_block",
-      "name": "hero_cstm_block",
-      "settings": {}
     }
   },
   "order": [
     "slideshow_fFBCHt",
-    "hero_cstm_block_bhcrmU",
-    "service_cstm_block_ByBqjY",
     "sliding_collection_gm_47ERrV",
     "from_place_3gHkmc",
     "interior_professionals_VE84C4",
