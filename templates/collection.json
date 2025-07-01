@@ -19,17 +19,6 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
-      "blocks": {
-        "variant_picker_KrcAwd": {
-          "type": "variant_picker",
-          "settings": {
-            "picker_type": "button"
-          }
-        }
-      },
-      "block_order": [
-        "variant_picker_KrcAwd"
-      ],
       "settings": {
         "products_per_page": 8,
         "variant": true,
