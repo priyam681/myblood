@@ -5,14 +5,29 @@
   "name": "Product Tabs",
   "tag": "section",
   "settings": [
-   {
-       "type": "text",
-       "id": "tab_heading",
-       "label": "Tab Heading",
-       "default": "LATEST"
+    {
+      "type": "text",
+      "id": "tab_heading",
+      "label": "Tab Heading",
+      "default": "LATEST"
+    },
+    {
+      "type": "color",
+      "id": "tab_background_color",
+      "label": "Tab Background Color",
+      "default": "#f8f8f8"
+    },
+    {
+      "type": "range",
+      "id": "tab_padding",
+      "min": 0,
+      "max": 50,
+      "step": 1,
+      "unit": "px",
+      "label": "Tab Padding",
+      "default": 40
     }
   ],
-
   "blocks": [
     {
       "type": "tab",
@@ -41,191 +56,242 @@
 }
 {% endschema %}
 
-<div class="pua-tabs-wrapper page-width">
-<div class="tabs-inner-wrapper">
-<div class="tabs-wrapper">
-<div class="tab_heading">{{ section.settings.tab_heading }}</div>
-  <ul class="pua-tabs">
-    {% for block in section.blocks %}
-      <li class="{% if forloop.first %}active{% endif %}" data-tab="tab-{{ forloop.index }}">
-        {{ block.settings.tab_title }}
-      </li>
-    {% endfor %}
-  </ul>
-</div>
-  {% for block in section.blocks %}
-    <div class="pua-tab-content test {% if forloop.first %}active{% endif %}" id="tab-tab-{{ forloop.index }}">
-      {% assign collection = collections[block.settings.collection] %}
-      {% if collection.products.size > 0 %}
-        <div class="pua-product-slider swiper" data-product-count="{{ collection.products.size }}">
-          <div class="swiper-wrapper">
-            {% for product in collection.products %}
-              <div class="swiper-slide">
-                <div class="product-card" itemscope itemtype="https://schema.org/Product">
-                  <a href="{{ product.url }}" itemprop="url">
-                    <img
-                      class="main-image"
-                      src="{{ product.featured_image | image_url: width: 400 }}"
-                      alt="{{ product.title }}"
-                      itemprop="image"
-                    />
-                  </a>
+<product-tabs>
 
-                  <div class="thumbnail-wrapper">
-                      {% for image in product.images limit: 15 %}
-                        <img
-                                class="thumbnail"
-                                src="{{ image | image_url: width: 400 }}"
-                                alt="{{ product.title }} thumbnail"
-                                onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
-                                width="50px" height="50px"
-                        />
-                      {% endfor %}
-
-                  </div>
-
-                  <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
-                  <div itemprop="offers"  class="product-price" itemscope itemtype="https://schema.org/Offer">
-                    <meta itemprop="priceCurrency" content="INR" />
-                    <span itemprop="price">{{ product.price | money }}</span>
-                    <link itemprop="availability" href="https://schema.org/InStock" />
-                  </div>
-
-{% if product.metafields.custom.short_description %}
-  <p class="product-short-desc">
-    {{ product.metafields.custom.short_description }}
-  </p>
-{% endif %}
+    <div style="background-color: {{ section.settings.tab_background_color }}; padding-block:{{ section.settings.tab_padding }}px;">
+        <div class="pua-tabs-wrapper page-width">
+            <div class="tabs-inner-wrapper">
+                <div class="tabs-wrapper">
+                    <div class="tab_heading">{{ section.settings.tab_heading }}</div>
+                    <ul class="pua-tabs">
+                        {% for block in section.blocks %}
+                            <li class="{% if forloop.first %}active{% endif %}" data-tab="tab-{{ forloop.index }}">
+                                {{ block.settings.tab_title }}
+                            </li>
+                        {% endfor %}
+                    </ul>
                 </div>
-              </div>
-            {% endfor %}
-          </div>
-        {% if collection.products.size > 4 %}
-                    <div class="prev-next-button">
-                    <div class="item-prev pagination__item--prev">
+                {% for block in section.blocks %}
+                    <div class="pua-tab-content test {% if forloop.first %}active{% endif %}"
+                         id="tab-tab-{{ forloop.index }}">
+                        {% assign collection = collections[block.settings.collection] %}
+                        {% if collection.products.size > 0 %}
+                            <div class="pua-product-slider swiper" data-product-count="{{ collection.products.size }}">
+                                <div class="swiper-wrapper">
+                                    {% for product in collection.products %}
+                                        <div class="swiper-slide">
+                                            <div class="product-card" itemscope itemtype="https://schema.org/Product">
+                                                <a href="{{ product.url }}" itemprop="url" class="product-card-link">
+                                                    <img
+                                                            class="main-image"
+                                                            src="{{ product.featured_image | image_url: width: 400 }}"
+                                                            alt="{{ product.title }}"
+                                                            itemprop="image"
+                                                    />
+                                                </a>
+
+                                                <div class="thumbnail-wrapper">
+                                                    {% for image in product.images limit: 15 %}
+                                                        <div class="thumbnail-image-wrapper">
+                                                            <img
+                                                                    class="thumbnail"
+                                                                    src="{{ image | image_url: width: 400 }}"
+                                                                    alt="{{ product.title }} thumbnail"
+                                                                    onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
+                                                                    width="50px" height="50px"
+                                                            />
+                                                        </div>
+
+                                                    {% endfor %}
+
+                                                </div>
+
+                                                <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
+                                                <div itemprop="offers" class="product-price" itemscope
+                                                     itemtype="https://schema.org/Offer">
+                                                    <meta itemprop="priceCurrency" content="INR" />
+                                                    <span itemprop="price">{{ product.price | money }}</span>
+                                                    <link itemprop="availability" href="https://schema.org/InStock" />
+                                                </div>
+
+                                                {% if product.metafields.custom.short_description %}
+                                                    <p class="product-short-desc">
+                                                        {{ product.metafields.custom.short_description }}
+                                                    </p>
+                                                {% endif %}
+                                            </div>
+                                        </div>
+                                    {% endfor %}
+                                </div>
+                                {% if collection.products.size > 0 %}
+                                    <div class="prev-next-button">
+                                        <div class="item-prev pagination__item--prev">
                      <span class="svg-wrapper">
                         {{- 'icon-caret.svg' | inline_asset_content -}}
                       </span>
-                    </div>
-                    <div class="item-next pagination__item--prev">
+                                        </div>
+                                        <div class="item-next pagination__item--prev">
                     <span class="svg-wrapper">
                                     {{- 'icon-caret.svg' | inline_asset_content -}}
                                   </span>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                            </div>
+                        {% else %}
+                            <p>No products found in this collection.</p>
+                        {% endif %}
                     </div>
-                    </div>
-                  {% endif %}
-                   </div>
-      {% else %}
-        <p>No products found in this collection.</p>
-      {% endif %}
+                {% endfor %}
+            </div>
+        </div>
     </div>
-  {% endfor %}
-</div>
-</div>
+</product-tabs>
 
 <script defer>
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll(".thumbnail-wrapper").forEach(parent => {
-      const thumbnails = Array.from(parent.querySelectorAll(".thumbnail"));
-      const totalThumbnails = thumbnails.length;
-      let indicator = null;
-      let expanded = false;
 
-      const observer = new ResizeObserver(() => {
-        if (expanded) return;
+  if (!customElements.get('product-tabs')) {
+    class ProductTabs extends HTMLElement {
+      constructor() {
+        super();
+        this.resizeObserver = new ResizeObserver(this.debounce(this.handleResize.bind(this), 10));
+      }
 
-        // Remove any existing indicators in case of duplicates
-        parent.querySelectorAll('.more-images-indicator').forEach(el => el.remove());
-
-
-        const parentWidth = parent.clientWidth;
-        let currentWidth = 0;
-        let visibleCount = 0;
-
-        let lastVisibleIndex = -1;
-        thumbnails.forEach((thumbnail, i) => {
-          thumbnail.style.display = 'block';
-
-          const thumbnailWidth = thumbnail.offsetWidth;
-          const margins = parseFloat(getComputedStyle(thumbnail).marginLeft) +
-                  parseFloat(getComputedStyle(thumbnail).marginRight);
-
-          currentWidth += thumbnailWidth + margins;
-
-          if (currentWidth <= parentWidth) {
-            visibleCount++;
-            lastVisibleIndex = i;
-          } else {
-            thumbnail.style.display = 'none';
+      debounce(fn, delay) {
+        let timeoutId;
+        return (...args) => {
+          if (timeoutId) {
+            clearTimeout(timeoutId);
           }
+          timeoutId = setTimeout(() => {
+            fn(...args);
+          }, delay);
+        };
+      }
+
+      connectedCallback() {
+        this.tabs = Array.from(this.querySelectorAll('.product-card'));
+        requestAnimationFrame(() => {
+          this.tabs.forEach(tab => {
+            const thumbnailWrapper = tab.querySelector('.thumbnail-wrapper:not(.expand-thumbnails)');
+            const expandButton = document.createElement('div');
+            expandButton.className = 'expand-thumbnails thumbnail';
+            expandButton.setAttribute('aria-label', 'Show all images');
+            thumbnailWrapper.appendChild(expandButton);
+
+            expandButton.addEventListener('click', () => this.toggleThumbnails(thumbnailWrapper));
+
+            this.resizeObserver.observe(tab);
+          });
         });
-        const hiddenCount = totalThumbnails - visibleCount;
-        if (hiddenCount > 0 && lastVisibleIndex >= 0) {
-          thumbnails[lastVisibleIndex].style.display = 'none';
+      }
 
-          indicator = document.createElement('span');
-          indicator.className = 'more-images-indicator';
-          indicator.style.display = 'flex';
-          indicator.style.cursor = 'pointer';
-          const indicatorCount = hiddenCount + 1;
+      toggleThumbnails(wrapper) {
+        wrapper.classList.toggle('show-all');
+        const button = wrapper.querySelector('.expand-thumbnails');
+        button.innerHTML = wrapper.classList.contains('show-all') ? '-' : '+';
+        button.setAttribute('aria-label', wrapper.classList.contains('show-all') ? 'Show fewer images' : 'Show all images');
+      }
+
+      handleResize(entries) {
+        requestAnimationFrame(() => {
+          entries.forEach(entry => {
+            const containerWidth = entry.contentRect.width;
+            const target = entry.target;
+            const thumbnailWrapper = target.querySelector('.thumbnail-wrapper');
+            const thumbnails = Array.from(thumbnailWrapper.querySelectorAll('.thumbnail-image-wrapper'));
+            let counter = 0;
 
 
-          indicator.innerHTML = `
-            <span class="count">+${indicatorCount}</span>
-          `;
+            // Don't hide thumbnails if show-all is active
+            if (thumbnailWrapper.classList.contains('show-all')) {
+              thumbnails.forEach(thumbnail => {
+                thumbnail.style.display = '';
+              });
+              return;
+            }
 
-          // Add click handler to show all thumbnails in a modal or expand the container
-          indicator.addEventListener('click', (event) => {
-            event.preventDefault();
-            event.stopPropagation();
-            expanded = true;
-            // Add your logic to show all thumbnails in a modal or expand the container
 
-            thumbnails.forEach(thumbnail => {
-                thumbnail.style.display = 'block';
+            let currentWidth = 0;
+            const gap = 5; // gap between thumbnails (match your CSS gap)
+
+            thumbnails.forEach((thumbnail, index) => {
+              // Reset display to calculate proper dimensions
+              thumbnail.style.display = '';
+
+              // Get the actual width including margins
+              const thumbnailWidth = thumbnail.offsetWidth;
+
+              // Add gap except for the first thumbnail
+              currentWidth += thumbnailWidth;
+
+              // Hide if exceeds container width
+              if (currentWidth > containerWidth) {
+                ++counter;
+                thumbnail.style.display = 'none';
+              }
             });
 
-            // Hide the indicator
-
-            if (indicator) {
-              indicator.remove();
-              indicator = null;
+            if (counter > 0) {
+              let lastVisible = thumbnails.length - counter - 1;
+              thumbnails[lastVisible].style.display = 'none';
+              counter = counter + 1;
             }
+
+
+            // Show/hide expand button based on if there are hidden thumbnails
+            const expandButton = thumbnailWrapper.querySelector('.expand-thumbnails');
+            expandButton.innerHTML = `+${counter}`;
+
+            const hasHiddenThumbnails = thumbnails.some(thumb => thumb.style.display === 'none');
+            expandButton.style.display = hasHiddenThumbnails ? '' : 'none';
+
           });
+        });
+      }
 
-          parent.appendChild(indicator);
+
+      disconnectedCallback() {
+        if (this.resizeObserver) {
+          this.resizeObserver.disconnect();
         }
-      });
+      }
+    }
 
-      observer.observe(parent);
-    });
+    customElements.define('product-tabs', ProductTabs);
+  }
+
+  window.addEventListener('error', (e) => {
+    console.log(e);
   });
+
 </script>
 
 
-
 <script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const tabs = document.querySelectorAll(".pua-tabs li");
-    const contents = document.querySelectorAll(".pua-tab-content");
+  document.addEventListener('DOMContentLoaded', function() {
+    const tabs = document.querySelectorAll('.pua-tabs li');
+    const contents = document.querySelectorAll('.pua-tab-content');
     tabs.forEach((tab, i) => {
-      tab.addEventListener("click", () => {
-        tabs.forEach((t) => t.classList.remove("active"));
-        contents.forEach((c) => c.classList.remove("active"));
+      tab.addEventListener('click', () => {
+        tabs.forEach((t) => t.classList.remove('active'));
+        contents.forEach((c) => c.classList.remove('active'));
 
-        tab.classList.add("active");
-        contents[i].classList.add("active");
+        tab.classList.add('active');
+        contents[i].classList.add('active');
       });
     });
-    document.querySelectorAll(".pua-product-slider").forEach(function (sliderEl) {
+
+
+    document.querySelectorAll('.pua-product-slider').forEach(function(sliderEl) {
       const productCount = parseInt(sliderEl.dataset.productCount, 10);
-      if (productCount > 4) {
+      if (productCount > 0) {
         new Swiper(sliderEl, {
           slidesPerView: 4,
           spaceBetween: 20,
           navigation: {
-            nextEl: sliderEl.querySelector(".item-next"),
-            prevEl: sliderEl.querySelector(".item-prev")
+            nextEl: sliderEl.querySelector('.item-next'),
+            prevEl: sliderEl.querySelector('.item-prev')
           },
           breakpoints: {
             0: { slidesPerView: 1.5 },
@@ -239,5 +305,3 @@
     });
   });
 </script>
-
-

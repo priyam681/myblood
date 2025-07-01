@@ -5,44 +5,6 @@
 {{ 'component-list-payment.css' | asset_url | stylesheet_tag }}
 {{ 'component-list-social.css' | asset_url | stylesheet_tag }}
 
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const detailsElements = document.querySelectorAll('.footer-dropdown');
-
-    // Debounce function to limit the rate at which a function can fire
-    function debounce(func, wait) {
-      let timeout;
-      return function (...args) {
-        const context = this;
-        clearTimeout(timeout);
-        timeout = setTimeout(() => func.apply(context, args), wait);
-      };
-    }
-
-    // Function to update details behavior based on screen size
-    function updateDetailsBehavior() {
-      const isMobile = window.matchMedia('(max-width: 768px)').matches;
-
-      detailsElements.forEach((el) => {
-        if (isMobile) {
-          el.removeAttribute('open');
-        } else {
-          el.setAttribute('open', 'true');
-        }
-      });
-    }
-
-    // Initial check
-    updateDetailsBehavior();
-
-    // Debounced resize event listener
-    const debouncedUpdate = debounce(updateDetailsBehavior, 200);
-    window.addEventListener('resize', debouncedUpdate);
-
-    // pageshow event listener
-    window.addEventListener('pageshow', updateDetailsBehavior);
-  });
-</script>
 
 {%- style -%}
    @media (min-width: 768px) {
@@ -270,9 +232,9 @@
        justify-content: space-between;
        width: 100%;
        color: white;
-       flex-direction: row-reverse;
+       gap: 10px;
        align-items: center;
-       padding: calc(15px + 15 * ((100vw - 360px) / (1920 - 360))) 0;
+       padding-top: calc(15px + 15 * ((100vw - 360px) / (1920 - 360)));
    }
    .footer__copyright.caption {
      margin-top: 0;
@@ -310,22 +272,19 @@
        .top-social-links li.list-social__item a {
            justify-content: center;
        }
-       .footer__payment {
-        margin-top: 36px;
-       }
-
-    }
-   @media screen and (max-width: 768px) {
        .footer-setion-bottom {
-           flex-wrap: wrap;
-           gap: 11px;
-           padding-left: 0;
-           padding-right: 0;
-       }
-   .footer-dropdown summary.footer-block__heading {
-      padding: 15px 0;
+                  flex-direction: column-reverse;
+                  gap: 10px;
+                  padding-left: 0;
+                  padding-right: 0;
+              }
+          .footer-dropdown summary.footer-block__heading {
+             padding: 15px 0;
+           }
+           .footer-setion-bottom .footer-bottom-section-icon {
+                  order: 3;
+               }
     }
-   }
    @media screen and (max-width: 640px) {
        .search-section-block-footer {
            flex-wrap: wrap;
@@ -344,21 +303,51 @@
     .footer-copyright-wrapper {
       order: 2;
     }
-    .footer-setion-bottom .footer-bottom-section-icon {
-       order: 3;
-    }
     .footer__payment {
        margin-top: 0;
     }
-    .footer__copyright.caption {
-        margin-top: 0;
-        order: 2;
-        width: 50%;
-        text-align: left;
-    }
-
    }
 {%- endstyle -%}
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    const detailsElements = document.querySelectorAll('.footer-dropdown');
+
+    // Debounce function to limit the rate at which a function can fire
+    function debounce(func, wait) {
+      let timeout;
+      return function (...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+      };
+    }
+
+    // Function to update details behavior based on screen size
+    function updateDetailsBehavior() {
+      const isMobile = window.matchMedia('(max-width: 768px)').matches;
+
+      detailsElements.forEach((el) => {
+        if (isMobile) {
+          el.removeAttribute('open');
+        } else {
+          el.setAttribute('open', 'true');
+        }
+      });
+    }
+
+    // Initial check
+    updateDetailsBehavior();
+
+    // Debounced resize event listener
+    const debouncedUpdate = debounce(updateDetailsBehavior, 200);
+    window.addEventListener('resize', debouncedUpdate);
+
+    // pageshow event listener
+    window.addEventListener('pageshow', updateDetailsBehavior);
+  });
+</script>
+
 
 {%- liquid
   assign has_social_icons = true
@@ -404,9 +393,9 @@
         {%- unless only_empty_brand -%}
           <div class="imge-block">
             <img
-              srcset="{{ section.settings.images | image_url: width: section.settings.images_width }}, {{ sections.settings.images | image_url: width: image_size_2x }} 2x"
-              src="{{ section.settings.images | image_url: width: 760 }}"
-              alt="{{ sections.settings.images.alt | escape }}"
+              srcset="{{ section.settings.images | image_url: width: section.settings.images_width }}, {{ section.settings.images | image_url: width: image_size_2x }} 2x"
+              src="{{ section.settings.images | image_url:width:760 }}"
+              alt="{{ section.settings.images.alt | escape }}"
               loading="lazy"
               width="{{ block.settings.images.width }}"
               height="{{ block.settings.image.height }}"
@@ -462,12 +451,16 @@
                           <ul class="footer-block__details-content list-unstyled">
                             {%- for link in block.settings.menu.links -%}
                               <li>
-                                <a
-                                  href="{{ link.url }}"
-                                  class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
-                                >
-                                  {{ link.title | escape }}
-                                </a>
+                                  {% if link.url != blank %}
+                                      {% assign safe_url = link.url | escape %}
+                                      <a
+                                              href="{{ safe_url }}"
+                                              class="link link--text list-menu__item list-menu__item--link{% if link.active %} list-menu__item--active{% endif %}"
+                                      >
+                                          {{ link.title | escape }}
+                                      </a>
+                                  {% endif %}
+
                               </li>
                             {%- endfor -%}
                           </ul>

@@ -21,7 +21,7 @@
       "type": "main-collection-product-grid",
       "settings": {
         "products_per_page": 8,
-        "variant": false,
+        "variant": true,
         "swatches_limits": 5,
         "show-varient": true,
         "columns_desktop": 4,
@@ -32,7 +32,7 @@
         "show_secondary_image": true,
         "show_vendor": false,
         "show_rating": true,
-        "quick_add": "none",
+        "quick_add": "standard",
         "enable_filtering": true,
         "filter_type": "drawer",
         "enable_sorting": true,

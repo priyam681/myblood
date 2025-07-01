@@ -28,7 +28,7 @@
   {{ 'quick-order-list.css' | asset_url | stylesheet_tag }}
   {{ 'quantity-popover.css' | asset_url | stylesheet_tag }}
 {%- endunless -%}
-<script src="{{ 'product-swatch.js' | asset_url }}"></script>
+
 
 <style>
   .variant-options {
@@ -205,21 +205,6 @@
   .product__slider-dot.active {
     background: white;
   }
-
-  / Add a subtle indicator that shows this card has a slider / .product-card-slider::after {
-    content: '';
-    position: absolute;
-    bottom: 10px;
-    right: 10px;
-    width: 20px;
-    height: 20px;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23ffffff'%3E%3Cpath d='M8 5v14l11-7z'/%3E%3C/svg%3E");
-    background-size: contain;
-    opacity: 0.6;
-    pointer-events: none;
-    transition: opacity 0.3s;
-  }
-
   .product-card-slider:hover::after {
     opacity: 0;
   }
@@ -410,7 +395,7 @@
                           {{ media | image_url }} {{ media.width }}w
                         "
                         src="{{ media | image_url: width: 533 }}"
-                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                        sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 992px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                         alt="{{ media.alt | escape }}"
                         class="motion-reduce"
                         {% unless lazy_load == false %}
@@ -472,6 +457,7 @@
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+              <a href="{{ card_product.url }}">
               <img
                 srcset="
                   {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -483,7 +469,7 @@
                   {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
                 "
                 src="{{ card_product.featured_media | image_url: width: 533 }}"
-                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 992px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                 alt="{{ card_product.featured_media.alt | escape }}"
                 class="motion-reduce"
                 {% unless lazy_load == false %}
@@ -506,7 +492,7 @@
                     {{ card_product.media[1] | image_url }} {{ card_product.media[1].width }}w
                   "
                   src="{{ card_product.media[1] | image_url: width: 533 }}"
-                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 992px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                   alt="{{ card_product.media[1].alt | escape }}"
                   class="motion-reduce"
                   loading="lazy"
@@ -514,12 +500,14 @@
                   height="{{ card_product.media[1].height }}"
                 >
               {%- endif -%}
+              </a>
             </div>
           </div>
 
           <div class="card__media{% if image_shape and image_shape != 'default' %} shape--{{ image_shape }} color-{{ settings.card_color_scheme }} gradient{% endif %}">
             <div class="media media--transparent media--hover-effect">
               {% comment %}theme-check-disable ImgLazyLoading{% endcomment %}
+               <a href="{{ card_product.url }}">
               <img
                 srcset="
                   {%- if card_product.featured_media.width >= 165 -%}{{ card_product.featured_media | image_url: width: 165 }} 165w,{%- endif -%}
@@ -531,7 +519,7 @@
                   {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
                 "
                 src="{{ card_product.featured_media | image_url: width: 533 }}"
-                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 992px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                 alt="{{ card_product.featured_media.alt | escape }}"
                 class="motion-reduce"
                 {% unless lazy_load == false %}
@@ -554,7 +542,7 @@
                     {{ card_product.media[1] | image_url }} {{ card_product.media[1].width }}w
                   "
                   src="{{ card_product.media[1] | image_url: width: 533 }}"
-                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                  sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 992px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                   alt="{{ card_product.media[1].alt | escape }}"
                   class="motion-reduce"
                   loading="lazy"
@@ -562,6 +550,7 @@
                   height="{{ card_product.media[1].height }}"
                 >
               {%- endif -%}
+              </a>
             </div>
           </div>
         {%- endif -%}
@@ -942,7 +931,7 @@
                                   {{ card_product.featured_media | image_url }} {{ card_product.featured_media.width }}w
                                 "
                                 src="{{ card_product.featured_media | image_url: width: 533 }}"
-                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 990px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
+                                sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 130 | divided_by: 4 }}px, (min-width: 992px) calc((100vw - 130px) / 4), (min-width: 750px) calc((100vw - 120px) / 3), calc((100vw - 35px) / 2)"
                                 alt="{{ card_product.featured_media.alt | escape }}"
                                 class="motion-reduce"
                                 {% unless lazy_load == false %}
@@ -1035,7 +1024,7 @@
       assign ratio = 0.8
     endif
   -%}
-  <h1>else consition</h1>
+
   <div class="card-wrapper product-card-wrapper underline-links-hover">
     <div
       class="
@@ -1084,3 +1073,4 @@
 {%- endif -%}
 
 <script src="{{ 'product-swatch.js' | asset_url }}" defer></script>
+<script src="{{ 'product-slider.js' | asset_url }}" defer></script>

@@ -54,6 +54,27 @@
           "settings": {
             "share_label": "Share"
           }
+        },
+        "delivery_options_KrPwPM": {
+          "type": "delivery-options",
+          "settings": {
+            "section_heading": "DELIVERY OPTIONS",
+            "placeholder_text": "Enter Pincode",
+            "button_label": "CHECK",
+            "note_text": "Please enter your PINCODE to check the availability and delivery date."
+          }
+        },
+        "icon_with_text_9A9gWg": {
+          "type": "icon-with-text",
+          "settings": {
+            "layout": "horizontal",
+            "icon_1": "original-products",
+            "heading_1": "100% ORIGINAL PRODUCTS",
+            "icon_2": "fast-delivery",
+            "heading_2": "Fast Delivery",
+            "icon_3": "return",
+            "heading_3": "Easy Return & Refund"
+          }
         }
       },
       "block_order": [
@@ -64,16 +85,22 @@
         "quantity_selector",
         "buy_buttons",
         "description",
-        "share"
+        "share",
+        "delivery_options_KrPwPM",
+        "icon_with_text_9A9gWg"
       ],
       "settings": {
         "enable_sticky_info": true,
-        "color_scheme": "scheme-1",
+        "enable_single_image_zoom": true,
+        "sp-media-gallery-container": true,
+        "initial_media_count": 5,
+        "load_more_count": 5,
+        "color_scheme": "scheme-e1d6f1b1-2c62-42a1-b3f0-f93a9225de02",
         "media_size": "large",
         "constrain_to_viewport": true,
         "media_fit": "contain",
-        "gallery_layout": "thumbnail",
-        "mobile_thumbnails": "columns",
+        "gallery_layout": "stacked",
+        "mobile_thumbnails": "hide",
         "media_position": "left",
         "image_zoom": "lightbox",
         "hide_variants": true,
@@ -86,6 +113,8 @@
       "type": "related-products",
       "settings": {
         "heading": "You may also like",
+        "variant": false,
+        "quick_add": "none",
         "heading_size": "h2",
         "products_to_show": 4,
         "columns_desktop": 4,
@@ -99,10 +128,18 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
+    },
+    "product_detail_KpHxfn": {
+      "type": "product-detail",
+      "name": "Product Detail Section",
+      "settings": {
+        "title": "Sample"
+      }
     }
   },
   "order": [
     "main",
-    "related-products"
+    "related-products",
+    "product_detail_KpHxfn"
   ]
 }

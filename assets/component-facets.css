@@ -8,6 +8,10 @@
   padding-left: 25px;
 } */
 
+span.mobile-facets__close {
+  display: none !important;
+}
+
 .sp-fliter .mobile-facets__highlight {
   position: absolute;
   top: 10px;
@@ -131,7 +135,7 @@ span.facet-checkbox__text {
   padding-left: 2.5rem;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and (min-width: 992px) {
   .sp-fliter .facet-filters {
     padding-left: 0;
   }
@@ -766,7 +770,7 @@ span.active-facets__button-inner:after {
   font-size: 1rem;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and () {
   .active-facets__button {
     margin-right: 1.5rem;
   }
@@ -861,7 +865,7 @@ a.active-facets__button.focused .active-facets__button-inner {
   width: 1.2rem;
 }
 
-@media all and (min-width: 990px) {
+@media all and () {
   .active-facets__button .svg-wrapper {
     margin-right: -0.4rem;
     margin-top: 0.1rem;
@@ -990,11 +994,17 @@ a.active-facets__button.focused .active-facets__button-inner {
   padding: 1rem 2.5rem;
   text-align: center;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
   position: sticky;
   top: 0;
   z-index: 2;
 }
-
+.mobile-facets__header .close-icon {
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+}
 .mobile-facets__header-inner {
   flex-grow: 1;
   position: relative;

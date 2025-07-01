@@ -24,7 +24,6 @@
 <style>
     header-drawer {
         justify-self: start;
-        margin-left: -1.2rem;
     }
 
     {%- if section.settings.sticky_header_type == 'reduce-logo-size' -%}
@@ -35,7 +34,7 @@
     {%- endif -%}
 
     {%- if section.settings.menu_type_desktop != "drawer" -%}
-    @media screen and (min-width: 990px) {
+    @media screen and (min-width: 992px) {
         header-drawer {
             display: none;
         }
@@ -55,7 +54,8 @@
 
     .list-menu--inline {
         display: inline-flex;
-        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
     }
 
     summary.list-menu__item {
@@ -84,8 +84,9 @@
 </style>
 
 {%- style -%}
-    .header {
-    padding: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px 3rem {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px 3rem;
+    .header__heading-logo-wrapper img {
+    padding-top: {{ section.settings.padding_top | times: 0.5 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.5 | round: 0 }}px;
     }
 
     .section-header {
@@ -98,8 +99,8 @@
     }
     }
 
-    @media screen and (min-width: 990px) {
-    .header {
+    @media screen and (min-width: 992px) {
+    .header__heading-logo-wrapper img{
     padding-top: {{ section.settings.padding_top }}px;
     padding-bottom: {{ section.settings.padding_bottom }}px;
     }
@@ -221,7 +222,6 @@
     <div class="header__icons{% if section.settings.enable_country_selector or section.settings.enable_language_selector %} header__icons--localization header-localization{% endif %}">
 
         {% render 'cstm-header-search', input_id: 'Search-In-Modal' %}
-
         {%- if shop.customer_accounts_enabled -%}
             <a
                     href="{%- if customer -%}{{ routes.account_url }}{%- else -%}{{ routes.account_login_url }}{%- endif -%}"
@@ -593,7 +593,7 @@ customElements.define('sticky-header', StickyHeader);
     },
     {
       "type": "header",
-      "content": "t:sections.all.padding.section_padding_heading"
+      "content": "Logo padding"
     },
     {
       "type": "range",
@@ -622,7 +622,7 @@ customElements.define('sticky-header', StickyHeader);
       "name": "Promotion Image",
       "settings": [
         {
-         "type": "text",
+          "type": "text",
           "id": "target_link",
           "label": "Target link"
         },
@@ -636,7 +636,22 @@ customElements.define('sticky-header', StickyHeader);
           "id": "alt_text",
           "label": "Alt text"
         },
-
+        {
+          "type": "select",
+          "label": "Position",
+          "id": "position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        },
         {
           "type": "select",
           "id": "image_size",
@@ -660,91 +675,151 @@ customElements.define('sticky-header', StickyHeader);
       ]
     },
     {
-      "type":"category_image",
-      "name":"Category Image",
-      "settings":[
+      "type": "category_image",
+      "name": "Category Image",
+      "settings": [
         {
-          "type":"text",
-          "id":"category_menu_trigger",
-          "label":"Menu trigger"
+          "type": "text",
+          "id": "category_menu_trigger",
+          "label": "Menu trigger"
         },
         {
-          "type":"image_picker",
-          "id":"image",
-          "label":"Image"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         }
       ]
     },
     {
-      "type":"collection_list",
-      "name":"Collection_list",
-      "settings":[
+      "type": "collection_list",
+      "name": "Collection_list",
+      "settings": [
         {
-          "type":"text",
-          "id":"collection_menu_trigger",
-          "label":"Menu trigger"
+          "type": "text",
+          "id": "collection_menu_trigger",
+          "label": "Menu trigger"
         },
         {
-          "type":"collection_list",
-          "id":"collection_list",
-          "label":"Collection"
+          "type": "collection_list",
+          "id": "collection_list",
+          "label": "Collection"
         },
         {
-          "type":"text",
-          "id":"collection_title",
-          "label":"Collection title"
+          "type": "color",
+          "id": "collection_background_color",
+          "label": "Collection Background Color",
+          "default": "#FAFAFA"
+        },
+        {
+          "type": "range",
+          "id": "collection_padding",
+          "min": 0,
+          "max": 50,
+          "step": 1,
+          "unit": "px",
+          "label": "Collection Padding",
+          "default": 32
+        },
+        {
+          "type": "checkbox",
+          "id": "autoplay",
+          "label": "Enable Autoplay",
+          "default": true,
+          "info": "Automatically advance slides autoplay"
+        },
+        {
+          "type": "checkbox",
+          "id": "loop",
+          "label": "Enable Loop",
+          "default": true,
+          "info": "Automatically advance slides loop"
+        },
+        {
+          "type": "checkbox",
+          "id": "pause",
+          "label": "Pause on Hover",
+          "default": true,
+          "info": "Pause autoplay when hovering over slideshow"
+        },
+        {
+          "type": "range",
+          "id": "delay",
+          "min": 0,
+          "max": 10,
+          "step": 1,
+          "label": "Delay",
+          "default": 3
+        },
+        {
+          "type": "text",
+          "id": "collection_title",
+          "label": "Collection title"
         }
       ]
     },
     {
-      "type":"mini_banner",
-      "name":"Mini Banner",
-      "settings":[
+      "type": "mini_banner",
+      "name": "Mini Banner",
+      "settings": [
         {
-          "type":"text",
-          "id":"mini_banner_trigger",
-          "label":"Menu trigger"
+          "type": "text",
+          "id": "mini_banner_trigger",
+          "label": "Menu trigger"
         },
         {
-          "type":"image_picker",
-          "id":"image",
-          "label":"Image"
+          "type": "select",
+          "id": "position",
+          "label": "Position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
         },
         {
-          "type":"text",
-          "id":"alt_text",
-          "label":"Alt text"
+          "type": "image_picker",
+          "id": "image",
+          "label": "Image"
         },
         {
-          "type":"text",
-          "id":"main_heading",
-          "label":"Main heading"
-        },
-
-        {
-          "type":"richtext",
-          "id":"sub_heading",
-          "label":"Sub heading"
+          "type": "text",
+          "id": "alt_text",
+          "label": "Alt text"
         },
         {
-          "type":"richtext",
-          "id":"offer_text",
-          "label":"Offer text"
+          "type": "text",
+          "id": "main_heading",
+          "label": "Main heading"
         },
         {
-          "type":"checkbox",
-          "id":"page_open",
-          "label":"Open in new tab",
-          "default":false
+          "type": "text",
+          "id": "sub_heading",
+          "label": "Sub heading"
         },
         {
-          "type":"url",
-          "id":"banner_url",
-          "label":"Banner URL"
+          "type": "text",
+          "id": "offer_text",
+          "label": "Offer text"
+        },
+        {
+          "type": "checkbox",
+          "id": "page_open",
+          "label": "Open in new tab",
+          "default": false
+        },
+        {
+          "type": "url",
+          "id": "banner_url",
+          "label": "Banner URL"
         }
       ]
     },
-
     {
       "type": "@app"
     }

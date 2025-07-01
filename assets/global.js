@@ -1,10 +1,31 @@
 function getFocusableElements(container) {
   return Array.from(
     container.querySelectorAll(
-      "summary, a[href], button:enabled, [tabindex]:not([tabindex^='-']), [draggable], area, input:not([type=hidden]):enabled, select:enabled, textarea:enabled, object, iframe"
+      'summary, a[href], button:enabled, [tabindex]:not([tabindex^=\'-\']), [draggable], area, input:not([type=hidden]):enabled, select:enabled, textarea:enabled, object, iframe'
     )
   );
 }
+
+function calculateHeaderHeight(event) {
+  setTimeout(() => {
+    let announcementBarHeight = parseFloat(document.querySelector('.announcement-bar').parentElement?.clientHeight);
+    let headerHeight = parseFloat(document.querySelector('.header').parentElement?.clientHeight);
+
+
+    let calculatedHeaderHeight = Math.abs(headerHeight + announcementBarHeight);
+
+    document.querySelector('.mega-menu-bg').style.height = `calc(100vh - ${calculatedHeaderHeight}px)`;
+
+  }, 0);
+
+}
+
+requestAnimationFrame(calculateHeaderHeight);
+
+
+window.addEventListener('resize', this.calculateHeaderHeight.bind(this));
+window.addEventListener('pageshow', this.calculateHeaderHeight.bind(this));
+
 
 class SectionId {
   static #separator = '__';
@@ -68,17 +89,62 @@ class HTMLUpdateUtility {
   }
 }
 
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  document.querySelector('.mobile-facets__header .close-icon')?.addEventListener('click', function() {
+    let close = document.querySelector('.mobile-facets__disclosure');
+    close.removeAttribute('open');
+  });
+
+});
+
+
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.setAttribute('role', 'button');
   summary.setAttribute('aria-expanded', summary.parentNode.hasAttribute('open'));
+
 
   if (summary.nextElementSibling.getAttribute('id')) {
     summary.setAttribute('aria-controls', summary.nextElementSibling.id);
   }
 
-  summary.addEventListener('click', (event) => {
+  // summary.addEventListener('click', (event) => {
+  //   event.preventDefault();
+  //   event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+  // });
+
+  window.addEventListener('resize', (event) => {
+    let windowWidth = window.innerWidth;
+    if (windowWidth > 990 && !summary.closest('header-drawer, menu-drawer')) {
+      summary.addEventListener('click', (event) => {
+        event.preventDefault();
+      });
+      return;
+    }
+    summary.addEventListener('click', (event) => {
+      event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+    });
+  });
+
+
+  window.addEventListener('pageshow', (e) => {
+    let windowWidth = window.innerWidth;
+    if (windowWidth > 990 && !summary.closest('header-drawer, menu-drawer')) {
+      summary.addEventListener('click', (event) => {
+        event.preventDefault();
+      });
+      return;
+    }
+    summary.addEventListener('click', (event) => {
+      event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+    });
+  });
+
+  summary.addEventListener('mouseenter', (event) => {
     event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
   });
+
 
   if (summary.closest('header-drawer, menu-drawer')) return;
   summary.parentElement.addEventListener('keyup', onKeyUpEscape);
@@ -99,11 +165,11 @@ function trapFocus(container, elementToFocus = container) {
     document.addEventListener('keydown', trapFocusHandlers.keydown);
   };
 
-  trapFocusHandlers.focusout = function () {
+  trapFocusHandlers.focusout = function() {
     document.removeEventListener('keydown', trapFocusHandlers.keydown);
   };
 
-  trapFocusHandlers.keydown = function (event) {
+  trapFocusHandlers.keydown = function(event) {
     if (event.code.toUpperCase() !== 'TAB') return; // If not TAB key
     // On the last focusable element and tab forward, focus the first element.
     if (event.target === last && !event.shiftKey) {
@@ -121,14 +187,14 @@ function trapFocus(container, elementToFocus = container) {
   document.addEventListener('focusout', trapFocusHandlers.focusout);
   document.addEventListener('focusin', trapFocusHandlers.focusin);
 
-  elementToFocus.focus();
+  elementToFocus?.focus();
 
   if (
-    elementToFocus.tagName === 'INPUT' &&
+    elementToFocus?.tagName === 'INPUT' &&
     ['search', 'text', 'email', 'url'].includes(elementToFocus.type) &&
     elementToFocus.value
   ) {
-    elementToFocus.setSelectionRange(0, elementToFocus.value.length);
+    elementToFocus?.setSelectionRange(0, elementToFocus.value.length);
   }
 }
 
@@ -152,7 +218,7 @@ function focusVisiblePolyfill() {
     'HOME',
     'END',
     'PAGEUP',
-    'PAGEDOWN',
+    'PAGEDOWN'
   ];
   let currentFocusedElement = null;
   let mouseClick = null;
@@ -266,12 +332,12 @@ class QuantityInput extends HTMLElement {
   validateQtyRules() {
     const value = parseInt(this.input.value);
     if (this.input.min) {
-      const buttonMinus = this.querySelector(".quantity__button[name='minus']");
+      const buttonMinus = this.querySelector('.quantity__button[name=\'minus\']');
       buttonMinus.classList.toggle('disabled', parseInt(value) <= parseInt(this.input.min));
     }
     if (this.input.max) {
       const max = parseInt(this.input.max);
-      const buttonPlus = this.querySelector(".quantity__button[name='plus']");
+      const buttonPlus = this.querySelector('.quantity__button[name=\'plus\']');
       buttonPlus.classList.toggle('disabled', value >= max);
     }
   }
@@ -290,7 +356,7 @@ function debounce(fn, wait) {
 
 function throttle(fn, delay) {
   let lastCall = 0;
-  return function (...args) {
+  return function(...args) {
     const now = new Date().getTime();
     if (now - lastCall < delay) {
       return;
@@ -303,7 +369,7 @@ function throttle(fn, delay) {
 function fetchConfig(type = 'json') {
   return {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: `application/${type}` },
+    headers: { 'Content-Type': 'application/json', Accept: `application/${type}` }
   };
 }
 
@@ -315,13 +381,13 @@ if (typeof window.Shopify == 'undefined') {
   window.Shopify = {};
 }
 
-Shopify.bind = function (fn, scope) {
-  return function () {
+Shopify.bind = function(fn, scope) {
+  return function() {
     return fn.apply(scope, arguments);
   };
 };
 
-Shopify.setSelectorByValue = function (selector, value) {
+Shopify.setSelectorByValue = function(selector, value) {
   for (var i = 0, count = selector.options.length; i < count; i++) {
     var option = selector.options[i];
     if (value == option.value || value == option.innerHTML) {
@@ -331,13 +397,13 @@ Shopify.setSelectorByValue = function (selector, value) {
   }
 };
 
-Shopify.addListener = function (target, eventName, callback) {
+Shopify.addListener = function(target, eventName, callback) {
   target.addEventListener
     ? target.addEventListener(eventName, callback, false)
     : target.attachEvent('on' + eventName, callback);
 };
 
-Shopify.postLink = function (path, options) {
+Shopify.postLink = function(path, options) {
   options = options || {};
   var method = options['method'] || 'post';
   var params = options['parameters'] || {};
@@ -358,7 +424,7 @@ Shopify.postLink = function (path, options) {
   document.body.removeChild(form);
 };
 
-Shopify.CountryProvinceSelector = function (country_domid, province_domid, options) {
+Shopify.CountryProvinceSelector = function(country_domid, province_domid, options) {
   this.countryEl = document.getElementById(country_domid);
   this.provinceEl = document.getElementById(province_domid);
   this.provinceContainer = document.getElementById(options['hideElement'] || province_domid);
@@ -370,20 +436,20 @@ Shopify.CountryProvinceSelector = function (country_domid, province_domid, optio
 };
 
 Shopify.CountryProvinceSelector.prototype = {
-  initCountry: function () {
+  initCountry: function() {
     var value = this.countryEl.getAttribute('data-default');
     Shopify.setSelectorByValue(this.countryEl, value);
     this.countryHandler();
   },
 
-  initProvince: function () {
+  initProvince: function() {
     var value = this.provinceEl.getAttribute('data-default');
     if (value && this.provinceEl.options.length > 0) {
       Shopify.setSelectorByValue(this.provinceEl, value);
     }
   },
 
-  countryHandler: function (e) {
+  countryHandler: function(e) {
     var opt = this.countryEl.options[this.countryEl.selectedIndex];
     var raw = opt.getAttribute('data-provinces');
     var provinces = JSON.parse(raw);
@@ -403,20 +469,20 @@ Shopify.CountryProvinceSelector.prototype = {
     }
   },
 
-  clearOptions: function (selector) {
+  clearOptions: function(selector) {
     while (selector.firstChild) {
       selector.removeChild(selector.firstChild);
     }
   },
 
-  setOptions: function (selector, values) {
+  setOptions: function(selector, values) {
     for (var i = 0, count = values.length; i < values.length; i++) {
       var opt = document.createElement('option');
       opt.value = values[i];
       opt.innerHTML = values[i];
       selector.appendChild(opt);
     }
-  },
+  }
 };
 
 class MenuDrawer extends HTMLElement {
@@ -424,7 +490,6 @@ class MenuDrawer extends HTMLElement {
     super();
 
     this.mainDetailsToggle = this.querySelector('details');
-
     this.addEventListener('keyup', this.onKeyUp.bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
     this.bindEvents();
@@ -450,6 +515,7 @@ class MenuDrawer extends HTMLElement {
       : this.closeSubmenu(openDetailsElement);
   }
 
+
   onSummaryClick(event) {
     const summaryElement = event.currentTarget;
     const detailsElement = summaryElement.parentNode;
@@ -464,6 +530,7 @@ class MenuDrawer extends HTMLElement {
 
     if (detailsElement === this.mainDetailsToggle) {
       if (isOpen) event.preventDefault();
+      this.onResizeDrawer();
       isOpen ? this.closeMenuDrawer(event, summaryElement) : this.openMenuDrawer(summaryElement);
 
       if (window.matchMedia('(max-width: 990px)')) {
@@ -481,10 +548,25 @@ class MenuDrawer extends HTMLElement {
     }
   }
 
+  onResizeDrawer() {
+    let announcementBar = document.querySelector('.announcement-bar-section');
+    let headerSection = document.querySelector('.header');
+
+    if (announcementBar && headerSection) {
+      let headerHeight = headerSection.getBoundingClientRect().height;
+      let announcementBarHeight = announcementBar.getBoundingClientRect().height;
+      let headerBottomPosition = headerHeight + announcementBarHeight;
+      document.documentElement.style.setProperty('--header-drawer-dynamic', `${headerBottomPosition}px`);
+    }
+  }
+
+
   openMenuDrawer(summaryElement) {
     setTimeout(() => {
       this.mainDetailsToggle.classList.add('menu-opening');
     });
+
+
     summaryElement.setAttribute('aria-expanded', true);
     trapFocus(this.mainDetailsToggle, summaryElement);
     document.body.classList.add(`overflow-hidden-${this.dataset.breakpoint}`);
@@ -498,6 +580,9 @@ class MenuDrawer extends HTMLElement {
       details.removeAttribute('open');
       details.classList.remove('menu-opening');
     });
+
+
+    console.log('CLOSE');
     this.mainDetailsToggle.querySelectorAll('.submenu-open').forEach((submenu) => {
       submenu.classList.remove('submenu-open');
     });
@@ -520,12 +605,28 @@ class MenuDrawer extends HTMLElement {
     this.closeSubmenu(detailsElement);
   }
 
+  manageSvgRotation(element, isOpen) {
+    const svgWrapper = element.querySelector('.svg-wrapper');
+    if (svgWrapper) {
+      if (isOpen) {
+        svgWrapper.classList.add('svg_wrapper_rotate');
+      } else {
+        svgWrapper.classList.remove('svg_wrapper_rotate');
+      }
+    }
+  }
+
+
   closeSubmenu(detailsElement) {
     const parentMenuElement = detailsElement.closest('.submenu-open');
     parentMenuElement && parentMenuElement.classList.remove('submenu-open');
+
+    this.manageSvgRotation(detailsElement, false);
     detailsElement.classList.remove('menu-opening');
     detailsElement.querySelector('summary').setAttribute('aria-expanded', false);
     removeTrapFocus(detailsElement.querySelector('summary'));
+
+
     this.closeAnimation(detailsElement);
   }
 
@@ -568,6 +669,7 @@ class HeaderDrawer extends MenuDrawer {
       '--header-bottom-position',
       `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
     );
+
     this.header.classList.add('menu-open');
 
     setTimeout(() => {
@@ -589,10 +691,10 @@ class HeaderDrawer extends MenuDrawer {
 
   onResize = () => {
     this.header &&
-      document.documentElement.style.setProperty(
-        '--header-bottom-position',
-        `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
-      );
+    document.documentElement.style.setProperty(
+      '--header-bottom-position',
+      `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
+    );
     document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
   };
 }
@@ -621,16 +723,16 @@ class ModalDialog extends HTMLElement {
     if (this.moved) return;
     this.moved = true;
     const shopifySection = this.closest('.shopify-section');
-     if (shopifySection && shopifySection.id) {
-   this.dataset.section = shopifySection.id.replace('shopify-section-', '');
- }
+    if (shopifySection && shopifySection.id) {
+      this.dataset.section = shopifySection.id.replace('shopify-section-', '');
+    }
     document.body.appendChild(this);
   }
 
   show(opener) {
     this.openedBy = opener;
     const popup = this.querySelector('.template-popup');
-     document.body.classList.add('sp-quick-view-container');
+    document.body.classList.add('sp-quick-view-container');
     document.body.classList.add('overflow-hidden');
     this.setAttribute('open', '');
     if (popup) popup.loadContent();
@@ -644,9 +746,15 @@ class ModalDialog extends HTMLElement {
     this.removeAttribute('open');
     removeTrapFocus(this.openedBy);
     window.pauseAllMedia();
-     document.body.classList.remove('sp-quick-view-container');
+
+    let quickAddModal = document.querySelector('product-modal-single');
+    if (!quickAddModal.classList.contains('quick-add-modal')) {
+      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove('sp-quick-view-container');
+    }
   }
 }
+
 customElements.define('modal-dialog', ModalDialog);
 
 class BulkModal extends HTMLElement {
@@ -689,11 +797,13 @@ class ModalOpener extends HTMLElement {
 
     if (!button) return;
     button.addEventListener('click', () => {
+
       const modal = document.querySelector(this.getAttribute('data-modal'));
       if (modal) modal.show(button);
     });
   }
 }
+
 customElements.define('modal-opener', ModalOpener);
 
 class DeferredMedia extends HTMLElement {
@@ -796,8 +906,8 @@ class SliderComponent extends HTMLElement {
         new CustomEvent('slideChanged', {
           detail: {
             currentPage: this.currentPage,
-            currentElement: this.sliderItemsToShow[this.currentPage - 1],
-          },
+            currentElement: this.sliderItemsToShow[this.currentPage - 1]
+          }
         })
       );
     }
@@ -834,7 +944,7 @@ class SliderComponent extends HTMLElement {
 
   setSlidePosition(position) {
     this.slider.scrollTo({
-      left: position,
+      left: position
     });
   }
 }
@@ -928,7 +1038,7 @@ class SlideshowComponent extends SliderComponent {
     if (this.setPositionTimeout) clearTimeout(this.setPositionTimeout);
     this.setPositionTimeout = setTimeout(() => {
       this.slider.scrollTo({
-        left: position,
+        left: position
       });
     }, this.announcerBarAnimationDelay);
   }
@@ -1066,9 +1176,9 @@ class SlideshowComponent extends SliderComponent {
     const slideScrollPosition =
       this.slider.scrollLeft +
       this.sliderFirstItemNode.clientWidth *
-        (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+      (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
     this.slider.scrollTo({
-      left: slideScrollPosition,
+      left: slideScrollPosition
     });
   }
 }
@@ -1089,8 +1199,8 @@ class VariantSelects extends HTMLElement {
         data: {
           event,
           target,
-          selectedOptionValues: this.selectedOptionValues,
-        },
+          selectedOptionValues: this.selectedOptionValues
+        }
       });
     });
   }
@@ -1297,15 +1407,15 @@ if (!customElements.get('bulk-add')) {
 }
 
 class CartPerformance {
-  static #metric_prefix = "cart-performance"
+  static #metric_prefix = 'cart-performance';
 
   static createStartingMarker(benchmarkName) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     return performance.mark(`${metricName}:start`);
   }
 
   static measureFromEvent(benchmarkName, event) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     const startMarker = performance.mark(`${metricName}:start`, {
       startTime: event.timeStamp
     });
@@ -1320,7 +1430,7 @@ class CartPerformance {
   }
 
   static measureFromMarker(benchmarkName, startMarker) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     const endMarker = performance.mark(`${metricName}:end`);
 
     performance.measure(
@@ -1331,7 +1441,7 @@ class CartPerformance {
   }
 
   static measure(benchmarkName, callback) {
-    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`
+    const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     const startMarker = performance.mark(`${metricName}:start`);
 
     callback();

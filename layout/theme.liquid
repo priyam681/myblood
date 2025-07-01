@@ -38,7 +38,7 @@
     <script src="{{ 'details-disclosure.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'details-modal.js' | asset_url }}" defer="defer"></script>
     <script src="{{ 'search-form.js' | asset_url }}" defer="defer"></script>
-   
+
     {%- if settings.animations_reveal_on_scroll -%}
         <script src="{{ 'animations.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
@@ -179,7 +179,7 @@
         --drawer-shadow-vertical-offset: {{ settings.drawer_shadow_vertical_offset }}px;
         --drawer-shadow-blur-radius: {{ settings.drawer_shadow_blur }}px;
 
-        --spacing-sections-desktop: {{ settings.spacing_sections }}px;
+        --spacing-sections-desktop: {{ settings.spacing_sections | default }}px;
         --spacing-sections-mobile: {% if settings.spacing_sections < 24 %}{{ settings.spacing_sections }}{% else %}{{ settings.spacing_sections | times: 0.7 | round | at_least: 20 }}{% endif %}px;
 
         --grid-desktop-vertical-spacing: {{ settings.spacing_grid_vertical }}px;
@@ -379,39 +379,52 @@
 {%- if settings.cart_type == 'drawer' -%}
     <script src="{{ 'cart-drawer.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
+
+
+{%- render 'back-to-the-top' -%}
+
+
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
-        var inputFields = document.querySelectorAll('.customer-name');
-        inputFields.forEach(function (inputField) {
-            var label = document.querySelector(`label[for="${inputField.id}"]`);
+  document.addEventListener('DOMContentLoaded', function() {
+    var inputFields = document.querySelectorAll('.customer-name');
+    inputFields.forEach(function(inputField) {
+      var label = document.querySelector(`label[for="${inputField.id}"]`);
 
-            if (!label) return; // Agar label na mile, toh kuch na kare
+      if (!label) return; // Agar label na mile, toh kuch na kare
 
-            // Focus hone par label upar chala jaye
-            inputField.addEventListener('focus', () => {
-                label.style.top = '5px';
-                label.style.fontSize = '12px';
-                label.style.color = '#333';
-            });
-            // Focus chhodne (blur) par check kare field empty hai ya nahi
-            inputField.addEventListener('blur', () => {
-                if (inputField.value.trim() === '') {
-                    label.style.top = '50%';
-                    label.style.fontSize = '12px';
-                    label.style.color = '#333';
-                }
-            });
-            // Page load hone par agar field pre-filled ho toh label upar hi rahe
-            if (inputField.value.trim() !== '') {
-                label.style.top = '5px';
-                label.style.fontSize = '12px';
-                label.style.color = '#333';
-            }
-        });
+      // Focus hone par label upar chala jaye
+      inputField.addEventListener('focus', () => {
+        label.style.top = '5px';
+        label.style.fontSize = '12px';
+        label.style.color = '#333';
+      });
+      // Focus chhodne (blur) par check kare field empty hai ya nahi
+      inputField.addEventListener('blur', () => {
+        if (inputField.value.trim() === '') {
+          label.style.top = '50%';
+          label.style.fontSize = '12px';
+          label.style.color = '#333';
+        }
+      });
+      // Page load hone par agar field pre-filled ho toh label upar hi rahe
+      if (inputField.value.trim() !== '') {
+        label.style.top = '5px';
+        label.style.fontSize = '12px';
+        label.style.color = '#333';
+      }
     });
+  });
+</script>
 
-
-
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    const shopifySections = document.querySelectorAll('#MainContent .shopify-section');
+    shopifySections.forEach(function(section) {
+      if (section.offsetHeight > 0) {
+        section.classList.add('has-height');
+      }
+    });
+  });
 </script>
 </body>
 </html>

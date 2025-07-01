@@ -38,15 +38,10 @@
 }
 
 .price--large {
-  font-size: 1.6rem;
-  line-height: calc(1 + 0.5 / var(--font-body-scale));
-  letter-spacing: 0.13rem;
-}
-
-@media screen and (min-width: 768px) {
-  .price--large {
-    font-size: 1.8rem;
-  }
+  font-size: calc(16px + (25 - 16) * ((100vw - 360px) / (1920 - 360)));
+  font-weight: 500;
+  line-height: 1;
+  margin-bottom: 3.3rem;
 }
 
 .price--sold-out .price__availability,

@@ -186,10 +186,9 @@
         "id": "enable_product_card_slider",
         "label": "Enable Product Card Slider",
         "default": false
-      },
+      }
     ]
   },
-  
   {
     "name": "t:settings_schema.layout.name",
     "settings": [
@@ -198,8 +197,8 @@
         "id": "page_width",
         "min": 0,
         "max": 3000,
-        "step": 100,
-        "default": 1200,
+        "step": 120,
+        "default": 1920,
         "unit": "px",
         "label": "t:settings_schema.layout.settings.page_width.label"
       },
@@ -208,10 +207,10 @@
         "id": "spacing_sections",
         "min": 0,
         "max": 100,
-        "step": 4,
+        "step": 1,
+        "default": 50,
         "unit": "px",
-        "label": "t:settings_schema.layout.settings.spacing_sections.label",
-        "default": 0
+        "label": "spacing_sections"
       },
       {
         "type": "header",

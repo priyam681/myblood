@@ -1,0 +1,306 @@
+<div class="delivery-options">
+    <div class="delivery-title-heading">
+        <h2 class="delivery-title">{{ block.settings.section_heading }}</h2>
+        <svg class="delivery-icon" width="31" height="31" viewBox="0 0 31 31" fill="none"
+             xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <rect x="0.208496" y="0.327271" width="30" height="30" fill="url(#pattern0_1_768)" />
+            <defs>
+                <pattern id="pattern0_1_768" patternContentUnits="objectBoundingBox" width="1" height="1">
+                    <use xlink:href="#image0_1_768" transform="scale(0.01)" />
+                </pattern>
+                <image id="image0_1_768" width="100" height="100" preserveAspectRatio="none"
+                       xlink:href="data:image/png;base64,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" />
+            </defs>
+        </svg>
+    </div>
+
+    <div class="delivery-form-block" {{ block.shopify_attributes }}>
+        <div class="delivery-form">
+            <input
+                    type="text"
+                    class="delivery-input"
+                    placeholder="{{ block.settings.placeholder_text }}"
+            />
+            <button class="delivery-button">{{ block.settings.button_label }}</button>
+        </div>
+        <p class="delivery-note">{{ block.settings.note_text }}</p>
+    </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const deliveryInput = document.querySelector('.delivery-input');
+    const deliveryButton = document.querySelector('.delivery-button');
+    const deliveryForm = document.querySelector('.delivery-form');
+
+    const lengthErrorMsg = document.createElement('p');
+    lengthErrorMsg.classList.add('delivery-length-error');
+    lengthErrorMsg.textContent = 'Maximum 10 characters allowed';
+    lengthErrorMsg.style.color = 'red';
+    lengthErrorMsg.style.fontSize = '12px';
+    lengthErrorMsg.style.marginTop = '5px';
+    lengthErrorMsg.style.display = 'none';
+
+    const resultMessage = document.createElement('p');
+    resultMessage.classList.add('delivery-result');
+
+    // Only proceed if required elements exist
+    if (!deliveryInput || !deliveryButton || !deliveryForm) return;
+
+    // Add error message to DOM
+    deliveryForm.parentNode.insertBefore(lengthErrorMsg, deliveryForm.nextSibling);
+
+    // Function to clear all delivery status messages and restore default state
+    function clearDeliveryStatus() {
+      // Remove result message
+      const existingResult = document.querySelector('.delivery-result');
+      if (existingResult) existingResult.remove();
+
+      // Reset button style
+      deliveryButton.innerHTML = 'Check';
+      deliveryButton.style.color = '';
+      deliveryButton.classList.remove('delivery-available', 'delivery-unavailable');
+
+      // Re-enable add to cart button if it was disabled
+      const addToCartButton = document.querySelector('.product-form__submit');
+      if (addToCartButton) {
+        addToCartButton.removeAttribute('disabled');
+        addToCartButton.removeAttribute('aria-disabled');
+        addToCartButton.classList.remove('button--disabled');
+      }
+
+      // Remove any unavailability note
+      const unavailableNote = document.querySelector('.delivery-unavailable-note');
+      if (unavailableNote) unavailableNote.remove();
+    }
+
+    // Handle input validation - automatically clear status when input changes
+    deliveryInput.addEventListener('input', () => {
+      if (deliveryInput.value.length > 10) {
+        lengthErrorMsg.style.display = 'block';
+        deliveryInput.value = deliveryInput.value.substring(0, 10);
+      } else {
+        lengthErrorMsg.style.display = 'none';
+      }
+
+      // Auto-clear delivery status when input changes
+      clearDeliveryStatus();
+    });
+
+    // Also clear on focus (when user clicks in the input field)
+    deliveryInput.addEventListener('focus', clearDeliveryStatus);
+
+    // Handle availability check
+    deliveryButton.addEventListener('click', () => {
+      const deliveryInputValue = deliveryInput.value.trim();
+
+      // Clear previous status
+      clearDeliveryStatus();
+
+      if (deliveryInputValue === '') return;
+
+      try {
+        // Properly parse the JSON data from Liquid
+        const availabilityList = {% if product.metafields.custom.product_availability.value %}{{ product.metafields.custom.product_availability.value | json }}{% else %}[]{% endif %};
+
+        // Check if delivery is available for the entered pin code
+        const isAvailable = availabilityList.some(available => available.pin_code === deliveryInputValue);
+
+        if (isAvailable) {
+          // Available: Show success message
+          resultMessage.textContent = 'Delivery available in your area!';
+          resultMessage.style.color = 'green';
+          deliveryButton.innerHTML = 'Available';
+          deliveryButton.style.color = 'green';
+          deliveryButton.classList.add('delivery-available');
+        } else {
+          // Unavailable: Show error message
+          resultMessage.textContent = 'Sorry, delivery not available in your area.';
+          resultMessage.style.color = 'red';
+          deliveryButton.innerHTML = 'Unavailable';
+          deliveryButton.style.color = 'red';
+          deliveryButton.classList.add('delivery-unavailable');
+
+          // Disable add to cart button if it exists
+          const addToCartButton = document.querySelector('.product-form__submit');
+          if (addToCartButton) {
+            addToCartButton.setAttribute('disabled', 'disabled');
+            addToCartButton.setAttribute('aria-disabled', 'true');
+            addToCartButton.classList.add('button--disabled');
+          }
+        }
+
+        // Add result message to DOM
+        deliveryForm.parentNode.insertBefore(resultMessage, deliveryForm.nextSibling);
+
+      } catch (error) {
+        console.error('Error checking delivery availability:', error);
+      }
+    });
+
+    // Add a key event listener for pressing Enter in the input field
+    deliveryInput.addEventListener('keypress', (event) => {
+      if (event.key === 'Enter') {
+        event.preventDefault(); // Prevent form submission
+        deliveryButton.click(); // Trigger the check button
+      }
+    });
+
+    // Auto-clear delivery status after 5 minutes (300000ms) of inactivity
+    let inactivityTimer;
+
+    function resetInactivityTimer() {
+      clearTimeout(inactivityTimer);
+      inactivityTimer = setTimeout(clearDeliveryStatus, 300000);
+    }
+
+    // Reset timer on user interactions
+    deliveryInput.addEventListener('input', resetInactivityTimer);
+    deliveryButton.addEventListener('click', resetInactivityTimer);
+    document.addEventListener('click', resetInactivityTimer);
+    document.addEventListener('keypress', resetInactivityTimer);
+
+    // Initialize the inactivity timer
+    resetInactivityTimer();
+  });
+</script>
+
+
+{% comment %}<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const deliveryInput = document.querySelector('.delivery-input');
+    const deliveryButton = document.querySelector('.delivery-button');
+    const deliveryForm = document.querySelector('.delivery-form');
+
+    // Create elements only once outside event handlers
+    const errorMsg = document.createElement('p');
+    errorMsg.classList.add('delivery-error');
+    errorMsg.textContent = 'Maximum 10 characters allowed';
+    errorMsg.style.color = 'red';
+    errorMsg.style.fontSize = '12px';
+    errorMsg.style.marginTop = '5px';
+    errorMsg.style.display = 'none';
+
+    const resultMessage = document.createElement('p');
+    resultMessage.classList.add('delivery-result');
+
+    // Only proceed if required elements exist
+    if (!deliveryInput || !deliveryButton || !deliveryForm) return;
+
+    // Add an error message to DOM
+    deliveryForm.parentNode.insertBefore(errorMsg, deliveryForm.nextSibling);
+
+    // Handle input validation
+    deliveryInput.addEventListener('input', () => {
+      if (deliveryInput.value.length > 10) {
+        errorMsg.style.display = 'block';
+        deliveryInput.value = deliveryInput.value.substring(0, 10); // Truncate to 10 chars
+      } else {
+        errorMsg.style.display = 'none';
+      }
+    });
+
+    // Handle availability check
+    deliveryButton.addEventListener('click', () => {
+      const deliveryInputValue = deliveryInput.value.trim();
+
+      // Remove any existing result message
+      const existingResult = document.querySelector('.delivery-result');
+      if (existingResult) existingResult.remove();
+
+      if (deliveryInputValue === '') return;
+
+      try {
+        // Properly parse the JSON data from Liquid
+        const availabilityList = {% if product.metafields.custom.product_availability.value %}{{ product.metafields.custom.product_availability.value | json }}{% else %}[]{% endif %};
+
+        // Check if delivery is available for the entered pin code
+        const isAvailable = availabilityList.some(available => available.pin_code === deliveryInputValue);
+
+        // Update UI based on availability
+        if (isAvailable) {
+          resultMessage.textContent = 'Delivery available in your area!';
+          resultMessage.style.color = 'green';
+          deliveryButton.innerHTML = 'Available';
+          deliveryButton.style.color = 'green';
+        } else {
+          resultMessage.textContent = 'Sorry, delivery not available in your area.';
+          resultMessage.style.color = 'red';
+          deliveryButton.innerHTML = 'Unavailable';
+          deliveryButton.style.color = 'red';
+        }
+
+        // Add result message to DOM
+        deliveryForm.parentNode.insertBefore(resultMessage, deliveryForm.nextSibling);
+      } catch (error) {
+        console.error('Error checking delivery availability:', error);
+      }
+    });
+  });
+</script>{% endcomment %}
+
+
+<style>
+    .delivery-options .delivery-title-heading {
+        margin-bottom: 2rem;
+        margin-top: 4.4rem;
+        display: flex;
+        gap: 1.3rem;
+        align-items: end;
+    }
+
+    .delivery-title-heading .delivery-title {
+        display: flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 1;
+        margin: 0;
+    }
+
+    .delivery-icon {
+        width: 3rem;
+        height: 3rem;
+    }
+
+    .delivery-form {
+        display: flex;
+        border-radius: 2px;
+        border: 1px solid rgba(73, 73, 73, 0.50);
+        overflow: hidden;
+        max-width: 343px;
+    }
+
+    .delivery-input {
+        flex: 1;
+        padding: 10px;
+        border: none;
+        font-size: 14px;
+    }
+
+    .delivery-form .delivery-input:focus-visible {
+        outline: none;
+        outline-offset: none;
+        box-shadow: none;
+    }
+
+    .delivery-button {
+        color: #FF3200;
+        font-size: 1.4rem;
+        font-weight: 700;
+        border: none;
+        line-height: 1.8rem;
+        padding: 1rem;
+        background: none;
+        cursor: pointer;
+    }
+
+    .delivery-note {
+        font-size: 1.2rem;
+        line-height: 1.8rem;
+        font-weight: 400;
+        margin-top: 1.4rem;
+        margin-bottom: 3.1rem;
+    }
+</style>
+

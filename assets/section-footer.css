@@ -120,7 +120,13 @@ a.link.link--text.list-menu__item:hover {
     padding-right: 0;
   }
 }
-
+.footer__column--info .footer__payment .payment-icons {
+  display: flex;
+  gap: 3px;
+}
+.footer__column--info .footer__payment .payment-icons img {
+  width: calc(30px + 15 * ((100vw - 360px) / (1920 - 360)));
+}
 .footer-block:only-child:last-child {
   text-align: center;
   max-width: 76rem;
@@ -312,13 +318,6 @@ footer.footer {
     margin: 1rem 0 0;
   }
 }
-
-@media screen and (min-width: 768px) {
-  .footer__payment {
-    margin-top: 1.5rem;
-  }
-}
-
 .footer__content-bottom-wrapper--center {
   justify-content: center;
 }

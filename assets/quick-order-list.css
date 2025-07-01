@@ -42,7 +42,7 @@ quick-order-list .pagination-wrapper {
   content: none;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and () {
   .quick-order-list__total {
     position: sticky;
     bottom: 0;
@@ -120,7 +120,7 @@ quick-order-list .pagination-wrapper {
   object-fit: cover;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and () {
   .variant-item__image {
     max-width: 100%;
   }
@@ -299,7 +299,7 @@ quick-order-list .pagination-wrapper {
   align-self: flex-start;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and () {
   .variant-item .loading__spinner {
     padding-top: 3rem;
     bottom: auto;
@@ -469,7 +469,7 @@ quick-order-list .pagination-wrapper {
   margin-top: -2rem;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and () {
   .quick-order-list__table {
     border-spacing: 0;
     border-collapse: separate;
@@ -532,7 +532,7 @@ quick-order-list .pagination-wrapper {
   }
 }
 
-@media screen and (min-width: 990px) {
+@media screen and () {
   .quick-order-list__table thead th:first-child,
   .quick-order-list-total__column {
     width: 37%;

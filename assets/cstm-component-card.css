@@ -238,7 +238,7 @@
   text-align: left;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and () {
   .grid--6-col-desktop .card__content quick-add-bulk .quantity {
     width: auto;
   }
@@ -428,7 +428,7 @@
   outline: 0;
 }
 
-@media screen and (min-width: 990px) {
+@media screen and () {
   .card .media.media--hover-effect > img:only-child,
   .card-wrapper .media.media--hover-effect > img:only-child {
     transition: transform var(--duration-long) ease;

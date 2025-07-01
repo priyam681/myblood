@@ -15,7 +15,6 @@ if (!customElements.get('product-modal-single')) {
       this.isDragging = false;
 
 
-
       // click and drag
 
       this.boundStartDrag = this.startDrag.bind(this);
@@ -23,11 +22,11 @@ if (!customElements.get('product-modal-single')) {
       this.boundEndDrag = this.endDrag.bind(this);
 
 
-      this.thumbnailContainer.addEventListener('mouseup',this.boundEndDrag.bind(this), false);
+      this.thumbnailContainer.addEventListener('mouseup', this.boundEndDrag.bind(this), false);
 
       this.thumbnailContainer.addEventListener('mousedown', this.boundStartDrag.bind(this), false);
 
-      this.thumbnailContainer.addEventListener('mousemove',this.boundMovePointer.bind(this))
+      this.thumbnailContainer.addEventListener('mousemove', this.boundMovePointer.bind(this));
 
       this.thumbnailContainer.addEventListener('mouseleave', this.cancelDrag.bind(this));
 
@@ -101,20 +100,19 @@ if (!customElements.get('product-modal-single')) {
       this.setupSwipeHandling();
     }
 
+    connectedCallback() {
+      if (this.moved) return;
+      this.moved = true;
+      // Safely get the section ID with null checking
+      const shopifySection = this.closest('.shopify-section');
+      if (shopifySection && shopifySection.id) {
+        this.dataset.section = shopifySection.id.replace('shopify-section-', '');
+      }
+      // Move the modal to the body for proper stacking
+      document.body.appendChild(this);
+    }
 
-        connectedCallback(){ 
-     if (this.moved) return; 
-      this.moved = true; 
-      // Safely get the section ID with null checking 
-       const shopifySection = this.closest('.shopify-section'); 
-        if (shopifySection && shopifySection.id) { 
-           this.dataset.section = shopifySection.id.replace('shopify-section-', '');
-         } 
-              // Move the modal to the body for proper stacking  
-       document.body.appendChild(this);
-       }
-
-    startDrag(event){
+    startDrag(event) {
 
       this.drag = true;
       this.dragStartTime = Date.now();
@@ -127,13 +125,13 @@ if (!customElements.get('product-modal-single')) {
       const buttonThumbnail = this.thumbnailContainer.querySelectorAll('.product-modal-thumbnail img');
       buttonThumbnail.forEach(item => {
         item.style.cursor = 'grabbing';
-        item.setAttribute('draggable', 'false')
+        item.setAttribute('draggable', 'false');
       });
       this.thumbnailContainer.style.cursor = 'grabbing';
       event.preventDefault();
     }
 
-    endDrag(event){
+    endDrag(event) {
       if (event.cancelable) {
         event.preventDefault();
       }
@@ -147,16 +145,16 @@ if (!customElements.get('product-modal-single')) {
       const buttonThumbnail = this.thumbnailContainer.querySelectorAll('.product-modal-thumbnail img');
       buttonThumbnail.forEach(item => {
         item.style.cursor = 'pointer';
-        item.setAttribute('draggable','true')
+        item.setAttribute('draggable', 'true');
       });
       this.thumbnailContainer.style.cursor = 'pointer';
 
-      setTimeout(()=>{
+      setTimeout(() => {
         this.isDragging = false;
-      }, 500)
+      }, 500);
     }
 
-    cancelDrag(event){
+    cancelDrag(event) {
       if (this.drag) {
         this.drag = false;
         this.resetDragStyles();
@@ -168,15 +166,15 @@ if (!customElements.get('product-modal-single')) {
       const buttonThumbnail = this.thumbnailContainer.querySelectorAll('.product-modal-thumbnail img');
       buttonThumbnail.forEach(item => {
         item.style.cursor = 'pointer';
-        item.setAttribute('draggable', 'true')
+        item.setAttribute('draggable', 'true');
       });
       this.thumbnailContainer.style.cursor = 'pointer';
     }
 
-    movePointer(event){
-      if (this.drag){
+    movePointer(event) {
+      if (this.drag) {
         // if mouse has moved, and we have been dragging for more than 100ms
-        if (Date.now() - this.dragStartTime > 100){
+        if (Date.now() - this.dragStartTime > 100) {
           this.isDragging = true;
         }
 
@@ -192,10 +190,9 @@ if (!customElements.get('product-modal-single')) {
     }
 
 
-
     debounceResize(func, wait) {
       let timeout;
-      return function () {
+      return function() {
         const context = this;
         const args = arguments;
         clearTimeout(timeout);
@@ -318,12 +315,18 @@ if (!customElements.get('product-modal-single')) {
       const prevThumb = activeThumb.previousElementSibling;
       if (prevThumb && prevThumb.classList.contains('product-modal-thumbnail')) {
         // Simply activate the previous thumbnail
-        this.handleThumbnailClick({ currentTarget: prevThumb, stopPropagation: () => {} });
+        this.handleThumbnailClick({
+          currentTarget: prevThumb, stopPropagation: () => {
+          }
+        });
       } else {
         // Loop to the last thumbnail if at the beginning
         const lastThumb = this.thumbnails[this.thumbnails.length - 1];
         if (lastThumb) {
-          this.handleThumbnailClick({ currentTarget: lastThumb, stopPropagation: () => {} });
+          this.handleThumbnailClick({
+            currentTarget: lastThumb, stopPropagation: () => {
+            }
+          });
         }
       }
     }
@@ -335,12 +338,18 @@ if (!customElements.get('product-modal-single')) {
       const nextThumb = activeThumb.nextElementSibling;
       if (nextThumb && nextThumb.classList.contains('product-modal-thumbnail')) {
         // Simply activate the next thumbnail
-        this.handleThumbnailClick({ currentTarget: nextThumb, stopPropagation: () => {} });
+        this.handleThumbnailClick({
+          currentTarget: nextThumb, stopPropagation: () => {
+          }
+        });
       } else {
         // Loop to the first thumbnail if at the end
         const firstThumb = this.thumbnails[0];
         if (firstThumb) {
-          this.handleThumbnailClick({ currentTarget: firstThumb, stopPropagation: () => {} });
+          this.handleThumbnailClick({
+            currentTarget: firstThumb, stopPropagation: () => {
+            }
+          });
         }
       }
     }

@@ -5,6 +5,7 @@
 
 .collage {
   display: grid;
+
 }
 
 .collage__item > * {
