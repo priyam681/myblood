@@ -57,7 +57,7 @@
             "autoplay": true,
             "loop": true,
             "pause": true,
-            "delay": 7,
+            "delay": 3,
             "collection_title": "Accessories"
           }
         },

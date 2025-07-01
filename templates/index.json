@@ -106,7 +106,6 @@
       "settings": {
         "enable_autoplay": false,
         "autoplay_speed": 5,
-        "enable_show_on_mobile": true,
         "pause_on_hover": true,
         "show_navigation_arrows": true,
         "show_slide_dots": false,
@@ -196,10 +195,7 @@
         "tab_jqeH4w"
       ],
       "settings": {
-        "tab_heading": "LATEST",
-        "tab_background_color": "#f8f8f8",
-        "tab_padding": 40,
-        "tab_margin": 30
+        "tab_heading": "LATEST"
       }
     },
     "featured_collection_grid_gCfPH8": {
@@ -336,10 +332,7 @@
       ],
       "name": "Recommended Products",
       "settings": {
-        "heading": "Recommended for You",
-        "tab_background_color": "#f8f8f8",
-        "tab_padding": 40,
-        "tab_margin": 30
+        "heading": "Recommended for You"
       }
     },
     "colorful_kick_fRCnyF": {
