@@ -91,7 +91,7 @@ class HTMLUpdateUtility {
 
 
 document.addEventListener('DOMContentLoaded', () => {
-  
+
   document.querySelector('.mobile-facets__header .close-icon')?.addEventListener('click', function() {
     let close = document.querySelector('.mobile-facets__disclosure');
     close.removeAttribute('open');
@@ -746,7 +746,12 @@ class ModalDialog extends HTMLElement {
     this.removeAttribute('open');
     removeTrapFocus(this.openedBy);
     window.pauseAllMedia();
-    document.body.classList.remove('sp-quick-view-container');
+
+    let quickAddModal = document.querySelector('product-modal-single');
+    if (!quickAddModal.classList.contains('quick-add-modal')) {
+      document.body.classList.remove('overflow-hidden');
+      document.body.classList.remove('sp-quick-view-container');
+    }
   }
 }
 
@@ -792,6 +797,7 @@ class ModalOpener extends HTMLElement {
 
     if (!button) return;
     button.addEventListener('click', () => {
+      console.log('Clicked');
       const modal = document.querySelector(this.getAttribute('data-modal'));
       if (modal) modal.show(button);
     });

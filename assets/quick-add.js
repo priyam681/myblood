@@ -17,6 +17,8 @@ if (!customElements.get('quick-add-modal')) {
         this.modalContent.innerHTML = '';
 
         if (preventFocus) this.openedBy = null;
+
+        document.body.classList.remove('overflow-hidden-plp');
         super.hide();
       }
 
@@ -24,15 +26,17 @@ if (!customElements.get('quick-add-modal')) {
         opener.setAttribute('aria-disabled', true);
         opener.classList.add('loading');
         opener.querySelector('.loading__spinner').classList.remove('hidden');
+        document.body.classList.add('overflow-hidden-plp');
+
 
         fetch(opener.getAttribute('data-product-url'))
           .then((response) => response.text())
           .then((responseText) => {
             const responseHTML = new DOMParser().parseFromString(responseText, 'text/html');
             const productElement = responseHTML.querySelector('product-info');
-
+            productElement.querySelector('product-modal-single')?.classList.add('quick-add-modal');
             this.preprocessHTML(productElement);
-            console.log('productElement', productElement);
+
             HTMLUpdateUtility.setInnerHTML(this.modalContent, productElement.outerHTML);
 
             if (window.Shopify && Shopify.PaymentButton) {
@@ -54,6 +58,8 @@ if (!customElements.get('quick-add-modal')) {
           if (classApplied.startsWith('color-') || classApplied === 'gradient')
             this.modalContent.classList.add(classApplied);
         });
+
+
         this.preventDuplicatedIDs(productElement);
         this.removeDOMElements(productElement);
         this.removeGalleryListSemantic(productElement);
@@ -65,16 +71,23 @@ if (!customElements.get('quick-add-modal')) {
         productElement.setAttribute('data-update-url', 'false');
       }
 
-      removeDOMElements(productElement) {  
-        const pickupAvailability = productElement.querySelector('pickup-availability');  
-        if (pickupAvailability) pickupAvailability.remove();  
-        const productModal = productElement.querySelector('product-modal');  
-        if (productModal) productModal.remove();  
-        const loadMore = productElement.querySelector('product-media-load-more');  
-        if (loadMore) {    loadMore.remove();  }  
-        const customModal = productElement.querySelectorAll('custom-modal');  
-        if (customModal) customModal.forEach(modal => modal.remove());  
-        const modalDialog = productElement.querySelectorAll('modal-dialog');  
+      removeDOMElements(productElement) {
+        const pickupAvailability = productElement.querySelector('pickup-availability');
+        if (pickupAvailability) pickupAvailability.remove();
+        const productModal = productElement.querySelector('product-modal');
+        if (productModal) productModal.remove();
+        const loadMore = productElement.querySelector('product-media-load-more');
+        if (loadMore) {
+          loadMore.remove();
+        }
+        const deliveryOptions = productElement.querySelector('.delivery-options');
+        if (deliveryOptions) deliveryOptions.remove();
+
+        const deliveryPromise = productElement.querySelector('.icon-with-text');
+        if (deliveryPromise) deliveryPromise.remove();
+        const customModal = productElement.querySelectorAll('custom-modal');
+        if (customModal) customModal.forEach(modal => modal.remove());
+        const modalDialog = productElement.querySelectorAll('modal-dialog');
         if (modalDialog) modalDialog.forEach((modal) => modal.remove());
       }
 

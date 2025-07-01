@@ -8,6 +8,10 @@
   padding-left: 25px;
 } */
 
+span.mobile-facets__close {
+  display: none !important;
+}
+
 .sp-fliter .mobile-facets__highlight {
   position: absolute;
   top: 10px;
