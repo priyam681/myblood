@@ -19,6 +19,17 @@
     },
     "product-grid": {
       "type": "main-collection-product-grid",
+      "blocks": {
+        "variant_picker_UBWJEc": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        }
+      },
+      "block_order": [
+        "variant_picker_UBWJEc"
+      ],
       "settings": {
         "products_per_page": 8,
         "variant": true,
