@@ -46,7 +46,6 @@ if (!customElements.get('product-swatch')) {
       e.stopPropagation();
 
 
-
       const parent = e.target.parentNode;
 
       const productId = e.target.getAttribute('data-product-id');
@@ -109,6 +108,7 @@ if (!customElements.get('product-swatch')) {
       // Update the variant ID in the added to cart form
       const variantIdInput = this.cardContainer.querySelector('.product-variant-id');
       let label = this.cardContainer.querySelector('product-swatch .form__label > span');
+      console.log('Label: ', label);
       label.textContent = variant.title;
 
 

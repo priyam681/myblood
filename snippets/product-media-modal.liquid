@@ -258,8 +258,9 @@
 
     @media screen and (min-width: 749px) {
         .sp-product-zoom-media button.product-modal-nav-button.product-modal-prev {
-            transform: rotate(0deg);
+            /*transform: rotate(0deg);*/
         }
+
 
         /* .product-media-modal__content{
           overflow: hidden;
@@ -279,9 +280,15 @@
       scrollba
   } {% endcomment %}
     / Mobile-specific styles /
+    }
+
     @media screen and (max-width: 749px) {
         .product-modal-thumbnails {
             gap: 8px;
+        }
+
+        .sp-zoom-img img {
+            height: 200px;
         }
 
         .product-modal-thumbnail {
@@ -308,8 +315,6 @@
         height: auto;
         object-fit: contain;
     }
-    }
-
     / Navigation arrows for mobile /
     .product-modal-nav-arrows {
         display: flex;
@@ -350,11 +355,20 @@
         }
 
         .product-modal-prev .svg-wrapper {
-            transform: rotate(90deg);
+            /*transform: rotate(90deg);*/
         }
 
         .product-modal-next .svg-wrapper {
             transform: rotate(-90deg);
         }
+
+        .sp-quick-view-container .product-modal-thumbnail:first-child {
+            margin-left: unset;
+        }
+
+        .sp-quick-view-container .product-modal-thumbnails {
+            display: flex !important;
+        }
+    }
 </style>
 
