@@ -74,7 +74,7 @@
         "mini_banner_4TKyBX": {
           "type": "mini_banner",
           "settings": {
-            "mini_banner_trigger": "men",
+            "mini_banner_trigger": "Mens",
             "position": "left",
             "image": "shopify://shop_images/image_2.png",
             "alt_text": "mini banner",
