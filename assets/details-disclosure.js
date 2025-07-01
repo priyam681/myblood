@@ -7,7 +7,6 @@ class DetailsDisclosure extends HTMLElement {
 
     this.isMouseInMenu = false;
 
-
     this.mouseEnter = this.onMouseEnter.bind(this);
     this.mouseLeave = this.onMouseLeave.bind(this);
 
@@ -69,6 +68,7 @@ class HeaderMenu extends DetailsDisclosure {
   constructor() {
     super();
     this.header = document.querySelector('.header-wrapper');
+
   }
 
 
