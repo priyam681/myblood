@@ -42,7 +42,7 @@
         "collection_list_tNG8MH": {
           "type": "collection_list",
           "settings": {
-            "collection_menu_trigger": "Womens",
+            "collection_menu_trigger": "womens",
             "collection_list": [
               "chair",
               "loungesets",
@@ -74,7 +74,7 @@
         "mini_banner_4TKyBX": {
           "type": "mini_banner",
           "settings": {
-            "mini_banner_trigger": "Mens",
+            "mini_banner_trigger": "mens",
             "position": "left",
             "image": "shopify://shop_images/image_2.png",
             "alt_text": "mini banner",
