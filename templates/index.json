@@ -198,8 +198,7 @@
       "settings": {
         "tab_heading": "LATEST",
         "tab_background_color": "#f8f8f8",
-        "tab_padding": 40,
-        "tab_margin": 30
+        "tab_padding": 40
       }
     },
     "featured_collection_grid_gCfPH8": {
@@ -263,9 +262,7 @@
         "color_scheme": "",
         "show_view_all": false,
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "swipe_on_mobile": false
       }
     },
     "performance_banner_NfWipW": {
@@ -282,64 +279,63 @@
     "recommended_products_m4qpPD": {
       "type": "recommended-products",
       "blocks": {
-        "product_TCRhRp": {
+        "product_3JknG7": {
           "type": "product",
           "settings": {
-            "product": "5-pocket-jean"
+            "product": "bersache-sports-walking-gym-sneakers-trekking-hiking-shoe-high-quality-sole-running-shoes-men"
           }
         },
-        "product_Wbi6Rt": {
+        "product_TzP3Xf": {
           "type": "product",
           "settings": {
-            "product": "a-line-jacket-in-black"
+            "product": "clarkin-7-0-sneakers-for-men"
           }
         },
-        "product_Xhn43p": {
+        "product_EPQEHB": {
           "type": "product",
           "settings": {
-            "product": "a-line-pocket-shift-black"
+            "product": "campus-hasley-adv-running-shoes-for-mencampus-hasley-adv-running-shoes-men"
           }
         },
-        "product_Mq4CXF": {
+        "product_NmFmHK": {
           "type": "product",
           "settings": {
-            "product": "acb-top-in-chipped-brick"
+            "product": "zapatoz-women-mid-top-regular-boots"
           }
         },
-        "product_3BFKDp": {
+        "product_LLYQq3": {
           "type": "product",
           "settings": {
-            "product": "aliam-skirt-mud"
+            "product": "classic-brogue"
           }
         },
-        "product_JeNDdz": {
+        "product_xainaD": {
           "type": "product",
           "settings": {
-            "product": "antidote-13-tee-mood-indigo"
+            "product": "lavagna-lace-up"
           }
         },
-        "product_rrNpqP": {
+        "product_fn6gAK": {
           "type": "product",
           "settings": {
-            "product": "axel-coat-black"
+            "product": "boldness-sneakers-sports-running-shoes"
           }
         }
       },
       "block_order": [
-        "product_TCRhRp",
-        "product_Wbi6Rt",
-        "product_Xhn43p",
-        "product_Mq4CXF",
-        "product_3BFKDp",
-        "product_JeNDdz",
-        "product_rrNpqP"
+        "product_3JknG7",
+        "product_TzP3Xf",
+        "product_EPQEHB",
+        "product_NmFmHK",
+        "product_LLYQq3",
+        "product_xainaD",
+        "product_fn6gAK"
       ],
       "name": "Recommended Products",
       "settings": {
         "heading": "Recommended for You",
         "tab_background_color": "#f8f8f8",
-        "tab_padding": 40,
-        "tab_margin": 30
+        "tab_padding": 40
       }
     },
     "colorful_kick_fRCnyF": {
@@ -348,7 +344,7 @@
         "image_showcase_mekXhE": {
           "type": "image_showcase",
           "settings": {
-            "product": "bizi-rose-aubergine"
+            "product": "zapatoz-women-mid-top-regular-boots"
           }
         }
       },
@@ -382,8 +378,12 @@
             "label": "HIKING",
             "collection_url": "",
             "image1": "shopify://shop_images/image_20.png",
+            "lable1": "",
             "image2": "shopify://shop_images/image_22.png",
-            "image3": "shopify://shop_images/banner-image_1.png"
+            "lable2": "",
+            "image3": "shopify://shop_images/banner-image_1.png",
+            "lable3": "",
+            "lable4": ""
           }
         }
       },
