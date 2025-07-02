@@ -29,6 +29,7 @@
     .homepage-banner .homepage-banner-wrapper {
     position: relative;
     }
+
     .homepage-banner .homepage-banner-wrapper .homepage-bar-wrapper {
     position: relative;
     z-index: 1;
@@ -288,6 +289,12 @@
     min-width: 40rem;
     z-index: 1;
     }
+     .banner-center-image img {
+            min-height: 627px;
+        }
+         .homepage-banner {
+           min-height: 627px;
+         }
     }
 {% endstyle %}
 
@@ -513,7 +520,7 @@
                                             alt="{{ block.settings.center_alt_text | default: 'center image' }}"
                                             height="100%"
                                             width="100%"
-                                            loading="{% if section.settings.lazy_load_images == 'lazy' %}lazy{% else %}eager{% endif %}"
+                                            loading="{% if section.settings.lazy_load_images == 'lazy' %}eager{% else %}lazy{% endif %}"
                                     >
                                 {% endif %}
                             </div>
