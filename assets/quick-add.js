@@ -19,6 +19,7 @@ if (!customElements.get('quick-add-modal')) {
         if (preventFocus) this.openedBy = null;
 
         document.body.classList.remove('overflow-hidden-plp');
+        document.querySelector('product-modal-single')?.remove();
         super.hide();
       }
 
@@ -38,6 +39,7 @@ if (!customElements.get('quick-add-modal')) {
             this.preprocessHTML(productElement);
 
             HTMLUpdateUtility.setInnerHTML(this.modalContent, productElement.outerHTML);
+
 
             if (window.Shopify && Shopify.PaymentButton) {
               Shopify.PaymentButton.init();
