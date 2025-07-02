@@ -74,6 +74,7 @@ if (!customElements.get('quick-add-modal')) {
       removeDOMElements(productElement) {
         const pickupAvailability = productElement.querySelector('pickup-availability');
         if (pickupAvailability) pickupAvailability.remove();
+
         const productModal = productElement.querySelector('product-modal');
         if (productModal) productModal.remove();
         const loadMore = productElement.querySelector('product-media-load-more');
@@ -91,6 +92,9 @@ if (!customElements.get('quick-add-modal')) {
             }
           });
         }
+
+        let description = productElement.querySelector('.product__description');
+        if (description) description.remove();
 
 
         const deliveryOptions = productElement.querySelector('.delivery-options');
