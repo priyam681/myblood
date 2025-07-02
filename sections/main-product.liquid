@@ -49,6 +49,8 @@
     {% if section.settings.image_zoom == 'hover' %}
         <script id="EnableZoomOnHover-main" src="{{ 'magnify.js' | asset_url }}" defer="defer"></script>
     {% endif %}
+
+
     {%- if request.design_mode -%}
         <script src="{{ 'theme-editor.js' | asset_url }}" defer="defer"></script>
     {%- endif -%}
@@ -228,11 +230,11 @@
                                         {{ block.shopify_attributes }}
                                 >
                                     {% comment %} TODO: enable theme-check once `item_count_for_variant` is accepted as valid filter {% endcomment %}
-                                    {% # theme-check-disable       %}
+                                    {% # theme-check-disable           %}
                                     {%- assign cart_qty = cart
                                             | item_count_for_variant: product.selected_or_first_available_variant.id
                                     -%}
-                                    {% # theme-check-enable       %}
+                                    {% # theme-check-enable           %}
                                     <label class="quantity__label form__label" for="Quantity-{{ section.id }}">
                                         {{ 'products.product.quantity.label' | t }}
                                         <span class="quantity__rules-cart{% if cart_qty == 0 %} hidden{% endif %}">
@@ -712,6 +714,10 @@
 
 
 
+
+
+
+
             </script>
             <script src="{{ 'product-model.js' | asset_url }}" defer></script>
         {%- endif -%}
@@ -726,6 +732,10 @@
 
         <script type="application/ld+json">
       {{ product | structured_data }}
+
+
+
+
 
 
 

@@ -80,6 +80,19 @@ if (!customElements.get('quick-add-modal')) {
         if (loadMore) {
           loadMore.remove();
         }
+
+        const sliderComponent = productElement.querySelectorAll('slider-component');
+        console.log(sliderComponent);
+
+        if (sliderComponent.length > 0) {
+          sliderComponent.forEach((slider) => {
+            if (slider.querySelector('.thumbnail-list') != null) {
+              slider.remove();
+            }
+          });
+        }
+
+
         const deliveryOptions = productElement.querySelector('.delivery-options');
         if (deliveryOptions) deliveryOptions.remove();
 
