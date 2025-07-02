@@ -51,6 +51,12 @@
 <recommended-product>
     <div style="background-color: {{ section.settings.tab_background_color }}; padding-block: {{ section.settings.tab_padding }}px;">
         <section class="recommended-section page-width">
+            {% if section.blocks.size > 1 %}
+                {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+                <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
+
+            {% endif %}
             <div class="{% if section.blocks.size > 1 %}swiper{% else %}recommended-grid{% endif %}">
                 <h2 class="recommended-heading">{{ section.settings.heading }}</h2>
                 <div class="{% if section.blocks.size > 1 %}swiper-wrapper {% else %} recommended-container {% endif
@@ -62,7 +68,7 @@
                                 <div class="product-card">
                                     <a href="{{ product.url }}" class="product-card-link">
                                         <img src="{{ product.featured_image | image_url: width: 600 }}"
-                                             class="main-image"
+                                             class="main-image" loading="lazy"
                                              alt="{{ product.title }}">
                                     </a>
                                     <div class="thumbnail-wrapper">
@@ -74,6 +80,7 @@
                                                         alt="{{ product.title }} thumbnail"
                                                         onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
                                                         width="50px" height="50px"
+                                                        loading="lazy"
                                                 />
                                             </div>
                                         {% endfor %}
@@ -120,7 +127,7 @@
 
 
 {% if section.blocks.size > 1 %}
-    <script>
+    <script defer>
       document.addEventListener('DOMContentLoaded', function() {
         new Swiper('.swiper', {
           slidesPerView: 1,

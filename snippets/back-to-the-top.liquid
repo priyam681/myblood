@@ -10,69 +10,78 @@
 {% assign position_from_bottom = '6em' %}
 
 <div id="BackToTop" class="back-to-top hide"></div>
-{{ '//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css' | stylesheet_tag }}
+<link
+        rel="stylesheet"
+        href="{{ 'font-awesome.min.css' | asset_url }}"
+        type="text/css"
+        media="all"
+/>
+
 <style>
     .back-to-top {
-      display: block !important;
-      position: fixed;
-      bottom: 61px;
-      right: 15px;
-      z-index: 10;
-      font-size: 18px;
-      background-color: #836851;
-      cursor: pointer;
-      border-radius: 50%;
-      height: 50px;
-      width: 50px;
+        display: block !important;
+        position: fixed;
+        bottom: 61px;
+        right: 15px;
+        z-index: 10;
+        font-size: 18px;
+        background-color: #836851;
+        cursor: pointer;
+        border-radius: 50%;
+        height: 50px;
+        width: 50px;
     }
+
     .back-to-top:after {
-      content: "\f077";
-      font-family: FontAwesome;
-      font-weight: 400;
-      font-style: normal;
-      font-size: 1em;
-      line-height: 50px;
-      color: #fff;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-      left: 50%;
-  }
-    .back-to-top:hover {
-      text-decoration: none;
-      color: #555;
+        content: "\f077";
+        font-family: FontAwesome;
+        font-weight: 400;
+        font-style: normal;
+        font-size: 1em;
+        line-height: 50px;
+        color: #fff;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        left: 50%;
     }
+
+    .back-to-top:hover {
+        text-decoration: none;
+        color: #555;
+    }
+
     .hide {
-      display: none!important;
+        display: none !important;
     }
 </style>
 <script>
   (function() {
-  function trackScroll() {
+    function trackScroll() {
       var scrolled = window.pageYOffset;
       var coords = {{ vertical_offset_for_trigger }};
       if (scrolled > coords) {
-      goTopBtn.classList.remove('hide');
+        goTopBtn.classList.remove('hide');
       }
       if (scrolled < coords) {
-      goTopBtn.classList.add('hide');
+        goTopBtn.classList.add('hide');
       }
-  }
+    }
 
-  function backToTop(event) {
+    function backToTop(event) {
 
       if (window.pageYOffset > 0) {
-      window.scrollTo({
-               top: 0,
-                behavior: "smooth",
-                   });
-      setTimeout(backToTop, 0);
+        window.scrollTo({
+          top: 0,
+          behavior: 'smooth'
+        });
+        setTimeout(backToTop, 0);
       }
-  }
+    }
 
-  var goTopBtn = document.querySelector('.back-to-top');
+    var goTopBtn = document.querySelector('.back-to-top');
 
-  window.addEventListener('scroll', trackScroll);
-  goTopBtn.addEventListener('click', backToTop);
+    window.addEventListener('scroll', trackScroll);
+    goTopBtn.addEventListener('click', backToTop);
   })();
 </script>

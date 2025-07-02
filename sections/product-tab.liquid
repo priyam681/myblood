@@ -1,5 +1,5 @@
 {{ 'home-page-product.css' | asset_url | stylesheet_tag }}
-
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 {% schema %}
 {
   "name": "Product Tabs",
@@ -56,6 +56,7 @@
 }
 {% endschema %}
 
+
 <product-tabs>
 
     <div style="background-color: {{ section.settings.tab_background_color }}; padding-block:{{ section.settings.tab_padding }}px;">
@@ -76,6 +77,8 @@
                          id="tab-tab-{{ forloop.index }}">
                         {% assign collection = collections[block.settings.collection] %}
                         {% if collection.products.size > 0 %}
+                            <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
                             <div class="pua-product-slider swiper" data-product-count="{{ collection.products.size }}">
                                 <div class="swiper-wrapper">
                                     {% for product in collection.products %}
@@ -87,6 +90,7 @@
                                                             src="{{ product.featured_image | image_url: width: 400 }}"
                                                             alt="{{ product.title }}"
                                                             itemprop="image"
+                                                            loading="lazy"
                                                     />
                                                 </a>
 
@@ -99,6 +103,7 @@
                                                                     alt="{{ product.title }} thumbnail"
                                                                     onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
                                                                     width="50px" height="50px"
+                                                                    loading="lazy"
                                                             />
                                                         </div>
 
@@ -147,6 +152,7 @@
         </div>
     </div>
 </product-tabs>
+
 
 <script defer>
 
@@ -267,8 +273,7 @@
 
 </script>
 
-
-<script>
+<script defer>
   document.addEventListener('DOMContentLoaded', function() {
     const tabs = document.querySelectorAll('.pua-tabs li');
     const contents = document.querySelectorAll('.pua-tab-content');

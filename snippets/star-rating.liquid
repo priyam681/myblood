@@ -1,28 +1,36 @@
 <!-- Font Awesome Icon Library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link
+        rel="stylesheet"
+        href="{{ 'font-awesome.min.css' | asset_url }}"
+        type="text/css"
+        media="all"
+/>
 <style>
     .stars-outer::before {
-    content: "\f006 \f006 \f006 \f006 \f006";
-  }
-  .stars-outer {
-    display: inline-block;
-    position: relative;
-    font-family: FontAwesome;
-  }
+        content: "\f006 \f006 \f006 \f006 \f006";
+    }
+
+    .stars-outer {
+        display: inline-block;
+        position: relative;
+        font-family: FontAwesome;
+    }
 
 
-  .stars-inner {
-    position: absolute;
-    top: 0;
-    left: 0;
-    white-space: nowrap;
-    overflow: hidden;
-    width: 0;
-  }
-  .stars-inner::before {
-    content: "\f005 \f005 \f005 \f005 \f005";
-    color: #f8ce0b;
-  }
+    .stars-inner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        white-space: nowrap;
+        overflow: hidden;
+        width: 0;
+    }
+
+    .stars-inner::before {
+        content: "\f005 \f005 \f005 \f005 \f005";
+        color: #f8ce0b;
+    }
 </style>
 <!-- javascript for total rating -->
 {% comment %} <script
