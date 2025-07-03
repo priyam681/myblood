@@ -138,7 +138,7 @@ th.caption-with-letter-spacing {
   margin-left: 1rem;
 }
 
-@media screen and (min-width: 768px) and (max-width: 989px) {
+@media screen and (min-width: 768px) and (max-width: 992px) {
   .cart-item cart-remove-button {
     width: 4.5rem;
     height: 4.5rem;
@@ -380,7 +380,7 @@ a.cart-item__name.h4.break {
   }
 }
 
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 992px) {
   .cart-items .quantity-popover__info-button {
     padding-left: 0;
   }

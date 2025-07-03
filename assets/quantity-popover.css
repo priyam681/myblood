@@ -69,7 +69,7 @@ quantity-popover .quick-order-list-remove-button .button {
   height: 14px;
 }
 
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 992px) {
   .quantity-popover__info.global-settings-popup {
     left: 0;
     top: 100%;
