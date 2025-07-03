@@ -731,6 +731,7 @@ class ModalDialog extends HTMLElement {
 
   show(opener) {
     this.openedBy = opener;
+    console.log('Opener: ', opener);
     const popup = this.querySelector('.template-popup');
     document.body.classList.add('sp-quick-view-container');
     document.body.classList.add('overflow-hidden');
@@ -748,10 +749,11 @@ class ModalDialog extends HTMLElement {
     window.pauseAllMedia();
 
     let quickAddModal = document.querySelector('product-modal-single');
-    if (!quickAddModal.classList.contains('quick-add-modal')) {
-      document.body.classList.remove('overflow-hidden');
+    if (!quickAddModal?.classList.contains('quick-add-modal')) {
       document.body.classList.remove('sp-quick-view-container');
+      document.body.classList.remove('overflow-hidden');
     }
+
   }
 }
 
@@ -797,8 +799,8 @@ class ModalOpener extends HTMLElement {
 
     if (!button) return;
     button.addEventListener('click', () => {
-
       const modal = document.querySelector(this.getAttribute('data-modal'));
+      console.log('OPEN', modal);
       if (modal) modal.show(button);
     });
   }
@@ -901,7 +903,7 @@ class SliderComponent extends HTMLElement {
       this.pageTotalElement.textContent = this.totalPages;
     }
 
-    if (this.currentPage != previousPage) {
+    if (this.currentPage !== previousPage) {
       this.dispatchEvent(
         new CustomEvent('slideChanged', {
           detail: {

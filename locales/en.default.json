@@ -451,7 +451,10 @@
       "title": "Login",
       "sign_in": "Sign in",
       "submit": "Submit",
-      "alternate_provider_separator": "or"
+      "alternate_provider_separator": "or",
+      "existing_customer": "Already a customer?",
+      "new_customer": "New customer?",
+      "create_account_description": "Create an account for faster checkout, saved addresses, and tracking."
     },
     "order": {
       "title": "Order {{ name }}",
@@ -519,6 +522,7 @@
       "shop_link": "Visit online store",
       "add_to_apple_wallet": "Add to Apple Wallet",
       "qr_image_alt": "QR code — scan to redeem gift card",
+      "gift_card_image_alt": "Gift card design image",
       "copy_code": "Copy gift card code",
       "expiration_date": "Expires {{ expires_on }}",
       "copy_code_success": "Code copied successfully",

@@ -35,9 +35,10 @@ if (!customElements.get('quick-add-modal')) {
           .then((responseText) => {
             const responseHTML = new DOMParser().parseFromString(responseText, 'text/html');
             const productElement = responseHTML.querySelector('product-info');
+
             productElement.querySelector('product-modal-single')?.classList.add('quick-add-modal');
             this.preprocessHTML(productElement);
-
+            
             HTMLUpdateUtility.setInnerHTML(this.modalContent, productElement.outerHTML);
 
 
@@ -55,6 +56,7 @@ if (!customElements.get('quick-add-modal')) {
           });
       }
 
+
       preprocessHTML(productElement) {
         productElement.classList.forEach((classApplied) => {
           if (classApplied.startsWith('color-') || classApplied === 'gradient')
@@ -67,7 +69,9 @@ if (!customElements.get('quick-add-modal')) {
         this.removeGalleryListSemantic(productElement);
         this.updateImageSizes(productElement);
         this.preventVariantURLSwitching(productElement);
+
       }
+
 
       preventVariantURLSwitching(productElement) {
         productElement.setAttribute('data-update-url', 'false');

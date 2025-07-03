@@ -464,6 +464,20 @@ if (!customElements.get('product-modal-single')) {
 
       this.showMedia(mediaId);
     }
+
+    disconnectedCallbacks() {
+      // Clean up all event listeners when element is removed
+      document.removeEventListener('click', this.documentClickHandler);
+      window.removeEventListener('resize', this.resizeHandler);
+
+      if (this.thumbnailContainer) {
+        this.thumbnailContainer.removeEventListener('mouseup', this.boundEndDrag);
+        this.thumbnailContainer.removeEventListener('mousedown', this.boundStartDrag);
+        this.thumbnailContainer.removeEventListener('mousemove', this.boundMovePointer);
+        this.thumbnailContainer.removeEventListener('mouseleave', this.cancelDrag.bind(this));
+      }
+    }
+
   }
 
   customElements.define('product-modal-single', ProductModalSingle);

@@ -102,6 +102,7 @@
     {%- endunless -%}
 
     {{ 'template-giftcard.css' | asset_url | stylesheet_tag }}
+    <script src="{{ 'gift-card.js' | asset_url }}" defer></script>
   </head>
 
   <body class="gradient gift-card">
@@ -135,7 +136,7 @@
           <img
             class="gift-card__image"
             src="{{ 'gift-card/card.svg' | shopify_asset_url }}"
-            alt=""
+            alt="{{ 'gift_cards.issued.gift_card_image_alt' | t }}"
             height="{{ 570 | divided_by: 1.5 }}"
             width="570"
             loading="eager"
@@ -147,7 +148,7 @@
         <p class="gift-card__text">{{ 'gift_cards.issued.how_to_use_gift_card' | t }}</p>
       </div>
       <p id="gift-card-code" class="gift-card__number">{{ gift_card.code | format_code }}</p>
-      <div class="gift-card__qr-code" data-identifier="{{ gift_card.qr_identifier }}"></div>
+      <div class="gift-card__qr-code" data-identifier="{{ gift_card.qr_identifier }}" data-qr-image-alt="{{ 'gift_cards.issued.qr_image_alt' | t }}"></div>
       {%- if gift_card.pass_url -%}
         <a href="{{ gift_card.pass_url }}" class="gift_card__apple-wallet no-print">
           <img
@@ -167,7 +168,7 @@
           </span>
           {{ 'gift_cards.issued.copy_code_success' | t }}
         </template>
-        <button class="button gift-card__copy-button">{{ 'gift_cards.issued.copy_code' | t }}</button>
+        <button type="button" class="button gift-card__copy-button" aria-describedby="gift-card-code">{{ 'gift_cards.issued.copy_code' | t }}</button>
         <a
           href="{{ shop.url }}"
           class="button button--secondary"
@@ -185,28 +186,3 @@
     </div>
   </body>
 </html>
-
-<script>
-  var string = { qrImageAlt: {{ 'gift_cards.issued.qr_image_alt' | t | json }} };
-  document.addEventListener('DOMContentLoaded', function() {
-   new QRCode( document.querySelector('.gift-card__qr-code'), {
-    text: document.querySelector('.gift-card__qr-code').dataset.identifier,
-    width: 72,
-    height: 72,
-    imageAltText: string.qrImageAlt
-    });
-  });
-  var template = document.getElementsByTagName("template")[0];
-  var clonedTemplate = template.content.cloneNode(true);
-  var isMessageDisplayed = false
-  document
-  .querySelector('.gift-card__copy-button')
-  .addEventListener('click', () => {
-    navigator.clipboard.writeText(document.getElementById('gift-card-code').innerText).then(function () {
-      if (!isMessageDisplayed) {
-        document.querySelector('.gift-card__copy-success').appendChild(clonedTemplate);
-        isMessageDisplayed = true
-      }
-    });
-  });
-</script>

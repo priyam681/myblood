@@ -7,143 +7,165 @@
   </div>
   <div class="sharing">
     {% if block.settings.is_facebook %}
-      <a
+      <button
+        type="button"
         class="sharing-item sharing-facebook"
-        href="javascript:void(0);"
-        onclick="openShareWindow('https://www.facebook.com/sharer/sharer.php?u={{ _share_url }}')"
+        data-share-url="https://www.facebook.com/sharer/sharer.php?u={{ _share_url }}"
+        aria-label="{{ 'general.social.share_on_facebook' | t }}"
       >
-        <svg class="i i-facebook" viewBox="0 0 24 24">
+        <svg class="i i-facebook" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M17 14h-3v8h-4v-8H7v-4h3V7a5 5 0 0 1 5-5h3v4h-3q-1 0-1 1v3h4Z"></path>
         </svg>
-      </a>
+      </button>
     {% endif %}
 
     {% if block.settings.is_instagram %}
-      <a
+      <button
+        type="button"
         class="sharing-item sharing-instagram"
-        href="javascript:void(0);"
-        onclick="openShareWindow('https://www.instagram.com/?url={{ _share_url }}')"
+        data-share-url="https://www.instagram.com/?url={{ _share_url }}"
+        aria-label="Share on Instagram"
       >
-        <svg class="i i-instagram" viewBox="0 0 24 24">
+        <svg class="i i-instagram" viewBox="0 0 24 24" aria-hidden="true">
           <g transform="translate(0.5 0.5)">
             <path d="M12,3C7.589,3,4,6.589,4,11s3.589,8,8,8s8-3.589,8-8S16.411,3,12,3zM12,17c-2.761,0-5-2.239-5-5s2.239-5,5-5
             s5,2.239,5,5S14.761,17,12,17z" fill="none" stroke="currentColor"></path>
             <circle cx="17.5" cy="6.5" r="1.5" fill="currentColor"></circle>
           </g>
         </svg>
-      </a>
+      </button>
     {% endif %}
 
     {% if block.settings.is_twitter %}
-      <a
+      <button
+        type="button"
         class="sharing-item sharing-twitter"
-        href="javascript:void(0);"
-        onclick="openShareWindow('https://twitter.com/intent/tweet?url={{ _share_url }}')"
+        data-share-url="https://twitter.com/intent/tweet?url={{ _share_url }}"
+        aria-label="{{ 'general.social.share_on_twitter' | t }}"
       >
-        <svg class="i i-twitter" viewBox="0 0 24 24">
+        <svg class="i i-twitter" viewBox="0 0 24 24" aria-hidden="true">
           <path d="m3 21 7.5-7.5m3-3L21 3M8 3H3l13 18h5Z"></path>
         </svg>
-      </a>
+      </button>
     {% endif %}
 
     {% if block.settings.is_pinterest %}
-      <a
+      <button
+        type="button"
         class="sharing-item sharing-pinterest"
-        href="javascript:void(0);"
-        onclick="openShareWindow('https://pinterest.com/pin/create/button/?url={{ _share_url }}')"
+        data-share-url="https://pinterest.com/pin/create/button/?url={{ _share_url }}"
+        aria-label="{{ 'general.social.share_on_pinterest' | t }}"
       >
-        <svg class="i i-pinterest" viewBox="0 0 24 24">
+        <svg class="i i-pinterest" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="12" cy="12" r="11"></circle>
           <path d="m8 22 3-11a1 1 0 0 0 5 5.5A6 6 0 1 0 6 12"></path>
         </svg>
-      </a>
+      </button>
     {% endif %}
 
     {% if block.settings.is_tumblr %}
-      <a
+      <button
+        type="button"
         class="sharing-item sharing-tumblr"
-        href="javascript:void(0);"
-        onclick="openShareWindow('https://www.tumblr.com/widgets/share/tool?canonicalUrl={{ _share_url }}')"
+        data-share-url="https://www.tumblr.com/widgets/share/tool?canonicalUrl={{ _share_url }}"
+        aria-label="Share on Tumblr"
       >
-        <svg class="i i-tumblr" viewBox="0 0 24 24">
+        <svg class="i i-tumblr" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M18 17.5V22h-4a5 5 0 0 1-5-5v-7H7V6.5q3.3-.9 3.5-4.5H14v4h4v4h-4v6.5q0 1 1 1Z"></path>
         </svg>
-      </a>
+      </button>
     {% endif %}
 
     {% if block.settings.is_reddit %}
-      <a
+      <button
+        type="button"
         class="sharing-item sharing-reddit"
-        href="javascript:void(0);"
-        onclick="openShareWindow('https://www.reddit.com/submit?url={{ _share_url }}')"
+        data-share-url="https://www.reddit.com/submit?url={{ _share_url }}"
+        aria-label="Share on Reddit"
       >
-        <svg class="i i-reddit" viewBox="0 0 24 24">
+        <svg class="i i-reddit" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="20" cy="5" r="2"></circle>
           <path d="M5 10.5a14 14 0 0 1 14 0 2.4 2.4 0 1 1 2.5 4 9.6 6.6 0 1 1-19 0 2.4 2.4 0 1 1 2.5-4Zm7-1.9 1.5-6.1 4.6 1.7M10 18q2 1 4 0m-5-4h0m6 0h0"></path>
         </svg>
-      </a>
+      </button>
     {% endif %}
 
     {% if block.settings.is_vk %}
-      <a
+      <button
+        type="button"
         class="sharing-item sharing-vk"
-        href="javascript:void(0);"
-        onclick="openShareWindow('http://vk.com/share.php?url={{ _share_url }}')"
+        data-share-url="http://vk.com/share.php?url={{ _share_url }}"
+        aria-label="Share on VK"
       >
-        <svg class="i i-vk" viewBox="0 0 24 24">
+        <svg class="i i-vk" viewBox="0 0 24 24" aria-hidden="true">
           <rect width="22" height="22" x="1" y="1" rx="5"></rect>
           <path d="M7 8.5a7 8 0 0 0 5 7v-7m5 0Q16 11 13 12q3 1 4 3.5M12 12h1"></path>
         </svg>
-      </a>
+      </button>
     {% endif %}
 
     {% if block.settings.is_whatsapp %}
-      <a
+      <button
+        type="button"
         class="sharing-item sharing-whatsapp"
-        href="javascript:void(0);"
-        onclick="openShareWindow('https://wa.me/?text={{ _share_url }}')"
+        data-share-url="https://wa.me/?text={{ _share_url }}"
+        aria-label="Share on WhatsApp"
       >
-        <svg class="i i-whatsapp" viewBox="0 0 24 24">
+        <svg class="i i-whatsapp" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="9" cy="9" r="1"></circle>
           <circle cx="15" cy="15" r="1"></circle>
           <path d="M8 9a7 7 0 0 0 7 7m-9 5.2A11 11 0 1 0 2.8 18L2 22Z"></path>
         </svg>
-      </a>
+      </button>
     {% endif %}
 
     {% if block.settings.is_telegram %}
-      <a
+      <button
+        type="button"
         class="sharing-item sharing-telegram"
-        href="javascript:void(0);"
-        onclick="openShareWindow('https://t.me/share/url?url={{ _share_url }}')"
+        data-share-url="https://t.me/share/url?url={{ _share_url }}"
+        aria-label="Share on Telegram"
       >
-        <svg class="i i-telegram" viewBox="0 0 24 24">
+        <svg class="i i-telegram" viewBox="0 0 24 24" aria-hidden="true">
           <path d="M12.5 16 9 19.5 7 13l-5.5-2 21-8-4 18-7.5-7 4-3"></path>
         </svg>
-      </a>
+      </button>
     {% endif %}
 
     {% if block.settings.is_linkedin %}
-      <a
+      <button
+        type="button"
         class="sharing-item sharing-linkedin"
-        href="javascript:void(0);"
-        onclick="openShareWindow('https://www.linkedin.com/sharing/share-offsite/?url={{ _share_url }}')"
+        data-share-url="https://www.linkedin.com/sharing/share-offsite/?url={{ _share_url }}"
+        aria-label="Share on LinkedIn"
       >
-        <svg class="i i-linkedin" viewBox="0 0 24 24">
+        <svg class="i i-linkedin" viewBox="0 0 24 24" aria-hidden="true">
           <circle cx="4" cy="4" r="2"></circle>
           <path d="M2 9h4v12H2Zm20 12h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 12 0Z"></path>
         </svg>
-      </a>
+      </button>
     {% endif %}
   </div>
 </div>
 
+{{ 'share-icon.js' | asset_url | script_tag }}
+
 {% style %}
   .sharing {display: flex; flex-wrap: wrap; justify-content: center; gap: var(--sharing-gap, 1.5rem);}
-  .sharing-item {transition: background 0.3s, color 0.3s; color: var(--sharing-color, #fff); background-color: var(--sharing-bg, #000); padding: var(--sharing-padding, 0.7rem); border-radius: var(--sharing-radius, 0.5rem); box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.1), 0 2px 5px -1px rgba(0, 0, 0, 0.05);}
+  .sharing-item {
+    transition: background 0.3s, color 0.3s; 
+    color: var(--sharing-color, #fff); 
+    background-color: var(--sharing-bg, #000); 
+    padding: var(--sharing-padding, 0.7rem); 
+    border-radius: var(--sharing-radius, 0.5rem); 
+    box-shadow: 0 3px 5px -1px rgba(0, 0, 0, 0.1), 0 2px 5px -1px rgba(0, 0, 0, 0.05);
+    border: none;
+    cursor: pointer;
+  }
   .sharing-item .i {stroke: currentColor; stroke-linecap: round; stroke-linejoin: round; fill: none; transition: transform 0.3s; stroke-width: 2; width: var(--sharing-size, 20px); height: var(--sharing-size, 20px); display: block;}
   .sharing-item:hover {background-color: #fff; --sharing-color: var(--sharing-bg, #000);}
   .sharing-item:hover .i {transform: rotate(360deg);}
+  .sharing-item:focus {outline: 2px solid var(--sharing-bg, #000); outline-offset: 2px;}
   .sharing-facebook {--sharing-bg: #1778F2;}
   .sharing-bluesky {--sharing-bg: #0085ff;}
   .sharing-twitter {--sharing-bg: #55ACEE;}
@@ -183,14 +205,3 @@
     gap: 6px;
   }
 {% endstyle %}
-
-<script>
-  function openShareWindow(url) {
-    var width = 500;
-    var height = 400;
-    var left = 0;
-    var top = 100;
-
-    window.open(url, "shareWindow", "width=" + width + ",height=" + height + ",top=" + top + ",left=" + left);
-  }
-</script>
