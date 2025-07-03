@@ -76,7 +76,7 @@
    .faq-container.collapsible-content__wrapper .collapsible-content-wrapper-narrow .accordion details[open] summary .minus-icon {
      display: block;
    }
-       @media screen and (min-width: 750px) {
+       @media screen and (min-width: 768px) {
          .section-{{ section.id }}-padding {
            padding-top: {{ section.settings.padding_top }}px;
            padding-bottom: {{ section.settings.padding_bottom }}px;
@@ -144,7 +144,7 @@
                 -%}
                 {%- capture sizes -%}
                   (min-width: {{ settings.page_width }}px) calc(({{ settings.page_width }}px - {{ desktop_tablet_padding }}) / 2),
-                  (min-width: 750px) calc((100vw - {{ desktop_tablet_padding }}) / 2),
+                  (min-width: 768px) calc((100vw - {{ desktop_tablet_padding }}) / 2),
                   calc(100vw - {{ mobile_padding }})
                 {%- endcapture -%}
 

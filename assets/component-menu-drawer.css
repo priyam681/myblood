@@ -212,7 +212,7 @@ details[open] > .menu-drawer__submenu {
   }
 }
 
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 992px) {
   .header--has-localizations:where(:not(.header--has-social)) .menu-drawer__utility-links {
     padding: 2rem 3rem;
   }

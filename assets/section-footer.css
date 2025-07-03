@@ -390,7 +390,7 @@ footer.footer {
   }
 }
 
-@media screen and (max-width: 989px) {
+@media screen and (max-width: 992px) {
   .footer-block__details-content .list-menu__item--link {
     padding-top: 1rem;
     padding-bottom: 1rem;
