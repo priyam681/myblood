@@ -58,6 +58,10 @@
   margin-top: 18px;
   line-height: 1.1;
   max-width: 450px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
 }
 
 .featured-overlay .price {
@@ -101,9 +105,9 @@
 
       <div class="featured-card">
         {% if block.settings.custom_image != blank %}
-          <img src="{{ block.settings.custom_image | image_url: width: 600 }}" alt="{{ collection.title | escape }}">
+          <img src="{{ block.settings.custom_image | image_url: width: 600 ,height:600 }}" alt="{{ collection.title | escape }}">
         {% else %}
-          <img src="{{ product.featured_image | image_url: width: 600 }}" alt="{{ product.title | escape }}">
+          <img src="{{ product.featured_image | image_url: width: 600,height:600 }}" alt="{{ product.title | escape }}">
         {% endif %}
 
         <div class="featured-overlay">

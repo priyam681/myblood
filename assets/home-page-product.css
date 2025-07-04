@@ -25,14 +25,17 @@
 
 .product-card .product-card-link img {
     width: 100%;
-    height: auto;
 }
 
 .product-card .product-name {
     font-size: calc(16px + (24 - 16) * ((100vw - 360px) / (1920 - 360)));
-    line-height: 1;
+    line-height: 1.1;
     margin: 1.1rem 0 0.8rem;
     font-weight: 500;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    overflow: hidden;
+    -webkit-box-orient: vertical;
 }
 
 .product-card .product-price {

@@ -4654,7 +4654,8 @@ details > summary {
 
 .mega-menu-bg {
     background-color: #FAFAFA;
-    height: calc(100vh - 169px);
+    max-height: calc(100vh - 169px);
     overflow-y: auto;
+    min-height: 40vh;
 }
 
