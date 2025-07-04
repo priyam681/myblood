@@ -109,6 +109,13 @@
         "padding_bottom": 12
       }
     },
+    "product_detail_KpHxfn": {
+      "type": "product-detail",
+      "name": "Product Detail Section",
+      "settings": {
+        "title": "Sample"
+      }
+    },
     "related-products": {
       "type": "related-products",
       "settings": {
@@ -128,18 +135,11 @@
         "padding_top": 36,
         "padding_bottom": 28
       }
-    },
-    "product_detail_KpHxfn": {
-      "type": "product-detail",
-      "name": "Product Detail Section",
-      "settings": {
-        "title": "Sample"
-      }
     }
   },
   "order": [
     "main",
-    "related-products",
-    "product_detail_KpHxfn"
+    "product_detail_KpHxfn",
+    "related-products"
   ]
 }
