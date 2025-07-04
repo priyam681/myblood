@@ -198,8 +198,7 @@
       "settings": {
         "tab_heading": "LATEST",
         "tab_background_color": "#f8f8f8",
-        "tab_padding": 40,
-        "tab_margin": 30
+        "tab_padding": 40
       }
     },
     "featured_collection_grid_gCfPH8": {
@@ -263,9 +262,7 @@
         "color_scheme": "",
         "show_view_all": false,
         "columns_mobile": "1",
-        "swipe_on_mobile": false,
-        "padding_top": 36,
-        "padding_bottom": 36
+        "swipe_on_mobile": false
       }
     },
     "performance_banner_NfWipW": {
@@ -338,8 +335,7 @@
       "settings": {
         "heading": "Recommended for You",
         "tab_background_color": "#f8f8f8",
-        "tab_padding": 40,
-        "tab_margin": 30
+        "tab_padding": 40
       }
     },
     "colorful_kick_fRCnyF": {
@@ -348,12 +344,26 @@
         "image_showcase_mekXhE": {
           "type": "image_showcase",
           "settings": {
-            "product": "bizi-rose-aubergine"
+            "product": "camoscio-heel-red"
+          }
+        },
+        "image_showcase_gFmxTc": {
+          "type": "image_showcase",
+          "settings": {
+            "product": "camoscio-zip-heel-black"
+          }
+        },
+        "image_showcase_j6Ytkj": {
+          "type": "image_showcase",
+          "settings": {
+            "product": "avalon-sandal-white"
           }
         }
       },
       "block_order": [
-        "image_showcase_mekXhE"
+        "image_showcase_mekXhE",
+        "image_showcase_gFmxTc",
+        "image_showcase_j6Ytkj"
       ],
       "settings": {
         "lifestyle_image": "shopify://shop_images/shoes-collection.png",
@@ -382,8 +392,12 @@
             "label": "HIKING",
             "collection_url": "",
             "image1": "shopify://shop_images/image_20.png",
+            "lable1": "",
             "image2": "shopify://shop_images/image_22.png",
-            "image3": "shopify://shop_images/banner-image_1.png"
+            "lable2": "",
+            "image3": "shopify://shop_images/banner-image_1.png",
+            "lable3": "",
+            "lable4": ""
           }
         }
       },
