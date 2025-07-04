@@ -537,14 +537,40 @@ class MenuDrawer extends HTMLElement {
         document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
       }
     } else {
-      setTimeout(() => {
-        detailsElement.classList.add('menu-opening');
-        summaryElement.setAttribute('aria-expanded', true);
-        parentMenuElement && parentMenuElement.classList.add('submenu-open');
-        !reducedMotion || reducedMotion.matches
-          ? addTrapFocus()
-          : summaryElement.nextElementSibling.addEventListener('transitionend', addTrapFocus);
-      }, 100);
+      if (isOpen) {
+        // If clicking on the same open submenu, close it and rotate icon
+        this.manageSvgRotation(detailsElement, false);
+        this.closeSubmenu(detailsElement);
+      } else {
+        // Close all other open submenus at the same level before opening this one
+        const parentLi = detailsElement.parentElement; // The <li> element containing current details
+        const parentUl = parentLi.parentElement; // The <ul> element containing all sibling <li> elements
+        
+        if (parentUl) {
+          // Find all sibling <li> elements and check for open details within them
+          const siblingLis = Array.from(parentUl.children).filter(child => 
+            child.tagName === 'LI' && child !== parentLi
+          );
+          
+          siblingLis.forEach((siblingLi) => {
+            const openSubmenu = siblingLi.querySelector('details[open]');
+            if (openSubmenu) {
+              this.manageSvgRotation(openSubmenu, false);
+              this.closeSubmenu(openSubmenu);
+            }
+          });
+        }
+
+        setTimeout(() => {
+          detailsElement.classList.add('menu-opening');
+          summaryElement.setAttribute('aria-expanded', true);
+          this.manageSvgRotation(detailsElement, true);
+          parentMenuElement && parentMenuElement.classList.add('submenu-open');
+          !reducedMotion || reducedMotion.matches
+            ? addTrapFocus()
+            : summaryElement.nextElementSibling.addEventListener('transitionend', addTrapFocus);
+        }, 100);
+      }
     }
   }
 
@@ -621,11 +647,22 @@ class MenuDrawer extends HTMLElement {
     const parentMenuElement = detailsElement.closest('.submenu-open');
     parentMenuElement && parentMenuElement.classList.remove('submenu-open');
 
+    // Close all nested inner submenus
+    const nestedSubmenus = detailsElement.querySelectorAll('details[open]');
+    nestedSubmenus.forEach((nestedSubmenu) => {
+      this.manageSvgRotation(nestedSubmenu, false);
+      nestedSubmenu.classList.remove('menu-opening');
+      nestedSubmenu.querySelector('summary').setAttribute('aria-expanded', false);
+      nestedSubmenu.removeAttribute('open');
+      // Remove submenu-open class from any nested parent elements
+      const nestedParents = nestedSubmenu.querySelectorAll('.submenu-open');
+      nestedParents.forEach(parent => parent.classList.remove('submenu-open'));
+    });
+
     this.manageSvgRotation(detailsElement, false);
     detailsElement.classList.remove('menu-opening');
     detailsElement.querySelector('summary').setAttribute('aria-expanded', false);
     removeTrapFocus(detailsElement.querySelector('summary'));
-
 
     this.closeAnimation(detailsElement);
   }
