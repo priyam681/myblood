@@ -324,57 +324,43 @@
     "recommended_products_m4qpPD": {
       "type": "recommended-products",
       "blocks": {
-        "product_TCRhRp": {
+        "product_Chc3N4": {
           "type": "product",
           "settings": {
-            "product": "5-pocket-jean"
+            "product": "aqualina-sandal-black-red"
           }
         },
-        "product_Wbi6Rt": {
+        "product_K8tXAP": {
           "type": "product",
           "settings": {
-            "product": "a-line-jacket-in-black"
+            "product": "camoscio-heel-red"
           }
         },
-        "product_Xhn43p": {
+        "product_6Gx9aL": {
           "type": "product",
           "settings": {
-            "product": "a-line-pocket-shift-black"
+            "product": "boldness-sneakers-sports-running-shoes"
           }
         },
-        "product_Mq4CXF": {
+        "product_Ji3arA": {
           "type": "product",
           "settings": {
-            "product": "acb-top-in-chipped-brick"
+            "product": "camoscio-heel-taupe"
           }
         },
-        "product_3BFKDp": {
+        "product_Ujwttm": {
           "type": "product",
           "settings": {
-            "product": "aliam-skirt-mud"
-          }
-        },
-        "product_JeNDdz": {
-          "type": "product",
-          "settings": {
-            "product": "antidote-13-tee-mood-indigo"
-          }
-        },
-        "product_rrNpqP": {
-          "type": "product",
-          "settings": {
-            "product": "axel-coat-black"
+            "product": "clarkin-7-0-sneakers-for-men"
           }
         }
       },
       "block_order": [
-        "product_TCRhRp",
-        "product_Wbi6Rt",
-        "product_Xhn43p",
-        "product_Mq4CXF",
-        "product_3BFKDp",
-        "product_JeNDdz",
-        "product_rrNpqP"
+        "product_Chc3N4",
+        "product_K8tXAP",
+        "product_6Gx9aL",
+        "product_Ji3arA",
+        "product_Ujwttm"
       ],
       "name": "Recommended Products",
       "settings": {
