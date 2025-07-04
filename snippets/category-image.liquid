@@ -22,24 +22,24 @@
 
 
 {% style %}
-.mega-menu-subcategory-list .mega-menu__link.mega-menu__link--level-2 {
-         margin-bottom: 15px;
-         border-bottom: 2px solid #000;
-         padding: 0;
-         color: #212121;
-         font-size: 18px;
-         font-weight: 500;
-         width: fit-content;
-}
-.mega-menu-subcategory-list .mega-menu__link.mega-menu__link--level-2:hover {
-   text-decoration: none;
-   }
+    .mega-menu-subcategory-list .mega-menu__link.mega-menu__link--level-2 {
+    margin-bottom: 15px;
+    border-bottom: 2px solid #000;
+    padding: 0;
+    color: #212121;
+    font-size: 18px;
+    font-weight: 500;
+    width: fit-content;
+    }
+    .mega-menu-subcategory-list .mega-menu__link.mega-menu__link--level-2:hover {
+    text-decoration: none;
+    }
     .mega-menu-subcategory-list .category-image {
-      display: none;
-      transition: opacity 0.3s ease;
-      width: 145px;
-      height: 75px;
-      margin-bottom: 15px;
+    display: none;
+    transition: opacity 0.3s ease;
+    width: 145px;
+    height: 75px;
+    margin-bottom: 15px;
     }
     .mega-menu-subcategory-list .category-image.active {
     display: block;
@@ -57,51 +57,54 @@
 
 <script defer>
 
-  class CategoryImageController {
-    constructor() {
-      this.init();
-    }
+  // Only declare the class if it doesn't already exist
+  if (typeof window.CategoryImageController === 'undefined') {
+    window.CategoryImageController = class CategoryImageController {
+      constructor() {
+        this.init();
+      }
 
-    init() {
-      document.addEventListener('DOMContentLoaded', () => {
-        this.setupImageContainers();
-      });
-    }
+      init() {
+        document.addEventListener('DOMContentLoaded', () => {
+          this.setupImageContainers();
+        });
+      }
 
-    setupImageContainers() {
-      const containers = document.querySelectorAll('.category-images-container');
+      setupImageContainers() {
+        const containers = document.querySelectorAll('.category-images-container');
 
-      containers.forEach(container => {
-        const parentHandle = container.dataset.parentHandle;
-        const categoryImages = container.querySelectorAll('.category-image');
-        const childLinks = document.querySelectorAll(`li[data-childlink="${parentHandle}"]`);
+        containers.forEach(container => {
+          const parentHandle = container.dataset.parentHandle;
+          const categoryImages = container.querySelectorAll('.category-image');
+          const childLinks = document.querySelectorAll(`li[data-childlink="${parentHandle}"]`);
 
-        // Show first image by default
-        if (categoryImages.length > 0) {
-          categoryImages[0].classList.add('active');
-        }
+          // Show first image by default
+          if (categoryImages.length > 0) {
+            categoryImages[0].classList.add('active');
+          }
 
-        // Setup hover handlers
-        childLinks.forEach(link => {
-          link.addEventListener('mouseenter', (event) => {
-            this.handleImageSwitch(event, categoryImages);
+          // Setup hover handlers
+          childLinks.forEach(link => {
+            link.addEventListener('mouseenter', (event) => {
+              this.handleImageSwitch(event, categoryImages);
+            });
           });
         });
-      });
-    }
+      }
 
-    handleImageSwitch(event, categoryImages) {
-      const targetHandle = event.target.dataset.grandchildlink;
+      handleImageSwitch(event, categoryImages) {
+        const targetHandle = event.target.dataset.grandchildlink;
 
-      if (!targetHandle) return;
+        if (!targetHandle) return;
 
-      categoryImages.forEach(imageEl => {
-        imageEl.classList.toggle('active', imageEl.dataset.image === targetHandle);
-      });
+        categoryImages.forEach(imageEl => {
+          imageEl.classList.toggle('active', imageEl.dataset.image === targetHandle);
+        });
+      }
     }
   }
 
   // Initialize the controller
-  new CategoryImageController();
+  new window.CategoryImageController();
 
 </script>
