@@ -211,13 +211,62 @@
             "image4": "shopify://shop_images/6-ori-9056-6-bersache-black-original-imah5ducyyddrbuk.webp",
             "lable4": "text-4"
           }
+        },
+        "action_item_6qkcz3": {
+          "type": "action_item",
+          "settings": {
+            "label": "HIKING",
+            "collection_url": "shopify://collections/kids",
+            "image1": "shopify://shop_images/original-imahd2zcztpgnbyh.webp",
+            "lable1": "text-1",
+            "image2": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhw7xrpwtss.webp",
+            "lable2": "text-2",
+            "image3": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhwethyfjn5.webp",
+            "lable3": "text-3",
+            "image4": "shopify://shop_images/6-ori-9056-6-bersache-black-original-imah5ducyyddrbuk.webp",
+            "lable4": "text-4"
+          }
+        },
+        "action_item_FdXygz": {
+          "type": "action_item",
+          "settings": {
+            "label": "HIKING",
+            "collection_url": "shopify://collections/kids",
+            "image1": "shopify://shop_images/original-imahd2zcztpgnbyh.webp",
+            "lable1": "text-1",
+            "image2": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhw7xrpwtss.webp",
+            "lable2": "text-2",
+            "image3": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhwethyfjn5.webp",
+            "lable3": "text-3",
+            "image4": "shopify://shop_images/6-ori-9056-6-bersache-black-original-imah5ducyyddrbuk.webp",
+            "lable4": "text-4"
+          }
+        },
+        "action_item_NirM74": {
+          "type": "action_item",
+          "settings": {
+            "label": "HIKING",
+            "collection_url": "shopify://collections/kids",
+            "image1": "shopify://shop_images/original-imahd2zcztpgnbyh.webp",
+            "lable1": "text-1",
+            "image2": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhw7xrpwtss.webp",
+            "lable2": "text-2",
+            "image3": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhwethyfjn5.webp",
+            "lable3": "text-3",
+            "image4": "shopify://shop_images/6-ori-9056-6-bersache-black-original-imah5ducyyddrbuk.webp",
+            "lable4": "text-4"
+          }
         }
       },
       "block_order": [
-        "action_item_3N7qBW"
+        "action_item_3N7qBW",
+        "action_item_6qkcz3",
+        "action_item_FdXygz",
+        "action_item_NirM74"
       ],
       "name": "Choose Your Action",
       "settings": {
+        "bg_image": "shopify://shop_images/bgshoe.png",
         "section_title": "CHOOSE YOUR ACTION"
       }
     },
