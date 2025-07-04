@@ -2872,9 +2872,11 @@ input[type="checkbox"] {
     transition: width 0.3s cubic-bezier(0.52, 0, 0.61, 0.99);
     min-width: 100px;
 }
+
 .header__heading-logo-wrapper img {
     max-height: 106px;
 }
+
 @media screen and (max-width: 992px) {
     .header__heading,
     .header__heading-link {
@@ -2921,7 +2923,7 @@ input[type="checkbox"] {
     display: flex;
     grid-area: icons;
     justify-self: end;
-    gap: 8px
+    gap: 14px
 }
 
 .header__icons .shopify-app-block {
@@ -4621,25 +4623,26 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
 }
 
 /*.sp-card-wrapper .sp-card-varient .product-form__input--swatch .swatch-input__input + .swatch-input__label {*/
-    /*max-height: 30px;*/
+/*max-height: 30px;*/
 /*}*/
 
 /*.sp-card-wrapper .product-form__input--swatch .swatch-input__input + .swatch-input__label {*/
-    /*max-height: 30px;*/
+/*max-height: 30px;*/
 /*}*/
 
 /*.sp-card-wrapper .sp-card-varient .swatch-input__input + .swatch-input__label:hover,*/
 /*.sp-card-wrapper .sp-card-varient .swatch-input__input:hover + .swatch-input__label {*/
-    /*outline: none;*/
+/*outline: none;*/
 /*}*/
 
 /*.sp-card-wrapper .sp-card-varient input[type="radio"]:checked + label {*/
-    /*outline: 1px solid rgb(0, 0, 0);*/
+/*outline: 1px solid rgb(0, 0, 0);*/
 /*}*/
 .product-form__input.product-form__input--swatch .varient-plus-icon-svg {
     display: flex;
     align-items: center;
 }
+
 .sp-card-wrapper .sp-card-varient legend.form__label {
     font-size: 14px;
     margin-bottom: 0.5rem;
