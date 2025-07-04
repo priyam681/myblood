@@ -14,7 +14,8 @@ function calculateHeaderHeight(event) {
 
     let calculatedHeaderHeight = Math.abs(headerHeight + announcementBarHeight);
 
-    document.querySelector('.mega-menu-bg').style.max-height = `calc(100vh - ${calculatedHeaderHeight}px)`;
+
+    document.querySelector('.mega-menu-bg').style['max-height'] = `calc(100vh - ${calculatedHeaderHeight}px)`;
 
   }, 0);
 
@@ -545,13 +546,13 @@ class MenuDrawer extends HTMLElement {
         // Close all other open submenus at the same level before opening this one
         const parentLi = detailsElement.parentElement; // The <li> element containing current details
         const parentUl = parentLi.parentElement; // The <ul> element containing all sibling <li> elements
-        
+
         if (parentUl) {
           // Find all sibling <li> elements and check for open details within them
-          const siblingLis = Array.from(parentUl.children).filter(child => 
+          const siblingLis = Array.from(parentUl.children).filter(child =>
             child.tagName === 'LI' && child !== parentLi
           );
-          
+
           siblingLis.forEach((siblingLi) => {
             const openSubmenu = siblingLi.querySelector('details[open]');
             if (openSubmenu) {
