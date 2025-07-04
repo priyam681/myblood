@@ -280,9 +280,33 @@ if (!customElements.get('product-info')) {
           }
 
           // refresh
-          if (shouldRefresh) [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
+          if (shouldRefresh) {
+            [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
+            
+            // Re-initialize modal openers for new media gallery items
+            const modalOpeners = mediaGallerySource.querySelectorAll('modal-opener');
+            modalOpeners.forEach(opener => {
+              const button = opener.querySelector('button');
+              if (button && !button.hasAttribute('data-modal-initialized')) {
+                button.setAttribute('data-modal-initialized', 'true');
+                button.addEventListener('click', () => {
+                  let modalSelector = opener.getAttribute('data-modal');
+                  
+                  // In quick-add context, check if we need to use the modified ID
+                  if (this.dataset.originalSection && modalSelector.includes(this.dataset.originalSection)) {
+                    modalSelector = modalSelector.replace(this.dataset.originalSection, `quickadd-${this.dataset.originalSection}`);
+                  }
+                  
+                  const modal = document.querySelector(modalSelector);
+                  console.log('OPEN', modal, 'selector:', modalSelector);
+                  if (modal) modal.show(button);
+                });
+              }
+            });
+          }
 
           // if media galleries don't match, sort to match new data order
+          let hasReordered = false;
           mediaGalleryDestinationItems.forEach((destinationItem, destinationIndex) => {
             const sourceData = sourceMap.get(destinationItem.dataset.mediaId);
 
@@ -294,8 +318,32 @@ if (!customElements.get('product-info')) {
 
               // refresh source now that it has been modified
               [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
+              hasReordered = true;
             }
           });
+
+          // Re-initialize modal openers after reordering
+          if (hasReordered) {
+            const modalOpeners = mediaGallerySource.querySelectorAll('modal-opener');
+            modalOpeners.forEach(opener => {
+              const button = opener.querySelector('button');
+              if (button && !button.hasAttribute('data-modal-initialized')) {
+                button.setAttribute('data-modal-initialized', 'true');
+                button.addEventListener('click', () => {
+                  let modalSelector = opener.getAttribute('data-modal');
+                  
+                  // In quick-add context, check if we need to use the modified ID
+                  if (this.dataset.originalSection && modalSelector.includes(this.dataset.originalSection)) {
+                    modalSelector = modalSelector.replace(this.dataset.originalSection, `quickadd-${this.dataset.originalSection}`);
+                  }
+                  
+                  const modal = document.querySelector(modalSelector);
+                  console.log('OPEN', modal, 'selector:', modalSelector);
+                  if (modal) modal.show(button);
+                });
+              }
+            });
+          }
         }
 
         // set featured media as active in the media gallery
@@ -304,10 +352,45 @@ if (!customElements.get('product-info')) {
           true
         );
 
-        // update media modal
+        // update media modal - handle both product-modal and product-modal-single
         const modalContent = this.productModal?.querySelector(`.product-media-modal__content`);
-        const newModalContent = html.querySelector(`product-modal .product-media-modal__content`);
-        if (modalContent && newModalContent) modalContent.innerHTML = newModalContent.innerHTML;
+        
+        // Try both product-modal and product-modal-single in the new HTML
+        let newModalContent = html.querySelector(`product-modal .product-media-modal__content`);
+        if (!newModalContent) {
+          newModalContent = html.querySelector(`product-modal-single .product-media-modal__content`);
+        }
+        
+        if (modalContent && newModalContent) {
+          modalContent.innerHTML = newModalContent.innerHTML;
+          
+          // Re-initialize modal openers after DOM update
+          const modalOpeners = modalContent.querySelectorAll('modal-opener');
+          modalOpeners.forEach(opener => {
+            const button = opener.querySelector('button');
+            if (button && !button.hasAttribute('data-modal-initialized')) {
+              button.setAttribute('data-modal-initialized', 'true');
+              button.addEventListener('click', () => {
+                let modalSelector = opener.getAttribute('data-modal');
+                
+                // In quick-add context, check if we need to use the modified ID
+                if (this.dataset.originalSection && modalSelector.includes(this.dataset.originalSection)) {
+                  modalSelector = modalSelector.replace(this.dataset.originalSection, `quickadd-${this.dataset.originalSection}`);
+                }
+                
+                const modal = document.querySelector(modalSelector);
+                console.log('OPEN', modal, 'selector:', modalSelector);
+                if (modal) modal.show(button);
+              });
+            }
+          });
+          
+          // Notify ProductModalSingle that content has been updated
+          const productModalSingle = modalContent.closest('product-modal-single');
+          if (productModalSingle && productModalSingle.refreshThumbnails) {
+            productModalSingle.refreshThumbnails();
+          }
+        }
       }
 
       setQuantityBoundries() {

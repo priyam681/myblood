@@ -41,6 +41,18 @@ if (!customElements.get('quick-add-modal')) {
             
             HTMLUpdateUtility.setInnerHTML(this.modalContent, productElement.outerHTML);
 
+            // Re-initialize modal openers after DOM update
+            const modalOpeners = this.modalContent.querySelectorAll('modal-opener');
+            modalOpeners.forEach(opener => {
+              const button = opener.querySelector('button');
+              if (button && !button.hasAttribute('data-modal-initialized')) {
+                button.setAttribute('data-modal-initialized', 'true');
+                button.addEventListener('click', () => {
+                  const modal = document.querySelector(opener.getAttribute('data-modal'));
+                  if (modal) modal.show(button);
+                });
+              }
+            });
 
             if (window.Shopify && Shopify.PaymentButton) {
               Shopify.PaymentButton.init();

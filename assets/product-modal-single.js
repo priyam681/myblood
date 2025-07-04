@@ -66,35 +66,11 @@ if (!customElements.get('product-modal-single')) {
       this.documentClickHandler = this.handleDocumentClick.bind(this);
       document.addEventListener('click', this.documentClickHandler);
 
-      this.thumbnails.forEach((thumbnail) => {
-        // Handle both click and touch events
-        thumbnail.addEventListener('click', this.handleThumbnailClick.bind(this));
-        thumbnail.addEventListener('touchend', (event) => {
-          // Prevent default touch behavior only on mobile
-          if (this.isMobile) {
-            event.preventDefault();
-          }
-          this.handleThumbnailClick(event);
-        });
-      });
+      // Setup initial thumbnail event listeners
+      this.setupThumbnailEventListeners();
 
-      // Add navigation arrow event listeners
-      const prevButton = this.querySelector('.product-modal-prev');
-      const nextButton = this.querySelector('.product-modal-next');
-
-      if (prevButton) {
-        prevButton.addEventListener('click', (event) => {
-          event.stopPropagation();
-          this.showPreviousMedia();
-        });
-      }
-
-      if (nextButton) {
-        nextButton.addEventListener('click', (event) => {
-          event.stopPropagation();
-          this.showNextMedia();
-        });
-      }
+      // Setup initial arrow event listeners
+      this.setupArrowEventListeners();
 
       // Setup swipe handling for mobile
       this.setupSwipeHandling();
@@ -309,12 +285,23 @@ if (!customElements.get('product-modal-single')) {
     }
 
     showPreviousMedia() {
+      // Refresh thumbnails to ensure we're working with current DOM elements
+      this.refreshThumbnails();
+      
+      console.log('showPreviousMedia: thumbnails count:', this.thumbnails.length);
+      
       const activeThumb = this.querySelector('.product-modal-thumbnail.active');
+      console.log('showPreviousMedia: activeThumb:', activeThumb);
       if (!activeThumb) return;
 
-      const prevThumb = activeThumb.previousElementSibling;
-      if (prevThumb && prevThumb.classList.contains('product-modal-thumbnail')) {
-        // Simply activate the previous thumbnail
+      // Find the index of the current active thumbnail
+      const activeIndex = Array.from(this.thumbnails).findIndex(thumb => thumb === activeThumb);
+      console.log('showPreviousMedia: activeIndex:', activeIndex);
+      
+      if (activeIndex > 0) {
+        // Move to the previous thumbnail
+        const prevThumb = this.thumbnails[activeIndex - 1];
+        console.log('showPreviousMedia: prevThumb:', prevThumb);
         this.handleThumbnailClick({
           currentTarget: prevThumb, stopPropagation: () => {
           }
@@ -322,6 +309,7 @@ if (!customElements.get('product-modal-single')) {
       } else {
         // Loop to the last thumbnail if at the beginning
         const lastThumb = this.thumbnails[this.thumbnails.length - 1];
+        console.log('showPreviousMedia: looping to lastThumb:', lastThumb);
         if (lastThumb) {
           this.handleThumbnailClick({
             currentTarget: lastThumb, stopPropagation: () => {
@@ -332,12 +320,32 @@ if (!customElements.get('product-modal-single')) {
     }
 
     showNextMedia() {
+      // Refresh thumbnails to ensure we're working with current DOM elements
+      this.refreshThumbnails();
+      
+      console.log('showNextMedia: thumbnails count:', this.thumbnails.length);
+      
       const activeThumb = this.querySelector('.product-modal-thumbnail.active');
-      if (!activeThumb) return;
+      console.log('showNextMedia: activeThumb:', activeThumb);
+      
+      if (!activeThumb) {
+        // Fallback: if no active thumbnail, let's manually set the first one as active
+        console.log('showNextMedia: No active thumbnail found, setting first as active');
+        if (this.thumbnails.length > 0) {
+          this.thumbnails[0].classList.add('active');
+          return this.showNextMedia(); // Retry
+        }
+        return;
+      }
 
-      const nextThumb = activeThumb.nextElementSibling;
-      if (nextThumb && nextThumb.classList.contains('product-modal-thumbnail')) {
-        // Simply activate the next thumbnail
+      // Find the index of the current active thumbnail
+      const activeIndex = Array.from(this.thumbnails).findIndex(thumb => thumb === activeThumb);
+      console.log('showNextMedia: activeIndex:', activeIndex);
+      
+      if (activeIndex < this.thumbnails.length - 1) {
+        // Move to the next thumbnail
+        const nextThumb = this.thumbnails[activeIndex + 1];
+        console.log('showNextMedia: nextThumb:', nextThumb);
         this.handleThumbnailClick({
           currentTarget: nextThumb, stopPropagation: () => {
           }
@@ -345,6 +353,7 @@ if (!customElements.get('product-modal-single')) {
       } else {
         // Loop to the first thumbnail if at the end
         const firstThumb = this.thumbnails[0];
+        console.log('showNextMedia: looping to firstThumb:', firstThumb);
         if (firstThumb) {
           this.handleThumbnailClick({
             currentTarget: firstThumb, stopPropagation: () => {
@@ -447,17 +456,114 @@ if (!customElements.get('product-modal-single')) {
       }
     }
 
+    refreshThumbnails() {
+      // Refresh thumbnail references to current DOM elements
+      this.thumbnails = this.querySelectorAll('.product-modal-thumbnail');
+      
+      // Re-bind event listeners to new thumbnail elements
+      this.setupThumbnailEventListeners();
+      
+      // Re-initialize arrow button event listeners
+      this.setupArrowEventListeners();
+      
+      // Re-establish active thumbnail based on currently visible media
+      this.reestablishActiveState();
+    }
+
+    setupArrowEventListeners() {
+      // Re-find arrow buttons in case they were replaced
+      const prevButton = this.querySelector('.product-modal-prev');
+      const nextButton = this.querySelector('.product-modal-next');
+
+      if (prevButton) {
+        // Remove existing listener to avoid duplicates
+        prevButton.removeEventListener('click', this.prevButtonHandler);
+        // Store bound handler for removal later
+        this.prevButtonHandler = (event) => {
+          event.stopPropagation();
+          console.log('Arrow PREV clicked');
+          this.showPreviousMedia();
+        };
+        prevButton.addEventListener('click', this.prevButtonHandler);
+      }
+
+      if (nextButton) {
+        // Remove existing listener to avoid duplicates  
+        nextButton.removeEventListener('click', this.nextButtonHandler);
+        // Store bound handler for removal later
+        this.nextButtonHandler = (event) => {
+          event.stopPropagation();
+          console.log('Arrow NEXT clicked');
+          this.showNextMedia();
+        };
+        nextButton.addEventListener('click', this.nextButtonHandler);
+      }
+      
+      console.log('setupArrowEventListeners: prevButton:', prevButton, 'nextButton:', nextButton);
+    }
+
+    reestablishActiveState() {
+      // Find the currently visible media container
+      const visibleMedia = this.querySelector('.product-modal-media-container:not(.hidden)');
+      if (visibleMedia) {
+        const visibleMediaId = visibleMedia.dataset.mediaId;
+        console.log('reestablishActiveState: visible media ID:', visibleMediaId);
+        
+        // Set the corresponding thumbnail as active
+        this.thumbnails.forEach((thumb) => {
+          const isActive = thumb.dataset.mediaId === visibleMediaId;
+          thumb.classList.toggle('active', isActive);
+          if (isActive) {
+            console.log('reestablishActiveState: set active thumbnail:', thumb);
+          }
+        });
+      } else {
+        // Fallback: if no visible media found, activate the first thumbnail
+        console.log('reestablishActiveState: no visible media, activating first thumbnail');
+        if (this.thumbnails.length > 0) {
+          this.thumbnails.forEach((thumb, index) => {
+            thumb.classList.toggle('active', index === 0);
+          });
+        }
+      }
+    }
+
+    setupThumbnailEventListeners() {
+      this.thumbnails.forEach((thumbnail) => {
+        // Remove existing listeners to avoid duplicates
+        thumbnail.removeEventListener('click', this.handleThumbnailClick);
+        
+        // Handle both click and touch events
+        thumbnail.addEventListener('click', this.handleThumbnailClick.bind(this));
+        thumbnail.addEventListener('touchend', (event) => {
+          // Prevent default touch behavior only on mobile
+          if (this.isMobile) {
+            event.preventDefault();
+          }
+          this.handleThumbnailClick(event);
+        });
+      });
+    }
+
     showActiveMedia() {
       if (!this.openedBy) return;
 
+      // Refresh thumbnails to ensure we're working with current DOM elements
+      this.refreshThumbnails();
+
       const mediaId = this.openedBy.getAttribute('data-media-id');
+      console.log('showActiveMedia: openedBy:', this.openedBy);
+      console.log('showActiveMedia: mediaId from openedBy:', mediaId);
 
       // Set initial active thumbnail
-      this.thumbnails.forEach((thumb) => {
-        thumb.classList.toggle('active', thumb.dataset.mediaId === mediaId);
+      this.thumbnails.forEach((thumb, index) => {
+        console.log(`showActiveMedia: thumbnail ${index} mediaId:`, thumb.dataset.mediaId);
+        const isActive = thumb.dataset.mediaId === mediaId;
+        thumb.classList.toggle('active', isActive);
 
         // Scroll the initial active thumbnail into view
-        if (thumb.dataset.mediaId === mediaId) {
+        if (isActive) {
+          console.log('showActiveMedia: setting active thumbnail:', thumb);
           this.scrollThumbnailIntoView(thumb);
         }
       });
