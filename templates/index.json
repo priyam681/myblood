@@ -194,6 +194,33 @@
       ],
       "settings": {}
     },
+    "choose_your_action_dircbH": {
+      "type": "choose-your-action",
+      "blocks": {
+        "action_item_3N7qBW": {
+          "type": "action_item",
+          "settings": {
+            "label": "HIKING",
+            "collection_url": "shopify://collections/kids",
+            "image1": "shopify://shop_images/original-imahd2zcztpgnbyh.webp",
+            "lable1": "text-1",
+            "image2": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhw7xrpwtss.webp",
+            "lable2": "text-2",
+            "image3": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhwethyfjn5.webp",
+            "lable3": "text-3",
+            "image4": "shopify://shop_images/6-ori-9056-6-bersache-black-original-imah5ducyyddrbuk.webp",
+            "lable4": "text-4"
+          }
+        }
+      },
+      "block_order": [
+        "action_item_3N7qBW"
+      ],
+      "name": "Choose Your Action",
+      "settings": {
+        "section_title": "CHOOSE YOUR ACTION"
+      }
+    },
     "cstm_collection_list_DFy79n": {
       "type": "cstm-collection-list",
       "blocks": {
@@ -351,32 +378,6 @@
         "show_product_info": true,
         "only_desktop": true
       }
-    },
-    "choose_your_action_dircbH": {
-      "type": "choose-your-action",
-      "blocks": {
-        "action_item_3N7qBW": {
-          "type": "action_item",
-          "settings": {
-            "label": "HIKING",
-            "collection_url": "",
-            "image1": "shopify://shop_images/image_20.png",
-            "lable1": "",
-            "image2": "shopify://shop_images/image_22.png",
-            "lable2": "",
-            "image3": "shopify://shop_images/banner-image_1.png",
-            "lable3": "",
-            "lable4": ""
-          }
-        }
-      },
-      "block_order": [
-        "action_item_3N7qBW"
-      ],
-      "name": "Choose Your Action",
-      "settings": {
-        "section_title": "CHOOSE YOUR ACTION"
-      }
     }
   },
   "order": [
@@ -385,10 +386,10 @@
     "featured_collection_grid_8YqY7J",
     "product_tab_NthRmD",
     "featured_collection_grid_gCfPH8",
+    "choose_your_action_dircbH",
     "cstm_collection_list_DFy79n",
     "performance_banner_NfWipW",
     "recommended_products_m4qpPD",
-    "colorful_kick_fRCnyF",
-    "choose_your_action_dircbH"
+    "colorful_kick_fRCnyF"
   ]
 }
