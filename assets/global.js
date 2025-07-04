@@ -14,7 +14,7 @@ function calculateHeaderHeight(event) {
 
     let calculatedHeaderHeight = Math.abs(headerHeight + announcementBarHeight);
 
-    document.querySelector('.mega-menu-bg').style.height = `calc(100vh - ${calculatedHeaderHeight}px)`;
+    document.querySelector('.mega-menu-bg').style.max-height = `calc(100vh - ${calculatedHeaderHeight}px)`;
 
   }, 0);
 
