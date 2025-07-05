@@ -21,10 +21,15 @@
 .product-card .product-card-link {
     display: flex;
     margin-bottom: 2rem;
+    overflow: hidden;
 }
 
 .product-card .product-card-link img {
     width: 100%;
+    transition: transform 0.3s ease;
+}
+.product-card .product-card-link img:hover {
+    transform: scale(1.3);
 }
 
 .product-card .product-name {
@@ -285,6 +290,9 @@
 
     .prev-next-button {
         display: none;
+    }
+    .recommended-heading {
+        text-align: center;
     }
 }
 
