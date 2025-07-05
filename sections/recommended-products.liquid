@@ -67,16 +67,16 @@
                             <div class="{% if section.blocks.size > 1 %}swiper-slide{% else %}recommended-item{% endif %}">
                                 <div class="product-card">
                                     <a href="{{ product.url }}" class="product-card-link">
-                                        <img src="{{ product.featured_image | image_url: width: 400,height:400 }}"
+                                        <img src="{{ product.featured_image | image_url: width: 400, height: 400 }}"
                                              class="main-image" loading="lazy"
-                                             alt="{{ product.title }}">
+                                             alt="{{ product.title }}" width="400" height="400">
                                     </a>
                                     <div class="thumbnail-wrapper">
                                         {% for image in product.images limit: 15 %}
                                             <div class="thumbnail-image-wrapper">
                                                 <img
                                                         class="thumbnail"
-                                                        src="{{ image | image_url: width: 400,height:400 }}"
+                                                        src="{{ image | image_url: width: 400, height: 400 }}"
                                                         alt="{{ product.title }} thumbnail"
                                                         onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
                                                         width="50px" height="50px"

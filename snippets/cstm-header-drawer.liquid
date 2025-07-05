@@ -95,7 +95,8 @@
                                                                         {% assign image_url = childlink.object.featured_image | image_url: width: 100 %}
                                                                         <img src="{{ image_url }}"
                                                                              alt="{{ childlink.title | escape }}"
-                                                                             class="mega-menu__image" />
+                                                                             class="mega-menu__image" width="50px"
+                                                                             height="50px" loading="lazy" />
                                                                     {% endif %}
 
                                                                     <a
@@ -121,7 +122,9 @@
                                                                                 {% assign image_url = childlink.object.featured_image | image_url: width: 100 %}
                                                                                 <img src="{{ image_url }}"
                                                                                      alt="{{ childlink.title | escape }}"
-                                                                                     class="mega-menu__image" />
+                                                                                     class="mega-menu__image"
+                                                                                     width="50px" height="50px"
+                                                                                     loading="lazy" />
                                                                             {% endif %}
 
                                                                             <span class="summary-details-heading">{{ childlink.title | escape }}</span>
@@ -145,7 +148,10 @@
                                                                                             {% assign image_url = grandchildlink.object.featured_image | image_url: width: 100 %}
                                                                                             <img src="{{ image_url }}"
                                                                                                  alt="{{ childlink.title | escape }}"
-                                                                                                 class="mega-menu__image" />
+                                                                                                 class="mega-menu__image"
+                                                                                                 width="50px"
+                                                                                                 height="50px"
+                                                                                                 loading="lazy" />
                                                                                         {% endif %}
                                                                                         <a
                                                                                                 id="HeaderDrawer-{{ link.handle }}-{{ childlink.handle }}-{{ grandchildlink.handle }}"

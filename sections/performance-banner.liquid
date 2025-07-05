@@ -1,9 +1,10 @@
 <style>
-      .performance-banner {
+    .performance-banner {
         display: grid;
-       grid-template-columns: 1fr 1fr;
-      }
-      .performance-banner .text-content {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .performance-banner .text-content {
         background-color: #000;
         color: #fff;
         padding-block: 60px;
@@ -11,25 +12,30 @@
         flex-direction: column;
         justify-content: center;
         width: 100%;
-      }
-      .performance-banner .text-content .text-container {
+    }
+
+    .performance-banner .text-content .text-container {
         max-width: 450px;
-      }
-      .performance-banner .text-content h2 {
+    }
+
+    .performance-banner .text-content h2 {
         font-size: 32px;
         font-weight: bold;
         line-height: 1.3;
-        color:#fff;
-      }
-      .performance-banner .text-content .highlight {
+        color: #fff;
+    }
+
+    .performance-banner .text-content .highlight {
         color: #FF4500;
-      }
-      .performance-banner .text-content p {
+    }
+
+    .performance-banner .text-content p {
         margin-top: 20px;
         font-size: 16px;
         line-height: 1.6;
-      }
-      .performance-banner .text-content .btn {
+    }
+
+    .performance-banner .text-content .btn {
         background-color: #FF4500;
         color: white;
         padding: 12px 24px;
@@ -37,65 +43,74 @@
         margin-top: 30px;
         display: inline-block;
         text-decoration: none;
-      }
-  @media(max-width: 768px) {
-      .performance-banner {
-       grid-template-columns: 1fr;
-      }
-      .performance-banner .text-content {
-              padding-inline: 1.5rem;
-            }
-             .performance-banner .image-content {
-                display: none;
-             }
-             }
-            .performance-banner .text-content .text-container {
-                text-align: center;
-                margin: auto;
-            }
-  }
-   @media(min-width:  768px) {
-    .performance-banner .text-content {
-            padding-inline: 3rem;
-          }
     }
-   @media(min-width: 992px) {
-  .performance-banner .text-content {
-          padding-inline: 17.2%;
+
+    @media (max-width: 768px) {
+        .performance-banner {
+            grid-template-columns: 1fr;
         }
-  }
+
+        .performance-banner .text-content {
+            padding-inline: 1.5rem;
+        }
+
+        .performance-banner .image-content {
+            display: none;
+        }
+    }
+
+    .performance-banner .text-content .text-container {
+        text-align: center;
+        margin: auto;
+    }
+
+    }
+    @media (min-width: 768px) {
+        .performance-banner .text-content {
+            padding-inline: 3rem;
+        }
+    }
+
+    @media (min-width: 992px) {
+        .performance-banner .text-content {
+            padding-inline: 17.2%;
+        }
+    }
 </style>
 
 <section class="performance-banner">
-  <div class="text-content">
-    <div class="text-container">
-      {% if section.settings.subheading %}
-        <p>{{ section.settings.subheading }}</p>
-      {% endif %}
-      <h2>{{ section.settings.heading }}</h2>
-      <p>{{ section.settings.description }}</p>
-      <div>
-        <a href="{{ section.settings.button_links }}" class="button button--primary">
-          {{- section.settings.button_label -}}
-        </a>
-      </div>
+    <div class="text-content">
+        <div class="text-container">
+            {% if section.settings.subheading %}
+                <p>{{ section.settings.subheading }}</p>
+            {% endif %}
+            <h2>{{ section.settings.heading }}</h2>
+            <p>{{ section.settings.description }}</p>
+            <div>
+                <a href="{{ section.settings.button_links }}" class="button button--primary">
+                    {{- section.settings.button_label -}}
+                </a>
+            </div>
+        </div>
     </div>
-  </div>
-  <div class="image-content">
-    {% comment %}<img src="{{ section.settings.right_image | img_url }}" alt="Performance Image" height="100%" width="100%">{% endcomment %}
-    <img
-      src="{{ section.settings.right_image | img_url: '800x600' }}"
-      srcset="
-        {{ section.settings.right_image | img_url: '400x300' }} 400w,
-        {{ section.settings.right_image | img_url: '800x600' }} 800w,
-        {{ section.settings.right_image | img_url: '1200x900' }} 1200w
-      "
-      sizes="(max-width: 768px) 100vw, 50vw"
-      alt="Performance Image"
-      loading="lazy"
-      style="width: 100%; height: 100%; object-fit: cover;"
-    >
-  </div>
+    <div class="image-content">
+        {% comment %}<img src="{{ section.settings.right_image | img_url }}" alt="Performance Image" height="100%" width="100%">{% endcomment %}
+        <img
+                src="{{ section.settings.right_image | img_url: '800x600' }}"
+                srcset="
+    {{ section.settings.right_image | img_url: '400x300' }} 400w,
+    {{ section.settings.right_image | img_url: '800x600' }} 800w,
+    {{ section.settings.right_image | img_url: '1200x900' }} 1200w
+  "
+                sizes="(max-width: 768px) 100vw, 50vw"
+                alt="Performance Image"
+                loading="lazy"
+                style="width: 100%; height: 100%; object-fit: cover;"
+                width="800"
+                height="600"
+                decoding="async"
+        >
+    </div>
 </section>
 
 {% schema %}

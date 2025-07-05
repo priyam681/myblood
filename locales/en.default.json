@@ -25,6 +25,9 @@
         "share_on_twitter": "Share on X",
         "share_on_pinterest": "Pin on Pinterest"
       },
+      "share_on_facebook": "Share on Facebook",
+      "share_on_twitter": "Share on X",
+      "share_on_pinterest": "Pin on Pinterest",
       "links": {
         "twitter": "Twitter",
         "facebook": "Facebook",
@@ -186,7 +189,9 @@
       "taxes_included": "Taxes included.",
       "duties_included": "Duties included.",
       "duties_and_taxes_included": "Duties and taxes included.",
-      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout."
+      "shipping_policy_html": "<a href=\"{{ link }}\">Shipping</a> calculated at checkout.",
+      "previous_slide": "Previous slide",
+      "next_slide": "Next slide"
     },
     "modal": {
       "label": "Media gallery"

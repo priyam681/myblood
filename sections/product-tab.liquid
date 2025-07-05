@@ -87,10 +87,11 @@
                                                 <a href="{{ product.url }}" itemprop="url" class="product-card-link">
                                                     <img
                                                             class="main-image"
-                                                            src="{{ product.featured_image | image_url: width: 400,height:400 }}"
+                                                            src="{{ product.featured_image | image_url: width: 400, height: 400 }}"
                                                             alt="{{ product.title }}"
                                                             itemprop="image"
                                                             loading="lazy"
+                                                            width="400" height="400"
                                                     />
                                                 </a>
 
@@ -99,7 +100,7 @@
                                                         <div class="thumbnail-image-wrapper">
                                                             <img
                                                                     class="thumbnail"
-                                                                    src="{{ image | image_url: width: 400,height:400 }}"
+                                                                    src="{{ image | image_url: width: 400, height: 400 }}"
                                                                     alt="{{ product.title }} thumbnail"
                                                                     onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
                                                                     width="50px" height="50px"

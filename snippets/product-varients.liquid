@@ -28,7 +28,7 @@
 
                 {% for value in option.values %}
                     {% liquid
-                        assign swatch_focal = null
+
                         if value.swatch.image
                             assign image_url = value.swatch.image | image_url: width: 50
                             assign swatch_value = 'url(' | append: image_url | append: ')'
@@ -94,7 +94,7 @@
 
                 {% for value in option.values %}
                     {% liquid
-                        assign swatch_focal = null
+
                         if value.swatch.image
                             assign image_url = value.swatch.image | image_url: width: 50
                             assign swatch_value = 'url(' | append: image_url | append: ')'
@@ -164,7 +164,7 @@
 
                         {% for value in option.values %}
                             {% liquid
-                                assign swatch_focal = null
+    
                                 if value.swatch.image
                                     assign image_url = value.swatch.image | image_url: width: 50
                                     assign swatch_value = 'url(' | append: image_url | append: ')'
