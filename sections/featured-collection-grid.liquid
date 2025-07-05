@@ -105,9 +105,9 @@
 
       <div class="featured-card">
         {% if block.settings.custom_image != blank %}
-          <img src="{{ block.settings.custom_image | image_url: width: 600 ,height:400 }}" alt="{{ collection.title | escape }}">
+          <img src="{{ block.settings.custom_image | image_url: width: 600 ,height:400 }}" alt="{{ collection.title | escape }}" width="600" height="400" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" {% if forloop.first %}fetchpriority="high"{% endif %}>
         {% else %}
-          <img src="{{ product.featured_image | image_url: width: 600,height:400 }}" alt="{{ product.title | escape }}">
+          <img src="{{ product.featured_image | image_url: width: 600,height:400 }}" alt="{{ product.title | escape }}" width="600" height="400" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" {% if forloop.first %}fetchpriority="high"{% endif %}>
         {% endif %}
 
         <div class="featured-overlay">

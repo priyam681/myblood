@@ -1,0 +1,66 @@
+/* Home Page Banner Section Styles */
+.banner-slideshow-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.banner-slideshow {
+  display: flex;
+  scroll-snap-type: x mandatory;
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+  margin-block: 0;
+  padding-left: 0;
+  transition: transform 0.5s ease-in-out;
+}
+
+.banner-slide {
+  flex: 0 0 100%;
+  scroll-snap-align: start;
+  position: relative;
+  color: #fff;
+  list-style-type: none;
+}
+
+.homepage-banner {
+  color: #fff;
+  position: relative;
+  padding-top: calc(50px + (109 - 50) * ((100vw - 360px) / (1920 - 360)));
+  padding-bottom: 8rem;
+}
+
+.homepage-banner-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.homepage-banner .homepage-banner-wrapper {
+  position: relative;
+}
+
+.homepage-banner .homepage-banner-wrapper .homepage-bar-wrapper {
+  position: relative;
+  z-index: 1;
+}
+
+.banner-heading {
+  font-weight: bold;
+  line-height: 1.1;
+  margin: 0 0 10px;
+  color: #fff;
+}
+
+.banner-subheading {
+  font-size: calc(18px + (22 - 18) * ((100vw - 360px) / (1920 - 360)));
+  margin-block: 0;
+  line-height: 1.1;
+}
+
+.banner-content .banner-buttons {
+  margin-top: 20px;
+}

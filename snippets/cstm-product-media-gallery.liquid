@@ -11,7 +11,7 @@
   {% render 'cstm-product-media-gallery' %}
 {% endcomment %}
 
-{{ 'product-media-load-more.js' | asset_url | script_tag }}
+<script src="{{ 'product-media-load-more.js' | asset_url }}" defer></script>
 
 <style>
   .hidden-media{

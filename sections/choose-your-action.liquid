@@ -107,18 +107,18 @@
                 <div class="action-image-set {% if forloop.first %}active{% endif %}" id="label-{{ block.id }}">
                     <div class="action-image-left">
                         {% if block.settings.image1 != blank %}
-                            <img src="{{ block.settings.image1 | image_url: width: 400,height: 400 }}" alt="{{ block.settings.lable1 | default: 'Image 1' }}" class="action-image">
+                            <img src="{{ block.settings.image1 | image_url: width: 400, height: 400, format: 'webp' }}" alt="{{ block.settings.lable1 | default: 'Image 1' }}" class="action-image" width="400" height="400" loading="{% if forloop.first %}eager{% else %}lazy{% endif %}" {% if forloop.first %}fetchpriority="high"{% endif %}>
                         {% endif %}
                         {% if block.settings.image2 != blank %}
-                            <img src="{{ block.settings.image2 | image_url: width: 400,height: 400 }}" alt="{{ block.settings.lable2 | default: 'Image 2' }}" class="action-image">
+                            <img src="{{ block.settings.image2 | image_url: width: 400, height: 400, format: 'webp' }}" alt="{{ block.settings.lable2 | default: 'Image 2' }}" class="action-image" width="400" height="400" loading="lazy">
                         {% endif %}
                     </div>
                     <div class="action-image-right">
                         {% if block.settings.image3 != blank %}
-                            <img src="{{ block.settings.image3 | image_url: width: 400,height: 400 }}" alt="{{ block.settings.lable3 | default: 'Image 3' }}" class="action-image">
+                            <img src="{{ block.settings.image3 | image_url: width: 400, height: 400, format: 'webp' }}" alt="{{ block.settings.lable3 | default: 'Image 3' }}" class="action-image" width="400" height="400" loading="lazy">
                         {% endif %}
                         {% if block.settings.image4 != blank %}
-                            <img src="{{ block.settings.image4 | image_url: width: 400,height: 400 }}" alt="{{ block.settings.lable4 | default: 'Image 4' }}" class="action-image">
+                            <img src="{{ block.settings.image4 | image_url: width: 400, height: 400, format: 'webp' }}" alt="{{ block.settings.lable4 | default: 'Image 4' }}" class="action-image" width="400" height="400" loading="lazy">
                         {% endif %}
                     </div>
                 </div>
