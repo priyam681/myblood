@@ -1,3 +1,9 @@
+{% comment %} Load CSS file for this section {% endcomment %}
+<link rel="stylesheet" href="{{ 'section-home-page-banner.css' | asset_url }}" media="print" onload="this.media='all'">
+
+{% comment %} Preload critical LCP images {% endcomment %}
+
+{% comment %} Critical inline styles only {% endcomment %}
 {% style %}
     .banner-slideshow-wrapper {
     position: relative;
@@ -25,6 +31,16 @@
     position: relative;
     padding-top: calc(50px + (109 - 50) * ((100vw - 360px) / (1920 - 360)));
     padding-bottom: 8rem;
+    }
+
+    .homepage-banner-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
     }
     .homepage-banner .homepage-banner-wrapper {
     position: relative;
@@ -259,12 +275,12 @@
     margin: auto;
     text-align: center;
     }
-     .banner-center-image img {
-                min-height: 269px;
-            }
-             .homepage-banner {
-               min-height: 627px;
-             }
+    .banner-center-image img {
+    min-height: 269px;
+    }
+    .homepage-banner {
+    min-height: 627px;
+    }
     }
 
     @media screen and (min-width: 993px) {
@@ -286,12 +302,12 @@
     min-width: 40rem;
     z-index: 1;
     }
-     .banner-center-image img {
-            min-height: 627px;
-        }
-         .homepage-banner {
-           min-height: 627px;
-         }
+    .banner-center-image img {
+    min-height: 627px;
+    }
+    .homepage-banner {
+    min-height: 627px;
+    }
     }
 {% endstyle %}
 
@@ -475,10 +491,37 @@
             {% assign block_count = block_count | plus: 1 %}
             {% assign visibility = block.settings.visibility %}
             <li class="banner-slide slider__slide" id="Banner-slide-{{ block.id }}" {{ block.shopify_attributes }}>
-                <div
-                        class="homepage-banner"
-                        style="background: url({{ block.settings.main_image | img_url: 'master' }}) no-repeat center/cover;"
-                >
+                <div class="homepage-banner">
+                    {% if block.settings.main_image != blank %}
+                        {% if forloop.first %}
+                            <img
+                                    src="{{ block.settings.main_image | image_url: width: 1200, format: 'webp' }}"
+                                    srcset="{{ block.settings.main_image | image_url: width: 600, format: 'webp' }} 600w,
+                                        {{ block.settings.main_image | image_url: width: 1200, format: 'webp' }} 1200w,
+                                        {{ block.settings.main_image | image_url: width: 1800, format: 'webp' }} 1800w"
+                                    sizes="100vw"
+                                    alt="{{ block.settings.heading | default: 'Banner image' }}"
+                                    class="homepage-banner-bg"
+                                    width="1200"
+                                    height="600"
+                                    loading="eager"
+                                    fetchpriority="high"
+                                    decoding="async">
+                        {% else %}
+                            <img
+                                    src="{{ block.settings.main_image | image_url: width: 1200, format: 'webp' }}"
+                                    srcset="{{ block.settings.main_image | image_url: width: 600, format: 'webp' }} 600w,
+                                        {{ block.settings.main_image | image_url: width: 1200, format: 'webp' }} 1200w,
+                                        {{ block.settings.main_image | image_url: width: 1800, format: 'webp' }} 1800w"
+                                    sizes="100vw"
+                                    alt="{{ block.settings.heading | default: 'Banner image' }}"
+                                    class="homepage-banner-bg"
+                                    width="1200"
+                                    height="600"
+                                    loading="lazy"
+                                    decoding="async">
+                        {% endif %}
+                    {% endif %}
                     <div class="page-width">
                         <div class="homepage-banner-wrapper">
                             <div class="banner-content">
@@ -513,12 +556,12 @@
                             <div class="banner-center-image">
                                 {% if block.settings.center_image %}
                                     <img
-                                            src="{{ block.settings.center_image | img_url: 'master' }}"
+                                            src="{{ block.settings.center_image | image_url: width: 800, format: 'webp' }}"
                                             alt="{{ block.settings.center_alt_text | default: 'center image' }}"
                                             height="100%"
                                             width="100%"
                                             fetchpriority="high"
-                                            loading="{% if section.settings.lazy_load_images == 'lazy' %}eager{% else %}lazy{% endif %}"
+                                            loading="eager"
                                     >
                                 {% endif %}
                             </div>
@@ -547,8 +590,8 @@
                                                 }
                                             {% endstyle %}
                                             {% if block.settings.product_list_image_left %}
-                                                <img src="{{ block.settings.product_list_image_left | img_url: '100x' }}"
-                                                     alt="Hot search">
+                                                <img src="{{ block.settings.product_list_image_left | image_url: width: 100 }}"
+                                                     alt="Hot search" width="100" height="100" loading="lazy">
                                             {% endif %}
                                             <div>
                                                 {% if block.settings.product_list_left_text %}
@@ -571,7 +614,7 @@
                                                 <div class="product-item">
                                                     <a href="{{ product.url }}">
                                                         <img
-                                                                src="{{ product.featured_image | img_url: '200x' }}"
+                                                                src="{{ product.featured_image | image_url: width: 200 }}"
                                                                 alt="{{ product.title }}"
                                                                 loading="lazy"
                                                                 width="80px"
@@ -593,7 +636,7 @@
                                                 <div class="product-item">
                                                     <a href="{{ product.url }}"
                                                     ><img
-                                                                src="{{ product.featured_image | img_url: '200x' }}"
+                                                                src="{{ product.featured_image | image_url: width: 200 }}"
                                                                 alt="{{ product.title }}"
                                                                 loading="lazy"
                                                                 width="80px"
@@ -615,7 +658,7 @@
                                                 <div class="product-item">
                                                     <a href="{{ product.url }}"
                                                     ><img
-                                                                src="{{ product.featured_image | img_url: '200x' }}"
+                                                                src="{{ product.featured_image | image_url: width: 200 }}"
                                                                 alt="{{ product.title }}"
                                                                 loading="lazy"
                                                                 width="80px"
@@ -657,236 +700,236 @@
 </banner-slideshow>
 
 <script defer>
-  if (!customElements.get('banner-slideshow')) {
-    class BannerSlideshow extends HTMLElement {
-      constructor() {
-        super();
-        this.interval = null;
-        this.currentIndex = 0;
-        this.initialized = false;
-        this.touchStartX = null;
-        this.touchStartY = null;
-        this.enablePauseHover = false;
-      }
-
-      connectedCallback() {
-        if (this.initialized) return;
-        this.initialized = true;
-
-        this.banner = this.querySelector('[id^="Banner-"]');
-        this.slides = Array.from(this.querySelectorAll('[id^="Banner-slide-"]'));
-        this.totalSlides = this.slides.length;
-
-        if (this.totalSlides === 0) {
-          console.warn('No slides found');
-          return;
-        }
-
-        this.previous = this.querySelector('.slider-button--prev');
-        this.next = this.querySelector('.slider-button--next');
-        this.dots = Array.from(this.querySelectorAll('.slide-dot'));
-
-        this.speed = this.getAttribute('autoplay-speed');
-        this.autoplaySpeed = this.speed ? parseInt(this.speed) * 1000 : 5000;
-
-        this.enablePauseHover = this.getAttribute('pause-on-hover') === 'true';
-
-        this.setupEventListeners();
-        this.goToSlide(0);
-
-        if (this.getAttribute('autoplay') === 'true') {
-          this.startAutoPlay();
-        }
-      }
-
-      static get observedAttributes() {
-        return ['autoplay', 'autoplay-speed', 'pause-on-hover'];
-      }
-
-      attributeChangedCallback(name, oldValue, newValue) {
-        if (!this.initialized || !this.totalSlides) return;
-
-        switch (name) {
-          case 'autoplay':
-            newValue === 'true' ? this.startAutoPlay() : this.stopAutoPlay();
-            break;
-          case 'autoplay-speed':
-            if (oldValue !== newValue) {
-              this.autoplaySpeed = parseInt(newValue) * 1000;
-              this.startAutoPlay();
+    if (!customElements.get('banner-slideshow')) {
+        class BannerSlideshow extends HTMLElement {
+            constructor() {
+                super();
+                this.interval = null;
+                this.currentIndex = 0;
+                this.initialized = false;
+                this.touchStartX = null;
+                this.touchStartY = null;
+                this.enablePauseHover = false;
             }
-            break;
-          case 'pause-on-hover':
-            const shouldEnable = newValue === 'true';
-            this.setEnablePauseHover(shouldEnable);
-            break;
-        }
-      }
 
-      setEnablePauseHover(enable) {
-        this.enablePauseHover = enable;
-        if (!this.banner) return;
+            connectedCallback() {
+                if (this.initialized) return;
+                this.initialized = true;
 
-        this.banner.removeEventListener('mouseenter', this.mouseEnterHandler);
-        this.banner.removeEventListener('mouseleave', this.mouseLeaveHandler);
+                this.banner = this.querySelector('[id^="Banner-"]');
+                this.slides = Array.from(this.querySelectorAll('[id^="Banner-slide-"]'));
+                this.totalSlides = this.slides.length;
 
-        if (enable) {
-          this.banner.addEventListener('mouseenter', this.mouseEnterHandler);
-          this.banner.addEventListener('mouseleave', this.mouseLeaveHandler);
-        }
-      }
+                if (this.totalSlides === 0) {
+                    console.warn('No slides found');
+                    return;
+                }
 
-      setupEventListeners() {
-        this.mouseEnterHandler = this.onHover.bind(this);
-        this.mouseLeaveHandler = this.onMouseLeave.bind(this);
+                this.previous = this.querySelector('.slider-button--prev');
+                this.next = this.querySelector('.slider-button--next');
+                this.dots = Array.from(this.querySelectorAll('.slide-dot'));
 
-        if (this.banner && this.enablePauseHover) {
-          this.banner.addEventListener('mouseenter', this.mouseEnterHandler);
-          this.banner.addEventListener('mouseleave', this.mouseLeaveHandler);
-        }
+                this.speed = this.getAttribute('autoplay-speed');
+                this.autoplaySpeed = this.speed ? parseInt(this.speed) * 1000 : 5000;
 
-        if (this.previous) {
-          this.prevClickHandler = () => this.previousSlide();
-          this.previous.addEventListener('click', this.prevClickHandler);
-        }
+                this.enablePauseHover = this.getAttribute('pause-on-hover') === 'true';
 
-        if (this.next) {
-          this.nextClickHandler = () => this.nextSlide();
-          this.next.addEventListener('click', this.nextClickHandler);
-        }
+                this.setupEventListeners();
+                this.goToSlide(0);
 
-        this.dots.forEach((dot, index) => {
-          dot.addEventListener('click', () => this.goToSlide(index));
-        });
-
-        if (this.banner) {
-          this.banner.addEventListener('touchstart', this.handleTouchStart.bind(this), { passive: true });
-          this.banner.addEventListener('touchmove', this.handleTouchMove.bind(this), { passive: false });
-          this.banner.addEventListener('touchend', this.handleTouchEnd.bind(this), { passive: true });
-        }
-      }
-
-      disconnectedCallback() {
-        this.initialized = false;
-        this.stopAutoPlay();
-
-        if (this.banner) {
-          this.banner.removeEventListener('mouseenter', this.mouseEnterHandler);
-          this.banner.removeEventListener('mouseleave', this.mouseLeaveHandler);
-          this.banner.removeEventListener('touchstart', this.handleTouchStart);
-          this.banner.removeEventListener('touchmove', this.handleTouchMove);
-          this.banner.removeEventListener('touchend', this.handleTouchEnd);
-        }
-
-        if (this.previous && this.prevClickHandler) {
-          this.previous.removeEventListener('click', this.prevClickHandler);
-        }
-
-        if (this.next && this.nextClickHandler) {
-          this.next.removeEventListener('click', this.nextClickHandler);
-        }
-      }
-
-      startAutoPlay() {
-        this.stopAutoPlay();
-        if (this.totalSlides > 1 && this.initialized) {
-          this.interval = setInterval(() => {
-            if (!this.initialized) {
-              this.stopAutoPlay();
-              return;
+                if (this.getAttribute('autoplay') === 'true') {
+                    this.startAutoPlay();
+                }
             }
-            this.nextSlide();
-          }, this.autoplaySpeed);
+
+            static get observedAttributes() {
+                return ['autoplay', 'autoplay-speed', 'pause-on-hover'];
+            }
+
+            attributeChangedCallback(name, oldValue, newValue) {
+                if (!this.initialized || !this.totalSlides) return;
+
+                switch (name) {
+                    case 'autoplay':
+                        newValue === 'true' ? this.startAutoPlay() : this.stopAutoPlay();
+                        break;
+                    case 'autoplay-speed':
+                        if (oldValue !== newValue) {
+                            this.autoplaySpeed = parseInt(newValue) * 1000;
+                            this.startAutoPlay();
+                        }
+                        break;
+                    case 'pause-on-hover':
+                        const shouldEnable = newValue === 'true';
+                        this.setEnablePauseHover(shouldEnable);
+                        break;
+                }
+            }
+
+            setEnablePauseHover(enable) {
+                this.enablePauseHover = enable;
+                if (!this.banner) return;
+
+                this.banner.removeEventListener('mouseenter', this.mouseEnterHandler);
+                this.banner.removeEventListener('mouseleave', this.mouseLeaveHandler);
+
+                if (enable) {
+                    this.banner.addEventListener('mouseenter', this.mouseEnterHandler);
+                    this.banner.addEventListener('mouseleave', this.mouseLeaveHandler);
+                }
+            }
+
+            setupEventListeners() {
+                this.mouseEnterHandler = this.onHover.bind(this);
+                this.mouseLeaveHandler = this.onMouseLeave.bind(this);
+
+                if (this.banner && this.enablePauseHover) {
+                    this.banner.addEventListener('mouseenter', this.mouseEnterHandler);
+                    this.banner.addEventListener('mouseleave', this.mouseLeaveHandler);
+                }
+
+                if (this.previous) {
+                    this.prevClickHandler = () => this.previousSlide();
+                    this.previous.addEventListener('click', this.prevClickHandler);
+                }
+
+                if (this.next) {
+                    this.nextClickHandler = () => this.nextSlide();
+                    this.next.addEventListener('click', this.nextClickHandler);
+                }
+
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => this.goToSlide(index));
+                });
+
+                if (this.banner) {
+                    this.banner.addEventListener('touchstart', this.handleTouchStart.bind(this), {passive: true});
+                    this.banner.addEventListener('touchmove', this.handleTouchMove.bind(this), {passive: false});
+                    this.banner.addEventListener('touchend', this.handleTouchEnd.bind(this), {passive: true});
+                }
+            }
+
+            disconnectedCallback() {
+                this.initialized = false;
+                this.stopAutoPlay();
+
+                if (this.banner) {
+                    this.banner.removeEventListener('mouseenter', this.mouseEnterHandler);
+                    this.banner.removeEventListener('mouseleave', this.mouseLeaveHandler);
+                    this.banner.removeEventListener('touchstart', this.handleTouchStart);
+                    this.banner.removeEventListener('touchmove', this.handleTouchMove);
+                    this.banner.removeEventListener('touchend', this.handleTouchEnd);
+                }
+
+                if (this.previous && this.prevClickHandler) {
+                    this.previous.removeEventListener('click', this.prevClickHandler);
+                }
+
+                if (this.next && this.nextClickHandler) {
+                    this.next.removeEventListener('click', this.nextClickHandler);
+                }
+            }
+
+            startAutoPlay() {
+                this.stopAutoPlay();
+                if (this.totalSlides > 1 && this.initialized) {
+                    this.interval = setInterval(() => {
+                        if (!this.initialized) {
+                            this.stopAutoPlay();
+                            return;
+                        }
+                        this.nextSlide();
+                    }, this.autoplaySpeed);
+                }
+            }
+
+            stopAutoPlay() {
+                if (this.interval) {
+                    clearInterval(this.interval);
+                    this.interval = null;
+                }
+            }
+
+            nextSlide() {
+                if (this.totalSlides <= 1 || !this.initialized) return;
+                this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
+                this.goToSlide(this.currentIndex);
+            }
+
+            previousSlide() {
+                if (this.totalSlides <= 1 || !this.initialized) return;
+                this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
+                this.goToSlide(this.currentIndex);
+            }
+
+            goToSlide(index) {
+                if (this.totalSlides <= 1 || !this.banner || !this.initialized) return;
+                if (index < 0 || index >= this.totalSlides) return;
+
+                this.currentIndex = index;
+                const slideWidth = this.banner.offsetWidth;
+                const scrollPosition = slideWidth * this.currentIndex;
+
+                this.banner.scrollTo({
+                    left: scrollPosition,
+                    behavior: 'smooth'
+                });
+
+                this.banner.dataset.currentSlide = index;
+                this.updateDots();
+            }
+
+            updateDots() {
+                this.dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentIndex);
+                });
+            }
+
+            handleTouchStart(e) {
+                this.touchStartX = e.touches[0].clientX;
+                this.touchStartY = e.touches[0].clientY;
+            }
+
+            handleTouchMove(e) {
+                if (!this.touchStartX || !this.touchStartY) return;
+                const touchX = e.touches[0].clientX;
+                const touchY = e.touches[0].clientY;
+                const diffX = this.touchStartX - touchX;
+                const diffY = this.touchStartY - touchY;
+
+                if (Math.abs(diffX) > Math.abs(diffY)) {
+                    e.preventDefault();
+                }
+            }
+
+            handleTouchEnd(e) {
+                if (!this.touchStartX) return;
+                const touchEndX = e.changedTouches[0].clientX;
+                const diff = this.touchStartX - touchEndX;
+
+                if (Math.abs(diff) > 50) {
+                    diff > 0 ? this.nextSlide() : this.previousSlide();
+                }
+
+                this.touchStartX = null;
+                this.touchStartY = null;
+            }
+
+            onHover() {
+                if (!this.initialized) return;
+                this.stopAutoPlay();
+            }
+
+            onMouseLeave() {
+                if (!this.initialized) return;
+                if (this.getAttribute('autoplay') === 'true') {
+                    this.startAutoPlay();
+                }
+            }
         }
-      }
 
-      stopAutoPlay() {
-        if (this.interval) {
-          clearInterval(this.interval);
-          this.interval = null;
-        }
-      }
-
-      nextSlide() {
-        if (this.totalSlides <= 1 || !this.initialized) return;
-        this.currentIndex = (this.currentIndex + 1) % this.totalSlides;
-        this.goToSlide(this.currentIndex);
-      }
-
-      previousSlide() {
-        if (this.totalSlides <= 1 || !this.initialized) return;
-        this.currentIndex = (this.currentIndex - 1 + this.totalSlides) % this.totalSlides;
-        this.goToSlide(this.currentIndex);
-      }
-
-      goToSlide(index) {
-        if (this.totalSlides <= 1 || !this.banner || !this.initialized) return;
-        if (index < 0 || index >= this.totalSlides) return;
-
-        this.currentIndex = index;
-        const slideWidth = this.banner.offsetWidth;
-        const scrollPosition = slideWidth * this.currentIndex;
-
-        this.banner.scrollTo({
-          left: scrollPosition,
-          behavior: 'smooth'
-        });
-
-        this.banner.dataset.currentSlide = index;
-        this.updateDots();
-      }
-
-      updateDots() {
-        this.dots.forEach((dot, index) => {
-          dot.classList.toggle('active', index === this.currentIndex);
-        });
-      }
-
-      handleTouchStart(e) {
-        this.touchStartX = e.touches[0].clientX;
-        this.touchStartY = e.touches[0].clientY;
-      }
-
-      handleTouchMove(e) {
-        if (!this.touchStartX || !this.touchStartY) return;
-        const touchX = e.touches[0].clientX;
-        const touchY = e.touches[0].clientY;
-        const diffX = this.touchStartX - touchX;
-        const diffY = this.touchStartY - touchY;
-
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-          e.preventDefault();
-        }
-      }
-
-      handleTouchEnd(e) {
-        if (!this.touchStartX) return;
-        const touchEndX = e.changedTouches[0].clientX;
-        const diff = this.touchStartX - touchEndX;
-
-        if (Math.abs(diff) > 50) {
-          diff > 0 ? this.nextSlide() : this.previousSlide();
-        }
-
-        this.touchStartX = null;
-        this.touchStartY = null;
-      }
-
-      onHover() {
-        if (!this.initialized) return;
-        this.stopAutoPlay();
-      }
-
-      onMouseLeave() {
-        if (!this.initialized) return;
-        if (this.getAttribute('autoplay') === 'true') {
-          this.startAutoPlay();
-        }
-      }
+        customElements.define('banner-slideshow', BannerSlideshow);
     }
-
-    customElements.define('banner-slideshow', BannerSlideshow);
-  }
 </script>
 
 {% schema %}

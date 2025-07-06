@@ -1,22 +1,15 @@
-<!-- Font Awesome Icon Library -->
-
-<link
-        rel="stylesheet"
-        href="{{ 'font-awesome.min.css' | asset_url }}"
-        type="text/css"
-        media="all"
-/>
+<!-- Custom Star Rating (no FontAwesome dependency) -->
 <style>
-    .stars-outer::before {
-        content: "\f006 \f006 \f006 \f006 \f006";
-    }
-
     .stars-outer {
         display: inline-block;
         position: relative;
-        font-family: FontAwesome;
+        color: #ddd;
     }
 
+    .stars-outer::before {
+        content: "★ ★ ★ ★ ★";
+        letter-spacing: 2px;
+    }
 
     .stars-inner {
         position: absolute;
@@ -25,11 +18,12 @@
         white-space: nowrap;
         overflow: hidden;
         width: 0;
+        color: #f8ce0b;
     }
 
     .stars-inner::before {
-        content: "\f005 \f005 \f005 \f005 \f005";
-        color: #f8ce0b;
+        content: "★ ★ ★ ★ ★";
+        letter-spacing: 2px;
     }
 </style>
 <!-- javascript for total rating -->

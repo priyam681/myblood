@@ -8,36 +8,9 @@
 }
 
 @font-face {
-    font-family: 'Knockout-50';
-    src: url('./Knockout-HTF50-Welterweight.woff2') format('woff2'),
-    url('./Knockout-HTF50-Welterweight.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
     font-family: 'Knockout-31';
     src: url('./Knockout-HTF31-JuniorMiddlewt.woff2') format('woff2'),
     url('./Knockout-HTF31-JuniorMiddlewt.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Knockout-31';
-    src: url('./Knockout-HTF31-JuniorMiddlewt.woff2') format('woff2'),
-    url('./Knockout-HTF31-JuniorMiddlewt.woff') format('woff');
-    font-weight: 500;
-    font-style: normal;
-    font-display: swap;
-}
-
-@font-face {
-    font-family: 'Knockout-32';
-    src: url('./Knockout-HTF32-JuniorCruiserwt.woff2') format('woff2'),
-    url('./Knockout-HTF32-JuniorCruiserwt.woff') format('woff');
     font-weight: 500;
     font-style: normal;
     font-display: swap;
