@@ -1,0 +1,234 @@
+/* Core Footer Styles */
+.footer {
+    background: #000;
+    padding-top: clamp(30px, 4vw, 69px);
+    padding-bottom: clamp(30px, 4vw, 69px);
+}
+
+/* Layout */
+.footer-section-wrap-block {
+    display: flex;
+    justify-content: space-between;
+    gap: clamp(10px, 3vw, 30px);
+}
+
+.footer-section-image-block {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(10px, 3vw, 39px);
+}
+
+.footer-section-menu-block {
+    width: 40%;
+}
+
+/* Newsletter Section */
+.footer-block__newsletter {
+    background: unset;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    gap: 0;
+}
+
+.footer-block__newsletter_paragraph {
+    margin: 0;
+    font-size: clamp(14px, 1.5vw, 15px);
+    font-weight: 400;
+    color: #fff;
+}
+
+.newsletter-form__field-wrapper .field {
+    flex-wrap: wrap;
+    gap: clamp(15px, 3vw, 40px);
+    margin-top: clamp(30px, 4vw, 60px);
+}
+
+.newsletter-form__button.field__button {
+    width: 100%;
+    border: 1px solid white;
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 700;
+    background: transparent;
+    transition: all 0.3s ease;
+}
+
+.newsletter-form__button.field__button:hover {
+    color: #000;
+    background: #fff;
+}
+
+.newsletter-inputs {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.email-input-block,
+.birthday-input-block {
+    flex: 1;
+    min-width: 200px;
+}
+
+/* Menu Styles */
+.footer-block-menu .footer-dropdown ul li a,
+.footer-block-menu summary strong {
+    color: #fff;
+    font-size: clamp(14px, 1.5vw, 15px);
+    font-weight: 700;
+    padding: 0;
+}
+
+.footer-block-menu .footer-dropdown ul li a:hover {
+    color: #ff3c00;
+}
+
+footer h2.footer-block__heading {
+    font-size: clamp(30px, 4vw, 40px);
+    font-weight: 700;
+    margin: 0;
+    color: #fff;
+}
+
+.footer-dropdown ul {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+/* Social Links */
+.top-social-links {
+    gap: clamp(10px, 2vw, 19px);
+    margin-top: clamp(30px, 4vw, 57px);
+}
+
+.top-social-links .list-social__item a {
+    width: 48px;
+    height: 48px;
+    border: 1px solid white;
+    border-radius: 50px;
+    background: unset;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.top-social-links ul li a span {
+    display: none;
+}
+
+/* Footer Bottom */
+.footer__content-bottom-wrapper {
+    border-top: 1px solid #fff;
+}
+
+.footer-setion-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    color: white;
+    gap: 10px;
+    padding-top: clamp(15px, 2vw, 30px);
+}
+
+.footer__copyright,
+.policies li,
+.policies li a {
+    color: #FFF;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.policies li a:hover,
+.copyright__content a:hover {
+    color: #ff3c00;
+}
+
+/* Form Inputs */
+.newsletter-form__field-wrapper input {
+    max-width: 100%;
+    background: transparent;
+    border: 1px solid #fff;
+    color: #fff;
+    padding: 12px;
+    border-radius: 4px;
+}
+
+.newsletter-form__field-wrapper label {
+    color: #FFF;
+    font-size: 14px;
+    margin-bottom: 8px;
+    display: block;
+}
+
+/* Payment Icons */
+.payment-icons {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.payment-icon {
+    width: 40px;
+    height: 25px;
+}
+
+.payment-icon .icon {
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+    .footer-dropdown {
+        pointer-events: none;
+    }
+
+    .footer-dropdown[open] {
+        pointer-events: auto;
+    }
+}
+
+@media (max-width: 992px) {
+    .footer-section-wrap-block {
+        flex-wrap: wrap;
+        gap: 30px;
+    }
+
+    .footer-section-image-block,
+    .footer-section-menu-block {
+        width: 100%;
+    }
+
+    .footer-setion-bottom {
+        flex-direction: column-reverse;
+        gap: 10px;
+    }
+
+    .footer-dropdown summary.footer-block__heading {
+        padding: 15px 0;
+    }
+}
+
+@media (max-width: 640px) {
+    .newsletter-form__field-wrapper .field {
+        flex-direction: column;
+    }
+
+    .newsletter-inputs {
+        flex-direction: column;
+    }
+
+    .email-input-block,
+    .birthday-input-block {
+        min-width: 100%;
+    }
+
+    .footer__payment {
+        margin-top: 0;
+    }
+}

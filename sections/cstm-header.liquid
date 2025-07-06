@@ -145,7 +145,7 @@
         endif
 
         if section.settings.logo_position == 'top-center' or section.settings.menu == blank
-            render 'header-search', input_id: 'Search-In-Modal-1'
+            render 'cstm-header-search', input_id: 'Search-In-Modal-1'
         endif
     -%}
 
@@ -671,6 +671,13 @@ customElements.define('sticky-header', StickyHeader);
             }
           ],
           "default": "medium"
+        },
+        {
+          "type": "checkbox",
+          "id": "above_fold",
+          "label": "Above fold content",
+          "info": "Enable for images visible immediately when page loads (improves performance)",
+          "default": false
         }
       ]
     },

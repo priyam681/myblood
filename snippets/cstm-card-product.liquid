@@ -18,7 +18,7 @@
   - placeholder_image: {String} The placeholder image to use when no product exists. Default: 'product-apparel-2' (optional)
 
   Usage:
-  {% render 'cst-card-product', show_vendor: section.settings.show_vendor %}
+  {% render 'cstm-card-product', show_vendor: section.settings.show_vendor %}
 {% endcomment %}
 {%- unless skip_styles -%}
   {{ 'component-rating.css' | asset_url | stylesheet_tag }}
@@ -315,7 +315,8 @@
                   aria-labelledby="{{ product_form_id }}-submit title-{{ section_id }}-{{ card_product.id }}"
                   data-product-url="{{ card_product.url }}"
                 >
-                  <img src="{{ 'quick-view.gif' | asset_url }}" alt="Quick View" class="quick-view-gif">
+                  <img src="{{ 'quick-view.gif' | asset_url }}" alt="Quick View" class="quick-view-gif"  width="100%"
+                  height="100%"/>
                   {%- if horizontal_quick_add -%}
                     <span class="icon-wrap">
                       {{- 'icon-arrow.svg' | inline_asset_content -}}
