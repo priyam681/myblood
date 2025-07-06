@@ -14,7 +14,6 @@ if (!customElements.get('product-modal-single')) {
       this.mouseUp = false;
       this.isDragging = false;
 
-
       // click and drag
 
       this.boundStartDrag = this.startDrag.bind(this);
@@ -75,6 +74,8 @@ if (!customElements.get('product-modal-single')) {
       // Setup swipe handling for mobile
       this.setupSwipeHandling();
     }
+
+
 
     connectedCallback() {
       if (this.moved) return;
