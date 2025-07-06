@@ -492,19 +492,21 @@
             {% assign visibility = block.settings.visibility %}
             <li class="banner-slide slider__slide" id="Banner-slide-{{ block.id }}" {{ block.shopify_attributes }}>
                 <div class="homepage-banner">
-                    {% if block.settings.main_image %}
+                    {% if block.settings.main_image != blank %}
                         {% if forloop.first %}
-                            {{ block.settings.main_image | image_tag: 
-                                width: 1200,
-                                height: 600,
-                                sizes: '100vw',
-                                widths: '600, 1200, 1800',
-                                alt: block.settings.heading | default: 'Banner image',
-                                class: 'homepage-banner-bg',
-                                loading: 'eager',
-                                fetchpriority: 'high',
-                                preload: true,
-                                format: 'webp' }}
+                            <img
+                                    src="{{ block.settings.main_image | image_url: width: 1200, format: 'webp' }}"
+                                    srcset="{{ block.settings.main_image | image_url: width: 600, format: 'webp' }} 600w,
+                                        {{ block.settings.main_image | image_url: width: 1200, format: 'webp' }} 1200w,
+                                        {{ block.settings.main_image | image_url: width: 1800, format: 'webp' }} 1800w"
+                                    sizes="100vw"
+                                    alt="{{ block.settings.heading | default: 'Banner image' }}"
+                                    class="homepage-banner-bg"
+                                    width="1200"
+                                    height="600"
+                                    loading="eager"
+                                    fetchpriority="high"
+                                    decoding="async">
                         {% else %}
                             <img
                                     src="{{ block.settings.main_image | image_url: width: 1200, format: 'webp' }}"
