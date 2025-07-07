@@ -1,4 +1,6 @@
 {{ 'home-page-product.css' | asset_url | stylesheet_tag }}
+{% comment %} Load GSAP recommended products animations {% endcomment %}
+<script src="{{ 'gsap-recommended-products.js' | asset_url }}" defer></script>
 {% schema %}
 {
   "name": "Recommended Products",

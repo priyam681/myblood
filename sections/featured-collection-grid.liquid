@@ -1,3 +1,6 @@
+{% comment %} Load GSAP grid animations {% endcomment %}
+<script src="{{ 'gsap-featured-grid.js' | asset_url }}" defer></script>
+
 {%- style -%}
 @media (min-width: 768px) {
   .featured-grid {
@@ -19,6 +22,7 @@
   margin: 0 auto;
   display: grid;
   gap: 4.5rem;
+  opacity: 0;
 }
 .featured-card {
   position: relative;

@@ -1,6 +1,9 @@
 {% comment %} Load CSS file for this section {% endcomment %}
 <link rel="stylesheet" href="{{ 'section-home-page-banner.css' | asset_url }}" media="print" onload="this.media='all'">
 
+{% comment %} Load GSAP banner animations {% endcomment %}
+<script src="{{ 'gsap-homepage-banner-simple.js' | asset_url }}" defer></script>
+
 {% comment %} Preload critical LCP images {% endcomment %}
 
 {% comment %} Critical inline styles only {% endcomment %}
@@ -525,14 +528,14 @@
                     <div class="page-width">
                         <div class="homepage-banner-wrapper">
                             <div class="banner-content">
-                                <h1 class="banner-heading">{{ block.settings.heading }}</h1>
-                                <p class="banner-subheading">{{ block.settings.subheading }}</p>
+                                <h1 class="banner-heading banner__heading">{{ block.settings.heading }}</h1>
+                                <p class="banner-subheading banner__text">{{ block.settings.subheading }}</p>
 
                                 {% if block.settings.banner_button_show == 'show' %}
                                     {% assign mobile_class = 'banner-buttons--mobile-'
                                             | append: block.settings.mobile_button_visibility
                                     %}
-                                    <div class="banner-buttons {{ mobile_class }}">
+                                    <div class="banner-buttons banner__buttons {{ mobile_class }}">
                                         {% if block.settings.button_one_text != blank and block.settings.button_one_url != blank %}
                                             <a
                                                     class="button button--{{ block.settings.button_one_style | default: 'solid' }}"
@@ -553,7 +556,7 @@
                                     </div>
                                 {% endif %}
                             </div>
-                            <div class="banner-center-image">
+                            <div class="banner-center-image banner__media">
                                 {% if block.settings.center_image %}
                                     <img
                                             src="{{ block.settings.center_image | image_url: width: 800, format: 'webp' }}"
