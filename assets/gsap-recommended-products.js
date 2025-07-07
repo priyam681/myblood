@@ -249,7 +249,7 @@ document.addEventListener('DOMContentLoaded', function() {
             opacity: 1,
             scale: 1,
             duration: 0.4,
-            delay: 0.8 + (index * 0.05),
+            delay: 0.1 + (index * 0.01),
             ease: "back.out(1.7)",
             scrollTrigger: {
               trigger: thumb.closest('.product-card'),

@@ -87,6 +87,11 @@ h2.facet-filters__label,
     font-family: 'Knockout-31';
 }
 
+/* Prevent horizontal scrolling from GSAP animations */
+html, body {
+    overflow-x: hidden;
+}
+
 /*body {*/
 /*font-family: "Roboto-Regular", sans-serif;*/
 /*}*/
