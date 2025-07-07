@@ -1,7 +1,12 @@
+{% comment %} Load GSAP performance banner animations {% endcomment %}
+<script src="{{ 'gsap-performance-banner.js' | asset_url }}" defer></script>
+
 <style>
       .performance-banner {
         display: grid;
        grid-template-columns: 1fr 1fr;
+       align-items: stretch;
+       min-height: 100vh;
       }
       .performance-banner .text-content {
         background-color: #000;
@@ -10,7 +15,10 @@
         display: flex;
         flex-direction: column;
         justify-content: center;
+        align-items: flex-start;
         width: 100%;
+        height: 100%;
+        position: relative;
       }
       .performance-banner .text-content .text-container {
         max-width: 450px;
@@ -29,7 +37,7 @@
         font-size: 16px;
         line-height: 1.6;
       }
-      .performance-banner .text-content .btn {
+      .performance-banner .text-content .button {
         background-color: #FF4500;
         color: white;
         padding: 12px 24px;
@@ -37,6 +45,25 @@
         margin-top: 30px;
         display: inline-block;
         text-decoration: none;
+        transition: all 0.3s ease;
+      }
+      
+      .performance-banner .word-reveal {
+        display: inline-block;
+        margin-right: 0.3em;
+      }
+      
+      .performance-banner .image-content {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+      }
+      
+      .performance-banner .image-content img {
+        vertical-align: middle;
+        margin: 0;
+        padding: 0;
       }
   @media(max-width: 768px) {
       .performance-banner {
@@ -44,9 +71,10 @@
       }
       .performance-banner .text-content {
               padding-inline: 1.5rem;
+              order: 2;
             }
              .performance-banner .image-content {
-                display: none;
+                order: 1;
              }
 
             .performance-banner .text-content .text-container {
@@ -75,7 +103,7 @@
       <h2>{{ section.settings.heading }}</h2>
       <p>{{ section.settings.description }}</p>
       <div>
-        <a href="{{ section.settings.button_links }}" class="button button--primary">
+        <a href="{{ section.settings.button_link }}" class="button button--primary">
           {{- section.settings.button_label -}}
         </a>
       </div>
@@ -95,7 +123,7 @@
       width="800"
       height="600"
       loading="lazy"
-      style="width: 100%; height: 100%; object-fit: cover;"
+      style="width: 100%; height: 100%; object-fit: cover; display: block;"
     >
   </div>
 </section>

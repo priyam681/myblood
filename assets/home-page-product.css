@@ -129,8 +129,11 @@
 }
 
 .thumbnail-image-wrapper {
-    padding-right: 9px;
-    padding-bottom: 9px;
+    padding: 5px;
+}
+
+.expand-thumbnails {
+    margin: 5px;
 }
 
 .thumbnail:hover {

@@ -1,4 +1,6 @@
 {{ 'home-page-product.css' | asset_url | stylesheet_tag }}
+{% comment %} Load GSAP product tabs animations {% endcomment %}
+<script src="{{ 'gsap-product-tabs.js' | asset_url }}" defer></script>
 {% comment %} Load Swiper CSS only when needed {% endcomment %}
 {% assign has_products = false %}
 {% for block in section.blocks %}

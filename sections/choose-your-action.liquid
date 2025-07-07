@@ -82,6 +82,8 @@
   ]
 }
 {% endschema %}
+{% comment %} Load GSAP choose action animations {% endcomment %}
+<script src="{{ 'gsap-choose-action.js' | asset_url }}" defer></script>
 <div class="choose-action-section">
 <div class="choose-action-wrapper page-width">
     <div class="choose-action-container">
@@ -132,18 +134,28 @@
     .choose-action-section {
             position: relative;
     }
-    .choose-action-left:before {
+    
+    .choose-action-container {
+            position: relative;
+    }
+    
+    .choose-action-container:before {
             content: '';
             position: absolute;
-            height: 100%;
-            left: 0;
+            top: 0;
+            left: -50vw;
+            bottom: 0;
+            width: calc(50% + 50vw);
             background-image: url({{ section.settings.bg_image | image_url: width: 1500 }});
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             z-index: -1;
-            top: 0;
-            width: 50%;
+    }
+    
+    .choose-action-left {
+            position: relative;
+            z-index: 1;
     }
 
     .choose-action-title {
@@ -254,10 +266,7 @@
             .choose-action-left {
                        padding-right: 12%;
             }
-            .choose-action-wrapper:before {
-                       width: 50%;
-                       top: 7rem;
-            }
+
             .choose-action-left .action-label .action-label-link {
                        font-size: calc(35px + (80 - 35) * ((100vw - 992px) / (1920 - 992)));
             }
