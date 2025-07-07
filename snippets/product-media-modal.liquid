@@ -31,6 +31,9 @@
                             {% if product.selected_or_first_available_variant.featured_media != null %}
                                 {% assign media = product.selected_or_first_available_variant.featured_media %}
                                 <div data-media-id="{{ media.id }}" class="product-modal-media-container sp-zoom-img">
+                                    <div class="product-modal-image-loader">
+                                        <div class="product-modal-spinner"></div>
+                                    </div>
                                     {% render 'cstm-product-media',
                                             media: media,
                                             loop: section.settings.enable_video_looping,
@@ -50,6 +53,9 @@
                                     %}
                                     <div data-media-id="{{ media.id }}"
                                          class="product-modal-media-container sp-zoom-img hidden">
+                                        <div class="product-modal-image-loader">
+                                            <div class="product-modal-spinner"></div>
+                                        </div>
                                         {% render 'cstm-product-media',
                                                 media: media,
                                                 loop: section.settings.enable_video_looping,
@@ -155,6 +161,159 @@
 {% endif %}
 
 <style>
+    /* Modal fade in/out animations */
+    .product-media-modal {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+        pointer-events: none;
+    }
+
+    .product-media-modal.is-open {
+        opacity: 1;
+        pointer-events: auto;
+    }
+
+    .product-media-modal__dialog {
+        transform: scale(0.9) translateY(-20px);
+        transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.3s ease-in-out;
+        opacity: 0;
+    }
+
+    .product-media-modal.is-open .product-media-modal__dialog {
+        transform: scale(1) translateY(0);
+        opacity: 1;
+    }
+
+    /* Media container animations - simplified to prevent flickering */
+    .product-modal-media-container {
+        opacity: 0;
+        transition: opacity 0.25s ease-in-out;
+    }
+
+    .product-modal-media-container:not(.hidden) {
+        opacity: 1;
+    }
+
+    /* Thumbnail animations - reduced to prevent aggressive zoom */
+    .product-modal-thumbnail {
+        transform: scale(1);
+        transition: transform 0.15s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+    .product-modal-thumbnail:hover {
+        transform: scale(1.02);
+    }
+
+    .product-modal-thumbnail.active {
+        transform: scale(1.05);
+        transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+    }
+
+    /* Navigation button animations */
+    .product-modal-nav-button {
+        transform: scale(1);
+        transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        opacity: 0.8;
+    }
+
+    .product-modal-nav-button:hover {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+
+    .product-modal-nav-button:active {
+        transform: scale(0.95);
+    }
+
+    /* Close button animation */
+    .product-media-modal__toggle {
+        transform: scale(1);
+        transition: transform 0.2s ease-in-out, opacity 0.2s ease-in-out;
+        opacity: 0.8;
+    }
+
+    .product-media-modal__toggle:hover {
+        transform: scale(1.1) rotate(90deg);
+        opacity: 1;
+    }
+
+    /* Image loading animation - simplified to prevent zoom flickering */
+    .sp-zoom-img img, .product-modal-media-container img {
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .sp-zoom-img img.loaded, .product-modal-media-container img.loaded {
+        opacity: 1;
+    }
+
+    /* Hide images while loader is visible */
+    .product-modal-media-container:has(.product-modal-image-loader:not(.hidden)) img {
+        opacity: 0;
+    }
+
+    /* Smooth scrolling for thumbnails */
+    .product-modal-thumbnails {
+        scroll-behavior: smooth;
+    }
+
+    /* Image loader styles */
+    .product-modal-image-loader {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 1;
+        transition: opacity 0.3s ease-in-out;
+    }
+
+    .product-modal-image-loader.hidden {
+        opacity: 0;
+        pointer-events: none;
+    }
+
+    /* Spinner animation */
+    .product-modal-spinner {
+        width: 40px;
+        height: 40px;
+        border: 3px solid rgba(255, 255, 255, 0.3);
+        border-top: 3px solid #ffffff;
+        border-radius: 50%;
+        animation: modalSpinner 1s linear infinite;
+        background: rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(2px);
+    }
+
+    @keyframes modalSpinner {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+
+    /* Skeleton loader for thumbnails */
+    .product-modal-thumbnail.loading {
+        background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+        background-size: 200% 100%;
+        animation: modalSkeleton 1.5s ease-in-out infinite;
+    }
+
+    @keyframes modalSkeleton {
+        0% { background-position: 200% 0; }
+        100% { background-position: -200% 0; }
+    }
+
+    /* Media container positioning for loader */
+    .product-modal-media-container {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 300px;
+    }
+
     .sp-quick-view-container .product-media-modal__content > *:not(.active), .product__media-list .deferred-media {
         display: block;
     }
