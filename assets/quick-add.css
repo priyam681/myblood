@@ -131,7 +131,6 @@ body.sp-quick-view-container quick-add-modal .product__media-item:not(:first-chi
     margin: var(--modal-height-offset) auto 0;
     width: 100%;
     background-color: rgb(var(--color-background));
-    /* overflow: hidden; */
     max-width: var(--page-width);
     width: calc(100% - 3rem);
 }
