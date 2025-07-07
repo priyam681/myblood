@@ -47,7 +47,7 @@ if (!customElements.get('product-modal-single')) {
       // Only allow closing via the close button
       this.mediaToggle.addEventListener('click', (event) => {
         event.preventDefault();
-        super.hide();
+        this.hideWithAnimation();
       });
 
       // Prevent closing when clicking inside the modal dialog
@@ -220,6 +220,17 @@ if (!customElements.get('product-modal-single')) {
       return;
     }
 
+    // Enhanced hide method with animation
+    hideWithAnimation() {
+      // Remove opening animation class
+      this.classList.remove('is-open');
+      
+      // Wait for animation to complete before hiding
+      setTimeout(() => {
+        super.hide();
+      }, 300); // Match CSS transition duration
+    }
+
     handleDocumentClick(event) {
       // We're overriding this to do nothing, as we want the modal to stay open
       // regardless of clicks outside
@@ -370,16 +381,20 @@ if (!customElements.get('product-modal-single')) {
       // Get the index of the current thumbnail
       const activeIndex = Array.from(this.thumbnails).findIndex((thumb) => thumb === thumbnail);
 
+      // Smooth scroll animation
+      const targetScroll = this.calculateScrollPosition(activeIndex, thumbnail);
+      this.smoothScrollTo(targetScroll);
+    }
+
+    calculateScrollPosition(activeIndex, thumbnail) {
       // ALWAYS scroll to the beginning when we're in the first 6 thumbnails
       if (activeIndex < 6) {
-        this.thumbnailContainer.scrollLeft = 0;
-        return;
+        return 0;
       }
 
       // Special handling for last thumbnails
       if (activeIndex >= this.thumbnails.length - 3) {
-        this.thumbnailContainer.scrollLeft = this.thumbnailContainer.scrollWidth - this.thumbnailContainer.clientWidth;
-        return;
+        return this.thumbnailContainer.scrollWidth - this.thumbnailContainer.clientWidth;
       }
 
       // For middle thumbnails
@@ -388,7 +403,15 @@ if (!customElements.get('product-modal-single')) {
 
       // Center the active thumbnail in the container
       const scrollPosition = thumbnail.offsetLeft - (containerWidth / 2) + (thumbnailWidth / 2);
-      this.thumbnailContainer.scrollLeft = Math.max(0, scrollPosition);
+      return Math.max(0, scrollPosition);
+    }
+
+    smoothScrollTo(targetScroll) {
+      // Use smooth scroll behavior
+      this.thumbnailContainer.scrollTo({
+        left: targetScroll,
+        behavior: 'smooth'
+      });
     }
 
     handleThumbnailClick(event) {
@@ -415,29 +438,83 @@ if (!customElements.get('product-modal-single')) {
     }
 
     showMedia(mediaId) {
+      // Get currently visible and target media elements
+      const currentMedia = this.querySelector('.product-modal-media-container:not(.hidden)');
+      const targetMedia = this.querySelector(`.product-modal-media-container[data-media-id="${mediaId}"]`);
+
+      if (!targetMedia) return;
+
+      // If same media is already showing, don't do anything
+      if (currentMedia === targetMedia) return;
+
       // Hide all media
       this.querySelectorAll('.product-modal-media-container').forEach((el) => {
         el.classList.add('hidden');
       });
 
-      // Show selected media
-      const mediaElement = this.querySelector(`.product-modal-media-container[data-media-id="${mediaId}"]`);
-      if (mediaElement) {
-        mediaElement.classList.remove('hidden');
-
-        // Handle video content if needed
-        const deferredMedia = mediaElement.querySelector('deferred-media');
-        if (deferredMedia && deferredMedia.getAttribute('loaded') !== 'true') {
-          deferredMedia.loadContent();
+      // Show target media
+      targetMedia.classList.remove('hidden');
+      
+      // Handle image loading
+      const img = targetMedia.querySelector('img');
+      const loader = targetMedia.querySelector('.product-modal-image-loader');
+      
+      if (img && loader) {
+        // Show loader initially
+        loader.classList.remove('hidden');
+        img.classList.remove('loaded');
+        
+        if (img.complete && img.naturalWidth > 0) {
+          // Image already loaded
+          this.hideLoader(loader, img);
+        } else {
+          // Wait for image to load
+          const handleImageLoad = () => {
+            this.hideLoader(loader, img);
+            img.removeEventListener('load', handleImageLoad);
+            img.removeEventListener('error', handleImageLoad);
+          };
+          
+          img.addEventListener('load', handleImageLoad);
+          img.addEventListener('error', handleImageLoad);
+          
+          // Fallback timeout to hide loader after 5 seconds
+          setTimeout(() => {
+            if (!loader.classList.contains('hidden')) {
+              this.hideLoader(loader, img);
+            }
+          }, 5000);
         }
+      } else if (img) {
+        // No loader element, just add loaded class
+        img.classList.add('loaded');
+      }
+
+      // Handle video content if needed
+      const deferredMedia = targetMedia.querySelector('deferred-media');
+      if (deferredMedia && deferredMedia.getAttribute('loaded') !== 'true') {
+        deferredMedia.loadContent();
       }
 
       // Call resize handler to adjust the image to viewport
       this.handleResize();
     }
 
+    hideLoader(loader, img) {
+      // Hide loader with animation
+      loader.classList.add('hidden');
+      
+      // Show image with animation
+      if (img) {
+        img.classList.add('loaded');
+      }
+    }
+
     show(opener) {
       super.show(opener);
+
+      // Add opening animation class
+      this.classList.add('is-open');
 
       // Force scroll to beginning when modal opens
       if (this.thumbnailContainer) {
@@ -455,6 +532,41 @@ if (!customElements.get('product-modal-single')) {
       } else {
         this.classList.remove('product-media-modal--mobile');
       }
+
+      // Add image load animation
+      this.addImageLoadAnimations();
+    }
+
+    addImageLoadAnimations() {
+      // Handle loaders for all visible media containers
+      const visibleContainers = this.querySelectorAll('.product-modal-media-container:not(.hidden)');
+      visibleContainers.forEach(container => {
+        const img = container.querySelector('img');
+        const loader = container.querySelector('.product-modal-image-loader');
+        
+        if (img && loader) {
+          if (img.complete && img.naturalWidth > 0) {
+            // Image already loaded
+            this.hideLoader(loader, img);
+          } else {
+            // Show loader and wait for image
+            loader.classList.remove('hidden');
+            img.classList.remove('loaded');
+            
+            const handleImageLoad = () => {
+              this.hideLoader(loader, img);
+              img.removeEventListener('load', handleImageLoad);
+              img.removeEventListener('error', handleImageLoad);
+            };
+            
+            img.addEventListener('load', handleImageLoad);
+            img.addEventListener('error', handleImageLoad);
+          }
+        } else if (img) {
+          // No loader, just add loaded class
+          img.classList.add('loaded');
+        }
+      });
     }
 
     refreshThumbnails() {
