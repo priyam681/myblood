@@ -277,7 +277,9 @@
                   >
                     <span class="add-to-cart">
                       {%- if card_product.selected_or_first_available_variant.available -%}
-                        {{- 'cartt.svg' | inline_asset_content -}}
+                        <svg width="24" height="24" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M3 3H5L5.4 5H15.55A1 1 0 0 1 16.5 6.1L14.7 12.1A1 1 0 0 1 13.75 12.8H6.39A1 1 0 0 1 5.44 11.9L3.8 5H2V3H3ZM6 14A2 2 0 1 0 6 18A2 2 0 0 0 6 14ZM12 14A2 2 0 1 0 12 18A2 2 0 0 0 12 14Z" fill="currentColor"/>
+                        </svg>
                       {%- else -%}
                         {{ 'products.product.sold_out' | t }}
                       {%- endif -%}
