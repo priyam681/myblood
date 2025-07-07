@@ -105,42 +105,32 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.setAttribute('role', 'button');
   summary.setAttribute('aria-expanded', summary.parentNode.hasAttribute('open'));
 
-
   if (summary.nextElementSibling.getAttribute('id')) {
     summary.setAttribute('aria-controls', summary.nextElementSibling.id);
   }
 
-  // summary.addEventListener('click', (event) => {
-  //   event.preventDefault();
-  //   event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
-  // });
-
-  window.addEventListener('resize', (event) => {
-    let windowWidth = window.innerWidth;
-    if (windowWidth > 990 && !summary.closest('header-drawer, menu-drawer')) {
-      summary.addEventListener('click', (event) => {
-        event.preventDefault();
-      });
-      return;
-    }
-    summary.addEventListener('click', (event) => {
-      event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+  // Only add desktop hover prevention for non-drawer menus
+  const isDesktopMegaMenu = !summary.closest('header-drawer, menu-drawer');
+  
+  if (isDesktopMegaMenu) {
+    window.addEventListener('resize', (event) => {
+      let windowWidth = window.innerWidth;
+      if (windowWidth > 990) {
+        summary.addEventListener('click', (event) => {
+          event.preventDefault();
+        });
+      }
     });
-  });
 
-
-  window.addEventListener('pageshow', (e) => {
-    let windowWidth = window.innerWidth;
-    if (windowWidth > 990 && !summary.closest('header-drawer, menu-drawer')) {
-      summary.addEventListener('click', (event) => {
-        event.preventDefault();
-      });
-      return;
-    }
-    summary.addEventListener('click', (event) => {
-      event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+    window.addEventListener('pageshow', (e) => {
+      let windowWidth = window.innerWidth;
+      if (windowWidth > 990) {
+        summary.addEventListener('click', (event) => {
+          event.preventDefault();
+        });
+      }
     });
-  });
+  }
 
   // Remove conflicting mouseenter handler - handled by header-menu custom element
   // summary.addEventListener('mouseenter', (event) => {
@@ -531,7 +521,8 @@ class MenuDrawer extends HTMLElement {
     }
 
     if (detailsElement === this.mainDetailsToggle) {
-      if (isOpen) event.preventDefault();
+      // Handle main hamburger menu toggle
+      event.preventDefault();
       this.onResizeDrawer();
       isOpen ? this.closeMenuDrawer(event, summaryElement) : this.openMenuDrawer(summaryElement);
 
@@ -590,10 +581,13 @@ class MenuDrawer extends HTMLElement {
 
 
   openMenuDrawer(summaryElement) {
-    setTimeout(() => {
+    // Add immediate feedback
+    this.mainDetailsToggle.setAttribute('open', '');
+    
+    // Add opening class with smooth timing
+    requestAnimationFrame(() => {
       this.mainDetailsToggle.classList.add('menu-opening');
     });
-
 
     summaryElement.setAttribute('aria-expanded', true);
     trapFocus(this.mainDetailsToggle, summaryElement);
@@ -603,22 +597,35 @@ class MenuDrawer extends HTMLElement {
   closeMenuDrawer(event, elementToFocus = false) {
     if (event === undefined) return;
 
+    // Start closing animations immediately
     this.mainDetailsToggle.classList.remove('menu-opening');
+    
+    // Close all submenus with smooth animations
     this.mainDetailsToggle.querySelectorAll('details').forEach((details) => {
-      details.removeAttribute('open');
       details.classList.remove('menu-opening');
+      this.manageSvgRotation(details, false);
     });
 
-
-    console.log('CLOSE');
     this.mainDetailsToggle.querySelectorAll('.submenu-open').forEach((submenu) => {
       submenu.classList.remove('submenu-open');
     });
+    
+    // Remove body overflow immediately for better UX
     document.body.classList.remove(`overflow-hidden-${this.dataset.breakpoint}`);
     removeTrapFocus(elementToFocus);
-    this.closeAnimation(this.mainDetailsToggle);
-
-    if (event instanceof KeyboardEvent) elementToFocus?.setAttribute('aria-expanded', false);
+    
+    // Set aria-expanded immediately
+    if (elementToFocus) {
+      elementToFocus.setAttribute('aria-expanded', false);
+    }
+    
+    // Use proper closing animation with timing
+    setTimeout(() => {
+      this.mainDetailsToggle.querySelectorAll('details').forEach((details) => {
+        details.removeAttribute('open');
+      });
+      this.mainDetailsToggle.removeAttribute('open');
+    }, 300); // Match CSS transition timing
   }
 
   onFocusOut() {
@@ -670,26 +677,13 @@ class MenuDrawer extends HTMLElement {
   }
 
   closeAnimation(detailsElement) {
-    let animationStart;
-
-    const handleAnimation = (time) => {
-      if (animationStart === undefined) {
-        animationStart = time;
+    // Use CSS transitions instead of manual animation
+    setTimeout(() => {
+      detailsElement.removeAttribute('open');
+      if (detailsElement.closest('details[open]')) {
+        trapFocus(detailsElement.closest('details[open]'), detailsElement.querySelector('summary'));
       }
-
-      const elapsedTime = time - animationStart;
-
-      if (elapsedTime < 400) {
-        window.requestAnimationFrame(handleAnimation);
-      } else {
-        detailsElement.removeAttribute('open');
-        if (detailsElement.closest('details[open]')) {
-          trapFocus(detailsElement.closest('details[open]'), detailsElement.querySelector('summary'));
-        }
-      }
-    };
-
-    window.requestAnimationFrame(handleAnimation);
+    }, 300); // Match CSS transition timing
   }
 }
 
@@ -711,7 +705,11 @@ class HeaderDrawer extends MenuDrawer {
 
     this.header.classList.add('menu-open');
 
-    setTimeout(() => {
+    // Immediate feedback
+    this.mainDetailsToggle.setAttribute('open', '');
+    
+    // Smooth opening animation
+    requestAnimationFrame(() => {
       this.mainDetailsToggle.classList.add('menu-opening');
     });
 
