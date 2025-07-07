@@ -142,9 +142,10 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
     });
   });
 
-  summary.addEventListener('mouseenter', (event) => {
-    event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
-  });
+  // Remove conflicting mouseenter handler - handled by header-menu custom element
+  // summary.addEventListener('mouseenter', (event) => {
+  //   event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
+  // });
 
 
   if (summary.closest('header-drawer, menu-drawer')) return;

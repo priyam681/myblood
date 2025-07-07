@@ -381,9 +381,17 @@ this.header.classList.remove('shopify-section-header-hidden', 'shopify-section-h
 }
 
 closeMenuDisclosure() {
-this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
-this.disclosures.forEach(disclosure => disclosure.close());
-}
+// Don't close menus if user is hovering over them
+if (this.preventMenuClose) return;
+  
+    this.disclosures = this.disclosures || this.header.querySelectorAll('header-menu');
+    this.disclosures.forEach(disclosure => {
+      // Check if mouse is still in the menu
+      if (!disclosure.isMouseInMenu) {
+        disclosure.close();
+      }
+    });
+  }
 
 closeSearchModal() {
 this.searchModal = this.searchModal || this.header.querySelector('details-modal');

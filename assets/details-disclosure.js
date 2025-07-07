@@ -68,14 +68,19 @@ class HeaderMenu extends DetailsDisclosure {
   constructor() {
     super();
     this.header = document.querySelector('.header-wrapper');
-
+    this.stickyHeader = document.querySelector('sticky-header');
   }
 
-
   onMouseLeave(event) {
-    this.header.preventHide = true;
+    this.isMouseInMenu = false;
+    this.header.preventHide = false;
     this.header.style.setProperty('--header-bottom-position-desktop', '');
     document.body.classList.remove('overflow-menu');
+
+    // Reset sticky header menu close prevention
+    if (this.stickyHeader) {
+      this.stickyHeader.preventMenuClose = false;
+    }
 
     const details = event.target.closest('details');
 
@@ -85,13 +90,18 @@ class HeaderMenu extends DetailsDisclosure {
 
       this.close();
     }
-
   }
 
   onMouseEnter(event) {
     if (!this.header) return;
 
-    this.header.preventHide = this.mainDetailsToggle.open;
+    this.isMouseInMenu = true;
+    this.header.preventHide = true;
+    
+    // Prevent sticky header from closing menus while hovering
+    if (this.stickyHeader) {
+      this.stickyHeader.preventMenuClose = true;
+    }
 
     const details = event.target.closest('details');
     if (!details || details.hasAttribute('open')) return;
