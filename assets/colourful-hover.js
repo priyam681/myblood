@@ -73,9 +73,12 @@ if (!customElements.get('colourful-hover')) {
         this.hideTimeout = null;
       }
       
-      this.hoverState = true;
-      this.clearTimer();
-      this.showModal()
+      // Only process if not already in hover state
+      if (!this.hoverState) {
+        this.hoverState = true;
+        this.clearTimer();
+        this.showModal();
+      }
     }
 
     showModal(){
@@ -110,6 +113,8 @@ if (!customElements.get('colourful-hover')) {
       const interval = parseInt(this.getAttribute('data-interval')) || 3000; // Default to 3 seconds
       if (interval > 0 && this.productImages && this.productImages.length > 1) {
         this.timer = setInterval(() => this.startInterval(), interval);
+      } else {
+        console.log('Timer not started - only ' + (this.productImages ? this.productImages.length : 0) + ' images');
       }
     }
 
