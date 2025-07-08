@@ -16,9 +16,14 @@ if (!customElements.get('colourful-hover')) {
       this.productwrapper = this.querySelectorAll('.product-image-wrapper-sec');
       if (this.productImages.length === 0) return;
 
-      // Set up event listeners with bound methods to avoid creating new functions
-      this.container.addEventListener('mouseenter', this.handleMouseEnter.bind(this));
-      this.container.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
+      this.hideTimeout = null;
+
+      // Set up event listeners on the entire product image wrapper instead of just container
+      this.productImageWrapper = this.querySelector('.product-image-wrapper');
+      if (this.productImageWrapper) {
+        this.productImageWrapper.addEventListener('mouseenter', this.handleMouseEnter.bind(this));
+        this.productImageWrapper.addEventListener('mouseleave', this.handleMouseLeave.bind(this));
+      }
 
       // Initialize images and start interval
       this.initialProductImages();
@@ -27,10 +32,17 @@ if (!customElements.get('colourful-hover')) {
 
     disconnectedCallback() {
       // Clean up event listeners and timer when element is removed
-      if (this.container) {
-        this.container.removeEventListener('mouseenter', this.handleMouseEnter);
-        this.container.removeEventListener('mouseleave', this.handleMouseLeave);
+      if (this.productImageWrapper) {
+        this.productImageWrapper.removeEventListener('mouseenter', this.handleMouseEnter);
+        this.productImageWrapper.removeEventListener('mouseleave', this.handleMouseLeave);
       }
+      
+      // Clear any pending timeout
+      if (this.hideTimeout) {
+        clearTimeout(this.hideTimeout);
+        this.hideTimeout = null;
+      }
+      
       this.clearTimer();
     }
 
@@ -46,16 +58,27 @@ if (!customElements.get('colourful-hover')) {
     }
 
     onLeave() {
-      this.hoverState = false;
-      // Restart the timer when mouse leaves
-      this.hideModal();
-      this.startTimer();
+      // Use a timeout to allow user to move to popup
+      this.hideTimeout = setTimeout(() => {
+        this.hoverState = false;
+        this.hideModal();
+        this.startTimer();
+      }, 300); // 300ms delay for better UX
     }
 
     onHover() {
-      this.hoverState = true;
-      this.clearTimer();
-      this.showModal()
+      // Clear any pending hide timeout
+      if (this.hideTimeout) {
+        clearTimeout(this.hideTimeout);
+        this.hideTimeout = null;
+      }
+      
+      // Only process if not already in hover state
+      if (!this.hoverState) {
+        this.hoverState = true;
+        this.clearTimer();
+        this.showModal();
+      }
     }
 
     showModal(){
@@ -90,6 +113,8 @@ if (!customElements.get('colourful-hover')) {
       const interval = parseInt(this.getAttribute('data-interval')) || 3000; // Default to 3 seconds
       if (interval > 0 && this.productImages && this.productImages.length > 1) {
         this.timer = setInterval(() => this.startInterval(), interval);
+      } else {
+        console.log('Timer not started - only ' + (this.productImages ? this.productImages.length : 0) + ' images');
       }
     }
 
@@ -117,6 +142,8 @@ if (!customElements.get('colourful-hover')) {
     static get observedAttributes() {
       return ['data-interval'];
     }
+
+
 
     attributeChangedCallback(name, oldValue, newValue) {
       if (name === 'data-interval' && oldValue !== newValue && !this.hoverState && this.productImages) {
