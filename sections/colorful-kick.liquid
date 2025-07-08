@@ -151,14 +151,15 @@
                 </div>
 
                 <div class="product-image-wrapper">
-                    <div class="bg-text">
-                        <span>{{ section.settings.behind_the_design }}</span>
-                    </div>
+
                     <div class="product-images-container">
                         {% for block in section.blocks %}
                             {% if block.type == 'image_showcase' %}
                                 {% assign product = all_products[block.settings.product] %}
                                 <div class="product-image-wrapper-sec">
+                                <div class="bg-text">
+                                                        <span>{{ section.settings.behind_the_design }}</span>
+                                                    </div>
                                     {% if section.settings.only_desktop and section.settings.show_product_info %}
                                         <div class="product-image-info" data-product-id="{{ product.id }}">
                                             <div class="img-wrap">
@@ -301,7 +302,7 @@
     top: 10%;
     padding: 10px 25px;
     text-align: center;
-    z-index: 4;
+    z-index: 6;
     }
     .collection-image {
     position: relative;

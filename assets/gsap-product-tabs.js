@@ -202,11 +202,9 @@ document.addEventListener('DOMContentLoaded', function() {
       if (prevButton && nextButton) {
         gsap.fromTo([prevButton, nextButton],
           {
-            opacity: 0,
             scale: 0.8
           },
           {
-            opacity: 1,
             scale: 1,
             duration: 0.5,
             stagger: 0.1,
