@@ -40,12 +40,12 @@ document.addEventListener('DOMContentLoaded', function() {
           opacity: 1,
           y: 0,
           duration: 0.8,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: tabHeading,
-            start: "top 85%",
-            end: "bottom 15%",
-            toggleActions: "play none none reverse"
+            start: 'top 85%',
+            end: 'bottom 15%',
+            toggleActions: 'play none none reverse'
           }
         }
       );
@@ -65,12 +65,12 @@ document.addEventListener('DOMContentLoaded', function() {
             y: 0,
             duration: 0.6,
             stagger: 0.1,
-            ease: "power2.out",
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: tabsNav,
-              start: "top 80%",
-              end: "bottom 20%",
-              toggleActions: "play none none reverse"
+              start: 'top 80%',
+              end: 'bottom 20%',
+              toggleActions: 'play none none reverse'
             }
           }
         );
@@ -81,19 +81,17 @@ document.addEventListener('DOMContentLoaded', function() {
     productSliders.forEach((slider, index) => {
       gsap.fromTo(slider,
         {
-          opacity: 0,
-          y: 50
+          opacity: 0
         },
         {
           opacity: 1,
-          y: 0,
           duration: 0.8,
-          ease: "power2.out",
+          ease: 'power2.out',
           scrollTrigger: {
             trigger: slider,
-            start: "top 85%",
-            end: "bottom 15%",
-            toggleActions: "play none none reverse"
+            start: 'top 85%',
+            end: 'bottom 25%',
+            toggleActions: 'play none none reverse'
           }
         }
       );
@@ -111,12 +109,12 @@ document.addEventListener('DOMContentLoaded', function() {
             y: 0,
             duration: 0.6,
             stagger: 0.15,
-            ease: "power2.out",
+            ease: 'power2.out',
             scrollTrigger: {
               trigger: slider,
-              start: "top 75%",
-              end: "bottom 25%",
-              toggleActions: "play none none reverse"
+              start: 'top 75%',
+              end: 'bottom 25%',
+              toggleActions: 'play none none reverse'
             }
           }
         );
@@ -131,7 +129,7 @@ document.addEventListener('DOMContentLoaded', function() {
             gsap.to(card, {
               y: -8,
               duration: 0.3,
-              ease: "power2.out"
+              ease: 'power2.out'
             });
 
             // Apply subtle zoom only to image container, not the image itself
@@ -139,16 +137,16 @@ document.addEventListener('DOMContentLoaded', function() {
               gsap.to(mainImage.parentElement, {
                 scale: 1.02,
                 duration: 0.3,
-                ease: "power2.out"
+                ease: 'power2.out'
               });
             }
 
             if (productName) {
               gsap.to(productName, {
                 y: -2,
-                color: "#000",
+                color: '#000',
                 duration: 0.3,
-                ease: "power2.out"
+                ease: 'power2.out'
               });
             }
 
@@ -156,7 +154,7 @@ document.addEventListener('DOMContentLoaded', function() {
               gsap.to(productPrice, {
                 y: -1,
                 duration: 0.3,
-                ease: "power2.out"
+                ease: 'power2.out'
               });
             }
           });
@@ -165,7 +163,7 @@ document.addEventListener('DOMContentLoaded', function() {
             gsap.to(card, {
               y: 0,
               duration: 0.3,
-              ease: "power2.out"
+              ease: 'power2.out'
             });
 
             // Reset image container
@@ -173,16 +171,16 @@ document.addEventListener('DOMContentLoaded', function() {
               gsap.to(mainImage.parentElement, {
                 scale: 1,
                 duration: 0.3,
-                ease: "power2.out"
+                ease: 'power2.out'
               });
             }
 
             if (productName) {
               gsap.to(productName, {
                 y: 0,
-                color: "",
+                color: '',
                 duration: 0.3,
-                ease: "power2.out"
+                ease: 'power2.out'
               });
             }
 
@@ -190,7 +188,7 @@ document.addEventListener('DOMContentLoaded', function() {
               gsap.to(productPrice, {
                 y: 0,
                 duration: 0.3,
-                ease: "power2.out"
+                ease: 'power2.out'
               });
             }
           });
@@ -212,12 +210,12 @@ document.addEventListener('DOMContentLoaded', function() {
             scale: 1,
             duration: 0.5,
             stagger: 0.1,
-            ease: "back.out(1.5)",
+            ease: 'back.out(1.5)',
             scrollTrigger: {
               trigger: slider,
-              start: "top 70%",
-              end: "bottom 30%",
-              toggleActions: "play none none reverse"
+              start: 'top 70%',
+              end: 'bottom 30%',
+              toggleActions: 'play none none reverse'
             }
           }
         );
@@ -228,7 +226,7 @@ document.addEventListener('DOMContentLoaded', function() {
             gsap.to(button, {
               scale: 1.1,
               duration: 0.2,
-              ease: "power2.out"
+              ease: 'power2.out'
             });
           });
 
@@ -236,7 +234,7 @@ document.addEventListener('DOMContentLoaded', function() {
             gsap.to(button, {
               scale: 1,
               duration: 0.2,
-              ease: "power2.out"
+              ease: 'power2.out'
             });
           });
         });
@@ -256,10 +254,10 @@ document.addEventListener('DOMContentLoaded', function() {
             opacity: 0,
             y: -20,
             duration: 0.3,
-            ease: "power2.in",
+            ease: 'power2.in',
             onComplete: () => {
               activeContent.classList.remove('active');
-              
+
               // Animate in new content
               targetContent.classList.add('active');
               gsap.fromTo(targetContent,
@@ -271,7 +269,7 @@ document.addEventListener('DOMContentLoaded', function() {
                   opacity: 1,
                   y: 0,
                   duration: 0.4,
-                  ease: "power2.out"
+                  ease: 'power2.out'
                 }
               );
             }
