@@ -785,8 +785,9 @@ class ModalDialog extends HTMLElement {
     removeTrapFocus(this.openedBy);
     window.pauseAllMedia();
 
-    let quickAddModal = document.querySelector('product-modal-single');
-    if (!quickAddModal?.classList.contains('quick-add-modal')) {
+    // Check if there's an open quick-add modal before removing container classes
+    let openQuickAddModal = document.querySelector('quick-add-modal[open]');
+    if (!openQuickAddModal) {
       document.body.classList.remove('sp-quick-view-container');
       document.body.classList.remove('overflow-hidden');
     }
