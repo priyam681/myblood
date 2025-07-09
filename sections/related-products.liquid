@@ -1,67 +1,291 @@
 {{ 'cstm-component-card.css' | asset_url | stylesheet_tag }}
 {{ 'component-price.css' | asset_url | stylesheet_tag }}
 {{ 'section-related-products.css' | asset_url | stylesheet_tag }}
+{{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 
 {% if section.settings.image_shape == 'blob' %}
-  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+    {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
 {%- if section.settings.quick_add == 'standard' -%}
-  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
+<script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+
 {%- style -%}
-  .section-{{ section.id }}-padding {
+    .section-{{ section.id }}-padding {
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-  }
-
-  @media screen and (min-width: 768px) {
-    .section-{{ section.id }}-padding {
-      padding-top: {{ section.settings.padding_top }}px;
-      padding-bottom: {{ section.settings.padding_bottom }}px;
     }
-  }
+
+    @media screen and (min-width: 768px) {
+    .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top }}px;
+    padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+    }
+
+    .related-products-swiper {
+    overflow: hidden;
+    position: relative;
+    }
+
+    .related-products-swiper .swiper-wrapper {
+    display: flex;
+    }
+
+    .related-products-swiper .swiper-slide {
+    flex-shrink: 0;
+    width: auto;
+    }
+
+    .related-products-header .prev-next-button .item-prev,
+    .related-products-header .prev-next-button .item-next {
+    background: #111111;
+    color: #fff;
+    display: flex;
+    padding: 17px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 4px;
+    }
+
+    .related-products-header .prev-next-button .item-prev:hover,
+    .related-products-header .prev-next-button .item-next:hover {
+    background: #333333;
+    transform: scale(1.05);
+    }
+
+    .related-products-header .prev-next-button .item-prev.clicked,
+    .related-products-header .prev-next-button .item-next.clicked {
+    transform: scale(0.95);
+    background: #555;
+    }
+
+    .related-products-header .prev-next-button.swiper-button-disabled,
+    .related-products-header .swiper-button-disabled {
+    opacity: 0.35;
+    pointer-events: none;
+    }
+
+    .related-products-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    }
+
+    .related-products-header .prev-next-button {
+    display: flex;
+    gap: 20px;
+    z-index: 1;
+    }
+
+    .related-products-header .item-prev .svg-wrapper {
+    transform: rotate(90deg);
+    }
+
+    .related-products-header .item-next .svg-wrapper {
+    transform: rotate(270deg);
+    }
+
+    @media screen and (max-width: 768px) {
+    .related-products-header .prev-next-button {
+    display: none;
+    }
+
+    .related-products-header {
+    justify-content: center;
+    }
+    }
+
+    .related-products-view-all {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 20px;
+    }
+
+    .view-all-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #FF4500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+    }
+
+    .view-all-btn:hover {
+    background: #E03E00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,69,0,0.3);
+    }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-  <product-recommendations
-    class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-    data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
-    data-section-id="{{ section.id }}"
-    data-product-id="{{ product.id }}"
-  >
-    {% if recommendations.performed and recommendations.products_count > 0 %}
-      <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
-        {{ section.settings.heading }}
-      </h2>
-      <ul
-        class="grid product-grid grid--{{ section.settings.columns_desktop }}-col-desktop grid--{{ section.settings.columns_mobile }}-col-tablet-down"
-        role="list"
-      >
-        {% assign skip_card_product_styles = false %}
-        {% for recommendation in recommendations.products %}
-          <li class="grid__item">
-            {% render 'cstm-card-product',
-              card_product: recommendation,
-              media_aspect_ratio: section.settings.image_ratio,
-              image_shape: section.settings.image_shape,
-              show_secondary_image: section.settings.show_secondary_image,
-              show_vendor: section.settings.show_vendor,
-              show_rating: section.settings.show_rating,
-              skip_styles: skip_card_product_styles
-            %}
-          </li>
-          {%- assign skip_card_product_styles = true -%}
-        {% endfor %}
-      </ul>
-    {% endif %}
-  </product-recommendations>
-  {% if section.settings.image_shape == 'arch' %}
-    {{ 'mask-arch.svg' | inline_asset_content }}
-  {%- endif -%}
+    <product-recommendations
+            class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+            data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
+            data-section-id="{{ section.id }}"
+            data-product-id="{{ product.id }}"
+    >
+        {% if recommendations.performed and recommendations.products_count > 0 %}
+            <div class="related-products-header">
+                <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+                    {{ section.settings.heading }}
+                </h2>
+                <div class="prev-next-button">
+                    <div class="item-prev pagination__item--prev">
+            <span class="svg-wrapper">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+                    </div>
+                    <div class="item-next pagination__item--prev">
+            <span class="svg-wrapper">
+              {{- 'icon-caret.svg' | inline_asset_content -}}
+            </span>
+                    </div>
+                </div>
+            </div>
+            <div class="swiper related-products-swiper">
+                <ul
+                        class="swiper-wrapper"
+                        role="list"
+                >
+                    {% assign skip_card_product_styles = false %}
+                    {% for recommendation in recommendations.products %}
+                        <li class="swiper-slide">
+                            {% render 'cstm-card-product',
+                                    card_product: recommendation,
+                                    media_aspect_ratio: section.settings.image_ratio,
+                                    image_shape: section.settings.image_shape,
+                                    show_secondary_image: section.settings.show_secondary_image,
+                                    show_vendor: section.settings.show_vendor,
+                                    show_rating: section.settings.show_rating,
+                                    skip_styles: skip_card_product_styles
+                            %}
+                        </li>
+                        {%- assign skip_card_product_styles = true -%}
+                    {% endfor %}
+                </ul>
+            </div>
+
+            {% if recommendations.performed and recommendations.products_count > 0 and section.settings.show_view_all %}
+                <div class="related-products-view-all">
+                    <a href="{{ section.settings.view_all_url | default: collections.all.url }}" class="view-all-btn">
+                        {{ section.settings.view_all_text | default: "View All Products" }}
+                    </a>
+                </div>
+            {% endif %}
+        {% endif %}
+    </product-recommendations>
+    {% if section.settings.image_shape == 'arch' %}
+        {{ 'mask-arch.svg' | inline_asset_content }}
+    {%- endif -%}
 </div>
+
+<script defer>
+  function initializeRelatedProductsSwiper() {
+    const swiperEl = document.querySelector('.related-products-swiper');
+    if (swiperEl && typeof Swiper !== 'undefined') {
+      const swiper = new Swiper(swiperEl, {
+        slidesPerView: 1,
+        spaceBetween: 20,
+        navigation: {
+          nextEl: '.item-next',
+          prevEl: '.item-prev'
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30
+          },
+          1024: {
+            slidesPerView: {{ section.settings.columns_desktop | default: 4 }},
+            spaceBetween: 30
+          }
+        },
+        on: {
+          init: function() {
+            updateNavigationState(this);
+          },
+          slideChange: function() {
+            updateNavigationState(this);
+          }
+        }
+      });
+
+      // Add click event listeners for better visual feedback
+      const prevBtn = swiperEl.querySelector('.item-prev');
+      const nextBtn = swiperEl.querySelector('.item-next');
+
+      if (prevBtn) {
+        prevBtn.addEventListener('click', function() {
+          this.classList.add('clicked');
+          setTimeout(() => this.classList.remove('clicked'), 150);
+        });
+      }
+
+      if (nextBtn) {
+        nextBtn.addEventListener('click', function() {
+          this.classList.add('clicked');
+          setTimeout(() => this.classList.remove('clicked'), 150);
+        });
+      }
+    }
+  }
+
+  function updateNavigationState(swiper) {
+    const prevBtn = swiper.el.querySelector('.item-prev');
+    const nextBtn = swiper.el.querySelector('.item-next');
+
+    if (prevBtn) {
+      prevBtn.classList.toggle('swiper-button-disabled', swiper.isBeginning);
+    }
+
+    if (nextBtn) {
+      nextBtn.classList.toggle('swiper-button-disabled', swiper.isEnd);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    const productRecommendations = document.querySelector('product-recommendations[data-section-id="{{ section.id }}"]');
+
+    if (productRecommendations) {
+      // Observer to detect when content is loaded
+      const observer = new MutationObserver(function(mutations) {
+        mutations.forEach(function(mutation) {
+          if (mutation.type === 'childList' && mutation.addedNodes.length > 0) {
+            // Check if related products content was added
+            const hasSwiper = document.querySelector('.related-products-swiper');
+            if (hasSwiper) {
+              setTimeout(initializeRelatedProductsSwiper, 100);
+              observer.disconnect();
+            }
+          }
+        });
+      });
+
+      observer.observe(productRecommendations, {
+        childList: true,
+        subtree: true
+      });
+
+      // Also try to initialize immediately in case content is already loaded
+      setTimeout(initializeRelatedProductsSwiper, 200);
+    }
+  });
+</script>
 
 {% schema %}
 {
@@ -166,7 +390,7 @@
           "value": "2",
           "label": "t:sections.related-products.settings.columns_mobile.options__2.label"
         }
-      ]    
+      ]
     },
     {
       "type": "color_scheme",
@@ -281,6 +505,28 @@
       "unit": "px",
       "label": "t:sections.all.padding.padding_bottom",
       "default": 36
+    },
+    {
+      "type": "header",
+      "content": "View All Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show View All Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Button Text",
+      "default": "View All Products"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View All Button URL",
+      "info": "Leave empty to link to all products"
     }
   ]
 }
