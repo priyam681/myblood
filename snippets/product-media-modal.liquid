@@ -99,7 +99,7 @@
                                 endif
                             %}
 
-                            <button class="product-modal-thumbnail  {% if section.settings.media_fit.value == "contain" %} media-fit-contain {% else %} media-fit-cover {% endif %}"
+                            <button class="product-modal-thumbnail"
                                     data-media-id="{{ media.id }}">
                                 {{ media | image_url: width: 100 | image_tag: loading: 'lazy', alt: media.alt }}
                             </button>
@@ -289,8 +289,12 @@
     }
 
     @keyframes modalSpinner {
-        0% { transform: rotate(0deg); }
-        100% { transform: rotate(360deg); }
+        0% {
+            transform: rotate(0deg);
+        }
+        100% {
+            transform: rotate(360deg);
+        }
     }
 
     /* Skeleton loader for thumbnails */
@@ -301,8 +305,12 @@
     }
 
     @keyframes modalSkeleton {
-        0% { background-position: 200% 0; }
-        100% { background-position: -200% 0; }
+        0% {
+            background-position: 200% 0;
+        }
+        100% {
+            background-position: -200% 0;
+        }
     }
 
     /* Media container positioning for loader */
@@ -324,8 +332,8 @@
     }
 
     .sp-zoom-img img {
-        height: 600px;
-        object-fit: cover;
+        max-height: 600px;
+        object-fit: contain;
         width: 100%;
     }
 
@@ -447,7 +455,7 @@
         }
 
         .sp-zoom-img img {
-            height: 200px;
+            height: 300px;
         }
 
         .product-modal-thumbnail {
