@@ -124,7 +124,7 @@
 {% endschema %}
 
 <script src="{{ 'colourful-hover.js' | asset_url }}" defer></script>
-<script src="{{ 'banner-animations.js' | asset_url }}" defer></script>
+
 
 <section class="colorful-kicks-section page-width">
     <colourful-hover data-interval="{{ section.settings.interval | times: 1000 }}">
@@ -157,9 +157,9 @@
                             {% if block.type == 'image_showcase' %}
                                 {% assign product = all_products[block.settings.product] %}
                                 <div class="product-image-wrapper-sec">
-                                <div class="bg-text">
-                                                        <span>{{ section.settings.behind_the_design }}</span>
-                                                    </div>
+                                    <div class="bg-text">
+                                        <span>{{ section.settings.behind_the_design }}</span>
+                                    </div>
                                     {% if section.settings.only_desktop and section.settings.show_product_info %}
                                         <div class="product-image-info" data-product-id="{{ product.id }}">
                                             <div class="img-wrap">
