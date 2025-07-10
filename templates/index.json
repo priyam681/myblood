@@ -238,30 +238,30 @@
         "action_item_FdXygz": {
           "type": "action_item",
           "settings": {
-            "label": "HIKING",
+            "label": "TRAINING",
             "collection_url": "shopify://collections/kids",
-            "image1": "shopify://shop_images/original-imahd2zcztpgnbyh.webp",
+            "image1": "shopify://shop_images/image-1_bb138ee9-0e26-4282-bba0-e075bf66dcea.png",
             "lable1": "text-1",
-            "image2": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhw7xrpwtss.webp",
+            "image2": "shopify://shop_images/image_225af792-32fb-48d3-8cbe-b39c04c65cb8.png",
             "lable2": "text-2",
-            "image3": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhwethyfjn5.webp",
+            "image3": "shopify://shop_images/image-2_76be28ea-4977-469b-b6dc-7e758d55bae3.png",
             "lable3": "text-3",
-            "image4": "shopify://shop_images/6-ori-9056-6-bersache-black-original-imah5ducyyddrbuk.webp",
+            "image4": "shopify://shop_images/image-3_0e12805d-d5cc-4624-b7c0-b1f7e40cb4bd.png",
             "lable4": "text-4"
           }
         },
         "action_item_NirM74": {
           "type": "action_item",
           "settings": {
-            "label": "HIKING",
+            "label": "EVERYDAY",
             "collection_url": "shopify://collections/kids",
-            "image1": "shopify://shop_images/original-imahd2zcztpgnbyh.webp",
+            "image1": "shopify://shop_images/image-1_c0beccc5-c528-40f7-b03d-187d06eb2c14.png",
             "lable1": "text-1",
-            "image2": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhw7xrpwtss.webp",
+            "image2": "shopify://shop_images/image-2_d6a1a472-72d3-4a3c-9ce6-94378dd68cee.png",
             "lable2": "text-2",
-            "image3": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhwethyfjn5.webp",
+            "image3": "shopify://shop_images/image_225750cc-8741-4bbf-a2d9-cbf68194bf4d.png",
             "lable3": "text-3",
-            "image4": "shopify://shop_images/6-ori-9056-6-bersache-black-original-imah5ducyyddrbuk.webp",
+            "image4": "shopify://shop_images/image-3_97d62fd2-8fdb-492d-afc8-53e7e9342d5a.png",
             "lable4": "text-4"
           }
         }
