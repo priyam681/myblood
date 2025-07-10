@@ -1058,6 +1058,9 @@ a.product__text {
 }
 
 @media screen and (max-width: 768px) {
+   .product .product__info-wrapper.grid__item {
+       margin-top: 20px;
+   }
   .product__media-item {
     display: flex;
     align-items: center;
