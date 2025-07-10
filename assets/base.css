@@ -664,6 +664,7 @@ h6:empty {
     width: 1.5rem;
     margin-left: 1rem;
 }
+
 .circle-divider::after {
     content: "\2022";
     margin: 0 1.3rem 0 1.5rem;
@@ -1804,6 +1805,7 @@ details[open] > .share-button__fallback {
     min-height: auto;
     transition: none;
 }
+
 .share-button__fallback .field__input {
     box-shadow: none;
     text-overflow: ellipsis;
@@ -2018,6 +2020,7 @@ details[open] > .share-button__fallback {
 .customer .field input::-webkit-search-cancel-button {
     display: none;
 }
+
 /* Text area */
 
 .text-area {
@@ -2151,6 +2154,7 @@ input[type="checkbox"] {
     -webkit-appearance: none;
     appearance: none;
 }
+
 .quantity {
     width: 160px;
 }
@@ -2283,6 +2287,7 @@ input[type="checkbox"] {
     justify-content: center;
     align-items: center;
 }
+
 
 .media-modal {
     cursor: zoom-out;
@@ -3079,7 +3084,7 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item {
-    padding: 4.4rem 0.2rem;
+    /*padding: 4.4rem 0.2rem;*/
     text-decoration: none;
     color: rgba(var(--color-foreground), 0.75);
     z-index: 3;
@@ -4473,6 +4478,7 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
     align-items: center;
     justify-content: center;
 }
+
 .product-form__input.product-form__input--swatch .varient-plus-icon-svg {
     display: flex;
     align-items: center;
