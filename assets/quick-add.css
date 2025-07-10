@@ -1,11 +1,3 @@
-.sp-quick-view-container
-.sp-quick-modal
-.quick-add-modal__content-info
-.product.grid
-quantity-input.quantity::after {
-    box-shadow: unset;
-}
-
 body.sp-quick-view-container .slider-buttons.quick-add-hidden {
     display: none !important;
 }
