@@ -14,6 +14,7 @@
       "blocks": {
         "vendor": {
           "type": "text",
+          "disabled": true,
           "settings": {
             "text": "{{ product.vendor }}",
             "text_style": "uppercase"
@@ -45,12 +46,9 @@
             "show_gift_card_recipient": true
           }
         },
-        "description": {
-          "type": "description",
-          "settings": {}
-        },
         "share": {
           "type": "share",
+          "disabled": true,
           "settings": {
             "share_label": "Share"
           }
@@ -84,7 +82,6 @@
         "variant_picker",
         "quantity_selector",
         "buy_buttons",
-        "description",
         "share",
         "delivery_options_KrPwPM",
         "icon_with_text_9A9gWg"
@@ -119,7 +116,7 @@
     "related-products": {
       "type": "related-products",
       "settings": {
-        "heading": "You may also like",
+        "heading": "You Might Also Like",
         "variant": false,
         "quick_add": "none",
         "heading_size": "h2",
@@ -133,7 +130,10 @@
         "show_vendor": false,
         "show_rating": false,
         "padding_top": 36,
-        "padding_bottom": 28
+        "padding_bottom": 28,
+        "show_view_all": true,
+        "view_all_text": "View All Products",
+        "view_all_url": ""
       }
     }
   },

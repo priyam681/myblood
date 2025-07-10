@@ -21,11 +21,6 @@
       "label": "Subheading"
     },
     {
-      "type": "text",
-      "id": "behind_the_design",
-      "label": "Behind the design"
-    },
-    {
       "type": "textarea",
       "id": "content_description",
       "label": "Description",
@@ -113,6 +108,34 @@
           "label": "Product"
         }
       ]
+    },
+    {
+      "type": "behind_text",
+      "name": "Text Block",
+      "settings": [
+        {
+          "type": "text",
+          "id": "text_field",
+          "label": "Text"
+        },
+        {
+          "type": "select",
+          "id": "position_field",
+          "label": "Position",
+          "options": [
+            {
+              "value": "left",
+              "label": "Left"
+            },
+            {
+              "value": "right",
+              "label": "Right"
+            }
+          ],
+          "default": "left"
+        }
+      ],
+      "limit": 3
     }
   ],
   "presets": [
@@ -158,7 +181,15 @@
                                 {% assign product = all_products[block.settings.product] %}
                                 <div class="product-image-wrapper-sec">
                                     <div class="bg-text">
-                                        <span>{{ section.settings.behind_the_design }}</span>
+                                        {% for block in section.blocks %}
+                                            {% if block.type == 'behind_text' %}
+                                                <div class="behind_text" style="text-align: {{ block.settings
+                                                .position_field }};">{{
+                                                    block.settings
+                                                    .text_field
+                                                    }}</div>
+                                            {% endif %}
+                                        {% endfor %}
                                     </div>
                                     {% if section.settings.only_desktop and section.settings.show_product_info %}
                                         <div class="product-image-info" data-product-id="{{ product.id }}">
@@ -210,6 +241,8 @@
 </section>
 
 {%- style -%}
+
+
 
     .product-image-info{
     display: none;
@@ -317,15 +350,19 @@
     position: absolute;
     color: #5d5d5d24;
     top: 42%;
-    left: 7%;
+    left: 10%;
     transform: translate(0, -50%);
     line-height: 1;
-    text-align: center;
     z-index: 5;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 9px;
+    width:80%;
     }
+
+    .product-image-wrapper .bg-text .behind_text {
+    margin-bottom: 10px;
+    }
+
     .product-image-wrapper .bg-text .middle-content {
     padding-left: 50%;
     }
