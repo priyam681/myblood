@@ -45,7 +45,6 @@
     }
     .terrain-tab-content .terrain-row {
     display: flex;
-    gap: 50px;
     border-bottom: 1px solid rgba(73, 73, 73, 0.30);
     padding-block: 2rem;
     }
@@ -82,21 +81,28 @@
 
     @media (min-width: 1024px) {
     .terrain-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+        display: grid;
+        grid-template-columns: 43% 52%;
+        gap: 73px;
+    }
+    .terrain-tab-content .terrain-row {
+       gap: calc(30px + (127 - 30) * ((100vw - 1024px) / (1920 - 1024)));
     }
     }
-
+    @media (max-width: 1024px) {
+    .terrain-tab-content .terrain-row {
+       gap: calc(30px + (127 - 30) * ((100vw - 360px) / (1024 - 360)));
+       }
+    }
     .row {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 12px;
+        display: flex;
+        gap: 12px;
+        margin-bottom: 12px;
     }
 
     .row_title {
-    font-weight: bold;
-    display: flex;
+        font-weight: bold;
+        display: flex;
     }
     }
 

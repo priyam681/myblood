@@ -118,7 +118,12 @@
   border-bottom-right-radius: 0;
   border-bottom-left-radius: 0;
 }
-
+.card .card__inner .card__media .media .motion-reduce {
+  transition: transform 0.3s ease;
+}
+.card .card__inner .card__media .media .motion-reduce:hover {
+  transform: scale(1.3);
+}
 .card--standard.card--text {
   background-color: transparent;
 }
