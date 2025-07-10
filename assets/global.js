@@ -95,8 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('.mobile-facets__header .close-icon')?.addEventListener('click', function() {
     let close = document.querySelector('.mobile-facets__disclosure');
+    document.body.classList.remove('overflow-hidden-mobile');
     close.removeAttribute('open');
-  });
+  }, true);
 
 });
 
@@ -111,7 +112,7 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
 
   // Only add desktop hover prevention for non-drawer menus
   const isDesktopMegaMenu = !summary.closest('header-drawer, menu-drawer');
-  
+
   if (isDesktopMegaMenu) {
     window.addEventListener('resize', (event) => {
       let windowWidth = window.innerWidth;
@@ -583,7 +584,7 @@ class MenuDrawer extends HTMLElement {
   openMenuDrawer(summaryElement) {
     // Add immediate feedback
     this.mainDetailsToggle.setAttribute('open', '');
-    
+
     // Add opening class with smooth timing
     requestAnimationFrame(() => {
       this.mainDetailsToggle.classList.add('menu-opening');
@@ -599,7 +600,7 @@ class MenuDrawer extends HTMLElement {
 
     // Start closing animations immediately
     this.mainDetailsToggle.classList.remove('menu-opening');
-    
+
     // Close all submenus with smooth animations
     this.mainDetailsToggle.querySelectorAll('details').forEach((details) => {
       details.classList.remove('menu-opening');
@@ -609,16 +610,16 @@ class MenuDrawer extends HTMLElement {
     this.mainDetailsToggle.querySelectorAll('.submenu-open').forEach((submenu) => {
       submenu.classList.remove('submenu-open');
     });
-    
+
     // Remove body overflow immediately for better UX
     document.body.classList.remove(`overflow-hidden-${this.dataset.breakpoint}`);
     removeTrapFocus(elementToFocus);
-    
+
     // Set aria-expanded immediately
     if (elementToFocus) {
       elementToFocus.setAttribute('aria-expanded', false);
     }
-    
+
     // Use proper closing animation with timing
     setTimeout(() => {
       this.mainDetailsToggle.querySelectorAll('details').forEach((details) => {
@@ -707,7 +708,7 @@ class HeaderDrawer extends MenuDrawer {
 
     // Immediate feedback
     this.mainDetailsToggle.setAttribute('open', '');
-    
+
     // Smooth opening animation
     requestAnimationFrame(() => {
       this.mainDetailsToggle.classList.add('menu-opening');
