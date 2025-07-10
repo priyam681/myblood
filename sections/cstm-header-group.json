@@ -64,23 +64,24 @@
         "promotion_image_PakmVm": {
           "type": "promotion_image",
           "settings": {
-            "target_link": "accessories",
+            "target_link": "mens",
             "image": "shopify://shop_images/image.png",
             "alt_text": "",
             "position": "left",
-            "image_size": "medium"
+            "image_size": "medium",
+            "above_fold": false
           }
         },
         "mini_banner_4TKyBX": {
           "type": "mini_banner",
           "settings": {
-            "mini_banner_trigger": "jewellery",
+            "mini_banner_trigger": "new-arrivals",
             "position": "left",
             "image": "shopify://shop_images/image_2.png",
             "alt_text": "mini banner",
             "main_heading": "BUY MORE PAY LESS",
-            "sub_heading": "<p>Enjoy the most hottest sale of the year, get assured discount and cashbacks on eeevery order.</p>",
-            "offer_text": "<p>On orders above ₹999</p>",
+            "sub_heading": "Enjoy the most hottest sale of the year, get assured discount and cashbacks on eeevery order.",
+            "offer_text": "On orders above ₹999",
             "page_open": false,
             "banner_url": "shopify://collections/jewellery"
           }
