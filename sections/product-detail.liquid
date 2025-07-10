@@ -4,36 +4,6 @@
     font-weight: bold;
     margin-bottom: 24px;
     }
-
-    .terrain-buttons {
-    display: flex;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 20px;
-    }
-
-    .terrain-buttons button {
-    padding: 16px 18px;
-    border: 1px solid rgba(113, 113, 113, 0.62);
-    color: rgba(125, 121, 121, 0.81);
-    font-weight: 600;
-    cursor: pointer;
-    font-size: 18px;
-    background: #fff;
-    }
-    .terrain-buttons button .metafield-rich_text_field * {
-    margin: 0;
-    color: rgba(125, 121, 121, 0.81);
-    }
-    .terrain-buttons button.active .metafield-rich_text_field * {
-    color: #fff;
-    }
-    .terrain-buttons button.active {
-    background-color: #FF3200;
-    color: white;
-    border-color: #FF3200;
-    }
-
     .terrain-tab-content {
     display: none;
     }
@@ -86,12 +56,12 @@
     gap: 73px;
     }
     .terrain-tab-content .terrain-row {
-    gap: calc(30px + (127 - 30) * ((100vw - 1024px) / (1920 - 1024)));
+        gap: calc(30px + (127 - 30) * ((100vw - 1024px) / (1920 - 1024)));
     }
     }
     @media (max-width: 1023px) {
     .terrain-tab-content .terrain-row {
-    gap: calc(30px + (127 - 30) * ((100vw - 360px) / (1023 - 360)));
+       gap: calc(30px + (127 - 30) * ((100vw - 360px) / (1023 - 360)));
     }
     }
     .row {
@@ -115,28 +85,11 @@
             <!-- Left: Text Content -->
             <div>
                 <h2>PRODUCT DETAILS</h2>
-                <h3 style="margin-bottom: 10px;">Terrain</h3>
-
                 <!-- Buttons -->
                 <div class="terrain-container">
 
                     {% assign active = product.metafields.custom.activedetail %}
-                    <!-- Terrain Type Buttons -->
-                    <div class="terrain-buttons">
-                        {% if product.metafields.custom.productdetails.value %}
-                            {% for entry in product.metafields.custom.productdetails.value %}
-                                {% if entry != blank %}
-                                    <button {% if activeProductDetail == entry.parentid %} class="active" {% endif %}
-                                    <button {% if active == entry.parentid %}class="active"{% endif %}
-                                            data-tab="{{ forloop.index }}">
-                                        {{ entry.category_name | metafield_tag }}
-                                    </button>
-                                {% endif %}
-                            {% endfor %}
-{% endif %}
-                    </div>
-
-                    {% assign rows = shop.metaobjects.row.values %}
+                  {% assign rows = shop.metaobjects.row.values %}
                     <!-- Terrain Content Sections -->
                     <div class="terrain-content">
                         {% if product.metafields.custom.productdetails.value %}
