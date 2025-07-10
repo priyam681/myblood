@@ -1,4 +1,32 @@
 {{ 'home-page-product.css' | asset_url | stylesheet_tag }}
+
+{%- style -%}
+  .recommended-products-view-all {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 20px;
+  }
+
+  .recommended-products-view-all .view-all-btn {
+    display: inline-block;
+    padding: 12px 30px;
+    background: #FF4500;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 4px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 14px;
+  }
+
+  .recommended-products-view-all .view-all-btn:hover {
+    background: #E03E00;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(255,69,0,0.3);
+  }
+{%- endstyle -%}
 {% schema %}
 {
   "name": "Recommended Products",
@@ -24,6 +52,28 @@
       "unit": "px",
       "label": "Tab Padding",
       "default": 40
+    },
+    {
+      "type": "header",
+      "content": "View All Button"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show View All Button",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "view_all_text",
+      "label": "View All Button Text",
+      "default": "View All Products"
+    },
+    {
+      "type": "url",
+      "id": "view_all_url",
+      "label": "View All Button URL",
+      "info": "Leave empty to link to all products"
     }
   ],
   "blocks": [
@@ -121,6 +171,14 @@
                     </div>
                 {% endif %}
             </div>
+            
+            {% if section.blocks.size > 0 and section.settings.show_view_all %}
+                <div class="recommended-products-view-all">
+                    <a href="{{ section.settings.view_all_url | default: collections.all.url }}" class="view-all-btn">
+                        {{ section.settings.view_all_text | default: "View All Products" }}
+                    </a>
+                </div>
+            {% endif %}
         </section>
     </div>
 </recommended-product>

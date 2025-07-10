@@ -110,7 +110,6 @@
 
 .card .card__inner .card__media {
   overflow: hidden;
-  /* Fix for Safari border bug on hover */
   z-index: 0;
   border-radius: calc(var(--border-radius) - var(--border-width) - var(--image-padding));
 }
@@ -143,20 +142,16 @@
   margin: var(--image-padding);
   width: calc(100% - 2 * var(--image-padding));
 }
-
 .card--standard .card__media {
   margin: var(--image-padding);
 }
-
 .card__inner {
   width: 100%;
 }
-
 .card--media .card__inner .card__content {
   position: relative;
   padding: calc(var(--image-padding) + 1rem);
 }
-
 .card__content {
   display: grid;
   grid-template-rows: minmax(0, 1fr) max-content minmax(0, 1fr);
@@ -181,22 +176,18 @@
 .card__content--auto-margins {
   grid-template-rows: minmax(0, auto) max-content minmax(0, auto);
 }
-
 .card__information {
   grid-row-start: 2;
   padding: 1.3rem 1rem;
 }
-
 .card:not(.ratio) > .card__content {
   grid-template-rows: max-content minmax(0, 1fr) max-content auto;
 }
-
 .card-information .card__information-volume-pricing-note {
   margin-top: 0.6rem;
   line-height: calc(0.5 + 0.4 / var(--font-body-scale));
   color: rgba(var(--color-foreground), 0.75);
 }
-
 .card__information-volume-pricing-note--button,
 .card__information-volume-pricing-note--button.quantity-popover__info-button--icon-with-label {
   position: relative;
@@ -211,7 +202,6 @@
 .card__information-volume-pricing-note--button:hover {
   text-decoration: underline;
 }
-
 .card__information-volume-pricing-note--button + .global-settings-popup.quantity-popover__info {
   transform: initial;
   top: auto;
@@ -219,40 +209,32 @@
   max-width: 20rem;
   width: calc(95% + 2rem);
 }
-
 .card__information-volume-pricing-note--button + .global-settings-popup.quantity-popover__info span:first-of-type {
   padding-right: 0.3rem;
 }
-
 .card__information-volume-pricing-note--button-right + .global-settings-popup.quantity-popover__info {
   right: 0;
   left: auto;
 }
-
 .card__information-volume-pricing-note--button-center + .global-settings-popup.quantity-popover__info {
   left: 50%;
   transform: translate(-50%);
 }
-
 .card__information-volume-pricing-note--button + .global-settings-popup.quantity-popover__info .quantity__rules {
   text-align: left;
 }
-
-@media screen and () {
+@media screen and (min-width: 768px) {
   .grid--6-col-desktop .card__content quick-add-bulk .quantity {
     width: auto;
   }
-
   .grid--6-col-desktop .card__content quick-add-bulk .quantity__button {
     width: calc(3rem / var(--font-body-scale));
   }
-
   .grid--6-col-desktop .card__information-volume-pricing-note--button + .global-settings-popup.quantity-popover__info {
     left: 50%;
     transform: translate(-50%);
     width: calc(100% + var(--border-width) + 3.5rem);
   }
-
   .grid--6-col-desktop
     .card--standard
     .card__information-volume-pricing-note--button
@@ -261,7 +243,7 @@
   }
 }
 
-@media screen and (max-width: 749px) {
+@media screen and (max-width: 768px) {
   .grid--2-col-tablet-down .card__content quick-add-bulk .quantity__button {
     width: calc(3.5rem / var(--font-body-scale));
   }

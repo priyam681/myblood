@@ -11,7 +11,6 @@
       "id": "lifestyle_image",
       "label": "Right Sider Lifestyle Image"
     },
-
     {
       "type": "header",
       "content": "Content section"
@@ -66,7 +65,6 @@
       "id": "colourful_content_second_color",
       "label": "Colorful content second color"
     },
-
     {
       "type": "header",
       "content": "Button settings"
@@ -117,7 +115,6 @@
       ]
     }
   ],
-
   "presets": [
     {
       "name": "Colorful Kicks"
@@ -128,186 +125,195 @@
 
 <script src="{{ 'colourful-hover.js' | asset_url }}" defer></script>
 
+
 <section class="colorful-kicks-section page-width">
-  <colourful-hover data-interval="{{ section.settings.interval | times: 1000 }}">
-    <div class="container">
-      <div class="left-container">
-        <div class="text-container">
-          <h4 class="section-subheading">{{ section.settings.content_subheading }}</h4>
-          <div class="text-container-wrapper">
-            <span class="section-heading">{{section.settings.colourless_content_first}}</span>
-            <span
-              class="section-heading" {% if section.settings.colourful_content_first_color %}
-                style="color: {{section.settings.colourful_content_first_color}};"
-              {% endif %}>{{section.settings.colourful_content_first}}</span>
-            <span class="section-heading">{{ section.settings.colourless_content_second }}</span>
-            <span class="section-heading"
+    <colourful-hover data-interval="{{ section.settings.interval | times: 1000 }}">
+        <div class="container">
+            <div class="left-container">
+                <div class="text-container">
+                    <h4 class="section-subheading">{{ section.settings.content_subheading }}</h4>
+                    <div class="text-container-wrapper">
+                        <span class="section-heading">{{ section.settings.colourless_content_first }}</span>
+                        <span
+                                class="section-heading" {% if section.settings.colourful_content_first_color %}
+                            style="color: {{ section.settings.colourful_content_first_color }};"
+                                {% endif %}>{{ section.settings.colourful_content_first }}</span>
+                        <span class="section-heading">{{ section.settings.colourless_content_second }}</span>
+                        <span class="section-heading"
             {% if section.settings.colourful_content_second_color %}
-                            style="color: {{section.settings.colourful_content_second_color}};"
-                          {% endif %}
+                style="color: {{ section.settings.colourful_content_second_color }};"
+            {% endif %}
             >
-              {{section.settings.colourful_content_second}}
+              {{ section.settings.colourful_content_second }}
             </span>
-          </div>
-          <p>{{ section.settings.content_description }}</p>
-        </div>
-
-        <div class="product-image-wrapper">
-          <div class="bg-text">
-            <span>{{ section.settings.behind_the_design }}</span>
-          </div>
-          <div class="product-images-container">
-            {% for block in section.blocks %}
-              {% if block.type == 'image_showcase' %}
-                {% assign product = all_products[block.settings.product] %}
-                    <div class="product-image-wrapper-sec">
-                      {% if section.settings.only_desktop and section.settings.show_product_info %}
-                        <div class="product-image-info" data-product-id="{{ product.id }}">
-                          <div class="img-wrap">
-                            <img src="{{ product.featured_image | image_url: width: 200, height: 200, format: 'webp' }}" alt="img-{{ product.title }}" width="200" height="200" loading="lazy">
-                          </div>
-                          <h4>{{ product.title }}</h4>
-                          <div>
-                            <span>rating (23reviews)</span>
-                          </div>
-                          <span>{{ product.price | money }}</span>
-                        </div>
-                      {% endif %}
-                     <div class="product-image-wrapper-img">
-                       <img
-                               class="collection-image"
-                               src="{{ product.featured_image | image_url: width: 450, height: 450, format: 'webp' }}"
-                               alt="{{ product.title }}"
-                               width="600"
-                               height="600"
-                               loading="lazy"
-                               data-product-id="{{ product.id }}"
-                       >
-                     </div>
                     </div>
-              {% endif %}
-            {% endfor %}
-          </div>
+                    <p>{{ section.settings.content_description }}</p>
+                </div>
+
+                <div class="product-image-wrapper">
+
+                    <div class="product-images-container">
+                        {% for block in section.blocks %}
+                            {% if block.type == 'image_showcase' %}
+                                {% assign product = all_products[block.settings.product] %}
+                                <div class="product-image-wrapper-sec">
+                                    <div class="bg-text">
+                                        <span>{{ section.settings.behind_the_design }}</span>
+                                    </div>
+                                    {% if section.settings.only_desktop and section.settings.show_product_info %}
+                                        <div class="product-image-info" data-product-id="{{ product.id }}">
+                                            <div class="img-wrap">
+                                                <img src="{{ product.featured_image | image_url: width: 200, height: 200, format: 'webp' }}"
+                                                     alt="img-{{ product.title }}" width="200" height="200"
+                                                     loading="lazy">
+                                            </div>
+                                            <h4>{{ product.title }}</h4>
+                                            <div>
+                                                <span>rating (23reviews)</span>
+                                            </div>
+                                            <span>{{ product.price | money }}</span>
+                                        </div>
+                                    {% endif %}
+                                    <div class="product-image-wrapper-img">
+                                        <img
+                                                class="collection-image"
+                                                src="{{ product.featured_image | image_url: width: 450, height: 450, format: 'webp' }}"
+                                                alt="{{ product.title }}"
+                                                width="600"
+                                                height="600"
+                                                loading="lazy"
+                                                data-product-id="{{ product.id }}"
+                                        >
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                </div>
+
+                {% if section.settings.button_link %}
+                    <a href="{{ section.settings.button_link }}"
+                       class="browse-collection-button button button--primary">
+                        {{ section.settings.button_label }}
+                    </a>
+                {% endif %}
+            </div>
+
+            <div class="right">
+                {% if section.settings.lifestyle_image %}
+                    <img src="{{ section.settings.lifestyle_image | image_url: width: 800, format: 'webp' }}"
+                         alt="Lifestyle" width="800" height="600" loading="lazy">
+                {% endif %}
+            </div>
         </div>
-
-        {% if section.settings.button_link %}
-          <a href="{{ section.settings.button_link }}" class="browse-collection-button button button--primary">
-            {{ section.settings.button_label }}
-          </a>
-        {% endif %}
-      </div>
-
-      <div class="right">
-        {% if section.settings.lifestyle_image %}
-          <img src="{{ section.settings.lifestyle_image | image_url: width: 800, format: 'webp' }}" alt="Lifestyle" width="800" height="600" loading="lazy">
-        {% endif %}
-      </div>
-    </div>
-  </colourful-hover>
+    </colourful-hover>
 </section>
 
 {%- style -%}
 
-  .product-image-info{
+    .product-image-info{
     display: none;
-  }
+    }
 
-  .colorful-kicks-section {
+    .colorful-kicks-section {
     overflow: hidden;
-  }
-  .colorful-kicks-section .container {
+    }
+    .colorful-kicks-section .container {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
     align-items: center;
     margin: auto;
-  }
-  .colorful-kicks-section .container .left-container .text-container {
+    }
+    .colorful-kicks-section .container .left-container .text-container {
     max-width: 700px;
-  }
-   .colorful-kicks-section .container .left-container .browse-collection-button {
-      margin-top: 3rem;
-   }
-  .colorful-kicks-section .section-heading {
+    }
+    .colorful-kicks-section .container .left-container .browse-collection-button {
+    margin-top: 3rem;
+    }
+    .colorful-kicks-section .section-heading {
     font-size: calc(25px + (60 - 25) * ((100vw - 360px) / (1920 - 360)));
     margin: 10px 0;
     line-height: 1.2;
     font-weight: 800;
     letter-spacing: 2.4px;
     text-transform: uppercase;
-  }
-  .colorful-kicks-section .section-subheading {
+    }
+    .colorful-kicks-section .section-subheading {
     margin-block: 0;
-  }
-  .colorful-kicks-section .highlight {
+    }
+    .colorful-kicks-section .highlight {
     color: #ff3c00;
-  }
-  .colorful-kicks-section p {
+    }
+    .colorful-kicks-section p {
     font-size: 16px;
     color: #333;
-  }
-  .product-image-wrapper {
+    }
+    .product-image-wrapper {
     position: relative;
     margin-top: 40px;
-  }
+    }
 
-  .collection-image {
+    .collection-image {
     transition: opacity 0.5s ease;
-  }
+    }
 
 
-  .product-images-container > .collection-image{
+    .product-images-container > .collection-image{
     width:100%;
-  }
+    }
 
-  .collection-image {
+    .collection-image {
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-  }
+    }
 
-  .product-images-container {
+    .product-images-container {
     position: relative;
     width: 100%;
     height: 100%;
-  }
-  .product-image-info span {
+    }
+    .product-image-info span {
     font-weight: bold;
-  }
-  .product-image-info h4 {
+    }
+    .product-image-info h4 {
     margin: 10px 0;
     font-weight: bold;
     display: -webkit-box;
     -webkit-line-clamp: 2;
     overflow: hidden;
     -webkit-box-orient: vertical;
-  }
- .product-image-wrapper-sec .product-image-info {
-     position: absolute;
-     right: 0;
-     background: #e5e5e5;
-     border-radius: 22px;
-     box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
-     width: 45%;
-     left: 46%;
-     top: 10%;
-     padding: 10px 25px;
-     text-align: center;
-     z-index: 3;
-  }
-  .collection-image {
+    }
+    .product-image-wrapper-sec .product-image-info {
+    position: absolute;
+    right: 0;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px) saturate(180%);
+    -webkit-backdrop-filter: blur(10px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    border-radius: 22px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0 7px 29px 0;
+    width: 45%;
+    left: 46%;
+    top: 10%;
+    padding: 10px 25px;
+    text-align: center;
+    z-index: 6;
+    }
+    .collection-image {
     position: relative;
     width: 100%;
     height: auto;
     transition: opacity 1s ease;
-  }
-  .collection-image:first-child {
+    }
+    .collection-image:first-child {
     opacity: 1;
-  }
-  .product-image-wrapper .bg-text {
+    }
+    .product-image-wrapper .bg-text {
     position: absolute;
     color: #5d5d5d24;
     top: 42%;
@@ -315,63 +321,63 @@
     transform: translate(0, -50%);
     line-height: 1;
     text-align: center;
-    z-index: 1;
+    z-index: 5;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 9px;
-  }
-  .product-image-wrapper .bg-text .middle-content {
+    }
+    .product-image-wrapper .bg-text .middle-content {
     padding-left: 50%;
-  }
-  .colorful-kicks-section .container .product-image-wrapper .product-image-wrapper-img {
-     display: flex;
-     cursor: pointer;
-  }
-  .colorful-kicks-section .container .product-image-wrapper img {
+    }
+    .colorful-kicks-section .container .product-image-wrapper .product-image-wrapper-img {
+    display: flex;
+    cursor: pointer;
+    }
+    .colorful-kicks-section .container .product-image-wrapper img {
     position: relative;
     z-index: 2;
     max-width: 100%;
     width: 100%;
-  }
-  .colorful-kicks-section .right {
+    }
+    .colorful-kicks-section .right {
     flex: 1;
     min-width: 300px;
     overflow: hidden;
-  }
-  .colorful-kicks-section .right img {
+    }
+    .colorful-kicks-section .right img {
     width: 100%;
     height: 100%;
     border-radius: 8px;
     display: block;
     object-fit: cover;
-  }
-  @media (max-width: 992px) {
+    }
+    @media (max-width: 992px) {
     .colorful-kicks-section .container {
-      grid-template-columns: 1fr;
+    grid-template-columns: 1fr;
     }
     .product-image-wrapper .bg-text {
-      font-size: calc(45px + (120 - 45) * ((100vw - 360px) / (992 - 360)));
+    font-size: calc(45px + (120 - 45) * ((100vw - 360px) / (992 - 360)));
     }
     .product-image-wrapper-sec .product-image-info {
-      display: none !important;
+    display: none !important;
     }
     .product-image-wrapper-img {
-      width: 100%;
+    width: 100%;
     }
     .colorful-kicks-section .container .left-container .text-container {
-           margin: auto;
-           text-align: center;
+    margin: auto;
+    text-align: center;
     }
     .colorful-kicks-section .container .left-container {
-           text-align: center;
+    text-align: center;
     }
     .colorful-kicks-section .container .right {
-           display: none;
+    display: none;
     }
-  }
-  @media (min-width: 992px) {
+    }
+    @media (min-width: 992px) {
     .product-image-wrapper .bg-text {
-      font-size: calc(45px + (120 - 45) * ((100vw - 992px) / (1920 - 992)));
+    font-size: calc(45px + (120 - 45) * ((100vw - 992px) / (1920 - 992)));
     }
-  }
+    }
 {%- endstyle -%}

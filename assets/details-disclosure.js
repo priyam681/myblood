@@ -74,6 +74,7 @@ class HeaderMenu extends DetailsDisclosure {
     this.closeTimeout = null;
     this.openTimeout = null;
     this.clickOutsideHandler = this.onClickOutside.bind(this);
+    this.menuBgLeaveHandler = this.onMenuBgLeave.bind(this);
     
     // Move events to li element for better hover behavior
     this.menuItem = this.closest('li');
@@ -84,6 +85,23 @@ class HeaderMenu extends DetailsDisclosure {
       // Remove default events from details
       this.mainDetailsToggle.removeEventListener('mouseenter', this.mouseEnter);
       this.mainDetailsToggle.removeEventListener('mouseleave', this.mouseLeave);
+    }
+
+    // Add mouseleave event to mega-menu-bg container
+    this.megaMenuBg = this.querySelector('.mega-menu-bg');
+    if (this.megaMenuBg) {
+      this.megaMenuBg.addEventListener('mouseleave', this.menuBgLeaveHandler);
+    }
+  }
+
+  disconnectedCallback() {
+    super.disconnectedCallback();
+    if (this.megaMenuBg) {
+      this.megaMenuBg.removeEventListener('mouseleave', this.menuBgLeaveHandler);
+    }
+    if (HeaderMenu.isClickListenerActive) {
+      document.removeEventListener('click', this.clickOutsideHandler);
+      HeaderMenu.isClickListenerActive = false;
     }
   }
 
@@ -156,6 +174,59 @@ class HeaderMenu extends DetailsDisclosure {
       // Remove click listener and reset flag
       document.removeEventListener('click', this.clickOutsideHandler);
       HeaderMenu.isClickListenerActive = false;
+    }
+  }
+
+  onMenuBgLeave(event) {
+    // Only close if mouse actually left the mega-menu-bg container
+    const relatedTarget = event.relatedTarget;
+    
+    // Don't close if moving to child elements within the menu
+    if (relatedTarget && this.megaMenuBg.contains(relatedTarget)) {
+      return;
+    }
+    
+    // Close the menu immediately when leaving mega-menu-bg container
+    this.closeMenuWithAnimation();
+  }
+
+  closeMenuWithAnimation() {
+    const details = this.mainDetailsToggle;
+    
+    if (details?.hasAttribute('open')) {
+      // Clean up header states
+      this.header.preventHide = false;
+      this.header.style.setProperty('--header-bottom-position-desktop', '');
+      document.body.classList.remove('overflow-menu');
+      
+      if (this.stickyHeader) {
+        this.stickyHeader.preventMenuClose = false;
+      }
+      
+      const icon = details.querySelector('.icon-caret');
+      if (icon) {
+        icon.style.transition = 'transform 0.3s ease';
+        icon.style.transform = 'rotate(0deg)';
+      }
+
+      // Add closing animation
+      const content = details.querySelector('.mega-menu__content');
+      if (content) {
+        content.style.transition = 'opacity 0.2s ease, transform 0.2s ease';
+        content.style.opacity = '0';
+        content.style.transform = 'translateY(-10px)';
+      }
+
+      setTimeout(() => {
+        this.close();
+        this.isMouseInMenu = false;
+      }, 150);
+      
+      // Remove click listener if active
+      if (HeaderMenu.isClickListenerActive) {
+        document.removeEventListener('click', this.clickOutsideHandler);
+        HeaderMenu.isClickListenerActive = false;
+      }
     }
   }
 
