@@ -151,6 +151,13 @@
             "collection": "womens"
           }
         },
+        "tab_wH3brr": {
+          "type": "tab",
+          "settings": {
+            "tab_title": "MENS",
+            "collection": ""
+          }
+        },
         "tab_jqeH4w": {
           "type": "tab",
           "settings": {
@@ -162,6 +169,7 @@
       "block_order": [
         "tab_LqXgFa",
         "tab_f6yBGG",
+        "tab_wH3brr",
         "tab_jqeH4w"
       ],
       "settings": {
@@ -202,58 +210,58 @@
           "settings": {
             "label": "HIKING",
             "collection_url": "shopify://collections/kids",
-            "image1": "shopify://shop_images/original-imahd2zcztpgnbyh.webp",
+            "image1": "shopify://shop_images/image-1_65e9772e-eea9-418b-a3aa-b76fa2543a2a.png",
             "lable1": "text-1",
-            "image2": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhw7xrpwtss.webp",
+            "image2": "shopify://shop_images/image-2_54cc696f-ba1e-4ba5-a4cb-0a5dc37e2673.png",
             "lable2": "text-2",
-            "image3": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhwethyfjn5.webp",
+            "image3": "shopify://shop_images/image_6b63d353-c669-435f-a03e-68eed23080e8.png",
             "lable3": "text-3",
-            "image4": "shopify://shop_images/6-ori-9056-6-bersache-black-original-imah5ducyyddrbuk.webp",
+            "image4": "shopify://shop_images/image-3_f0c38da6-87b3-477a-b951-521932481ad4.png",
             "lable4": "text-4"
           }
         },
         "action_item_6qkcz3": {
           "type": "action_item",
           "settings": {
-            "label": "HIKING",
+            "label": "TRAILRUNNING",
             "collection_url": "shopify://collections/kids",
-            "image1": "shopify://shop_images/original-imahd2zcztpgnbyh.webp",
+            "image1": "shopify://shop_images/image-1_1a957c21-7b84-45b2-8a5c-751523141425.png",
             "lable1": "text-1",
-            "image2": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhw7xrpwtss.webp",
+            "image2": "shopify://shop_images/image-3_a72ccd10-81c3-439d-9341-2a0283508072.png",
             "lable2": "text-2",
-            "image3": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhwethyfjn5.webp",
+            "image3": "shopify://shop_images/image_dd6a7b3d-7622-4861-8d75-fac5b9eea4d4.png",
             "lable3": "text-3",
-            "image4": "shopify://shop_images/6-ori-9056-6-bersache-black-original-imah5ducyyddrbuk.webp",
+            "image4": "shopify://shop_images/image-2_605150b7-fc7f-4651-86c3-4df0b0e2a601.png",
             "lable4": "text-4"
           }
         },
         "action_item_FdXygz": {
           "type": "action_item",
           "settings": {
-            "label": "HIKING",
+            "label": "TRAINING",
             "collection_url": "shopify://collections/kids",
-            "image1": "shopify://shop_images/original-imahd2zcztpgnbyh.webp",
+            "image1": "shopify://shop_images/image-1_bb138ee9-0e26-4282-bba0-e075bf66dcea.png",
             "lable1": "text-1",
-            "image2": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhw7xrpwtss.webp",
+            "image2": "shopify://shop_images/image_225af792-32fb-48d3-8cbe-b39c04c65cb8.png",
             "lable2": "text-2",
-            "image3": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhwethyfjn5.webp",
+            "image3": "shopify://shop_images/image-2_76be28ea-4977-469b-b6dc-7e758d55bae3.png",
             "lable3": "text-3",
-            "image4": "shopify://shop_images/6-ori-9056-6-bersache-black-original-imah5ducyyddrbuk.webp",
+            "image4": "shopify://shop_images/image-3_0e12805d-d5cc-4624-b7c0-b1f7e40cb4bd.png",
             "lable4": "text-4"
           }
         },
         "action_item_NirM74": {
           "type": "action_item",
           "settings": {
-            "label": "HIKING",
+            "label": "EVERYDAY",
             "collection_url": "shopify://collections/kids",
-            "image1": "shopify://shop_images/original-imahd2zcztpgnbyh.webp",
+            "image1": "shopify://shop_images/image-1_c0beccc5-c528-40f7-b03d-187d06eb2c14.png",
             "lable1": "text-1",
-            "image2": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhw7xrpwtss.webp",
+            "image2": "shopify://shop_images/image-2_d6a1a472-72d3-4a3c-9ce6-94378dd68cee.png",
             "lable2": "text-2",
-            "image3": "shopify://shop_images/9-22g-1275-campus-l-gry-d-teal-original-imahbbhwethyfjn5.webp",
+            "image3": "shopify://shop_images/image_225750cc-8741-4bbf-a2d9-cbf68194bf4d.png",
             "lable3": "text-3",
-            "image4": "shopify://shop_images/6-ori-9056-6-bersache-black-original-imah5ducyyddrbuk.webp",
+            "image4": "shopify://shop_images/image-3_97d62fd2-8fdb-492d-afc8-53e7e9342d5a.png",
             "lable4": "text-4"
           }
         }
@@ -366,7 +374,10 @@
       "settings": {
         "heading": "Recommended for You",
         "tab_background_color": "#f8f8f8",
-        "tab_padding": 40
+        "tab_padding": 40,
+        "show_view_all": true,
+        "view_all_text": "View All Products",
+        "view_all_url": ""
       }
     },
     "colorful_kick_fRCnyF": {
@@ -399,7 +410,6 @@
       "settings": {
         "lifestyle_image": "shopify://shop_images/shoes-collection.png",
         "content_subheading": "Step Into Style & Comfort",
-        "behind_the_design": "COLOR YOUR WORLD",
         "content_description": "Discover our vibrant collection of colorblocked shoes, designed with plush memory foam for all-day comfort. With a wide range of bold shades, it’s easy to pick your perfect pair",
         "colourless_content_first": "Colorful",
         "colourful_content_first": "Kicks,",
