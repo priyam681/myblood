@@ -5,6 +5,12 @@
         {% assign collection_count = collection_count | plus: 1 %}
     {% endfor %}
 
+    {% comment %} Load Swiper CSS and JS when needed {% endcomment %}
+    {% if collection_count > 5 %}
+        {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+        <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+    {% endif %}
+
 
     <div class="collection-list-container"
          style="background-color: {{ block.settings.collection_background_color }}; padding-block: {{ block.settings.collection_padding }}px;">
@@ -65,6 +71,12 @@
   document.addEventListener('DOMContentLoaded', function() {
     function initSwiper() {
       const swiperEl = document.querySelector('.swiper_collection');
+
+      // Check if Swiper is loaded
+      if (typeof Swiper === 'undefined') {
+        console.warn('Swiper library is not loaded');
+        return;
+      }
 
       if (window.innerWidth > 992) {
         // Destroy existing Swiper instance if it exists

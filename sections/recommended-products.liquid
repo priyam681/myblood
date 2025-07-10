@@ -187,7 +187,8 @@
 {% if section.blocks.size > 1 %}
     <script defer>
       document.addEventListener('DOMContentLoaded', function() {
-        new Swiper('.swiper', {
+        if (typeof Swiper !== 'undefined') {
+          new Swiper('.swiper', {
           slidesPerView: 1,
           spaceBetween: 20,
           navigation: {
@@ -200,6 +201,9 @@
             1200: { slidesPerView: 3.5 }
           }
         });
+        } else {
+          console.warn('Swiper library not loaded for recommended products');
+        }
       });
     </script>
 {% endif %}

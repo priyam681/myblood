@@ -306,7 +306,7 @@
 
     document.querySelectorAll('.pua-product-slider').forEach(function(sliderEl) {
       const productCount = parseInt(sliderEl.dataset.productCount, 10);
-      if (productCount > 0) {
+      if (productCount > 0 && typeof Swiper !== 'undefined') {
         new Swiper(sliderEl, {
           slidesPerView: 4,
           spaceBetween: 20,
