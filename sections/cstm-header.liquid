@@ -286,8 +286,14 @@
 
     connectedCallback() {
       this.header = document.querySelector('.section-header');
-      this.headerIsAlwaysSticky = this.getAttribute('data-sticky-type') === 'always' || this.getAttribute('data-sticky-type') === 'reduce-logo-size';
+      this.headerIsAlwaysSticky = this.getAttribute
+        ('data-sticky-type')
+        === 'always' ||
+        this.getAttribute
+        ('data-sticky-type') === 'reduce-logo-size';
       this.headerBounds = {};
+
+      console.log('HEADER: ', this.header);
 
       this.setHeaderHeight();
 
@@ -337,17 +343,22 @@
       const searchToggle = this.searchModal.querySelector('summary');
       if (searchToggle) {
 // Prevent closing search modal when user is trying to open it
-        searchToggle.addEventListener('click', () => {
+        searchToggle.addEventListener('click', (event) => {
           this.preventSearchClose = true;
+          // Also prevent the hide() function from being called on click
+          this.preventHide = true;
           setTimeout(() => {
             this.preventSearchClose = false;
-          }, 100);
+            this.preventHide = false;
+          }, 300);
         });
       }
     }
 
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      console.log('Scroll: ', scrollTop);
+      console.log('Current: ', this.currentScrollTop);
 
       if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 
@@ -378,6 +389,7 @@
 
     hide() {
       if (this.headerIsAlwaysSticky) return;
+      if (this.preventHide) return;
       this.header.classList.add('shopify-section-header-hidden', 'shopify-section-header-sticky');
       this.closeMenuDisclosure();
       this.closeSearchModal();
