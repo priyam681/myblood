@@ -259,14 +259,6 @@
     .banner-buttons--mobile-hide {
     display: none !important;
     }
-
-    .banner-buttons--mobile-show {
-    display: flex !important;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    }
-
     .banner-buttons--mobile-show .button {
     width: 100%;
     max-width: 280px;
@@ -533,7 +525,7 @@
                                     {% assign mobile_class = 'banner-buttons--mobile-'
                                             | append: block.settings.mobile_button_visibility
                                     %}
-                                    <div class="banner-buttons {{ mobile_class }}">
+                                    <div class="banner-buttons hide-mobile {{ mobile_class }}">
                                         {% if block.settings.button_one_text != blank and block.settings.button_one_url != blank %}
                                             <a
                                                     class="button button--{{ block.settings.button_one_style | default: 'solid' }}"
@@ -566,7 +558,7 @@
                                     >
                                 {% endif %}
                             </div>
-                            {% if block.settings['banner-button_show'] == 'show' %}
+                            {% if block.settings['banner_button_show'] == 'show' %}
                                 <div class="banner-buttons hide-desktop">
                                     <a class="button button--primary" href="{{ block.settings.button_one_url }}">
                     <span>
