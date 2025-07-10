@@ -1,0 +1,51 @@
+{% comment %}
+  Renders a related product card similar to recommended products
+  
+  Accepts:
+  - card_product: {Object} Product Liquid object (required)
+  - section_id: {String} The ID of the section that contains this card
+  
+  Usage:
+  {% render 'related-product-card', card_product: product, section_id: section.id %}
+{% endcomment %}
+
+<related-product-card>
+  <div class="product-card">
+    <a href="{{ card_product.url }}" class="product-card-link">
+      <img src="{{ card_product.featured_image | image_url: width: 400, height: 400, format: 'webp' }}"
+           class="main-image" loading="lazy"
+           alt="{{ card_product.title }}" width="400" height="400">
+    </a>
+    <div class="thumbnail-wrapper">
+      {% for image in card_product.images limit: 15 %}
+        <div class="thumbnail-image-wrapper">
+          <img
+            class="thumbnail"
+            src="{{ image | image_url: width: 400, height: 400, format: 'webp' }}"
+            alt="{{ card_product.title }} thumbnail"
+            onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
+            width="50px" height="50px"
+            loading="lazy"
+          />
+        </div>
+      {% endfor %}
+
+    </div>
+
+    <h3 itemprop="name" class="product-name">{{ card_product.title }}</h3>
+    <div itemprop="offers" class="product-price" itemscope
+         itemtype="https://schema.org/Offer">
+      <meta itemprop="priceCurrency" content="INR" />
+      <span itemprop="price">{{ card_product.price | money }}</span>
+      <link itemprop="availability" href="https://schema.org/InStock" />
+    </div>
+
+    {% if card_product.metafields.custom.short_description %}
+      <p class="product-short-desc">
+        {{ card_product.metafields.custom.short_description }}
+      </p>
+    {% endif %}
+  </div>
+</related-product-card>
+
+

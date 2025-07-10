@@ -1,5 +1,4 @@
-{{ 'cstm-component-card.css' | asset_url | stylesheet_tag }}
-{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'home-page-product.css' | asset_url | stylesheet_tag }}
 {{ 'section-related-products.css' | asset_url | stylesheet_tag }}
 {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 
@@ -153,29 +152,23 @@
                     </div>
                 </div>
             </div>
-            <div class="swiper related-products-swiper">
-                <ul
-                        class="swiper-wrapper"
-                        role="list"
-                >
-                    {% assign skip_card_product_styles = false %}
-                    {% for recommendation in recommendations.products %}
-                        <li class="swiper-slide">
-                            {% render 'cstm-card-product',
-                                    card_product: recommendation,
-                                    media_aspect_ratio: section.settings.image_ratio,
-                                    image_shape: section.settings.image_shape,
-                                    show_secondary_image: section.settings.show_secondary_image,
-                                    show_vendor: section.settings.show_vendor,
-                                    show_rating: section.settings.show_rating,
-                                    skip_styles: skip_card_product_styles,
-                                    section_id: section.id
-                            %}
-                        </li>
-                        {%- assign skip_card_product_styles = true -%}
-                    {% endfor %}
-                </ul>
-            </div>
+            <related-product>
+                <div class="swiper related-products-swiper">
+                    <ul
+                            class="swiper-wrapper"
+                            role="list"
+                    >
+                        {% for recommendation in recommendations.products %}
+                            <li class="swiper-slide">
+                                {% render 'related-product-card',
+                                        card_product: recommendation,
+                                        section_id: section.id
+                                %}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </related-product>
 
             {% if recommendations.performed and recommendations.products_count > 0 and section.settings.show_view_all %}
                 <div class="related-products-view-all">
@@ -286,6 +279,125 @@
       setTimeout(initializeRelatedProductsSwiper, 200);
     }
   });
+</script>
+
+<script defer>
+
+  if (!customElements.get('related-product')) {
+    class RelatedProduct extends HTMLElement {
+      constructor() {
+        super();
+        this.resizeObserver = new ResizeObserver(this.debounce(this.handleResize.bind(this), 10));
+      }
+
+      debounce(fn, delay) {
+        let timeoutId;
+        return (...args) => {
+          if (timeoutId) {
+            clearTimeout(timeoutId);
+          }
+          timeoutId = setTimeout(() => {
+            fn(...args);
+          }, delay);
+        };
+      }
+
+      connectedCallback() {
+        this.tabs = Array.from(this.querySelectorAll('.product-card'));
+        requestAnimationFrame(() => {
+          this.tabs.forEach(tab => {
+            const thumbnailWrapper = tab.querySelector('.thumbnail-wrapper:not(.expand-thumbnails)');
+            const expandButton = document.createElement('div');
+            expandButton.className = 'expand-thumbnails thumbnail';
+            expandButton.setAttribute('aria-label', 'Show all images');
+            thumbnailWrapper.appendChild(expandButton);
+
+            expandButton.addEventListener('click', () => this.toggleThumbnails(thumbnailWrapper));
+
+            this.resizeObserver.observe(tab);
+          });
+        });
+      }
+
+      toggleThumbnails(wrapper) {
+        wrapper.classList.toggle('show-all');
+        const button = wrapper.querySelector('.expand-thumbnails');
+        button.innerHTML = wrapper.classList.contains('show-all') ? '-' : '+';
+        button.setAttribute('aria-label', wrapper.classList.contains('show-all') ? 'Show fewer images' : 'Show all images');
+      }
+
+      handleResize(entries) {
+        requestAnimationFrame(() => {
+          entries.forEach(entry => {
+            const containerWidth = entry.contentRect.width;
+            const target = entry.target;
+            const thumbnailWrapper = target.querySelector('.thumbnail-wrapper');
+            const thumbnails = Array.from(thumbnailWrapper.querySelectorAll('.thumbnail-image-wrapper'));
+            let counter = 0;
+
+
+            // Don't hide thumbnails if show-all is active
+            if (thumbnailWrapper.classList.contains('show-all')) {
+              thumbnails.forEach(thumbnail => {
+                thumbnail.style.display = '';
+              });
+              return;
+            }
+
+
+            let currentWidth = 0;
+            const gap = 5; // gap between thumbnails (match your CSS gap)
+
+            thumbnails.forEach((thumbnail, index) => {
+              // Reset display to calculate proper dimensions
+              thumbnail.style.display = '';
+
+              // Get the actual width including margins
+              const thumbnailWidth = thumbnail.offsetWidth;
+
+              // Add gap except for the first thumbnail
+              currentWidth += thumbnailWidth;
+
+              // Hide if exceeds container width
+              if (currentWidth > containerWidth) {
+                ++counter;
+                thumbnail.style.display = 'none';
+              }
+            });
+
+            if (counter > 0) {
+              let lastVisible = thumbnails.length - counter - 1;
+              thumbnails[lastVisible].style.display = 'none';
+              counter = counter + 1;
+            }
+
+
+            // Show/hide expand button based on if there are hidden thumbnails
+            const expandButton = thumbnailWrapper.querySelector('.expand-thumbnails');
+            expandButton.innerHTML = `+${counter}`;
+
+            const hasHiddenThumbnails = thumbnails.some(thumb => thumb.style.display === 'none');
+            expandButton.style.display = hasHiddenThumbnails ? '' : 'none';
+
+          });
+        });
+      }
+
+
+      disconnectedCallback() {
+        if (this.resizeObserver) {
+          this.resizeObserver.disconnect();
+        }
+      }
+    }
+
+    customElements.define('related-product', RelatedProduct);
+  }
+
+  window.addEventListener('error', (e) => {
+    console.log(e);
+  });
+
 </script>
 
 {% schema %}
