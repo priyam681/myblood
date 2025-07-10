@@ -425,54 +425,6 @@
         "show_product_info": true,
         "only_desktop": true
       }
-    },
-    "image_with_text_fwUB3h": {
-      "type": "image-with-text",
-      "blocks": {
-        "heading_4zW9FR": {
-          "type": "heading",
-          "settings": {
-            "heading": "BEST PAIRS ARE WAITING",
-            "heading_size": "h1"
-          }
-        },
-        "text_7AnQGX": {
-          "type": "text",
-          "settings": {
-            "text": "<p><br/>Step into style and comfort with our latest collection of premium footwear. Whether you're chasing city streets, exploring rugged trails, or elevating your evening look, our shoes are designed to move with you. Crafted from high-quality materials and thoughtfully engineered for every stride, each pair combines timeless style with modern performance. From sleek sneakers and classic loafers to bold statement heels and adventure-ready boots, find the perfect match for every moment. Discover a world where fashion meets function — because great days start from the ground up.<br/><br/></p>",
-            "text_style": "body"
-          }
-        },
-        "button_xe7wLR": {
-          "type": "button",
-          "settings": {
-            "button_label": "Shop Now",
-            "button_link": "",
-            "button_style_secondary": false
-          }
-        }
-      },
-      "block_order": [
-        "heading_4zW9FR",
-        "text_7AnQGX",
-        "button_xe7wLR"
-      ],
-      "name": "t:sections.image-with-text.presets.name",
-      "settings": {
-        "image": "shopify://shop_images/image_2.png",
-        "height": "small",
-        "desktop_image_width": "medium",
-        "layout": "image_first",
-        "image_behavior": "none",
-        "content_layout": "no-overlap",
-        "desktop_content_position": "top",
-        "desktop_content_alignment": "left",
-        "mobile_content_alignment": "left",
-        "section_color_scheme": "",
-        "color_scheme": "",
-        "padding_top": 36,
-        "padding_bottom": 36
-      }
     }
   },
   "order": [
@@ -485,7 +437,6 @@
     "cstm_collection_list_DFy79n",
     "performance_banner_NfWipW",
     "recommended_products_m4qpPD",
-    "colorful_kick_fRCnyF",
-    "image_with_text_fwUB3h"
+    "colorful_kick_fRCnyF"
   ]
 }
