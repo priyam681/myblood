@@ -31,7 +31,7 @@
     overflow: hidden;
     position: relative;
     }
-  .related-products-swiper .swiper-wrapper {
+    .related-products-swiper .swiper-wrapper {
     display: flex;
     padding-left: 0;
     }
@@ -322,6 +322,8 @@
       toggleThumbnails(wrapper) {
         wrapper.classList.toggle('show-all');
         const button = wrapper.querySelector('.expand-thumbnails');
+        button.remove();
+        return;
         button.innerHTML = wrapper.classList.contains('show-all') ? '-' : '+';
         button.setAttribute('aria-label', wrapper.classList.contains('show-all') ? 'Show fewer images' : 'Show all images');
       }
