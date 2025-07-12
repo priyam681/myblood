@@ -95,8 +95,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
   document.querySelector('.mobile-facets__header .close-icon')?.addEventListener('click', function() {
     let close = document.querySelector('.mobile-facets__disclosure');
+    document.body.classList.remove('overflow-hidden-mobile');
     close.removeAttribute('open');
-  });
+  }, true);
 
 });
 
@@ -111,7 +112,7 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
 
   // Only add desktop hover prevention for non-drawer menus
   const isDesktopMegaMenu = !summary.closest('header-drawer, menu-drawer');
-  
+
   if (isDesktopMegaMenu) {
     window.addEventListener('resize', (event) => {
       let windowWidth = window.innerWidth;
@@ -482,18 +483,26 @@ class MenuDrawer extends HTMLElement {
     super();
 
     this.mainDetailsToggle = this.querySelector('details');
+    this.closeTimeout = null; // Track close timeout to prevent conflicts
+    this.boundSummaryClick = this.onSummaryClick.bind(this);
+    this.boundCloseButtonClick = this.onCloseButtonClick.bind(this);
     this.addEventListener('keyup', this.onKeyUp.bind(this));
     this.addEventListener('focusout', this.onFocusOut.bind(this));
     this.bindEvents();
   }
 
   bindEvents() {
-    this.querySelectorAll('summary').forEach((summary) =>
-      summary.addEventListener('click', this.onSummaryClick.bind(this))
-    );
+    // Remove existing event listeners first to prevent duplicates
+    this.querySelectorAll('summary').forEach((summary) => {
+      summary.removeEventListener('click', this.boundSummaryClick);
+      summary.addEventListener('click', this.boundSummaryClick);
+    });
     this.querySelectorAll(
       'button:not(.localization-selector):not(.country-selector__close-button):not(.country-filter__reset-button)'
-    ).forEach((button) => button.addEventListener('click', this.onCloseButtonClick.bind(this)));
+    ).forEach((button) => {
+      button.removeEventListener('click', this.boundCloseButtonClick);
+      button.addEventListener('click', this.boundCloseButtonClick);
+    });
   }
 
   onKeyUp(event) {
@@ -523,6 +532,13 @@ class MenuDrawer extends HTMLElement {
     if (detailsElement === this.mainDetailsToggle) {
       // Handle main hamburger menu toggle
       event.preventDefault();
+      
+      // Clear any pending timeouts to prevent conflicts
+      if (this.closeTimeout) {
+        clearTimeout(this.closeTimeout);
+        this.closeTimeout = null;
+      }
+      
       this.onResizeDrawer();
       isOpen ? this.closeMenuDrawer(event, summaryElement) : this.openMenuDrawer(summaryElement);
 
@@ -583,7 +599,7 @@ class MenuDrawer extends HTMLElement {
   openMenuDrawer(summaryElement) {
     // Add immediate feedback
     this.mainDetailsToggle.setAttribute('open', '');
-    
+
     // Add opening class with smooth timing
     requestAnimationFrame(() => {
       this.mainDetailsToggle.classList.add('menu-opening');
@@ -597,9 +613,14 @@ class MenuDrawer extends HTMLElement {
   closeMenuDrawer(event, elementToFocus = false) {
     if (event === undefined) return;
 
+    // Clear any pending close timeout
+    if (this.closeTimeout) {
+      clearTimeout(this.closeTimeout);
+    }
+
     // Start closing animations immediately
     this.mainDetailsToggle.classList.remove('menu-opening');
-    
+
     // Close all submenus with smooth animations
     this.mainDetailsToggle.querySelectorAll('details').forEach((details) => {
       details.classList.remove('menu-opening');
@@ -609,22 +630,23 @@ class MenuDrawer extends HTMLElement {
     this.mainDetailsToggle.querySelectorAll('.submenu-open').forEach((submenu) => {
       submenu.classList.remove('submenu-open');
     });
-    
+
     // Remove body overflow immediately for better UX
     document.body.classList.remove(`overflow-hidden-${this.dataset.breakpoint}`);
     removeTrapFocus(elementToFocus);
-    
+
     // Set aria-expanded immediately
     if (elementToFocus) {
       elementToFocus.setAttribute('aria-expanded', false);
     }
-    
-    // Use proper closing animation with timing
-    setTimeout(() => {
+
+    // Use proper closing animation with timing and store timeout reference
+    this.closeTimeout = setTimeout(() => {
       this.mainDetailsToggle.querySelectorAll('details').forEach((details) => {
         details.removeAttribute('open');
       });
       this.mainDetailsToggle.removeAttribute('open');
+      this.closeTimeout = null; // Clear the timeout reference
     }, 300); // Match CSS transition timing
   }
 
@@ -707,7 +729,7 @@ class HeaderDrawer extends MenuDrawer {
 
     // Immediate feedback
     this.mainDetailsToggle.setAttribute('open', '');
-    
+
     // Smooth opening animation
     requestAnimationFrame(() => {
       this.mainDetailsToggle.classList.add('menu-opening');

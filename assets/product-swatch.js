@@ -49,6 +49,7 @@ if (!customElements.get('product-swatch')) {
       const parent = e.target.parentNode;
 
       const productId = e.target.getAttribute('data-product-id');
+
       const dataProductId = e.target.getAttribute('data-option-value-id');
 
       parent.querySelectorAll('input[type="radio"]').forEach((element) => {
@@ -71,12 +72,21 @@ if (!customElements.get('product-swatch')) {
       this.defaultImage = product.media?.[0];
 
       const selectedInputsString = this.getSelectedInputValues(productId);
+
+      const selectedParts = selectedInputsString
+        .split('/')             // "Yellow/M" → ["Yellow", "M"]
+        .map(t => t.trim())     // tidy up
+        .filter(Boolean);
+
+      console.log('Selected: ', selectedParts);
+
       const variant = product.variants.find((variant) => {
         const cleanTitle = variant.title.replace(/\s*\/\s*/g, '/');
-        return cleanTitle === selectedInputsString;
-      });
+        const parts = cleanTitle.split('/');
+        return selectedParts.every(p => parts.includes(p));
 
-      this.updateProduct(variant);
+      });
+      this.updateProduct(variant, selectedParts);
     }
 
     async fetchPrices(url) {
@@ -97,8 +107,9 @@ if (!customElements.get('product-swatch')) {
     }
 
 
-    async updateProduct(variant) {
+    async updateProduct(variant, selectedOptions = null) {
       if (!this.cardContainer || !variant) return;
+
 
       const priceRegular = this.cardContainer.querySelector('.price-item--regular');
       const priceSale = this.cardContainer.querySelector('.price-item--sale');
@@ -108,8 +119,19 @@ if (!customElements.get('product-swatch')) {
       // Update the variant ID in the added to cart form
       const variantIdInput = this.cardContainer.querySelector('.product-variant-id');
       let label = this.cardContainer.querySelector('product-swatch .form__label > span');
-      console.log('Label: ', label);
-      label.textContent = variant.title;
+
+      let displayTitle;
+      if (variant) {
+        const variantParts = variant.title.replace(/\s*\/\s*/g, '/').split('/');
+        displayTitle = variantParts
+          .filter(p => selectedOptions.includes(p))
+          .join(' / ');
+      } else {
+        displayTitle = 'Unavailable';
+      }
+
+      // console.log('Label: ', variant.title);
+      label.textContent = displayTitle;
 
 
       if (variantIdInput) {
