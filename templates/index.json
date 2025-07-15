@@ -153,13 +153,6 @@
             "collection": "womens"
           }
         },
-        "tab_wH3brr": {
-          "type": "tab",
-          "settings": {
-            "tab_title": "MENS",
-            "collection": ""
-          }
-        },
         "tab_jqeH4w": {
           "type": "tab",
           "settings": {
@@ -171,7 +164,6 @@
       "block_order": [
         "tab_LqXgFa",
         "tab_f6yBGG",
-        "tab_wH3brr",
         "tab_jqeH4w"
       ],
       "settings": {
