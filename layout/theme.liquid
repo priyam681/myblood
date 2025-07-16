@@ -260,7 +260,8 @@
 
     <link rel="preload" href="{{ 'base.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
 
-    <link rel="preload" href="{{ 'quick-add.css' | asset_url }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <link rel="preload" href="{{ 'quick-add.css' | asset_url }}" as="style"
+          onload="this.onload=null;this.rel='stylesheet'">
 
 
     <link rel="stylesheet" href="{{ 'component-cart-items.css' | asset_url }}" media="print" onload="this.media='all'">
@@ -298,6 +299,34 @@
         >
     {%- endif -%}
 
+    {% if template == 'index' %}
+        {% style %}
+            #MainContent .shopify-section.has-height {
+            margin-bottom: var(--spacing-sections-mobile);
+            }
+
+            @media screen and (min-width: 768px) {
+            #MainContent .shopify-section.has-height {
+            margin-bottom: var(--spacing-sections-desktop);
+            }
+            }
+
+
+        {% endstyle %}
+    {% else %}
+        {% style %}
+            #MainContent .shopify-section.has-height {
+            margin-bottom: 15px;
+            }
+
+            @media screen and (min-width: 768px) {
+            #MainContent .shopify-section.has-height {
+            margin-bottom: 20px;
+            }
+            }
+        {% endstyle %}
+
+    {% endif %}
     <script>
       if (Shopify.designMode) {
         document.documentElement.classList.add('shopify-design-mode');
