@@ -1,13 +1,13 @@
 {{ 'home-page-product.css' | asset_url | stylesheet_tag }}
 
 {%- style -%}
-  .recommended-products-view-all {
+    .recommended-products-view-all {
     text-align: center;
     margin-top: 30px;
     padding-top: 20px;
-  }
+    }
 
-  .recommended-products-view-all .view-all-btn {
+    .recommended-products-view-all .view-all-btn {
     display: inline-block;
     padding: 12px 30px;
     background: #FF4500;
@@ -19,13 +19,13 @@
     text-transform: uppercase;
     letter-spacing: 1px;
     font-size: 14px;
-  }
+    }
 
-  .recommended-products-view-all .view-all-btn:hover {
+    .recommended-products-view-all .view-all-btn:hover {
     background: #E03E00;
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(255,69,0,0.3);
-  }
+    }
 {%- endstyle -%}
 {% schema %}
 {
@@ -171,7 +171,7 @@
                     </div>
                 {% endif %}
             </div>
-            
+
             {% if section.blocks.size > 0 and section.settings.show_view_all %}
                 <div class="recommended-products-view-all">
                     <a href="{{ section.settings.view_all_url | default: collections.all.url }}" class="view-all-btn">
@@ -189,18 +189,18 @@
       document.addEventListener('DOMContentLoaded', function() {
         if (typeof Swiper !== 'undefined') {
           new Swiper('.swiper', {
-          slidesPerView: 1,
-          spaceBetween: 20,
-          navigation: {
-            nextEl: '.item-next',
-            prevEl: '.item-prev'
-          },
-          breakpoints: {
-            0: { slidesPerView: 1.5 },
-            768: { slidesPerView: 2.5 },
-            1200: { slidesPerView: 3.5 }
-          }
-        });
+            slidesPerView: 1,
+            spaceBetween: 20,
+            navigation: {
+              nextEl: '.item-next',
+              prevEl: '.item-prev'
+            },
+            breakpoints: {
+              0: { slidesPerView: 1.5 },
+              768: { slidesPerView: 2.5 },
+              1200: { slidesPerView: 3.5 }
+            }
+          });
         } else {
           console.warn('Swiper library not loaded for recommended products');
         }
@@ -248,8 +248,9 @@
       toggleThumbnails(wrapper) {
         wrapper.classList.toggle('show-all');
         const button = wrapper.querySelector('.expand-thumbnails');
-        button.innerHTML = wrapper.classList.contains('show-all') ? '-' : '+';
+        // button.innerHTML = wrapper.classList.contains('show-all') ? '-' : '+';
         button.setAttribute('aria-label', wrapper.classList.contains('show-all') ? 'Show fewer images' : 'Show all images');
+        button.remove();
       }
 
       handleResize(entries) {
