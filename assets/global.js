@@ -532,13 +532,13 @@ class MenuDrawer extends HTMLElement {
     if (detailsElement === this.mainDetailsToggle) {
       // Handle main hamburger menu toggle
       event.preventDefault();
-      
+
       // Clear any pending timeouts to prevent conflicts
       if (this.closeTimeout) {
         clearTimeout(this.closeTimeout);
         this.closeTimeout = null;
       }
-      
+
       this.onResizeDrawer();
       isOpen ? this.closeMenuDrawer(event, summaryElement) : this.openMenuDrawer(summaryElement);
 
@@ -790,7 +790,7 @@ class ModalDialog extends HTMLElement {
 
   show(opener) {
     this.openedBy = opener;
-    console.log('Opener: ', opener);
+    
     const popup = this.querySelector('.template-popup');
     document.body.classList.add('sp-quick-view-container');
     document.body.classList.add('overflow-hidden');
@@ -860,7 +860,7 @@ class ModalOpener extends HTMLElement {
     if (!button) return;
     button.addEventListener('click', () => {
       const modal = document.querySelector(this.getAttribute('data-modal'));
-      console.log('OPEN', modal);
+
       if (modal) modal.show(button);
     });
   }

@@ -38,7 +38,7 @@ if (!customElements.get('quick-add-modal')) {
 
             productElement.querySelector('product-modal-single')?.classList.add('quick-add-modal');
             this.preprocessHTML(productElement);
-            
+
             HTMLUpdateUtility.setInnerHTML(this.modalContent, productElement.outerHTML);
 
             // Re-initialize modal openers after DOM update
@@ -101,7 +101,7 @@ if (!customElements.get('quick-add-modal')) {
         }
 
         const sliderComponent = productElement.querySelectorAll('slider-component');
-        console.log(sliderComponent);
+
 
         if (sliderComponent.length > 0) {
           sliderComponent.forEach((slider) => {

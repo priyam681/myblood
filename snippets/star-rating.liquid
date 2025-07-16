@@ -26,21 +26,4 @@
         letter-spacing: 2px;
     }
 </style>
-<!-- javascript for total rating -->
-{% comment %} <script
-  defer
->
-            
-        document.addEventListener("DOMContentLoaded", function () {         
-         const ratings{{id}} = {{ratingValue}} // Given rating
-         const starTotal{{id}} = 5; // Total stars
-         const starPercentage{{id}} = (ratings{{id}}/ starTotal{{id}}) * 100;
-        const starPercentageRounded{{id}} = `${Math.round(starPercentage{{id}} / 10) * 10}%`;
-          console.log(starPercentageRounded{{id}}); 
-          const stars = document.querySelectorAll(`#reviews-{{ id }} .stars-inner`);
-          stars.forEach((el)=>{
-            el.style.width = starPercentageRounded{{id}};
-          })
-                
-        });
-</script> {% endcomment %}
+

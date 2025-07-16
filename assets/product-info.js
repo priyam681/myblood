@@ -75,7 +75,7 @@ if (!customElements.get('product-info')) {
           targetId: target.id,
           callback: shouldSwapProduct
             ? this.handleSwapProduct(productUrl, shouldFetchFullPage)
-            : this.handleUpdateProductInfo(productUrl),
+            : this.handleUpdateProductInfo(productUrl)
         });
       }
 
@@ -89,7 +89,7 @@ if (!customElements.get('product-info')) {
         return (html) => {
           this.productModal?.remove();
 
-          const selector = updateFullPage ? "product-info[id^='MainProduct']" : 'product-info';
+          const selector = updateFullPage ? 'product-info[id^=\'MainProduct\']' : 'product-info';
           const variant = this.getSelectedVariant(html.querySelector(selector));
           this.updateURL(productUrl, variant?.id);
 
@@ -205,8 +205,8 @@ if (!customElements.get('product-info')) {
             data: {
               sectionId: this.sectionId,
               html,
-              variant,
-            },
+              variant
+            }
           });
         };
       }
@@ -282,7 +282,7 @@ if (!customElements.get('product-info')) {
           // refresh
           if (shouldRefresh) {
             [mediaGallerySourceItems, sourceSet, sourceMap] = refreshSourceData();
-            
+
             // Re-initialize modal openers for new media gallery items
             const modalOpeners = mediaGallerySource.querySelectorAll('modal-opener');
             modalOpeners.forEach(opener => {
@@ -291,14 +291,15 @@ if (!customElements.get('product-info')) {
                 button.setAttribute('data-modal-initialized', 'true');
                 button.addEventListener('click', () => {
                   let modalSelector = opener.getAttribute('data-modal');
-                  
+
                   // In quick-add context, check if we need to use the modified ID
                   if (this.dataset.originalSection && modalSelector.includes(this.dataset.originalSection)) {
                     modalSelector = modalSelector.replace(this.dataset.originalSection, `quickadd-${this.dataset.originalSection}`);
                   }
-                  
+
                   const modal = document.querySelector(modalSelector);
-                  console.log('OPEN', modal, 'selector:', modalSelector);
+
+
                   if (modal) modal.show(button);
                 });
               }
@@ -331,14 +332,15 @@ if (!customElements.get('product-info')) {
                 button.setAttribute('data-modal-initialized', 'true');
                 button.addEventListener('click', () => {
                   let modalSelector = opener.getAttribute('data-modal');
-                  
+
                   // In quick-add context, check if we need to use the modified ID
                   if (this.dataset.originalSection && modalSelector.includes(this.dataset.originalSection)) {
                     modalSelector = modalSelector.replace(this.dataset.originalSection, `quickadd-${this.dataset.originalSection}`);
                   }
-                  
+
                   const modal = document.querySelector(modalSelector);
-                  console.log('OPEN', modal, 'selector:', modalSelector);
+
+
                   if (modal) modal.show(button);
                 });
               }
@@ -354,16 +356,16 @@ if (!customElements.get('product-info')) {
 
         // update media modal - handle both product-modal and product-modal-single
         const modalContent = this.productModal?.querySelector(`.product-media-modal__content`);
-        
+
         // Try both product-modal and product-modal-single in the new HTML
         let newModalContent = html.querySelector(`product-modal .product-media-modal__content`);
         if (!newModalContent) {
           newModalContent = html.querySelector(`product-modal-single .product-media-modal__content`);
         }
-        
+
         if (modalContent && newModalContent) {
           modalContent.innerHTML = newModalContent.innerHTML;
-          
+
           // Re-initialize modal openers after DOM update
           const modalOpeners = modalContent.querySelectorAll('modal-opener');
           modalOpeners.forEach(opener => {
@@ -372,19 +374,20 @@ if (!customElements.get('product-info')) {
               button.setAttribute('data-modal-initialized', 'true');
               button.addEventListener('click', () => {
                 let modalSelector = opener.getAttribute('data-modal');
-                
+
                 // In quick-add context, check if we need to use the modified ID
                 if (this.dataset.originalSection && modalSelector.includes(this.dataset.originalSection)) {
                   modalSelector = modalSelector.replace(this.dataset.originalSection, `quickadd-${this.dataset.originalSection}`);
                 }
-                
+
                 const modal = document.querySelector(modalSelector);
-                console.log('OPEN', modal, 'selector:', modalSelector);
+
+
                 if (modal) modal.show(button);
               });
             }
           });
-          
+
           // Notify ProductModalSingle that content has been updated
           const productModalSingle = modalContent.closest('product-modal-single');
           if (productModalSingle && productModalSingle.refreshThumbnails) {
@@ -398,7 +401,7 @@ if (!customElements.get('product-info')) {
           cartQuantity: this.quantityInput.dataset.cartQuantity ? parseInt(this.quantityInput.dataset.cartQuantity) : 0,
           min: this.quantityInput.dataset.min ? parseInt(this.quantityInput.dataset.min) : 1,
           max: this.quantityInput.dataset.max ? parseInt(this.quantityInput.dataset.max) : null,
-          step: this.quantityInput.step ? parseInt(this.quantityInput.step) : 1,
+          step: this.quantityInput.step ? parseInt(this.quantityInput.step) : 1
         };
 
         let min = data.min;

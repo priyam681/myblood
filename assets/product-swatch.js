@@ -78,7 +78,6 @@ if (!customElements.get('product-swatch')) {
         .map(t => t.trim())     // tidy up
         .filter(Boolean);
 
-      console.log('Selected: ', selectedParts);
 
       const variant = product.variants.find((variant) => {
         const cleanTitle = variant.title.replace(/\s*\/\s*/g, '/');
@@ -130,7 +129,7 @@ if (!customElements.get('product-swatch')) {
         displayTitle = 'Unavailable';
       }
 
-      // console.log('Label: ', variant.title);
+
       label.textContent = displayTitle;
 
 
