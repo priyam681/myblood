@@ -84,19 +84,23 @@ class CartDrawer extends HTMLElement {
     });
 
     setTimeout(() => {
-      this.querySelector('#CartDrawer-Overlay').addEventListener('click', this.close.bind(this));
+      const overlay = this.querySelector('#CartDrawer-Overlay');
+      if (overlay) {
+        overlay.addEventListener('click', this.close.bind(this));
+      }
       this.open();
     });
   }
 
   getSectionInnerHTML(html, selector = '.shopify-section') {
-    return new DOMParser().parseFromString(html, 'text/html').querySelector(selector).innerHTML;
+    const element = new DOMParser().parseFromString(html, 'text/html').querySelector(selector);
+    return element ? element.innerHTML : '';
   }
 
   getSectionsToRender() {
     return [
       {
-        id: 'cart-drawer',
+        id: 'cstm-cart-drawer',
         selector: '#CartDrawer',
       },
       {
@@ -121,7 +125,7 @@ class CartDrawerItems extends CartItems {
     return [
       {
         id: 'CartDrawer',
-        section: 'cart-drawer',
+        section: 'cstm-cart-drawer',
         selector: '.drawer__inner',
       },
       {
