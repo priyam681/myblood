@@ -119,7 +119,7 @@
                                     <a href="{{ product.url }}" class="product-card-link">
                                         <img src="{{ product.featured_image | image_url: width: 400, height: 400, format: 'webp' }}"
                                              class="main-image" loading="lazy"
-                                             alt="{{ product.title }}" width="400" height="400">
+                                             alt="{{ product.title }}" width="100%" height="100%">
                                     </a>
                                     <div class="thumbnail-wrapper">
                                         {% for image in product.images limit: 15 %}
@@ -190,7 +190,7 @@
         if (typeof Swiper !== 'undefined') {
           new Swiper('.swiper', {
             slidesPerView: 1,
-            spaceBetween: 20,
+            spaceBetween: 25,
             navigation: {
               nextEl: '.item-next',
               prevEl: '.item-prev'

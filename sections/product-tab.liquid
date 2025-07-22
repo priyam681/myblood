@@ -106,7 +106,7 @@
                                                             alt="{{ product.title }}"
                                                             itemprop="image"
                                                             loading="lazy"
-                                                            width="400" height="400"
+                                                            width="100%" height="100%"
                                                     />
                                                 </a>
 
@@ -307,7 +307,7 @@
       if (productCount > 0 && typeof Swiper !== 'undefined') {
         new Swiper(sliderEl, {
           slidesPerView: 4,
-          spaceBetween: 20,
+          spaceBetween: 25,
           navigation: {
             nextEl: sliderEl.querySelector('.item-next'),
             prevEl: sliderEl.querySelector('.item-prev')
