@@ -638,7 +638,7 @@ h6:empty {
     text-underline-offset: 0.3rem;
     color: rgb(var(--color-link));
     background-color: transparent;
-    font-size: 1.4rem;
+    font-size: calc(14px + (18 - 14) * ((100vw - 360px) / (1920 - 360)));
     font-family: inherit;
 }
 
@@ -2622,7 +2622,6 @@ input[type="checkbox"] {
 .header {
     display: flex;
     justify-content: space-between;
-    align-items: center;
 }
 
 @media screen and (max-width: 768px) {
@@ -3079,17 +3078,17 @@ details[open] > .header__submenu {
 }
 
 .header__menu-item {
-    /*padding: 4.4rem 0.2rem;*/
     text-decoration: none;
-    color: rgba(var(--color-foreground), 0.75);
+    color: rgba(var(--color-foreground));
     z-index: 3;
     position: relative;
+    height: 100%;
 }
 
-.header__menu-item:hover {
-    color: #bf9067;
+.header__menu-item:hover,
+a.link.link--text.list-menu__item:hover {
+    color: rgb(var(--color-foreground), 0.75);
 }
-
 .header__menu-item span {
     transition: text-decoration var(--duration-short) ease;
 }

@@ -12,10 +12,6 @@
   min-height: 350px;
 }
 
-a.link.link--text.list-menu__item:hover {
-    color: #bf9067;
-}
-
 @media screen and (max-width: 768px) {
   .footer .grid {
     display: block;
