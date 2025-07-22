@@ -295,9 +295,7 @@
         this.getAttribute
         ('data-sticky-type') === 'reduce-logo-size';
       this.headerBounds = {};
-
-      console.log('HEADER: ', this.header);
-
+      
       this.setHeaderHeight();
 
       window.matchMedia('(max-width: 990px)').addEventListener('change', this.setHeaderHeight.bind(this));
@@ -360,8 +358,6 @@
 
     onScroll() {
       const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-      console.log('Scroll: ', scrollTop);
-      console.log('Current: ', this.currentScrollTop);
 
       if (this.predictiveSearch && this.predictiveSearch.isOpen) return;
 

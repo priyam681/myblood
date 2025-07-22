@@ -66,7 +66,7 @@ customElements.define('details-disclosure', DetailsDisclosure);
 
 class HeaderMenu extends DetailsDisclosure {
   static isClickListenerActive = false;
-  
+
   constructor() {
     super();
     this.header = document.querySelector('.header-wrapper');
@@ -75,13 +75,13 @@ class HeaderMenu extends DetailsDisclosure {
     this.openTimeout = null;
     this.clickOutsideHandler = this.onClickOutside.bind(this);
     this.menuBgLeaveHandler = this.onMenuBgLeave.bind(this);
-    
+
     // Move events to li element for better hover behavior
     this.menuItem = this.closest('li');
     if (this.menuItem) {
       this.menuItem.addEventListener('mouseenter', this.onMouseEnter.bind(this));
       this.menuItem.addEventListener('mouseleave', this.onMouseLeave.bind(this));
-      
+
       // Remove default events from details
       this.mainDetailsToggle.removeEventListener('mouseenter', this.mouseEnter);
       this.mainDetailsToggle.removeEventListener('mouseleave', this.mouseLeave);
@@ -109,35 +109,29 @@ class HeaderMenu extends DetailsDisclosure {
     // Get the actual clicked coordinates
     const clickX = event.clientX;
     const clickY = event.clientY;
-    
+
     // Get all menu content elements
     const allMenuContents = document.querySelectorAll('.mega-menu__content');
     let isClickInsideAnyMenu = false;
-    
+
     // Check if click coordinates are within any menu bounds
     allMenuContents.forEach(menuContent => {
       if (menuContent.offsetParent) { // Only check visible menus
         const rect = menuContent.getBoundingClientRect();
-        if (clickX >= rect.left && clickX <= rect.right && 
-            clickY >= rect.top && clickY <= rect.bottom) {
+        if (clickX >= rect.left && clickX <= rect.right &&
+          clickY >= rect.top && clickY <= rect.bottom) {
           isClickInsideAnyMenu = true;
         }
       }
     });
-    
+
     // Also check if clicking on menu triggers (summaries)
     const isClickOnMenuTrigger = event.target.closest('.header__menu-item, summary');
-    
-    console.log('Click outside check:', {
-      clickX, clickY,
-      isClickInsideAnyMenu,
-      isClickOnMenuTrigger: !!isClickOnMenuTrigger,
-      target: event.target
-    });
-    
+
+
     if (!isClickInsideAnyMenu && !isClickOnMenuTrigger) {
-      console.log('Closing menus - click outside detected');
-      
+
+
       // Close all open menus
       const allOpenMenus = document.querySelectorAll('header-menu details[open]');
       allOpenMenus.forEach(menu => {
@@ -147,30 +141,30 @@ class HeaderMenu extends DetailsDisclosure {
           content.style.opacity = '0';
           content.style.transform = 'translateY(-10px)';
         }
-        
+
         const icon = menu.querySelector('.icon-caret');
         if (icon) {
           icon.style.transition = 'transform 0.3s ease';
           icon.style.transform = 'rotate(0deg)';
         }
-        
+
         setTimeout(() => {
           menu.removeAttribute('open');
           menu.querySelector('summary').setAttribute('aria-expanded', false);
         }, 150);
       });
-      
+
       // Clean up body classes and header states
       document.body.classList.remove('overflow-menu');
       if (this.header) {
         this.header.preventHide = false;
         this.header.style.setProperty('--header-bottom-position-desktop', '');
       }
-      
+
       if (this.stickyHeader) {
         this.stickyHeader.preventMenuClose = false;
       }
-      
+
       // Remove click listener and reset flag
       document.removeEventListener('click', this.clickOutsideHandler);
       HeaderMenu.isClickListenerActive = false;
@@ -180,29 +174,29 @@ class HeaderMenu extends DetailsDisclosure {
   onMenuBgLeave(event) {
     // Only close if mouse actually left the mega-menu-bg container
     const relatedTarget = event.relatedTarget;
-    
+
     // Don't close if moving to child elements within the menu
     if (relatedTarget && this.megaMenuBg.contains(relatedTarget)) {
       return;
     }
-    
+
     // Close the menu immediately when leaving mega-menu-bg container
     this.closeMenuWithAnimation();
   }
 
   closeMenuWithAnimation() {
     const details = this.mainDetailsToggle;
-    
+
     if (details?.hasAttribute('open')) {
       // Clean up header states
       this.header.preventHide = false;
       this.header.style.setProperty('--header-bottom-position-desktop', '');
       document.body.classList.remove('overflow-menu');
-      
+
       if (this.stickyHeader) {
         this.stickyHeader.preventMenuClose = false;
       }
-      
+
       const icon = details.querySelector('.icon-caret');
       if (icon) {
         icon.style.transition = 'transform 0.3s ease';
@@ -221,7 +215,7 @@ class HeaderMenu extends DetailsDisclosure {
         this.close();
         this.isMouseInMenu = false;
       }, 150);
-      
+
       // Remove click listener if active
       if (HeaderMenu.isClickListenerActive) {
         document.removeEventListener('click', this.clickOutsideHandler);
@@ -232,7 +226,7 @@ class HeaderMenu extends DetailsDisclosure {
 
   onMouseLeave(event) {
     this.isMouseInMenu = false;
-    
+
     // Clear any pending open timeout
     if (this.openTimeout) {
       clearTimeout(this.openTimeout);
@@ -240,13 +234,13 @@ class HeaderMenu extends DetailsDisclosure {
     }
 
     const details = this.mainDetailsToggle;
-    
+
     // Add delay before closing to prevent flicker when moving between menu items
     this.closeTimeout = setTimeout(() => {
       // Only remove overflow-menu if no other menus are being hovered
       const allMenus = document.querySelectorAll('header-menu');
       const anyMenuHovered = Array.from(allMenus).some(menu => menu.isMouseInMenu);
-      
+
       if (!anyMenuHovered) {
         this.header.preventHide = false;
         this.header.style.setProperty('--header-bottom-position-desktop', '');
@@ -291,10 +285,10 @@ class HeaderMenu extends DetailsDisclosure {
 
     this.isMouseInMenu = true;
     this.header.preventHide = true;
-    
+
     // Always ensure overflow-menu is applied when hovering any menu
     document.body.classList.add('overflow-menu');
-    
+
     // Prevent sticky header from closing menus while hovering
     if (this.stickyHeader) {
       this.stickyHeader.preventMenuClose = true;
@@ -338,7 +332,7 @@ class HeaderMenu extends DetailsDisclosure {
           content.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
           content.style.opacity = '0';
           content.style.transform = 'translateY(-10px)';
-          
+
           // Trigger animation
           requestAnimationFrame(() => {
             content.style.opacity = '1';
@@ -354,7 +348,7 @@ class HeaderMenu extends DetailsDisclosure {
             `${Math.floor(this.header.getBoundingClientRect().bottom)}px`
           );
         }
-        
+
         // Add click outside listener when menu opens (only once)
         if (!HeaderMenu.isClickListenerActive) {
           HeaderMenu.isClickListenerActive = true;
@@ -362,7 +356,7 @@ class HeaderMenu extends DetailsDisclosure {
             document.addEventListener('click', this.clickOutsideHandler);
           }, 100); // Small delay to prevent immediate closing
         }
-        
+
       }, 50); // 50ms delay for opening
     }
   }

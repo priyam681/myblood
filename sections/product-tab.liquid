@@ -2,14 +2,14 @@
 {% comment %} Load Swiper CSS only when needed {% endcomment %}
 {% assign has_products = false %}
 {% for block in section.blocks %}
-  {% assign collection = collections[block.settings.collection] %}
-  {% if collection.products.size > 1 %}
-    {% assign has_products = true %}
-    {% break %}
-  {% endif %}
+    {% assign collection = collections[block.settings.collection] %}
+    {% if collection.products.size > 1 %}
+        {% assign has_products = true %}
+        {% break %}
+    {% endif %}
 {% endfor %}
 {% if has_products %}
-  {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 {% endif %}
 {% schema %}
 {
@@ -89,10 +89,10 @@
                         {% assign collection = collections[block.settings.collection] %}
                         {% if collection.products.size > 1 %}
                             {% comment %} Load Swiper JS only for first occurrence {% endcomment %}
-                            {% unless swiper_loaded %}
-                                <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
-                                {% assign swiper_loaded = true %}
-                            {% endunless %}
+                        {% unless swiper_loaded %}
+                            <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+                            {% assign swiper_loaded = true %}
+                        {% endunless %}
 
                             <div class="pua-product-slider swiper" data-product-count="{{ collection.products.size }}">
                                 <div class="swiper-wrapper">
@@ -211,8 +211,9 @@
       toggleThumbnails(wrapper) {
         wrapper.classList.toggle('show-all');
         const button = wrapper.querySelector('.expand-thumbnails');
-        button.innerHTML = wrapper.classList.contains('show-all') ? '-' : '+';
+        // button.innerHTML = wrapper.classList.contains('show-all') ? '-' : '+';
         button.setAttribute('aria-label', wrapper.classList.contains('show-all') ? 'Show fewer images' : 'Show all images');
+        button.remove();
       }
 
       handleResize(entries) {
@@ -283,9 +284,6 @@
     customElements.define('product-tabs', ProductTabs);
   }
 
-  window.addEventListener('error', (e) => {
-    console.log(e);
-  });
 
 </script>
 

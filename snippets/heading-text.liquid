@@ -1,7 +1,7 @@
 <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const  container = document.querySelectorAll(".image-container");
-    console.log(container.length);
+  document.addEventListener('DOMContentLoaded', function() {
+    const container = document.querySelectorAll('.image-container');
+
     jQuery(document).ready(function($) { // jQuery no-conflict wrapper
       $(document).ready(function() { // Double nested for DOM ready safety
         function initializeSlider() {
@@ -9,12 +9,12 @@
             if (!$('.image-slider').hasClass('slick-initialized')) {
 
               $('.image-slider').slick({
-               dots: true,
-              arrows: false,
-              infinite: true,
-              speed:300,
-              slidesToShow: 1,
-              adaptiveHeight: true,
+                dots: true,
+                arrows: false,
+                infinite: true,
+                speed: 300,
+                slidesToShow: 1,
+                adaptiveHeight: true
               });
 
             }
@@ -32,44 +32,52 @@
   });
 </script>
 <h2 class="rich-text__heading headingtext rte inline-richtext h1">
-  {{ section.settings.headingtext }}
+    {{ section.settings.headingtext }}
 </h2>
 <div class="wrapper">
- 
-  <div class="container">
-    <div class="image-slider">
-      <div class="first-image-container image image-container">
-     {% if section.settings.introduction_image_1 != blank %}
-     <img src="{{ section.settings.introduction_image_1 | image_url: width: 400, format: 'webp' }}" alt="Image 1" width="400" height="300" loading="lazy">
-{% else %}
-     <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image" width="400" height="300" loading="lazy">
-{% endif %}
 
-      </div>
-      <div class="second-image-container image image-container">
-         {% if section.settings.introduction_image_2 != blank %}
-  <img src="{{ section.settings.introduction_image_2 | image_url: width: 400, format: 'webp' }}" alt="Image 2" width="400" height="300" loading="lazy">
-{% else %}
-  <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image" width="400" height="300" loading="lazy">
-{% endif %}
-      </div>
-      <div class="third-image-container image image-container">
-         {% if section.settings.introduction_image_3 != blank %}
-  <img src="{{ section.settings.introduction_image_3 | image_url: width: 400, format: 'webp' }}" alt="Image 3" width="400" height="300" loading="lazy">
-{% else %}
-  <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image" width="400" height="300" loading="lazy">
-{% endif %}
-      </div>
-      <div class="fourth-image-container image image-container">
-         {% if section.settings.introduction_image_4 != blank %}
-  <img src="{{ section.settings.introduction_image_4 | image_url: width: 400, format: 'webp' }}" alt="Image 4" width="400" height="300" loading="lazy">
-{% else %}
-  <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image" width="400" height="300" loading="lazy">
-{% endif %}
-      </div>
+    <div class="container">
+        <div class="image-slider">
+            <div class="first-image-container image image-container">
+                {% if section.settings.introduction_image_1 != blank %}
+                    <img src="{{ section.settings.introduction_image_1 | image_url: width: 400, format: 'webp' }}"
+                         alt="Image 1" width="400" height="300" loading="lazy">
+                {% else %}
+                    <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image" width="400" height="300"
+                         loading="lazy">
+                {% endif %}
+
+            </div>
+            <div class="second-image-container image image-container">
+                {% if section.settings.introduction_image_2 != blank %}
+                    <img src="{{ section.settings.introduction_image_2 | image_url: width: 400, format: 'webp' }}"
+                         alt="Image 2" width="400" height="300" loading="lazy">
+                {% else %}
+                    <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image" width="400" height="300"
+                         loading="lazy">
+                {% endif %}
+            </div>
+            <div class="third-image-container image image-container">
+                {% if section.settings.introduction_image_3 != blank %}
+                    <img src="{{ section.settings.introduction_image_3 | image_url: width: 400, format: 'webp' }}"
+                         alt="Image 3" width="400" height="300" loading="lazy">
+                {% else %}
+                    <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image" width="400" height="300"
+                         loading="lazy">
+                {% endif %}
+            </div>
+            <div class="fourth-image-container image image-container">
+                {% if section.settings.introduction_image_4 != blank %}
+                    <img src="{{ section.settings.introduction_image_4 | image_url: width: 400, format: 'webp' }}"
+                         alt="Image 4" width="400" height="300" loading="lazy">
+                {% else %}
+                    <img src="{{ 'placeholder.png' | asset_url }}" alt="Default Image" width="400" height="300"
+                         loading="lazy">
+                {% endif %}
+            </div>
+        </div>
+        <p class="details">
+            {{ section.settings.details }}
+        </p>
     </div>
-    <p class="details">
-      {{ section.settings.details }}
-    </p>
-  </div>
 </div>

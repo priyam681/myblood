@@ -279,15 +279,6 @@ a#togglePassword {
     z-index: 0;
 }
 
-#MainContent .shopify-section.has-height {
-    margin-bottom: var(--spacing-sections-mobile);
-}
-
-@media screen and (min-width: 768px) {
-    #MainContent .shopify-section.has-height {
-        margin-bottom: var(--spacing-sections-desktop);
-    }
-}
 
 .element-margin-top {
     margin-top: 5rem;
@@ -3097,6 +3088,7 @@ a.link.link--text.list-menu__item:hover {
     text-decoration: underline;
     text-underline-offset: 0.3rem;
 }
+
 details[open] > .header__menu-item .icon-caret {
     transform: rotate(180deg);
 }
