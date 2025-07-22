@@ -106,7 +106,7 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Hozzáadás a kosárhoz",
+      "add_to_cart": "Kosárba helyezés",
       "description": "Leírás",
       "on_sale": "Akciós",
       "product_variants": "Termékváltozatok",

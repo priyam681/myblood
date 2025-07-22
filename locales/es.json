@@ -107,7 +107,7 @@
   },
   "products": {
     "product": {
-      "add_to_cart": "Agregar al carrito",
+      "add_to_cart": "Añadir a la bolsa",
       "description": "Descripción",
       "on_sale": "Oferta",
       "quantity": {
