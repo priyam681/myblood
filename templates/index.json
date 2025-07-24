@@ -377,6 +377,27 @@
     "colorful_kick_fRCnyF": {
       "type": "colorful-kick",
       "blocks": {
+        "behind_text_JAXGi6": {
+          "type": "behind_text",
+          "settings": {
+            "text_field": "COLOR",
+            "position_field": "left"
+          }
+        },
+        "behind_text_TRCYYb": {
+          "type": "behind_text",
+          "settings": {
+            "text_field": "YOUR",
+            "position_field": "right"
+          }
+        },
+        "behind_text_pexEeE": {
+          "type": "behind_text",
+          "settings": {
+            "text_field": "WORLD",
+            "position_field": "left"
+          }
+        },
         "image_showcase_mekXhE": {
           "type": "image_showcase",
           "settings": {
@@ -397,6 +418,9 @@
         }
       },
       "block_order": [
+        "behind_text_JAXGi6",
+        "behind_text_TRCYYb",
+        "behind_text_pexEeE",
         "image_showcase_mekXhE",
         "image_showcase_gFmxTc",
         "image_showcase_j6Ytkj"
@@ -404,7 +428,7 @@
       "settings": {
         "lifestyle_image": "shopify://shop_images/shoes-collection.png",
         "content_subheading": "Step Into Style & Comfort",
-        "content_description": "Discover our vibrant collection of colorblocked shoes, designed with plush memory foam for all-day comfort. With a wide range of bold shades, it’s easy to pick your perfect pair",
+        "content_description": "Discover our vibrant collection of colorblocked shoes, designed with plush memory foam for all-day comfort. With a wide range of bold shades, it’s easy to pick your perfect pair.",
         "colourless_content_first": "Colorful",
         "colourful_content_first": "Kicks,",
         "colourful_content_first_color": "#ff3200",
