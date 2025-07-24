@@ -1,6 +1,5 @@
 .sp-fliter .facets.facets-pill {
   margin: 0 16px;
-  font-family: 'Knockout-31';
   overflow-x: scroll;
   width: calc(100% - 400px);
 }

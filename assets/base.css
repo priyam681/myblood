@@ -1506,7 +1506,6 @@ button.shopify-payment-button__button--unbranded {
     margin: 0;
     color: rgba(var(--color-foreground), 0.85);
     font-size: 1.4rem;
-    font-family: 'Knockout-31';
 }
 
 .sp-fliter .dropdown-btn {
@@ -1519,7 +1518,6 @@ button.shopify-payment-button__button--unbranded {
     margin-right: 0;
     color: rgba(var(--color-foreground), 0.85);
     font-size: 1.8rem;
-    font-family: 'Knockout-50';
 }
 
 .sp-fliter svg.icon.icon-caret {
@@ -1549,7 +1547,6 @@ button.shopify-payment-button__button--unbranded {
 .sp-fliter .dropdown-menu li {
     padding: 7px 10px;
     cursor: pointer;
-    font-family: 'Knockout-31';
     color: #212121;
     letter-spacing: 0.5px;
     font-size: 1.4rem;
@@ -2311,8 +2308,6 @@ input[type="checkbox"] {
 
 .sp-card-inner .sp-btn-wrapper .quick-add__submit span {
     display: inline-block;
-    height: 24px;
-    width: 24px;
 }
 
 .sp-card-inner .sp-btn-wrapper .quick-add__submit {
@@ -2372,7 +2367,7 @@ input[type="checkbox"] {
 }
 
 .utility-bar__grid {
-    padding-block: 17px;
+    padding-block: 12px;
 }
 
 .utility-bar__grid .list-social {
@@ -2418,7 +2413,9 @@ input[type="checkbox"] {
     align-content: center;
     grid-area: announcements;
 }
-
+.announcement-bar .announcement-bar__message {
+    font-size: 14px;
+}
 .announcement-bar .slider--everywhere {
     margin-bottom: 0;
     scroll-behavior: auto;
@@ -3092,18 +3089,6 @@ a.link.link--text.list-menu__item:hover {
 details[open] > .header__menu-item .icon-caret {
     transform: rotate(180deg);
 }
-
-.header__active-menu-item {
-    transition: text-decoration-thickness var(--duration-short) ease;
-    color: rgb(var(--color-foreground));
-    text-decoration: underline;
-    text-underline-offset: 0.3rem;
-}
-
-.header__menu-item:hover .header__active-menu-item {
-    text-decoration-thickness: 0.2rem;
-}
-
 .header__submenu {
     transition: opacity var(--duration-default) ease,
     transform var(--duration-default) ease;
@@ -4232,7 +4217,6 @@ product-media-load-more.sp-media-load-more {
 .sp-card-wrapper .form__label {
     display: block;
     margin-bottom: .6rem;
-    font-family: 'Knockout-31';
     font-size: 1.4rem;
     letter-spacing: .2px;
 }
@@ -4283,7 +4267,6 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
     gap: 10px;
     position: relative;
     width: 130px;
-    font-family: "knockout-31";
     margin-top: 7px;
 }
 
@@ -4340,7 +4323,6 @@ quantity-input.quantity.sp-qty-hover button.quantity__button:hover {
     border-radius: 8px;
     text-align: center;
     cursor: pointer;
-    font-family: "knockout-31";
 }
 
 .sp-quantity-click .dropdown-menu {

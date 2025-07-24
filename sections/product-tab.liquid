@@ -84,7 +84,7 @@
                     </ul>
                 </div>
                 {% for block in section.blocks %}
-                    <div class="pua-tab-content test {% if forloop.first %}active{% endif %}"
+                    <div class="pua-tab-content {% if forloop.first %}active{% endif %}"
                          id="tab-tab-{{ forloop.index }}">
                         {% assign collection = collections[block.settings.collection] %}
                         {% if collection.products.size > 1 %}

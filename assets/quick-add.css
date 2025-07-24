@@ -33,16 +33,8 @@ body.sp-quick-view-container quick-add-modal .product__media-item:not(:first-chi
 }
 
 @media screen and (max-width: 768px) {
-    .sp-card-inner .sp-btn-wrapper .quick-add__submit,
-    .sp-card-inner .sp-btn-wrapper .quick-add__submit img {
-        min-height: 16px;
-        min-width: 16px;
-    }
-
     .sp-card-inner .sp-btn-wrapper .quick-add__submit span,
     .sp-card-inner .sp-btn-wrapper .quick-add__submit span svg {
-        height: 16px;
-        width: 16px;
         display: flex;
     }
 

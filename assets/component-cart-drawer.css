@@ -232,7 +232,7 @@ cart-drawer-items {
 
 .cart-drawer .cart-items thead th:nth-child(2) {
   width: 50%;
-  padding-left: 0;
+  padding-left: 10px;
 }
 
 .cart-drawer .cart-items thead tr {

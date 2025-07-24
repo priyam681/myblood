@@ -147,6 +147,7 @@
 .tabs-wrapper {
     margin-bottom: 40px;
     font-size: calc(22px + (40 - 22) * ((100vw - 360px) / (1920 - 360)));
+    line-height: calc(33px + (60 - 33) * ((100vw - 360px) / (1920 - 360)));
 }
 
 .tabs-wrapper .tab_heading {
@@ -246,12 +247,14 @@
 
 .pua-tabs li {
     cursor: pointer;
-    color: gray;
+    color: #8989898a;
 }
 
 .pua-tabs li.active {
-    color: red;
-    border-bottom: 2px solid red;
+    color: #FF3200;
+    text-decoration: underline;
+    text-underline-offset: 10px;
+    text-decoration-thickness: 2px;
 }
 
 .pua-tab-content {

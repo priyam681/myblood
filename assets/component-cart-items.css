@@ -96,7 +96,10 @@ th.caption-with-letter-spacing {
 
 .cart-item__name {
   text-decoration: none;
-  display: block;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
 }
 
 .cart-item__name:hover {

@@ -41,7 +41,7 @@
   font-size: calc(16px + (25 - 16) * ((100vw - 360px) / (1920 - 360)));
   font-weight: 500;
   line-height: 1;
-  margin-bottom: 3.3rem;
+  margin-bottom: 3.5rem;
 }
 
 .price--sold-out .price__availability,
