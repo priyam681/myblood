@@ -581,6 +581,10 @@ table:not([class]) th {
     .blog .page-width-desktop {
         padding: 36px 0;
     }
+    .link,
+    .customer a {
+        font-size: calc(14px + (18 - 14) * ((100vw - 992px) / (1920 - 992)));
+    }
 }
 
 .left {
@@ -629,7 +633,6 @@ h6:empty {
     text-underline-offset: 0.3rem;
     color: rgb(var(--color-link));
     background-color: transparent;
-    font-size: calc(14px + (18 - 14) * ((100vw - 360px) / (1920 - 360)));
     font-family: inherit;
 }
 
@@ -1099,7 +1102,10 @@ summary::-webkit-details-marker {
 }
 
 @media screen and (max-width: 992px) {
-
+    .link,
+    .customer a {
+        font-size: calc(14px + (18 - 14) * ((100vw - 375px) / (992 - 375)));
+    }
     .slider--tablet.grid--peek {
         margin: 0 !important;
         width: 100%;
@@ -2641,7 +2647,7 @@ input[type="checkbox"] {
     .header--middle-left {
         grid-template-areas: "heading navigation icons";
         /* grid-template-columns: auto auto 1fr; */
-        column-gap: 2rem;
+        column-gap: 1rem;
     }
 
     .header--middle-center:not(.drawer-menu) {
