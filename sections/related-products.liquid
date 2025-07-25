@@ -3,189 +3,226 @@
 {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 
 {% if section.settings.image_shape == 'blob' %}
-    {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
+  {{ 'mask-blobs.css' | asset_url | stylesheet_tag }}
 {%- endif -%}
 
 {%- if section.settings.quick_add == 'standard' -%}
-    <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
-    <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'quick-add.js' | asset_url }}" defer="defer"></script>
+  <script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
 {%- endif -%}
 
 <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
 <script src="{{ 'product-slider.js' | asset_url }}" defer></script>
 
 {%- style -%}
-    .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
-    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
-    }
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+  padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
 
-    @media screen and (min-width: 768px) {
-    .section-{{ section.id }}-padding {
-    padding-top: {{ section.settings.padding_top }}px;
-    padding-bottom: {{ section.settings.padding_bottom }}px;
-    }
-    }
+  @media screen and (min-width: 768px) {
+  .section-{{ section.id }}-padding {
+  padding-top: {{ section.settings.padding_top }}px;
+  padding-bottom: {{ section.settings.padding_bottom }}px;
+  }
+  }
 
-    .related-products-swiper {
-    overflow: hidden;
-    position: relative;
-    }
-    .related-products-swiper .swiper-wrapper {
-    display: flex;
-    padding-left: 0;
-    }
+  .related-products-swiper {
+  overflow: hidden;
+  position: relative;
+  }
+  .related-products-swiper .swiper-wrapper {
+  display: flex;
+  padding-left: 0;
+  }
 
-    .related-products-swiper .swiper-slide {
-    flex-shrink: 0;
-    width: auto;
-    }
+  .related-products-swiper .swiper-slide {
+  flex-shrink: 0;
+  width: auto;
+  }
 
-    .related-products-header .prev-next-button .item-prev,
-    .related-products-header .prev-next-button .item-next {
-    background: #111111;
-    color: #fff;
-    display: flex;
-    padding: 17px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    }
+  .related-products-header .prev-next-button .item-prev,
+  .related-products-header .prev-next-button .item-next {
+  background: #111111;
+  color: #fff;
+  display: flex;
+  padding: 17px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  }
 
-    .related-products-header .prev-next-button .item-prev:hover,
-    .related-products-header .prev-next-button .item-next:hover {
-    background: #333333;
-    transform: scale(1.05);
-    }
+  .related-products-header .prev-next-button .item-prev:hover,
+  .related-products-header .prev-next-button .item-next:hover {
+  background: #333333;
+  transform: scale(1.05);
+  }
 
-    .related-products-header .prev-next-button .item-prev.clicked,
-    .related-products-header .prev-next-button .item-next.clicked {
-    transform: scale(0.95);
-    background: #555;
-    }
+  .related-products-header .prev-next-button .item-prev.clicked,
+  .related-products-header .prev-next-button .item-next.clicked {
+  transform: scale(0.95);
+  background: #555;
+  }
 
-    .related-products-header .prev-next-button.swiper-button-disabled,
-    .related-products-header .swiper-button-disabled {
-    opacity: 0.35;
-    pointer-events: none;
-    }
+  .related-products-header .prev-next-button.swiper-button-disabled,
+  .related-products-header .swiper-button-disabled {
+  opacity: 0.35;
+  pointer-events: none;
+  }
 
-    .related-products-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 20px;
-    position: relative;
-    }
+  .related-products-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  position: relative;
+  }
 
-    .related-products-header .prev-next-button {
-    display: flex;
-    gap: 20px;
-    z-index: 1;
-    }
+  .related-products-header .prev-next-button {
+  display: flex;
+  gap: 20px;
+  z-index: 1;
+  }
 
-    .related-products-header .item-prev .svg-wrapper {
-    transform: rotate(90deg);
-    }
+  .related-products-header .item-prev .svg-wrapper {
+  transform: rotate(90deg);
+  }
 
-    .related-products-header .item-next .svg-wrapper {
-    transform: rotate(270deg);
-    }
+  .related-products-header .item-next .svg-wrapper {
+  transform: rotate(270deg);
+  }
 
-    @media screen and (max-width: 768px) {
-    .related-products-header .prev-next-button {
-    display: none;
-    }
+  @media screen and (max-width: 768px) {
+  .related-products-header .prev-next-button {
+  display: none;
+  }
 
-    .related-products-header {
-    justify-content: center;
-    }
-    }
+  .related-products-header {
+  justify-content: center;
+  }
+  }
 
-    .related-products-view-all {
-    text-align: center;
-    margin-top: 20px;
-    padding-top: 20px;
-    }
+  .related-products-view-all {
+  text-align: center;
+  margin-top: 20px;
+  padding-top: 20px;
+  }
 
-    .view-all-btn {
-    display: inline-block;
-    padding: 12px 30px;
-    background: #FF4500;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: all 0.3s ease;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    font-size: 14px;
-    }
+  .view-all-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  background: #FF4500;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 14px;
+  }
 
-    .view-all-btn:hover {
-    background: #E03E00;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(255,69,0,0.3);
-    }
+  .view-all-btn:hover {
+  background: #E03E00;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255,69,0,0.3);
+  }
 {%- endstyle -%}
 
 <div class="color-{{ section.settings.color_scheme }} gradient">
-    <product-recommendations
-            class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
-            data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
-            data-section-id="{{ section.id }}"
-            data-product-id="{{ product.id }}"
-    >
-        {% if recommendations.performed and recommendations.products_count > 0 %}
-            <div class="related-products-header">
-                <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
-                    {{ section.settings.heading }}
-                </h2>
-                <div class="prev-next-button">
-                    <div class="item-prev pagination__item--prev">
+  <product-recommendations
+    class="related-products page-width section-{{ section.id }}-padding isolate{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}"
+    data-url="{{ routes.product_recommendations_url }}?limit={{ section.settings.products_to_show }}"
+    data-section-id="{{ section.id }}"
+    data-product-id="{{ product.id }}"
+  >
+    {% if recommendations.performed and recommendations.products_count > 0 %}
+      <div class="related-products-header">
+        <h2 class="related-products__heading inline-richtext {{ section.settings.heading_size }}">
+          {{ section.settings.heading }}
+        </h2>
+        <div class="prev-next-button" style="display: none;">
+          <div class="item-prev pagination__item--prev">
             <span class="svg-wrapper">
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
-                    </div>
-                    <div class="item-next pagination__item--prev">
+          </div>
+          <div class="item-next pagination__item--prev">
             <span class="svg-wrapper">
               {{- 'icon-caret.svg' | inline_asset_content -}}
             </span>
-                    </div>
-                </div>
-            </div>
-            <related-product>
-                <div class="swiper related-products-swiper">
-                    <ul
-                            class="swiper-wrapper"
-                            role="list"
-                    >
-                        {% for recommendation in recommendations.products %}
-                            <li class="swiper-slide">
-                                {% render 'related-product-card',
-                                        card_product: recommendation,
-                                        section_id: section.id
-                                %}
-                            </li>
-                        {% endfor %}
-                    </ul>
-                </div>
-            </related-product>
+          </div>
+        </div>
+      </div>
+      <related-product>
+        <div class="swiper related-products-swiper">
+          <ul
+            class="swiper-wrapper"
+            role="list"
+          >
+            {% for recommendation in recommendations.products %}
+              <li class="swiper-slide">
+                {% render 'related-product-card', card_product: recommendation, section_id: section.id %}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+      </related-product>
 
-            {% if recommendations.performed and recommendations.products_count > 0 and section.settings.show_view_all %}
-                <div class="related-products-view-all">
-                    <a href="{{ section.settings.view_all_url | default: collections.all.url }}" class="view-all-btn">
-                        {{ section.settings.view_all_text | default: "View All Products" }}
-                    </a>
-                </div>
-            {% endif %}
-        {% endif %}
-    </product-recommendations>
-    {% if section.settings.image_shape == 'arch' %}
-        {{ 'mask-arch.svg' | inline_asset_content }}
-    {%- endif -%}
+      {% if recommendations.performed and recommendations.products_count > 0 and section.settings.show_view_all %}
+        <div class="related-products-view-all">
+          <a href="{{ section.settings.view_all_url | default: collections.all.url }}" class="view-all-btn">
+            {{ section.settings.view_all_text | default: 'View All Products' }}
+          </a>
+        </div>
+      {% endif %}
+    {% endif %}
+  </product-recommendations>
+  {% if section.settings.image_shape == 'arch' %}
+    {{ 'mask-arch.svg' | inline_asset_content }}
+  {%- endif -%}
 </div>
 
 <script defer>
+  function checkNavigationVisibility(swiper) {
+    const swiperEl = swiper.el;
+    const navigationContainer = document.querySelector('.prev-next-button');
+    const slides = swiperEl.querySelectorAll('.swiper-slide');
+
+    if (!navigationContainer || slides.length === 0) return;
+
+    // Get current breakpoint settings
+    let slidesPerView = swiper.params.slidesPerView;
+
+    // Calculate breakpoint-specific slidesPerView
+    const windowWidth = window.innerWidth;
+
+    if (windowWidth <= 768) {
+      // Remove any inline styles to let CSS media query take control
+        navigationContainer.style.display = '';
+        return;
+    }
+
+
+    if (windowWidth >= 1024) {
+      slidesPerView = {{ section.settings.columns_desktop | default: 4 }};
+    } else if (windowWidth >= 768) {
+      slidesPerView = 3;
+    } else if (windowWidth >= 640) {
+      slidesPerView = 2;
+    } else {
+      slidesPerView = 1;
+    }
+
+    // Show navigation if total slides exceed what can fit in viewport
+    const shouldShowNavigation = slides.length > slidesPerView;
+
+    if (shouldShowNavigation) {
+      navigationContainer.style.display = 'flex';
+    } else {
+      navigationContainer.style.display = 'none';
+    }
+  }
+
   function initializeRelatedProductsSwiper() {
     const swiperEl = document.querySelector('.related-products-swiper');
     if (swiperEl && typeof Swiper !== 'undefined') {
@@ -213,8 +250,17 @@
         on: {
           init: function() {
             updateNavigationState(this);
+            checkNavigationVisibility(this);
           },
           slideChange: function() {
+            updateNavigationState(this);
+          },
+          resize: function() {
+            checkNavigationVisibility(this);
+            updateNavigationState(this);
+          },
+          breakpoint: function() {
+            checkNavigationVisibility(this);
             updateNavigationState(this);
           }
         }
@@ -237,6 +283,9 @@
           setTimeout(() => this.classList.remove('clicked'), 150);
         });
       }
+
+      // Store swiper instance for resize observer
+      swiperEl.swiperInstance = swiper;
     }
   }
 
@@ -253,6 +302,39 @@
     }
   }
 
+  // Viewport resize observer to handle navigation visibility
+  function setupViewportObserver() {
+    let resizeTimeout;
+
+    const handleResize = () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const swiperEl = document.querySelector('.related-products-swiper');
+        if (swiperEl && swiperEl.swiperInstance) {
+          checkNavigationVisibility(swiperEl.swiperInstance);
+        }
+      }, 150);
+    };
+
+    window.addEventListener('resize', handleResize);
+
+    // Optional: Use ResizeObserver for more precise container size changes
+    if (window.ResizeObserver) {
+      const swiperContainer = document.querySelector('.related-products-swiper');
+      if (swiperContainer) {
+        const resizeObserver = new ResizeObserver(entries => {
+          for (let entry of entries) {
+            if (entry.target.swiperInstance) {
+              checkNavigationVisibility(entry.target.swiperInstance);
+            }
+          }
+        });
+
+        resizeObserver.observe(swiperContainer);
+      }
+    }
+  }
+
   document.addEventListener('DOMContentLoaded', function() {
     const productRecommendations = document.querySelector('product-recommendations[data-section-id="{{ section.id }}"]');
 
@@ -264,7 +346,10 @@
             // Check if related products content was added
             const hasSwiper = document.querySelector('.related-products-swiper');
             if (hasSwiper) {
-              setTimeout(initializeRelatedProductsSwiper, 100);
+              setTimeout(() => {
+                initializeRelatedProductsSwiper();
+                setupViewportObserver();
+              }, 100);
               observer.disconnect();
             }
           }
@@ -277,13 +362,15 @@
       });
 
       // Also try to initialize immediately in case content is already loaded
-      setTimeout(initializeRelatedProductsSwiper, 200);
+      setTimeout(() => {
+        initializeRelatedProductsSwiper();
+        setupViewportObserver();
+      }, 200);
     }
   });
 </script>
 
 <script defer>
-
   if (!customElements.get('related-product')) {
     class RelatedProduct extends HTMLElement {
       constructor() {
@@ -306,7 +393,7 @@
       connectedCallback() {
         this.tabs = Array.from(this.querySelectorAll('.product-card'));
         requestAnimationFrame(() => {
-          this.tabs.forEach(tab => {
+          this.tabs.forEach((tab) => {
             const thumbnailWrapper = tab.querySelector('.thumbnail-wrapper:not(.expand-thumbnails)');
             const expandButton = document.createElement('div');
             expandButton.className = 'expand-thumbnails thumbnail';
@@ -324,28 +411,29 @@
         wrapper.classList.toggle('show-all');
         const button = wrapper.querySelector('.expand-thumbnails');
         // button.innerHTML = wrapper.classList.contains('show-all') ? '-' : '+';
-        button.setAttribute('aria-label', wrapper.classList.contains('show-all') ? 'Show fewer images' : 'Show all images');
+        button.setAttribute(
+          'aria-label',
+          wrapper.classList.contains('show-all') ? 'Show fewer images' : 'Show all images'
+        );
         button.remove();
       }
 
       handleResize(entries) {
         requestAnimationFrame(() => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             const containerWidth = entry.contentRect.width;
             const target = entry.target;
             const thumbnailWrapper = target.querySelector('.thumbnail-wrapper');
             const thumbnails = Array.from(thumbnailWrapper.querySelectorAll('.thumbnail-image-wrapper'));
             let counter = 0;
 
-
             // Don't hide thumbnails if show-all is active
             if (thumbnailWrapper.classList.contains('show-all')) {
-              thumbnails.forEach(thumbnail => {
+              thumbnails.forEach((thumbnail) => {
                 thumbnail.style.display = '';
               });
               return;
             }
-
 
             let currentWidth = 0;
             const gap = 5; // gap between thumbnails (match your CSS gap)
@@ -373,18 +461,15 @@
               counter = counter + 1;
             }
 
-
             // Show/hide expand button based on if there are hidden thumbnails
             const expandButton = thumbnailWrapper.querySelector('.expand-thumbnails');
             expandButton.innerHTML = `+${counter}`;
 
-            const hasHiddenThumbnails = thumbnails.some(thumb => thumb.style.display === 'none');
+            const hasHiddenThumbnails = thumbnails.some((thumb) => thumb.style.display === 'none');
             expandButton.style.display = hasHiddenThumbnails ? '' : 'none';
-
           });
         });
       }
-
 
       disconnectedCallback() {
         if (this.resizeObserver) {
@@ -395,8 +480,6 @@
 
     customElements.define('related-product', RelatedProduct);
   }
-
-
 </script>
 
 {% schema %}
