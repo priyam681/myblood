@@ -2,14 +2,14 @@
 {% comment %} Load Swiper CSS only when needed {% endcomment %}
 {% assign has_products = false %}
 {% for block in section.blocks %}
-    {% assign collection = collections[block.settings.collection] %}
-    {% if collection.products.size > 1 %}
-        {% assign has_products = true %}
-        {% break %}
-    {% endif %}
+  {% assign collection = collections[block.settings.collection] %}
+  {% if collection.products.size >= 1 %}
+    {% assign has_products = true %}
+    {% break %}
+  {% endif %}
 {% endfor %}
 {% if has_products %}
-    {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
+  {{ 'swiper-bundle.min.css' | asset_url | stylesheet_tag }}
 {% endif %}
 {% schema %}
 {
@@ -67,111 +67,113 @@
 }
 {% endschema %}
 
-
 <product-tabs>
+  <div style="background-color: {{ section.settings.tab_background_color }}; padding-block:{{ section.settings.tab_padding }}px;">
+    <div class="pua-tabs-wrapper page-width">
+      <div class="tabs-inner-wrapper">
+        <div class="tabs-wrapper">
+          <div class="tab_heading">{{ section.settings.tab_heading }}</div>
+          <ul class="pua-tabs">
+            {% for block in section.blocks %}
+              <li class="{% if forloop.first %}active{% endif %}" data-tab="tab-{{ forloop.index }}">
+                {{ block.settings.tab_title }}
+              </li>
+            {% endfor %}
+          </ul>
+        </div>
+        {% for block in section.blocks %}
+          <div
+            class="pua-tab-content {% if forloop.first %}active{% endif %}"
+            id="tab-tab-{{ forloop.index }}"
+          >
+            {% assign collection = collections[block.settings.collection] %}
+            {% if collection.products.size >= 1 %}
+              {% comment %} Load Swiper JS only for first occurrence {% endcomment %}
+              {% unless swiper_loaded %}
+                <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
+                {% assign swiper_loaded = true %}
+              {% endunless %}
 
-    <div style="background-color: {{ section.settings.tab_background_color }}; padding-block:{{ section.settings.tab_padding }}px;">
-        <div class="pua-tabs-wrapper page-width">
-            <div class="tabs-inner-wrapper">
-                <div class="tabs-wrapper">
-                    <div class="tab_heading">{{ section.settings.tab_heading }}</div>
-                    <ul class="pua-tabs">
-                        {% for block in section.blocks %}
-                            <li class="{% if forloop.first %}active{% endif %}" data-tab="tab-{{ forloop.index }}">
-                                {{ block.settings.tab_title }}
-                            </li>
-                        {% endfor %}
-                    </ul>
+              <div class="pua-product-slider swiper" data-product-count="{{ collection.products.size }}">
+                <div class="swiper-wrapper">
+                  {% for product in collection.products %}
+                    <div class="swiper-slide">
+                      <div class="product-card" itemscope itemtype="https://schema.org/Product">
+                        <a href="{{ product.url }}" itemprop="url" class="product-card-link">
+                          <img
+                            class="main-image"
+                            src="{{ product.featured_image | image_url: width: 400, height: 400, format: 'webp' }}"
+                            alt="{{ product.title }}"
+                            itemprop="image"
+                            loading="lazy"
+                            width="100%"
+                            height="100%"
+                          >
+                        </a>
+
+                        <div class="thumbnail-wrapper">
+                          {% for image in product.images limit: 15 %}
+                            <div class="thumbnail-image-wrapper">
+                              <img
+                                class="thumbnail"
+                                src="{{ image | image_url: width: 400, height: 400, format: 'webp' }}"
+                                alt="{{ product.title }} thumbnail"
+                                onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
+                                width="50px"
+                                height="50px"
+                                loading="lazy"
+                              >
+                            </div>
+                          {% endfor %}
+                        </div>
+
+                        <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
+                        <div
+                          itemprop="offers"
+                          class="product-price"
+                          itemscope
+                          itemtype="https://schema.org/Offer"
+                        >
+                          <meta itemprop="priceCurrency" content="INR">
+                          <span itemprop="price">{{ product.price | money }}</span>
+                          <link itemprop="availability" href="https://schema.org/InStock">
+                        </div>
+
+                        {% if product.metafields.custom.short_description %}
+                          <p class="product-short-desc">
+                            {{ product.metafields.custom.short_description }}
+                          </p>
+                        {% endif %}
+                      </div>
+                    </div>
+                  {% endfor %}
                 </div>
-                {% for block in section.blocks %}
-                    <div class="pua-tab-content {% if forloop.first %}active{% endif %}"
-                         id="tab-tab-{{ forloop.index }}">
-                        {% assign collection = collections[block.settings.collection] %}
-                        {% if collection.products.size > 1 %}
-                            {% comment %} Load Swiper JS only for first occurrence {% endcomment %}
-                        {% unless swiper_loaded %}
-                            <script src="{{ 'swiper-bundle.min.js' | asset_url }}" defer></script>
-                            {% assign swiper_loaded = true %}
-                        {% endunless %}
-
-                            <div class="pua-product-slider swiper" data-product-count="{{ collection.products.size }}">
-                                <div class="swiper-wrapper">
-                                    {% for product in collection.products %}
-                                        <div class="swiper-slide">
-                                            <div class="product-card" itemscope itemtype="https://schema.org/Product">
-                                                <a href="{{ product.url }}" itemprop="url" class="product-card-link">
-                                                    <img
-                                                            class="main-image"
-                                                            src="{{ product.featured_image | image_url: width: 400, height: 400, format: 'webp' }}"
-                                                            alt="{{ product.title }}"
-                                                            itemprop="image"
-                                                            loading="lazy"
-                                                            width="100%" height="100%"
-                                                    />
-                                                </a>
-
-                                                <div class="thumbnail-wrapper">
-                                                    {% for image in product.images limit: 15 %}
-                                                        <div class="thumbnail-image-wrapper">
-                                                            <img
-                                                                    class="thumbnail"
-                                                                    src="{{ image | image_url: width: 400, height: 400, format: 'webp' }}"
-                                                                    alt="{{ product.title }} thumbnail"
-                                                                    onclick="this.closest('.product-card').querySelector('.main-image').src = this.src"
-                                                                    width="50px" height="50px"
-                                                                    loading="lazy"
-                                                            />
-                                                        </div>
-
-                                                    {% endfor %}
-
-                                                </div>
-
-                                                <h3 itemprop="name" class="product-name">{{ product.title }}</h3>
-                                                <div itemprop="offers" class="product-price" itemscope
-                                                     itemtype="https://schema.org/Offer">
-                                                    <meta itemprop="priceCurrency" content="INR" />
-                                                    <span itemprop="price">{{ product.price | money }}</span>
-                                                    <link itemprop="availability" href="https://schema.org/InStock" />
-                                                </div>
-
-                                                {% if product.metafields.custom.short_description %}
-                                                    <p class="product-short-desc">
-                                                        {{ product.metafields.custom.short_description }}
-                                                    </p>
-                                                {% endif %}
-                                            </div>
-                                        </div>
-                                    {% endfor %}
-                                </div>
-                                {% if collection.products.size > 0 %}
-                                    <div class="prev-next-button">
-                                        <div class="item-prev pagination__item--prev">
-                     <span class="svg-wrapper">
+                {% if collection.products.size > 0 %}
+                  <div class="prev-next-button">
+                    <div class="item-prev pagination__item--prev">
+                      <span class="svg-wrapper">
                         {{- 'icon-caret.svg' | inline_asset_content -}}
                       </span>
-                                        </div>
-                                        <div class="item-next pagination__item--prev">
-                    <span class="svg-wrapper">
-                                    {{- 'icon-caret.svg' | inline_asset_content -}}
-                                  </span>
-                                        </div>
-                                    </div>
-                                {% endif %}
-                            </div>
-                        {% else %}
-                            <p>No products found in this collection.</p>
-                        {% endif %}
                     </div>
-                {% endfor %}
-            </div>
-        </div>
+                    <div class="item-next pagination__item--prev">
+                      <span class="svg-wrapper">
+                        {{- 'icon-caret.svg' | inline_asset_content -}}
+                      </span>
+                    </div>
+                  </div>
+                {% endif %}
+              </div>
+            {% else %}
+              <p>No products found in this collection.</p>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </div>
     </div>
+  </div>
 </product-tabs>
 
-
 <script defer>
-
   if (!customElements.get('product-tabs')) {
     class ProductTabs extends HTMLElement {
       constructor() {
@@ -194,7 +196,7 @@
       connectedCallback() {
         this.tabs = Array.from(this.querySelectorAll('.product-card'));
         requestAnimationFrame(() => {
-          this.tabs.forEach(tab => {
+          this.tabs.forEach((tab) => {
             const thumbnailWrapper = tab.querySelector('.thumbnail-wrapper:not(.expand-thumbnails)');
             const expandButton = document.createElement('div');
             expandButton.className = 'expand-thumbnails thumbnail';
@@ -212,28 +214,29 @@
         wrapper.classList.toggle('show-all');
         const button = wrapper.querySelector('.expand-thumbnails');
         // button.innerHTML = wrapper.classList.contains('show-all') ? '-' : '+';
-        button.setAttribute('aria-label', wrapper.classList.contains('show-all') ? 'Show fewer images' : 'Show all images');
+        button.setAttribute(
+          'aria-label',
+          wrapper.classList.contains('show-all') ? 'Show fewer images' : 'Show all images'
+        );
         button.remove();
       }
 
       handleResize(entries) {
         requestAnimationFrame(() => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             const containerWidth = entry.contentRect.width;
             const target = entry.target;
             const thumbnailWrapper = target.querySelector('.thumbnail-wrapper');
             const thumbnails = Array.from(thumbnailWrapper.querySelectorAll('.thumbnail-image-wrapper'));
             let counter = 0;
 
-
             // Don't hide thumbnails if show-all is active
             if (thumbnailWrapper.classList.contains('show-all')) {
-              thumbnails.forEach(thumbnail => {
+              thumbnails.forEach((thumbnail) => {
                 thumbnail.style.display = '';
               });
               return;
             }
-
 
             let currentWidth = 0;
             const gap = 5; // gap between thumbnails (match your CSS gap)
@@ -261,18 +264,15 @@
               counter = counter + 1;
             }
 
-
             // Show/hide expand button based on if there are hidden thumbnails
             const expandButton = thumbnailWrapper.querySelector('.expand-thumbnails');
             expandButton.innerHTML = `+${counter}`;
 
-            const hasHiddenThumbnails = thumbnails.some(thumb => thumb.style.display === 'none');
+            const hasHiddenThumbnails = thumbnails.some((thumb) => thumb.style.display === 'none');
             expandButton.style.display = hasHiddenThumbnails ? '' : 'none';
-
           });
         });
       }
-
 
       disconnectedCallback() {
         if (this.resizeObserver) {
@@ -283,14 +283,14 @@
 
     customElements.define('product-tabs', ProductTabs);
   }
-
-
 </script>
 
 <script defer>
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', function () {
     const tabs = document.querySelectorAll('.pua-tabs li');
     const contents = document.querySelectorAll('.pua-tab-content');
+
+    // Tab switching functionality
     tabs.forEach((tab, i) => {
       tab.addEventListener('click', () => {
         tabs.forEach((t) => t.classList.remove('active'));
@@ -298,29 +298,140 @@
 
         tab.classList.add('active');
         contents[i].classList.add('active');
+
+        // Update navigation visibility for the newly active tab
+        setTimeout(() => {
+          updateNavigationForAllSliders();
+        }, 100);
       });
     });
 
+    // Navigation visibility function
+    function updateNavigationVisibility(swiperInstance, sliderEl) {
+      const swiperContainer = sliderEl;
+      const slides = swiperContainer.querySelectorAll('.swiper-slide');
+      const totalSlides = slides.length;
 
-    document.querySelectorAll('.pua-product-slider').forEach(function(sliderEl) {
+      if (totalSlides === 0) return;
+
+      // Calculate total width of all cards including spacing
+      const slideWidth = slides[0]?.offsetWidth || 0;
+      const spaceBetween = swiperInstance ? swiperInstance.params.spaceBetween : 25;
+      const totalCardsWidth = slideWidth * totalSlides + spaceBetween * (totalSlides - 1);
+      const containerWidth = swiperContainer.offsetWidth;
+
+      // Check if cards exceed viewport width
+      const needsNavigation = totalCardsWidth > containerWidth && totalSlides > 1;
+
+      // Find navigation buttons for this specific slider
+      const prevButton = swiperContainer.querySelector('.item-prev');
+      const nextButton = swiperContainer.querySelector('.item-next');
+
+      if (prevButton && nextButton) {
+        prevButton.style.display = needsNavigation ? 'flex' : 'none';
+        nextButton.style.display = needsNavigation ? 'flex' : 'none';
+      }
+    }
+
+    // Update navigation for all sliders
+    function updateNavigationForAllSliders() {
+      document.querySelectorAll('.pua-product-slider').forEach(function (sliderEl) {
+        const swiperInstance = sliderEl.swiper;
+        updateNavigationVisibility(swiperInstance, sliderEl);
+      });
+    }
+
+    // Initialize sliders
+    document.querySelectorAll('.pua-product-slider').forEach(function (sliderEl) {
       const productCount = parseInt(sliderEl.dataset.productCount, 10);
+
       if (productCount > 0 && typeof Swiper !== 'undefined') {
-        new Swiper(sliderEl, {
+        const swiperInstance = new Swiper(sliderEl, {
           slidesPerView: 4,
           spaceBetween: 25,
+          watchOverflow: true,
           navigation: {
             nextEl: sliderEl.querySelector('.item-next'),
-            prevEl: sliderEl.querySelector('.item-prev')
+            prevEl: sliderEl.querySelector('.item-prev'),
           },
           breakpoints: {
             0: { slidesPerView: 1.5 },
             768: { slidesPerView: 2.5 },
-            1200: { slidesPerView: 3.5 }
+            1200: { slidesPerView: 3.5 },
+          },
+          on: {
+            init: function () {
+              // Initial navigation update
+              setTimeout(() => {
+                updateNavigationVisibility(this, sliderEl);
+              }, 100);
+            },
+            resize: function () {
+              // Update navigation on swiper resize
+              updateNavigationVisibility(this, sliderEl);
+            },
+            breakpoint: function () {
+              // Update navigation when breakpoint changes
+              setTimeout(() => {
+                updateNavigationVisibility(this, sliderEl);
+              }, 100);
+            },
+          },
+        });
+
+        // Create ResizeObserver for this slider
+        const resizeObserver = new ResizeObserver((entries) => {
+          for (let entry of entries) {
+            updateNavigationVisibility(swiperInstance, sliderEl);
           }
         });
+
+        // Observe both the slider container and individual slides
+        resizeObserver.observe(sliderEl);
+
+        // Also observe slides in case their content changes
+        sliderEl.querySelectorAll('.swiper-slide').forEach((slide) => {
+          resizeObserver.observe(slide);
+        });
+
+        // Store observer reference for cleanup if needed
+        sliderEl._resizeObserver = resizeObserver;
       } else {
+        // For static grids, still check if navigation is needed
         sliderEl.classList.add('static-grid');
+        updateNavigationVisibility(null, sliderEl);
+
+        // Add ResizeObserver for static grids too
+        const resizeObserver = new ResizeObserver(() => {
+          updateNavigationVisibility(null, sliderEl);
+        });
+        resizeObserver.observe(sliderEl);
+        sliderEl._resizeObserver = resizeObserver;
       }
     });
+
+    // Global resize handler for window resize
+    let resizeTimeout;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        updateNavigationForAllSliders();
+      }, 250);
+    });
+
+    // Initial navigation update after DOM is fully loaded
+    setTimeout(() => {
+      updateNavigationForAllSliders();
+    }, 500);
   });
+
+  // Cleanup function (call this when component unmounts if needed)
+  function cleanupProductTabsObservers() {
+    document.querySelectorAll('.pua-product-slider').forEach(function (sliderEl) {
+      if (sliderEl._resizeObserver) {
+        sliderEl._resizeObserver.disconnect();
+        delete sliderEl._resizeObserver;
+      }
+    });
+  }
 </script>
