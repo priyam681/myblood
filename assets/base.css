@@ -1832,7 +1832,9 @@ details[open] > .share-button__fallback {
 .share-button__message:not(:empty):not(.hidden) ~ * {
     display: none;
 }
-
+button {
+  font-family: var(--font-body-family);
+}
 /* component-form */
 .field__input,
 .select__select,
