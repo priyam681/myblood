@@ -199,18 +199,15 @@
                                                      loading="lazy">
                                             </div>
                                             <h4>{{ product.title }}</h4>
-                                            <div>
-                                                <span>rating (23reviews)</span>
-                                            </div>
                                             <span>{{ product.price | money }}</span>
                                         </div>
                                     {% endif %}
                                     <div class="product-image-wrapper-img">
                                         <img
                                                 class="collection-image"
-                                                src="{{ product.featured_image | image_url: width: 450, height: 450, format: 'webp' }}"
+                                                src="{{ product.featured_image | image_url: width: 400, height: 290, format: 'webp' }}"
                                                 alt="{{ product.title }}"
-                                                width="600"
+                                                width="800"
                                                 height="600"
                                                 loading="lazy"
                                                 data-product-id="{{ product.id }}"
@@ -253,7 +250,7 @@
     }
     .colorful-kicks-section .container {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: auto 45%;
     gap: 50px;
     align-items: center;
     margin: auto;
