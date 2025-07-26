@@ -172,30 +172,6 @@
         "tab_padding": 40
       }
     },
-    "featured_collection_grid_gCfPH8": {
-      "type": "featured-collection-grid",
-      "blocks": {
-        "collection_block_7Rgpmy": {
-          "type": "collection_block",
-          "settings": {
-            "collection": "loungesets",
-            "product_to_display": "first",
-            "specific_product": "5-pocket-jean",
-            "show_collection_title": true,
-            "custom_image": "shopify://shop_images/featured-collection1.png",
-            "custom_price": "1200",
-            "brand": "EVOFOX",
-            "highlighted_text": "Starting from",
-            "highlighted_text_color": "#ffffff",
-            "price_color": ""
-          }
-        }
-      },
-      "block_order": [
-        "collection_block_7Rgpmy"
-      ],
-      "settings": {}
-    },
     "choose_your_action_dircbH": {
       "type": "choose-your-action",
       "blocks": {
@@ -448,7 +424,6 @@
     "home_page_banner_cNVjDp",
     "featured_collection_grid_8YqY7J",
     "product_tab_NthRmD",
-    "featured_collection_grid_gCfPH8",
     "choose_your_action_dircbH",
     "cstm_collection_list_DFy79n",
     "performance_banner_NfWipW",
