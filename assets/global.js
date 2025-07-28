@@ -96,6 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
   );
 });
 
+
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.setAttribute('role', 'button');
   summary.setAttribute('aria-expanded', summary.parentNode.hasAttribute('open'));
@@ -104,10 +105,11 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
     summary.setAttribute('aria-controls', summary.nextElementSibling.id);
   }
 
-  // Only add desktop hover prevention for non-drawer menus
+  // Only add desktop hover prevention for non-drawer menus, but exclude facet filters
   const isDesktopMegaMenu = !summary.closest('header-drawer, menu-drawer');
+  const isFacetFilter = summary.closest('.facets__disclosure, .facets__disclosure-vertical');
 
-  if (isDesktopMegaMenu) {
+  if (isDesktopMegaMenu && !isFacetFilter) {
     window.addEventListener('resize', (event) => {
       let windowWidth = window.innerWidth;
       if (windowWidth > 990) {
