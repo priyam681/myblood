@@ -7,10 +7,10 @@
         padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
         background: #eaeaea;
       }
-  .contact-multicolumn {
+  .contact-multicolumn,
+  #MainContent .shopify-section.has-height:has(.contact-multicolumn) {
     margin-bottom: 0px;
   }
-  
     .slider-mobile-gutter.slider-wrapper .slider-button {
       position: absolute;
       top: 50%;

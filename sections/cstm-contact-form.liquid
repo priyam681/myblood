@@ -5,10 +5,6 @@
     padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
     padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
   }
- .field {
-    position: relative;
-    margin: 20px 0;
-  }
   /* Label ko absolute position par rakhein */
   .search-section-block-footer .field label {
     position: absolute;
@@ -59,7 +55,7 @@
 
 <div class="sprinix-cart-box-wrapper">
   <div class="color-{{ section.settings.color_scheme }} gradient">
-  <div class="contact sprinix-kart-contact-us  page-width page-width--narrow section-{{ section.id }}-padding">
+  <div class="contact sprinix-kart-contact-us   page-width--narrow section-{{ section.id }}-padding">
     {%- if section.settings.heading != blank -%}
       <h2 class="title title-wrapper--no-top-margin inline-richtext {{ section.settings.heading_size }}{% if settings.animations_reveal_on_scroll %} scroll-trigger animate--slide-in{% endif %}">
         {{ section.settings.heading }}

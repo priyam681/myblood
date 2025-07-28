@@ -162,8 +162,9 @@ body:has(.section-header .drawer-menu) .announcement-bar-section .page-width {
     padding-inline: 1.5rem;
 }
 
-.contact.page-width {
+.contact.sprinix-kart-contact-us {
     max-width: 768px;
+    margin: auto;
 }
 
 .link-btn a {

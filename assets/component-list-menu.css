@@ -12,9 +12,6 @@
 .list-menu--disclosure:focus {
   outline: none;
 }
-.list-menu {
-   padding: 0 5px;
-}
 .header {
    min-height: 8rem;
 }

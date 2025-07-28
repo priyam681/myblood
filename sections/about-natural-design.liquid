@@ -1,6 +1,5 @@
 {%- style -%}
     .natural-design-container {
-      padding-inline: 15px;
       position: relative;
     }
      .natural-design-container::before {
@@ -63,14 +62,8 @@
         height: 100%;
         padding-top: 50px
     }
-      .natural-design-container {
-      padding-inline: 30px;
-    }
     }
     @media screen and (min-width: 992px) {
-         .natural-design-container {
-      padding-inline: 50px;
-    }
        .natural-design-container .natural-design-wrapper .natural-design-content {
        padding: 15% 8%;
       }
@@ -80,8 +73,8 @@
     }
 {%- endstyle -%}
 
-<div class="natural-design-container">
-  <div class="natural-design-wrapper page-width">
+<div class="natural-design-container page-width">
+  <div class="natural-design-wrapper">
     <div class="natural-design-image">
       {% if section.settings['natural-image'] != null %}
         {{
