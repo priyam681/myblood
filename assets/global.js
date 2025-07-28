@@ -1,7 +1,7 @@
 function getFocusableElements(container) {
   return Array.from(
     container.querySelectorAll(
-      'summary, a[href], button:enabled, [tabindex]:not([tabindex^=\'-\']), [draggable], area, input:not([type=hidden]):enabled, select:enabled, textarea:enabled, object, iframe'
+      "summary, a[href], button:enabled, [tabindex]:not([tabindex^='-']), [draggable], area, input:not([type=hidden]):enabled, select:enabled, textarea:enabled, object, iframe"
     )
   );
 }
@@ -11,22 +11,16 @@ function calculateHeaderHeight(event) {
     let announcementBarHeight = parseFloat(document.querySelector('.announcement-bar').parentElement?.clientHeight);
     let headerHeight = parseFloat(document.querySelector('.header').parentElement?.clientHeight);
 
-
     let calculatedHeaderHeight = Math.abs(headerHeight + announcementBarHeight);
 
-
     document.querySelector('.mega-menu-bg').style['max-height'] = `calc(100vh - ${calculatedHeaderHeight}px)`;
-
   }, 0);
-
 }
 
 requestAnimationFrame(calculateHeaderHeight);
 
-
 window.addEventListener('resize', this.calculateHeaderHeight.bind(this));
 window.addEventListener('pageshow', this.calculateHeaderHeight.bind(this));
-
 
 class SectionId {
   static #separator = '__';
@@ -90,17 +84,17 @@ class HTMLUpdateUtility {
   }
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-
-  document.querySelector('.mobile-facets__header .close-icon')?.addEventListener('click', function() {
-    let close = document.querySelector('.mobile-facets__disclosure');
-    document.body.classList.remove('overflow-hidden-mobile');
-    close.removeAttribute('open');
-  }, true);
-
+  document.querySelector('.mobile-facets__header .close-icon')?.addEventListener(
+    'click',
+    function () {
+      let close = document.querySelector('.mobile-facets__disclosure');
+      document.body.classList.remove('overflow-hidden-mobile');
+      close.removeAttribute('open');
+    },
+    true
+  );
 });
-
 
 document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   summary.setAttribute('role', 'button');
@@ -138,7 +132,6 @@ document.querySelectorAll('[id^="Details-"] summary').forEach((summary) => {
   //   event.currentTarget.setAttribute('aria-expanded', !event.currentTarget.closest('details').hasAttribute('open'));
   // });
 
-
   if (summary.closest('header-drawer, menu-drawer')) return;
   summary.parentElement.addEventListener('keyup', onKeyUpEscape);
 });
@@ -158,11 +151,11 @@ function trapFocus(container, elementToFocus = container) {
     document.addEventListener('keydown', trapFocusHandlers.keydown);
   };
 
-  trapFocusHandlers.focusout = function() {
+  trapFocusHandlers.focusout = function () {
     document.removeEventListener('keydown', trapFocusHandlers.keydown);
   };
 
-  trapFocusHandlers.keydown = function(event) {
+  trapFocusHandlers.keydown = function (event) {
     if (event.code.toUpperCase() !== 'TAB') return; // If not TAB key
     // On the last focusable element and tab forward, focus the first element.
     if (event.target === last && !event.shiftKey) {
@@ -211,7 +204,7 @@ function focusVisiblePolyfill() {
     'HOME',
     'END',
     'PAGEUP',
-    'PAGEDOWN'
+    'PAGEDOWN',
   ];
   let currentFocusedElement = null;
   let mouseClick = null;
@@ -325,12 +318,12 @@ class QuantityInput extends HTMLElement {
   validateQtyRules() {
     const value = parseInt(this.input.value);
     if (this.input.min) {
-      const buttonMinus = this.querySelector('.quantity__button[name=\'minus\']');
+      const buttonMinus = this.querySelector(".quantity__button[name='minus']");
       buttonMinus.classList.toggle('disabled', parseInt(value) <= parseInt(this.input.min));
     }
     if (this.input.max) {
       const max = parseInt(this.input.max);
-      const buttonPlus = this.querySelector('.quantity__button[name=\'plus\']');
+      const buttonPlus = this.querySelector(".quantity__button[name='plus']");
       buttonPlus.classList.toggle('disabled', value >= max);
     }
   }
@@ -346,10 +339,9 @@ function debounce(fn, wait) {
   };
 }
 
-
 function throttle(fn, delay) {
   let lastCall = 0;
-  return function(...args) {
+  return function (...args) {
     const now = new Date().getTime();
     if (now - lastCall < delay) {
       return;
@@ -362,7 +354,7 @@ function throttle(fn, delay) {
 function fetchConfig(type = 'json') {
   return {
     method: 'POST',
-    headers: { 'Content-Type': 'application/json', Accept: `application/${type}` }
+    headers: { 'Content-Type': 'application/json', Accept: `application/${type}` },
   };
 }
 
@@ -374,13 +366,13 @@ if (typeof window.Shopify == 'undefined') {
   window.Shopify = {};
 }
 
-Shopify.bind = function(fn, scope) {
-  return function() {
+Shopify.bind = function (fn, scope) {
+  return function () {
     return fn.apply(scope, arguments);
   };
 };
 
-Shopify.setSelectorByValue = function(selector, value) {
+Shopify.setSelectorByValue = function (selector, value) {
   for (var i = 0, count = selector.options.length; i < count; i++) {
     var option = selector.options[i];
     if (value == option.value || value == option.innerHTML) {
@@ -390,13 +382,13 @@ Shopify.setSelectorByValue = function(selector, value) {
   }
 };
 
-Shopify.addListener = function(target, eventName, callback) {
+Shopify.addListener = function (target, eventName, callback) {
   target.addEventListener
     ? target.addEventListener(eventName, callback, false)
     : target.attachEvent('on' + eventName, callback);
 };
 
-Shopify.postLink = function(path, options) {
+Shopify.postLink = function (path, options) {
   options = options || {};
   var method = options['method'] || 'post';
   var params = options['parameters'] || {};
@@ -417,7 +409,7 @@ Shopify.postLink = function(path, options) {
   document.body.removeChild(form);
 };
 
-Shopify.CountryProvinceSelector = function(country_domid, province_domid, options) {
+Shopify.CountryProvinceSelector = function (country_domid, province_domid, options) {
   this.countryEl = document.getElementById(country_domid);
   this.provinceEl = document.getElementById(province_domid);
   this.provinceContainer = document.getElementById(options['hideElement'] || province_domid);
@@ -429,20 +421,20 @@ Shopify.CountryProvinceSelector = function(country_domid, province_domid, option
 };
 
 Shopify.CountryProvinceSelector.prototype = {
-  initCountry: function() {
+  initCountry: function () {
     var value = this.countryEl.getAttribute('data-default');
     Shopify.setSelectorByValue(this.countryEl, value);
     this.countryHandler();
   },
 
-  initProvince: function() {
+  initProvince: function () {
     var value = this.provinceEl.getAttribute('data-default');
     if (value && this.provinceEl.options.length > 0) {
       Shopify.setSelectorByValue(this.provinceEl, value);
     }
   },
 
-  countryHandler: function(e) {
+  countryHandler: function (e) {
     var opt = this.countryEl.options[this.countryEl.selectedIndex];
     var raw = opt.getAttribute('data-provinces');
     var provinces = JSON.parse(raw);
@@ -462,20 +454,20 @@ Shopify.CountryProvinceSelector.prototype = {
     }
   },
 
-  clearOptions: function(selector) {
+  clearOptions: function (selector) {
     while (selector.firstChild) {
       selector.removeChild(selector.firstChild);
     }
   },
 
-  setOptions: function(selector, values) {
+  setOptions: function (selector, values) {
     for (var i = 0, count = values.length; i < values.length; i++) {
       var opt = document.createElement('option');
       opt.value = values[i];
       opt.innerHTML = values[i];
       selector.appendChild(opt);
     }
-  }
+  },
 };
 
 class MenuDrawer extends HTMLElement {
@@ -515,7 +507,6 @@ class MenuDrawer extends HTMLElement {
       ? this.closeMenuDrawer(event, this.mainDetailsToggle.querySelector('summary'))
       : this.closeSubmenu(openDetailsElement);
   }
-
 
   onSummaryClick(event) {
     const summaryElement = event.currentTarget;
@@ -557,8 +548,8 @@ class MenuDrawer extends HTMLElement {
 
         if (parentUl) {
           // Find all sibling <li> elements and check for open details within them
-          const siblingLis = Array.from(parentUl.children).filter(child =>
-            child.tagName === 'LI' && child !== parentLi
+          const siblingLis = Array.from(parentUl.children).filter(
+            (child) => child.tagName === 'LI' && child !== parentLi
           );
 
           siblingLis.forEach((siblingLi) => {
@@ -594,7 +585,6 @@ class MenuDrawer extends HTMLElement {
       document.documentElement.style.setProperty('--header-drawer-dynamic', `${headerBottomPosition}px`);
     }
   }
-
 
   openMenuDrawer(summaryElement) {
     // Add immediate feedback
@@ -673,7 +663,6 @@ class MenuDrawer extends HTMLElement {
     }
   }
 
-
   closeSubmenu(detailsElement) {
     const parentMenuElement = detailsElement.closest('.submenu-open');
     parentMenuElement && parentMenuElement.classList.remove('submenu-open');
@@ -687,7 +676,7 @@ class MenuDrawer extends HTMLElement {
       nestedSubmenu.removeAttribute('open');
       // Remove submenu-open class from any nested parent elements
       const nestedParents = nestedSubmenu.querySelectorAll('.submenu-open');
-      nestedParents.forEach(parent => parent.classList.remove('submenu-open'));
+      nestedParents.forEach((parent) => parent.classList.remove('submenu-open'));
     });
 
     this.manageSvgRotation(detailsElement, false);
@@ -750,10 +739,10 @@ class HeaderDrawer extends MenuDrawer {
 
   onResize = () => {
     this.header &&
-    document.documentElement.style.setProperty(
-      '--header-bottom-position',
-      `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
-    );
+      document.documentElement.style.setProperty(
+        '--header-bottom-position',
+        `${parseInt(this.header.getBoundingClientRect().bottom - this.borderOffset)}px`
+      );
     document.documentElement.style.setProperty('--viewport-height', `${window.innerHeight}px`);
   };
 }
@@ -790,7 +779,7 @@ class ModalDialog extends HTMLElement {
 
   show(opener) {
     this.openedBy = opener;
-    
+
     const popup = this.querySelector('.template-popup');
     document.body.classList.add('sp-quick-view-container');
     document.body.classList.add('overflow-hidden');
@@ -813,7 +802,6 @@ class ModalDialog extends HTMLElement {
       document.body.classList.remove('sp-quick-view-container');
       document.body.classList.remove('overflow-hidden');
     }
-
   }
 }
 
@@ -860,8 +848,18 @@ class ModalOpener extends HTMLElement {
     if (!button) return;
     button.addEventListener('click', () => {
       const modal = document.querySelector(this.getAttribute('data-modal'));
-
-      if (modal) modal.show(button);
+      console.log('Modal: ', modal);
+      console.log('This: ', this);
+      if (modal && typeof modal.show === 'function') {
+        modal.show(button);
+      } else if (modal) {
+        // Wait for custom element to be defined
+        customElements.whenDefined('quick-add-modal').then(() => {
+          if (typeof modal.show === 'function') {
+            modal.show(button);
+          }
+        });
+      }
     });
   }
 }
@@ -968,8 +966,8 @@ class SliderComponent extends HTMLElement {
         new CustomEvent('slideChanged', {
           detail: {
             currentPage: this.currentPage,
-            currentElement: this.sliderItemsToShow[this.currentPage - 1]
-          }
+            currentElement: this.sliderItemsToShow[this.currentPage - 1],
+          },
         })
       );
     }
@@ -1006,7 +1004,7 @@ class SliderComponent extends HTMLElement {
 
   setSlidePosition(position) {
     this.slider.scrollTo({
-      left: position
+      left: position,
     });
   }
 }
@@ -1100,7 +1098,7 @@ class SlideshowComponent extends SliderComponent {
     if (this.setPositionTimeout) clearTimeout(this.setPositionTimeout);
     this.setPositionTimeout = setTimeout(() => {
       this.slider.scrollTo({
-        left: position
+        left: position,
       });
     }, this.announcerBarAnimationDelay);
   }
@@ -1238,9 +1236,9 @@ class SlideshowComponent extends SliderComponent {
     const slideScrollPosition =
       this.slider.scrollLeft +
       this.sliderFirstItemNode.clientWidth *
-      (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
+        (this.sliderControlLinksArray.indexOf(event.currentTarget) + 1 - this.currentPage);
     this.slider.scrollTo({
-      left: slideScrollPosition
+      left: slideScrollPosition,
     });
   }
 }
@@ -1261,8 +1259,8 @@ class VariantSelects extends HTMLElement {
         data: {
           event,
           target,
-          selectedOptionValues: this.selectedOptionValues
-        }
+          selectedOptionValues: this.selectedOptionValues,
+        },
       });
     });
   }
@@ -1479,27 +1477,19 @@ class CartPerformance {
   static measureFromEvent(benchmarkName, event) {
     const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     const startMarker = performance.mark(`${metricName}:start`, {
-      startTime: event.timeStamp
+      startTime: event.timeStamp,
     });
 
     const endMarker = performance.mark(`${metricName}:end`);
 
-    performance.measure(
-      metricName,
-      `${metricName}:start`,
-      `${metricName}:end`
-    );
+    performance.measure(metricName, `${metricName}:start`, `${metricName}:end`);
   }
 
   static measureFromMarker(benchmarkName, startMarker) {
     const metricName = `${CartPerformance.#metric_prefix}:${benchmarkName}`;
     const endMarker = performance.mark(`${metricName}:end`);
 
-    performance.measure(
-      metricName,
-      startMarker.name,
-      `${metricName}:end`
-    );
+    performance.measure(metricName, startMarker.name, `${metricName}:end`);
   }
 
   static measure(benchmarkName, callback) {
@@ -1510,10 +1500,6 @@ class CartPerformance {
 
     const endMarker = performance.mark(`${metricName}:end`);
 
-    performance.measure(
-      metricName,
-      `${metricName}:start`,
-      `${metricName}:end`
-    );
+    performance.measure(metricName, `${metricName}:start`, `${metricName}:end`);
   }
 }
