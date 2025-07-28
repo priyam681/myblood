@@ -320,6 +320,12 @@
             "product": "camoscio-heel-taupe"
           }
         },
+        "product_KYbMxK": {
+          "type": "product",
+          "settings": {
+            "product": "clarkin-7-0-sneakers-for-men"
+          }
+        },
         "product_Ujwttm": {
           "type": "product",
           "settings": {
@@ -331,6 +337,7 @@
         "product_Chc3N4",
         "product_K8tXAP",
         "product_Ji3arA",
+        "product_KYbMxK",
         "product_Ujwttm"
       ],
       "name": "Recommended Products",
