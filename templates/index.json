@@ -314,12 +314,6 @@
             "product": "camoscio-heel-red"
           }
         },
-        "product_6Gx9aL": {
-          "type": "product",
-          "settings": {
-            "product": "boldness-sneakers-sports-running-shoes"
-          }
-        },
         "product_Ji3arA": {
           "type": "product",
           "settings": {
@@ -336,7 +330,6 @@
       "block_order": [
         "product_Chc3N4",
         "product_K8tXAP",
-        "product_6Gx9aL",
         "product_Ji3arA",
         "product_Ujwttm"
       ],
