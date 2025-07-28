@@ -302,22 +302,10 @@
     "recommended_products_m4qpPD": {
       "type": "recommended-products",
       "blocks": {
-        "product_Chc3N4": {
+        "product_Ujwttm": {
           "type": "product",
           "settings": {
-            "product": "aqualina-sandal-black-red"
-          }
-        },
-        "product_K8tXAP": {
-          "type": "product",
-          "settings": {
-            "product": "camoscio-heel-red"
-          }
-        },
-        "product_Ji3arA": {
-          "type": "product",
-          "settings": {
-            "product": "camoscio-heel-taupe"
+            "product": "bersache-sports-walking-gym-sneakers-trekking-hiking-shoe-high-quality-sole-running-shoes-men"
           }
         },
         "product_KYbMxK": {
@@ -326,19 +314,31 @@
             "product": "clarkin-7-0-sneakers-for-men"
           }
         },
-        "product_Ujwttm": {
+        "product_Chc3N4": {
           "type": "product",
           "settings": {
-            "product": "bersache-sports-walking-gym-sneakers-trekking-hiking-shoe-high-quality-sole-running-shoes-men"
+            "product": "zapatoz-women-mid-top-regular-boots"
+          }
+        },
+        "product_K8tXAP": {
+          "type": "product",
+          "settings": {
+            "product": "donna-low-top"
+          }
+        },
+        "product_Ji3arA": {
+          "type": "product",
+          "settings": {
+            "product": "camoscio-heel-taupe"
           }
         }
       },
       "block_order": [
+        "product_Ujwttm",
+        "product_KYbMxK",
         "product_Chc3N4",
         "product_K8tXAP",
-        "product_Ji3arA",
-        "product_KYbMxK",
-        "product_Ujwttm"
+        "product_Ji3arA"
       ],
       "name": "Recommended Products",
       "settings": {
