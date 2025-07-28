@@ -20,14 +20,69 @@
     "about_natural_design_zDyUzJ": {
       "type": "about-natural-design",
       "settings": {
-        "natural-image": "shopify://shop_images/bride-8276613_1920.jpg",
+        "natural-image": "shopify://shop_images/image_dd6a7b3d-7622-4861-8d75-fac5b9eea4d4.png",
         "heading": "Natural design",
-        "caption": "Welcome to Wolfwood, where our story begins with a deep-seated passion for the great outdoors and a belief that life is made for adventure. Our journey started with the vision to create outdoor furniture that not only serves a functional purpose but also embraces the essence of outdoor living. We believe that adventures take us to places where we can truly experience the world around us, and our outdoor furniture is designed to make that possible."
+        "caption": "Our journey began with a deep-rooted passion for the wild, untamed beauty of the great outdoors and a belief that life is meant to be explored. At Wolfwood, we design outdoor footwear for those who don’t just walk through life — they trek it, climb it, and discover it."
+      }
+    },
+    "cstm_multicolumn_7EdYBD": {
+      "type": "cstm-multicolumn",
+      "blocks": {
+        "column_KFbNQY": {
+          "type": "column",
+          "settings": {
+            "title": "Mission",
+            "text": "<p>The primary objective is to help clients establish and grow their online presence by delivering reliable, scalable, and user-friendly e-commerce platforms that meet their unique business needs.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rjnfiV": {
+          "type": "column",
+          "settings": {
+            "title": "Vision",
+            "text": "<p>The vision of Sprinix is to help businesses achieve their e-commerce goals and become trusted partners for businesses looking to establish a strong online presence and grow their sales revenue.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "column_rKQjPe": {
+          "type": "column",
+          "settings": {
+            "title": "Values",
+            "text": "<p>Sprinix is committed to successfully solving and Providing support to enhance your business and growth. We value our clients and their Ideas and we do our best to bring their ideas in life.</p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "column_KFbNQY",
+        "column_rjnfiV",
+        "column_rKQjPe"
+      ],
+      "name": "t:sections.multicolumn.presets.name",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "button_label": "",
+        "button_link": "",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "color_scheme": "",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
       }
     }
   },
   "order": [
     "main",
-    "about_natural_design_zDyUzJ"
+    "about_natural_design_zDyUzJ",
+    "cstm_multicolumn_7EdYBD"
   ]
 }
