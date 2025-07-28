@@ -99,7 +99,7 @@ details[open] > .menu-drawer__submenu {
 }
 
 .menu-drawer__navigation {
-  padding: 3rem 0;
+  padding-bottom: 3rem;
 }
 
 .menu-drawer__inner-submenu {
@@ -107,11 +107,6 @@ details[open] > .menu-drawer__submenu {
   overflow-x: hidden;
   overflow-y: auto;
 }
-
-.js .menu-drawer__menu li {
-  margin-bottom: 0.2rem;
-}
-
 .menu-drawer__menu-item {
   padding: 1.1rem 3rem;
   text-decoration: none;
