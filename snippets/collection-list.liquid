@@ -130,9 +130,10 @@
 
 <style>
     .collection-list-container .collection-list-title {
-        font-size: 26px;
+        font-size: calc(15px + (26 - 15) * ((100vw - 360px) / (1920 - 360)));
         font-weight: 800;
         margin-bottom: 15px;
+        margin-top: 0;
     }
 
     .collection-list-container .collection-list {
