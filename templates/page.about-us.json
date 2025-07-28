@@ -25,6 +25,49 @@
         "caption": "Our journey began with a deep-rooted passion for the wild, untamed beauty of the great outdoors and a belief that life is meant to be explored. At Wolfwood, we design outdoor footwear for those who don’t just walk through life — they trek it, climb it, and discover it."
       }
     },
+    "cstm_rich_text_yNeTpU": {
+      "type": "cstm-rich-text",
+      "blocks": {
+        "heading_WkHtdp": {
+          "type": "heading",
+          "settings": {
+            "heading": "Talk about your brand",
+            "heading_size": "h1"
+          }
+        },
+        "text_3LTyBn": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Share information about your brand with your customers. Describe a product, make announcements, or welcome customers to your store.</p>"
+          }
+        },
+        "button_qGwj79": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify://collections/mens",
+            "button_style_secondary": false,
+            "button_label_2": "",
+            "button_link_2": "",
+            "button_style_secondary_2": false
+          }
+        }
+      },
+      "block_order": [
+        "heading_WkHtdp",
+        "text_3LTyBn",
+        "button_qGwj79"
+      ],
+      "name": "t:sections.rich-text.presets.name",
+      "settings": {
+        "desktop_content_position": "center",
+        "content_alignment": "center",
+        "color_scheme": "",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
     "cstm_multicolumn_7EdYBD": {
       "type": "cstm-multicolumn",
       "blocks": {
@@ -83,6 +126,7 @@
   "order": [
     "main",
     "about_natural_design_zDyUzJ",
+    "cstm_rich_text_yNeTpU",
     "cstm_multicolumn_7EdYBD"
   ]
 }
