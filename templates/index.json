@@ -411,16 +411,16 @@
             "product": "clarkin-7-0-sneakers-for-men"
           }
         },
-        "image_showcase_gFmxTc": {
-          "type": "image_showcase",
-          "settings": {
-            "product": "clarkin-7-0-sneakers-for-men"
-          }
-        },
         "image_showcase_j6Ytkj": {
           "type": "image_showcase",
           "settings": {
             "product": "donna-low-top"
+          }
+        },
+        "image_showcase_gFmxTc": {
+          "type": "image_showcase",
+          "settings": {
+            "product": "bersache-sports-walking-gym-sneakers-trekking-hiking-shoe-high-quality-sole-running-shoes-men"
           }
         }
       },
@@ -429,8 +429,8 @@
         "behind_text_TRCYYb",
         "behind_text_pexEeE",
         "image_showcase_mekXhE",
-        "image_showcase_gFmxTc",
-        "image_showcase_j6Ytkj"
+        "image_showcase_j6Ytkj",
+        "image_showcase_gFmxTc"
       ],
       "settings": {
         "lifestyle_image": "shopify://shop_images/shoes-collection.png",
