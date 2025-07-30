@@ -131,7 +131,7 @@
         "show_rating": false,
         "padding_top": 36,
         "padding_bottom": 28,
-        "show_view_all": true,
+        "show_view_all": false,
         "view_all_text": "View All Products",
         "view_all_url": ""
       }
