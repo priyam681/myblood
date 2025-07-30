@@ -1369,11 +1369,21 @@ button.shopify-payment-button__button--unbranded {
 .button,
 .shopify-challenge__button,
 .customer button,
-button.shopify-payment-button__button--unbranded {
+button.shopify-payment-button__button--unbranded
+ {
     min-width: calc(12rem + var(--buttons-border-width) * 2);
+
+}
+.button,
+.shopify-challenge__button,
+.customer button {
     min-height: calc(4.5rem + var(--buttons-border-width) * 2);
 }
-
+button.shopify-payment-button__button--unbranded {
+    min-height: auto;
+    height: auto;
+    padding: 0;
+}
 .button,
 .shopify-challenge__button,
 .customer button {
