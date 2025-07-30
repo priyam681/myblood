@@ -176,10 +176,12 @@
                 <div class="product-image-wrapper">
 
                     <div class="product-images-container">
+
                         {% for block in section.blocks %}
                             {% if block.type == 'image_showcase' %}
                                 {% assign product = all_products[block.settings.product] %}
                                 <div class="product-image-wrapper-sec">
+                                 <a href="{{ product.url }}">
                                     <div class="bg-text">
                                         {% for block in section.blocks %}
                                             {% if block.type == 'behind_text' %}
@@ -213,9 +215,11 @@
                                                 data-product-id="{{ product.id }}"
                                         >
                                     </div>
+                                     </a>
                                 </div>
                             {% endif %}
                         {% endfor %}
+
                     </div>
                 </div>
 
@@ -333,6 +337,9 @@
     padding: 10px 25px;
     text-align: center;
     z-index: 6;
+    }
+    .product-image-wrapper-sec a {
+       color: unset;
     }
     .collection-image {
     position: relative;

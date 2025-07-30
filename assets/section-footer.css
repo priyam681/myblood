@@ -490,10 +490,12 @@ footer.footer {
 }
 
 .policies li::before {
-  content: '\00B7';
+  content: '|';
   padding: 0 0.8rem;
 }
-
+.policies li:first-child::before {
+  display: none;
+}
 .policies li a {
   padding: 0.6rem 0;
   display: block;
