@@ -89,7 +89,7 @@ if (!customElements.get('product-modal-single')) {
     }
 
     startDrag(event) {
-
+      console.log("Dragging");
       this.drag = true;
       this.dragStartTime = Date.now();
       this.dragStartX = event.clientX;
@@ -108,6 +108,7 @@ if (!customElements.get('product-modal-single')) {
     }
 
     endDrag(event) {
+      console.log("Dragging end");
       if (event.cancelable) {
         event.preventDefault();
       }
@@ -131,6 +132,7 @@ if (!customElements.get('product-modal-single')) {
     }
 
     cancelDrag(event) {
+      console.log("Canceling drag");
       if (this.drag) {
         this.drag = false;
         this.resetDragStyles();
@@ -148,6 +150,7 @@ if (!customElements.get('product-modal-single')) {
     }
 
     movePointer(event) {
+      console.log("Move pointer");
       if (this.drag) {
         // if mouse has moved, and we have been dragging for more than 100ms
         if (Date.now() - this.dragStartTime > 100) {
@@ -195,6 +198,8 @@ if (!customElements.get('product-modal-single')) {
     adjustMediaToViewport(mediaElement) {
       const viewportHeight = window.innerHeight;
       const viewportWidth = window.innerWidth;
+
+      console.log("Media Element: ", mediaElement);
 
       const maxHeight = viewportHeight * 0.9;
       const maxWidth = viewportWidth * 0.9;
@@ -245,17 +250,18 @@ if (!customElements.get('product-modal-single')) {
       this.modalContent.addEventListener(
         'touchstart',
         (event) => {
+          console.log("Touch start");
           // Store the initial touch position
           startX = event.touches[0].clientX;
           startY = event.touches[0].clientY;
-        },
-        { passive: true }
+        }
       );
 
       // Add touchmove handler to show visual feedback during swipe
       this.modalContent.addEventListener(
         'touchmove',
         (event) => {
+          console.log("Event: moving touchmove");
           if (!startX || !startY) return;
 
           // Calculate how far we've moved
@@ -266,7 +272,9 @@ if (!customElements.get('product-modal-single')) {
           if (Math.abs(diffX) > 20) {
             // Prevent default only for horizontal swipes to allow vertical scrolling
             if (Math.abs(diffX) > Math.abs(event.touches[0].clientY - startY)) {
-              event.preventDefault();
+              if (event.cancelable){
+                event.preventDefault();
+              }
             }
           }
         },
@@ -274,6 +282,7 @@ if (!customElements.get('product-modal-single')) {
       );
 
       this.modalContent.addEventListener('touchend', (event) => {
+        console.log("Touch end");
         if (!startX || !startY) return;
 
         distX = event.changedTouches[0].clientX - startX;
@@ -375,6 +384,8 @@ if (!customElements.get('product-modal-single')) {
     scrollThumbnailIntoView(thumbnail) {
       if (!this.thumbnailContainer || !thumbnail) return;
 
+      console.log("Thumbnail Into View.")
+
       // Get the index of the current thumbnail
       const activeIndex = Array.from(this.thumbnails).findIndex((thumb) => thumb === thumbnail);
 
@@ -383,7 +394,7 @@ if (!customElements.get('product-modal-single')) {
       this.smoothScrollTo(targetScroll);
     }
 
-    calculateScrollPosition(activeIndex, thumbnail) {
+    calculateScrollPosition(activeIndex, thumbnail) {https://sprinix-kart.myshopify.com/cdn/shop/files/7-cas-ual-sh-9057-oricum-white-original-imahb9afz958c73y.webp?v=1751354548&width=100
       // ALWAYS scroll to the beginning when we're in the first 6 thumbnails
       if (activeIndex < 6) {
         return 0;
@@ -412,7 +423,7 @@ if (!customElements.get('product-modal-single')) {
     }
 
     handleThumbnailClick(event) {
-
+      console.log("Handling Thumbnail Click");
       if (this.isDragging) {
         return;
       }
@@ -645,7 +656,7 @@ if (!customElements.get('product-modal-single')) {
         thumbnail.addEventListener('click', this.handleThumbnailClick.bind(this));
         thumbnail.addEventListener('touchend', (event) => {
           // Prevent default touch behavior only on mobile
-          if (this.isMobile) {
+          if (this.isMobile && event.cancelable) {
             event.preventDefault();
           }
           this.handleThumbnailClick(event);
