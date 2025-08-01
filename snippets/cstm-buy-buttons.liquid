@@ -91,7 +91,22 @@
                 {{ 'products.product.add_to_cart' | t }}
               {%- endif -%}
             </span>
-  <span class="svg-wrapper">{{ 'add-to-bag.svg' | inline_asset_content }}</span>
+  <span class="svg-wrapper">
+              {%- if product.selected_or_first_available_variant.available == false or quantity_rule_soldout -%}
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12ZM0.780403 12C0.780403 18.1964 5.80359 23.2196 12 23.2196C18.1964 23.2196 23.2196 18.1964 23.2196 12C23.2196 5.80359 18.1964 0.780403 12 0.780403C5.80359 0.780403 0.780403 5.80359 0.780403 12Z" fill="white"/>
+                  <path d="M4 6H5.77924C6.20967 6 6.59181 6.27543 6.72792 6.68377L9.27208 14.3162C9.40819 14.7246 9.79033 15 10.2208 15H17.2792C17.7097 15 18.0918 14.7246 18.2279 14.3162L19.9123 9.26325C19.9554 9.13374 19.859 9 19.7225 9H10" stroke="white" stroke-width="1.2" stroke-linecap="round"/>
+                  <circle cx="11" cy="18" r="1" fill="white"/>
+                  <circle cx="16" cy="18" r="1" fill="white"/>
+                  <rect x="17.4043" y="2.21218" width="0.501527" height="22.6923" transform="rotate(29.5518 17.4043 2.21218)" fill="white" stroke="white" stroke-width="0.311321"/>
+                  </svg>
+
+                {%- else -%}
+                   {{ 'add-to-bag.svg' | inline_asset_content }}
+                {%- endif -%}
+
+
+  </span>
             {%- render 'loading-spinner' -%}
           </button>
           {%- if show_dynamic_checkout -%}
