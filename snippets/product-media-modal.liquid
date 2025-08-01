@@ -332,7 +332,7 @@
     }
 
     .sp-zoom-img img {
-        max-height: 600px;
+        max-height: calc(100vh - 130px);
         object-fit: contain;
         width: 100%;
     }
@@ -340,7 +340,6 @@
     .sp-quick-view-container .product-modal-thumbnails {
         display: flex;
         gap: 10px;
-        justify-content: center;
         margin: 20px 20px 0;
         overflow: auto;
     }
@@ -396,7 +395,7 @@
         margin: 20px auto;
         overflow: auto;
         width: 80%;
-        padding-block: 5px;
+        padding: 5px;
     }
 
     .product-media-modal .product-modal-thumbnails::-webkit-scrollbar {

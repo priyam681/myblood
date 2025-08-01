@@ -10,7 +10,7 @@
 
 @media screen and (min-width: 768px) {
   .collection-hero.collection-hero--with-image {
-    padding: calc(4rem + var(--page-width-margin)) 0 calc(4rem + var(--page-width-margin));
+    padding-top: calc(3rem + var(--page-width-margin));
     overflow: hidden;
   }
 
@@ -36,7 +36,7 @@
 }
 
 .collection-hero__title {
-  margin: 2.5rem 0;
+  margin: 3rem 0 0;
 }
 
 .collection-hero__title + .collection-hero__description {
@@ -85,7 +85,7 @@
 
 @media screen and (min-width: 768px) {
   .collection-hero--with-image .collection-hero__text-wrapper {
-    padding: 4rem 2rem 4rem 0;
+    padding: 2rem 2rem 2rem 0;
     flex-basis: 50%;
   }
 

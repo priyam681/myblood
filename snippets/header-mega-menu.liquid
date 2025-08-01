@@ -69,7 +69,7 @@
                                     tabindex="-1"
                             >
                                 <div class="mega-menu-bg">
-                                    <ul class="mega-menu__list page-width{%- if link.levels == 1 %} mega-menu__list--condensed{% endif -%}{%- if link != blank -%}{%- assign link_handle = link.title | handleize | downcase -%}{%- for block in section.blocks -%}{%- if block.type == 'promotion_image' and block.settings.target_link == link_handle %} promotional-banner-menu{%- elsif block.type == 'mini_banner' and block.settings.mini_banner_trigger == link_handle %} min-banner-menu{%- endif -%}{%- endfor -%}{%- endif -%}"
+                                    <div class="mega-menu__list page-width{%- if link.levels == 1 %} mega-menu__list--condensed{% endif -%}{%- if link != blank -%}{%- assign link_handle = link.title | handleize | downcase -%}{%- for block in section.blocks -%}{%- if block.type == 'promotion_image' and block.settings.target_link == link_handle %} promotional-banner-menu{%- elsif block.type == 'mini_banner' and block.settings.mini_banner_trigger == link_handle %} min-banner-menu{%- endif -%}{%- endfor -%}{%- endif -%}"
                                         role="list">
 
 
@@ -139,7 +139,7 @@
                                             {%- endfor -%}
                                         </div>
 
-                                    </ul>
+                                    </div>
                                 </div>
                             </div>
                         </details>
