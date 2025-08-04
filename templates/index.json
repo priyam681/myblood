@@ -121,7 +121,7 @@
         "arrow_position": "inside",
         "mobile_stack_content": true,
         "enable_mobile_swipe": true,
-        "lazy_load_images": "lazy",
+        "lazy_load_images": "eager",
         "reduce_motion": true,
         "slideshow_label": "Featured content slideshow"
       }
