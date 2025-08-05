@@ -1,4 +1,4 @@
-# MyBlood Theme Documentation
+# Sprinix kart Theme Documentation
 
 **Version:** 1.0.0  
 **Author:** Sprinix  
@@ -28,7 +28,7 @@
 
 ## 🎯 Theme Overview
 
-MyBlood is a high-performance Shopify theme built on Dawn's foundation, specifically designed for footwear and fashion brands. It emphasizes performance, accessibility, and user experience with a modern, mobile-first approach.
+Sprinix kart is a high-performance Shopify theme built on Dawn's foundation, specifically designed for footwear and fashion brands. It emphasizes performance, accessibility, and user experience with a modern, mobile-first approach.
 
 ### **Key Principles**
 - **HTML-first approach** - Server-rendered content with progressive enhancement
@@ -546,7 +546,7 @@ shopify theme package
 
 1. **Upload theme to Shopify**
 2. **Go to Online Store > Themes**
-3. **Click "Customize" on MyBlood theme**
+3. **Click "Customize" on Sprinix kart theme**
 4. **Configure sections and settings**
 5. **Publish when ready**
 
@@ -671,7 +671,7 @@ This theme is built upon Shopify's Dawn theme foundation and includes modificati
 ## 📝 Changelog
 
 ### **Version 1.0.0 (Current)**
-- **Initial Release** - Complete MyBlood theme with custom sections
+- **Initial Release** - Complete Sprinix kart theme with custom sections
 - **18 Custom Sections** - Enhanced product display and content management
 - **14 Custom Snippets** - Reusable components and utilities
 - **Performance Optimizations** - Lazy loading and efficient asset management
