@@ -48,7 +48,7 @@
             "subheading_color": "",
             "product_list_heading_color": "#ffffff",
             "product_list_item_color": "#000000",
-            "center_image": "shopify://shop_images/main-banner.png",
+            "center_image": "shopify://shop_images/home-banner.png",
             "center_alt_text": "center image",
             "banner_button_show": "show",
             "mobile_button_visibility": "hide",
@@ -408,7 +408,7 @@
         "image_showcase_mekXhE": {
           "type": "image_showcase",
           "settings": {
-            "product": "clarkin-7-0-sneakers-for-men"
+            "product": "aqualina-sandal-gold"
           }
         },
         "image_showcase_j6Ytkj": {
