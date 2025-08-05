@@ -445,6 +445,7 @@ if (!customElements.get('product-modal-single')) {
       this.scrollThumbnailIntoView(event.currentTarget);
     }
 
+
     showMedia(mediaId) {
       // Get currently visible and target media elements
       const currentMedia = this.querySelector('.product-modal-media-container:not(.hidden)');

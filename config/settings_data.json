@@ -221,7 +221,7 @@
     }
   },
   "presets": {
-    "Default": {
+    "Sprinix Pro": {
       "logo_width": 90,
       "color_schemes": {
         "scheme-1": {
