@@ -422,28 +422,6 @@
         "show_product_info": true,
         "only_desktop": true
       }
-    },
-    "176181902805f5c7fa": {
-      "type": "apps",
-      "blocks": {
-        "instafeed_sprinix_instafeed_gDCkzK": {
-          "type": "shopify://apps/instafeed-sprinix/blocks/instafeed/06d69361-0d9c-4adc-81fd-788c679f220e",
-          "settings": {
-            "title": "Follow us on Instagram",
-            "subtitle": "Stay updated with our latest posts",
-            "posts_limit": 6,
-            "show_view_more": true,
-            "instagram_url": "",
-            "grid_columns": "3",
-            "background_color": "#ffffff",
-            "text_color": "#111827"
-          }
-        }
-      },
-      "block_order": [
-        "instafeed_sprinix_instafeed_gDCkzK"
-      ],
-      "settings": {}
     }
   },
   "order": [
@@ -454,7 +432,6 @@
     "cstm_collection_list_DFy79n",
     "performance_banner_NfWipW",
     "recommended_products_m4qpPD",
-    "colorful_kick_fRCnyF",
-    "176181902805f5c7fa"
+    "colorful_kick_fRCnyF"
   ]
 }
