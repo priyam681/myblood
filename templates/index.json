@@ -422,6 +422,10 @@
         "show_product_info": true,
         "only_desktop": true
       }
+    },
+    "17618200099fae2663": {
+      "type": "apps",
+      "settings": {}
     }
   },
   "order": [
@@ -432,6 +436,7 @@
     "cstm_collection_list_DFy79n",
     "performance_banner_NfWipW",
     "recommended_products_m4qpPD",
-    "colorful_kick_fRCnyF"
+    "colorful_kick_fRCnyF",
+    "17618200099fae2663"
   ]
 }
