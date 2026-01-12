@@ -143,8 +143,27 @@
     "blocks": {
       "6615124273980966592": {
         "type": "shopify://apps/chatty/blocks/app-embed/1c0e135d-e8e1-4fe2-86be-1c36def46675",
-        "disabled": false,
+        "disabled": true,
         "settings": {}
+      },
+      "10949022493316171968": {
+        "type": "shopify://apps/chatbot-app/blocks/app-embed/019abf15-828b-7ca5-8e76-85874461efdb",
+        "disabled": false,
+        "settings": {
+          "header_color": "#111111",
+          "header_title": "Assistant",
+          "launcher_bg": "#111111",
+          "launcher_icon_color": "#ffffff",
+          "user_msg_color": "#007f5f",
+          "bot_msg_color": "#f1f1f1",
+          "chat_window_bg": "#ffffff",
+          "send_btn": "#ffffff",
+          "button_color": "#ffffff",
+          "chat_position": "right",
+          "show_welcome": true,
+          "welcome_text": "Hi! How can I help you today?",
+          "custom_css": "/* Add custom CSS here */"
+        }
       }
     },
     "color_schemes": {
