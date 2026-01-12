@@ -157,7 +157,7 @@
           "user_msg_color": "#007f5f",
           "bot_msg_color": "#f1f1f1",
           "chat_window_bg": "#ffffff",
-          "send_btn": "#ffffff",
+          "send_btn": "#a60303",
           "button_color": "#ffffff",
           "chat_position": "left",
           "show_welcome": true,
