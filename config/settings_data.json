@@ -159,7 +159,7 @@
           "chat_window_bg": "#ffffff",
           "send_btn": "#ffffff",
           "button_color": "#ffffff",
-          "chat_position": "right",
+          "chat_position": "left",
           "show_welcome": true,
           "welcome_text": "Hi! How can I help you today?",
           "custom_css": "/* Add custom CSS here */"
