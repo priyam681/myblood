@@ -425,6 +425,17 @@
     },
     "17618200099fae2663": {
       "type": "apps",
+      "blocks": {
+        "sprinix_tagged_banner_star_rating_KwfrQJ": {
+          "type": "shopify://apps/sprinix-tagged-banner/blocks/star_rating/b1fdc6ed-91f3-4590-9970-ad3bd46aedc3",
+          "settings": {
+            "sliderId": "poster-1"
+          }
+        }
+      },
+      "block_order": [
+        "sprinix_tagged_banner_star_rating_KwfrQJ"
+      ],
       "settings": {}
     }
   },
